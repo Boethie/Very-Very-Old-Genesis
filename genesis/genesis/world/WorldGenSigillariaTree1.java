@@ -90,7 +90,7 @@ public class WorldGenSigillariaTree1 extends WorldGenerator{
                                 if ((Math.abs(k2) != l2 || Math.abs(j3) != l2 || l2 <= 0) && 
                                     (block == null || block.canBeReplacedByLeaves(par1World, j2, i2, i3)))
                                 {
-                                    this.setBlockAndMetadata(par1World, j2, i2, i3, Blocks.blockLeavesGenesis1.blockID, 1);
+                                    this.setBlockAndMetadata(par1World, j2, i2, i3, Blocks.blockLeavesGenesis[1].blockID, 1);
                                 }
                             }
                         }
@@ -113,7 +113,7 @@ public class WorldGenSigillariaTree1 extends WorldGenerator{
 
                         if (j2 == 0 || block == null || block.isLeaves(par1World, par3, par4 + i2, par5))
                         {
-                            this.setBlockAndMetadata(par1World, par3, par4 + i2, par5, Blocks.blockLogGenesis1.blockID, 1);
+                            this.setBlockAndMetadata(par1World, par3, par4 + i2, par5, Blocks.blockLogGenesis[1].blockID, 1);
                         }
                     }
 

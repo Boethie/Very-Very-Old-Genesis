@@ -11,8 +11,6 @@ public class Names {
 	public static final String blockLogTempskya_name = "Tempskya Log";
 	public static final String blockLogGenesis_name = "Genesis Log";
 	public static final String blockLogGenesis_unlocalizedName = "blockLogGenesis";
-	public static final String blockLogGenesis1_name = "Genesis Log1";
-	public static final String blockLogGenesis1_unlocalizedName = "blockLogGenesis1";
 	
 	public static final String blockSaplingAraucarioxylon_name = "Araucarioxlon Sapling";
 	public static final String blockSaplingBjuvia_name = "Bjuvia Sapling";
@@ -23,8 +21,6 @@ public class Names {
 	public static final String blockSaplingTempskya_name = "Tempskya Sapling";
 	public static final String blockSaplingGenesis_name = "Genesis Sapling";
 	public static final String blockSaplingGenesis_unlocalizedName = "blockSaplingGenesis";
-	public static final String blockSaplingGenesis1_name = "Genesis Sapling1";
-	public static final String blockSaplingGenesis1_unlocalizedName = "blockSaplingGenesis1";
 	
 	public static final String blockLeavesAraucarioxylon_name = "Araucarioxlon Leaves";
 	public static final String blockLeavesBjuvia_name = "Bjuvia Leaves";
@@ -35,7 +31,5 @@ public class Names {
 	public static final String blockLeavesTempskya_name = "Tempskya Leaves";
 	public static final String blockLeavesGenesis_name = "Genesis Leaves";
 	public static final String blockLeavesGenesis_unlocalizedName = "blockLeavesGenesis";
-	public static final String blockLeavesGenesis1_name = "Genesis Leaves1";
-	public static final String blockLeavesGenesis1_unlocalizedName = "blockLeavesGenesis1";
 
 }

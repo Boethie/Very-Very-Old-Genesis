@@ -2,6 +2,7 @@ package genesis.genesis.common;
 
 import genesis.genesis.block.BlockGenesisSapling;
 import genesis.genesis.lib.Blocks;
+import net.minecraft.block.Block;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 
@@ -10,11 +11,15 @@ public class GenesisEventHandler {
 	@ForgeSubscribe
 	public void bonemealUsed(BonemealEvent event)
 	{
-		if(!event.world.isRemote)
+		if (!event.world.isRemote)
 		{
-			if(event.world.getBlockId(event.X, event.Y, event.Z) == Blocks.blockSaplingGenesis1.blockID)
+			int blockID = event.world.getBlockId(event.X, event.Y, event.Z);
+			Block block = Block.blocksList[blockID];
+			
+			if (block instanceof BlockGenesisSapling)
 			{
-				((BlockGenesisSapling)Blocks.blockSaplingGenesis1).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+				BlockGenesisSapling sapling = (BlockGenesisSapling)block;
+				sapling.growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 			}
 		}
 	}

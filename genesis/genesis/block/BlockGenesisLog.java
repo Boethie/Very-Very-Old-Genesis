@@ -1,7 +1,9 @@
 package genesis.genesis.block;
 
 import genesis.genesis.common.Genesis;
-import genesis.genesis.lib.Ids;
+import genesis.genesis.lib.Blocks;
+import genesis.genesis.lib.BlocksHelper;
+import genesis.genesis.lib.IDs;
 
 import java.util.List;
 import java.util.Random;
@@ -19,75 +21,87 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
-public class BlockGenesisLog extends BlockLog{
+public class BlockGenesisLog extends BlockLog implements IBlockGenesisTrees {
 
-	public static final String[] gwoodType = new String[] {"Araucarioxylon", "Bjuvia", "Cordaites", "Fig", "Lepidodendron", "Sigillaria", "Tempskya"};
     @SideOnly(Side.CLIENT)
     private Icon[] woodSide;
     @SideOnly(Side.CLIENT)
     private Icon[] woodTop;
-    public int LogCat;
+    public int logSet;
+    
 	public BlockGenesisLog(int par1, int cat) {
 		super(par1);
 		this.setCreativeTab(Genesis.tabGenesis);
-		this.LogCat = cat;
+		this.logSet = cat;
 		this.setStepSound(Block.soundWoodFootstep);
 		this.setHardness(1F);
 	}
+	
 	@Override
 	public int getRenderType()
 	{
 		return 31;
 	}
+	
 	public int damageDropped(int par1)
     {
         return par1 & 3;
     }
-	public Icon getIcon(int par1, int par2)
+	
+	public Icon getIcon(int side, int metadata)
     {
-        int k = par2 & 12;
-        int l = (par2 & 3) + (LogCat * 4);
-        return k == 0 && (par1 == 1 || par1 == 0) ? this.func_111049_d(l) : (k == 4 && (par1 == 5 || par1 == 4) ? this.func_111049_d(l) : (k == 8 && (par1 == 2 || par1 == 3) ? this.func_111049_d(l) : this.func_111048_c(l)));
-        
+        int k = metadata & 12;
+        int l = (metadata & 3) + (logSet * 4);
+        return k == 0 && (side == 1 || side == 0) ? this.func_111049_d(l) : (k == 4 && (side == 5 || side == 4) ? this.func_111049_d(l) : (k == 8 && (side == 2 || side == 3) ? this.func_111049_d(l) : this.func_111048_c(l)));
     }
+	
 	@SideOnly(Side.CLIENT)
-    public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
+    public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List itemList)
     {
-		int count = 0;
-		for(int i = (LogCat * 4); i < this.gwoodType.length; i++)
-		{
-			par3List.add(new ItemStack(par1, 1, count));
-			count++;
-			if(count == 4)
-			{
-				break;
-			}
-		}
+		BlocksHelper.addTreeSubBlocksToCreative(blockID, creativeTabs, itemList, this.logSet);
     }
-	public void registerIcons(IconRegister par1IconRegister)
+	
+	public void registerIcons(IconRegister iconRegister)
     {
-        this.woodSide = new Icon[this.gwoodType.length];
-        this.woodTop = new Icon[this.gwoodType.length];
+        this.woodSide = new Icon[Blocks.woodTypes.length];
+        this.woodTop = new Icon[Blocks.woodTypes.length];
         
-        for (int i = 0; i < this.gwoodType.length; ++i)
+        for (int i = 0; i < Blocks.woodTypes.length; ++i)
         {
-            this.woodSide[i] = par1IconRegister.registerIcon(Genesis.modid + ":log_" + this.gwoodType[i].toLowerCase());
-            this.woodTop[i] = par1IconRegister.registerIcon(Genesis.modid + ":log_" + this.gwoodType[i].toLowerCase()  + "_top");
+            this.woodSide[i] = iconRegister.registerIcon(Genesis.modid + ":log_" + Blocks.woodTypes[i].toLowerCase());
+            this.woodTop[i] = iconRegister.registerIcon(Genesis.modid + ":log_" + Blocks.woodTypes[i].toLowerCase()  + "_top");
         }
     }
+	
+    public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
+    {
+        return super.onBlockPlaced(par1World, par2, par3, par4, par5, par6, par7, par8, par9);
+    }
+	
 	@SideOnly(Side.CLIENT)
 	protected Icon func_111048_c(int i) {
 		return this.woodSide[i];
 	}
+	
 	@SideOnly(Side.CLIENT)
     protected Icon func_111049_d(int par1)
     {
         return this.woodTop[par1];
     }
+	
 	public int idDropped(int par1, Random par2Random, int par3)
     {
-        return Ids.blockLogGenesisID_actual + this.LogCat;
+        return blockID;
     }
 	
-
+	public int getBlockSet()
+	{
+		return logSet;
+	}
+	
+	public String getBlockTypeName()
+	{
+		return "blockLog";
+	}
+	
 }

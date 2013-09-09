@@ -9,14 +9,26 @@ public class ConfigHandler {
 	public static void init(File configFile){
 		Configuration config = new Configuration(configFile);
 		config.load();
-		Ids.blockLogGenesisID_actual = config.getBlock(Names.blockLogGenesis_name, Ids.blockLogGenesisID_default).getInt();
-		Ids.blockLogGenesis1ID_actual = config.getBlock(Names.blockLogGenesis1_name, Ids.blockLogGenesis1ID_default).getInt();
 		
-		Ids.blockSaplingGenesisID_actual = config.getBlock(Names.blockSaplingGenesis_name, Ids.blockSaplingGenesisID_default).getInt();
-		Ids.blockSaplingGenesis1ID_actual = config.getBlock(Names.blockSaplingGenesis1_name, Ids.blockSaplingGenesis1ID_default).getInt();
+		for (int set = 0; set < IDs.TREE_BLOCK_COUNT; set++)
+		{
+			try
+			{
+			IDs.blockLogGenesisID.setID(set,
+					config.getBlock(Names.blockLogGenesis_name + set, IDs.blockLogGenesisID.getID(set)).getInt());
+			
+			IDs.blockSaplingGenesisID.setID(set,
+					config.getBlock(Names.blockSaplingGenesis_name + set, IDs.blockSaplingGenesisID.getID(set)).getInt());
+			
+			IDs.blockLeavesGenesisID.setID(set,
+					config.getBlock(Names.blockLeavesGenesis_name + set, IDs.blockLeavesGenesisID.getID(set)).getInt());
+			}
+			catch (Throwable e)
+			{
+				e.printStackTrace();
+			}
+		}
 		
-		Ids.blockLeavesGenesisID_actual = config.getBlock(Names.blockLeavesGenesis_name, Ids.blockLeavesGenesisID_default).getInt();
-		Ids.blockLeavesGenesis1ID_actual = config.getBlock(Names.blockLeavesGenesis1_name, Ids.blockLeavesGenesis1ID_default).getInt();
 		config.save();
 	}
 

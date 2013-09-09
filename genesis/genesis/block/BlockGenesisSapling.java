@@ -1,7 +1,9 @@
 package genesis.genesis.block;
 
 import genesis.genesis.common.Genesis;
-import genesis.genesis.lib.Ids;
+import genesis.genesis.lib.Blocks;
+import genesis.genesis.lib.BlocksHelper;
+import genesis.genesis.lib.IDs;
 import genesis.genesis.world.WorldGenSigillariaTree;
 import genesis.genesis.world.WorldGenSigillariaTree1;
 
@@ -12,6 +14,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockSapling;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -26,70 +29,70 @@ import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-public class BlockGenesisSapling extends BlockFlower{
+public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTrees {
 
-	public static final String[] gwoodType = new String[] {"Araucarioxylon", "Bjuvia", "Cordaites", "Fig", "Lepidodendron", "Sigillaria", "Tempskya"};
-	public int SapCat;
+	public int saplingSet;
 	private Icon[] saplingIcon;
 	
 	public BlockGenesisSapling(int par1, int cat) {
 		super(par1);
-		this.SapCat = cat;
-		float f = 0.4F;
-        this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
-        this.setCreativeTab(Genesis.tabGenesis);
+		
+        setCreativeTab(Genesis.tabGenesis);
+        setStepSound(soundGrassFootstep);
+        
+		this.saplingSet = cat;
 	}
+	
 	@SideOnly(Side.CLIENT)
     public Icon getIcon(int par1, int par2)
     {
-        int k = (par2 & 3) + (SapCat * 4);
+        int k = (par2 & 3) + (saplingSet * 4);
         return this.saplingIcon[k];
     }
+	
 	public int damageDropped(int par1)
     {
         return par1 & 3;
     }
+	
 	@SideOnly(Side.CLIENT)
-    public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
+    public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List itemList)
     {
-		int count = 0;
-		for(int i = (SapCat * 4); i < this.gwoodType.length; i++)
-		{
-			par3List.add(new ItemStack(par1, 1, count));
-			count++;
-			if(count == 4)
-			{
-				break;
-			}
-		}
+		BlocksHelper.addTreeSubBlocksToCreative(blockID, creativeTabs, itemList, this.saplingSet);
     }
-	public void registerIcons(IconRegister par1IconRegister)
+	
+	public void registerIcons(IconRegister iconRegister)
     {
-        this.saplingIcon = new Icon[this.gwoodType.length];
+        this.saplingIcon = new Icon[Blocks.woodTypes.length];
         
-        for (int i = 0; i < this.gwoodType.length; ++i)
+        for (int i = 0; i < Blocks.woodTypes.length; ++i)
         {
-            this.saplingIcon[i] = par1IconRegister.registerIcon(Genesis.modid + ":sapling_" + this.gwoodType[i].toLowerCase());
+            this.saplingIcon[i] = iconRegister.registerIcon(Genesis.modid + ":sapling_" + Blocks.woodTypes[i].toLowerCase());
         }
     }
+	
 	protected ItemStack createStackedBlock(int par1)
 	{
 		return new ItemStack(this.blockID, 1, this.func_111050_e(par1));
 	}
+	
 	public int func_111050_e(int par1)
 	{
 		return par1 & 3;
 	}
+	
 	@SideOnly(Side.CLIENT)
     public Icon getIconFromDamage(int par1)
     {
-		int k = (par1 & 3) + (SapCat * 4);
+		int k = (par1 & 3) + (saplingSet * 4);
         return this.saplingIcon[k];
     }
+	
 	public int idDropped(int par1, Random par2Random, int par3)
     {
-        return Ids.blockSaplingGenesisID_actual + this.SapCat;
+        return blockID;
     }
+	
 	public void growTree(World par1World, int par2, int par3, int par4, Random par5Random)
     {
         if (!TerrainGen.saplingGrowTree(par1World, par5Random, par2, par3, par4)) return;
@@ -144,6 +147,15 @@ public class BlockGenesisSapling extends BlockFlower{
             par1World.setBlock(par2, par3, par4, this.blockID, l, 4);
         }
     }
-
+	
+	public int getBlockSet()
+	{
+		return saplingSet;
+	}
+	
+	public String getBlockTypeName()
+	{
+		return "blockSapling";
+	}
 
 }

@@ -39,28 +39,38 @@ public class Genesis {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent evt)
 	{
+		Genesis.instance = this;
+		
 		LogHelper.init();
+		
 		ConfigHandler.init(evt.getSuggestedConfigurationFile());
+		
 		proxy.registerRender();
 		proxy.preInit();
+		
 		LogHelper.log(Level.INFO, "Preparing Blocks");
 		Blocks.init();
 		Blocks.registerBlocks();
 		Blocks.addNames();
 		LogHelper.log(Level.INFO, "Blocks Loaded");
 	}
+	
 	@EventHandler
 	public void Init(FMLInitializationEvent evt)
 	{
-		Genesis.instance = this;
 		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
+		
 		MinecraftForge.EVENT_BUS.register(new GenesisEventHandler());
+		
 		GameRegistry.registerWorldGenerator(new WorldGenSigillariaTree(false));
+		
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabGenesis", "en_US", "Genesis");
 	}
+	
 	public static CreativeTabs tabGenesis = new CreativeTabs("tabGenesis") {
         public ItemStack getIconItemStack() {
-                return new ItemStack(Blocks.blockSaplingGenesis, 1, 2);
-        }};	
+                return new ItemStack(Blocks.blockSaplingGenesis[0], 1, 2);
+        }
+	};	
 
 }
