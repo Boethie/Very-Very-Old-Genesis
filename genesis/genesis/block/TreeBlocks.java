@@ -12,7 +12,6 @@ import net.minecraft.item.ItemStack;
 public class TreeBlocks {
 	
 	public static final String[] woodTypes = new String[] {"Sigillaria", "Lepidodendron"};
-	// "Bjuvia", "Cordaites", "Fig", "Tempskya"
 	
 	public static Block[] blockLogGenesis = new Block[IDs.TREE_BLOCK_COUNT];
 	public static Block[] blockSaplingGenesis = new Block[IDs.TREE_BLOCK_COUNT];
@@ -22,13 +21,13 @@ public class TreeBlocks {
 	{
 		for (int set = 0; set < IDs.TREE_BLOCK_COUNT; set++)
 		{
-			blockLogGenesis[set] = new BlockGenesisLog(IDs.blockLogGenesisID.getID(set), set)
+			blockLogGenesis[set] = new BlockGenesisLog(IDs.blockLogID.getID(set), set)
 					.setUnlocalizedName(Names.blockLogGenesis_unlocalizedName + set);
 			
-			blockSaplingGenesis[set] = new BlockGenesisSapling(IDs.blockSaplingGenesisID.getID(set), set)
+			blockSaplingGenesis[set] = new BlockGenesisSapling(IDs.blockSaplingID.getID(set), set)
 					.setUnlocalizedName(Names.blockSaplingGenesis_unlocalizedName + set);
 			
-			blockLeavesGenesis[set] = new BlockGenesisLeaves(IDs.blockLeavesGenesisID.getID(set), set)
+			blockLeavesGenesis[set] = new BlockGenesisLeaves(IDs.blockLeavesID.getID(set), set)
 					.setUnlocalizedName(Names.blockLeavesGenesis_unlocalizedName + set);
 		}
 	}
