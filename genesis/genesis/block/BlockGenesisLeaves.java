@@ -1,7 +1,6 @@
 package genesis.genesis.block;
 
 import genesis.genesis.common.Genesis;
-import genesis.genesis.lib.Blocks;
 import genesis.genesis.lib.BlocksHelper;
 import genesis.genesis.lib.IDs;
 
@@ -53,13 +52,13 @@ public class BlockGenesisLeaves extends BlockLeaves implements IBlockGenesisTree
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister)
     {
-		this.leavesIcons = new Icon[Blocks.woodTypes.length];
-        this.leavesOpaqIcons = new Icon[Blocks.woodTypes.length];
+		this.leavesIcons = new Icon[TreeBlocks.woodTypes.length];
+        this.leavesOpaqIcons = new Icon[TreeBlocks.woodTypes.length];
         
-        for (int i = 0; i < Blocks.woodTypes.length; ++i)
+        for (int i = 0; i < TreeBlocks.woodTypes.length; ++i)
         {
-            this.leavesIcons[i] = par1IconRegister.registerIcon(Genesis.modid + ":leaves_" + Blocks.woodTypes[i].toLowerCase());
-            this.leavesOpaqIcons[i] = par1IconRegister.registerIcon(Genesis.modid + ":leaves_" + Blocks.woodTypes[i].toLowerCase()  + "_opaque");
+            this.leavesIcons[i] = par1IconRegister.registerIcon(Genesis.modid + ":leaves_" + TreeBlocks.woodTypes[i].toLowerCase());
+            this.leavesOpaqIcons[i] = par1IconRegister.registerIcon(Genesis.modid + ":leaves_" + TreeBlocks.woodTypes[i].toLowerCase()  + "_opaque");
         }
     }
 	

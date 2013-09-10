@@ -1,7 +1,8 @@
 package genesis.genesis.itemblock;
 
+import genesis.genesis.block.Blocks;
 import genesis.genesis.block.IBlockGenesisTrees;
-import genesis.genesis.lib.Blocks;
+import genesis.genesis.block.TreeBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemBlockWithMetadata;
@@ -18,7 +19,7 @@ public class ItemBlockGenesisTree extends ItemBlockWithMetadata {
 		Block block = Block.blocksList[stack.itemID];
 		IBlockGenesisTrees tree = (IBlockGenesisTrees)block;
 		
-		return tree.getBlockTypeName() + Blocks.woodTypes[(stack.getItemDamage() & 3) + (tree.getBlockSet() * 4)];
+		return tree.getBlockTypeName() + TreeBlocks.woodTypes[(stack.getItemDamage() & 3) + (tree.getBlockSet() * 4)];
     }
 	
 	public int getMetadata(int par1)

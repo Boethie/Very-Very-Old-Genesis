@@ -1,7 +1,6 @@
 package genesis.genesis.block;
 
 import genesis.genesis.common.Genesis;
-import genesis.genesis.lib.Blocks;
 import genesis.genesis.lib.BlocksHelper;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.world.WorldGenSigillariaTree;
@@ -63,11 +62,11 @@ public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTr
 	
 	public void registerIcons(IconRegister iconRegister)
     {
-        this.saplingIcon = new Icon[Blocks.woodTypes.length];
+        this.saplingIcon = new Icon[TreeBlocks.woodTypes.length];
         
-        for (int i = 0; i < Blocks.woodTypes.length; ++i)
+        for (int i = 0; i < TreeBlocks.woodTypes.length; ++i)
         {
-            this.saplingIcon[i] = iconRegister.registerIcon(Genesis.modid + ":sapling_" + Blocks.woodTypes[i].toLowerCase());
+            this.saplingIcon[i] = iconRegister.registerIcon(Genesis.modid + ":sapling_" + TreeBlocks.woodTypes[i].toLowerCase());
         }
     }
 	

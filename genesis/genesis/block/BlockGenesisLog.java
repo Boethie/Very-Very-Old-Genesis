@@ -1,7 +1,6 @@
 package genesis.genesis.block;
 
 import genesis.genesis.common.Genesis;
-import genesis.genesis.lib.Blocks;
 import genesis.genesis.lib.BlocksHelper;
 import genesis.genesis.lib.IDs;
 
@@ -63,13 +62,13 @@ public class BlockGenesisLog extends BlockLog implements IBlockGenesisTrees {
 	
 	public void registerIcons(IconRegister iconRegister)
     {
-        this.woodSide = new Icon[Blocks.woodTypes.length];
-        this.woodTop = new Icon[Blocks.woodTypes.length];
+        this.woodSide = new Icon[TreeBlocks.woodTypes.length];
+        this.woodTop = new Icon[TreeBlocks.woodTypes.length];
         
-        for (int i = 0; i < Blocks.woodTypes.length; ++i)
+        for (int i = 0; i < TreeBlocks.woodTypes.length; ++i)
         {
-            this.woodSide[i] = iconRegister.registerIcon(Genesis.modid + ":log_" + Blocks.woodTypes[i].toLowerCase());
-            this.woodTop[i] = iconRegister.registerIcon(Genesis.modid + ":log_" + Blocks.woodTypes[i].toLowerCase()  + "_top");
+            this.woodSide[i] = iconRegister.registerIcon(Genesis.modid + ":log_" + TreeBlocks.woodTypes[i].toLowerCase());
+            this.woodTop[i] = iconRegister.registerIcon(Genesis.modid + ":log_" + TreeBlocks.woodTypes[i].toLowerCase()  + "_top");
         }
     }
 	

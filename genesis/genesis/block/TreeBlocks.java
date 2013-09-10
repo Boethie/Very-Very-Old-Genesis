@@ -1,18 +1,18 @@
-package genesis.genesis.lib;
+package genesis.genesis.block;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import genesis.genesis.block.BlockGenesisLeaves;
-import genesis.genesis.block.BlockGenesisSapling;
-import genesis.genesis.block.BlockGenesisLog;
 import genesis.genesis.common.Genesis;
 import genesis.genesis.itemblock.ItemBlockGenesisTree;
+import genesis.genesis.lib.IDs;
+import genesis.genesis.lib.Names;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 
-public class Blocks {
+public class TreeBlocks {
 	
-	public static final String[] woodTypes = new String[] {"Araucarioxylon", "Bjuvia", "Cordaites", "Fig", "Lepidodendron", "Sigillaria", "Tempskya"};
+	public static final String[] woodTypes = new String[] {"Sigillaria", "Lepidodendron"};
+	// "Bjuvia", "Cordaites", "Fig", "Tempskya"
 	
 	public static Block[] blockLogGenesis = new Block[IDs.TREE_BLOCK_COUNT];
 	public static Block[] blockSaplingGenesis = new Block[IDs.TREE_BLOCK_COUNT];
@@ -70,6 +70,5 @@ public class Blocks {
 			
 			GameRegistry.registerBlock(blockLeavesGenesis[set], ItemBlockGenesisTree.class, Genesis.modid + Names.blockLeavesGenesis_name + set);
 		}
-		
 	}
 }

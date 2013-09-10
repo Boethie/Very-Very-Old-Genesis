@@ -1,5 +1,8 @@
 package genesis.genesis.lib;
 
+import genesis.genesis.block.Blocks;
+import genesis.genesis.block.TreeBlocks;
+
 import java.util.List;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -11,7 +14,7 @@ public class BlocksHelper {
 			int blockSet)
     {
 		int start = blockSet * 4;
-		int end = Math.min((blockSet + 1) * 4, Blocks.woodTypes.length);
+		int end = Math.min((blockSet + 1) * 4, TreeBlocks.woodTypes.length);
 		
 		for(int i = start; i < end; i++)
 		{

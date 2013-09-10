@@ -7,7 +7,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 
-import genesis.genesis.lib.Blocks;
+import genesis.genesis.block.Blocks;
+import genesis.genesis.block.TreeBlocks;
 import genesis.genesis.lib.ConfigHandler;
 import genesis.genesis.lib.LogHelper;
 import genesis.genesis.packet.GenesisPacket;
@@ -35,6 +36,12 @@ public class Genesis {
 	public static CommonProxy proxy;
 	
 	public final static String modid = "genesis";
+	
+	public static CreativeTabs tabGenesis = new CreativeTabs("tabGenesis") {
+        public ItemStack getIconItemStack() {
+                return new ItemStack(TreeBlocks.blockSaplingGenesis[0], 1, 0);
+        }
+	};
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent evt)
@@ -66,11 +73,5 @@ public class Genesis {
 		
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabGenesis", "en_US", "Genesis");
 	}
-	
-	public static CreativeTabs tabGenesis = new CreativeTabs("tabGenesis") {
-        public ItemStack getIconItemStack() {
-                return new ItemStack(Blocks.blockSaplingGenesis[0], 1, 2);
-        }
-	};	
 
 }
