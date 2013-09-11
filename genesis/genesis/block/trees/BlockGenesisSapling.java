@@ -1,4 +1,4 @@
-package genesis.genesis.block;
+package genesis.genesis.block.trees;
 
 import genesis.genesis.common.Genesis;
 import genesis.genesis.lib.BlocksHelper;
@@ -102,7 +102,7 @@ public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTr
         int j1 = 0;
         boolean flag = false;
 
-        if (l == 1)
+        if (l == 0)
         {
         	int r = par5Random.nextInt(3);
         	switch(r){
@@ -126,7 +126,7 @@ public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTr
         }
         else
         {
-            //object = new WorldGenTrees(true);
+            object = new WorldGenTrees(true);
         }
 
         if (flag)

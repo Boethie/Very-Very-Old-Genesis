@@ -59,9 +59,13 @@ public class IDs {
 	}
 
 	public static final int TREE_BLOCK_COUNT = 2;
+
+	public static int blockGraniteID = 2171;
+	public static int blockMossID = 2172;
+	public static int blockGraniteMossyID = 2173;
 	
-	public static IDSet blockLogGenesisID = new IDSet(422, 423);
-	public static IDSet blockSaplingGenesisID = new IDSet(424, 425);
-	public static IDSet blockLeavesGenesisID = new IDSet(426, 427);
+	public static IDSet blockLogID = new IDSet(2180, 2181);
+	public static IDSet blockSaplingID = new IDSet(2183, 2184);
+	public static IDSet blockLeavesID = new IDSet(2186, 2187);
 	
 }

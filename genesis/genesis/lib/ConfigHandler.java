@@ -14,14 +14,14 @@ public class ConfigHandler {
 		{
 			try
 			{
-			IDs.blockLogGenesisID.setID(set,
-					config.getBlock(Names.blockLogGenesis_name + set, IDs.blockLogGenesisID.getID(set)).getInt());
+			IDs.blockLogID.setID(set,
+					config.getBlock(Names.blockLogGenesis_unloc + set, IDs.blockLogID.getID(set)).getInt());
 			
-			IDs.blockSaplingGenesisID.setID(set,
-					config.getBlock(Names.blockSaplingGenesis_name + set, IDs.blockSaplingGenesisID.getID(set)).getInt());
+			IDs.blockSaplingID.setID(set,
+					config.getBlock(Names.blockSaplingGenesis_unloc + set, IDs.blockSaplingID.getID(set)).getInt());
 			
-			IDs.blockLeavesGenesisID.setID(set,
-					config.getBlock(Names.blockLeavesGenesis_name + set, IDs.blockLeavesGenesisID.getID(set)).getInt());
+			IDs.blockLeavesID.setID(set,
+					config.getBlock(Names.blockLeavesGenesis_unloc + set, IDs.blockLeavesID.getID(set)).getInt());
 			}
 			catch (Throwable e)
 			{

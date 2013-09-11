@@ -1,4 +1,4 @@
-package genesis.genesis.block;
+package genesis.genesis.block.trees;
 
 import genesis.genesis.common.Genesis;
 import genesis.genesis.lib.BlocksHelper;
@@ -75,7 +75,7 @@ public class BlockGenesisLeaves extends BlockLeaves implements IBlockGenesisTree
 	
 	public int idDropped(int par1, Random par2Random, int par3)
     {
-        return IDs.blockSaplingGenesisID.getID(leavesSet);
+        return IDs.blockSaplingID.getID(leavesSet);
     }
 	
 	public int getBlockSet()

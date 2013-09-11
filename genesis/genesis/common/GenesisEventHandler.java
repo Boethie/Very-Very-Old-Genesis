@@ -1,7 +1,7 @@
 package genesis.genesis.common;
 
-import genesis.genesis.block.BlockGenesisSapling;
 import genesis.genesis.block.Blocks;
+import genesis.genesis.block.trees.BlockGenesisSapling;
 import net.minecraft.block.Block;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.BonemealEvent;

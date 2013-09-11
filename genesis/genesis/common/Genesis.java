@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 
 import genesis.genesis.block.Blocks;
-import genesis.genesis.block.TreeBlocks;
+import genesis.genesis.block.trees.TreeBlocks;
 import genesis.genesis.lib.ConfigHandler;
 import genesis.genesis.lib.LogHelper;
 import genesis.genesis.packet.GenesisPacket;
@@ -52,7 +52,7 @@ public class Genesis {
 		
 		ConfigHandler.init(evt.getSuggestedConfigurationFile());
 		
-		proxy.registerRender();
+		proxy.registerRenderers();
 		proxy.preInit();
 		
 		LogHelper.log(Level.INFO, "Preparing Blocks");

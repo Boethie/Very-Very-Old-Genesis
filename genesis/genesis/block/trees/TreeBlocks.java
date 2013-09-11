@@ -1,4 +1,4 @@
-package genesis.genesis.block;
+package genesis.genesis.block.trees;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -22,13 +22,13 @@ public class TreeBlocks {
 		for (int set = 0; set < IDs.TREE_BLOCK_COUNT; set++)
 		{
 			blockLogGenesis[set] = new BlockGenesisLog(IDs.blockLogID.getID(set), set)
-					.setUnlocalizedName(Names.blockLogGenesis_unlocalizedName + set);
+					.setUnlocalizedName(Names.blockLogGenesis_unloc + set);
 			
 			blockSaplingGenesis[set] = new BlockGenesisSapling(IDs.blockSaplingID.getID(set), set)
-					.setUnlocalizedName(Names.blockSaplingGenesis_unlocalizedName + set);
+					.setUnlocalizedName(Names.blockSaplingGenesis_unloc + set);
 			
 			blockLeavesGenesis[set] = new BlockGenesisLeaves(IDs.blockLeavesID.getID(set), set)
-					.setUnlocalizedName(Names.blockLeavesGenesis_unlocalizedName + set);
+					.setUnlocalizedName(Names.blockLeavesGenesis_unloc + set);
 		}
 	}
 	
@@ -63,11 +63,11 @@ public class TreeBlocks {
 	{
 		for (int set = 0; set < IDs.TREE_BLOCK_COUNT; set++)
 		{
-			GameRegistry.registerBlock(blockLogGenesis[set], ItemBlockGenesisTree.class, Genesis.modid + Names.blockLogGenesis_name + set);
+			GameRegistry.registerBlock(blockLogGenesis[set], ItemBlockGenesisTree.class, Genesis.modid + "." + Names.blockLogGenesis_unloc + set);
 			
-			GameRegistry.registerBlock(blockSaplingGenesis[set], ItemBlockGenesisTree.class, Genesis.modid + Names.blockSaplingGenesis_name + set);
+			GameRegistry.registerBlock(blockSaplingGenesis[set], ItemBlockGenesisTree.class, Genesis.modid + "." + Names.blockSaplingGenesis_unloc + set);
 			
-			GameRegistry.registerBlock(blockLeavesGenesis[set], ItemBlockGenesisTree.class, Genesis.modid + Names.blockLeavesGenesis_name + set);
+			GameRegistry.registerBlock(blockLeavesGenesis[set], ItemBlockGenesisTree.class, Genesis.modid + "." + Names.blockLeavesGenesis_unloc + set);
 		}
 	}
 }

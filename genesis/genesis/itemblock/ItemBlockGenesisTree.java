@@ -1,8 +1,8 @@
 package genesis.genesis.itemblock;
 
 import genesis.genesis.block.Blocks;
-import genesis.genesis.block.IBlockGenesisTrees;
-import genesis.genesis.block.TreeBlocks;
+import genesis.genesis.block.trees.IBlockGenesisTrees;
+import genesis.genesis.block.trees.TreeBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemBlockWithMetadata;

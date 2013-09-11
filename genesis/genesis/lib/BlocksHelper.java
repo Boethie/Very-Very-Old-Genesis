@@ -1,7 +1,7 @@
 package genesis.genesis.lib;
 
 import genesis.genesis.block.Blocks;
-import genesis.genesis.block.TreeBlocks;
+import genesis.genesis.block.trees.TreeBlocks;
 
 import java.util.List;
 

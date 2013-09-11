@@ -6,7 +6,7 @@ import cpw.mods.fml.common.network.IGuiHandler;
 
 public class CommonProxy implements IGuiHandler{
 
-	public void registerRender(){}
+	public void registerRenderers(){}
 	public void preInit(){}
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world,

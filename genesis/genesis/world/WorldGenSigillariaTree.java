@@ -1,8 +1,8 @@
 package genesis.genesis.world;
 
-import genesis.genesis.block.BlockGenesisSapling;
 import genesis.genesis.block.Blocks;
-import genesis.genesis.block.TreeBlocks;
+import genesis.genesis.block.trees.BlockGenesisSapling;
+import genesis.genesis.block.trees.TreeBlocks;
 
 import java.util.Random;
 
@@ -102,7 +102,7 @@ public class WorldGenSigillariaTree extends WorldGenerator implements IWorldGene
 				i1 = par1World.getBlockId(par3, par4 - 1, par5);
 				Block soil = Block.grass;
 				boolean isSoil = (soil != null && soil.canSustainPlant(par1World, par3, par4, par5, ForgeDirection.UP, 
-						(BlockGenesisSapling)TreeBlocks.blockSaplingGenesis[1]));
+						(BlockGenesisSapling)TreeBlocks.blockSaplingGenesis[0]));
 				if(isSoil && par4 < 256 - l - 1)
 				{
 					soil.onPlantGrow(par1World, par3, par4 - 1, par5, par3, par4, par5);
@@ -118,7 +118,7 @@ public class WorldGenSigillariaTree extends WorldGenerator implements IWorldGene
 						Block block = Block.blocksList[k1];
 						if (k1 == 0 || block == null || block.isLeaves(par1World, par3, par4 + j1, par5))
 						{
-							this.setBlockAndMetadata(par1World, par3, par4 + j1, par5, TreeBlocks.blockLogGenesis[1].blockID, this.metaWood);
+							this.setBlockAndMetadata(par1World, par3, par4 + j1, par5, TreeBlocks.blockLogGenesis[0].blockID, this.metaWood);
 						}
 					}
 					
@@ -132,7 +132,7 @@ public class WorldGenSigillariaTree extends WorldGenerator implements IWorldGene
 								Block block = Block.blocksList[j3];
 								if (block == null || block.canBeReplacedByLeaves(par1World, j1, j1, par5 + 1))
 								{
-									this.setBlockAndMetadata(par1World, par3 - i4, j1, par5 - k4, TreeBlocks.blockLeavesGenesis[1].blockID, this.metaLeaves);
+									this.setBlockAndMetadata(par1World, par3 - i4, j1, par5 - k4, TreeBlocks.blockLeavesGenesis[0].blockID, this.metaLeaves);
 								}
 							}
 							for(int k4 = 1; k4 > -3; k4 -= 2)
@@ -141,7 +141,7 @@ public class WorldGenSigillariaTree extends WorldGenerator implements IWorldGene
 								Block block = Block.blocksList[j3];
 								if (block == null || block.canBeReplacedByLeaves(par1World, j1, j1, par5 + 1))
 								{
-									this.setBlockAndMetadata(par1World, par3 - i4 - k4, j1, par5, TreeBlocks.blockLeavesGenesis[1].blockID, this.metaLeaves);
+									this.setBlockAndMetadata(par1World, par3 - i4 - k4, j1, par5, TreeBlocks.blockLeavesGenesis[0].blockID, this.metaLeaves);
 								}
 							}
 							
@@ -149,10 +149,10 @@ public class WorldGenSigillariaTree extends WorldGenerator implements IWorldGene
 							
 							k1 = par1World.getBlockId(par3 + 2, j1, par5);
 							Block block = Block.blocksList[k1];
-							int id = TreeBlocks.blockLogGenesis[1].blockID;
+							int id = TreeBlocks.blockLogGenesis[0].blockID;
 							if(j1 + 1 > par4 + l + 5)
 							{
-								id = TreeBlocks.blockLeavesGenesis[1].blockID;
+								id = TreeBlocks.blockLeavesGenesis[0].blockID;
 							}
 							if (k1 == 0 || block == null || block.isLeaves(par1World, par3, j1, par5))
 							{
@@ -164,13 +164,13 @@ public class WorldGenSigillariaTree extends WorldGenerator implements IWorldGene
 						Block block = Block.blocksList[k1];
 						if (k1 == 0 || block == null || block.isLeaves(par1World, par3, j1 - 6, par5))
 						{
-							this.setBlockAndMetadata(par1World, par3 + (i4 / 2), j1 - 6, par5, TreeBlocks.blockLogGenesis[1].blockID, this.metaWood);
+							this.setBlockAndMetadata(par1World, par3 + (i4 / 2), j1 - 6, par5, TreeBlocks.blockLogGenesis[0].blockID, this.metaWood);
 						}
 						int j3 = par1World.getBlockId(par3 - i4, j1, par5);
 						block = Block.blocksList[j3];
 						if (block == null || block.canBeReplacedByLeaves(par1World, j1, j1, par5))
 						{
-							this.setBlockAndMetadata(par1World, par3 - i4, j1, par5, TreeBlocks.blockLeavesGenesis[1].blockID, this.metaLeaves);
+							this.setBlockAndMetadata(par1World, par3 - i4, j1, par5, TreeBlocks.blockLeavesGenesis[0].blockID, this.metaLeaves);
 						}
 					}
 					
