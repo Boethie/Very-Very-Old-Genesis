@@ -24,7 +24,7 @@ public class WorldGenSigillariaTree extends WorldGenerator implements IWorldGene
 	private final int metaLeaves;
 	public WorldGenSigillariaTree(boolean par1)
 	{
-		this(par1, 8, 1, 1);
+		this(par1, 8, 0, 0);
 	}
 	public WorldGenSigillariaTree(boolean par1, int par2, int par3, int par4)
 	{
