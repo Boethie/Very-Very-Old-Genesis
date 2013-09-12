@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 
 public class TreeBlocks {
 	
-	public static final String[] woodTypes = new String[] {"Sigillaria", "Lepidodendron"};
+	public static final String[] woodTypes = new String[] {"sigillaria", "lepidodendron"};
 	
 	public static Block[] blockLogGenesis = new Block[IDs.TREE_BLOCK_COUNT];
 	public static Block[] blockSaplingGenesis = new Block[IDs.TREE_BLOCK_COUNT];
@@ -22,13 +22,13 @@ public class TreeBlocks {
 		for (int set = 0; set < IDs.TREE_BLOCK_COUNT; set++)
 		{
 			blockLogGenesis[set] = new BlockGenesisLog(IDs.blockLogID.getID(set), set)
-					.setUnlocalizedName(Names.blockLogGenesis_unloc + set);
+					.setUnlocalizedName(Names.blockLogGenesis_unloc);
 			
 			blockSaplingGenesis[set] = new BlockGenesisSapling(IDs.blockSaplingID.getID(set), set)
-					.setUnlocalizedName(Names.blockSaplingGenesis_unloc + set);
+					.setUnlocalizedName(Names.blockSaplingGenesis_unloc);
 			
 			blockLeavesGenesis[set] = new BlockGenesisLeaves(IDs.blockLeavesID.getID(set), set)
-					.setUnlocalizedName(Names.blockLeavesGenesis_unloc + set);
+					.setUnlocalizedName(Names.blockLeavesGenesis_unloc);
 		}
 	}
 	

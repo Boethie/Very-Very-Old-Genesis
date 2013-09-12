@@ -82,10 +82,5 @@ public class BlockGenesisLeaves extends BlockLeaves implements IBlockGenesisTree
 	{
 		return leavesSet;
 	}
-	
-	public String getBlockTypeName()
-	{
-		return "blockLeaves";
-	}
 
 }

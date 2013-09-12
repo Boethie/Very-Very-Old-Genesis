@@ -19,12 +19,12 @@ public class ItemBlockGenesisTree extends ItemBlockWithMetadata {
 		Block block = Block.blocksList[stack.itemID];
 		IBlockGenesisTrees tree = (IBlockGenesisTrees)block;
 		
-		return tree.getBlockTypeName() + TreeBlocks.woodTypes[(stack.getItemDamage() & 3) + (tree.getBlockSet() * 4)];
+		return block.getUnlocalizedName() + TreeBlocks.woodTypes[(stack.getItemDamage() & 3) + (tree.getBlockSet() * 4)];
     }
 	
-	public int getMetadata(int par1)
+	public int getMetadata(int damage)
     {
-          return par1 & 3;
+          return damage & 3;
     }
 
 }

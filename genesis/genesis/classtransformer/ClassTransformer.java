@@ -8,6 +8,7 @@ import org.objectweb.asm.Label;
 import org.objectweb.asm.Opcodes;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockGrass;
 import net.minecraft.launchwrapper.IClassTransformer;
 
 public class ClassTransformer implements IClassTransformer {
@@ -31,6 +32,14 @@ public class ClassTransformer implements IClassTransformer {
 			
 			return returnVal;
 		}
+		else if (name.equals(ObfuscationTable.ClassItemHoe))
+		{
+			byte[] returnVal = ClassTransformHelper.injectCustomHook(bytes, new HoeOnMossBlockTransformer(),
+					ObfuscationTable.MethodOnItemUse, ObfuscationTable.MethodOnItemUseDesc,
+					ObfuscationTable.ClassItemHoePath);
+			
+			return returnVal;
+		}
 		
 		return bytes;
 	}
@@ -47,7 +56,7 @@ public class ClassTransformer implements IClassTransformer {
 			{
 				try
 				{
-					String block = "L" + Block.class.getName().replace('.', '/') + ";";
+					String block = "L" + ObfuscationTable.ClassBlockPath + ";";
 					
 					mv.visitVarInsn(Opcodes.ALOAD, 0);	// First hook parameter
 					
@@ -72,7 +81,6 @@ public class ClassTransformer implements IClassTransformer {
 				}
 				catch (Throwable e)
 				{
-					System.out.println("Error injecting code after the EntityLivingBase rotation code.");
 					e.printStackTrace();
 				}
 				
@@ -89,7 +97,7 @@ public class ClassTransformer implements IClassTransformer {
 		@Override
 		public void visitVarInsn(int opcode, int var) {
 			mv.visitVarInsn(opcode, var);
-			System.out.println(opcode + ", " + var);
+			
 			if (!injected && opcode == Opcodes.ISTORE && var == 5)
 			{
 				try
@@ -99,17 +107,59 @@ public class ClassTransformer implements IClassTransformer {
 					mv.visitMethodInsn(Opcodes.INVOKESTATIC,
 							"genesis/genesis/hooks/MossHooks",
 							"shouldGrasslikeRender",
-							"(L" + Block.class.getName().replace('.', '/') + ";Z)Z");
+							"(L" + ObfuscationTable.ClassBlockPath + ";Z)Z");
 					mv.visitVarInsn(Opcodes.ISTORE, 5);
 				}
 				catch (Throwable e)
 				{
-					System.out.println("Error injecting code after the EntityLivingBase rotation code.");
 					e.printStackTrace();
 				}
 				
-				System.out.println("injected");
 				injected = true;
+			}
+		}
+		
+	}
+	
+	private class HoeOnMossBlockTransformer extends CustomMethodTransformer {
+		
+		private boolean found = false;
+		
+		@Override
+		public void visitFieldInsn(int opcode, String owner, String name, String desc)
+		{
+			mv.visitFieldInsn(opcode, owner, name, desc);
+			
+			if (opcode == Opcodes.GETFIELD &&
+					owner.equals(BlockGrass.class.getName().replace('.', '/')) &&
+					name.equals(ObfuscationTable.FieldBlockID))
+			{
+				found = true;
+			}
+		}
+		
+		@Override
+		public void visitJumpInsn(int opcode, Label label)
+		{
+			mv.visitJumpInsn(opcode, label);
+			
+			if (found && opcode == Opcodes.IF_ICMPEQ)
+			{
+				try
+				{
+					mv.visitVarInsn(Opcodes.ILOAD, 12);
+					mv.visitFieldInsn(Opcodes.GETSTATIC, "genesis/genesis/block/Blocks",
+							"moss",
+							"L" + ObfuscationTable.ClassBlockPath + ";");
+					mv.visitFieldInsn(Opcodes.GETFIELD,
+							ObfuscationTable.ClassBlockPath,
+							ObfuscationTable.FieldBlockID, "I");
+					mv.visitJumpInsn(Opcodes.IF_ICMPEQ, label);
+				}
+				catch (Throwable e)
+				{
+					e.printStackTrace();
+				}
 			}
 		}
 		

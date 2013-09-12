@@ -21,6 +21,8 @@ public class BlockGranite extends BlockGenesis {
 		
         setCreativeTab(Genesis.tabGenesis);
         setStepSound(soundStoneFootstep);
+        setHardness(1.5F);
+        setResistance(10.0F);
 	}
 	
 }

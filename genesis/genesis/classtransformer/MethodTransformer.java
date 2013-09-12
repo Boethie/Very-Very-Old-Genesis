@@ -14,11 +14,13 @@ public class MethodTransformer extends ClassVisitor {
 	boolean isConditionalReturn;
 	CustomMethodTransformer template;
 	
-	MethodTransformer(ClassVisitor cv) {
+	MethodTransformer(ClassVisitor cv)
+	{
 		super(Opcodes.ASM4, cv);
 	}
 	
-	public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
+	public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions)
+	{
 		if (name.equals(tgtMethodName) && desc.startsWith(tgtMethodDesc)) {
 			if (template != null) {
 				MethodVisitor mv = cv.visitMethod(access, name, desc, signature, exceptions);

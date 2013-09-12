@@ -10,6 +10,7 @@ import genesis.genesis.lib.Names;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 
 public class Blocks {
 
@@ -35,6 +36,8 @@ public class Blocks {
 		GameRegistry.registerBlock(granite, ItemBlockWithMetadata.class, Genesis.modid + ".granite");
 		GameRegistry.registerBlock(moss, ItemBlockWithMetadata.class, Genesis.modid + ".moss");
 		GameRegistry.registerBlock(graniteMossy, ItemBlockWithMetadata.class, Genesis.modid + ".graniteMossy");
+		
+        MinecraftForge.setBlockHarvestLevel(moss, "shovel", 0);
 		
 		TreeBlocks.registerBlocks();
 	}

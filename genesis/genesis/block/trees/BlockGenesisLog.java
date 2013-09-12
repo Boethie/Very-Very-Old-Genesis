@@ -98,9 +98,4 @@ public class BlockGenesisLog extends BlockLog implements IBlockGenesisTrees {
 		return logSet;
 	}
 	
-	public String getBlockTypeName()
-	{
-		return "blockLog";
-	}
-	
 }

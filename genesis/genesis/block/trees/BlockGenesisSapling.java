@@ -29,7 +29,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
 public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTrees {
-
+	
 	public int saplingSet;
 	private Icon[] saplingIcon;
 	
@@ -150,11 +150,6 @@ public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTr
 	public int getBlockSet()
 	{
 		return saplingSet;
-	}
-	
-	public String getBlockTypeName()
-	{
-		return "blockSapling";
 	}
 
 }

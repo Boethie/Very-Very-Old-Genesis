@@ -1,12 +1,16 @@
 package genesis.genesis.block;
 
+import static net.minecraftforge.common.ForgeDirection.UP;
+
 import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.genesis.common.Genesis;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockGrass;
+import net.minecraft.block.BlockSapling;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.particle.EffectRenderer;
 import net.minecraft.client.particle.EntityDiggingFX;
@@ -15,6 +19,10 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.MinecraftForge;
 
 public class BlockMoss extends BlockGrass {
 	
@@ -30,25 +38,59 @@ public class BlockMoss extends BlockGrass {
 		setStepSound(soundGrassFootstep);
 	}
 	
+    public boolean canSustainPlant(World world, int x, int y, int z, ForgeDirection direction, IPlantable plant)
+    {
+        EnumPlantType plantType = plant.getPlantType(world, x, y + 1, z);
+
+        switch (plantType)
+        {
+        case Plains: return true;
+        case Beach:
+            boolean hasWater = (world.getBlockMaterial(x - 1, y, z    ) == Material.water ||
+                                world.getBlockMaterial(x + 1, y, z    ) == Material.water ||
+                                world.getBlockMaterial(x,     y, z - 1) == Material.water ||
+                                world.getBlockMaterial(x,     y, z + 1) == Material.water);
+            return hasWater;
+		default:
+			return false;
+        }
+    }
+    
+    private boolean canMossStay(World world, int x, int y, int z)
+    {
+    	Block blockAbove = blocksList[world.getBlockId(x, y + 1, z)];
+    	Material blockAboveMat = world.getBlockMaterial(x, y, z);
+    	int blockAboveLight = world.getBlockLightValue(x, y + 1, z);
+    	
+    	return blockAbove == null || !blockAboveMat.getCanBlockGrass() || blockAboveLight >= 1;
+    }
+	
     public void updateTick(World world, int x, int y, int z, Random random)
     {
         if (!world.isRemote)
         {
-            if (world.getBlockLightValue(x, y + 1, z) < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2)
-            {
-                world.setBlock(x, y, z, Block.dirt.blockID);
-            }
-            else if (world.getBlockLightValue(x, y + 1, z) >= 9)
+        	//if (blockAboveLight < 1)
+        			//System.out.println("block " + blockAbove + " canblock " + blockAboveLight);
+        	
+        	if (!canMossStay(world, x, y, z))
+        	{
+        		world.setBlock(x, y, z, Block.dirt.blockID);
+        	}
+        	else if (world.getBlockLightValue(x, y + 1, z) <= 14)
             {
                 for (int i = 0; i < 4; i++)
                 {
                     int randX = x + random.nextInt(3) - 1;
                     int randY = y + random.nextInt(5) - 3;
                     int randZ = z + random.nextInt(3) - 1;
-
-                    if (world.getBlockId(randX, randY, randZ) == Block.dirt.blockID &&
-                    		world.getBlockLightValue(randX, randY + 1, randZ) >= 4 &&
-                    		world.getBlockLightOpacity(randX, randY + 1, randZ) <= 2)
+                    
+        			int randBlockID = world.getBlockId(randX, randY, randZ);
+                    int aboveLight = world.getFullBlockLightValue(randX, randY + 1, randZ);
+                    
+                    if (randBlockID == Block.dirt.blockID
+                    		&& aboveLight <= 14
+                    		&& canMossStay(world, randX, randY, randZ)
+                    		)
                     {
                         world.setBlock(randX, randY, randZ, blockID);
                     }
