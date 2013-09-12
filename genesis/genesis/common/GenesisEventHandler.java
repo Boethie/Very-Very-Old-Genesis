@@ -7,6 +7,9 @@ import genesis.genesis.block.trees.BlockGenesisSapling;
 import genesis.genesis.client.ClientTickHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
@@ -60,9 +63,16 @@ public class GenesisEventHandler {
 	            int hitZ = lookPos.blockZ;
 	            
 	            int blockID = mc.theWorld.getBlockId(hitX, hitY, hitZ);
+	            
+	            Block block = Block.blocksList[blockID];
+	            ItemBlock itemBlock = (ItemBlock)Item.itemsList[blockID];
+	            ItemStack pickStack = block.getPickBlock(lookPos, mc.theWorld, hitX, hitY, hitZ);
+	            
 	            int lightOpac = mc.theWorld.getBlockLightOpacity(hitX, hitY, hitZ);
 	            
 	            ForgeDirection hitDir = ForgeDirection.getOrientation(lookPos.sideHit);
+	            
+	            boolean solidOnSide = block.isBlockSolidOnSide(mc.theWorld, hitX, hitY, hitZ, hitDir);
 	
 	            hitX += hitDir.offsetX;
 	            hitY += hitDir.offsetY;
@@ -70,8 +80,9 @@ public class GenesisEventHandler {
 	            
 	            int lightVal = mc.theWorld.getBlockLightValue(hitX, hitY, hitZ);
 	            int fullLightVal = mc.theWorld.getFullBlockLightValue(hitX, hitY, hitZ);
-	            
-	            left.add(String.format("bi: %d, lv: %d, flv: %d, lo: %d", blockID, lightVal, fullLightVal, lightOpac));
+
+	            left.add(String.format("bi: %d, bn: \"%s\"", blockID, itemBlock.getItemDisplayName(pickStack)));
+	            left.add(String.format("lv: %d, flv: %d, lo: %d, sd: %b", lightVal, fullLightVal, lightOpac, solidOnSide));
 	        }
 	        else
 	        {

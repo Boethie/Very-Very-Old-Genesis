@@ -16,7 +16,6 @@ public class SuperClassWriter extends ClassWriter {
 	
     protected String getCommonSuperClass(final String type1, final String type2)
     {
-    	System.out.println(type1 + ", " + type2);
     	return superClass;
     	//return super.getCommonSuperClass(type1, type2);
     }

@@ -10,6 +10,7 @@ import genesis.genesis.common.Genesis;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockGrass;
+import net.minecraft.block.BlockMushroom;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.particle.EffectRenderer;
@@ -45,6 +46,7 @@ public class BlockMoss extends BlockGrass {
         switch (plantType)
         {
         case Plains: return true;
+        case Cave:   return true;
         case Beach:
             boolean hasWater = (world.getBlockMaterial(x - 1, y, z    ) == Material.water ||
                                 world.getBlockMaterial(x + 1, y, z    ) == Material.water ||
@@ -62,7 +64,7 @@ public class BlockMoss extends BlockGrass {
     	Material blockAboveMat = world.getBlockMaterial(x, y, z);
     	int blockAboveLight = world.getBlockLightValue(x, y + 1, z);
     	
-    	return blockAbove == null || !blockAboveMat.getCanBlockGrass() || blockAboveLight >= 1;
+    	return blockAbove == null || blockAbove instanceof BlockFlower || !blockAboveMat.getCanBlockGrass() || blockAboveLight >= 1;
     }
 	
     public void updateTick(World world, int x, int y, int z, Random random)
