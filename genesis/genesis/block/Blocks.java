@@ -8,6 +8,7 @@ import genesis.genesis.item.Items;
 import genesis.genesis.itemblock.ItemBlockGenesisTree;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.Names;
+import genesis.genesis.plants.blocks.PlantBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -60,6 +61,7 @@ public class Blocks {
 	public static void init()
 	{
 		TreeBlocks.init();
+		PlantBlocks.init();
 	}
 	
 	public static void registerBlocks()

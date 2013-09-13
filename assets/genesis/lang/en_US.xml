@@ -29,11 +29,12 @@
 	<entry key="tile.genesis.log.lepidodendron.name">Lepidodendron Wood</entry>
 	<entry key="tile.genesis.leaves.lepidodendron.name">Lepidodendron Leaves</entry>
 	<entry key="tile.genesis.sapling.lepidodendron.name">Lepidodendron Sapling</entry>
-
+	
 
 	<!-- Items -->
 	<!-- Crafting -->
 	<entry key="item.genesis.zircon.name">Zircon</entry>
 	<entry key="item.genesis.quartz.name">Quartz</entry>
 	<entry key="item.genesis.olivine.name">Olivine</entry>
+	<entry key="item.genesis.calamites.name">Calamites</entry>
 </properties>

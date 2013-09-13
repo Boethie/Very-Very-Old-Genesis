@@ -23,11 +23,15 @@ public class Names {
 	public static final String blockLogGenesis_unloc = mod_unloc + "log.";
 	public static final String blockSaplingGenesis_unloc = mod_unloc + "sapling.";
 	public static final String blockLeavesGenesis_unloc = mod_unloc + "leaves.";
-
+	
+	// Plants
+	public static final String blockCalamites_unloc = mod_unloc + "calamites";
+	
 	// ---- Items ----
 	// Crafting items
 	public static final String itemZircon_unloc = mod_unloc + "zircon";
 	public static final String itemQuartz_unloc = mod_unloc + "quartz";
 	public static final String itemOlivine_unloc = mod_unloc + "olivine";
+	public static final String itemCalamites_unloc = mod_unloc + "calamites";
 
 }

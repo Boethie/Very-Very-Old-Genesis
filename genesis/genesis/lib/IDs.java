@@ -79,11 +79,15 @@ public class IDs {
 	public static IDSet blockLogID = new IDSet(2190, 2191);
 	public static IDSet blockSaplingID = new IDSet(2193, 2194);
 	public static IDSet blockLeavesID = new IDSet(2196, 2197);
+	
+	//Plants
+	public static int blockCalamitesID = 2200;
 
 	// ---- Items ----
 	// Crafting items
 	public static int itemZirconID = 2220;
 	public static int itemQuartzID = 2221;
 	public static int itemOlivineID = 2222;
+	public static int itemCalamitesID = 2223;
 	
 }
