@@ -9,6 +9,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 import genesis.genesis.block.Blocks;
 import genesis.genesis.block.trees.TreeBlocks;
+import genesis.genesis.item.Items;
 import genesis.genesis.lib.ConfigHandler;
 import genesis.genesis.lib.LogHelper;
 import genesis.genesis.packet.GenesisPacket;
@@ -58,8 +59,11 @@ public class Genesis {
 		LogHelper.log(Level.INFO, "Preparing Blocks");
 		Blocks.init();
 		Blocks.registerBlocks();
-		Blocks.addNames();
 		LogHelper.log(Level.INFO, "Blocks Loaded");
+		LogHelper.log(Level.INFO, "Preparing Items");
+		Items.init();
+		Items.registerCrafting();
+		LogHelper.log(Level.INFO, "Items Loaded");
 	}
 	
 	@EventHandler

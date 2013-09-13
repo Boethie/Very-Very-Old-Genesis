@@ -4,41 +4,55 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import genesis.genesis.block.trees.TreeBlocks;
 import genesis.genesis.common.Genesis;
+import genesis.genesis.item.Items;
 import genesis.genesis.itemblock.ItemBlockGenesisTree;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.Names;
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.MinecraftForge;
 
 public class Blocks {
 
-	public static Block granite = new BlockGranite(IDs.blockGraniteID).setTextureName("granite")
-			.setUnlocalizedName(Names.blockGranite_unloc);
 	public static Block moss = new BlockMoss(IDs.blockMossID).setTextureName("moss")
-			.setUnlocalizedName(Names.blockGranite_unloc);
-	public static Block graniteMossy = new BlockGranite(IDs.blockGraniteMossyID).setTextureName("granite_mossy")
-			.setUnlocalizedName(Names.blockGraniteMossy_unloc);
+			.setUnlocalizedName(Names.blockMoss_unloc);
+	
+	// Rocks
+	public static Block granite = new BlockGenesisRock(IDs.blockGraniteID).setTextureName("granite")
+			.setUnlocalizedName(Names.blockGranite_unloc).setHardness(1.5F).setResistance(10);
+	public static Block graniteMossy = new BlockGenesisRock(IDs.blockGraniteMossyID).setTextureName("granite_mossy")
+			.setUnlocalizedName(Names.blockGraniteMossy_unloc).setHardness(1.5F).setResistance(10);
+	public static Block limestone = new BlockGenesisRock(IDs.blockLimestoneID).setTextureName("limestone")
+			.setUnlocalizedName(Names.blockLimestone_unloc).setHardness(1).setResistance(7.5F);
+	
+	// Ores
+	public static Block zirconOre = new BlockGenesisOre(IDs.blockZirconOreID, new Object[]{Items.zircon}, null, 1, 1, 2, 6)
+			.setTextureName("zircon_ore").setUnlocalizedName(Names.blockZirconOre_unloc)
+			.setHardness(3).setResistance(10);
+	public static Block quartzGraniteOre = new BlockGenesisOre(IDs.blockQuartzGraniteOreID, new Object[]{Items.quartz}, null, 1, 1, 2, 5)
+			.setTextureName("quartz_granite_ore").setUnlocalizedName(Names.blockQuartzGraniteOre_unloc)
+			.setHardness(3).setResistance(10);
 	
 	public static void init()
 	{
 		TreeBlocks.init();
 	}
 	
-	public static void addNames()
-	{
-		TreeBlocks.addNames();
-	}
-	
 	public static void registerBlocks()
 	{
-		GameRegistry.registerBlock(granite, ItemBlockWithMetadata.class, Genesis.modid + ".granite");
-		GameRegistry.registerBlock(moss, ItemBlockWithMetadata.class, Genesis.modid + ".moss");
-		GameRegistry.registerBlock(graniteMossy, ItemBlockWithMetadata.class, Genesis.modid + ".graniteMossy");
+		GameRegistry.registerBlock(moss, ItemBlock.class, Genesis.modid + ".moss");
+
+		FurnaceRecipes.smelting().addSmelting(zirconOre.blockID, 0, new ItemStack(Items.zircon), 0.5F);
+		FurnaceRecipes.smelting().addSmelting(quartzGraniteOre.blockID, 0, new ItemStack(Items.quartz), 0.2F);
 		
         MinecraftForge.setBlockHarvestLevel(moss, "shovel", 0);
 		
 		TreeBlocks.registerBlocks();
 	}
+	
 }

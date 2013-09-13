@@ -14,15 +14,12 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 
-public class BlockGranite extends BlockGenesis {
+public class BlockGenesisRock extends BlockGenesis {
 
-	public BlockGranite(int blockID) {
+	public BlockGenesisRock(int blockID) {
 		super(blockID, Material.rock);
 		
-        setCreativeTab(Genesis.tabGenesis);
         setStepSound(soundStoneFootstep);
-        setHardness(1.5F);
-        setResistance(10.0F);
 	}
 	
 }
