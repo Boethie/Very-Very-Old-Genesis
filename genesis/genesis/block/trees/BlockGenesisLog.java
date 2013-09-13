@@ -28,12 +28,15 @@ public class BlockGenesisLog extends BlockLog implements IBlockGenesisTrees {
     private Icon[] woodTop;
     public int logSet;
     
-	public BlockGenesisLog(int par1, int cat) {
-		super(par1);
-		this.setCreativeTab(Genesis.tabGenesis);
+	public BlockGenesisLog(int blockID, int cat) {
+		super(blockID);
+		
+		setCreativeTab(Genesis.tabGenesis);
+		setStepSound(Block.soundWoodFootstep);
+		setHardness(1F);
+		setBurnProperties(blockID, 4, 4);
+		
 		this.logSet = cat;
-		this.setStepSound(Block.soundWoodFootstep);
-		this.setHardness(1F);
 	}
 	
 	@Override
@@ -67,8 +70,8 @@ public class BlockGenesisLog extends BlockLog implements IBlockGenesisTrees {
         
         for (int i = 0; i < TreeBlocks.woodTypes.length; ++i)
         {
-            this.woodSide[i] = iconRegister.registerIcon(Genesis.modid + ":log_" + TreeBlocks.woodTypes[i].toLowerCase());
-            this.woodTop[i] = iconRegister.registerIcon(Genesis.modid + ":log_" + TreeBlocks.woodTypes[i].toLowerCase()  + "_top");
+            this.woodSide[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + TreeBlocks.woodTypes[i].toLowerCase());
+            this.woodTop[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + TreeBlocks.woodTypes[i].toLowerCase()  + "_top");
         }
     }
 	

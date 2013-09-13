@@ -9,7 +9,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 
 public class LogHelper {
-	private static Logger logger = Logger.getLogger(Genesis.modid);
+	private static Logger logger = Logger.getLogger(Genesis.MOD_ID);
 	private static boolean ready = false;
 	
 	public static void init(){

@@ -63,11 +63,11 @@ public class TreeBlocks {
 	{
 		for (int set = 0; set < IDs.TREE_BLOCK_COUNT; set++)
 		{
-			GameRegistry.registerBlock(blockLogGenesis[set], ItemBlockGenesisTree.class, Genesis.modid + "." + Names.blockLogGenesis_unloc + set);
+			GameRegistry.registerBlock(blockLogGenesis[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLogGenesis_unloc + set);
 			
-			GameRegistry.registerBlock(blockSaplingGenesis[set], ItemBlockGenesisTree.class, Genesis.modid + "." + Names.blockSaplingGenesis_unloc + set);
+			GameRegistry.registerBlock(blockSaplingGenesis[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockSaplingGenesis_unloc + set);
 			
-			GameRegistry.registerBlock(blockLeavesGenesis[set], ItemBlockGenesisTree.class, Genesis.modid + "." + Names.blockLeavesGenesis_unloc + set);
+			GameRegistry.registerBlock(blockLeavesGenesis[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLeavesGenesis_unloc + set);
 		}
 	}
 }

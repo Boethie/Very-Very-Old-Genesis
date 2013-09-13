@@ -12,17 +12,19 @@ import genesis.genesis.common.CommonProxy;
 public class ClientProxy extends CommonProxy{
 	
 	public void registerRenderers(){
+		super.registerRenderers();
+		
 		RenderingRegistry.registerBlockHandler(new BlockMossRenderer());
 		
-		super.registerRenderers();
+		LanguageLoader.loadLanguages();
 	}
 	
 	public void preInit(){
+		super.preInit();
+		
 		MinecraftForge.EVENT_BUS.register(this);
 
 		TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
-		
-		super.preInit();
 	}
 	
 	@Override

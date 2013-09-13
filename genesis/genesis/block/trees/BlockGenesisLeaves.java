@@ -34,6 +34,7 @@ public class BlockGenesisLeaves extends BlockLeaves implements IBlockGenesisTree
 		setHardness(0.2F);
 		setLightOpacity(1);
 		setStepSound(soundGrassFootstep);
+		setBurnProperties(blockID, 2, 8);
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -57,8 +58,8 @@ public class BlockGenesisLeaves extends BlockLeaves implements IBlockGenesisTree
         
         for (int i = 0; i < TreeBlocks.woodTypes.length; ++i)
         {
-            this.leavesIcons[i] = par1IconRegister.registerIcon(Genesis.modid + ":leaves_" + TreeBlocks.woodTypes[i].toLowerCase());
-            this.leavesOpaqIcons[i] = par1IconRegister.registerIcon(Genesis.modid + ":leaves_" + TreeBlocks.woodTypes[i].toLowerCase()  + "_opaque");
+            this.leavesIcons[i] = par1IconRegister.registerIcon(Genesis.MOD_ID + ":leaves_" + TreeBlocks.woodTypes[i].toLowerCase());
+            this.leavesOpaqIcons[i] = par1IconRegister.registerIcon(Genesis.MOD_ID + ":leaves_" + TreeBlocks.woodTypes[i].toLowerCase()  + "_opaque");
         }
     }
 	

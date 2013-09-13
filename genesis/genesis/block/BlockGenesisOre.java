@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 
 public class BlockGenesisOre extends BlockGenesisRock {
 	
@@ -18,8 +20,8 @@ public class BlockGenesisOre extends BlockGenesisRock {
 	protected int minXP;
 	protected int maxXP;
 	
-	public BlockGenesisOre(int blockID, Object[] drops, int[] damages, int minDrop, int maxDrop, int minXP, int maxXP) {
-		super(blockID);
+	public BlockGenesisOre(int blockID, Object[] drops, int[] damages, Material mat, int harvestLevel, int minDrop, int maxDrop, int minXP, int maxXP) {
+		super(blockID, mat, harvestLevel);
 		
 		setDrops(drops, damages);
 		this.minDrop = minDrop;
@@ -28,12 +30,20 @@ public class BlockGenesisOre extends BlockGenesisRock {
 		this.maxXP = maxXP;
 	}
 	
-	public BlockGenesisOre(int blockID, Object[] drops, int[] damages, int minDrop, int maxDrop) {
-		super(blockID);
+	public BlockGenesisOre(int blockID, Object[] drops, int[] damages, Material mat, int harvestLevel, int minDrop, int maxDrop) {
+		super(blockID, mat, harvestLevel);
 
 		setDrops(drops, damages);
 		this.minDrop = minDrop;
 		this.maxDrop = maxDrop;
+	}
+	
+	public BlockGenesisOre(int blockID, Object[] drops, int[] damages, Material mat, int harvestLevel) {
+		super(blockID, mat, harvestLevel);
+
+		setDrops(drops, damages);
+		this.minDrop = 1;
+		this.maxDrop = 1;
 	}
 	
 	public void setDrops(Object[] drops, int[] damages)

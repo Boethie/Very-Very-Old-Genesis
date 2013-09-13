@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+	<properties version="1.0">
+	<comment>English (en_US) Localization File</comment>
+
+	<!-- Creative Mode Tabs -->
+	<entry key="itemGroup.tabGenesis">Genesis</entry>
+
+
+	<!-- Blocks -->
+	<!-- Moss -->
+	<entry key="tile.genesis.moss.name">Moss</entry>
+
+	<!-- Rocks -->
+	<entry key="tile.genesis.granite.name">Granite</entry>
+	<entry key="tile.genesis.graniteMossy.name">Mossy Granite</entry>
+	<entry key="tile.genesis.limestone.name">Limestone</entry>
+
+	<!-- Ores -->
+	<entry key="tile.genesis.ore.zircon.name">Zircon Ore</entry>
+	<entry key="tile.genesis.ore.quartzGranite.name">Granite Quartz Ore</entry>
+
+	<!-- Trees -->
+	<entry key="tile.genesis.log.sigillaria.name">Sigillaria Wood</entry>
+	<entry key="tile.genesis.leaves.sigillaria.name">Sigillaria Leaves</entry>
+	<entry key="tile.genesis.sapling.sigillaria.name">Sigillaria Sapling</entry>
+
+	<entry key="tile.genesis.log.lepidodendron.name">Lepidodendron Wood</entry>
+	<entry key="tile.genesis.leaves.lepidodendron.name">Lepidodendron Leaves</entry>
+	<entry key="tile.genesis.sapling.lepidodendron.name">Lepidodendron Sapling</entry>
+
+
+	<!-- Items -->
+	<!-- Crafting -->
+	<entry key="item.genesis.zircon.name">Zircon</entry>
+	<entry key="item.genesis.quartz.name">Quartz</entry>
+</properties>

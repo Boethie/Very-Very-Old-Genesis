@@ -14,8 +14,9 @@ public class Names {
 	public static final String blockLimestone_unloc = mod_unloc + "limestone";
 	
 	// Ores
-	public static final String blockZirconOre_unloc = mod_unloc + "zirconOre";
-	public static final String blockQuartzGraniteOre_unloc = mod_unloc + "quartzGraniteOre";
+	public static final String ore_unloc = "ore.";
+	public static final String blockZirconOre_unloc = mod_unloc + ore_unloc + "zircon";
+	public static final String blockQuartzGraniteOre_unloc = mod_unloc + ore_unloc + "quartzGranite";
 	
 	// Trees
 	public static final String blockLogGenesis_unloc = mod_unloc + "log.";

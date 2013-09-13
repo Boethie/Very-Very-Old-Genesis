@@ -34,7 +34,7 @@ public class BlockGenesis extends Block {
 	
 	public void registerIcons(IconRegister iconRegister)
     {
-		this.blockIcon = iconRegister.registerIcon(Genesis.modid + ":" + getTextureName());
+		this.blockIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName());
     }
 	
 }

@@ -26,7 +26,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-	@Mod(modid = Genesis.modid, name = "Genesis", version = "0.0.1")
+	@Mod(modid = Genesis.MOD_ID, name = "Genesis", version = "0.0.1")
 	@NetworkMod(clientSideRequired = true, serverSideRequired = true, channels={GenesisPacket.CHANNEL}, packetHandler = PacketHandler.class)
 public class Genesis {
 	
@@ -36,7 +36,7 @@ public class Genesis {
 	@SidedProxy (clientSide = "genesis.genesis.client.ClientProxy", serverSide = "genesis.genesis.common.CommonProxy")
 	public static CommonProxy proxy;
 	
-	public final static String modid = "genesis";
+	public static final String MOD_ID = "genesis";
 	
 	public static CreativeTabs tabGenesis = new CreativeTabs("tabGenesis") {
         public ItemStack getIconItemStack() {
@@ -60,6 +60,7 @@ public class Genesis {
 		Blocks.init();
 		Blocks.registerBlocks();
 		LogHelper.log(Level.INFO, "Blocks Loaded");
+		
 		LogHelper.log(Level.INFO, "Preparing Items");
 		Items.init();
 		Items.registerCrafting();
@@ -74,8 +75,6 @@ public class Genesis {
 		MinecraftForge.EVENT_BUS.register(new GenesisEventHandler());
 		
 		GameRegistry.registerWorldGenerator(new WorldGenSigillariaTree(false));
-		
-		LanguageRegistry.instance().addStringLocalization("itemGroup.tabGenesis", "en_US", "Genesis");
 	}
 
 }

@@ -66,7 +66,7 @@ public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTr
         
         for (int i = 0; i < TreeBlocks.woodTypes.length; ++i)
         {
-            this.saplingIcon[i] = iconRegister.registerIcon(Genesis.modid + ":sapling_" + TreeBlocks.woodTypes[i].toLowerCase());
+            this.saplingIcon[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":sapling_" + TreeBlocks.woodTypes[i].toLowerCase());
         }
     }
 	

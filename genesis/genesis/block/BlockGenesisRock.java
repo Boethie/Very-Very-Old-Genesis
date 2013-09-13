@@ -13,13 +13,16 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraftforge.common.MinecraftForge;
 
 public class BlockGenesisRock extends BlockGenesis {
 
-	public BlockGenesisRock(int blockID) {
-		super(blockID, Material.rock);
+	public BlockGenesisRock(int blockID, Material mat, int harvestLevel) {
+		super(blockID, mat);
 		
         setStepSound(soundStoneFootstep);
+        
+        MinecraftForge.setBlockHarvestLevel(this, "pickaxe", harvestLevel);
 	}
 	
 }
