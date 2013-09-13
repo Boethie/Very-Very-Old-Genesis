@@ -61,21 +61,29 @@ public class IDs {
 	public static final int TREE_BLOCK_COUNT = 2;
 
 	// ---- Blocks ----
-	public static int blockGraniteID = 2171;
 	public static int blockMossID = 2172;
+	
+	// Rocks
+	public static int blockGraniteID = 2171;
 	public static int blockGraniteMossyID = 2173;
 	public static int blockLimestoneID = 2174;
-	public static int blockZirconOreID = 2175;
-	public static int blockQuartzGraniteOreID = 2176;
+	
+	// Ores and ore storage
+	public static int blockZirconOreID = 2181;
+	public static int blockZirconID = 2182;
+	public static int blockQuartzGraniteOreID = 2183;
+	public static int blockOlivineOreID = 2184;
+	public static int blockOlivineID = 2185;
 	
 	// Trees
-	public static IDSet blockLogID = new IDSet(2180, 2181);
-	public static IDSet blockSaplingID = new IDSet(2183, 2184);
-	public static IDSet blockLeavesID = new IDSet(2186, 2187);
+	public static IDSet blockLogID = new IDSet(2190, 2191);
+	public static IDSet blockSaplingID = new IDSet(2193, 2194);
+	public static IDSet blockLeavesID = new IDSet(2196, 2197);
 
 	// ---- Items ----
 	// Crafting items
-	public static int itemZirconID = 2200;
-	public static int itemQuartzID = 2201;
+	public static int itemZirconID = 2220;
+	public static int itemQuartzID = 2221;
+	public static int itemOlivineID = 2222;
 	
 }

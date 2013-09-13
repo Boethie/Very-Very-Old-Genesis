@@ -9,6 +9,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 import genesis.genesis.block.Blocks;
 import genesis.genesis.block.trees.TreeBlocks;
+import genesis.genesis.block.trees.TreeBlocks.TreeBlockType;
 import genesis.genesis.item.Items;
 import genesis.genesis.lib.ConfigHandler;
 import genesis.genesis.lib.LogHelper;
@@ -26,8 +27,8 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-	@Mod(modid = Genesis.MOD_ID, name = "Genesis", version = "0.0.1")
-	@NetworkMod(clientSideRequired = true, serverSideRequired = true, channels={GenesisPacket.CHANNEL}, packetHandler = PacketHandler.class)
+@Mod(modid = Genesis.MOD_ID, name = "Genesis", version = "0.0.1")
+@NetworkMod(clientSideRequired = true, serverSideRequired = true, channels={GenesisPacket.CHANNEL}, packetHandler = PacketHandler.class)
 public class Genesis {
 	
 	@Instance
@@ -40,7 +41,7 @@ public class Genesis {
 	
 	public static CreativeTabs tabGenesis = new CreativeTabs("tabGenesis") {
         public ItemStack getIconItemStack() {
-                return new ItemStack(TreeBlocks.blockSaplingGenesis[0], 1, 0);
+                return TreeBlocks.getBlockForType(TreeBlockType.SAPLING, TreeBlocks.SIGIL_NAME).getStack();
         }
 	};
 	

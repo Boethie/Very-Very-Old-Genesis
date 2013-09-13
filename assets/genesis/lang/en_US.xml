@@ -19,6 +19,7 @@
 	<!-- Ores -->
 	<entry key="tile.genesis.ore.zircon.name">Zircon Ore</entry>
 	<entry key="tile.genesis.ore.quartzGranite.name">Granite Quartz Ore</entry>
+	<entry key="tile.genesis.ore.olivine.name">Olivine Ore</entry>
 
 	<!-- Trees -->
 	<entry key="tile.genesis.log.sigillaria.name">Sigillaria Wood</entry>
@@ -34,4 +35,5 @@
 	<!-- Crafting -->
 	<entry key="item.genesis.zircon.name">Zircon</entry>
 	<entry key="item.genesis.quartz.name">Quartz</entry>
+	<entry key="item.genesis.olivine.name">Olivine</entry>
 </properties>

@@ -13,8 +13,8 @@ public class BlocksHelper {
 	public static void addTreeSubBlocksToCreative(int blockID, CreativeTabs creativeTabs, List itemList,
 			int blockSet)
     {
-		int start = blockSet * 4;
-		int end = Math.min((blockSet + 1) * 4, TreeBlocks.woodTypes.length);
+		int start = blockSet * TreeBlocks.setSize;
+		int end = Math.min((blockSet + 1) * TreeBlocks.setSize, TreeBlocks.woodTypeCount);
 		
 		for(int i = start; i < end; i++)
 		{

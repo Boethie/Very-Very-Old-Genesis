@@ -20,9 +20,10 @@ import net.minecraft.world.IBlockAccess;
 public class BlockGenesisLeaves extends BlockLeaves implements IBlockGenesisTrees {
 
 	@SideOnly(Side.CLIENT)
-    private Icon[] leavesIcons;
+    private static Icon[] leavesIcons = null;
     @SideOnly(Side.CLIENT)
-    private Icon[] leavesOpaqIcons;
+    private static Icon[] leavesOpaqIcons = null;
+    
     public int leavesSet;
     
 	public BlockGenesisLeaves(int par1, int set) {
@@ -40,8 +41,8 @@ public class BlockGenesisLeaves extends BlockLeaves implements IBlockGenesisTree
 	@SideOnly(Side.CLIENT)
     public Icon getIcon(int par1, int par2)
     {
-		int k = (par2 & 3) + (leavesSet * 4);
-        return Minecraft.getMinecraft().gameSettings.fancyGraphics ? leavesIcons[k] : leavesOpaqIcons[k];
+		int index = (par2 & 3) + (leavesSet * TreeBlocks.setSize);
+        return Minecraft.getMinecraft().gameSettings.fancyGraphics ? leavesIcons[index] : leavesOpaqIcons[index];
     }
 	
 	@SideOnly(Side.CLIENT)
@@ -53,13 +54,13 @@ public class BlockGenesisLeaves extends BlockLeaves implements IBlockGenesisTree
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister)
     {
-		this.leavesIcons = new Icon[TreeBlocks.woodTypes.length];
-        this.leavesOpaqIcons = new Icon[TreeBlocks.woodTypes.length];
+		leavesIcons = new Icon[TreeBlocks.woodTypeCount];
+        leavesOpaqIcons = new Icon[TreeBlocks.woodTypeCount];
         
-        for (int i = 0; i < TreeBlocks.woodTypes.length; ++i)
+        for (int i = 0; i < TreeBlocks.woodTypeCount; ++i)
         {
-            this.leavesIcons[i] = par1IconRegister.registerIcon(Genesis.MOD_ID + ":leaves_" + TreeBlocks.woodTypes[i].toLowerCase());
-            this.leavesOpaqIcons[i] = par1IconRegister.registerIcon(Genesis.MOD_ID + ":leaves_" + TreeBlocks.woodTypes[i].toLowerCase()  + "_opaque");
+            leavesIcons[i] = par1IconRegister.registerIcon(Genesis.MOD_ID + ":leaves_" + TreeBlocks.woodTypes.get(i).toLowerCase());
+            leavesOpaqIcons[i] = par1IconRegister.registerIcon(Genesis.MOD_ID + ":leaves_" + TreeBlocks.woodTypes.get(i).toLowerCase()  + "_opaque");
         }
     }
 	

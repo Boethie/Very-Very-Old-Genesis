@@ -31,22 +31,22 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTrees {
 	
 	public int saplingSet;
-	private Icon[] saplingIcon;
+	private static Icon[] saplingIcons = null;
 	
-	public BlockGenesisSapling(int par1, int cat) {
-		super(par1);
+	public BlockGenesisSapling(int blockID, int set) {
+		super(blockID);
 		
         setCreativeTab(Genesis.tabGenesis);
         setStepSound(soundGrassFootstep);
         
-		this.saplingSet = cat;
+		this.saplingSet = set;
 	}
 	
 	@SideOnly(Side.CLIENT)
     public Icon getIcon(int par1, int par2)
     {
         int k = (par2 & 3) + (saplingSet * 4);
-        return this.saplingIcon[k];
+        return this.saplingIcons[k];
     }
 	
 	public int damageDropped(int par1)
@@ -62,11 +62,11 @@ public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTr
 	
 	public void registerIcons(IconRegister iconRegister)
     {
-        this.saplingIcon = new Icon[TreeBlocks.woodTypes.length];
+        saplingIcons = new Icon[TreeBlocks.woodTypeCount];
         
-        for (int i = 0; i < TreeBlocks.woodTypes.length; ++i)
+        for (int i = 0; i < TreeBlocks.woodTypeCount; ++i)
         {
-            this.saplingIcon[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":sapling_" + TreeBlocks.woodTypes[i].toLowerCase());
+            saplingIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":sapling_" + TreeBlocks.woodTypes.get(i).toLowerCase());
         }
     }
 	
@@ -84,7 +84,7 @@ public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTr
     public Icon getIconFromDamage(int par1)
     {
 		int k = (par1 & 3) + (saplingSet * 4);
-        return this.saplingIcon[k];
+        return this.saplingIcons[k];
     }
 	
 	public int idDropped(int par1, Random par2Random, int par3)

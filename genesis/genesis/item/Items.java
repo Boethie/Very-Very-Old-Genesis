@@ -19,7 +19,9 @@ public class Items {
 	public static ItemGenesis zircon = (ItemGenesis)new ItemGenesis(IDs.itemZirconID)
 			.setUnlocalizedName(Names.itemZircon_unloc).setTextureName("zircon");
 	public static ItemGenesis quartz = (ItemGenesis)new ItemGenesis(IDs.itemQuartzID)
-	.setUnlocalizedName(Names.itemQuartz_unloc).setTextureName("quartz");
+			.setUnlocalizedName(Names.itemQuartz_unloc).setTextureName("quartz");
+	public static ItemGenesis olivine = (ItemGenesis)new ItemGenesis(IDs.itemOlivineID)
+			.setUnlocalizedName(Names.itemOlivine_unloc).setTextureName("olivine");
 	
 	public static void init()
 	{

@@ -14,9 +14,10 @@ public class Names {
 	public static final String blockLimestone_unloc = mod_unloc + "limestone";
 	
 	// Ores
-	public static final String ore_unloc = "ore.";
-	public static final String blockZirconOre_unloc = mod_unloc + ore_unloc + "zircon";
-	public static final String blockQuartzGraniteOre_unloc = mod_unloc + ore_unloc + "quartzGranite";
+	public static final String ore_unloc = mod_unloc + "ore.";
+	public static final String blockZirconOre_unloc = ore_unloc + "zircon";
+	public static final String blockQuartzGraniteOre_unloc = ore_unloc + "quartzGranite";
+	public static final String blockOlivineOre_unloc = ore_unloc + "olivine";
 	
 	// Trees
 	public static final String blockLogGenesis_unloc = mod_unloc + "log.";
@@ -27,5 +28,6 @@ public class Names {
 	// Crafting items
 	public static final String itemZircon_unloc = mod_unloc + "zircon";
 	public static final String itemQuartz_unloc = mod_unloc + "quartz";
+	public static final String itemOlivine_unloc = mod_unloc + "olivine";
 
 }

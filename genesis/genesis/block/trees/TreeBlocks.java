@@ -1,5 +1,7 @@
 package genesis.genesis.block.trees;
 
+import java.util.ArrayList;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import genesis.genesis.common.Genesis;
@@ -10,24 +12,33 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 
 public class TreeBlocks {
+
+	public static final String SIGIL_NAME = "sigillaria";
+	public static final String LEPID_NAME = "lepidodendron";
 	
-	public static final String[] woodTypes = new String[] {"sigillaria", "lepidodendron"};
+	public static final ArrayList<String> woodTypes = new ArrayList() {{
+		add(SIGIL_NAME);
+		add(LEPID_NAME);
+	}};
+	public static final int woodTypeCount = woodTypes.size();
 	
-	public static Block[] blockLogGenesis = new Block[IDs.TREE_BLOCK_COUNT];
-	public static Block[] blockSaplingGenesis = new Block[IDs.TREE_BLOCK_COUNT];
-	public static Block[] blockLeavesGenesis = new Block[IDs.TREE_BLOCK_COUNT];
+	public static final int setSize = 4;
+	
+	public static Block[] blocksLogs = new Block[IDs.TREE_BLOCK_COUNT];
+	public static Block[] blocksSaplings = new Block[IDs.TREE_BLOCK_COUNT];
+	public static Block[] blocksLeaves = new Block[IDs.TREE_BLOCK_COUNT];
 	
 	public static void init()
 	{
 		for (int set = 0; set < IDs.TREE_BLOCK_COUNT; set++)
 		{
-			blockLogGenesis[set] = new BlockGenesisLog(IDs.blockLogID.getID(set), set)
+			blocksLogs[set] = new BlockGenesisLog(IDs.blockLogID.getID(set), set)
 					.setUnlocalizedName(Names.blockLogGenesis_unloc);
 			
-			blockSaplingGenesis[set] = new BlockGenesisSapling(IDs.blockSaplingID.getID(set), set)
+			blocksSaplings[set] = new BlockGenesisSapling(IDs.blockSaplingID.getID(set), set)
 					.setUnlocalizedName(Names.blockSaplingGenesis_unloc);
 			
-			blockLeavesGenesis[set] = new BlockGenesisLeaves(IDs.blockLeavesID.getID(set), set)
+			blocksLeaves[set] = new BlockGenesisLeaves(IDs.blockLeavesID.getID(set), set)
 					.setUnlocalizedName(Names.blockLeavesGenesis_unloc);
 		}
 	}
@@ -63,11 +74,60 @@ public class TreeBlocks {
 	{
 		for (int set = 0; set < IDs.TREE_BLOCK_COUNT; set++)
 		{
-			GameRegistry.registerBlock(blockLogGenesis[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLogGenesis_unloc + set);
+			GameRegistry.registerBlock(blocksLogs[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLogGenesis_unloc + set);
 			
-			GameRegistry.registerBlock(blockSaplingGenesis[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockSaplingGenesis_unloc + set);
+			GameRegistry.registerBlock(blocksSaplings[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockSaplingGenesis_unloc + set);
 			
-			GameRegistry.registerBlock(blockLeavesGenesis[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLeavesGenesis_unloc + set);
+			GameRegistry.registerBlock(blocksLeaves[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLeavesGenesis_unloc + set);
 		}
 	}
+
+	public static enum TreeBlockType {
+		LOG,
+		LEAVES,
+		SAPLING;
+	}
+	
+	public static class BlockAndMetadata
+	{
+		int blockID;
+		int metadata;
+		
+		public BlockAndMetadata(int blockID, int metadata)
+		{
+			this.blockID = blockID;
+			this.metadata = metadata;
+		}
+
+		public ItemStack getStack() {
+			return new ItemStack(blockID, 1, Block.blocksList[blockID].damageDropped(metadata));
+		}
+	}
+	
+	public static BlockAndMetadata getBlockForType(TreeBlockType type, String name)
+	{
+		int index = woodTypes.indexOf(name);
+		int set = index / setSize;
+		int metadata = index % setSize;
+		Block block = null;
+		
+		switch (type)
+		{
+		case LOG:
+			block = blocksLogs[set];
+			break;
+		case LEAVES:
+			block = blocksLeaves[set];
+			break;
+		case SAPLING:
+			block = blocksSaplings[set];
+			break;
+		}
+		
+		if (block != null)
+			return new BlockAndMetadata(block.blockID, metadata);
+		
+		return null;
+	}
+	
 }

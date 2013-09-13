@@ -23,9 +23,9 @@ import net.minecraft.world.World;
 public class BlockGenesisLog extends BlockLog implements IBlockGenesisTrees {
 
     @SideOnly(Side.CLIENT)
-    private Icon[] woodSide;
+    private static Icon[] woodSideIcons = null;
     @SideOnly(Side.CLIENT)
-    private Icon[] woodTop;
+    private static Icon[] woodTopIcons = null;
     public int logSet;
     
 	public BlockGenesisLog(int blockID, int cat) {
@@ -39,12 +39,6 @@ public class BlockGenesisLog extends BlockLog implements IBlockGenesisTrees {
 		this.logSet = cat;
 	}
 	
-	@Override
-	public int getRenderType()
-	{
-		return 31;
-	}
-	
 	public int damageDropped(int par1)
     {
         return par1 & 3;
@@ -53,7 +47,7 @@ public class BlockGenesisLog extends BlockLog implements IBlockGenesisTrees {
 	public Icon getIcon(int side, int metadata)
     {
         int k = metadata & 12;
-        int l = (metadata & 3) + (logSet * 4);
+        int l = (metadata & 3) + (logSet * TreeBlocks.setSize);
         return k == 0 && (side == 1 || side == 0) ? this.func_111049_d(l) : (k == 4 && (side == 5 || side == 4) ? this.func_111049_d(l) : (k == 8 && (side == 2 || side == 3) ? this.func_111049_d(l) : this.func_111048_c(l)));
     }
 	
@@ -65,13 +59,13 @@ public class BlockGenesisLog extends BlockLog implements IBlockGenesisTrees {
 	
 	public void registerIcons(IconRegister iconRegister)
     {
-        this.woodSide = new Icon[TreeBlocks.woodTypes.length];
-        this.woodTop = new Icon[TreeBlocks.woodTypes.length];
+        woodSideIcons = new Icon[TreeBlocks.woodTypeCount];
+        woodTopIcons = new Icon[TreeBlocks.woodTypeCount];
         
-        for (int i = 0; i < TreeBlocks.woodTypes.length; ++i)
+        for (int i = 0; i < TreeBlocks.woodTypeCount; ++i)
         {
-            this.woodSide[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + TreeBlocks.woodTypes[i].toLowerCase());
-            this.woodTop[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + TreeBlocks.woodTypes[i].toLowerCase()  + "_top");
+            woodSideIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + TreeBlocks.woodTypes.get(i).toLowerCase());
+            woodTopIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + TreeBlocks.woodTypes.get(i).toLowerCase()  + "_top");
         }
     }
 	
@@ -82,13 +76,13 @@ public class BlockGenesisLog extends BlockLog implements IBlockGenesisTrees {
 	
 	@SideOnly(Side.CLIENT)
 	protected Icon func_111048_c(int i) {
-		return this.woodSide[i];
+		return this.woodSideIcons[i];
 	}
 	
 	@SideOnly(Side.CLIENT)
     protected Icon func_111049_d(int par1)
     {
-        return this.woodTop[par1];
+        return this.woodTopIcons[par1];
     }
 	
 	public int idDropped(int par1, Random par2Random, int par3)
