@@ -43,7 +43,9 @@ public class Blocks {
 			1, 1, 2, 6)
 			.setTextureName("zircon_ore").setUnlocalizedName(Names.blockZirconOre_unloc)
 			.setHardness(3).setResistance(10);
-	public static Block zirconBlock = new BlockGenesisOreStorage(IDs.blockZirconID, Material.iron, 2, Items.zircon, false);
+	public static Block zirconBlock = new BlockGenesisOreStorage(IDs.blockZirconID, Material.iron, 2, Items.zircon, false)
+			.setTextureName("zircon_block").setUnlocalizedName(Names.blockZircon_unloc)
+			.setHardness(3).setResistance(10);
 	
 	public static Block quartzGraniteOre = new BlockGenesisOre(IDs.blockQuartzGraniteOreID, new Object[]{Items.quartz}, null,
 			Material.rock, 1,
@@ -55,6 +57,9 @@ public class Blocks {
 			Material.rock, 2,
 			1, 1, 3, 8)
 			.setTextureName("olivine_ore").setUnlocalizedName(Names.blockOlivineOre_unloc)
+			.setHardness(3).setResistance(10);
+	public static Block olivineBlock = new BlockGenesisOreStorage(IDs.blockOlivineID, Material.iron, 2, Items.zircon, false)
+			.setTextureName("olivine_block").setUnlocalizedName(Names.blockOlivine_unloc)
 			.setHardness(3).setResistance(10);
 	
 	public static void init()

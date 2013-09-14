@@ -18,6 +18,7 @@
 
 	<!-- Ores -->
 	<entry key="tile.genesis.ore.zircon.name">Zircon Ore</entry>
+	<entry key="tile.genesis.storage.zircon.name">Block of Zircon</entry>
 	<entry key="tile.genesis.ore.quartzGranite.name">Granite Quartz Ore</entry>
 	<entry key="tile.genesis.ore.olivine.name">Olivine Ore</entry>
 
