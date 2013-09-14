@@ -10,6 +10,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
@@ -43,6 +44,24 @@ public class GenesisEventHandler {
 		}
 	}
 	
+	private static String getClassHierarchy(Object startingInstance)
+	{
+        String classHierarchy = "";
+        Class currentClass = startingInstance.getClass();
+        
+        do
+        {
+        	if (classHierarchy != "")
+        		classHierarchy += "->";
+        	
+        	classHierarchy += currentClass.getSimpleName();
+        	
+        	currentClass = currentClass.getSuperclass();
+        } while (!currentClass.equals(Object.class));
+        
+        return classHierarchy;
+	}
+	
 	@ForgeSubscribe
 	public void addDebugText(RenderGameOverlayEvent.Text event)
 	{
@@ -63,30 +82,55 @@ public class GenesisEventHandler {
 	            int hitZ = lookPos.blockZ;
 	            
 	            int blockID = mc.theWorld.getBlockId(hitX, hitY, hitZ);
+	            int metadata = mc.theWorld.getBlockMetadata(hitX, hitY, hitZ);
 	            
 	            Block block = Block.blocksList[blockID];
+	            String blockHier = getClassHierarchy(block);
+	            
 	            ItemBlock itemBlock = (ItemBlock)Item.itemsList[blockID];
 	            ItemStack pickStack = block.getPickBlock(lookPos, mc.theWorld, hitX, hitY, hitZ);
+	            String locName = itemBlock.getItemDisplayName(pickStack);
+	            
+	            TileEntity tileEntity = mc.theWorld.getBlockTileEntity(hitX, hitY, hitZ);
+	            String entityHier = null;
+	            
+	            if (tileEntity != null)
+	            {
+	            	entityHier = getClassHierarchy(tileEntity);
+	            }
 	            
 	            int lightOpac = mc.theWorld.getBlockLightOpacity(hitX, hitY, hitZ);
 	            
 	            ForgeDirection hitDir = ForgeDirection.getOrientation(lookPos.sideHit);
 	            
 	            boolean solidOnSide = block.isBlockSolidOnSide(mc.theWorld, hitX, hitY, hitZ, hitDir);
-	
-	            hitX += hitDir.offsetX;
-	            hitY += hitDir.offsetY;
-	            hitZ += hitDir.offsetZ;
+	            boolean opaque = block.isOpaqueCube();
+	            
+	            if (opaque)
+	            {
+		            hitX += hitDir.offsetX;
+		            hitY += hitDir.offsetY;
+		            hitZ += hitDir.offsetZ;
+	            }
 	            
 	            int lightVal = mc.theWorld.getBlockLightValue(hitX, hitY, hitZ);
 	            int fullLightVal = mc.theWorld.getFullBlockLightValue(hitX, hitY, hitZ);
 
-	            left.add(String.format("bi: %d, bn: \"%s\"", blockID, itemBlock.getItemDisplayName(pickStack)));
-	            left.add(String.format("lv: %d, flv: %d, lo: %d, sd: %b", lightVal, fullLightVal, lightOpac, solidOnSide));
+	            left.add("Block info:");
+	            left.add(String.format("bid: %d:%d, bname: \"%s\"", blockID, metadata, locName));
+	            left.add(String.format("sld: %b, opq: %b, side: %s", solidOnSide, opaque, hitDir));
+	            left.add(String.format("bhier: %s", blockHier));
+	            left.add(String.format("light (%s): %d (full: %d), opac: %d", opaque ? "on" : "in", lightVal, fullLightVal, lightOpac));
+	            
+	            if (tileEntity != null)
+	            {
+	            	left.add(String.format("tehier: %s", entityHier));
+	            }
 	        }
 	        else
 	        {
-	            left.add(String.format("NO BLOCK"));
+	            left.add("Block info:");
+	            left.add("N/A");
 	        }
 		}
 	}

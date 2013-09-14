@@ -67,6 +67,7 @@ public class IDs {
 	public static int blockGraniteID = 2171;
 	public static int blockGraniteMossyID = 2173;
 	public static int blockLimestoneID = 2174;
+	public static int blockStromatoliteID = 2176;
 	
 	// Ores and ore storage
 	public static int blockZirconOreID = 2181;
@@ -86,8 +87,12 @@ public class IDs {
 	// ---- Items ----
 	// Crafting items
 	public static int itemZirconID = 2220;
-	public static int itemQuartzID = 2221;
-	public static int itemOlivineID = 2222;
-	public static int itemCalamitesID = 2223;
+	public static int itemsZirconArmorStartID = 2223;
+	
+	public static int itemQuartzID = 2227;
+	
+	public static int itemOlivineID = 2228;
+	
+	public static int itemCalamitesID = 2233;
 	
 }

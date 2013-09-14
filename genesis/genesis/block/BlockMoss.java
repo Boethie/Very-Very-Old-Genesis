@@ -60,11 +60,13 @@ public class BlockMoss extends BlockGrass {
     
     private boolean canMossStay(World world, int x, int y, int z)
     {
-    	Block blockAbove = blocksList[world.getBlockId(x, y + 1, z)];
-    	Material blockAboveMat = world.getBlockMaterial(x, y, z);
     	int blockAboveLight = world.getBlockLightValue(x, y + 1, z);
+    	/*Block blockAbove = blocksList[world.getBlockId(x, y + 1, z)];
+    	Material blockAboveMat = world.getBlockMaterial(x, y, z);
     	
-    	return blockAbove == null || blockAbove instanceof BlockFlower || !blockAboveMat.getCanBlockGrass() || blockAboveLight >= 1;
+    	return blockAbove == null || blockAbove instanceof BlockFlower || !blockAboveMat.getCanBlockGrass() || blockAboveLight >= 1;*/
+    	
+    	return blockAboveLight >= 1 || world.getBlockLightOpacity(x, y + 1, z) < 255;
     }
 	
     public void updateTick(World world, int x, int y, int z, Random random)

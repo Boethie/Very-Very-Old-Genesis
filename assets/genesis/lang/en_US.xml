@@ -15,6 +15,7 @@
 	<entry key="tile.genesis.granite.name">Granite</entry>
 	<entry key="tile.genesis.graniteMossy.name">Mossy Granite</entry>
 	<entry key="tile.genesis.limestone.name">Limestone</entry>
+	<entry key="tile.genesis.stromatolite.name">Stromatolite</entry>
 
 	<!-- Ores -->
 	<entry key="tile.genesis.ore.zircon.name">Zircon Ore</entry>

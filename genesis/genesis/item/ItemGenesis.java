@@ -17,7 +17,7 @@ public class ItemGenesis extends Item {
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
-        this.itemIcon = iconRegister.registerIcon("genesis:" + getIconString());
+        this.itemIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getIconString());
     }
 
 }

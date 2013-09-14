@@ -30,6 +30,7 @@ public class Blocks {
 	public static Block granite;
 	public static Block graniteMossy;
 	public static Block limestone;
+	public static Block stromatolite;
 	
 	// Ores
 	public static Block zirconOre;
@@ -52,9 +53,12 @@ public class Blocks {
 		graniteMossy = new BlockGenesisRock(IDs.blockGraniteMossyID, Material.rock, 0)
 				.setTextureName("granite_mossy")
 				.setUnlocalizedName(Names.blockGraniteMossy_unloc).setHardness(1.5F).setResistance(10);
-		limestone = new BlockGenesisRock(IDs.blockLimestoneID, rockNoTool, 0)
+		limestone = new BlockGenesisRock(IDs.blockLimestoneID, Material.rock, 0)
 				.setTextureName("limestone")
 				.setUnlocalizedName(Names.blockLimestone_unloc).setHardness(1).setResistance(7.5F);
+		stromatolite = new BlockGenesisRock(IDs.blockStromatoliteID, Material.rock, 0)
+				.setTextureName("stromatolite")
+				.setUnlocalizedName(Names.blockStromatolite_unloc).setHardness(0.7F).setResistance(5);
 		
 		// Ores
 		zirconOre = new BlockGenesisOre(IDs.blockZirconOreID, new Object[]{Items.zircon}, null,

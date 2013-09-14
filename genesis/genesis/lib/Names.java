@@ -12,6 +12,7 @@ public class Names {
 	public static final String blockGranite_unloc = mod_unloc + "granite";
 	public static final String blockGraniteMossy_unloc = mod_unloc + "graniteMossy";
 	public static final String blockLimestone_unloc = mod_unloc + "limestone";
+	public static final String blockStromatolite_unloc = mod_unloc + "stromatolite";
 	
 	// Ores
 	public static final String ore_unloc = mod_unloc + "ore.";
@@ -36,9 +37,9 @@ public class Names {
 	// ---- Items ----
 	// Crafting items
 	public static final String itemZircon_unloc = mod_unloc + "zircon";
+	public static final String itemZirconArmorMaterial_unloc = "zircon";
 	public static final String itemQuartz_unloc = mod_unloc + "quartz";
 	public static final String itemOlivine_unloc = mod_unloc + "olivine";
 	public static final String itemCalamites_unloc = mod_unloc + "calamites";
-
-
+	
 }
