@@ -8,11 +8,14 @@ import net.minecraft.item.crafting.CraftingManager;
 
 public class BlockGenesisOreStorage extends BlockGenesisRock {
 	
-	public BlockGenesisOreStorage(int blockID, Material mat, int harvestLevel, Object storingItem, boolean craftFour) {
+	public BlockGenesisOreStorage(int blockID, Material mat, int harvestLevel) {
 		super(blockID, mat, harvestLevel);
 		
         setStepSound(soundMetalFootstep);
-        
+	}
+	
+	public void setRecipe(Object storingItem, boolean craftFour)
+	{
         if (craftFour)
         {
         	CraftingManager.getInstance().addRecipe(new ItemStack(this),

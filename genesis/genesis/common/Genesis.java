@@ -57,15 +57,13 @@ public class Genesis {
 		proxy.registerRenderers();
 		proxy.preInit();
 		
-		LogHelper.log(Level.INFO, "Preparing Blocks");
+		LogHelper.log(Level.INFO, "Preparing Blocks and Items");
 		Blocks.init();
-		Blocks.registerBlocks();
-		LogHelper.log(Level.INFO, "Blocks Loaded");
-		
-		LogHelper.log(Level.INFO, "Preparing Items");
 		Items.init();
-		Items.registerCrafting();
-		LogHelper.log(Level.INFO, "Items Loaded");
+		
+		Blocks.registerBlocks();
+		Items.registerItems();
+		LogHelper.log(Level.INFO, "Blocks and Items Loaded");
 	}
 	
 	@EventHandler

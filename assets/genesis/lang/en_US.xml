@@ -21,6 +21,7 @@
 	<entry key="tile.genesis.storage.zircon.name">Block of Zircon</entry>
 	<entry key="tile.genesis.ore.quartzGranite.name">Granite Quartz Ore</entry>
 	<entry key="tile.genesis.ore.olivine.name">Olivine Ore</entry>
+	<entry key="tile.genesis.storage.olivine.name">Block of Olivine</entry>
 
 	<!-- Trees -->
 	<entry key="tile.genesis.log.sigillaria.name">Sigillaria Wood</entry>

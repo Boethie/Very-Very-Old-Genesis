@@ -24,47 +24,63 @@ public class Blocks {
 
 	private static final Material rockNoTool = new Material(MapColor.stoneColor);
 
-	public static Block moss = new BlockMoss(IDs.blockMossID).setTextureName("moss")
-			.setUnlocalizedName(Names.blockMoss_unloc);
+	public static Block moss;
 	
 	// Rocks
-	public static Block granite = new BlockGenesisRock(IDs.blockGraniteID, Material.rock, 0)
-			.setTextureName("granite")
-			.setUnlocalizedName(Names.blockGranite_unloc).setHardness(1.5F).setResistance(10);
-	public static Block graniteMossy = new BlockGenesisRock(IDs.blockGraniteMossyID, Material.rock, 0)
-			.setTextureName("granite_mossy")
-			.setUnlocalizedName(Names.blockGraniteMossy_unloc).setHardness(1.5F).setResistance(10);
-	public static Block limestone = new BlockGenesisRock(IDs.blockLimestoneID, rockNoTool, 0)
-			.setTextureName("limestone")
-			.setUnlocalizedName(Names.blockLimestone_unloc).setHardness(1).setResistance(7.5F);
+	public static Block granite;
+	public static Block graniteMossy;
+	public static Block limestone;
 	
 	// Ores
-	public static Block zirconOre = new BlockGenesisOre(IDs.blockZirconOreID, new Object[]{Items.zircon}, null,
-			Material.rock, 2,
-			1, 1, 2, 6)
-			.setTextureName("zircon_ore").setUnlocalizedName(Names.blockZirconOre_unloc)
-			.setHardness(3).setResistance(10);
-	public static Block zirconBlock = new BlockGenesisOreStorage(IDs.blockZirconID, Material.iron, 2, Items.zircon, false)
-			.setTextureName("zircon_block").setUnlocalizedName(Names.blockZircon_unloc)
-			.setHardness(3).setResistance(10);
+	public static Block zirconOre;
+	public static BlockGenesisOreStorage zirconBlock;
 	
-	public static Block quartzGraniteOre = new BlockGenesisOre(IDs.blockQuartzGraniteOreID, new Object[]{Items.quartz}, null,
-			Material.rock, 1,
-			1, 1, 2, 5)
-			.setTextureName("quartz_granite_ore").setUnlocalizedName(Names.blockQuartzGraniteOre_unloc)
-			.setHardness(3).setResistance(10);
+	public static Block quartzGraniteOre;
 	
-	public static Block olivineOre = new BlockGenesisOre(IDs.blockOlivineOreID, new Object[]{Items.olivine}, null,
-			Material.rock, 2,
-			1, 1, 3, 8)
-			.setTextureName("olivine_ore").setUnlocalizedName(Names.blockOlivineOre_unloc)
-			.setHardness(3).setResistance(10);
-	public static Block olivineBlock = new BlockGenesisOreStorage(IDs.blockOlivineID, Material.iron, 2, Items.zircon, false)
-			.setTextureName("olivine_block").setUnlocalizedName(Names.blockOlivine_unloc)
-			.setHardness(3).setResistance(10);
+	public static Block olivineOre;
+	public static BlockGenesisOreStorage olivineBlock;
 	
 	public static void init()
 	{
+		moss = new BlockMoss(IDs.blockMossID).setTextureName("moss")
+				.setUnlocalizedName(Names.blockMoss_unloc);
+		
+		// Rocks
+		granite = new BlockGenesisRock(IDs.blockGraniteID, Material.rock, 0)
+				.setTextureName("granite")
+				.setUnlocalizedName(Names.blockGranite_unloc).setHardness(1.5F).setResistance(10);
+		graniteMossy = new BlockGenesisRock(IDs.blockGraniteMossyID, Material.rock, 0)
+				.setTextureName("granite_mossy")
+				.setUnlocalizedName(Names.blockGraniteMossy_unloc).setHardness(1.5F).setResistance(10);
+		limestone = new BlockGenesisRock(IDs.blockLimestoneID, rockNoTool, 0)
+				.setTextureName("limestone")
+				.setUnlocalizedName(Names.blockLimestone_unloc).setHardness(1).setResistance(7.5F);
+		
+		// Ores
+		zirconOre = new BlockGenesisOre(IDs.blockZirconOreID, new Object[]{Items.zircon}, null,
+				Material.rock, 2,
+				1, 1, 2, 6)
+				.setTextureName("zircon_ore").setUnlocalizedName(Names.blockZirconOre_unloc)
+				.setHardness(3).setResistance(10);
+		zirconBlock = (BlockGenesisOreStorage)new BlockGenesisOreStorage(IDs.blockZirconID, Material.iron, 2)
+				.setTextureName("zircon_block").setUnlocalizedName(Names.blockZircon_unloc)
+				.setHardness(3).setResistance(10);
+		
+		quartzGraniteOre = new BlockGenesisOre(IDs.blockQuartzGraniteOreID, new Object[]{Items.quartz}, null,
+				Material.rock, 1,
+				1, 1, 2, 5)
+				.setTextureName("quartz_granite_ore").setUnlocalizedName(Names.blockQuartzGraniteOre_unloc)
+				.setHardness(3).setResistance(10);
+		
+		olivineOre = new BlockGenesisOre(IDs.blockOlivineOreID, new Object[]{Items.olivine}, null,
+				Material.rock, 2,
+				1, 1, 3, 8)
+				.setTextureName("olivine_ore").setUnlocalizedName(Names.blockOlivineOre_unloc)
+				.setHardness(3).setResistance(10);
+		olivineBlock = (BlockGenesisOreStorage)new BlockGenesisOreStorage(IDs.blockOlivineID, Material.iron, 2)
+				.setTextureName("olivine_block").setUnlocalizedName(Names.blockOlivine_unloc)
+				.setHardness(3).setResistance(10);
+		
 		TreeBlocks.init();
 		PlantBlocks.init();
 	}
@@ -79,6 +95,9 @@ public class Blocks {
         MinecraftForge.setBlockHarvestLevel(moss, "shovel", 0);
 		
 		TreeBlocks.registerBlocks();
+
+		zirconBlock.setRecipe(Items.zircon, false);
+		olivineBlock.setRecipe(Items.olivine, false);
 	}
 	
 }

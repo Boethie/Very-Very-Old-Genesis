@@ -17,19 +17,23 @@ import genesis.genesis.plants.items.PlantItems;
 
 public class Items {
 
-	public static ItemGenesis zircon = (ItemGenesis)new ItemGenesis(IDs.itemZirconID)
-			.setUnlocalizedName(Names.itemZircon_unloc).setTextureName("zircon");
-	public static ItemGenesis quartz = (ItemGenesis)new ItemGenesis(IDs.itemQuartzID)
-			.setUnlocalizedName(Names.itemQuartz_unloc).setTextureName("quartz");
-	public static ItemGenesis olivine = (ItemGenesis)new ItemGenesis(IDs.itemOlivineID)
-			.setUnlocalizedName(Names.itemOlivine_unloc).setTextureName("olivine");
+	public static ItemGenesis zircon;
+	public static ItemGenesis quartz;
+	public static ItemGenesis olivine;
 	
 	public static void init()
 	{
+		zircon = (ItemGenesis)new ItemGenesis(IDs.itemZirconID)
+				.setUnlocalizedName(Names.itemZircon_unloc).setTextureName("zircon");
+		quartz = (ItemGenesis)new ItemGenesis(IDs.itemQuartzID)
+				.setUnlocalizedName(Names.itemQuartz_unloc).setTextureName("quartz");
+		olivine = (ItemGenesis)new ItemGenesis(IDs.itemOlivineID)
+				.setUnlocalizedName(Names.itemOlivine_unloc).setTextureName("olivine");
+
 		PlantItems.init();
 	}
 	
-	public static void registerCrafting()
+	public static void registerItems()
 	{
 		LogHelper.log(Level.INFO, "Registering recipes.");
 		adaptNetherQuartzRecipes();
