@@ -10,7 +10,7 @@ public class PlantBlocks {
 	
 	public static void init()
 	{
-		blockCalamites = new BlockCalamites(IDs.blockCalamitesID).setTextureName("calamites")
+		blockCalamites = new BlockCalamitesPlant(IDs.blockCalamitesID).setTextureName("calamites")
 				.setUnlocalizedName(Names.blockCalamites_unloc);
 	}
 
