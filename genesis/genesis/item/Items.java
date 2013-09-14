@@ -13,6 +13,7 @@ import net.minecraft.item.crafting.ShapelessRecipes;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.LogHelper;
 import genesis.genesis.lib.Names;
+import genesis.genesis.plants.items.PlantItems;
 
 public class Items {
 
@@ -25,7 +26,7 @@ public class Items {
 	
 	public static void init()
 	{
-		
+		PlantItems.init();
 	}
 	
 	public static void registerCrafting()
