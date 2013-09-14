@@ -62,6 +62,7 @@ public class IDs {
 
 	// ---- Blocks ----
 	public static int blockMossID = 2172;
+	public static int blockCalamitesBlockID = 2198;
 	
 	// Rocks
 	public static int blockGraniteID = 2171;
@@ -81,8 +82,8 @@ public class IDs {
 	public static IDSet blockSaplingID = new IDSet(2193, 2194);
 	public static IDSet blockLeavesID = new IDSet(2196, 2197);
 	
-	//Plants
-	public static int blockCalamitesID = 2200;
+	// Plants
+	public static int blockCalamitesPlantID = 2200;
 
 	// ---- Items ----
 	// Crafting items

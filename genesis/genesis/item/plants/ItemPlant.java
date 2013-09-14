@@ -1,4 +1,4 @@
-package genesis.genesis.plants.items;
+package genesis.genesis.item.plants;
 
 import genesis.genesis.common.Genesis;
 import cpw.mods.fml.relauncher.Side;
@@ -25,48 +25,48 @@ public class ItemPlant extends Item{
     {
         this.itemIcon = par1IconRegister.registerIcon(Genesis.MOD_ID + ":" + iconString);
     }
-	 public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int par7, float par8, float par9, float par10)
+	 public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int side, float par8, float par9, float par10)
 	    {
-	        int i1 = world.getBlockId(x, y, z);
+	        int id = world.getBlockId(x, y, z);
 
-	        if (i1 == Block.snow.blockID && (world.getBlockMetadata(x, y, z) & 7) < 1)
+	        if (id == Block.snow.blockID && (world.getBlockMetadata(x, y, z) & 7) < 1)
 	        {
-	            par7 = 1;
+	            side = 1;
 	        }
-	        else if (i1 != Block.vine.blockID && i1 != Block.tallGrass.blockID && i1 != Block.deadBush.blockID)
+	        else if (id != Block.vine.blockID && id != Block.tallGrass.blockID && id != Block.deadBush.blockID)
 	        {
-	            if (par7 == 0)
+	            if (side == 0)
 	            {
 	                --y;
 	            }
 
-	            if (par7 == 1)
+	            if (side == 1)
 	            {
 	                ++y;
 	            }
 
-	            if (par7 == 2)
+	            if (side == 2)
 	            {
 	                --z;
 	            }
 
-	            if (par7 == 3)
+	            if (side == 3)
 	            {
 	                ++z;
 	            }
 
-	            if (par7 == 4)
+	            if (side == 4)
 	            {
 	                --x;
 	            }
 
-	            if (par7 == 5)
+	            if (side == 5)
 	            {
 	                ++x;
 	            }
 	        }
 
-	        if (!entityPlayer.canPlayerEdit(x, y, z, par7, itemStack))
+	        if (!entityPlayer.canPlayerEdit(x, y, z, side, itemStack))
 	        {
 	            return false;
 	        }
@@ -76,10 +76,10 @@ public class ItemPlant extends Item{
 	        }
 	        else
 	        {
-	            if (world.canPlaceEntityOnSide(this.blockPlantId, x, y, z, false, par7, (Entity)null, itemStack))
+	            if (world.canPlaceEntityOnSide(this.blockPlantId, x, y, z, false, side, (Entity)null, itemStack))
 	            {
 	                Block block = Block.blocksList[this.blockPlantId];
-	                int j1 = block.onBlockPlaced(world, x, y, z, par7, par8, par9, par10, 0);
+	                int j1 = block.onBlockPlaced(world, x, y, z, side, par8, par9, par10, 0);
 
 	                if (world.setBlock(x, y, z, this.blockPlantId, j1, 3))
 	                {

@@ -22,6 +22,10 @@ public class BlockGenesisOreStorage extends BlockGenesisRock {
         			"mm",
         			"mm",
         			'm', storingItem);
+        	
+        	CraftingManager.getInstance().addRecipe(new ItemStack((Item)storingItem, 4),
+        			"m",
+        			'm', this);
         }
         else
         {
@@ -30,6 +34,10 @@ public class BlockGenesisOreStorage extends BlockGenesisRock {
         			"mmm",
         			"mmm",
         			'm', storingItem);
+        	
+        	CraftingManager.getInstance().addRecipe(new ItemStack((Item)storingItem, 9),
+        			"m",
+        			'm', this);
         }
 	}
 	

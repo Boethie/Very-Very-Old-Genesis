@@ -11,6 +11,8 @@
 	<!-- Moss -->
 	<entry key="tile.genesis.moss.name">Moss</entry>
 
+	<entry key="tile.genesis.calamites.block.name">Block of Calamites</entry>
+
 	<!-- Rocks -->
 	<entry key="tile.genesis.granite.name">Granite</entry>
 	<entry key="tile.genesis.graniteMossy.name">Mossy Granite</entry>

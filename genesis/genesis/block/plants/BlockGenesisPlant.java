@@ -1,4 +1,4 @@
-package genesis.genesis.plants.blocks;
+package genesis.genesis.block.plants;
 
 import java.util.Random;
 
@@ -26,26 +26,17 @@ public class BlockGenesisPlant extends BlockFlower{
 		this.blockIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + this.getTextureName());
     }
 	
-	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random){}
-	
-	public boolean canSustainPlant(World world, int x, int y, int z, ForgeDirection direction, IPlantable plant)
-    {
-		int id = world.getBlockId(x, y - 1, z);
-		if(id == Block.dirt.blockID || 
-		   id == Block.grass.blockID || 
-		   id == Blocks.moss.blockID ||
-		   id == PlantBlocks.blockCalamites.blockID)
-		{
-			return true;
-		}
-		return false;
-		
-    }
+	@Override
+	public void updateTick(World world, int x, int y, int z, Random random){}
 	
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z)
     {
-        return (this.canSustainPlant(world, x, y, z, ForgeDirection.UP, this));
+		Block block = Block.blocksList[world.getBlockId(x, y - 1, z)];
+		if(block != null)	
+			return block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) ||
+				   block.blockID == this.blockID;
+		return false;
     }
 	
 	@Override

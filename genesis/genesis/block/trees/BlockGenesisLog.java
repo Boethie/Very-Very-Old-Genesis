@@ -22,9 +22,8 @@ import net.minecraft.world.World;
 
 public class BlockGenesisLog extends BlockLog implements IBlockGenesisTrees {
 
-    @SideOnly(Side.CLIENT)
     private static Icon[] woodSideIcons = null;
-    @SideOnly(Side.CLIENT)
+
     private static Icon[] woodTopIcons = null;
     public int logSet;
     
@@ -44,6 +43,7 @@ public class BlockGenesisLog extends BlockLog implements IBlockGenesisTrees {
         return par1 & 3;
     }
 	
+	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int side, int metadata)
     {
         int k = metadata & 12;
@@ -57,6 +57,7 @@ public class BlockGenesisLog extends BlockLog implements IBlockGenesisTrees {
 		BlocksHelper.addTreeSubBlocksToCreative(blockID, creativeTabs, itemList, this.logSet);
     }
 	
+	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
     {
         woodSideIcons = new Icon[TreeBlocks.woodTypeCount];

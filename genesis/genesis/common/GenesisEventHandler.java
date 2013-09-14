@@ -2,6 +2,9 @@ package genesis.genesis.common;
 
 import java.util.ArrayList;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 import genesis.genesis.block.Blocks;
 import genesis.genesis.block.trees.BlockGenesisSapling;
 import genesis.genesis.client.ClientTickHandler;
@@ -20,8 +23,10 @@ import net.minecraftforge.event.entity.player.BonemealEvent;
 
 public class GenesisEventHandler {
 	
+	@SideOnly(Side.CLIENT)
 	Minecraft mc;
 	
+	@SideOnly(Side.CLIENT)
 	private void getMC()
 	{
 		if (mc == null)
@@ -62,6 +67,7 @@ public class GenesisEventHandler {
         return classHierarchy;
 	}
 	
+	@SideOnly(Side.CLIENT)
 	@ForgeSubscribe
 	public void addDebugText(RenderGameOverlayEvent.Text event)
 	{

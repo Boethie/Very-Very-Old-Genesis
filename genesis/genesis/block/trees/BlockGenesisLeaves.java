@@ -19,9 +19,8 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockGenesisLeaves extends BlockLeaves implements IBlockGenesisTrees {
 
-	@SideOnly(Side.CLIENT)
     private static Icon[] leavesIcons = null;
-    @SideOnly(Side.CLIENT)
+	
     private static Icon[] leavesOpaqIcons = null;
     
     public int leavesSet;
