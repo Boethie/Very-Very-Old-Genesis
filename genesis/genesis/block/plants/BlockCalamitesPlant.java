@@ -1,4 +1,4 @@
-package genesis.genesis.plants.blocks;
+package genesis.genesis.block.plants;
 
 import java.util.Random;
 
@@ -7,7 +7,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import genesis.genesis.block.Blocks;
 import genesis.genesis.common.Genesis;
-import genesis.genesis.plants.items.PlantItems;
+import genesis.genesis.item.plants.PlantItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -29,8 +29,10 @@ public class BlockCalamitesPlant extends BlockGenesisPlant{
 
 	@SideOnly(Side.CLIENT)
 	Icon calamitesPlant;
+	
 	@SideOnly(Side.CLIENT)
 	Icon eggCalamitesPlant;
+	
 	public BlockCalamitesPlant(int par1) {
 		super(par1);
 		float f = 0.375F;
@@ -117,6 +119,8 @@ public class BlockCalamitesPlant extends BlockGenesisPlant{
 
         return false;
     }
+    
+    @Override
     public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata)
     {
     	world.scheduleBlockUpdate(x, y, z, this.blockID, 10);

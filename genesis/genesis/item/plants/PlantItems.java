@@ -1,8 +1,8 @@
-package genesis.genesis.plants.items;
+package genesis.genesis.item.plants;
 
+import genesis.genesis.block.plants.PlantBlocks;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.Names;
-import genesis.genesis.plants.blocks.PlantBlocks;
 import net.minecraft.item.Item;
 
 public class PlantItems {

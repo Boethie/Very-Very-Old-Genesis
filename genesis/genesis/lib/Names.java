@@ -7,6 +7,7 @@ public class Names {
 	// ---- Blocks ----
 	// Moss
 	public static final String blockMoss_unloc = mod_unloc + "moss";
+	public static final String blockCalamites_unloc = mod_unloc + "calamites.block";
 	
 	// Rock blocks
 	public static final String blockGranite_unloc = mod_unloc + "granite";
@@ -31,7 +32,7 @@ public class Names {
 	public static final String blockLeavesGenesis_unloc = mod_unloc + "leaves.";
 	
 	// Plants
-	public static final String blockCalamites_unloc = mod_unloc + "calamites";
+	public static final String blockCalamitesPlant_unloc = mod_unloc + "calamites.plant";
 	
 	// ---- Items ----
 	// Crafting items

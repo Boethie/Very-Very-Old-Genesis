@@ -2,13 +2,14 @@ package genesis.genesis.block;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import genesis.genesis.block.plants.PlantBlocks;
 import genesis.genesis.block.trees.TreeBlocks;
 import genesis.genesis.common.Genesis;
 import genesis.genesis.item.Items;
+import genesis.genesis.item.plants.PlantItems;
 import genesis.genesis.itemblock.ItemBlockGenesisTree;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.Names;
-import genesis.genesis.plants.blocks.PlantBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -25,6 +26,7 @@ public class Blocks {
 	private static final Material rockNoTool = new Material(MapColor.stoneColor);
 
 	public static Block moss;
+	public static Block calamites;
 	
 	// Rocks
 	public static Block granite;
@@ -44,6 +46,8 @@ public class Blocks {
 	{
 		moss = new BlockMoss(IDs.blockMossID).setTextureName("moss")
 				.setUnlocalizedName(Names.blockMoss_unloc);
+		calamites = new BlockCalamites(IDs.blockCalamitesBlockID).setTextureName("calamites")
+				.setUnlocalizedName(Names.blockCalamites_unloc);
 		
 		// Rocks
 		granite = new BlockGenesisRock(IDs.blockGraniteID, Material.rock, 0)
@@ -88,7 +92,8 @@ public class Blocks {
 	public static void registerBlocks()
 	{
 		GameRegistry.registerBlock(moss, ItemBlock.class, Genesis.MOD_ID + ".moss");
-
+		GameRegistry.registerBlock(calamites, Genesis.MOD_ID + ".calamites_block");
+		
 		FurnaceRecipes.smelting().addSmelting(zirconOre.blockID, 0, new ItemStack(Items.zircon), 0.5F);
 		FurnaceRecipes.smelting().addSmelting(quartzGraniteOre.blockID, 0, new ItemStack(Items.quartz), 0.2F);
 
@@ -98,6 +103,12 @@ public class Blocks {
 
 		zirconBlock.setRecipe(Items.zircon, false);
 		olivineBlock.setRecipe(Items.olivine, false);
+		
+		CraftingManager.getInstance().addRecipe(new ItemStack(calamites), new Object[] {
+			"CC",
+			"CC",
+			'C', PlantItems.calamites
+		});
 	}
 	
 }

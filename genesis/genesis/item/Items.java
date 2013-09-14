@@ -10,10 +10,10 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
+import genesis.genesis.item.plants.PlantItems;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.LogHelper;
 import genesis.genesis.lib.Names;
-import genesis.genesis.plants.items.PlantItems;
 
 public class Items {
 
