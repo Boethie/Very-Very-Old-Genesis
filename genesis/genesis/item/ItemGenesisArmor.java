@@ -21,8 +21,7 @@ public class ItemGenesisArmor extends ItemArmor {
 		
 		setCreativeTab(Genesis.tabGenesis);
 		
-		String matNameCap = materialName.substring(0, 1).toUpperCase() + materialName.substring(1);
-		setUnlocalizedName(Names.mod_unloc + TYPE_NAMES[this.armorType] + matNameCap);
+		setUnlocalizedName(Names.itemArmor_unloc + Names.itemArmorTypes_unloc[armorType] + materialName);
 		
 		this.materialName = materialName;
     }

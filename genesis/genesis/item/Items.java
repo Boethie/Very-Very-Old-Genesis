@@ -13,7 +13,6 @@ import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
 
 import net.minecraftforge.common.EnumHelper;
-import genesis.genesis.item.plants.PlantItems;
 
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.LogHelper;
@@ -56,8 +55,6 @@ public class Items {
 		
 		olivine = (ItemGenesis)new ItemGenesis(IDs.itemOlivineID)
 				.setUnlocalizedName(Names.itemOlivine_unloc).setTextureName("olivine");
-
-		PlantItems.init();
 	}
 	
 	public static void registerItems()

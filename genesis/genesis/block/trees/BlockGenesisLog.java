@@ -32,7 +32,7 @@ public class BlockGenesisLog extends BlockLog implements IBlockGenesisTrees {
 		
 		setCreativeTab(Genesis.tabGenesis);
 		setStepSound(Block.soundWoodFootstep);
-		setHardness(1F);
+		setHardness(2);
 		setBurnProperties(blockID, 4, 4);
 		
 		this.logSet = cat;

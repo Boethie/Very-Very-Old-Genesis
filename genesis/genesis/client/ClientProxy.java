@@ -13,8 +13,9 @@ public class ClientProxy extends CommonProxy{
 	
 	public void registerRenderers(){
 		super.registerRenderers();
-		
+
 		RenderingRegistry.registerBlockHandler(new BlockMossRenderer());
+		RenderingRegistry.registerBlockHandler(new BlockGenesisPlantRenderer());
 		
 		LanguageLoader.loadLanguages();
 	}
