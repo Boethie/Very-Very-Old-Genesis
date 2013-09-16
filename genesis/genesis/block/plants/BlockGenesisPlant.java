@@ -16,8 +16,12 @@ import net.minecraftforge.common.IPlantable;
 
 public class BlockGenesisPlant extends BlockFlower {
 	
-	protected boolean stackable = false;
-	protected int stackedLimit = 1;
+	public boolean stackable = false;
+	public int stackedLimit = 1;
+	
+	public EnumPlantType defaultType = EnumPlantType.Plains;
+	public EnumPlantType[] typesPlantable = {};
+	private EnumPlantType testingType;
 	
 	protected BlockGenesisPlant(int id) {
 		super(id);
@@ -25,7 +29,39 @@ public class BlockGenesisPlant extends BlockFlower {
 		setCreativeTab(Genesis.tabGenesis);
 	}
 	
-	protected void setStackable(int stackedLimit)
+	public BlockGenesisPlant setPlantableTypes(EnumPlantType[] types)
+	{
+		typesPlantable = types;
+		return this;
+	}
+
+	/*
+	 * Overridden method to make it possible to plant plants on multiple land types.
+	 */
+    @Override
+    public EnumPlantType getPlantType(World world, int x, int y, int z)
+    {
+    	if (testingType != null)
+    		return testingType;
+    	
+    	EnumPlantType output = EnumPlantType.Plains;
+
+    	for (EnumPlantType type : typesPlantable)
+    	{
+    		testingType = type;
+    		
+    		if (blocksList[world.getBlockId(x, y - 1, z)].canSustainPlant(world, x, y, z, ForgeDirection.UP, this))
+    		{
+    			output = type;
+    		}
+    	}
+    	
+    	testingType = null;
+    	
+        return output;
+    }
+	
+	protected BlockGenesisPlant setStackable(int stackedLimit)
 	{
 		if (stackedLimit >= 0)
 		{
@@ -37,6 +73,8 @@ public class BlockGenesisPlant extends BlockFlower {
 			this.stackable = false;
 			stackedLimit = 0;
 		}
+		
+		return this;
 	}
 	
 	protected void setPlantBoundsSize(float size)
@@ -61,6 +99,50 @@ public class BlockGenesisPlant extends BlockFlower {
 	{
 	}
 	
+	protected boolean canStayStacked(World world, int x, int y, int z, int underBlockID)
+	{
+		if (stackable && underBlockID == this.blockID)
+		{
+			if (stackedLimit == 0)
+				return true;
+			
+			int checkBlockID = 0;
+			int count = 0;
+			int off = 1;
+			
+			while (checkBlockID == this.blockID)
+			{
+				checkBlockID = world.getBlockId(x, y - off, z);
+
+				if (checkBlockID == this.blockID)
+				{
+					count++;
+				}
+				
+				off++;
+			}
+			
+			off = 1;
+			
+			while (checkBlockID == this.blockID)
+			{
+				checkBlockID = world.getBlockId(x, y + off, z);
+				
+				if (checkBlockID == this.blockID)
+				{
+					count++;
+				}
+				
+				off++;
+			}
+			
+			if (count < stackedLimit)
+				return true;
+		}
+		
+		return false;
+	}
+	
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z)
     {
@@ -72,43 +154,7 @@ public class BlockGenesisPlant extends BlockFlower {
 			if (block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this))
 				return true;
 			
-			if (stackable)
-			{
-				if (stackedLimit == 0)
-					return true;
-				
-				int count = 0;
-				int off = 1;
-				
-				while (blockID == this.blockID)
-				{
-					blockID = world.getBlockId(x, y - off, z);
-
-					if (blockID == this.blockID)
-					{
-						count++;
-					}
-					
-					off++;
-				}
-				
-				off = 1;
-				
-				while (blockID == this.blockID)
-				{
-					blockID = world.getBlockId(x, y + off, z);
-					
-					if (blockID == this.blockID)
-					{
-						count++;
-					}
-					
-					off++;
-				}
-				
-				if (count < stackedLimit)
-					return true;
-			}
+			return canStayStacked(world, x, y, z, blockID);
 		}
 		
 		return false;

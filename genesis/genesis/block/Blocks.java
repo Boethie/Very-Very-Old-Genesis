@@ -36,12 +36,12 @@ public class Blocks {
 	public static Block stromatolite;
 	
 	// Ores
-	public static Block zirconOre;
+	public static BlockGenesisOre zirconOre;
 	public static BlockGenesisOreStorage zirconBlock;
 	
-	public static Block quartzGraniteOre;
+	public static BlockGenesisOre quartzGraniteOre;
 	
-	public static Block olivineOre;
+	public static BlockGenesisOre olivineOre;
 	public static BlockGenesisOreStorage olivineBlock;
 	
 	public static void init()
@@ -64,7 +64,7 @@ public class Blocks {
 				.setUnlocalizedName(Names.blockStromatolite_unloc).setHardness(0.7F).setResistance(5);
 		
 		// Ores
-		zirconOre = new BlockGenesisOre(IDs.blockZirconOreID, new Object[]{Items.zircon}, null,
+		zirconOre = (BlockGenesisOre)new BlockGenesisOre(IDs.blockZirconOreID,
 				Material.rock, 2,
 				1, 1, 2, 6)
 				.setTextureName("zircon_ore").setUnlocalizedName(Names.blockZirconOre_unloc)
@@ -73,13 +73,13 @@ public class Blocks {
 				.setTextureName("zircon_block").setUnlocalizedName(Names.blockZircon_unloc)
 				.setHardness(3).setResistance(10);
 		
-		quartzGraniteOre = new BlockGenesisOre(IDs.blockQuartzGraniteOreID, new Object[]{Items.quartz}, null,
+		quartzGraniteOre = (BlockGenesisOre)new BlockGenesisOre(IDs.blockQuartzGraniteOreID,
 				Material.rock, 1,
 				1, 1, 2, 5)
 				.setTextureName("quartz_granite_ore").setUnlocalizedName(Names.blockQuartzGraniteOre_unloc)
 				.setHardness(3).setResistance(10);
 		
-		olivineOre = new BlockGenesisOre(IDs.blockOlivineOreID, new Object[]{Items.olivine}, null,
+		olivineOre = (BlockGenesisOre)new BlockGenesisOre(IDs.blockOlivineOreID,
 				Material.rock, 2,
 				1, 1, 3, 8)
 				.setTextureName("olivine_ore").setUnlocalizedName(Names.blockOlivineOre_unloc)
@@ -96,8 +96,11 @@ public class Blocks {
 	{
 		GameRegistry.registerBlock(moss, Names.blockMoss_unloc);
 		
-		FurnaceRecipes.smelting().addSmelting(zirconOre.blockID, 0, new ItemStack(Items.zircon), 0.5F);
-		FurnaceRecipes.smelting().addSmelting(quartzGraniteOre.blockID, 0, new ItemStack(Items.quartz), 0.2F);
+		zirconOre.setDrop(Items.zircon, 0, 0.5F);
+		
+		quartzGraniteOre.setDrop(Items.quartz, 0, 0.2F);
+		
+		olivineOre.setDrop(Items.olivine, 0, 0.8F);
 
         MinecraftForge.setBlockHarvestLevel(moss, "shovel", 0);
 

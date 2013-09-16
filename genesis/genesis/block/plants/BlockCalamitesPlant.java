@@ -8,6 +8,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import genesis.genesis.block.Blocks;
 import genesis.genesis.common.Genesis;
+import genesis.genesis.lib.MiscHelpers;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -52,14 +53,15 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 	public BlockCalamitesPlant(int par1) {
 		super(par1);
 
-		setHardness(2);
+		setHardness(1.5F);
+		setStepSound(soundWoodFootstep);
 		setBurnProperties(this.blockID, 4, 4);
 		
 		setPlantBoundsSize(0.25F);
 		setStackable(10);
+		setPlantableTypes(new EnumPlantType[] {EnumPlantType.Plains, EnumPlantType.Desert});
 		
 		MinecraftForge.setBlockHarvestLevel(this, "axe", 0);
-		
 	}
 	
 	public static class CalamitesProperties
@@ -197,6 +199,22 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 	}
 	
 	@Override
+	public boolean canPlaceBlockAt(World world, int x, int y, int z)
+    {
+		int blockID = world.getBlockId(x, y - 1, z);
+		Block block = Block.blocksList[blockID];
+		
+		if (block != null)
+		{
+			return (block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) &&
+					MiscHelpers.isWaterInRange(world, x, y, z, 2, 1)) ||
+					canStayStacked(world, x, y, z, blockID);
+		}
+		
+		return false;
+    }
+	
+	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand)
 	{
 		if (world.isRemote)
@@ -209,13 +227,13 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 		
 		if (props.top && props.height < stackedLimit)
 		{
-			if (age >= PLAIN_META_MASK && world.isAirBlock(x, y + 1, z) && rand.nextBoolean())
+			if (age >= PLAIN_META_MASK && world.getBlockMaterial(x, y + 1, z).isReplaceable() && rand.nextBoolean())
 			{
 				world.setBlock(x, y + 1, z, blockID);
 			}
 		}
 		else if (!props.hasEggs &&
-				rand.nextFloat() <= 0.1F * Math.sqrt(Math.max(age - 2, 0)))
+				rand.nextFloat() <= 0.1F * Math.sqrt(Math.max(age - 5, 0)))
 		{
             metadata = setHasEggs(metadata, true);
             age = -1;

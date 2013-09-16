@@ -1,5 +1,7 @@
 package genesis.genesis.block;
 
+import genesis.genesis.item.Items;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -7,68 +9,59 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
 public class BlockGenesisOre extends BlockGenesisRock {
 	
-	protected int[] dropItemIDs;
-	protected int[] dropItemDamages;
+	protected int dropItemID;
+	protected int dropItemDamage;
 	protected int minDrop;
 	protected int maxDrop;
 	protected int minXP;
 	protected int maxXP;
 	
-	public BlockGenesisOre(int blockID, Object[] drops, int[] damages, Material mat, int harvestLevel, int minDrop, int maxDrop, int minXP, int maxXP) {
+	public BlockGenesisOre(int blockID, Material mat, int harvestLevel, int minDrop, int maxDrop, int minXP, int maxXP) {
 		super(blockID, mat, harvestLevel);
 		
-		setDrops(drops, damages);
 		this.minDrop = minDrop;
 		this.maxDrop = maxDrop;
 		this.minXP = minXP;
 		this.maxXP = maxXP;
 	}
 	
-	public BlockGenesisOre(int blockID, Object[] drops, int[] damages, Material mat, int harvestLevel, int minDrop, int maxDrop) {
+	public BlockGenesisOre(int blockID, Material mat, int harvestLevel, int minDrop, int maxDrop) {
 		super(blockID, mat, harvestLevel);
 
-		setDrops(drops, damages);
 		this.minDrop = minDrop;
 		this.maxDrop = maxDrop;
 	}
 	
-	public BlockGenesisOre(int blockID, Object[] drops, int[] damages, Material mat, int harvestLevel) {
+	public BlockGenesisOre(int blockID, Material mat, int harvestLevel) {
 		super(blockID, mat, harvestLevel);
 
-		setDrops(drops, damages);
 		this.minDrop = 1;
 		this.maxDrop = 1;
 	}
 	
-	public void setDrops(Object[] drops, int[] damages)
+	public BlockGenesisOre setDrop(Object drop, int damage, float smeltXP) throws IllegalArgumentException
 	{
-		dropItemIDs = new int[drops.length];
-		dropItemDamages = new int[dropItemIDs.length];
+		if (drop instanceof Block)
+			dropItemID = ((Block)drop).blockID;
+		else if (drop instanceof Item)
+			dropItemID = ((Item)drop).itemID;
+		else if (drop instanceof Integer)
+			dropItemID = (Integer)drop;
+		else
+			throw new IllegalArgumentException("Invalid Genesis ore item drop: " + drop);
 		
-		for (int i = 0; i < drops.length; i++)
-		{
-			Object objDrop = drops[i];
-			
-			if (objDrop instanceof Block)
-				dropItemIDs[i] = ((Block)objDrop).blockID;
-			else if (objDrop instanceof Item)
-				dropItemIDs[i] = ((Item)objDrop).itemID;
-			else if (objDrop instanceof Integer)
-				dropItemIDs[i] = (Integer)objDrop;
-			
-			int damage = 0;
-			
-			if (damages != null && i < damages.length)
-				damage = damages[i];
-			
-			dropItemDamages[i] = damage;
-		}
+		dropItemDamage = damage;
+		
+		FurnaceRecipes.smelting().addSmelting(blockID, 0, new ItemStack(dropItemID, 1, dropItemDamage), smeltXP);
+		
+		return this;
 	}
 	
 	public int quantityDropped(int metadata, int fortune, Random random)
@@ -77,27 +70,14 @@ public class BlockGenesisOre extends BlockGenesisRock {
         return MathHelper.getRandomIntegerInRange(random, minDrop, maxDrop) * (bonus + 1);
 	}
 	
-    public int dropIndex(int metadata, Random random, int fortune)
+    public int idDropped(int metdata, Random random, int fortune)
     {
-        return random.nextInt(dropItemIDs.length);
+        return dropItemID;
     }
-	
-    public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int metadata, int fortune)
+    
+    public int damageDropped(int par1)
     {
-        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-
-        int count = quantityDropped(metadata, fortune, world.rand);
-        
-        for(int i = 0; i < count; i++)
-        {
-            int dropIndex = dropIndex(metadata, world.rand, fortune);
-            int dropItemID = dropItemIDs[dropIndex];
-            int dropDamage = dropItemDamages[dropIndex];
-            
-            ret.add(new ItemStack(dropItemID, 1, dropDamage));
-        }
-        
-        return ret;
+        return dropItemDamage;
     }
     
     public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance, int fortune)
