@@ -1,5 +1,7 @@
 package genesis.genesis.block;
 
+import java.util.Arrays;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -28,6 +30,8 @@ public class Blocks {
 	private static final Material rockNoTool = new Material(MapColor.stoneColor);
 
 	public static Block moss;
+	public static Block frozenItem;
+	public static Block tikiTorch;
 	
 	// Rocks
 	public static Block granite;
@@ -38,9 +42,9 @@ public class Blocks {
 	// Ores
 	public static BlockGenesisOre zirconOre;
 	public static BlockGenesisOreStorage zirconBlock;
-	
+
 	public static BlockGenesisOre quartzGraniteOre;
-	
+
 	public static BlockGenesisOre olivineOre;
 	public static BlockGenesisOreStorage olivineBlock;
 	
@@ -48,6 +52,19 @@ public class Blocks {
 	{
 		moss = new BlockMoss(IDs.blockMossID).setTextureName("moss")
 				.setUnlocalizedName(Names.blockMoss_unloc);
+		frozenItem = new BlockFrozenItem(IDs.blockFrozenItemID, new Item[] 
+				{Item.diamond, 
+				Item.coal,
+				Item.pickaxeStone,
+				Item.arrow,
+				Item.beefRaw,
+				Item.chickenRaw
+				})
+				.setTextureName("frozenItem")
+				.setUnlocalizedName(Names.blockFrozenItem_unloc);
+		tikiTorch = new BlockTikiTorch(IDs.blockTikiTorchID).setTextureName("tiki_torch")
+				.setUnlocalizedName(Names.blockTikiTorch_unloc);
+		
 		
 		// Rocks
 		granite = new BlockGenesisRock(IDs.blockGraniteID, Material.rock, 0)
@@ -95,13 +112,15 @@ public class Blocks {
 	public static void registerBlocks()
 	{
 		GameRegistry.registerBlock(moss, Names.blockMoss_unloc);
+		GameRegistry.registerBlock(frozenItem, Names.blockFrozenItem_unloc);
+		GameRegistry.registerBlock(tikiTorch, Names.blockTikiTorch_unloc);
 		
 		zirconOre.setDrop(Items.zircon, 0, 0.5F);
-		
+
 		quartzGraniteOre.setDrop(Items.quartz, 0, 0.2F);
 		
 		olivineOre.setDrop(Items.olivine, 0, 0.8F);
-
+		
         MinecraftForge.setBlockHarvestLevel(moss, "shovel", 0);
 
 		zirconBlock.setRecipe(Items.zircon, false);

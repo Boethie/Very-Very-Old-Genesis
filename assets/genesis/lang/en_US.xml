@@ -8,6 +8,13 @@
 
 
 	<!-- Blocks -->
+	
+	<!-- Tiki Torch -->
+	<entry key="tile.genesis.tikiTorch.name">Tiki Torch</entry>
+	
+	<!-- Frozen Item -->
+	<entry key="tile.genesis.frozenItem.name">Frozen Item</entry>
+	
 	<!-- Moss -->
 	<entry key="tile.genesis.moss.name">Moss</entry>
 
