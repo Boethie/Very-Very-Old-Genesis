@@ -30,7 +30,6 @@ public class Blocks {
 	private static final Material rockNoTool = new Material(MapColor.stoneColor);
 
 	public static Block moss;
-	public static Block frozenItem;
 	public static Block tikiTorch;
 	
 	// Rocks
@@ -115,7 +114,6 @@ public class Blocks {
 	public static void registerBlocks()
 	{
 		GameRegistry.registerBlock(moss, Names.blockMoss_unloc);
-		GameRegistry.registerBlock(frozenItem, Names.blockFrozenItem_unloc);
 		GameRegistry.registerBlock(tikiTorch, Names.blockTikiTorch_unloc);
 		
 		zirconOre.setDrop(Items.zircon, 0, 0.5F);

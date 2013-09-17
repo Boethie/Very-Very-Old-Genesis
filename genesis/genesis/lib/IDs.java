@@ -62,7 +62,6 @@ public class IDs {
 
 	// ---- Blocks ----
 	public static int blockMossID = 2172;
-	public static int blockFrozenItemID = 2198;
 	public static int blockTikiTorchID = 2199;
 	
 	// Rocks

@@ -6,7 +6,6 @@ public class Names {
 
 	// ---- Blocks ----
 	public static final String blockStorage_unloc = mod_unloc + "storage.";
-	public static final String blockFrozenItem_unloc = mod_unloc + "frozenItem";
 	public static final String blockTikiTorch_unloc = mod_unloc + "tikiTorch";
 	
 	// Moss

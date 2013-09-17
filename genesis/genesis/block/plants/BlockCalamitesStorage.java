@@ -19,6 +19,7 @@ public class BlockCalamitesStorage extends BlockRotatedPillar {
 		
 		setCreativeTab(Genesis.tabGenesis);
 		setHardness(2);
+		setStepSound(soundWoodFootstep);
 		setBurnProperties(this.blockID, 4, 4);
 		
 		MinecraftForge.setBlockHarvestLevel(this, "axe", 0);

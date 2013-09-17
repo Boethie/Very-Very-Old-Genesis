@@ -31,7 +31,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @NetworkMod(clientSideRequired = true, serverSideRequired = true, channels={GenesisPacket.CHANNEL}, packetHandler = PacketHandler.class)
 public class Genesis {
 	
-	@Instance
+	@Instance(Genesis.MOD_ID)
 	public static Genesis instance;
 	
 	@SidedProxy (clientSide = "genesis.genesis.client.ClientProxy", serverSide = "genesis.genesis.common.CommonProxy")
