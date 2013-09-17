@@ -6,7 +6,6 @@ import cpw.mods.fml.relauncher.Side;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import genesis.genesis.block.BlockFrozenItemRenderer;
 import genesis.genesis.block.BlockMossRenderer;
 import genesis.genesis.block.BlockTikiTorchRenderer;
 import genesis.genesis.common.CommonProxy;
@@ -18,7 +17,6 @@ public class ClientProxy extends CommonProxy{
 
 		RenderingRegistry.registerBlockHandler(new BlockMossRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockGenesisPlantRenderer());
-		RenderingRegistry.registerBlockHandler(new BlockFrozenItemRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockTikiTorchRenderer());
 		
 		LanguageLoader.loadLanguages();
