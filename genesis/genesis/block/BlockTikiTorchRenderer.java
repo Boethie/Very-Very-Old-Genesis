@@ -34,7 +34,9 @@ public class BlockTikiTorchRenderer implements ISimpleBlockRenderingHandler{
 		}
 		else
 		{
+			renderer.setOverrideBlockTexture(BlockTikiTorch.tikiTorchUpper);
 			renderer.renderTorchAtAngle(block, x, y, z, 0, 0, 0);
+			renderer.clearOverrideBlockTexture();
 		}
 		
 		return true;

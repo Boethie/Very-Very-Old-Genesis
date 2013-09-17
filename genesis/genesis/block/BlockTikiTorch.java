@@ -17,7 +17,12 @@ import net.minecraftforge.common.ForgeDirection;
 
 public class BlockTikiTorch extends Block{
 
+	public static final int TORCH_META = 8;
+	public static final int MASK_META = 7;
+	
+	
 	public static Icon tikiTorchLower;
+	public static Icon tikiTorchUpper;
 	
 	protected BlockTikiTorch(int par1) {
 		super(par1, Material.circuits);
@@ -34,7 +39,8 @@ public class BlockTikiTorch extends Block{
 	
 	public void registerIcons(IconRegister iconRegister)
     {
-		this.blockIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_upper");
+		this.blockIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName());
+		this.tikiTorchUpper = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_upper");
 		this.tikiTorchLower = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_lower");
     }
 	
@@ -48,11 +54,20 @@ public class BlockTikiTorch extends Block{
 		return false;
 	}
 	
+	public int setUpper(int metadata)
+	{
+		return (metadata & MASK_META) | TORCH_META;
+	}
+	
+	public boolean isUpper(int metadata)
+	{
+		return (metadata & TORCH_META) != 0;
+	}
+	
 	@SideOnly(Side.CLIENT)
     public void randomDisplayTick(World world, int x, int y, int z, Random random)
     {
-		int metadata = world.getBlockMetadata(x, y, z);
-		if(metadata == 2)
+		if(isUpper(world.getBlockMetadata(x, y, z)))
 		{
 	        double xPos = (double)x + 0.5D;
 	        double yPos = (double)y + 0.7D;
@@ -76,16 +91,15 @@ public class BlockTikiTorch extends Block{
 	
 	public void checkUnderneathBlock(World world, int x, int y, int z)
 	{
-		int metadata = world.getBlockMetadata(x, y, z);
-		if(metadata == 0)
+		if(!isUpper(world.getBlockMetadata(x, y, z)))
 		{
 			if(!canTorchStay(world, x, y, z))
 			{
-				world.setBlockMetadataWithNotify(x, y, z, 4, 2);
-				this.onBlockAdded(world, x, y, z);
+				this.dropBlockAsItem(world, x, y, z, 0, 0);
+				world.setBlock(x, y, z, 0);
 			}
 		}
-		else if(metadata == 2)
+		else
 		{
 			if(world.getBlockId(x, y - 1, z) != this.blockID)
 			{
@@ -100,17 +114,10 @@ public class BlockTikiTorch extends Block{
 		{
 			if(world.isAirBlock(x, y - 1, z))
 			{
-				return 2;
+				return setUpper(metadata);
 			}
 		}
-		else
-		{
-			if(world.isAirBlock(x, y + 1, z))
-			{
-				return 0;
-			}
-		}
-		return 4;
+		return metadata & MASK_META;
     }
 	
 	public boolean canTorchStay(World world, int x, int y, int z)
@@ -126,18 +133,27 @@ public class BlockTikiTorch extends Block{
     {
 		int metadata = world.getBlockMetadata(x, y, z);
 		boolean flag = false;
-		if(metadata == 0)
+		if(!isUpper(metadata))
 		{
-			world.setBlock(x, y + 1, z, this.blockID, 2, 2);
-			flag = true;
+			int blockID = world.getBlockId(x, y + 1, z);
+			if(blockID == 0 || blockID == this.blockID)
+			{
+				world.setBlock(x, y + 1, z, this.blockID, setUpper(metadata), 2);
+				flag = true;
+			}
 		}
-		else if(metadata == 2)
+		else
 		{
 			if(canTorchStay(world, x, y - 1, z))
 			{
-				world.setBlock(x, y - 1, z, this.blockID, 0, 2);
+				if(world.getBlockId(x, y - 1, z) != this.blockID)
+				{
+					world.setBlock(x, y - 1, z, this.blockID, 0, 2);
+				}
 				flag = true;
+				
 			}
+			
 		}
 		if(!flag)
 		{
@@ -152,8 +168,7 @@ public class BlockTikiTorch extends Block{
 	
 	public MovingObjectPosition collisionRayTrace(World world, int x, int y, int z, Vec3 par5Vec3, Vec3 par6Vec3)
     {
-		int metadata = world.getBlockMetadata(x, y, z);
-		if(metadata == 0)
+		if(!isUpper(world.getBlockMetadata(x, y, z)))
 		{
 			this.setBlockBounds(0.4F, 0.0F, 0.4F, 0.6F, 1F, 0.6F);
 		}
@@ -166,14 +181,14 @@ public class BlockTikiTorch extends Block{
 	
 	public void breakBlock(World world, int x, int y, int z, int blockID, int metadata)
     {
-		if(metadata == 0)
+		if(!isUpper(metadata))
 		{
 			if(world.getBlockId(x, y + 1, z) == this.blockID)
 			{
 				world.setBlockToAir(x, y + 1, z);
 			}
 		}
-		else if(metadata == 2)
+		else
 		{
 			world.setBlockToAir(x, y - 1, z);
 		}

@@ -52,7 +52,9 @@ public class Blocks {
 	{
 		moss = new BlockMoss(IDs.blockMossID).setTextureName("moss")
 				.setUnlocalizedName(Names.blockMoss_unloc);
-		frozenItem = new BlockFrozenItem(IDs.blockFrozenItemID, new Item[] 
+		
+		//Removed due to Anaghold unsure of use
+		/*frozenItem = new BlockFrozenItem(IDs.blockFrozenItemID, new Item[] 
 				{Item.diamond, 
 				Item.coal,
 				Item.pickaxeStone,
@@ -61,7 +63,8 @@ public class Blocks {
 				Item.chickenRaw
 				})
 				.setTextureName("frozenItem")
-				.setUnlocalizedName(Names.blockFrozenItem_unloc);
+				.setUnlocalizedName(Names.blockFrozenItem_unloc);*/
+		
 		tikiTorch = new BlockTikiTorch(IDs.blockTikiTorchID).setTextureName("tiki_torch")
 				.setUnlocalizedName(Names.blockTikiTorch_unloc);
 		
