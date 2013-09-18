@@ -36,13 +36,19 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 
 	@SideOnly(Side.CLIENT)
 	Icon calamitesPlant;
-	@SideOnly(Side.CLIENT)
-	Icon calamitesPlantTop;
 	
 	@SideOnly(Side.CLIENT)
-	Icon calamitesPlantEggs;
+	Icon calamitesPlantTop;
+
 	@SideOnly(Side.CLIENT)
-	Icon calamitesPlantTopEggs;
+	Icon calamitesPlantEggs1;
+	@SideOnly(Side.CLIENT)
+	Icon calamitesPlantEggs2;
+	
+	@SideOnly(Side.CLIENT)
+	Icon calamitesPlantTopEggs1;
+	@SideOnly(Side.CLIENT)
+	Icon calamitesPlantTopEggs2;
 	
 	/*
 	 * Metadata values:
@@ -214,6 +220,23 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 		return false;
     }
 	
+	private void resetAll(World world, ArrayList<ChunkPosition> positions, int exceptY, boolean skipTop)
+	{
+        ChunkPosition lastPos = null;
+        
+        if (skipTop)
+        	lastPos = positions.get(positions.size() - 1);
+        
+        for (ChunkPosition pos : positions)
+        {
+        	if (pos != lastPos && pos.y != exceptY)
+        	{
+            	int resetMetadata = world.getBlockMetadata(pos.x, pos.y, pos.z);
+            	world.setBlockMetadataWithNotify(pos.x, pos.y, pos.z, setAge(resetMetadata, 0), 3);
+        	}
+        }
+	}
+	
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand)
 	{
@@ -224,49 +247,91 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 		
 		int metadata = world.getBlockMetadata(x, y, z);
 		int age = getAge(metadata);
+		boolean resetAges = false;
 		
-		if (props.top && props.height < stackedLimit)
+		if (hasEggs(metadata) && age >= 4)
+		{
+			metadata = setHasEggs(metadata, false);
+			resetAges = true;
+		}
+		else if (props.top && props.height < stackedLimit)
 		{
 			if (age >= PLAIN_META_MASK && world.getBlockMaterial(x, y + 1, z).isReplaceable() && rand.nextBoolean())
 			{
 				world.setBlock(x, y + 1, z, blockID);
 			}
 		}
-		else if (!props.hasEggs &&
-				rand.nextFloat() <= 0.1F * Math.sqrt(Math.max(age - 5, 0)))
+		else if (!props.hasEggs && age >= PLAIN_META_MASK &&
+				rand.nextBoolean())
 		{
             metadata = setHasEggs(metadata, true);
-            age = -1;
-            
-            ChunkPosition lastPos = null;
-            
-            if (props.height < stackedLimit)
-            	lastPos = props.positions.get(props.positions.size() - 1);
-            
-            for (ChunkPosition pos : props.positions)
-            {
-            	if (pos != lastPos && pos.y != y)
-            	{
-	            	int resetMetadata = world.getBlockMetadata(pos.x, pos.y, pos.z);
-	            	world.setBlockMetadataWithNotify(pos.x, pos.y, pos.z, setAge(resetMetadata, 0), 3);
-            	}
-            }
+            resetAges = true;
+		}
+		
+		if (resetAges)
+		{
+			age = -1;
+            resetAll(world, props.positions, y, props.height < stackedLimit);
 		}
 		
 		world.setBlockMetadataWithNotify(x, y, z, setAge(metadata, age + 1), 3);
 	}
 	
+	private static boolean secondSide;
+	private static boolean reverseTex;
+	
 	@Override
     public Icon getBlockTexture(IBlockAccess world, int x, int y, int z, int side)
     {
+		if (side == 0)
+		{
+			Random rand = new Random((x + z) * y * y * x * z);
+			rand.nextFloat();	// Just to (hopefully) help the booleans be more random
+			secondSide = rand.nextBoolean();
+			reverseTex = rand.nextBoolean();
+		}
+		
     	int metadata = world.getBlockMetadata(x, y, z);
     	boolean isTop = isTop(world, x, y, z);
     	
     	if (hasEggs(metadata))
-    		return isTop ? this.calamitesPlantTopEggs : this.calamitesPlantEggs;
-    	else
-    		return isTop ? this.calamitesPlantTop : this.calamitesPlant;
+    	{
+    		if (secondSide ? (side == 1 || side == 3) : (side == 0 || side == 2))
+    		{
+    			return isTop ? this.calamitesPlantTopEggs1 : this.calamitesPlantEggs1;
+    		}
+    		else
+    		{
+    			switch (side)
+    			{
+    			case 0:
+    				if (secondSide && !reverseTex)
+    	    			return isTop ? this.calamitesPlantTopEggs2 : this.calamitesPlantEggs2;
+    				break;
+    			case 1:
+    				if (!secondSide && reverseTex)
+    	    			return isTop ? this.calamitesPlantTopEggs2 : this.calamitesPlantEggs2;
+    				break;
+    			case 2:
+    				if (secondSide && reverseTex)
+    	    			return isTop ? this.calamitesPlantTopEggs2 : this.calamitesPlantEggs2;
+    				break;
+    			case 3:
+    				if (!secondSide && !reverseTex)
+    	    			return isTop ? this.calamitesPlantTopEggs2 : this.calamitesPlantEggs2;
+    				break;
+    			}
+    		}
+    	}
+    	
+    	return isTop ? this.calamitesPlantTop : this.calamitesPlant;
     }
+	
+	@Override
+	public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z, int side)
+	{
+		return reverseTex;
+	}
 	
 	@Override
 	public void registerIcons(IconRegister iconRegister)
@@ -277,8 +342,10 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 		this.calamitesPlant = iconRegister.registerIcon(texStart);
 		this.calamitesPlantTop = iconRegister.registerIcon(texStart + "_top");
 
-		this.calamitesPlantEggs = iconRegister.registerIcon(texStart + "_eggs");
-		this.calamitesPlantTopEggs = iconRegister.registerIcon(texStart + "_eggs_top");
+		this.calamitesPlantEggs1 = iconRegister.registerIcon(texStart + "_eggs_1");
+		this.calamitesPlantEggs2 = iconRegister.registerIcon(texStart + "_eggs_2");
+		this.calamitesPlantTopEggs1 = iconRegister.registerIcon(texStart + "_eggs_top_1");
+		this.calamitesPlantTopEggs2 = iconRegister.registerIcon(texStart + "_eggs_top_2");
 		
 		this.blockIcon = this.calamitesPlant;
     }
@@ -289,16 +356,15 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 		return Genesis.MOD_ID + ":" + getTextureName();
 	}
 	
-	private boolean dropEggs(World world, int x, int y, int z)
+	private boolean dropEggs(World world, int x, int y, int z, int metadata)
 	{
-        int metadata = world.getBlockMetadata(x, y, z);
-        
         if (hasEggs(metadata))
         {
             if (world.isRemote)
                 return true;
 
-            world.setBlockMetadataWithNotify(x, y, z, setHasEggs(metadata, false), 3);
+            if (world.getBlockId(x, y, z) == this.blockID)
+            	world.setBlockMetadataWithNotify(x, y, z, setHasEggs(metadata, false), 3);
             
             EntityItem itemDrop = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(Item.egg));
             double div = Math.sqrt(itemDrop.motionX * itemDrop.motionX +
@@ -320,17 +386,24 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
     {
-        return dropEggs(world, x, y, z);
+    	if (dropEggs(world, x, y, z, world.getBlockMetadata(x, y, z)))
+    		return true;
+    	
+    	/*if (!world.isRemote)
+    	{
+	    	updateTick(world, x, y, z, world.rand);
+    	}*/
+    	
+    	return false;
     }
     
     public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance, int fortune)
     {
     	super.dropBlockAsItemWithChance(world, x, y, z, metadata, chance, fortune);
-    	
-    	System.out.println("drp " + y + " " + chance);
+
         if (!world.isRemote && world.rand.nextFloat() <= chance)
         {
-            dropEggs(world, x, y, z);
+            dropEggs(world, x, y, z, metadata);
         }
     }
     
@@ -340,12 +413,9 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
     	return metadata;
     }
     
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int x, int y, int z)
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
     {
-        /*return AxisAlignedBB.getAABBPool().getAABB(x + this.minX, y + this.minY, z + this.minZ,
-        		x + this.maxX, y + this.maxY, z + this.maxZ);*/
     	float size = 0.15F;
-    	
     	return AxisAlignedBB.getAABBPool().getAABB(x + 0.5 - size, y, z + 0.5 - size,
     			x + 0.5 + size, y + 1, z + 0.5 + size);
     }

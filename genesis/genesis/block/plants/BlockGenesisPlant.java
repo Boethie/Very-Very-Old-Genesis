@@ -3,18 +3,18 @@ package genesis.genesis.block.plants;
 import java.util.Random;
 
 import genesis.genesis.block.Blocks;
-import genesis.genesis.client.BlockGenesisPlantRenderer;
 import genesis.genesis.common.Genesis;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
 
-public class BlockGenesisPlant extends BlockFlower {
+public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecials {
 	
 	public boolean stackable = false;
 	public int stackedLimit = 1;
@@ -106,7 +106,7 @@ public class BlockGenesisPlant extends BlockFlower {
 			if (stackedLimit == 0)
 				return true;
 			
-			int checkBlockID = 0;
+			int checkBlockID = this.blockID;
 			int count = 0;
 			int off = 1;
 			
@@ -121,7 +121,8 @@ public class BlockGenesisPlant extends BlockFlower {
 				
 				off++;
 			}
-			
+
+			checkBlockID = this.blockID;
 			off = 1;
 			
 			while (checkBlockID == this.blockID)
@@ -180,5 +181,11 @@ public class BlockGenesisPlant extends BlockFlower {
     {
         this.dropIfCannotStay(world, x, y, z);
     }
+
+	@Override
+	public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z, int side)
+	{
+		return false;
+	}
 	
 }

@@ -9,7 +9,7 @@ import genesis.genesis.block.plants.PlantBlocks;
 import genesis.genesis.block.trees.TreeBlocks;
 import genesis.genesis.common.Genesis;
 import genesis.genesis.item.Items;
-import genesis.genesis.itemblock.ItemBlockGenesisTree;
+import genesis.genesis.item.itemblock.ItemBlockGenesisTree;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.Names;
 
@@ -50,7 +50,7 @@ public class Blocks {
 	public static void init()
 	{
 		moss = new BlockMoss(IDs.blockMossID).setTextureName("moss")
-				.setUnlocalizedName(Names.blockMoss_unloc);
+				.setUnlocalizedName(Names.blockMoss);
 		
 		//Removed due to Anaghold unsure of use
 		/*frozenItem = new BlockFrozenItem(IDs.blockFrozenItemID, new Item[] 
@@ -65,46 +65,46 @@ public class Blocks {
 				.setUnlocalizedName(Names.blockFrozenItem_unloc);*/
 		
 		tikiTorch = new BlockTikiTorch(IDs.blockTikiTorchID).setTextureName("tiki_torch")
-				.setUnlocalizedName(Names.blockTikiTorch_unloc);
+				.setUnlocalizedName(Names.blockTikiTorch);
 		
 		
 		// Rocks
 		granite = new BlockGenesisRock(IDs.blockGraniteID, Material.rock, 0)
 				.setTextureName("granite")
-				.setUnlocalizedName(Names.blockGranite_unloc).setHardness(1.5F).setResistance(10);
+				.setUnlocalizedName(Names.blockGranite).setHardness(1.5F).setResistance(10);
 		graniteMossy = new BlockGenesisRock(IDs.blockGraniteMossyID, Material.rock, 0)
 				.setTextureName("granite_mossy")
-				.setUnlocalizedName(Names.blockGraniteMossy_unloc).setHardness(1.5F).setResistance(10);
+				.setUnlocalizedName(Names.blockGraniteMossy).setHardness(1.5F).setResistance(10);
 		limestone = new BlockGenesisRock(IDs.blockLimestoneID, Material.rock, 0)
 				.setTextureName("limestone")
-				.setUnlocalizedName(Names.blockLimestone_unloc).setHardness(1).setResistance(7.5F);
+				.setUnlocalizedName(Names.blockLimestone).setHardness(1).setResistance(7.5F);
 		stromatolite = new BlockGenesisRock(IDs.blockStromatoliteID, Material.rock, 0)
 				.setTextureName("stromatolite")
-				.setUnlocalizedName(Names.blockStromatolite_unloc).setHardness(0.7F).setResistance(5);
+				.setUnlocalizedName(Names.blockStromatolite).setHardness(0.7F).setResistance(5);
 		
 		// Ores
 		zirconOre = (BlockGenesisOre)new BlockGenesisOre(IDs.blockZirconOreID,
 				Material.rock, 2,
 				1, 1, 2, 6)
-				.setTextureName("zircon_ore").setUnlocalizedName(Names.blockZirconOre_unloc)
+				.setTextureName("zircon_ore").setUnlocalizedName(Names.blockZirconOre)
 				.setHardness(3).setResistance(10);
 		zirconBlock = (BlockGenesisOreStorage)new BlockGenesisOreStorage(IDs.blockZirconID, Material.iron, 2)
-				.setTextureName("zircon_block").setUnlocalizedName(Names.blockZircon_unloc)
+				.setTextureName("zircon_block").setUnlocalizedName(Names.blockZircon)
 				.setHardness(3).setResistance(10);
 		
 		quartzGraniteOre = (BlockGenesisOre)new BlockGenesisOre(IDs.blockQuartzGraniteOreID,
 				Material.rock, 1,
 				1, 1, 2, 5)
-				.setTextureName("quartz_granite_ore").setUnlocalizedName(Names.blockQuartzGraniteOre_unloc)
+				.setTextureName("quartz_granite_ore").setUnlocalizedName(Names.blockQuartzGraniteOre)
 				.setHardness(3).setResistance(10);
 		
 		olivineOre = (BlockGenesisOre)new BlockGenesisOre(IDs.blockOlivineOreID,
 				Material.rock, 2,
 				1, 1, 3, 8)
-				.setTextureName("olivine_ore").setUnlocalizedName(Names.blockOlivineOre_unloc)
+				.setTextureName("olivine_ore").setUnlocalizedName(Names.blockOlivineOre)
 				.setHardness(3).setResistance(10);
 		olivineBlock = (BlockGenesisOreStorage)new BlockGenesisOreStorage(IDs.blockOlivineID, Material.iron, 2)
-				.setTextureName("olivine_block").setUnlocalizedName(Names.blockOlivine_unloc)
+				.setTextureName("olivine_block").setUnlocalizedName(Names.blockOlivine)
 				.setHardness(3).setResistance(10);
 		
 		TreeBlocks.init();
@@ -113,8 +113,8 @@ public class Blocks {
 	
 	public static void registerBlocks()
 	{
-		GameRegistry.registerBlock(moss, Names.blockMoss_unloc);
-		GameRegistry.registerBlock(tikiTorch, Names.blockTikiTorch_unloc);
+		GameRegistry.registerBlock(moss, Names.blockMoss);
+		GameRegistry.registerBlock(tikiTorch, Names.blockTikiTorch);
 		
 		zirconOre.setDrop(Items.zircon, 0, 0.5F);
 

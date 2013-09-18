@@ -8,13 +8,13 @@
 
 
 	<!-- Blocks -->
-	
+
 	<!-- Tiki Torch -->
 	<entry key="tile.genesis.tikiTorch.name">Tiki Torch</entry>
-	
+
 	<!-- Frozen Item -->
 	<entry key="tile.genesis.frozenItem.name">Frozen Item</entry>
-	
+
 	<!-- Moss -->
 	<entry key="tile.genesis.moss.name">Moss</entry>
 
@@ -43,17 +43,35 @@
 	<!-- Plants -->
 	<entry key="tile.genesis.plant.calamites.name">Calamites</entry>
 	<entry key="tile.genesis.storage.calamites.name">Block of Calamites</entry>
-	
-	
+
+
 	<!-- Items -->
 	<!-- Crafting -->
 	<entry key="item.genesis.zircon.name">Zircon</entry>
 	<entry key="item.genesis.quartz.name">Quartz</entry>
 	<entry key="item.genesis.olivine.name">Olivine</entry>
 
+	<!-- Swords/Tools -->
+	<entry key="item.genesis.sword.zircon.name">Zircon Sword</entry>
+	<entry key="item.genesis.tool.pickaxe.zircon.name">Zircon Pickaxe</entry>
+	<entry key="item.genesis.tool.shovel.zircon.name">Zircon Shovel</entry>
+	<entry key="item.genesis.tool.axe.zircon.name">Zircon Axe</entry>
+	<entry key="item.genesis.tool.hoe.zircon.name">Zircon Hoe</entry>
+
+	<entry key="item.genesis.sword.olivine.name">Olivine Sword</entry>
+	<entry key="item.genesis.tool.pickaxe.olivine.name">Olivine Pickaxe</entry>
+	<entry key="item.genesis.tool.shovel.olivine.name">Olivine Shovel</entry>
+	<entry key="item.genesis.tool.axe.olivine.name">Olivine Axe</entry>
+	<entry key="item.genesis.tool.hoe.olivine.name">Olivine Hoe</entry>
+
 	<!-- Armor -->
 	<entry key="item.genesis.armor.helmet.zircon.name">Zircon Helmet</entry>
 	<entry key="item.genesis.armor.chestplate.zircon.name">Zircon Chestplate</entry>
 	<entry key="item.genesis.armor.leggings.zircon.name">Zircon Leggings</entry>
 	<entry key="item.genesis.armor.boots.zircon.name">Zircon Boots</entry>
+
+	<entry key="item.genesis.armor.helmet.olivine.name">Olivine Helmet</entry>
+	<entry key="item.genesis.armor.chestplate.olivine.name">Olivine Chestplate</entry>
+	<entry key="item.genesis.armor.leggings.olivine.name">Olivine Leggings</entry>
+	<entry key="item.genesis.armor.boots.olivine.name">Olivine Boots</entry>
 </properties>

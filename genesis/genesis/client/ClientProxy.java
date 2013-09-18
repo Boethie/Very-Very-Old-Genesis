@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import genesis.genesis.block.BlockMossRenderer;
 import genesis.genesis.block.BlockTikiTorchRenderer;
+import genesis.genesis.block.plants.BlockGenesisPlantRenderer;
 import genesis.genesis.common.CommonProxy;
 
 public class ClientProxy extends CommonProxy{

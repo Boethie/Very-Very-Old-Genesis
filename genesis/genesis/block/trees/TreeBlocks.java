@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import genesis.genesis.common.Genesis;
-import genesis.genesis.itemblock.ItemBlockGenesisTree;
+import genesis.genesis.item.itemblock.ItemBlockGenesisTree;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.Names;
 import net.minecraft.block.Block;
@@ -33,13 +33,13 @@ public class TreeBlocks {
 		for (int set = 0; set < IDs.TREE_BLOCK_COUNT; set++)
 		{
 			blocksLogs[set] = new BlockGenesisLog(IDs.blockLogID.getID(set), set)
-					.setUnlocalizedName(Names.blockLogGenesis_unloc);
+					.setUnlocalizedName(Names.blockLogGenesis);
 			
 			blocksSaplings[set] = new BlockGenesisSapling(IDs.blockSaplingID.getID(set), set)
-					.setUnlocalizedName(Names.blockSaplingGenesis_unloc);
+					.setUnlocalizedName(Names.blockSaplingGenesis);
 			
 			blocksLeaves[set] = new BlockGenesisLeaves(IDs.blockLeavesID.getID(set), set)
-					.setUnlocalizedName(Names.blockLeavesGenesis_unloc);
+					.setUnlocalizedName(Names.blockLeavesGenesis);
 		}
 	}
 	
@@ -74,11 +74,11 @@ public class TreeBlocks {
 	{
 		for (int set = 0; set < IDs.TREE_BLOCK_COUNT; set++)
 		{
-			GameRegistry.registerBlock(blocksLogs[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLogGenesis_unloc + set);
+			GameRegistry.registerBlock(blocksLogs[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLogGenesis + set);
 			
-			GameRegistry.registerBlock(blocksSaplings[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockSaplingGenesis_unloc + set);
+			GameRegistry.registerBlock(blocksSaplings[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockSaplingGenesis + set);
 			
-			GameRegistry.registerBlock(blocksLeaves[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLeavesGenesis_unloc + set);
+			GameRegistry.registerBlock(blocksLeaves[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLeavesGenesis + set);
 		}
 	}
 

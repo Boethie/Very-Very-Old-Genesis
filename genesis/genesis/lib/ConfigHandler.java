@@ -15,13 +15,13 @@ public class ConfigHandler {
 			try
 			{
 			IDs.blockLogID.setID(set,
-					config.getBlock(Names.blockLogGenesis_unloc + set, IDs.blockLogID.getID(set)).getInt());
+					config.getBlock(Names.blockLogGenesis + set, IDs.blockLogID.getID(set)).getInt());
 			
 			IDs.blockSaplingID.setID(set,
-					config.getBlock(Names.blockSaplingGenesis_unloc + set, IDs.blockSaplingID.getID(set)).getInt());
+					config.getBlock(Names.blockSaplingGenesis + set, IDs.blockSaplingID.getID(set)).getInt());
 			
 			IDs.blockLeavesID.setID(set,
-					config.getBlock(Names.blockLeavesGenesis_unloc + set, IDs.blockLeavesID.getID(set)).getInt());
+					config.getBlock(Names.blockLeavesGenesis + set, IDs.blockLeavesID.getID(set)).getInt());
 			}
 			catch (Throwable e)
 			{

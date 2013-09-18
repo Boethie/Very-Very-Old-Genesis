@@ -87,14 +87,15 @@ public class IDs {
 	public static int blockCalamitesBlockID = 2201;
 	
 	// ---- Items ----
-	// Crafting items
+	// Ore items, tools (5 IDs) and armors (4 IDs)
 	public static int itemZirconID = 2220;
-	public static int itemsZirconArmorStartID = 2223;
+	public static int itemsZirconToolsStartID = 2221;
+	public static int itemsZirconArmorStartID = 2226;
 	
-	public static int itemQuartzID = 2227;
+	public static int itemQuartzID = 2230;
 	
-	public static int itemOlivineID = 2228;
-	
-	public static int itemCalamitesID = 2233;
+	public static int itemOlivineID = 2231;
+	public static int itemsOlivineToolsStartID = 2232;
+	public static int itemsOlivineArmorStartID = 2238;
 	
 }

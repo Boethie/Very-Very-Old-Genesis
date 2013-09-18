@@ -21,7 +21,7 @@ public class ItemGenesisArmor extends ItemArmor {
 		
 		setCreativeTab(Genesis.tabGenesis);
 		
-		setUnlocalizedName(Names.itemArmor_unloc + Names.itemArmorTypes_unloc[armorType] + materialName);
+		setUnlocalizedName(Names.itemArmor + Names.itemArmorTypes[armorType] + materialName);
 		
 		this.materialName = materialName;
     }
@@ -35,10 +35,20 @@ public class ItemGenesisArmor extends ItemArmor {
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer)
 	{
-		if (slot == 2)
-			return Genesis.MOD_ID + ":textures/models/armor/" + materialName + "_overlay.png";
+		ItemGenesisArmor armorItem = (ItemGenesisArmor)stack.getItem();
 		
-		return Genesis.MOD_ID + ":textures/models/armor/" + materialName + "_skin.png";
+		if (slot == armorItem.armorType)
+		{
+			switch (armorItem.armorType)
+			{
+			case 2:
+				return Genesis.MOD_ID + ":textures/models/armor/" + materialName + "_overlay.png";
+			default:
+				return Genesis.MOD_ID + ":textures/models/armor/" + materialName + "_skin.png";
+			}
+		}
+		
+		return null;
 	}
 	
 }

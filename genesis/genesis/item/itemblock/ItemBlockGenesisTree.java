@@ -1,4 +1,4 @@
-package genesis.genesis.itemblock;
+package genesis.genesis.item.itemblock;
 
 import genesis.genesis.block.Blocks;
 import genesis.genesis.block.trees.IBlockGenesisTrees;

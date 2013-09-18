@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.logging.Level;
 
 import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
@@ -34,8 +35,26 @@ public class Items {
 			boots = new ItemGenesisArmor(startID + 3, armorMaterial, 3, materialName);
 		}
 	}
+	
+	public static class ItemsToolSet {
+		public ItemGenesisSword sword;
+		public ItemGenesisPickaxe pickaxe;
+		public ItemGenesisAxe axe;
+		public ItemGenesisSpade spade;
+		public ItemGenesisHoe hoe;
+		
+		public ItemsToolSet(int startID, EnumToolMaterial toolMaterial, String materialName)
+		{
+			sword = (ItemGenesisSword)new ItemGenesisSword(startID, toolMaterial, materialName);
+			pickaxe = (ItemGenesisPickaxe)new ItemGenesisPickaxe(startID + 1, toolMaterial, materialName);
+			axe = (ItemGenesisAxe)new ItemGenesisAxe(startID + 2, toolMaterial, materialName);
+			spade = (ItemGenesisSpade)new ItemGenesisSpade(startID + 3, toolMaterial, materialName);
+			hoe = (ItemGenesisHoe)new ItemGenesisHoe(startID + 4, toolMaterial, materialName);
+		}
+	}
 
 	public static ItemGenesis zircon;
+	public static ItemsToolSet zirconTools;
 	public static ItemsSuitOfArmor zirconArmor;
 	
 	public static ItemGenesis quartz;
@@ -45,98 +64,30 @@ public class Items {
 	public static void init()
 	{
 		zircon = (ItemGenesis)new ItemGenesis(IDs.itemZirconID)
-				.setUnlocalizedName(Names.itemZircon_unloc).setTextureName("zircon");
+				.setUnlocalizedName(Names.itemZircon).setTextureName("zircon");
+		zirconTools = new ItemsToolSet(IDs.itemsZirconToolsStartID, 
+				EnumHelper.addToolMaterial(Names.itemZirconMaterial.toUpperCase(), 2, 1000, 6.5F, 1.5F, 12),
+				Names.itemZirconMaterial);
 		zirconArmor = new ItemsSuitOfArmor(IDs.itemsZirconArmorStartID,
-					EnumHelper.addArmorMaterial(Names.itemZirconArmorMaterial_unloc.toUpperCase(), 17, new int[] {2, 7, 5, 2}, 9),
-					Names.itemZirconArmorMaterial_unloc);
+					EnumHelper.addArmorMaterial(Names.itemZirconMaterial.toUpperCase(), 17, new int[] {2, 7, 5, 2}, 9),
+					Names.itemZirconMaterial);
 		
 		quartz = (ItemGenesis)new ItemGenesis(IDs.itemQuartzID)
-				.setUnlocalizedName(Names.itemQuartz_unloc).setTextureName("quartz");
+				.setUnlocalizedName(Names.itemQuartz).setTextureName("quartz");
 		
 		olivine = (ItemGenesis)new ItemGenesis(IDs.itemOlivineID)
-				.setUnlocalizedName(Names.itemOlivine_unloc).setTextureName("olivine");
+				.setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");
+		zirconTools = new ItemsToolSet(IDs.itemsOlivineToolsStartID, 
+				EnumHelper.addToolMaterial(Names.itemOlivineMaterial.toUpperCase(), 3, 1561, 8, 3, 10),
+				Names.itemOlivineMaterial);
+		zirconArmor = new ItemsSuitOfArmor(IDs.itemsOlivineArmorStartID,
+					EnumHelper.addArmorMaterial(Names.itemOlivineMaterial.toUpperCase(), 17, new int[] {3, 8, 6, 3}, 9),
+					Names.itemOlivineMaterial);
 	}
 	
 	public static void registerItems()
 	{
-		LogHelper.log(Level.INFO, "Registering recipes.");
-		adaptNetherQuartzRecipes();
-	}
-	
-	public static void adaptNetherQuartzRecipes()
-	{
-		List<IRecipe> recipeList = CraftingManager.getInstance().getRecipeList();
-		ArrayList<IRecipe> addRecipes = new ArrayList();
-		
-		for (IRecipe recipe : recipeList)
-		{
-			IRecipe cloned = null;
-			
-			if (recipe instanceof ShapedRecipes)
-			{
-				ShapedRecipes shaped = (ShapedRecipes)recipe;
-				ItemStack[] items = new ItemStack[shaped.recipeItems.length];
-
-				boolean replacedNetherQuartz = false;
-				
-				for (int i = 0; i < shaped.recipeItems.length; i++)
-				{
-					ItemStack stack = shaped.recipeItems[i];
-					
-					if (stack != null)
-					{
-						if (stack.itemID == Item.netherQuartz.itemID)
-						{
-							items[i] = new ItemStack(Items.quartz);
-							replacedNetherQuartz = true;
-						}
-						else
-						{
-							items[i] = stack.copy();
-						}
-					}
-				}
-				
-				if (replacedNetherQuartz)
-				{
-					cloned = new ShapedRecipes(shaped.recipeWidth, shaped.recipeHeight,
-							items, shaped.getRecipeOutput().copy());
-				}
-			}
-			else if (recipe instanceof ShapelessRecipes)
-			{
-				ShapelessRecipes shapeless = (ShapelessRecipes)recipe;
-				
-				boolean replacedNetherQuartz = false;
-				ArrayList<ItemStack> itemList = new ArrayList();
-				
-				for (ItemStack stack : (List<ItemStack>)shapeless.recipeItems)
-				{
-					if (stack.itemID == Item.netherQuartz.itemID)
-					{
-						itemList.add(new ItemStack(Items.quartz));
-						replacedNetherQuartz = true;
-					}
-					else
-					{
-						itemList.add(stack.copy());
-					}
-				}
-				
-				if (replacedNetherQuartz)
-				{
-					cloned = new ShapelessRecipes(shapeless.getRecipeOutput().copy(), itemList);
-				}
-			}
-			
-			if (cloned != null)
-				addRecipes.add(cloned);
-		}
-		
-		for (IRecipe recipe : addRecipes)
-		{
-			recipeList.add(recipe);
-		}
+		Recipes.registerRecipes();
 	}
 	
 }

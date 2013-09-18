@@ -11,20 +11,20 @@ import net.minecraft.item.crafting.CraftingManager;
 
 public class PlantBlocks {
 	
-	public static Block calamitesPlant;
-	public static Block calamitesBlock;
+	public static BlockCalamitesPlant calamitesPlant;
+	public static BlockCalamitesStorage calamitesBlock;
 	
 	public static void init()
 	{
-		calamitesPlant = new BlockCalamitesPlant(IDs.blockCalamitesPlantID).setTextureName("calamites")
-				.setUnlocalizedName(Names.blockCalamitesPlant_unloc);
-		calamitesBlock = new BlockCalamitesStorage(IDs.blockCalamitesBlockID).setTextureName("calamites_block")
-				.setUnlocalizedName(Names.blockCalamites_unloc);
+		calamitesPlant = (BlockCalamitesPlant)new BlockCalamitesPlant(IDs.blockCalamitesPlantID).setTextureName("calamites")
+				.setUnlocalizedName(Names.blockCalamitesPlant);
+		calamitesBlock = (BlockCalamitesStorage)new BlockCalamitesStorage(IDs.blockCalamitesBlockID).setTextureName("calamites_block")
+				.setUnlocalizedName(Names.blockCalamites);
 	}
 
 	public static void registerBlocks() {
-		GameRegistry.registerBlock(calamitesPlant, Names.blockCalamitesPlant_unloc);
-		GameRegistry.registerBlock(calamitesBlock, Names.blockCalamites_unloc);
+		GameRegistry.registerBlock(calamitesPlant, Names.blockCalamitesPlant);
+		GameRegistry.registerBlock(calamitesBlock, Names.blockCalamites);
 		
 		CraftingManager.getInstance().addRecipe(new ItemStack(calamitesBlock), 
 			"CC",
