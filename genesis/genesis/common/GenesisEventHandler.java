@@ -22,6 +22,7 @@ import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 
@@ -56,8 +57,13 @@ public class GenesisEventHandler {
 			
 			if (block instanceof BlockGenesisSapling)
 			{
-				BlockGenesisSapling sapling = (BlockGenesisSapling)block;
-				sapling.growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+				if (event.world.rand.nextFloat() < 0.45)
+				{
+					BlockGenesisSapling sapling = (BlockGenesisSapling)block;
+					sapling.markOrGrowMarked(event.world, event.X, event.Y, event.Z, event.world.rand);
+				}
+				
+				event.setResult(Result.ALLOW);
 			}
 		}
 	}
