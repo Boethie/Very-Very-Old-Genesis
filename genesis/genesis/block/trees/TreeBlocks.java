@@ -8,6 +8,10 @@ import genesis.genesis.common.Genesis;
 import genesis.genesis.item.itemblock.ItemBlockGenesisTree;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.Names;
+import genesis.genesis.world.WorldGenTreeBase;
+import genesis.genesis.world.WorldGenTreeCordaites;
+import genesis.genesis.world.WorldGenTreeLepidodendron;
+import genesis.genesis.world.WorldGenTreeSigillaria;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.ForgeDirection;
@@ -24,6 +28,7 @@ public class TreeBlocks {
 		add(CORD_NAME);
 	}};
 	public static final int woodTypeCount = woodTypes.size();
+	private static ArrayList<WorldGenTreeBase> treeGenerators = new ArrayList(woodTypeCount);
 	
 	public static final int setSize = 4;
 	
@@ -83,6 +88,10 @@ public class TreeBlocks {
 			
 			GameRegistry.registerBlock(blocksLeaves[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLeavesGenesis + set);
 		}
+		
+		treeGenerators.add(new WorldGenTreeSigillaria(7, 3, true));
+		treeGenerators.add(new WorldGenTreeLepidodendron(9, 5, true));
+		treeGenerators.add(new WorldGenTreeCordaites(15, 5, true));
 	}
 
 	public static enum TreeBlockType {
@@ -155,6 +164,11 @@ public class TreeBlocks {
 		}
 		
 		return (logMetadata & 3) | directionBits;
+	}
+	
+	public static WorldGenTreeBase getTreeGenerator(String treeName)
+	{
+		return treeGenerators.get(woodTypes.indexOf(treeName));
 	}
 	
 }

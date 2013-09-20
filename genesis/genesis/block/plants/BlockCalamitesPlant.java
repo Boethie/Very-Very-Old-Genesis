@@ -194,12 +194,12 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 		return (metadata & EGGS_META) != 0;
 	}
 	
-	private int setAge(int metadata, int age)
+	protected int setAge(int metadata, int age)
 	{
 		return (metadata & EGGS_META) | Math.min(age, PLAIN_META_MASK);
 	}
 	
-	private int getAge(int metadata)
+	protected int getAge(int metadata)
 	{
 		return metadata & PLAIN_META_MASK;
 	}

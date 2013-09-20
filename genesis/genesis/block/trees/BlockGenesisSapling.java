@@ -3,6 +3,7 @@ package genesis.genesis.block.trees;
 import genesis.genesis.common.Genesis;
 import genesis.genesis.lib.BlocksHelper;
 import genesis.genesis.lib.IDs;
+import genesis.genesis.world.WorldGenTreeBase;
 import genesis.genesis.world.WorldGenTreeCordaites;
 import genesis.genesis.world.WorldGenTreeLepidodendron;
 import genesis.genesis.world.WorldGenTreeSigillaria;
@@ -31,128 +32,91 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 
 public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTrees {
 	
+	private static final int SET_MASK = 3;
+	
 	public int saplingSet;
 	private static Icon[] saplingIcons = null;
 	
 	public BlockGenesisSapling(int blockID, int set) {
 		super(blockID);
 		
-        setCreativeTab(Genesis.tabGenesis);
-        setStepSound(soundGrassFootstep);
-        
+		setCreativeTab(Genesis.tabGenesis);
+		setStepSound(soundGrassFootstep);
+		
 		this.saplingSet = set;
 	}
 	
+	public int getSetID(int metadata)
+	{
+		return metadata & SET_MASK;
+	}
+
+	@Override
 	@SideOnly(Side.CLIENT)
-    public Icon getIcon(int par1, int par2)
-    {
-        int k = (par2 & 3) + (saplingSet * 4);
-        return this.saplingIcons[k];
-    }
-	
-	public int damageDropped(int par1)
-    {
-        return par1 & 3;
-    }
+	public Icon getIcon(int side, int metadata)
+	{
+		int k = getSetID(metadata) + (saplingSet * 4);
+		return this.saplingIcons[k];
+	}
+
+	@Override
+	public int damageDropped(int metadata)
+	{
+		return getSetID(metadata);
+	}
 	
 	@SideOnly(Side.CLIENT)
-    public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List itemList)
-    {
+	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List itemList)
+	{
 		BlocksHelper.addTreeSubBlocksToCreative(blockID, creativeTabs, itemList, this.saplingSet);
-    }
-	
+	}
+
+	@Override
 	public void registerIcons(IconRegister iconRegister)
-    {
-        saplingIcons = new Icon[TreeBlocks.woodTypeCount];
-        
-        for (int i = 0; i < TreeBlocks.woodTypeCount; ++i)
-        {
-            saplingIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":sapling_" + TreeBlocks.woodTypes.get(i).toLowerCase());
-        }
-    }
-	
-	protected ItemStack createStackedBlock(int par1)
 	{
-		return new ItemStack(this.blockID, 1, this.func_111050_e(par1));
+		saplingIcons = new Icon[TreeBlocks.woodTypeCount];
+		
+		for (int i = 0; i < TreeBlocks.woodTypeCount; ++i)
+		{
+			saplingIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":sapling_" + TreeBlocks.woodTypes.get(i).toLowerCase());
+		}
 	}
 	
-	public int func_111050_e(int par1)
+	@Override
+	protected ItemStack createStackedBlock(int metadata)
 	{
-		return par1 & 3;
+		return new ItemStack(this.blockID, 1, getSetID(metadata));
 	}
-	
-	@SideOnly(Side.CLIENT)
-    public Icon getIconFromDamage(int par1)
-    {
-		int k = (par1 & 3) + (saplingSet * 4);
-        return this.saplingIcons[k];
-    }
-	
+
+	@Override
 	public int idDropped(int par1, Random par2Random, int par3)
-    {
-        return blockID;
-    }
-	
-	public void growTree(World par1World, int par2, int par3, int par4, Random par5Random)
-    {
-        if (!TerrainGen.saplingGrowTree(par1World, par5Random, par2, par3, par4)) return;
+	{
+		return blockID;
+	}
 
-        int l = par1World.getBlockMetadata(par2, par3, par4) & 3;
-        Object object = null;
-        int i1 = 0;
-        int j1 = 0;
-        boolean flag = false;
+	@Override
+	public void growTree(World world, int x, int y, int z, Random rand)
+	{
+		if (!TerrainGen.saplingGrowTree(world, rand, x, y, z)) return;
 
-        if (l == 0)
-        {
-        	/*
-        	int r = par5Random.nextInt(3);
-        	switch(r){
-        	case 0:
-        	case 1:
-        		object = new WorldGenSigillariaTree(true);
-        		break;
-        	case 2:
-        		object = new WorldGenSigillariaTree1();
-        		break;
-        	}
-        	*/
-        	object = new WorldGenTreeSigillaria(7, 3, true);
-        }
-        else if (l == 1)
-        {
-            object = new WorldGenTreeLepidodendron(9, 5, true);
-        }
-        else if (l == 2)
-        {
-        	object = new WorldGenTreeCordaites(15, 5, true);
-        }
-        else
-        {
-            object = new WorldGenTrees(true);
-        }
+		int metadata = world.getBlockMetadata(x, y, z);
+		WorldGenTreeBase gen = TreeBlocks.getTreeGenerator(TreeBlocks.woodTypes.get(getSetID(metadata)));
+		
+		if (gen != null)
+		{
+			world.setBlock(x, y, z, 0, 0, 4);
+			
+			if (!gen.generate(world, rand, x, y, z))
+			{
+				world.setBlock(x, y, z, this.blockID, metadata, 4);
+			}
+		}
+	}
 
-        if (flag)
-        {
-            par1World.setBlock(par2 + i1, par3, par4 + j1, 0, 0, 4);
-            par1World.setBlock(par2 + i1 + 1, par3, par4 + j1, 0, 0, 4);
-            par1World.setBlock(par2 + i1, par3, par4 + j1 + 1, 0, 0, 4);
-            par1World.setBlock(par2 + i1 + 1, par3, par4 + j1 + 1, 0, 0, 4);
-        }
-        else
-        {
-            par1World.setBlock(par2, par3, par4, 0, 0, 4);
-        }
-
-        if (!((WorldGenerator)object).generate(par1World, par5Random, par2 + i1, par3, par4 + j1))
-        {
-            par1World.setBlock(par2, par3, par4, this.blockID, l, 4);
-        }
-    }
-	
+	@Override
 	public int getBlockSet()
 	{
-		return saplingSet;
+		return this.saplingSet;
 	}
 
 }

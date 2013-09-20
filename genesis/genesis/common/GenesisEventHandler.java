@@ -88,7 +88,7 @@ public class GenesisEventHandler {
 				
 				classHierarchy += currentClass.getSimpleName();
 			}
-				
+			
 			addAllFromArrayReverse(interfaces, currentClass.getInterfaces());
 			
 			currentClass = currentClass.getSuperclass();

@@ -41,6 +41,8 @@ public class Names {
 	public static final String blockCalamitesPlant = blockPlant + "calamites";
 	public static final String blockCalamites = blockStorage + "calamites";
 	
+	public static final String blockNeuropterisPlant = blockPlant + "neuropteris";
+	
 	// ---- Items ----
 	// Crafting items
 	public static final String itemZircon = mod + "zircon";

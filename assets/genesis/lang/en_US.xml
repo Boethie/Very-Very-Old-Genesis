@@ -40,6 +40,10 @@
 	<entry key="tile.genesis.leaves.lepidodendron.name">Lepidodendron Leaves</entry>
 	<entry key="tile.genesis.sapling.lepidodendron.name">Lepidodendron Sapling</entry>
 
+	<entry key="tile.genesis.log.cordaites.name">Cordaites Wood</entry>
+	<entry key="tile.genesis.leaves.cordaites.name">Cordaites Leaves</entry>
+	<entry key="tile.genesis.sapling.cordaites.name">Cordaites Sapling</entry>
+
 	<!-- Plants -->
 	<entry key="tile.genesis.plant.calamites.name">Calamites</entry>
 	<entry key="tile.genesis.storage.calamites.name">Block of Calamites</entry>

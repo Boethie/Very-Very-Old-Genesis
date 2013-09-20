@@ -14,17 +14,25 @@ public class PlantBlocks {
 	public static BlockCalamitesPlant calamitesPlant;
 	public static BlockCalamitesStorage calamitesBlock;
 	
+	public static BlockGenesisPlant neuropterisPlant;
+	
 	public static void init()
 	{
 		calamitesPlant = (BlockCalamitesPlant)new BlockCalamitesPlant(IDs.blockCalamitesPlantID).setTextureName("calamites")
 				.setUnlocalizedName(Names.blockCalamitesPlant);
 		calamitesBlock = (BlockCalamitesStorage)new BlockCalamitesStorage(IDs.blockCalamitesBlockID).setTextureName("calamites_block")
 				.setUnlocalizedName(Names.blockCalamites);
+		
+		neuropterisPlant = (BlockGenesisPlant)new BlockNeuropterisPlant(IDs.blockNeuropterisPlantID).setTextureName("neuropteris")
+				.setUnlocalizedName(Names.blockNeuropterisPlant);
 	}
 
-	public static void registerBlocks() {
+	public static void registerBlocks()
+	{
 		GameRegistry.registerBlock(calamitesPlant, Names.blockCalamitesPlant);
 		GameRegistry.registerBlock(calamitesBlock, Names.blockCalamites);
+		
+		GameRegistry.registerBlock(neuropterisPlant, Names.blockNeuropterisPlant);
 		
 		CraftingManager.getInstance().addRecipe(new ItemStack(calamitesBlock), 
 			"CC",
@@ -35,5 +43,5 @@ public class PlantBlocks {
 			"C",
 			'C', calamitesBlock);
 	}
-
+	
 }

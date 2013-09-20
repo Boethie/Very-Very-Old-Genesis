@@ -86,6 +86,8 @@ public class IDs {
 	public static int blockCalamitesPlantID = 2200;
 	public static int blockCalamitesBlockID = 2201;
 	
+	public static int blockNeuropterisPlantID = 2202;
+	
 	// ---- Items ----
 	// Ore items, tools (5 IDs) and armors (4 IDs)
 	public static int itemZirconID = 2220;
