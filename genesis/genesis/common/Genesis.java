@@ -5,8 +5,8 @@ import java.util.logging.Level;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.MinecraftForge;
-
 import genesis.genesis.block.Blocks;
 import genesis.genesis.block.trees.TreeBlocks;
 import genesis.genesis.block.trees.TreeBlocks.TreeBlockType;
@@ -15,7 +15,7 @@ import genesis.genesis.lib.ConfigHandler;
 import genesis.genesis.lib.LogHelper;
 import genesis.genesis.packet.GenesisPacket;
 import genesis.genesis.packet.PacketHandler;
-import genesis.genesis.world.WorldGenSigillariaTree;
+import genesis.genesis.world.WorldGenTreeSigillaria;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -72,8 +72,6 @@ public class Genesis {
 		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
 		
 		MinecraftForge.EVENT_BUS.register(new GenesisEventHandler());
-		
-		GameRegistry.registerWorldGenerator(new WorldGenSigillariaTree(false));
 	}
 
 }

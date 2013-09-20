@@ -1,5 +1,6 @@
 package genesis.genesis.world;
 
+import genesis.genesis.block.trees.BlockGenesisSapling;
 import genesis.genesis.block.trees.TreeBlocks;
 
 import java.util.Random;
@@ -7,6 +8,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.ForgeDirection;
 
 public class WorldGenTreeSigillaria extends WorldGenTreeBase
 {
@@ -39,7 +41,9 @@ public class WorldGenTreeSigillaria extends WorldGenTreeBase
         for (boolean var6 = false; (world.getBlockId(locX, locY, locZ) == 0 || Block.blocksList[world.getBlockId(locX, locY, locZ)].isLeaves(world, locX, locY, locZ) && locY > 0); --locY);
         //locY is now the highest solid terrain block
         
-        if(!(world.getBlockId(locX, locY, locZ) == Block.grass.blockID || world.getBlockId(locX, locY, locZ) == Block.dirt.blockID))return false;
+        Block soil = Block.blocksList[world.getBlockId(locX, locY, locZ)];
+        if(soil == null || !soil.canSustainPlant(world, locX, locY, locZ, ForgeDirection.UP, 
+				(BlockGenesisSapling)TreeBlocks.blocksSaplings[0]))return false;
         if(!isCubeClear(locX, locY+2, locZ, 2, 10))return false;
         
     	//generates the trunk
