@@ -3,8 +3,9 @@ package genesis.genesis.block.trees;
 import genesis.genesis.common.Genesis;
 import genesis.genesis.lib.BlocksHelper;
 import genesis.genesis.lib.IDs;
-import genesis.genesis.world.WorldGenSigillariaTree;
-import genesis.genesis.world.WorldGenSigillariaTree1;
+import genesis.genesis.world.WorldGenTreeCordaites;
+import genesis.genesis.world.WorldGenTreeLepidodendron;
+import genesis.genesis.world.WorldGenTreeSigillaria;
 
 import java.util.List;
 import java.util.Random;
@@ -104,6 +105,7 @@ public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTr
 
         if (l == 0)
         {
+        	/*
         	int r = par5Random.nextInt(3);
         	switch(r){
         	case 0:
@@ -114,15 +116,16 @@ public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTr
         		object = new WorldGenSigillariaTree1();
         		break;
         	}
-            
+        	*/
+        	object = new WorldGenTreeSigillaria(7, 3, true);
+        }
+        else if (l == 1)
+        {
+            object = new WorldGenTreeLepidodendron(9, 5, true);
         }
         else if (l == 2)
         {
-            //object = new WorldGenTaiga1();
-        }
-        else if (l == 3)
-        {
-        	//object = new WorldGenTrees(true);
+        	object = new WorldGenTreeCordaites(15, 5, true);
         }
         else
         {

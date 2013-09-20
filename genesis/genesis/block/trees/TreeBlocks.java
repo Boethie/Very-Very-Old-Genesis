@@ -15,10 +15,12 @@ public class TreeBlocks {
 
 	public static final String SIGIL_NAME = "sigillaria";
 	public static final String LEPID_NAME = "lepidodendron";
+	public static final String CORD_NAME = "cordaites";
 	
 	public static final ArrayList<String> woodTypes = new ArrayList() {{
 		add(SIGIL_NAME);
 		add(LEPID_NAME);
+		add(CORD_NAME);
 	}};
 	public static final int woodTypeCount = woodTypes.size();
 	
