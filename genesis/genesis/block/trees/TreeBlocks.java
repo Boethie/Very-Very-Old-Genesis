@@ -10,6 +10,7 @@ import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.Names;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.ForgeDirection;
 
 public class TreeBlocks {
 
@@ -130,6 +131,30 @@ public class TreeBlocks {
 			return new BlockAndMetadata(block.blockID, metadata);
 		
 		return null;
+	}
+	
+	public static int getLogMetadataForDirection(int logMetadata, ForgeDirection direction)
+	{
+		int directionBits = 0;
+		
+		switch (direction)
+		{
+		case NORTH:
+		case SOUTH:
+			directionBits = 1;
+			break;
+		case EAST:
+		case WEST:
+			directionBits = 2;
+			break;
+		case UNKNOWN:
+			directionBits = 3;
+			break;
+		default:
+			break;
+		}
+		
+		return (logMetadata & 3) | directionBits;
 	}
 	
 }
