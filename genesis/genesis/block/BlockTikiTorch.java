@@ -198,7 +198,33 @@ public class BlockTikiTorch extends BlockGenesis {
 	 */
 	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata)
 	{
-		return setDirection(setUpper(metadata, false), 6 - side);
+		int output = setDirection(setUpper(metadata, false), 6 - side);
+		
+		if (!canTorchStay(world, x, y, z, output, true))
+		{
+            if (world.isBlockSolidOnSide(x - 1, y, z, EAST, true))
+            {
+                output = setDirection(output, 1);
+            }
+            else if (world.isBlockSolidOnSide(x + 1, y, z, WEST, true))
+            {
+                output = setDirection(output, 2);
+            }
+            else if (world.isBlockSolidOnSide(x, y, z - 1, SOUTH, true))
+            {
+                output = setDirection(output, 3);
+            }
+            else if (world.isBlockSolidOnSide(x, y, z + 1, NORTH, true))
+            {
+                output = setDirection(output, 4);
+            }
+            else if (canPlaceTorchOn(world, x, y - 1, z))
+            {
+                output = setDirection(output, 5);
+            }
+		}
+		
+		return output;
 	}
 	
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack)
@@ -211,17 +237,20 @@ public class BlockTikiTorch extends BlockGenesis {
 	
 	public boolean canTorchStay(World world, int x, int y, int z)
 	{
-		int metadata = world.getBlockMetadata(x, y, z);
+		return canTorchStay(world, x, y, z, world.getBlockMetadata(x, y, z), false);
+	}
 		
+	public boolean canTorchStay(World world, int x, int y, int z, int metadata, boolean ignoreUpper)
+	{
 		if (isUpper(metadata))
 		{
 			return world.getBlockId(x, y - 1, z) == this.blockID &&
 					!isUpper(world.getBlockMetadata(x, y - 1, z));
 		}
-		else if (world.getBlockId(x, y + 1, z) == this.blockID &&
-				isUpper(world.getBlockMetadata(x, y + 1, z)))
+		else if (ignoreUpper || (world.getBlockId(x, y + 1, z) == this.blockID &&
+				isUpper(world.getBlockMetadata(x, y + 1, z))))
 		{
-			switch (metadata)
+			switch (getDirection(metadata))
 			{
 			case 1:
 				if (world.isBlockSolidOnSide(x - 1, y, z, EAST, true))
