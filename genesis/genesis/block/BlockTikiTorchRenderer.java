@@ -20,24 +20,55 @@ public class BlockTikiTorchRenderer implements ISimpleBlockRenderingHandler{
 
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z,
-			Block block, int modelId, RenderBlocks renderer) {
-		
+			Block block, int modelId, RenderBlocks renderer)
+	{
+		BlockTikiTorch tikiTorch = (BlockTikiTorch)block;
 		int metadata = world.getBlockMetadata(x, y, z);
+		
 		Tessellator tess = Tessellator.instance;
 		tess.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-		tess.setColorOpaque_F(1F, 1F, 1F);
-		if(metadata == 0)
+		tess.setColorOpaque_F(1, 1, 1);
+		
+		double delta = 0;
+        double off = 0;
+        
+		double offX = 0;
+		double offZ = 0;
+		double dX = 0;
+		double dZ = 0;
+		
+		if (!tikiTorch.isUpper(metadata))
 		{
-			renderer.setOverrideBlockTexture(BlockTikiTorch.tikiTorchLower);
-			renderer.renderTorchAtAngle(block, x, y, z, 0, 0, 0);
-			renderer.clearOverrideBlockTexture();
+			delta = 0.25;
+			off = 0.5 - delta;
 		}
 		else
 		{
-			renderer.setOverrideBlockTexture(BlockTikiTorch.tikiTorchUpper);
-			renderer.renderTorchAtAngle(block, x, y, z, 0, 0, 0);
-			renderer.clearOverrideBlockTexture();
+			delta = 0.25;
+			off = 0;
 		}
+		
+		switch (tikiTorch.getDirection(metadata))
+		{
+		case 1:
+			offX = -off;
+			dX = -delta;
+			break;
+		case 2:
+			offX = off;
+			dX = delta;
+			break;
+		case 3:
+			offZ = -off;
+			dZ = -delta;
+			break;
+		case 4:
+			offZ = off;
+			dZ = delta;
+			break;
+		}
+		
+		renderer.renderTorchAtAngle(block, x + offX, y, z + offZ, dX, dZ, metadata);
 		
 		return true;
 		

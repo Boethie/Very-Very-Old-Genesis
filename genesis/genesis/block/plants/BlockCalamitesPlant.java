@@ -50,12 +50,6 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 	@SideOnly(Side.CLIENT)
 	Icon calamitesPlantTopEggs2;
 	
-	/*
-	 * Metadata values:
-	 * 0 = plain calamites
-	 * 1 = egg
-	 */
-	
 	public BlockCalamitesPlant(int par1) {
 		super(par1);
 

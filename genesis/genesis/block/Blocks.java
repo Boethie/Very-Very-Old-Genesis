@@ -114,7 +114,6 @@ public class Blocks {
 	public static void registerBlocks()
 	{
 		GameRegistry.registerBlock(moss, Names.blockMoss);
-		GameRegistry.registerBlock(tikiTorch, Names.blockTikiTorch);
 		
 		zirconOre.setDrop(Items.zircon, 0, 0.5F);
 

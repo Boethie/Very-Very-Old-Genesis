@@ -19,10 +19,15 @@ public class BlockGenesis extends Block {
         setCreativeTab(Genesis.tabGenesis);
 	}
 	
+	public void registerBlock(String name)
+	{
+		GameRegistry.registerBlock(this, ItemBlock.class, name);
+	}
+	
 	@Override
 	public Block setUnlocalizedName(String unlocName)
 	{
-		GameRegistry.registerBlock(this, ItemBlock.class, unlocName);
+		registerBlock(unlocName);
 		
 		return super.setUnlocalizedName(unlocName);
 	}
