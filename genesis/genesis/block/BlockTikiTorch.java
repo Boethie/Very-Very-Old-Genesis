@@ -183,45 +183,93 @@ public class BlockTikiTorch extends BlockGenesis {
 		}
 	}
 	
-	public boolean canPlaceBlockAt(World world, int x, int y, int z)
+	public boolean canPlaceTikiTorchAt(World world, int x, int y, int z)
 	{
 		return (world.isBlockSolidOnSide(x - 1, y, z, EAST,  true) ||
-			   world.isBlockSolidOnSide(x + 1, y, z, WEST,  true) ||
-			   world.isBlockSolidOnSide(x, y, z - 1, SOUTH, true) ||
-			   world.isBlockSolidOnSide(x, y, z + 1, NORTH, true) ||
-			   canPlaceTorchOn(world, x, y - 1, z)) &&
+				world.isBlockSolidOnSide(x + 1, y, z, WEST,  true) ||
+				world.isBlockSolidOnSide(x, y, z - 1, SOUTH, true) ||
+				world.isBlockSolidOnSide(x, y, z + 1, NORTH, true) ||
+				canPlaceTorchOn(world, x, y - 1, z)) &&
 				world.getBlockMaterial(x, y + 1, z).isReplaceable();
 	}
+	
+    public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack stack)
+    {
+    	if (canPlaceTikiTorchAt(world, x, y, z))
+    		return true;
+    	
+    	if (world.getBlockMaterial(x, y - 1, z).isReplaceable())
+    		return canPlaceTikiTorchAt(world, x, y - 1, z);
+    	
+    	return false;
+    }
+    
+    protected int correctSide(World world, int x, int y, int z, int metadata)
+    {
+		if (!canTorchStay(world, x, y, z, metadata, true))
+		{
+			if (world.getBlockMaterial(x, y + 1, z).isReplaceable())
+			{
+				if (world.isBlockSolidOnSide(x - 1, y, z, EAST, true))
+				{
+					return 1;
+				}
+				else if (world.isBlockSolidOnSide(x + 1, y, z, WEST, true))
+				{
+					return 2;
+				}
+				else if (world.isBlockSolidOnSide(x, y, z - 1, SOUTH, true))
+				{
+					return 3;
+				}
+				else if (world.isBlockSolidOnSide(x, y, z + 1, NORTH, true))
+				{
+					return 4;
+				}
+				else if (canPlaceTorchOn(world, x, y - 1, z))
+				{
+					return 5;
+				}
+			}
+			
+			return -1;
+		}
+		
+		return 0;
+    }
 	
 	/**
 	 * Called when a block is placed using its ItemBlock. Args: World, X, Y, Z, side, hitX, hitY, hitZ, block metadata
 	 */
 	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata)
 	{
-		int output = setDirection(setUpper(metadata, false), 6 - side);
+		if (side == 0)
+			side = 1;
 		
-		if (!canTorchStay(world, x, y, z, output, true))
+		int output = setDirection(metadata, 6 - side);
+		
+		if (world.getBlockMaterial(x, y + 1, z).isReplaceable())
 		{
-            if (world.isBlockSolidOnSide(x - 1, y, z, EAST, true))
-            {
-                output = setDirection(output, 1);
-            }
-            else if (world.isBlockSolidOnSide(x + 1, y, z, WEST, true))
-            {
-                output = setDirection(output, 2);
-            }
-            else if (world.isBlockSolidOnSide(x, y, z - 1, SOUTH, true))
-            {
-                output = setDirection(output, 3);
-            }
-            else if (world.isBlockSolidOnSide(x, y, z + 1, NORTH, true))
-            {
-                output = setDirection(output, 4);
-            }
-            else if (canPlaceTorchOn(world, x, y - 1, z))
-            {
-                output = setDirection(output, 5);
-            }
+			output = setUpper(output, false);
+		}
+		
+		int correctSide = correctSide(world, x, y, z, output);
+		
+		if (correctSide > 0)
+		{
+			output = setDirection(output, correctSide);
+		}
+		else if (correctSide < 0)
+		{
+			output = setUpper(output, true);
+			y--;
+			
+			correctSide = correctSide(world, x, y, z, setUpper(output, false));
+			
+			if (correctSide > 0)
+			{
+				output = setDirection(output, correctSide);
+			}
 		}
 		
 		return output;
@@ -229,10 +277,21 @@ public class BlockTikiTorch extends BlockGenesis {
 	
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack)
 	{
-		if (world.getBlockMaterial(x, y + 1, z).isReplaceable())
-			world.setBlock(x, y + 1, z, blockID, setUpper(world.getBlockMetadata(x, y, z), true), 3);
+		int metadata = world.getBlockMetadata(x, y, z);
+		
+		if (!isUpper(metadata))
+		{
+			if (world.getBlockMaterial(x, y + 1, z).isReplaceable())
+				world.setBlock(x, y + 1, z, blockID, setUpper(metadata, true), 3);
+		}
+		else if (world.getBlockMaterial(x, y - 1, z).isReplaceable())
+		{
+			world.setBlock(x, y - 1, z, blockID, setUpper(metadata, false), 3);
+		}
 		else
+		{
 			checkIfCanStay(world, x, y, z);
+		}
 	}
 	
 	public boolean canTorchStay(World world, int x, int y, int z)
@@ -240,14 +299,15 @@ public class BlockTikiTorch extends BlockGenesis {
 		return canTorchStay(world, x, y, z, world.getBlockMetadata(x, y, z), false);
 	}
 		
-	public boolean canTorchStay(World world, int x, int y, int z, int metadata, boolean ignoreUpper)
+	public boolean canTorchStay(World world, int x, int y, int z, int metadata, boolean blankUpper)
 	{
 		if (isUpper(metadata))
 		{
 			return world.getBlockId(x, y - 1, z) == this.blockID &&
 					!isUpper(world.getBlockMetadata(x, y - 1, z));
 		}
-		else if (ignoreUpper || (world.getBlockId(x, y + 1, z) == this.blockID &&
+		else if ((blankUpper && world.getBlockMaterial(x, y + 1, z).isReplaceable()) ||
+				(world.getBlockId(x, y + 1, z) == this.blockID &&
 				isUpper(world.getBlockMetadata(x, y + 1, z))))
 		{
 			switch (getDirection(metadata))
