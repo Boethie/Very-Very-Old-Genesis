@@ -120,9 +120,7 @@ public abstract class WorldGenTreeBase extends WorldGenerator
     
     protected void setBlockInWorld(int x, int y, int z, int id, int meta){
     	try{
-			if(id == this.woodID && (world.isAirBlock(x,y,z) || Block.blocksList[world.getBlockId(x, y, z)].isLeaves(world, x, y, z)
-					|| world.getBlockId(x,y,z) == Block.waterStill.blockID || world.getBlockId(x,y,z) == Block.waterMoving.blockID)
-					|| Block.blocksList[world.getBlockId(x, y, z)] instanceof BlockGenesisSapling){
+			if(id == this.woodID && (world.isAirBlock(x,y,z) || Block.blocksList[world.getBlockId(x, y, z)].blockMaterial.isReplaceable())){
 				if(notifyFlag) world.setBlock(x, y, z, id, meta, 3);
 		    	else world.setBlock(x, y, z, id, meta, 2);
 			}
@@ -133,7 +131,7 @@ public abstract class WorldGenTreeBase extends WorldGenerator
     	}
     	catch(RuntimeException e){
     		if(e.getMessage().equals("Already decorating!!")){
-    			System.out.println("Error: Highlands Tree block couldn't generate!");
+    			System.out.println("Error: Tree block couldn't generate!");
     		}
     		//e.printStackTrace();
     	}
@@ -156,9 +154,8 @@ public abstract class WorldGenTreeBase extends WorldGenerator
     }
     
     //finds top block for the given x,z position (excluding leaves)
-    //only works for terrain below y= 128 (for lag reasons I did not make the number higher)
     protected int findTopBlock(int x, int z){
-    	int y = 128;
+    	int y = 256;
         for (boolean var6 = false; (world.getBlockId(x, y, z) == 0 || Block.blocksList[world.getBlockId(x, y, z)].isLeaves(world, x, y, z)) && y > 0; --y);
         return y;
     }

@@ -89,8 +89,8 @@ public class TreeBlocks {
 			GameRegistry.registerBlock(blocksLeaves[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLeavesGenesis + set);
 		}
 		
-		treeGenerators.add(new WorldGenTreeSigillaria(7, 3, true));
-		treeGenerators.add(new WorldGenTreeLepidodendron(9, 5, true));
+		treeGenerators.add(new WorldGenTreeSigillaria(8, 3, true));
+		treeGenerators.add(new WorldGenTreeLepidodendron(10, 5, true));
 		treeGenerators.add(new WorldGenTreeCordaites(15, 5, true));
 	}
 
