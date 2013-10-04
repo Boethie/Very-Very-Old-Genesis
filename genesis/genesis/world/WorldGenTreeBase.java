@@ -1,6 +1,7 @@
 package genesis.genesis.world;
 
 import genesis.genesis.block.trees.BlockGenesisSapling;
+import genesis.genesis.block.trees.TreeBlocks;
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.ForgeDirection;
 
 public abstract class WorldGenTreeBase extends WorldGenerator
 {
@@ -105,13 +107,15 @@ public abstract class WorldGenTreeBase extends WorldGenerator
     	if(dir % 2 == 0){
     		//generates branch
     		for(int i = 1; i <= length; i++){
-	    		setBlockInWorld(locX + i*direction, locY+i, locZ, this.woodID, this.woodMeta+4);
+	    		setBlockInWorld(locX + i*direction, locY+i, locZ, this.woodID,
+	    				TreeBlocks.getLogMetadataForDirection(this.woodMeta, ForgeDirection.NORTH));
     		}
     		return new int[]{locX+length*direction, locY+length, locZ};
     	}
     	else{
     		for(int i = 1; i <= length; i++){
-	    		setBlockInWorld(locX, locY+i, locZ + i*direction, this.woodID, this.woodMeta+8);
+	    		setBlockInWorld(locX, locY+i, locZ + i*direction, this.woodID,
+	    				TreeBlocks.getLogMetadataForDirection(this.woodMeta, ForgeDirection.EAST));
     		}
     		return new int[]{locX, locY+length, locZ+length*direction};
     	}
