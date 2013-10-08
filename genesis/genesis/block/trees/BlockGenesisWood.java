@@ -28,7 +28,7 @@ public class BlockGenesisWood extends BlockWood implements IBlockGenesisTrees
         setCreativeTab(Genesis.tabGenesis);
 		setStepSound(Block.soundWoodFootstep);
 		setHardness(2);
-		setBurnProperties(blockID, 4, 4);
+		setBurnProperties(blockID, 5, 5);
 		
 		
 		this.woodSet = cat;

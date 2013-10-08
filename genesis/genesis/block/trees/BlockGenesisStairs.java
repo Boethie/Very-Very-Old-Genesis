@@ -8,7 +8,7 @@ public class BlockGenesisStairs extends BlockStairs{
 
 	public BlockGenesisStairs(int blockID, Block modelBlock, int metadata){
 		super(blockID, modelBlock, metadata);
-		if(modelBlock.blockMaterial == Material.wood)setBurnProperties(blockID, 4, 4);
+		if(modelBlock.blockMaterial == Material.wood)setBurnProperties(blockID, 5, 5);
 		setCreativeTab(modelBlock.getCreativeTabToDisplayOn());
 	}
 }
