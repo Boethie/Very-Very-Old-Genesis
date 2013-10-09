@@ -35,14 +35,21 @@
 	<entry key="tile.genesis.log.sigillaria.name">Sigillaria Wood</entry>
 	<entry key="tile.genesis.leaves.sigillaria.name">Sigillaria Leaves</entry>
 	<entry key="tile.genesis.sapling.sigillaria.name">Sigillaria Sapling</entry>
+	<entry key="tile.genesis.wood.sigillaria.name">Sigillaria Wood Planks</entry>
+	<entry key="tile.genesis.stairs.sigillaria.name">Sigillaria Wood Stairs</entry>
 
 	<entry key="tile.genesis.log.lepidodendron.name">Lepidodendron Wood</entry>
 	<entry key="tile.genesis.leaves.lepidodendron.name">Lepidodendron Leaves</entry>
 	<entry key="tile.genesis.sapling.lepidodendron.name">Lepidodendron Sapling</entry>
+	<entry key="tile.genesis.wood.lepidodendron.name">Lepidodendron Wood Planks</entry>
+	<entry key="tile.genesis.stairs.lepidodendron.name">Lepidodendron Wood Stairs</entry>
 
 	<entry key="tile.genesis.log.cordaites.name">Cordaites Wood</entry>
 	<entry key="tile.genesis.leaves.cordaites.name">Cordaites Leaves</entry>
 	<entry key="tile.genesis.sapling.cordaites.name">Cordaites Sapling</entry>
+	<entry key="tile.genesis.wood.cordaites.name">Cordaites Wood Planks</entry>
+	<entry key="tile.genesis.stairs.cordaites.name">Cordaites Wood Stairs</entry>
+	
 
 	<!-- Plants -->
 	<entry key="tile.genesis.plant.calamites.name">Calamites</entry>

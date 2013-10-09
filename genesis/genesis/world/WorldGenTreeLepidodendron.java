@@ -51,12 +51,12 @@ public class WorldGenTreeLepidodendron extends WorldGenTreeBase
     		setBlockInWorld(locX, locY + i, locZ, this.woodID, this.woodMeta);
     	}
 		//Generate leaves
-		int h = locY + treeHeight - 3;
-		generateLeafLayerCircle(world, random, 1, locX, locZ, h);
-		generateLeafLayerCircle(world, random, 3.5, locX, locZ, h+1);
-		generateLeafLayerCircle(world, random, 2.5, locX, locZ, h+2);
-		generateLeafLayerCircle(world, random, 1.5, locX, locZ, h+3);
-		setBlockInWorld(locX, h+4, locZ, this.leavesID, this.leavesMeta);
+		int currentHeight = locY + treeHeight - 3;
+		generateLeafLayerCircle(world, random, 1, locX, locZ, currentHeight);
+		generateLeafLayerCircle(world, random, 3.5, locX, locZ, currentHeight+1);
+		generateLeafLayerCircle(world, random, 2.5, locX, locZ, currentHeight+2);
+		generateLeafLayerCircle(world, random, 1.5, locX, locZ, currentHeight+3);
+		setBlockInWorld(locX, currentHeight+4, locZ, this.leavesID, this.leavesMeta);
     	
     	return true;
     }

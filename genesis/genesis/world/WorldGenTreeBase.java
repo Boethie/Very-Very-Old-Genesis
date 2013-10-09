@@ -1,6 +1,7 @@
 package genesis.genesis.world;
 
 import genesis.genesis.block.trees.BlockGenesisSapling;
+import genesis.genesis.block.trees.TreeBlocks;
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.ForgeDirection;
 
 public abstract class WorldGenTreeBase extends WorldGenerator
 {
@@ -105,13 +107,15 @@ public abstract class WorldGenTreeBase extends WorldGenerator
     	if(dir % 2 == 0){
     		//generates branch
     		for(int i = 1; i <= length; i++){
-	    		setBlockInWorld(locX + i*direction, locY+i, locZ, this.woodID, this.woodMeta+4);
+	    		setBlockInWorld(locX + i*direction, locY+i, locZ, this.woodID,
+	    				TreeBlocks.getLogMetadataForDirection(this.woodMeta, ForgeDirection.NORTH));
     		}
     		return new int[]{locX+length*direction, locY+length, locZ};
     	}
     	else{
     		for(int i = 1; i <= length; i++){
-	    		setBlockInWorld(locX, locY+i, locZ + i*direction, this.woodID, this.woodMeta+8);
+	    		setBlockInWorld(locX, locY+i, locZ + i*direction, this.woodID,
+	    				TreeBlocks.getLogMetadataForDirection(this.woodMeta, ForgeDirection.EAST));
     		}
     		return new int[]{locX, locY+length, locZ+length*direction};
     	}
@@ -120,9 +124,7 @@ public abstract class WorldGenTreeBase extends WorldGenerator
     
     protected void setBlockInWorld(int x, int y, int z, int id, int meta){
     	try{
-			if(id == this.woodID && (world.isAirBlock(x,y,z) || Block.blocksList[world.getBlockId(x, y, z)].isLeaves(world, x, y, z)
-					|| world.getBlockId(x,y,z) == Block.waterStill.blockID || world.getBlockId(x,y,z) == Block.waterMoving.blockID)
-					|| Block.blocksList[world.getBlockId(x, y, z)] instanceof BlockGenesisSapling){
+			if(id == this.woodID && (world.isAirBlock(x,y,z) || Block.blocksList[world.getBlockId(x, y, z)].blockMaterial.isReplaceable())){
 				if(notifyFlag) world.setBlock(x, y, z, id, meta, 3);
 		    	else world.setBlock(x, y, z, id, meta, 2);
 			}
@@ -133,7 +135,7 @@ public abstract class WorldGenTreeBase extends WorldGenerator
     	}
     	catch(RuntimeException e){
     		if(e.getMessage().equals("Already decorating!!")){
-    			System.out.println("Error: Highlands Tree block couldn't generate!");
+    			System.out.println("Error: Tree block couldn't generate!");
     		}
     		//e.printStackTrace();
     	}
@@ -156,9 +158,8 @@ public abstract class WorldGenTreeBase extends WorldGenerator
     }
     
     //finds top block for the given x,z position (excluding leaves)
-    //only works for terrain below y= 128 (for lag reasons I did not make the number higher)
     protected int findTopBlock(int x, int z){
-    	int y = 128;
+    	int y = 256;
         for (boolean var6 = false; (world.getBlockId(x, y, z) == 0 || Block.blocksList[world.getBlockId(x, y, z)].isLeaves(world, x, y, z)) && y > 0; --y);
         return y;
     }

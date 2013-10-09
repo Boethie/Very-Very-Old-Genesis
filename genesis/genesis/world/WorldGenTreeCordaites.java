@@ -53,21 +53,21 @@ public class WorldGenTreeCordaites extends WorldGenTreeBase
 		
 		
 		//generates leaves at top
-    	int h;
-    	for(h = locY+treeHeight - 3; h < locY + treeHeight; h++){
-    		generateLeafLayerCircleNoise(world, random, 3, locX+random.nextInt(2), locZ+random.nextInt(2), h);
+    	int currentHeight;
+    	for(currentHeight = locY+treeHeight - 3; currentHeight < locY + treeHeight; currentHeight++){
+    		generateLeafLayerCircleNoise(world, random, 3, locX+random.nextInt(2), locZ+random.nextInt(2), currentHeight);
     	}
-    	generateLeafLayerCircleNoise(world, random, 2.8, locX+random.nextInt(2), locZ+random.nextInt(2), h);
-    	h++;
-    	generateLeafLayerCircleNoise(world, random, 1.5, locX+random.nextInt(2), locZ+random.nextInt(2), h);
-    	h++;
-    	generateLeafLayerCircleNoise(world, random, 1, locX+random.nextInt(2), locZ+random.nextInt(2), h);
+    	generateLeafLayerCircleNoise(world, random, 2.8, locX+random.nextInt(2), locZ+random.nextInt(2), currentHeight);
+    	currentHeight++;
+    	generateLeafLayerCircleNoise(world, random, 1.5, locX+random.nextInt(2), locZ+random.nextInt(2), currentHeight);
+    	currentHeight++;
+    	generateLeafLayerCircleNoise(world, random, 1, locX+random.nextInt(2), locZ+random.nextInt(2), currentHeight);
     	
     	//generates branches with leaves
-    	h -= 8;
+    	currentHeight -= 8;
 		int firstDir = random.nextInt(4);
     	for(int i = 0; i < 4; i++){
-    		int[] xyz = generateStraightBranch(world, random, 3, locX, h+i, locZ, (firstDir + i)%4);
+    		int[] xyz = generateStraightBranch(world, random, 3, locX, currentHeight+i, locZ, (firstDir + i)%4);
     		generateLeafLayerCircleNoise(world, random, 1.5, xyz[0], xyz[2], xyz[1]-1);
     		generateLeafLayerCircleNoise(world, random, 2, xyz[0], xyz[2], xyz[1]);
     		generateLeafLayerCircleNoise(world, random, 1.5, xyz[0], xyz[2], xyz[1]+1);
