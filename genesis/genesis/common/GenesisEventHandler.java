@@ -13,6 +13,7 @@ import genesis.genesis.block.plants.BlockCalamitesPlant.CalamitesProperties;
 import genesis.genesis.block.trees.BlockGenesisSapling;
 import genesis.genesis.client.ClientTickHandler;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -148,6 +149,7 @@ public class GenesisEventHandler {
 				
 				int blockID = mc.theWorld.getBlockId(hitX, hitY, hitZ);
 				int metadata = mc.theWorld.getBlockMetadata(hitX, hitY, hitZ);
+				Material mat = mc.theWorld.getBlockMaterial(hitX, hitY, hitZ);
 				
 				Block block = Block.blocksList[blockID];
 				String blockHier = getClassHierarchy(block, blockExclude);
@@ -199,8 +201,9 @@ public class GenesisEventHandler {
 				int fullLightVal = mc.theWorld.getFullBlockLightValue(hitX, hitY, hitZ);
 
 				left.add("Block info:");
-				left.add(String.format("bid: %d:%d, bname: %s",
-						blockID, metadata, locName == null ? "N/A" : "\"" + locName + "\""));
+				left.add(String.format("bid: %d:%d, bname: %s, mat: %s",
+						blockID, metadata, locName == null ? "N/A" : "\"" + locName + "\"",
+						mat.getClass().getSimpleName()));
 				left.add(String.format("sld: %b, opq: %b, side: %s",
 						solidOnSide, opaque, hitDir));
 				left.add(String.format("bhier: %s",
