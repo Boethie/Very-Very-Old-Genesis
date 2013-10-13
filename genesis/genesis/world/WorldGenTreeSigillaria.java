@@ -74,49 +74,11 @@ public class WorldGenTreeSigillaria extends WorldGenTreeBase
         	
         	//trunks along x
         	if(random.nextInt(2) == 0){
-        		setBlockInWorld(locX+radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
-        		setBlockInWorld(locX-radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
-        		radius++; currentHeight++;
-        		setBlockInWorld(locX+radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
-        		setBlockInWorld(locX-radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
-        		currentHeight++;
-        		setBlockInWorld(locX+radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
-        		setBlockInWorld(locX-radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
-        		
-        		for(int a = 0; a < 2; a++){
-	        		int randomHeight = random.nextInt(2);
-	        		setBlockInWorld(locX+radius, locY + currentHeight + randomHeight, locZ, this.woodID, this.woodMeta);
-	        		int h2 = locY + treeHeight - 3;
-	        		generateLeafLayerCircle(world, random, 1, locX+radius, locZ, h2 + randomHeight);
-	        		generateLeafLayerCircle(world, random, 1, locX+radius, locZ, h2+1 + randomHeight);
-	        		generateLeafLayerCircle(world, random, 1, locX+radius, locZ, h2+2 + randomHeight);
-	        		generateLeafLayerCircle(world, random, 1, locX+radius, locZ, h2+3 + randomHeight);
-	        		setBlockInWorld(locX+radius, h2+4 + randomHeight, locZ, this.leavesID, this.leavesMeta);
-	        		radius *= -1;
-        		}
+        		generateTrunkX(locX, locY+currentHeight, locZ);
         	}
         	//trunks along y
         	else{
-        		setBlockInWorld(locX, locY + currentHeight, locZ+radius, this.woodID, this.woodMeta);
-        		setBlockInWorld(locX, locY + currentHeight, locZ-radius, this.woodID, this.woodMeta);
-        		radius++; currentHeight++;
-        		setBlockInWorld(locX, locY + currentHeight, locZ+radius, this.woodID, this.woodMeta);
-        		setBlockInWorld(locX, locY + currentHeight, locZ-radius, this.woodID, this.woodMeta);
-        		currentHeight++;
-        		setBlockInWorld(locX, locY + currentHeight, locZ+radius, this.woodID, this.woodMeta);
-        		setBlockInWorld(locX, locY + currentHeight, locZ-radius, this.woodID, this.woodMeta);
-        		
-        		for(int a = 0; a < 2; a++){
-	        		int randomHeight = random.nextInt(2);
-	        		setBlockInWorld(locX, locY + currentHeight + randomHeight, locZ+radius, this.woodID, this.woodMeta);
-	        		int h2 = locY + treeHeight - 3;
-	        		generateLeafLayerCircle(world, random, 1, locX, locZ+radius, h2 + randomHeight);
-	        		generateLeafLayerCircle(world, random, 1, locX, locZ+radius, h2+1 + randomHeight);
-	        		generateLeafLayerCircle(world, random, 1, locX, locZ+radius, h2+2 + randomHeight);
-	        		generateLeafLayerCircle(world, random, 1, locX, locZ+radius, h2+3 + randomHeight);
-	        		setBlockInWorld(locX, h2+4 + randomHeight, locZ+radius, this.leavesID, this.leavesMeta);
-	        		radius *= -1;
-        		}
+        		generateTrunkZ(locX, locY+currentHeight, locZ);
         	}
     	}
     	//tree type 3: 4 trunks
@@ -127,46 +89,86 @@ public class WorldGenTreeSigillaria extends WorldGenTreeBase
         	int currentHeight = treeHeight-5;
         	int radius = 1;
         	
-    		setBlockInWorld(locX+radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
-    		setBlockInWorld(locX-radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
-    		setBlockInWorld(locX, locY + currentHeight, locZ+radius, this.woodID, this.woodMeta);
-    		setBlockInWorld(locX, locY + currentHeight, locZ-radius, this.woodID, this.woodMeta);
-    		radius++; currentHeight++;
-    		setBlockInWorld(locX+radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
-    		setBlockInWorld(locX-radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
-    		setBlockInWorld(locX, locY + currentHeight, locZ+radius, this.woodID, this.woodMeta);
-    		setBlockInWorld(locX, locY + currentHeight, locZ-radius, this.woodID, this.woodMeta);
-    		currentHeight++;
-    		setBlockInWorld(locX+radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
-    		setBlockInWorld(locX-radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
-    		setBlockInWorld(locX, locY + currentHeight, locZ+radius, this.woodID, this.woodMeta);
-    		setBlockInWorld(locX, locY + currentHeight, locZ-radius, this.woodID, this.woodMeta);
+        	//initial branch along z, then along x
+        	if(random.nextInt(2) == 0){
+	        	setBlockInWorld(locX, locY + currentHeight, locZ+radius, this.woodID, this.woodMeta);
+	    		setBlockInWorld(locX, locY + currentHeight, locZ-radius, this.woodID, this.woodMeta);
+	    		radius++; currentHeight++;
+	    		setBlockInWorld(locX, locY + currentHeight, locZ+radius, this.woodID, this.woodMeta);
+	    		setBlockInWorld(locX, locY + currentHeight, locZ-radius, this.woodID, this.woodMeta);
+	    		currentHeight++;
+	    		
+	    		generateTrunkX(locX, locY+currentHeight, locZ+radius);
+	    		generateTrunkX(locX, locY+currentHeight, locZ-radius);
+        	}
+        	//initial branch along x, then along z
+        	else{
+        		setBlockInWorld(locX+radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
+	    		setBlockInWorld(locX-radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
+	    		radius++; currentHeight++;
+	    		setBlockInWorld(locX+radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
+	    		setBlockInWorld(locX-radius, locY + currentHeight, locZ, this.woodID, this.woodMeta);
+	    		currentHeight++;
+	    		
+	    		generateTrunkZ(locX+radius, locY+currentHeight, locZ);
+	    		generateTrunkZ(locX-radius, locY+currentHeight, locZ);
+        	}
     		
-    		for(int a = 0; a < 2; a++){
-        		int randomHeight = random.nextInt(2);
-        		setBlockInWorld(locX+radius, locY + currentHeight + randomHeight, locZ, this.woodID, this.woodMeta);
-        		int h2 = locY + treeHeight - 3;
-        		generateLeafLayerCircle(world, random, 1, locX+radius, locZ, h2 + randomHeight);
-        		generateLeafLayerCircle(world, random, 1, locX+radius, locZ, h2+1 + randomHeight);
-        		generateLeafLayerCircle(world, random, 1, locX+radius, locZ, h2+2 + randomHeight);
-        		generateLeafLayerCircle(world, random, 1, locX+radius, locZ, h2+3 + randomHeight);
-        		setBlockInWorld(locX+radius, h2+4 + randomHeight, locZ, this.leavesID, this.leavesMeta);
-        		radius *= -1;
-    		}
-    		for(int a = 0; a < 2; a++){
-        		int randomHeight = random.nextInt(2);
-        		setBlockInWorld(locX, locY + currentHeight + randomHeight, locZ+radius, this.woodID, this.woodMeta);
-        		int h2 = locY + treeHeight - 3;
-        		generateLeafLayerCircle(world, random, 1, locX, locZ+radius, h2 + randomHeight);
-        		generateLeafLayerCircle(world, random, 1, locX, locZ+radius, h2+1 + randomHeight);
-        		generateLeafLayerCircle(world, random, 1, locX, locZ+radius, h2+2 + randomHeight);
-        		generateLeafLayerCircle(world, random, 1, locX, locZ+radius, h2+3 + randomHeight);
-        		setBlockInWorld(locX, h2+4 + randomHeight, locZ+radius, this.leavesID, this.leavesMeta);
-        		radius *= -1;
-    		}
     	}
     	
     	return true;
+    }
+    
+    
+    
+    private void generateTrunkX(int x, int y, int z){
+    	//trunks
+    	int radius = 1;
+    	setBlockInWorld(x+radius, y, z, this.woodID, this.woodMeta);
+		setBlockInWorld(x-radius, y, z, this.woodID, this.woodMeta);
+		radius++; y++;
+		setBlockInWorld(x+radius, y, z, this.woodID, this.woodMeta);
+		setBlockInWorld(x-radius, y, z, this.woodID, this.woodMeta);
+		y++;
+		setBlockInWorld(x+radius, y, z, this.woodID, this.woodMeta);
+		setBlockInWorld(x-radius, y, z, this.woodID, this.woodMeta);
+		
+		//leaves
+		for(int a = 0; a < 2; a++){
+    		int randomHeight = random.nextInt(2);
+    		setBlockInWorld(x+radius, y + randomHeight, z, this.woodID, this.woodMeta);
+    		generateLeafLayerCircle(world, random, 1, x+radius, z, y + randomHeight);
+    		generateLeafLayerCircle(world, random, 1, x+radius, z, y+1 + randomHeight);
+    		generateLeafLayerCircle(world, random, 1, x+radius, z, y+2 + randomHeight);
+    		generateLeafLayerCircle(world, random, 1, x+radius, z, y+3 + randomHeight);
+    		setBlockInWorld(x+radius, y+4 + randomHeight, z, this.leavesID, this.leavesMeta);
+    		radius *= -1;
+		}
+    }
+    
+    private void generateTrunkZ(int x, int y, int z){
+    	//trunks
+    	int radius = 1;
+		setBlockInWorld(x, y, z+radius, this.woodID, this.woodMeta);
+		setBlockInWorld(x, y, z-radius, this.woodID, this.woodMeta);
+		radius++; y++;
+		setBlockInWorld(x, y, z+radius, this.woodID, this.woodMeta);
+		setBlockInWorld(x, y, z-radius, this.woodID, this.woodMeta);
+		y++;
+		setBlockInWorld(x, y, z+radius, this.woodID, this.woodMeta);
+		setBlockInWorld(x, y, z-radius, this.woodID, this.woodMeta);
+		
+		//leaves
+		for(int a = 0; a < 2; a++){
+    		int randomHeight = random.nextInt(2);
+    		setBlockInWorld(x, y + randomHeight, z+radius, this.woodID, this.woodMeta);
+    		generateLeafLayerCircle(world, random, 1, x, z+radius, y + randomHeight);
+    		generateLeafLayerCircle(world, random, 1, x, z+radius, y+1 + randomHeight);
+    		generateLeafLayerCircle(world, random, 1, x, z+radius, y+2 + randomHeight);
+    		generateLeafLayerCircle(world, random, 1, x, z+radius, y+3 + randomHeight);
+    		setBlockInWorld(x, y+4 + randomHeight, z+radius, this.leavesID, this.leavesMeta);
+    		radius *= -1;
+		}
     }
 }
 

@@ -21,7 +21,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
 import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class TreeBlocks {
 
@@ -106,11 +108,31 @@ public class TreeBlocks {
 			GameRegistry.registerBlock(blocksLeaves[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLeavesGenesis + set);
 			
 			GameRegistry.registerBlock(blocksWoods[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockWoodGenesis + set);
+			
+			OreDictionary.registerOre("logWood", new ItemStack(blocksLogs[set], 1, OreDictionary.WILDCARD_VALUE));
+			OreDictionary.registerOre("plankWood", new ItemStack(blocksWoods[set], 1, OreDictionary.WILDCARD_VALUE));
 		}
 		
 		for(int set = 0; set < woodTypeCount; set++){
 			GameRegistry.registerBlock(blocksStairs[set], Genesis.MOD_ID + "." + Names.blockStairsGenesis + set);
 		}
+		
+		for(int set = 0; set < woodTypeCount; set++){
+			CraftingManager.getInstance().addShapelessRecipe(new ItemStack(blocksWoods[set/setSize], 4, set%setSize),
+					new ItemStack(blocksLogs[set/setSize], 1, set%setSize));
+			
+			CraftingManager.getInstance().addRecipe(new ItemStack(blocksStairs[set], 4, 0),
+					"P  ",
+					"PP ",
+					"PPP",
+					'P', new ItemStack(blocksWoods[set/setSize], 1, set%setSize));
+			CraftingManager.getInstance().addRecipe(new ItemStack(blocksStairs[set], 4, 0),
+					"  P",
+					" PP",
+					"PPP",
+					'P', new ItemStack(blocksWoods[set/setSize], 1, set%setSize));
+		}
+		
 		
 		treeGenerators.add(new WorldGenTreeSigillaria(8, 3, true));
 		treeGenerators.add(new WorldGenTreeLepidodendron(10, 5, true));
