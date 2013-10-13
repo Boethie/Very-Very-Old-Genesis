@@ -111,11 +111,11 @@ public class Blocks {
 				.setHardness(3).setResistance(10);
 		
 		hematiteOre = (BlockGenesisOre)new BlockGenesisOre(IDs.blockHematiteOreID,
-				Material.rock, 2,
-				1, 1, 3, 8)
+				Material.rock, 1,
+				1, 1, 2, 5)
 				.setTextureName("hematite_ore").setUnlocalizedName(Names.blockHematiteOre)
 				.setHardness(3).setResistance(10);
-		hematiteBlock = (BlockGenesisOreStorage)new BlockGenesisOreStorage(IDs.blockHematiteID, Material.iron, 2)
+		hematiteBlock = (BlockGenesisOreStorage)new BlockGenesisOreStorage(IDs.blockHematiteID, Material.rock, 2)
 		.setTextureName("hematite_block").setUnlocalizedName(Names.blockHematite)
 		.setHardness(3).setResistance(10);
 		
