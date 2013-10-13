@@ -60,6 +60,7 @@ public class Items {
 	public static ItemGenesis quartz;
 	
 	public static ItemGenesis olivine;
+	public static ItemGenesis hematite;
 	
 	public static void init()
 	{
@@ -74,6 +75,9 @@ public class Items {
 		
 		quartz = (ItemGenesis)new ItemGenesis(IDs.itemQuartzID)
 				.setUnlocalizedName(Names.itemQuartz).setTextureName("quartz");
+		hematite = (ItemGenesis)new ItemGenesis(IDs.itemHematiteID)
+		.setUnlocalizedName(Names.itemHematite).setTextureName("hematite");
+
 		
 		olivine = (ItemGenesis)new ItemGenesis(IDs.itemOlivineID)
 				.setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");

@@ -43,6 +43,9 @@ public class Blocks {
 	public static BlockGenesisOreStorage zirconBlock;
 
 	public static BlockGenesisOre quartzGraniteOre;
+	
+	public static BlockGenesisOre hematiteOre;
+	public static BlockGenesisOreStorage hematiteBlock;
 
 	public static BlockGenesisOre olivineOre;
 	public static BlockGenesisOreStorage olivineBlock;
@@ -107,6 +110,15 @@ public class Blocks {
 				.setTextureName("olivine_block").setUnlocalizedName(Names.blockOlivine)
 				.setHardness(3).setResistance(10);
 		
+		hematiteOre = (BlockGenesisOre)new BlockGenesisOre(IDs.blockHematiteOreID,
+				Material.rock, 2,
+				1, 1, 3, 8)
+				.setTextureName("hematite_ore").setUnlocalizedName(Names.blockHematiteOre)
+				.setHardness(3).setResistance(10);
+		hematiteBlock = (BlockGenesisOreStorage)new BlockGenesisOreStorage(IDs.blockHematiteID, Material.iron, 2)
+		.setTextureName("hematite_block").setUnlocalizedName(Names.blockHematite)
+		.setHardness(3).setResistance(10);
+		
 		TreeBlocks.init();
 		PlantBlocks.init();
 	}
@@ -120,11 +132,13 @@ public class Blocks {
 		quartzGraniteOre.setDrop(Items.quartz, 0, 0.2F);
 		
 		olivineOre.setDrop(Items.olivine, 0, 0.8F);
+		hematiteOre.setDrop(Items.hematite, 0, 0.8F);
 		
         MinecraftForge.setBlockHarvestLevel(moss, "shovel", 0);
 
 		zirconBlock.setRecipe(Items.zircon, false);
 		olivineBlock.setRecipe(Items.olivine, false);
+		hematiteBlock.setRecipe(Items.hematite, false);
 		
 		TreeBlocks.registerBlocks();
 		PlantBlocks.registerBlocks();

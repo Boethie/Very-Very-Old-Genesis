@@ -76,6 +76,8 @@ public class IDs {
 	public static int blockQuartzGraniteOreID = 2183;
 	public static int blockOlivineOreID = 2184;
 	public static int blockOlivineID = 2185;
+	public static int blockHematiteOreID = 2186;
+	public static int blockHematiteID = 2160;
 	
 	// Trees
 	public static IDSet blockLogID = new IDSet(2190, 2191);
@@ -101,5 +103,7 @@ public class IDs {
 	public static int itemOlivineID = 2231;
 	public static int itemsOlivineToolsStartID = 2232;
 	public static int itemsOlivineArmorStartID = 2238;
+
+	public static int itemHematiteID = 2250;
 	
 }
