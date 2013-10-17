@@ -11,11 +11,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockGrass;
 import net.minecraft.launchwrapper.IClassTransformer;
 
-public class ClassTransformer implements IClassTransformer {
+public class GenesisClassTransformer implements IClassTransformer {
 	
 	//Injects code into the class files before they load
 	
-	public byte[] transform(String name, String transformedName, byte[] bytes) {
+	public byte[] transform(String name, String transformedName, byte[] bytes)
+	{
 		if (name.equals(ObfuscationTable.ClassEntityDiggingFX))
 		{
 			byte[] returnVal = ClassTransformHelper.injectCustomHook(bytes, new DiggingFXColorTransformer(),

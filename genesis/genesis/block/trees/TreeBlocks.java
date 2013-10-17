@@ -183,6 +183,7 @@ public class TreeBlocks {
 		public BlockStairsSet(int startID, Block modelBlock)
 		{
 			stairs = new BlockGenesisStairs[woodTypeCount];
+			
 			for(int set = 0; set < woodTypeCount; set++){
 					stairs[set] = new BlockGenesisStairs(startID + set, modelBlock, set);
 					stairs[set].setUnlocalizedName("genesis.stairs." + woodTypes.get(set));

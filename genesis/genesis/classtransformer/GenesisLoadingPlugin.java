@@ -12,7 +12,7 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.MCVersion;
 
 @TransformerExclusions({"genesis.genesis.classtransformer"})
-@MCVersion("1.6.2")
+@MCVersion("1.6.4")
 public class GenesisLoadingPlugin implements IFMLLoadingPlugin {
 	 
 	public String[] getLibraryRequestClass() {
@@ -41,7 +41,7 @@ public class GenesisLoadingPlugin implements IFMLLoadingPlugin {
 		ObfuscationTable.MethodOnItemUse = isObfuscated ? "a" : "onItemUse";
 		ObfuscationTable.MethodOnItemUseDesc = isObfuscated ? "(Lyd;Lue;Labv;IIIIFFF)Z" : "(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;IIIIFFF)Z";
 		
-		return new String[] {"genesis.genesis.classtransformer.ClassTransformer"};
+		return new String[] {"genesis.genesis.classtransformer.GenesisClassTransformer"};
 	}
 
 	public String getModContainerClass() {
