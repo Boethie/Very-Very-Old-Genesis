@@ -40,6 +40,8 @@ public class Names {
 	
 	// Plants
 	public static final String blockPlant = mod + "plant.";
+	public static final String blockFlowerPot = blockPlant + "flowerpot";
+	
 	public static final String blockCalamitesPlant = blockPlant + "calamites";
 	public static final String blockCalamites = blockStorage + "calamites";
 	

@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import genesis.genesis.block.BlockMossRenderer;
 import genesis.genesis.block.BlockTikiTorchRenderer;
+import genesis.genesis.block.plants.BlockGenesisFlowerPotRenderer;
 import genesis.genesis.block.plants.BlockGenesisPlantRenderer;
 import genesis.genesis.common.CommonProxy;
 import genesis.genesis.common.GenesisEventHandler;
@@ -24,6 +25,7 @@ public class ClientProxy extends CommonProxy {
 
 		RenderingRegistry.registerBlockHandler(new BlockMossRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockGenesisPlantRenderer());
+		RenderingRegistry.registerBlockHandler(new BlockGenesisFlowerPotRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockTikiTorchRenderer());
 		
 		LanguageLoader.loadLanguages();

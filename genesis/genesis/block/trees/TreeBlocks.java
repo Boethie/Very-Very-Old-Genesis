@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import genesis.genesis.block.BlockAndMeta;
+import genesis.genesis.block.plants.BlockGenesisFlowerPot;
 import genesis.genesis.common.Genesis;
 import genesis.genesis.item.ItemGenesisAxe;
 import genesis.genesis.item.ItemGenesisHoe;
@@ -76,13 +78,22 @@ public class TreeBlocks {
 			
 			GameRegistry.registerBlock(blocksSaplings[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockSaplingGenesis + set);
 			
+			int start = set * TreeBlocks.setSize;
+			int end = Math.min((set + 1) * TreeBlocks.setSize, TreeBlocks.woodTypeCount);
+			
+			for (int i = start; i < end; i++)
+			{
+				BlockGenesisFlowerPot.tryRegisterPlant(new ItemStack(blocksSaplings[set].blockID, 1, i - start));
+			}
+			
 			GameRegistry.registerBlock(blocksLeaves[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLeavesGenesis + set);
 			
 			GameRegistry.registerBlock(blocksWoods[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockWoodGenesis + set);
 		}
 		
-		for(int set = 0; set < woodTypeCount; set++){
-			GameRegistry.registerBlock(blocksStairs[set], Genesis.MOD_ID + "." + Names.blockStairsGenesis + set);
+		for (int type = 0; type < woodTypeCount; type++)
+		{
+			GameRegistry.registerBlock(blocksStairs[type], Genesis.MOD_ID + "." + Names.blockStairsGenesis + type);
 		}
 		
 		treeGenerators.add(new WorldGenTreeSigillaria(8, 3, true));
@@ -98,23 +109,7 @@ public class TreeBlocks {
 		STAIRS;
 	}
 	
-	public static class BlockAndMetadata
-	{
-		int blockID;
-		int metadata;
-		
-		public BlockAndMetadata(int blockID, int metadata)
-		{
-			this.blockID = blockID;
-			this.metadata = metadata;
-		}
-
-		public ItemStack getStack() {
-			return new ItemStack(blockID, 1, Block.blocksList[blockID].damageDropped(metadata));
-		}
-	}
-	
-	public static BlockAndMetadata getBlockForType(TreeBlockType type, String name)
+	public static BlockAndMeta getBlockForType(TreeBlockType type, String name)
 	{
 		int index = woodTypes.indexOf(name);
 		int set = index / setSize;
@@ -140,9 +135,8 @@ public class TreeBlocks {
 			break;
 		}
 		
-		
 		if (block != null)
-			return new BlockAndMetadata(block.blockID, metadata);
+			return new BlockAndMeta(block.blockID, metadata);
 		
 		return null;
 	}

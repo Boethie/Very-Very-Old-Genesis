@@ -2,11 +2,14 @@ package genesis.genesis.classtransformer;
 
 import net.minecraft.block.Block;
 
-public class ObfuscationTable {
+public class GenesisObfTable {
 
-	public static String ClassBlock = Block.class.getName();
-	public static String ClassBlockPath = ClassBlock.replace('.', '/');
+	public static String ClassBlock;
+	public static String ClassBlockPath;
+	public static String ClassBlockFlowerPot;
 	public static String FieldBlockID;
+	public static String MethodOnBlockActivated;
+	public static String MethodOnBlockActivatedDesc;
 	
 	public static String ClassEntityDiggingFX;
 	public static String ClassEntityDiggingFXPath;
