@@ -214,7 +214,6 @@ public class GenesisClassTransformer implements IClassTransformer {
 						mv.visitInsn(Opcodes.ICONST_1);
 						mv.visitInsn(Opcodes.IRETURN);
 						mv.visitLabel(label);
-						System.out.println("INJECT---------------------------~~~~~~~~~~!!!!!!!!!!!!!!" + matches);
 					}
 					catch (Throwable e)
 					{
