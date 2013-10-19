@@ -132,11 +132,15 @@ public class Blocks {
 		quartzGraniteOre.setDrop(Items.quartz, 0, 0.2F);
 		
 		olivineOre.setDrop(Items.olivine, 0, 0.8F);
+
+		hematiteOre.setDrop(new ItemStack(Items.hematite));
+		hematiteOre.setSmelting(new ItemStack(Item.ingotIron), 0.7F);
 		
         MinecraftForge.setBlockHarvestLevel(moss, "shovel", 0);
 
 		zirconBlock.setRecipe(Items.zircon, false);
 		olivineBlock.setRecipe(Items.olivine, false);
+		hematiteBlock.setRecipe(Items.hematite, false);
 		
 		TreeBlocks.registerBlocks();
 		PlantBlocks.registerBlocks();

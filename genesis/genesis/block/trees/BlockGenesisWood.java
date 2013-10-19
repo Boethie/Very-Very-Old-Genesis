@@ -69,9 +69,9 @@ public class BlockGenesisWood extends BlockWood implements IBlockGenesisTrees
     /**
      * Determines the damage on the item the block drops. Used in cloth and wood.
      */
-    public int damageDropped(int par1)
+    public int damageDropped(int metadata)
     {
-        return par1;
+        return metadata;
     }
 
 	@Override

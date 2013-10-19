@@ -15,9 +15,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
 public class BlockGenesisOre extends BlockGenesisRock {
-	
-	protected int dropItemID;
-	protected int dropItemDamage;
+
+	protected ItemStack drop;
 	protected int minDrop;
 	protected int maxDrop;
 	protected int minXP;
@@ -48,18 +47,34 @@ public class BlockGenesisOre extends BlockGenesisRock {
 	
 	public BlockGenesisOre setDrop(Object drop, int damage, float smeltXP) throws IllegalArgumentException
 	{
+		int itemID = 0;
+		
 		if (drop instanceof Block)
-			dropItemID = ((Block)drop).blockID;
+			itemID = ((Block)drop).blockID;
 		else if (drop instanceof Item)
-			dropItemID = ((Item)drop).itemID;
+			itemID = ((Item)drop).itemID;
 		else if (drop instanceof Integer)
-			dropItemID = (Integer)drop;
+			itemID = (Integer)drop;
 		else
 			throw new IllegalArgumentException("Invalid Genesis ore item drop: " + drop);
 		
-		dropItemDamage = damage;
+		ItemStack stack = new ItemStack(itemID, 1, damage);
+		setDrop(stack);
+		setSmelting(stack, smeltXP);
 		
-		FurnaceRecipes.smelting().addSmelting(blockID, 0, new ItemStack(dropItemID, 1, dropItemDamage), smeltXP);
+		return this;
+	}
+	
+	public BlockGenesisOre setDrop(ItemStack drop)
+	{
+		this.drop = drop;
+		
+		return this;
+	}
+	
+	public BlockGenesisOre setSmelting(ItemStack stack, float xp)
+	{
+		FurnaceRecipes.smelting().addSmelting(blockID, 0, stack, xp);
 		
 		return this;
 	}
@@ -72,12 +87,12 @@ public class BlockGenesisOre extends BlockGenesisRock {
 	
     public int idDropped(int metdata, Random random, int fortune)
     {
-        return dropItemID;
+        return drop.itemID;
     }
     
     public int damageDropped(int par1)
     {
-        return dropItemDamage;
+        return drop.getItemDamage();
     }
     
     public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance, int fortune)
