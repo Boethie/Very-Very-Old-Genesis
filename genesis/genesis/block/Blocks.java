@@ -46,6 +46,9 @@ public class Blocks {
 
 	public static BlockGenesisOre olivineOre;
 	public static BlockGenesisOreStorage olivineBlock;
+
+	public static BlockGenesisOre hematiteOre;
+	public static BlockGenesisOreStorage hematiteBlock;
 	
 	public static void init()
 	{
@@ -105,6 +108,15 @@ public class Blocks {
 				.setHardness(3).setResistance(10);
 		olivineBlock = (BlockGenesisOreStorage)new BlockGenesisOreStorage(IDs.blockOlivineID, Material.iron, 2)
 				.setTextureName("olivine_block").setUnlocalizedName(Names.blockOlivine)
+				.setHardness(3).setResistance(10);
+		
+		hematiteOre = (BlockGenesisOre)new BlockGenesisOre(IDs.blockHematiteOreID,
+				Material.rock, 2,
+				1, 1, 3, 8)
+				.setTextureName("hematite_ore").setUnlocalizedName(Names.blockHematiteOre)
+				.setHardness(3).setResistance(10);
+		hematiteBlock = (BlockGenesisOreStorage)new BlockGenesisOreStorage(IDs.blockHematiteID, Material.iron, 2)
+				.setTextureName("hematite_block").setUnlocalizedName(Names.blockHematite)
 				.setHardness(3).setResistance(10);
 		
 		TreeBlocks.init();

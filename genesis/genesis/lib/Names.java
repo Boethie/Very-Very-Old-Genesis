@@ -30,6 +30,9 @@ public class Names {
 	
 	public static final String blockOlivineOre = blockOre + "olivine";
 	public static final String blockOlivine = blockStorage + "olivine";
+
+	public static final String blockHematiteOre = blockOre + "hematite";
+	public static final String blockHematite = blockStorage + "hematite";
 	
 	// Trees
 	public static final String blockLogGenesis = mod + "log.";
@@ -56,6 +59,9 @@ public class Names {
 	
 	public static final String itemOlivine = mod + "olivine";
 	public static final String itemOlivineMaterial = "olivine";
+	
+	public static final String itemHematite = mod + "hematite";
+	public static final String itemHematiteMaterial = "hematite";
 
 	// Swords and tools
 	public static final String itemTool = mod + "tool.";

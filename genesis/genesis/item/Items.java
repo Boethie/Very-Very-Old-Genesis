@@ -30,6 +30,12 @@ public class Items {
 	public static ItemGenesis quartz;
 	
 	public static ItemGenesis olivine;
+	public static ItemsToolSet olivineTools;
+	public static ItemsSuitOfArmor olivineArmor;
+	
+	public static ItemGenesis hematite;
+	public static ItemsToolSet hematiteTools;
+	public static ItemsSuitOfArmor hematiteArmor;
 	
 	public static void init()
 	{
@@ -48,13 +54,23 @@ public class Items {
 		
 		olivine = (ItemGenesis)new ItemGenesis(IDs.itemOlivineID)
 				.setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");
-		zirconTools = new ItemsToolSet(IDs.itemsOlivineToolsStartID, 
+		olivineTools = new ItemsToolSet(IDs.itemsOlivineToolsStartID, 
 				EnumHelper.addToolMaterial(Names.itemOlivineMaterial.toUpperCase(), 3, 1561, 8, 3, 10),
 				Names.itemOlivineMaterial,
 				olivine, Item.stick);
-		zirconArmor = new ItemsSuitOfArmor(IDs.itemsOlivineArmorStartID,
+		olivineArmor = new ItemsSuitOfArmor(IDs.itemsOlivineArmorStartID,
 					EnumHelper.addArmorMaterial(Names.itemOlivineMaterial.toUpperCase(), 17, new int[] {3, 8, 6, 3}, 9),
 					Names.itemOlivineMaterial, olivine);
+		
+		hematite = (ItemGenesis)new ItemGenesis(IDs.itemHematiteID)
+				.setUnlocalizedName(Names.itemHematite).setTextureName("hematite");
+		hematiteTools = new ItemsToolSet(IDs.itemsHematiteToolsStartID, 
+				EnumHelper.addToolMaterial(Names.itemHematiteMaterial.toUpperCase(), 3, 1561, 8, 3, 10),
+				Names.itemHematiteMaterial,
+				hematite, Item.stick);
+		hematiteArmor = new ItemsSuitOfArmor(IDs.itemsHematiteArmorStartID,
+					EnumHelper.addArmorMaterial(Names.itemHematiteMaterial.toUpperCase(), 17, new int[] {3, 8, 6, 3}, 9),
+					Names.itemHematiteMaterial, hematite);
 	}
 	
 	public static void registerItems()
