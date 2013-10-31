@@ -52,6 +52,18 @@
 	<entry key="tile.genesis.wood.cordaites.name">Cordaites Wood Planks</entry>
 	<entry key="tile.genesis.stairs.cordaites.name">Cordaites Wood Stairs</entry>
 	
+	<entry key="tile.genesis.log.araucarioxylon.name">Araucarioxylon Wood</entry>
+    <entry key="tile.genesis.leaves.araucarioxylon.name">Araucarioxylon Leaves</entry>
+    <entry key="tile.genesis.sapling.araucarioxylon.name">Araucarioxylon Sapling</entry>
+    <entry key="tile.genesis.wood.araucarioxylon.name">Araucarioxylon Wood Planks</entry>
+    <entry key="tile.genesis.stairs.araucarioxylon.name">Araucarioxylon Wood Stairs</entry>
+    
+    <entry key="tile.genesis.log.psaronius.name">Psaronius Wood</entry>
+    <entry key="tile.genesis.leaves.psaronius.name">Psaronius Leaves</entry>
+    <entry key="tile.genesis.sapling.psaronius.name">Psaronius Sapling</entry>
+    <entry key="tile.genesis.wood.psaronius.name">Psaronius Wood Planks</entry>
+    <entry key="tile.genesis.stairs.psaronius.name">Psaronius Wood Stairs</entry>
+	
 
 	<!-- Plants -->
 	<entry key="tile.genesis.plant.calamites.name">Calamites</entry>

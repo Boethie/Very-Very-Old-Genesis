@@ -27,6 +27,9 @@ public abstract class WorldGenTreeBase extends WorldGenerator
     
     protected World world;
     protected Random random;
+    
+    //this array is the 8 directions of x and y, used for palm trees.
+    protected int[][]directions = {{1, 1}, {1, 0}, {1, -1}, {0, -1}, {-1, -1}, {-1, 0}, {-1, 1}, {0, 1}};
 
     /** Constructor - sets up tree variables
      * @param lmd leaf meta data
@@ -118,6 +121,28 @@ public abstract class WorldGenTreeBase extends WorldGenerator
 	    				TreeBlocks.getLogMetadataForDirection(this.woodMeta, ForgeDirection.EAST));
     		}
     		return new int[]{locX, locY+length, locZ+length*direction};
+    	}
+    }
+    
+    //same as GenerateStraightBranch but downward (for Arau tree)
+    protected int[] generateStraightBranchDown(World world, Random random, int length, int locX, int locY, int locZ, int dir){
+    	int direction = -1;
+    	if(dir < 2)
+    		 direction = 1;
+    	if(dir % 2 == 0){
+    		//generates branch
+    		for(int i = 1; i <= length; i++){
+	    		setBlockInWorld(locX + i*direction, locY-i, locZ, this.woodID,
+	    				TreeBlocks.getLogMetadataForDirection(this.woodMeta, ForgeDirection.NORTH));
+    		}
+    		return new int[]{locX+length*direction, locY-length, locZ};
+    	}
+    	else{
+    		for(int i = 1; i <= length; i++){
+	    		setBlockInWorld(locX, locY-i, locZ + i*direction, this.woodID,
+	    				TreeBlocks.getLogMetadataForDirection(this.woodMeta, ForgeDirection.EAST));
+    		}
+    		return new int[]{locX, locY-length, locZ+length*direction};
     	}
     }
     

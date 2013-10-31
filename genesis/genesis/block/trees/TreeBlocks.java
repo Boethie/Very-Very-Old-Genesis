@@ -13,9 +13,11 @@ import genesis.genesis.item.ItemGenesisSword;
 import genesis.genesis.item.itemblock.ItemBlockGenesisTree;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.Names;
+import genesis.genesis.world.WorldGenTreeAraucarioxylon;
 import genesis.genesis.world.WorldGenTreeBase;
 import genesis.genesis.world.WorldGenTreeCordaites;
 import genesis.genesis.world.WorldGenTreeLepidodendron;
+import genesis.genesis.world.WorldGenTreePsaronius;
 import genesis.genesis.world.WorldGenTreeSigillaria;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
@@ -30,11 +32,15 @@ public class TreeBlocks {
 	public static final String SIGIL_NAME = "sigillaria";
 	public static final String LEPID_NAME = "lepidodendron";
 	public static final String CORD_NAME = "cordaites";
+	public static final String ARAU_NAME = "araucarioxylon";
+	public static final String PSAR_NAME = "psaronius";
 	
 	public static final ArrayList<String> woodTypes = new ArrayList() {{
 		add(SIGIL_NAME);
 		add(LEPID_NAME);
 		add(CORD_NAME);
+		add(ARAU_NAME);
+		add(PSAR_NAME);
 	}};
 	public static final int woodTypeCount = woodTypes.size();
 	private static ArrayList<WorldGenTreeBase> treeGenerators = new ArrayList(woodTypeCount);
@@ -137,6 +143,8 @@ public class TreeBlocks {
 		treeGenerators.add(new WorldGenTreeSigillaria(8, 3, true));
 		treeGenerators.add(new WorldGenTreeLepidodendron(10, 5, true));
 		treeGenerators.add(new WorldGenTreeCordaites(15, 5, true));
+		treeGenerators.add(new WorldGenTreeAraucarioxylon(20, 7, true));
+		treeGenerators.add(new WorldGenTreePsaronius(5, 4, true));
 	}
 
 	public static enum TreeBlockType {
