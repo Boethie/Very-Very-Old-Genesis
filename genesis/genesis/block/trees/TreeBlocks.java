@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import genesis.genesis.block.BlockAndMeta;
+import genesis.genesis.block.plants.BlockGenesisFlowerPot;
 import genesis.genesis.common.Genesis;
 import genesis.genesis.item.ItemGenesisAxe;
 import genesis.genesis.item.ItemGenesisHoe;
@@ -23,9 +25,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
 import net.minecraftforge.common.ForgeDirection;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class TreeBlocks {
 
@@ -76,33 +76,6 @@ public class TreeBlocks {
 		blocksStairs = (Block[])woodStairs.stairs;
 	}
 	
-	public static void addNames()
-	{
-		/*LanguageRegistry.addName(new ItemStack(blockLogGenesis, 1, 0), Names.blockLogAraucarioxylon_name);
-		LanguageRegistry.addName(new ItemStack(blockLogGenesis, 1, 1), Names.blockLogBjuvia_name);
-		LanguageRegistry.addName(new ItemStack(blockLogGenesis, 1, 2), Names.blockLogCordaites_name);
-		LanguageRegistry.addName(new ItemStack(blockLogGenesis, 1, 3), Names.blockLogFig_name);
-		LanguageRegistry.addName(new ItemStack(blockLogGenesis1, 1, 0), Names.blockLogLepidodendron_name);
-		LanguageRegistry.addName(new ItemStack(blockLogGenesis1, 1, 1), Names.blockLogSigillaria_name);
-		LanguageRegistry.addName(new ItemStack(blockLogGenesis1, 1, 2), Names.blockLogTempskya_name);
-		
-		LanguageRegistry.addName(new ItemStack(blockSaplingGenesis, 1, 0), Names.blockSaplingAraucarioxylon_name);
-		LanguageRegistry.addName(new ItemStack(blockSaplingGenesis, 1, 1), Names.blockSaplingBjuvia_name);
-		LanguageRegistry.addName(new ItemStack(blockSaplingGenesis, 1, 2), Names.blockSaplingCordaites_name);
-		LanguageRegistry.addName(new ItemStack(blockSaplingGenesis, 1, 3), Names.blockSaplingFig_name);
-		LanguageRegistry.addName(new ItemStack(blockSaplingGenesis1, 1, 0), Names.blockSaplingLepidodendron_name);
-		LanguageRegistry.addName(new ItemStack(blockSaplingGenesis1, 1, 1), Names.blockSaplingSigillaria_name);
-		LanguageRegistry.addName(new ItemStack(blockSaplingGenesis1, 1, 2), Names.blockSaplingTempskya_name);
-		
-		LanguageRegistry.addName(new ItemStack(blockLeavesGenesis, 1, 0), Names.blockLeavesAraucarioxylon_name);
-		LanguageRegistry.addName(new ItemStack(blockLeavesGenesis, 1, 1), Names.blockLeavesBjuvia_name);
-		LanguageRegistry.addName(new ItemStack(blockLeavesGenesis, 1, 2), Names.blockLeavesCordaites_name);
-		LanguageRegistry.addName(new ItemStack(blockLeavesGenesis, 1, 3), Names.blockLeavesFig_name);
-		LanguageRegistry.addName(new ItemStack(blockLeavesGenesis1, 1, 0), Names.blockLeavesLepdodendron_name);
-		LanguageRegistry.addName(new ItemStack(blockLeavesGenesis1, 1, 1), Names.blockLeavesSigillaria_name);
-		LanguageRegistry.addName(new ItemStack(blockLeavesGenesis1, 1, 2), Names.blockLeavesTempskya_name);*/
-	}
-	
 	public static void registerBlocks()
 	{
 		for (int set = 0; set < IDs.TREE_BLOCK_COUNT; set++)
@@ -111,34 +84,23 @@ public class TreeBlocks {
 			
 			GameRegistry.registerBlock(blocksSaplings[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockSaplingGenesis + set);
 			
+			int start = set * TreeBlocks.setSize;
+			int end = Math.min((set + 1) * TreeBlocks.setSize, TreeBlocks.woodTypeCount);
+			
+			for (int i = start; i < end; i++)
+			{
+				BlockGenesisFlowerPot.tryRegisterPlant(new ItemStack(blocksSaplings[set].blockID, 1, i - start));
+			}
+			
 			GameRegistry.registerBlock(blocksLeaves[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLeavesGenesis + set);
 			
 			GameRegistry.registerBlock(blocksWoods[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockWoodGenesis + set);
-			
-			OreDictionary.registerOre("logWood", new ItemStack(blocksLogs[set], 1, OreDictionary.WILDCARD_VALUE));
-			OreDictionary.registerOre("plankWood", new ItemStack(blocksWoods[set], 1, OreDictionary.WILDCARD_VALUE));
 		}
 		
-		for(int set = 0; set < woodTypeCount; set++){
-			GameRegistry.registerBlock(blocksStairs[set], Genesis.MOD_ID + "." + Names.blockStairsGenesis + set);
+		for (int type = 0; type < woodTypeCount; type++)
+		{
+			GameRegistry.registerBlock(blocksStairs[type], Genesis.MOD_ID + "." + Names.blockStairsGenesis + type);
 		}
-		
-		for(int set = 0; set < woodTypeCount; set++){
-			CraftingManager.getInstance().addShapelessRecipe(new ItemStack(blocksWoods[set/setSize], 4, set%setSize),
-					new ItemStack(blocksLogs[set/setSize], 1, set%setSize));
-			
-			CraftingManager.getInstance().addRecipe(new ItemStack(blocksStairs[set], 4, 0),
-					"P  ",
-					"PP ",
-					"PPP",
-					'P', new ItemStack(blocksWoods[set/setSize], 1, set%setSize));
-			CraftingManager.getInstance().addRecipe(new ItemStack(blocksStairs[set], 4, 0),
-					"  P",
-					" PP",
-					"PPP",
-					'P', new ItemStack(blocksWoods[set/setSize], 1, set%setSize));
-		}
-		
 		
 		treeGenerators.add(new WorldGenTreeSigillaria(8, 3, true));
 		treeGenerators.add(new WorldGenTreeLepidodendron(10, 5, true));
@@ -155,23 +117,7 @@ public class TreeBlocks {
 		STAIRS;
 	}
 	
-	public static class BlockAndMetadata
-	{
-		int blockID;
-		int metadata;
-		
-		public BlockAndMetadata(int blockID, int metadata)
-		{
-			this.blockID = blockID;
-			this.metadata = metadata;
-		}
-
-		public ItemStack getStack() {
-			return new ItemStack(blockID, 1, Block.blocksList[blockID].damageDropped(metadata));
-		}
-	}
-	
-	public static BlockAndMetadata getBlockForType(TreeBlockType type, String name)
+	public static BlockAndMeta getBlockForType(TreeBlockType type, String name)
 	{
 		int index = woodTypes.indexOf(name);
 		int set = index / setSize;
@@ -197,9 +143,8 @@ public class TreeBlocks {
 			break;
 		}
 		
-		
 		if (block != null)
-			return new BlockAndMetadata(block.blockID, metadata);
+			return new BlockAndMeta(block.blockID, metadata);
 		
 		return null;
 	}
@@ -240,6 +185,7 @@ public class TreeBlocks {
 		public BlockStairsSet(int startID, Block modelBlock)
 		{
 			stairs = new BlockGenesisStairs[woodTypeCount];
+			
 			for(int set = 0; set < woodTypeCount; set++){
 					stairs[set] = new BlockGenesisStairs(startID + set, modelBlock, set);
 					stairs[set].setUnlocalizedName("genesis.stairs." + woodTypes.get(set));

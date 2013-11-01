@@ -62,7 +62,6 @@ public class IDs {
 
 	// ---- Blocks ----
 	public static int blockMossID = 2172;
-	public static int blockTikiTorchID = 2199;
 	
 	// Rocks
 	public static int blockGraniteID = 2171;
@@ -76,8 +75,6 @@ public class IDs {
 	public static int blockQuartzGraniteOreID = 2183;
 	public static int blockOlivineOreID = 2184;
 	public static int blockOlivineID = 2185;
-	public static int blockHematiteOreID = 2186;
-	public static int blockHematiteID = 2187;
 	
 	// Trees
 	public static IDSet blockLogID = new IDSet(2190, 2191);
@@ -89,10 +86,15 @@ public class IDs {
 	public static IDSet blockDoubleSlabID = new IDSet(2406, 2407);
 	
 	// Plants
+	public static int blockFlowerPotID = 2199;
+	
 	public static int blockCalamitesPlantID = 2200;
 	public static int blockCalamitesBlockID = 2201;
 	
 	public static int blockNeuropterisPlantID = 2202;
+	
+	// Special
+	public static int blockTikiTorchID = 2219;
 	
 	// ---- Items ----
 	// Ore items, tools (5 IDs) and armors (4 IDs)
@@ -105,7 +107,5 @@ public class IDs {
 	public static int itemOlivineID = 2231;
 	public static int itemsOlivineToolsStartID = 2232;
 	public static int itemsOlivineArmorStartID = 2238;
-
-	public static int itemHematiteID = 2243;
 	
 }

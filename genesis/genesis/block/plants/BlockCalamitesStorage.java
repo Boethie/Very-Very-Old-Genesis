@@ -3,10 +3,13 @@ package genesis.genesis.block.plants;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.genesis.common.Genesis;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockRotatedPillar;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.MinecraftForge;
 
 public class BlockCalamitesStorage extends BlockRotatedPillar {
@@ -15,7 +18,7 @@ public class BlockCalamitesStorage extends BlockRotatedPillar {
 	Icon topIcon;
 	
 	public BlockCalamitesStorage(int blockID) {
-		super(blockID, Material.plants);
+		super(blockID, new Material(MapColor.foliageColor));
 		
 		setCreativeTab(Genesis.tabGenesis);
 		setHardness(2);

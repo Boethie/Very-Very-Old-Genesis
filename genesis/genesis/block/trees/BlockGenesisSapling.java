@@ -1,5 +1,7 @@
 package genesis.genesis.block.trees;
 
+import genesis.genesis.block.plants.BlockGenesisFlowerPot;
+import genesis.genesis.block.plants.IPlantInFlowerPot;
 import genesis.genesis.common.Genesis;
 import genesis.genesis.lib.BlocksHelper;
 import genesis.genesis.lib.IDs;
@@ -20,6 +22,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenBigTree;
 import net.minecraft.world.gen.feature.WorldGenForest;
@@ -30,7 +33,7 @@ import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTrees {
+public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTrees, IPlantInFlowerPot {
 	
 	private static final int SET_MASK = 3;
 	
@@ -55,8 +58,8 @@ public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTr
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int side, int metadata)
 	{
-		int k = getSetID(metadata) + (saplingSet * 4);
-		return this.saplingIcons[k];
+		int id = (saplingSet * 4) + getSetID(metadata);
+		return this.saplingIcons[id];
 	}
 
 	@Override
@@ -117,6 +120,31 @@ public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTr
 	public int getBlockSet()
 	{
 		return this.saplingSet;
+	}
+
+	@Override
+	public float renderScale(IBlockAccess world, int x, int y, int z)
+	{
+		return 0.75F;
+	}
+	
+	@Override
+	public int getRenderColor(IBlockAccess world, int x, int y, int z)
+	{
+        return 16777215;
+	}
+	
+	@Override
+	public Icon getIconForFlowerPot(IBlockAccess world, int x, int y, int z, int plantMetadata)
+	{
+		//return getIcon(0, world.getBlockMetadata(x, y, z));
+		return null;
+	}
+
+	@Override
+	public Block getBlockForRender(IBlockAccess world, int x, int y, int z)
+	{
+		return null;
 	}
 
 }

@@ -16,7 +16,7 @@ public class BlocksHelper {
 		int start = blockSet * TreeBlocks.setSize;
 		int end = Math.min((blockSet + 1) * TreeBlocks.setSize, TreeBlocks.woodTypeCount);
 		
-		for(int i = start; i < end; i++)
+		for (int i = start; i < end; i++)
 		{
 			itemList.add(new ItemStack(blockID, 1, i - start));
 		}

@@ -165,17 +165,7 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 	
 	private boolean isTop(IBlockAccess world, int x, int y, int z)
 	{
-		int atBlockID = world.getBlockId(x, y, z);
-		
-		if (atBlockID == this.blockID)
-		{
-			atBlockID = world.getBlockId(x, y + 1, z);
-			
-			if (atBlockID != this.blockID)
-				return true;
-		}
-		
-		return false;
+		return world.getBlockId(x, y + 1, z) != this.blockID;
 	}
 	
 	private int setHasEggs(int metadata, boolean hasEggs)
@@ -271,8 +261,8 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 		world.setBlockMetadataWithNotify(x, y, z, setAge(metadata, age + 1), 3);
 	}
 	
-	private static boolean secondSide;
-	private static boolean reverseTex;
+	private boolean secondSide;
+	private boolean reverseTex;
 	
 	@Override
     public Icon getBlockTexture(IBlockAccess world, int x, int y, int z, int side)
@@ -319,6 +309,11 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
     	}
     	
     	return isTop ? this.calamitesPlantTop : this.calamitesPlant;
+    }
+	
+    public Icon getIcon(int side, int metadata)
+    {
+        return this.blockIcon;
     }
 	
 	@Override
@@ -378,7 +373,8 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 	}
     
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player,
+    		int side, float hitX, float hitY, float hitZ)
     {
     	if (dropEggs(world, x, y, z, world.getBlockMetadata(x, y, z)))
     		return true;
@@ -413,5 +409,11 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
     	return AxisAlignedBB.getAABBPool().getAABB(x + 0.5 - size, y, z + 0.5 - size,
     			x + 0.5 + size, y + 1, z + 0.5 + size);
     }
+
+	@Override
+	public float renderScale(IBlockAccess world, int x, int y, int z)
+	{
+		return 0.75F;
+	}
 	
 }

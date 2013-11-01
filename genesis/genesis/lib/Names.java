@@ -31,9 +31,6 @@ public class Names {
 	public static final String blockOlivineOre = blockOre + "olivine";
 	public static final String blockOlivine = blockStorage + "olivine";
 	
-	public static final String blockHematiteOre = blockOre + "hematite";
-	public static final String blockHematite = blockStorage + "hematite";
-	
 	// Trees
 	public static final String blockLogGenesis = mod + "log.";
 	public static final String blockSaplingGenesis = mod + "sapling.";
@@ -43,6 +40,8 @@ public class Names {
 	
 	// Plants
 	public static final String blockPlant = mod + "plant.";
+	public static final String blockFlowerPot = blockPlant + "flowerpot";
+	
 	public static final String blockCalamitesPlant = blockPlant + "calamites";
 	public static final String blockCalamites = blockStorage + "calamites";
 	
@@ -57,8 +56,6 @@ public class Names {
 	
 	public static final String itemOlivine = mod + "olivine";
 	public static final String itemOlivineMaterial = "olivine";
-	public static final String itemHematite = mod + "hematite";
-
 
 	// Swords and tools
 	public static final String itemTool = mod + "tool.";
@@ -71,6 +68,5 @@ public class Names {
 	// Armor
 	public static final String itemArmor = mod + "armor.";
 	public static final String[] itemArmorTypes = {"helmet.", "chestplate.", "leggings.", "boots."};
-
 	
 }

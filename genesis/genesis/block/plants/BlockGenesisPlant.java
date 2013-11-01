@@ -16,7 +16,7 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
 
-public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecials {
+public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecials, IPlantInFlowerPot {
 	
 	public boolean stackable = false;
 	public int stackedLimit = 1;
@@ -221,7 +221,8 @@ public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecia
 	}
     
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player,
+    		int side, float hitX, float hitY, float hitZ)
     {
     	/*if (!world.isRemote && side != 1)
     	{
@@ -230,5 +231,29 @@ public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecia
     	
     	return super.onBlockActivated(world, x, y, z, player, side, hitX, hitY, hitZ);
     }
+
+	@Override
+	public float renderScale(IBlockAccess world, int x, int y, int z)
+	{
+		return 1;
+	}
+	
+	@Override
+	public int getRenderColor(IBlockAccess world, int x, int y, int z)
+	{
+        return 16777215;
+	}
+	
+	@Override
+	public Icon getIconForFlowerPot(IBlockAccess world, int x, int y, int z, int plantMetadata)
+	{
+		return getBlockTexture(world, x, y, z, 0);
+	}
+	
+	@Override
+	public Block getBlockForRender(IBlockAccess world, int x, int y, int z)
+	{
+		return null;
+	}
 	
 }

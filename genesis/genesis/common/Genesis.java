@@ -72,6 +72,8 @@ public class Genesis {
 		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
 		
 		MinecraftForge.EVENT_BUS.register(new GenesisEventHandler());
+		
+		proxy.init();
 	}
 
 }
