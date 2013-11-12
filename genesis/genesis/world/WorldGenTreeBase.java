@@ -149,7 +149,8 @@ public abstract class WorldGenTreeBase extends WorldGenerator
     
     protected void setBlockInWorld(int x, int y, int z, int id, int meta){
     	try{
-			if(id == this.woodID && (world.isAirBlock(x,y,z) || Block.blocksList[world.getBlockId(x, y, z)].blockMaterial.isReplaceable())){
+			if(id == this.woodID && (world.isAirBlock(x,y,z) || Block.blocksList[world.getBlockId(x, y, z)].blockMaterial.isReplaceable() ||
+					Block.blocksList[world.getBlockId(x, y, z)].isLeaves(world, x, y, z))){
 				if(notifyFlag) world.setBlock(x, y, z, id, meta, 3);
 		    	else world.setBlock(x, y, z, id, meta, 2);
 			}

@@ -88,8 +88,8 @@ public class BlockRottenLog extends BlockLog implements IBlockGenesisTrees {
         
         for (int i = 0; i < TreeBlocks.woodTypeCount; ++i)
         {
-            woodSideIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + TreeBlocks.woodTypes.get(i).toLowerCase());
-            woodTopIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + TreeBlocks.woodTypes.get(i).toLowerCase()  + "_top");
+            woodSideIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + TreeBlocks.woodTypes.get(i).toLowerCase()  + "_rotten");
+            woodTopIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + TreeBlocks.woodTypes.get(i).toLowerCase()  + "_rotten_top");
         }
     }
 	
