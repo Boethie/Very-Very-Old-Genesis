@@ -52,6 +52,7 @@ public class TreeBlocks {
 	public static Block[] blocksLeaves = new Block[IDs.TREE_BLOCK_COUNT];
 	public static Block[] blocksWoods = new Block[IDs.TREE_BLOCK_COUNT];
 	public static Block[] blocksStairs = new Block[IDs.TREE_BLOCK_COUNT];
+	public static Block[] blocksRottenLogs = new Block[IDs.TREE_BLOCK_COUNT];
 	
 	public static BlockStairsSet woodStairs;
 	
@@ -70,6 +71,9 @@ public class TreeBlocks {
 			
 			blocksWoods[set] = new BlockGenesisWood(IDs.blockWoodID.getID(set), set)
 					.setUnlocalizedName(Names.blockWoodGenesis);
+			
+			blocksRottenLogs[set] = new BlockRottenLog(IDs.blockRottenLogID.getID(set), set)
+				.setUnlocalizedName(Names.blockRottenLogGenesis);
 		}
 		
 		woodStairs = new BlockStairsSet(IDs.blockStairsStartID, blocksWoods[0]);
@@ -95,6 +99,8 @@ public class TreeBlocks {
 			GameRegistry.registerBlock(blocksLeaves[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLeavesGenesis + set);
 			
 			GameRegistry.registerBlock(blocksWoods[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockWoodGenesis + set);
+			
+			GameRegistry.registerBlock(blocksRottenLogs[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockRottenLogGenesis + set);
 		}
 		
 		for (int type = 0; type < woodTypeCount; type++)
@@ -114,7 +120,8 @@ public class TreeBlocks {
 		LEAVES,
 		SAPLING,
 		WOOD,
-		STAIRS;
+		STAIRS,
+		ROTTEN_LOG;
 	}
 	
 	public static BlockAndMeta getBlockForType(TreeBlockType type, String name)
@@ -140,6 +147,9 @@ public class TreeBlocks {
 			break;
 		case STAIRS:
 			block = blocksWoods[set];
+			break;
+		case ROTTEN_LOG:
+			block = blocksRottenLogs[set];
 			break;
 		}
 		

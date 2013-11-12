@@ -64,6 +64,8 @@ public class Genesis {
 		Blocks.registerBlocks();
 		Items.registerItems();
 		LogHelper.log(Level.INFO, "Blocks and Items Loaded");
+		
+		MinecraftForge.EVENT_BUS.register(new GenesisSoundLoader());
 	}
 	
 	@EventHandler

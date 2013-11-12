@@ -82,8 +82,9 @@ public class IDs {
 	public static IDSet blockLeavesID = new IDSet(2196, 2197);
 	public static IDSet blockWoodID = new IDSet(2400, 2401);
 	public static int blockStairsStartID = 2403;
-	public static IDSet blockSlabID = new IDSet(2404, 2405);
-	public static IDSet blockDoubleSlabID = new IDSet(2406, 2407);
+	public static IDSet blockSlabID = new IDSet(2410, 2411);
+	public static IDSet blockDoubleSlabID = new IDSet(2412, 2413);
+	public static IDSet blockRottenLogID = new IDSet(2414, 2415);
 	
 	// Plants
 	public static int blockFlowerPotID = 2199;
