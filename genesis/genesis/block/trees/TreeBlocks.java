@@ -21,11 +21,14 @@ import genesis.genesis.world.WorldGenTreeCordaites;
 import genesis.genesis.world.WorldGenTreeLepidodendron;
 import genesis.genesis.world.WorldGenTreePsaronius;
 import genesis.genesis.world.WorldGenTreeSigillaria;
+import highlands.api.HighlandsBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class TreeBlocks {
 
@@ -101,11 +104,26 @@ public class TreeBlocks {
 			GameRegistry.registerBlock(blocksWoods[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockWoodGenesis + set);
 			
 			GameRegistry.registerBlock(blocksRottenLogs[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockRottenLogGenesis + set);
+			
+			OreDictionary.registerOre("logWood", new ItemStack(blocksLogs[set], 1, OreDictionary.WILDCARD_VALUE));
+			OreDictionary.registerOre("plankWood", new ItemStack(blocksWoods[set], 1, OreDictionary.WILDCARD_VALUE));
+			GameRegistry.addSmelting(blocksLogs[set].blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
 		}
 		
 		for (int type = 0; type < woodTypeCount; type++)
 		{
 			GameRegistry.registerBlock(blocksStairs[type], Genesis.MOD_ID + "." + Names.blockStairsGenesis + type);
+			
+			GameRegistry.addRecipe(new ItemStack(blocksStairs[type], 1),  
+					"P  ",
+					"PP ",
+					"PPP",
+					'P', new ItemStack(blocksWoods[type/setSize], 1, type%setSize));
+			GameRegistry.addRecipe(new ItemStack(blocksStairs[type], 1),  
+					"  P",
+					" PP",
+					"PPP",
+					'P', new ItemStack(blocksWoods[type/setSize], 1, type%setSize));
 		}
 		
 		treeGenerators.add(new WorldGenTreeSigillaria(8, 3, true));
