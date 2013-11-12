@@ -21,7 +21,6 @@ import genesis.genesis.world.WorldGenTreeCordaites;
 import genesis.genesis.world.WorldGenTreeLepidodendron;
 import genesis.genesis.world.WorldGenTreePsaronius;
 import genesis.genesis.world.WorldGenTreeSigillaria;
-import highlands.api.HighlandsBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.item.EnumToolMaterial;
@@ -113,6 +112,9 @@ public class TreeBlocks {
 		for (int type = 0; type < woodTypeCount; type++)
 		{
 			GameRegistry.registerBlock(blocksStairs[type], Genesis.MOD_ID + "." + Names.blockStairsGenesis + type);
+			
+			GameRegistry.addShapelessRecipe(new ItemStack(blocksWoods[type/setSize], 4, type%setSize), 
+					new ItemStack(blocksLogs[type/setSize], 1, type%setSize));
 			
 			GameRegistry.addRecipe(new ItemStack(blocksStairs[type], 1),  
 					"P  ",
