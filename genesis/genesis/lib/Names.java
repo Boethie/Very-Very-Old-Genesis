@@ -42,6 +42,7 @@ public class Names {
 	public static final String blockLeavesGenesis = mod + "leaves.";
 	public static final String blockWoodGenesis = mod + "wood.";
 	public static final String blockStairsGenesis = mod + "stairs.";
+	public static final String blockRottenLogGenesis = mod + "logRotten.";
 	
 	// Plants
 	public static final String blockPlant = mod + "plant.";

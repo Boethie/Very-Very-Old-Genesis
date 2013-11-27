@@ -63,7 +63,7 @@ public class BlockGenesisWood extends BlockWood implements IBlockGenesisTrees
             par2 = 0;
         }
 
-        return this.iconArray[par2];
+        return this.iconArray[woodSet*TreeBlocks.setSize + par2];
     }
 
     /**

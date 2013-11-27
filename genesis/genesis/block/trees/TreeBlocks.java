@@ -15,26 +15,34 @@ import genesis.genesis.item.ItemGenesisSword;
 import genesis.genesis.item.itemblock.ItemBlockGenesisTree;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.Names;
+import genesis.genesis.world.WorldGenTreeAraucarioxylon;
 import genesis.genesis.world.WorldGenTreeBase;
 import genesis.genesis.world.WorldGenTreeCordaites;
 import genesis.genesis.world.WorldGenTreeLepidodendron;
+import genesis.genesis.world.WorldGenTreePsaronius;
 import genesis.genesis.world.WorldGenTreeSigillaria;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class TreeBlocks {
 
 	public static final String SIGIL_NAME = "sigillaria";
 	public static final String LEPID_NAME = "lepidodendron";
 	public static final String CORD_NAME = "cordaites";
+	public static final String ARAU_NAME = "araucarioxylon";
+	public static final String PSAR_NAME = "psaronius";
 	
 	public static final ArrayList<String> woodTypes = new ArrayList() {{
 		add(SIGIL_NAME);
 		add(LEPID_NAME);
 		add(CORD_NAME);
+		add(ARAU_NAME);
+		add(PSAR_NAME);
 	}};
 	public static final int woodTypeCount = woodTypes.size();
 	private static ArrayList<WorldGenTreeBase> treeGenerators = new ArrayList(woodTypeCount);
@@ -46,6 +54,7 @@ public class TreeBlocks {
 	public static Block[] blocksLeaves = new Block[IDs.TREE_BLOCK_COUNT];
 	public static Block[] blocksWoods = new Block[IDs.TREE_BLOCK_COUNT];
 	public static Block[] blocksStairs = new Block[IDs.TREE_BLOCK_COUNT];
+	public static Block[] blocksRottenLogs = new Block[IDs.TREE_BLOCK_COUNT];
 	
 	public static BlockStairsSet woodStairs;
 	
@@ -64,6 +73,9 @@ public class TreeBlocks {
 			
 			blocksWoods[set] = new BlockGenesisWood(IDs.blockWoodID.getID(set), set)
 					.setUnlocalizedName(Names.blockWoodGenesis);
+			
+			blocksRottenLogs[set] = new BlockRottenLog(IDs.blockRottenLogID.getID(set), set)
+				.setUnlocalizedName(Names.blockRottenLogGenesis);
 		}
 		
 		woodStairs = new BlockStairsSet(IDs.blockStairsStartID, blocksWoods[0]);
@@ -89,16 +101,38 @@ public class TreeBlocks {
 			GameRegistry.registerBlock(blocksLeaves[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLeavesGenesis + set);
 			
 			GameRegistry.registerBlock(blocksWoods[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockWoodGenesis + set);
+			
+			GameRegistry.registerBlock(blocksRottenLogs[set], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockRottenLogGenesis + set);
+			
+			OreDictionary.registerOre("logWood", new ItemStack(blocksLogs[set], 1, OreDictionary.WILDCARD_VALUE));
+			OreDictionary.registerOre("plankWood", new ItemStack(blocksWoods[set], 1, OreDictionary.WILDCARD_VALUE));
+			GameRegistry.addSmelting(blocksLogs[set].blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
 		}
 		
 		for (int type = 0; type < woodTypeCount; type++)
 		{
 			GameRegistry.registerBlock(blocksStairs[type], Genesis.MOD_ID + "." + Names.blockStairsGenesis + type);
+			
+			GameRegistry.addShapelessRecipe(new ItemStack(blocksWoods[type/setSize], 4, type%setSize), 
+					new ItemStack(blocksLogs[type/setSize], 1, type%setSize));
+			
+			GameRegistry.addRecipe(new ItemStack(blocksStairs[type], 1),  
+					"P  ",
+					"PP ",
+					"PPP",
+					'P', new ItemStack(blocksWoods[type/setSize], 1, type%setSize));
+			GameRegistry.addRecipe(new ItemStack(blocksStairs[type], 1),  
+					"  P",
+					" PP",
+					"PPP",
+					'P', new ItemStack(blocksWoods[type/setSize], 1, type%setSize));
 		}
 		
 		treeGenerators.add(new WorldGenTreeSigillaria(8, 3, true));
 		treeGenerators.add(new WorldGenTreeLepidodendron(10, 5, true));
 		treeGenerators.add(new WorldGenTreeCordaites(15, 5, true));
+		treeGenerators.add(new WorldGenTreeAraucarioxylon(20, 7, true));
+		treeGenerators.add(new WorldGenTreePsaronius(5, 4, true));
 	}
 
 	public static enum TreeBlockType {
@@ -106,7 +140,8 @@ public class TreeBlocks {
 		LEAVES,
 		SAPLING,
 		WOOD,
-		STAIRS;
+		STAIRS,
+		ROTTEN_LOG;
 	}
 	
 	public static BlockAndMeta getBlockForType(TreeBlockType type, String name)
@@ -132,6 +167,9 @@ public class TreeBlocks {
 			break;
 		case STAIRS:
 			block = blocksWoods[set];
+			break;
+		case ROTTEN_LOG:
+			block = blocksRottenLogs[set];
 			break;
 		}
 		

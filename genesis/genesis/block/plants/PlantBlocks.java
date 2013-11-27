@@ -40,11 +40,12 @@ public class PlantBlocks {
 		GameRegistry.registerBlock(neuropterisPlant, Names.blockNeuropterisPlant);
 		
 		CraftingManager.getInstance().addRecipe(new ItemStack(calamitesBlock), 
-			"CC",
-			"CC",
+			"CCC",
+			"CCC",
+			"CCC",
 			'C', calamitesPlant);
 		
-		CraftingManager.getInstance().addRecipe(new ItemStack(calamitesPlant, 4), 
+		CraftingManager.getInstance().addRecipe(new ItemStack(calamitesPlant, 9), 
 			"C",
 			'C', calamitesBlock);
 	}

@@ -103,7 +103,7 @@ public class BlockGenesisSapling extends BlockSapling implements IBlockGenesisTr
 		if (!TerrainGen.saplingGrowTree(world, rand, x, y, z)) return;
 
 		int metadata = world.getBlockMetadata(x, y, z);
-		WorldGenTreeBase gen = TreeBlocks.getTreeGenerator(TreeBlocks.woodTypes.get(getSetID(metadata)));
+		WorldGenTreeBase gen = TreeBlocks.getTreeGenerator(TreeBlocks.woodTypes.get(saplingSet*TreeBlocks.setSize + getSetID(metadata)));
 		
 		if (gen != null)
 		{
