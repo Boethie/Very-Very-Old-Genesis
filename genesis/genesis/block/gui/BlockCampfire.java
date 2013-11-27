@@ -44,6 +44,8 @@ public class BlockCampfire extends BlockContainer {
 	{
 		super(blockID, Material.rock);
 		
+        setCreativeTab(Genesis.tabGenesis);
+		
 		setBlockBounds(0, 0, 0, 1, 1, 1);
 		setTickRandomly(true);
 	}
