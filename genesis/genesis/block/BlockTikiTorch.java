@@ -340,8 +340,8 @@ public class BlockTikiTorch extends BlockGenesis {
 	
 	public MovingObjectPosition collisionRayTrace(World world, int x, int y, int z, Vec3 start, Vec3 end)
 	{
-		setBlockBounds(0.4F, 0, 0.4F,
-				0.6F, 1.6F, 0.6F);
+		setBlockBounds(0.4F, 0.1875F, 0.4F,
+				0.6F, 1.7875F, 0.6F);
 		
 		int metadata = world.getBlockMetadata(x, y, z);
 		

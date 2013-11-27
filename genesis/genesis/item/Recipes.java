@@ -1,5 +1,7 @@
 package genesis.genesis.item;
 
+import genesis.genesis.block.Blocks;
+import genesis.genesis.block.plants.PlantBlocks;
 import genesis.genesis.lib.LogHelper;
 
 import java.util.ArrayList;
@@ -95,6 +97,13 @@ public class Recipes {
 	{
 		LogHelper.log(Level.INFO, "Registering recipes.");
 		adaptNetherQuartzRecipes();
+		
+		CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.tikiTorch, 2),
+			"c",
+			"|",
+			"|",
+			'c', Item.coal,
+			'|', PlantBlocks.calamitesPlant);
 	}
 	
 }

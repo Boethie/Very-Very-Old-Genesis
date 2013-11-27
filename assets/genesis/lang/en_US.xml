@@ -11,6 +11,7 @@
 
 	<!-- Tiki Torch -->
 	<entry key="tile.genesis.tikiTorch.name">Tiki Torch</entry>
+	<entry key="tile.genesis.campfire.name">Campfire</entry>
 
 	<!-- Moss -->
 	<entry key="tile.genesis.moss.name">Moss</entry>

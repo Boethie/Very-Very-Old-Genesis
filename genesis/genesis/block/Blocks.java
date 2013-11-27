@@ -5,6 +5,7 @@ import java.util.Arrays;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
+import genesis.genesis.block.gui.BlockCampfire;
 import genesis.genesis.block.plants.PlantBlocks;
 import genesis.genesis.block.trees.TreeBlocks;
 import genesis.genesis.common.Genesis;
@@ -31,6 +32,7 @@ public class Blocks {
 
 	public static Block moss;
 	public static Block tikiTorch;
+	public static BlockCampfire campfire;
 	
 	// Rocks
 	public static Block granite;
@@ -66,9 +68,12 @@ public class Blocks {
 				})
 				.setTextureName("frozenItem")
 				.setUnlocalizedName(Names.blockFrozenItem_unloc);*/
-		
+
 		tikiTorch = new BlockTikiTorch(IDs.blockTikiTorchID).setTextureName("tiki_torch")
 				.setUnlocalizedName(Names.blockTikiTorch);
+		
+		campfire = (BlockCampfire)new BlockCampfire(IDs.blockCampfireID).setTextureName("campfire")
+				.setUnlocalizedName(Names.blockCampfire);
 		
 		
 		// Rocks

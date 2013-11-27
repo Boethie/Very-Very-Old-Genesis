@@ -9,12 +9,14 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ActiveRenderInfo;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.Vec3;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.event.ForgeSubscribe;
@@ -24,16 +26,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class GenesisClientEventHandler {
 	
-	@SideOnly(Side.CLIENT)
 	private static final List<Class> blockExclude = new ArrayList() {{
 		add(BlockProxy.class);
 	}};
 	
-	@SideOnly(Side.CLIENT)
 	private static final List<Class> tileEntityExclude = new ArrayList() {{
 	}};
-
-	@SideOnly(Side.CLIENT)
+	
 	private static void addAllFromArrayReverse(ArrayList list, Object[] array)
 	{
 		int i = 0;
@@ -43,8 +42,7 @@ public class GenesisClientEventHandler {
 			list.add(i++, obj);
 		}
 	}
-
-	@SideOnly(Side.CLIENT)
+	
 	private static String getClassHierarchy(Object startingInstance, List<Class> excludeClasses)
 	{
 		String classHierarchy = "";
@@ -94,7 +92,6 @@ public class GenesisClientEventHandler {
 	}
 	
 	@ForgeSubscribe
-	@SideOnly(Side.CLIENT)
 	public void addDebugText(RenderGameOverlayEvent.Text event)
 	{
 		Minecraft mc = ClientProxy.getMC();
@@ -106,6 +103,12 @@ public class GenesisClientEventHandler {
 			left.add(null);
 			
 			MovingObjectPosition lookPos = mc.renderViewEntity.rayTrace(100, ClientTickHandler.partialTick);
+			float length = 100;
+	        Vec3 start = mc.renderViewEntity.getPosition(ClientTickHandler.partialTick);
+	        start = start.addVector(ActiveRenderInfo.objectX, ActiveRenderInfo.objectY, ActiveRenderInfo.objectZ);
+	        Vec3 look = mc.renderViewEntity.getLook(ClientTickHandler.partialTick);
+	        Vec3 end = start.addVector(look.xCoord * length, look.yCoord * length, look.zCoord * length);
+	        lookPos = mc.renderViewEntity.worldObj.clip(start, end);
 			
 			if (lookPos != null && lookPos.typeOfHit == EnumMovingObjectType.TILE)
 			{
@@ -152,6 +155,7 @@ public class GenesisClientEventHandler {
 				int lightOpac = mc.theWorld.getBlockLightOpacity(hitX, hitY, hitZ);
 				
 				ForgeDirection hitDir = ForgeDirection.getOrientation(lookPos.sideHit);
+				//String 
 				
 				boolean solidOnSide = block.isBlockSolidOnSide(mc.theWorld, hitX, hitY, hitZ, hitDir);
 				boolean opaque = block.isOpaqueCube();
@@ -170,7 +174,7 @@ public class GenesisClientEventHandler {
 				left.add(String.format("bid: %d:%d, bname: %s, mat: %s",
 						blockID, metadata, locName == null ? "N/A" : "\"" + locName + "\"",
 						mat.getClass().getSimpleName()));
-				left.add(String.format("sld: %b, opq: %b, side: %s",
+				left.add(String.format("sld: %b, opq: %b, side: %s ",
 						solidOnSide, opaque, hitDir));
 				left.add(String.format("bhier: %s",
 						blockHier));

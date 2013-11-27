@@ -8,7 +8,9 @@ public class Names {
 
 	// ---- Blocks ----
 	public static final String blockStorage = mod + "storage.";
+	
 	public static final String blockTikiTorch = mod + "tikiTorch";
+	public static final String blockCampfire = mod + "campfire";
 	
 	// Moss
 	public static final String blockMoss = mod + "moss";

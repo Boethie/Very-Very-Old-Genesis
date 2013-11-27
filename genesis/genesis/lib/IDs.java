@@ -98,6 +98,7 @@ public class IDs {
 	public static int blockNeuropterisPlantID = 2202;
 	
 	// Special
+	public static int blockCampfireID = 2210;
 	public static int blockTikiTorchID = 2219;
 	
 	// ---- Items ----
@@ -110,10 +111,10 @@ public class IDs {
 	
 	public static int itemOlivineID = 2231;
 	public static int itemsOlivineToolsStartID = 2232;
-	public static int itemsOlivineArmorStartID = 2238;
+	public static int itemsOlivineArmorStartID = 2237;
 	
-	public static int itemHematiteID = 2239;
-	public static int itemsHematiteToolsStartID = 2240;
-	public static int itemsHematiteArmorStartID = 2245;
+	public static int itemHematiteID = 2241;
+	public static int itemsHematiteToolsStartID = 2242;
+	public static int itemsHematiteArmorStartID = 2247;
 	
 }
