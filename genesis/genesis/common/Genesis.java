@@ -18,7 +18,7 @@ import genesis.genesis.item.Items;
 import genesis.genesis.lib.ConfigHandler;
 import genesis.genesis.lib.LogHelper;
 import genesis.genesis.packet.GenesisPacket;
-import genesis.genesis.packet.PacketHandler;
+import genesis.genesis.packet.GenesisPacketHandler;
 import genesis.genesis.world.WorldGenTreeSigillaria;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -35,7 +35,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
 @Mod(modid = Genesis.MOD_ID, name = "Genesis", version = "0.0.1")
-@NetworkMod(clientSideRequired = true, serverSideRequired = true, channels={GenesisPacket.CHANNEL}, packetHandler = PacketHandler.class)
+@NetworkMod(clientSideRequired = true, serverSideRequired = true, channels = {GenesisPacket.CHANNEL}, packetHandler = GenesisPacketHandler.class)
 public class Genesis {
 	
 	@Instance(Genesis.MOD_ID)

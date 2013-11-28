@@ -33,6 +33,7 @@ public class BlockTikiTorchRenderer implements ISimpleBlockRenderingHandler {
         double off = 0;
         
 		double offX = 0;
+		double offY = 0.1875;
 		double offZ = 0;
 		double dX = 0;
 		double dZ = 0;
@@ -66,9 +67,12 @@ public class BlockTikiTorchRenderer implements ISimpleBlockRenderingHandler {
 			offZ = off;
 			dZ = delta;
 			break;
+		default:
+			offY = 0;
+			break;
 		}
 		
-		renderer.renderTorchAtAngle(block, x + offX, y + 0.1875, z + offZ, dX, dZ, metadata);
+		renderer.renderTorchAtAngle(block, x + offX, y + offY, z + offZ, dX, dZ, metadata);
 		
 		return true;
 	}

@@ -7,18 +7,23 @@ import static net.minecraftforge.common.ForgeDirection.WEST;
 
 import java.util.Random;
 
+import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+import genesis.genesis.client.ClientProxy;
 import genesis.genesis.common.Genesis;
+import genesis.genesis.packet.BreakingParticlesPacket;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EffectRenderer;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -36,8 +41,8 @@ public class BlockTikiTorch extends BlockGenesis {
 	public static final int TORCH_META = 8;
 	public static final int DIR_META = 7;
 	
-	public static Icon tikiTorchLower;
-	public static Icon tikiTorchUpper;
+	public static Icon iconLower;
+	public static Icon iconUpper;
 	
 	protected BlockTikiTorch(int par1) {
 		super(par1, Material.circuits);
@@ -64,15 +69,15 @@ public class BlockTikiTorch extends BlockGenesis {
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		this.tikiTorchUpper = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_upper");
-		this.tikiTorchLower = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_lower");
+		this.iconUpper = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_upper");
+		this.iconLower = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_lower");
 		
-		this.blockIcon = this.tikiTorchUpper;
+		this.blockIcon = this.iconUpper;
 	}
 	
 	public Icon getIcon(int side, int metadata)
 	{
-		return isUpper(metadata) ? this.tikiTorchUpper : this.tikiTorchLower;
+		return isUpper(metadata) ? this.iconUpper : this.iconLower;
 	}
 	
 	@Override
@@ -337,7 +342,8 @@ public class BlockTikiTorch extends BlockGenesis {
 		
 		return false;
 	}
-	
+
+	@Override
 	public MovingObjectPosition collisionRayTrace(World world, int x, int y, int z, Vec3 start, Vec3 end)
 	{
 		setBlockBounds(0.4F, 0.1875F, 0.4F,
@@ -371,52 +377,77 @@ public class BlockTikiTorch extends BlockGenesis {
 			this.minZ += outOff;
 			this.maxZ = 1;
 			break;
+		default:
+			this.minY -= 0.1875F;
+			this.maxY -= 0.1875F;
+			break;
 		}
 		
 		return super.collisionRayTrace(world, x, y, z, start, end);
 	}
-	
+
+	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
 	{
 		return null;
 	}
 	
+	@Override
 	public void breakBlock(World world, int x, int y, int z, int blockID, int metadata)
 	{
-		int otherX = 0;
-		int otherY = 0;
-		int otherZ = 0;
+		int otherX = x;
+		int otherY = y;
+		int otherZ = z;
 		
 		if (!isUpper(metadata))
 		{
-			otherX = x;
-			otherY = y + 1;
-			otherZ = z;
+			otherY++;
 		}
 		else
 		{
-			otherX = x;
-			otherY = y - 1;
-			otherZ = z;
+			otherY--;
 		}
 		
-		if (world.getBlockId(otherX, otherY, otherZ) == this.blockID)
+		if (world.getBlockId(otherX, otherY, otherZ) == blockID)
 		{
-			world.playAuxSFX(2001, otherX, otherY, otherZ,
-					this.blockID + (world.getBlockMetadata(otherX, otherY, otherZ) << 12));
+			if (!world.isRemote)
+			{
+				/*PacketDispatcher.sendPacketToAllAround(otherX + 0.5, otherY + 0.5, otherZ + 0.5, 64, world.provider.dimensionId,
+						new BreakingParticlesPacket(otherX, otherY, otherZ, world).makePacket());*/
+			}
+			else
+			{
+				Minecraft mc = ClientProxy.getMC();
+				
+				if (world == mc.theWorld)
+				{
+					mc.effectRenderer.addBlockDestroyEffects(otherX, otherY, otherZ,
+							blockID, world.getBlockMetadata(otherX, otherY, otherZ));
+				}
+			}
+			
 			world.setBlockToAir(otherX, otherY, otherZ);
 		}
+		
+		super.breakBlock(world, x, y, z, blockID, metadata);
 	}
-
+	
+	@Override
+	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata)
+	{
+		if (world.isRemote)
+			breakBlock(world, x, y, z, blockID, metadata);
+	}
+	
 	public boolean addBlockDestroyEffects(World world, int x, int y, int z, int meta, EffectRenderer effectRenderer)
 	{
 		if (!isUpper(meta))
 		{
-			this.blockIcon = tikiTorchLower;
+			blockIcon = iconLower;
 		}
 		else
 		{
-			this.blockIcon = tikiTorchUpper;
+			blockIcon = iconUpper;
 		}
 		
 		return false;
