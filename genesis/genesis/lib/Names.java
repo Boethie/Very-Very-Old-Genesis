@@ -8,7 +8,9 @@ public class Names {
 
 	// ---- Blocks ----
 	public static final String blockStorage = mod + "storage.";
+	
 	public static final String blockTikiTorch = mod + "tikiTorch";
+	public static final String blockCampfire = mod + "campfire";
 	
 	// Moss
 	public static final String blockMoss = mod + "moss";
@@ -30,6 +32,9 @@ public class Names {
 	
 	public static final String blockOlivineOre = blockOre + "olivine";
 	public static final String blockOlivine = blockStorage + "olivine";
+
+	public static final String blockHematiteOre = blockOre + "hematite";
+	public static final String blockHematite = blockStorage + "hematite";
 	
 	// Trees
 	public static final String blockLogGenesis = mod + "log.";
@@ -59,6 +64,9 @@ public class Names {
 	
 	public static final String itemOlivine = mod + "olivine";
 	public static final String itemOlivineMaterial = "olivine";
+	
+	public static final String itemHematite = mod + "hematite";
+	public static final String itemHematiteMaterial = "hematite";
 
 	// Swords and tools
 	public static final String itemTool = mod + "tool.";

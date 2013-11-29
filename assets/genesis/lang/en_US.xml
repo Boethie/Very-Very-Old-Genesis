@@ -11,9 +11,7 @@
 
 	<!-- Tiki Torch -->
 	<entry key="tile.genesis.tikiTorch.name">Tiki Torch</entry>
-
-	<!-- Frozen Item -->
-	<entry key="tile.genesis.frozenItem.name">Frozen Item</entry>
+	<entry key="tile.genesis.campfire.name">Campfire</entry>
 
 	<!-- Moss -->
 	<entry key="tile.genesis.moss.name">Moss</entry>
@@ -27,9 +25,14 @@
 	<!-- Ores -->
 	<entry key="tile.genesis.ore.zircon.name">Zircon Ore</entry>
 	<entry key="tile.genesis.storage.zircon.name">Block of Zircon</entry>
+
 	<entry key="tile.genesis.ore.quartzGranite.name">Granite Quartz Ore</entry>
+
 	<entry key="tile.genesis.ore.olivine.name">Olivine Ore</entry>
 	<entry key="tile.genesis.storage.olivine.name">Block of Olivine</entry>
+
+	<entry key="tile.genesis.ore.hematite.name">Hematite Ore</entry>
+	<entry key="tile.genesis.storage.hematite.name">Block of Hematite</entry>
 
 	<!-- Trees -->
 	<entry key="tile.genesis.log.sigillaria.name">Sigillaria Wood</entry>
@@ -82,8 +85,12 @@
 	<!-- Items -->
 	<!-- Crafting -->
 	<entry key="item.genesis.zircon.name">Zircon</entry>
+
 	<entry key="item.genesis.quartz.name">Quartz</entry>
+
 	<entry key="item.genesis.olivine.name">Olivine</entry>
+
+	<entry key="item.genesis.hematite.name">Hematite</entry>
 
 	<!-- Swords/Tools -->
 	<entry key="item.genesis.sword.zircon.name">Zircon Sword</entry>
@@ -98,6 +105,12 @@
 	<entry key="item.genesis.tool.axe.olivine.name">Olivine Axe</entry>
 	<entry key="item.genesis.tool.hoe.olivine.name">Olivine Hoe</entry>
 
+	<entry key="item.genesis.sword.hematite.name">Hematite Sword</entry>
+	<entry key="item.genesis.tool.pickaxe.hematite.name">Hematite Pickaxe</entry>
+	<entry key="item.genesis.tool.shovel.hematite.name">Hematite Shovel</entry>
+	<entry key="item.genesis.tool.axe.hematite.name">Hematite Axe</entry>
+	<entry key="item.genesis.tool.hoe.hematite.name">Hematite Hoe</entry>
+
 	<!-- Armor -->
 	<entry key="item.genesis.armor.helmet.zircon.name">Zircon Helmet</entry>
 	<entry key="item.genesis.armor.chestplate.zircon.name">Zircon Chestplate</entry>
@@ -108,4 +121,9 @@
 	<entry key="item.genesis.armor.chestplate.olivine.name">Olivine Chestplate</entry>
 	<entry key="item.genesis.armor.leggings.olivine.name">Olivine Leggings</entry>
 	<entry key="item.genesis.armor.boots.olivine.name">Olivine Boots</entry>
+
+	<entry key="item.genesis.armor.helmet.hematite.name">Hematite Helmet</entry>
+	<entry key="item.genesis.armor.chestplate.hematite.name">Hematite Chestplate</entry>
+	<entry key="item.genesis.armor.leggings.hematite.name">Hematite Leggings</entry>
+	<entry key="item.genesis.armor.boots.hematite.name">Hematite Boots</entry>
 </properties>

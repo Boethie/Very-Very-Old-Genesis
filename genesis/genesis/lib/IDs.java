@@ -67,14 +67,20 @@ public class IDs {
 	public static int blockGraniteID = 2171;
 	public static int blockGraniteMossyID = 2173;
 	public static int blockLimestoneID = 2174;
+	
 	public static int blockStromatoliteID = 2176;
 	
 	// Ores and ore storage
 	public static int blockZirconOreID = 2181;
 	public static int blockZirconID = 2182;
+	
 	public static int blockQuartzGraniteOreID = 2183;
+	
 	public static int blockOlivineOreID = 2184;
 	public static int blockOlivineID = 2185;
+
+	public static int blockHematiteOreID = 2186;
+	public static int blockHematiteID = 2187;
 	
 	// Trees
 	public static IDSet blockLogID = new IDSet(2190, 2191);
@@ -97,6 +103,7 @@ public class IDs {
 	public static int blockFlowerID = 2203;
 	
 	// Special
+	public static int blockCampfireID = 2210;
 	public static int blockTikiTorchID = 2219;
 	
 	// ---- Items ----
@@ -109,6 +116,10 @@ public class IDs {
 	
 	public static int itemOlivineID = 2231;
 	public static int itemsOlivineToolsStartID = 2232;
-	public static int itemsOlivineArmorStartID = 2238;
+	public static int itemsOlivineArmorStartID = 2237;
+	
+	public static int itemHematiteID = 2241;
+	public static int itemsHematiteToolsStartID = 2242;
+	public static int itemsHematiteArmorStartID = 2247;
 	
 }

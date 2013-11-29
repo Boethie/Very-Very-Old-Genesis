@@ -38,9 +38,9 @@ public class BlockGenesisLog extends BlockLog implements IBlockGenesisTrees {
 		this.logSet = cat;
 	}
 	
-	public int damageDropped(int par1)
+	public int damageDropped(int metadata)
     {
-        return par1 & 3;
+        return metadata & 3;
     }
 	
 	@SideOnly(Side.CLIENT)

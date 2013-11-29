@@ -31,12 +31,8 @@ public class BlockGenesis extends Block {
 		
 		return super.setUnlocalizedName(unlocName);
 	}
-	
-    public int idDropped(int metdata, Random random, int fortune)
-    {
-        return blockID;
-    }
-	
+
+	@Override
 	public void registerIcons(IconRegister iconRegister)
     {
 		this.blockIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName());

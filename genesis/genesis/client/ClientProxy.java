@@ -1,5 +1,6 @@
 package genesis.genesis.client;
 
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -10,6 +11,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import genesis.genesis.block.BlockMossRenderer;
 import genesis.genesis.block.BlockTikiTorchRenderer;
+import genesis.genesis.block.gui.BlockCampfireRenderer;
+import genesis.genesis.block.gui.TileEntityCampfire;
+import genesis.genesis.block.gui.TileEntityCampfireRenderer;
 import genesis.genesis.block.plants.BlockGenesisFlowerPotRenderer;
 import genesis.genesis.block.plants.BlockGenesisPlantRenderer;
 import genesis.genesis.common.CommonProxy;
@@ -27,6 +31,9 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(new BlockGenesisPlantRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockGenesisFlowerPotRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockTikiTorchRenderer());
+		RenderingRegistry.registerBlockHandler(new BlockCampfireRenderer());
+		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCampfire.class, new TileEntityCampfireRenderer());
 		
 		LanguageLoader.loadLanguages();
 	}
@@ -43,13 +50,6 @@ public class ClientProxy extends CommonProxy {
 	public void init()
 	{
 		MinecraftForge.EVENT_BUS.register(new GenesisClientEventHandler());
-	}
-	
-	@Override
-	public Object getClientGuiElement(int ID, EntityPlayer player, World world,
-			int x, int y, int z)
-	{
-		return null;
 	}
 	
 	public static Minecraft getMC()
