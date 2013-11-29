@@ -48,6 +48,8 @@ public class Names {
 	
 	public static final String blockNeuropterisPlant = blockPlant + "neuropteris";
 	
+	public static final String blockFlower = blockPlant + "flower";
+	
 	// ---- Items ----
 	// Crafting items
 	public static final String itemZircon = mod + "zircon";

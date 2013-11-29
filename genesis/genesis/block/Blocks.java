@@ -71,11 +71,11 @@ public class Blocks {
 		// Rocks
 		granite = new BlockGenesisRock(IDs.blockGraniteID, Material.rock, 0)
 				.setTextureName("granite")
-				.setUnlocalizedName(Names.blockGranite).setHardness(1.5F).setResistance(10);
+				.setUnlocalizedName(Names.blockGranite).setHardness(2.0F).setResistance(10);
 		graniteMossy = new BlockGenesisRock(IDs.blockGraniteMossyID, Material.rock, 0)
 				.setTextureName("granite_mossy")
-				.setUnlocalizedName(Names.blockGraniteMossy).setHardness(1.5F).setResistance(10);
-		limestone = new BlockGenesisRock(IDs.blockLimestoneID, Material.rock, 0)
+				.setUnlocalizedName(Names.blockGraniteMossy).setHardness(2.0F).setResistance(10);
+		limestone = new BlockGenesisRock(IDs.blockLimestoneID, Material.rock, 0).setHardness(.75F)
 				.setTextureName("limestone")
 				.setUnlocalizedName(Names.blockLimestone).setHardness(1).setResistance(7.5F);
 		stromatolite = new BlockGenesisRock(IDs.blockStromatoliteID, Material.rock, 0)

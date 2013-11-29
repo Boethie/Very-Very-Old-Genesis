@@ -71,6 +71,12 @@
 	<!-- Plants -->
 	<entry key="tile.genesis.plant.calamites.name">Calamites</entry>
 	<entry key="tile.genesis.storage.calamites.name">Block of Calamites</entry>
+	<entry key="tile.genesis.plant.neuropteris.name">Neuropteris Plant</entry>
+	
+	<entry key="tile.genesis.plant.flower.cooksonia.name">Cooksonia</entry>
+	<entry key="tile.genesis.plant.flower.baragwanathia.name">Baragwanathia</entry>
+	<entry key="tile.genesis.plant.flower.sciadophyton.name">Sciadophyton</entry>
+	<entry key="tile.genesis.plant.flower.psilophyton.name">Psilophyton</entry>
 
 
 	<!-- Items -->

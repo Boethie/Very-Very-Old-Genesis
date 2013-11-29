@@ -1,15 +1,30 @@
 package genesis.genesis.block.plants;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import java.util.ArrayList;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import genesis.genesis.common.Genesis;
+import genesis.genesis.item.itemblock.ItemBlockGenesisPlant;
+import genesis.genesis.item.itemblock.ItemBlockGenesisTree;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.Names;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 
 public class PlantBlocks {
+	
+	public static final String COOK_NAME = "cooksonia";
+	public static final String BARA_NAME = "baragwanathia";
+	public static final String SCIA_NAME = "sciadophyton";
+	public static final String PSILO_NAME = "psilophyton";
+	
+	public static final ArrayList<String> flowerTypes = new ArrayList() {{
+		add(COOK_NAME);
+		add(BARA_NAME);
+		add(SCIA_NAME);
+		add(PSILO_NAME);
+	}};
 
 	public static BlockGenesisFlowerPot flowerPot;
 	
@@ -17,6 +32,8 @@ public class PlantBlocks {
 	public static BlockCalamitesStorage calamitesBlock;
 	
 	public static BlockGenesisPlant neuropterisPlant;
+	
+	public static BlockGenesisFlower flower;
 	
 	public static void init()
 	{
@@ -30,6 +47,8 @@ public class PlantBlocks {
 		
 		neuropterisPlant = (BlockGenesisPlant)new BlockNeuropterisPlant(IDs.blockNeuropterisPlantID).setTextureName("neuropteris")
 				.setUnlocalizedName(Names.blockNeuropterisPlant);
+		
+		flower = (BlockGenesisFlower)new BlockGenesisFlower(IDs.blockFlowerID).setUnlocalizedName(Names.blockFlower);
 	}
 
 	public static void registerBlocks()
@@ -38,6 +57,8 @@ public class PlantBlocks {
 		GameRegistry.registerBlock(calamitesBlock, Names.blockCalamites);
 		
 		GameRegistry.registerBlock(neuropterisPlant, Names.blockNeuropterisPlant);
+		
+		GameRegistry.registerBlock(flower, ItemBlockGenesisPlant.class, Names.blockFlower);
 		
 		CraftingManager.getInstance().addRecipe(new ItemStack(calamitesBlock), 
 			"CCC",
