@@ -67,7 +67,7 @@ public class IDs {
 	public static int blockGraniteID = 2171;
 	public static int blockGraniteMossyID = 2173;
 	public static int blockLimestoneID = 2174;
-	
+	public static int blockGneissID = 2175;
 	public static int blockStromatoliteID = 2176;
 	
 	// Ores and ore storage

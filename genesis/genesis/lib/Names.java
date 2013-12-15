@@ -20,6 +20,7 @@ public class Names {
 	public static final String blockGranite = blockRock + "granite";
 	public static final String blockGraniteMossy = blockRock + "graniteMossy";
 	public static final String blockLimestone = blockRock + "limestone";
+	public static final String blockGneiss = blockRock + "gneiss";
 	public static final String blockStromatolite = blockRock + "stromatolite";
 	
 	// Ores

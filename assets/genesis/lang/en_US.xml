@@ -20,6 +20,7 @@
 	<entry key="tile.genesis.rock.granite.name">Granite</entry>
 	<entry key="tile.genesis.rock.graniteMossy.name">Mossy Granite</entry>
 	<entry key="tile.genesis.rock.limestone.name">Limestone</entry>
+	<entry key="tile.genesis.rock.gneiss.name">Gneiss</entry>
 	<entry key="tile.genesis.rock.stromatolite.name">Stromatolite</entry>
 
 	<!-- Ores -->

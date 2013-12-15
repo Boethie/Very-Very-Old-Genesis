@@ -38,6 +38,7 @@ public class Blocks {
 	public static Block granite;
 	public static Block graniteMossy;
 	public static Block limestone;
+	public static Block gneiss;
 	public static Block stromatolite;
 	
 	// Ores
@@ -56,18 +57,6 @@ public class Blocks {
 	{
 		moss = new BlockMoss(IDs.blockMossID).setTextureName("moss")
 				.setUnlocalizedName(Names.blockMoss);
-		
-		//Removed due to Anaghold unsure of use
-		/*frozenItem = new BlockFrozenItem(IDs.blockFrozenItemID, new Item[] 
-				{Item.diamond, 
-				Item.coal,
-				Item.pickaxeStone,
-				Item.arrow,
-				Item.beefRaw,
-				Item.chickenRaw
-				})
-				.setTextureName("frozenItem")
-				.setUnlocalizedName(Names.blockFrozenItem_unloc);*/
 
 		tikiTorch = new BlockTikiTorch(IDs.blockTikiTorchID).setTextureName("tiki_torch")
 				.setUnlocalizedName(Names.blockTikiTorch);
@@ -83,9 +72,12 @@ public class Blocks {
 		graniteMossy = new BlockGenesisRock(IDs.blockGraniteMossyID, Material.rock, 0)
 				.setTextureName("granite_mossy")
 				.setUnlocalizedName(Names.blockGraniteMossy).setHardness(2.0F).setResistance(10);
-		limestone = new BlockGenesisRock(IDs.blockLimestoneID, Material.rock, 0).setHardness(.75F)
+		limestone = new BlockGenesisRock(IDs.blockLimestoneID, Material.rock, 0)
 				.setTextureName("limestone")
-				.setUnlocalizedName(Names.blockLimestone).setHardness(1).setResistance(7.5F);
+				.setUnlocalizedName(Names.blockLimestone).setHardness(0.75F).setResistance(7.5F);
+		gneiss = new BlockGenesisRock(IDs.blockGneissID, Material.rock, 0)
+				.setTextureName("gneiss")
+				.setUnlocalizedName(Names.blockGneiss).setHardness(1.65F).setResistance(9);
 		stromatolite = new BlockGenesisRock(IDs.blockStromatoliteID, Material.rock, 0)
 				.setTextureName("stromatolite")
 				.setUnlocalizedName(Names.blockStromatolite).setHardness(0.7F).setResistance(5);
