@@ -6,7 +6,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 
 public class BlockPermafrost extends BlockGenesis {
 
@@ -16,8 +15,6 @@ public class BlockPermafrost extends BlockGenesis {
 		setHardness(0.6F);
 		setStepSound(soundGravelFootstep);
 		setTickRandomly(true);
-		
-		MinecraftForge.setBlockHarvestLevel(this, "shovel", 0);
 	}
 	
 	public int idDropped(int par1, Random random, int par3) {
@@ -26,7 +23,7 @@ public class BlockPermafrost extends BlockGenesis {
 	
 	// TODO: Currently mimics behaviour of ice, change if necessary
 	public void updateTick(World world, int x, int y, int z, Random random) {
-		if (world.getSavedLightValue(EnumSkyBlock.Block, x, y, z) > 11 - Block.lightOpacity[blockID])
+		if (world.getSavedLightValue(EnumSkyBlock.Block, x, y + 1, z) > 8)
 			world.setBlock(x, y, z, Block.dirt.blockID);
 	}
 }

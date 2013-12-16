@@ -139,6 +139,7 @@ public class Blocks {
 		hematiteOre.setSmelting(new ItemStack(Item.ingotIron), 0.7F);
 		
         MinecraftForge.setBlockHarvestLevel(moss, "shovel", 0);
+        MinecraftForge.setBlockHarvestLevel(permafrost, "shovel", 0);
 
 		zirconBlock.setRecipe(Items.zircon, false);
 		olivineBlock.setRecipe(Items.olivine, false);
