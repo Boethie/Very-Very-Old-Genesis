@@ -34,7 +34,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
-@Mod(modid = Genesis.MOD_ID, name = "Genesis", version = "0.0.1")
+@Mod(modid = Genesis.MOD_ID, name = "Project Genesis", version = "0.0.1")
 @NetworkMod(clientSideRequired = true, serverSideRequired = true, channels = {GenesisPacket.CHANNEL}, packetHandler = GenesisPacketHandler.class)
 public class Genesis {
 	
