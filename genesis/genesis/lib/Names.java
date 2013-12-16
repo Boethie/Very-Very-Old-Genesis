@@ -23,6 +23,8 @@ public class Names {
 	public static final String blockGneiss = blockRock + "gneiss";
 	public static final String blockStromatolite = blockRock + "stromatolite";
 	
+	public static final String blockPermafrost = mod + "permafrost";
+	
 	// Ores
 	public static final String blockOre = mod + "ore.";
 	

@@ -22,6 +22,8 @@
 	<entry key="tile.genesis.rock.limestone.name">Limestone</entry>
 	<entry key="tile.genesis.rock.gneiss.name">Gneiss</entry>
 	<entry key="tile.genesis.rock.stromatolite.name">Stromatolite</entry>
+	
+	<entry key="tile.genesis.permafrost.name">Permafrost</entry>
 
 	<!-- Ores -->
 	<entry key="tile.genesis.ore.zircon.name">Zircon Ore</entry>

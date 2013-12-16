@@ -41,6 +41,8 @@ public class Blocks {
 	public static Block gneiss;
 	public static Block stromatolite;
 	
+	public static Block permafrost;
+	
 	// Ores
 	public static BlockGenesisOre zirconOre;
 	public static BlockGenesisOreStorage zirconBlock;
@@ -81,6 +83,9 @@ public class Blocks {
 		stromatolite = new BlockGenesisRock(IDs.blockStromatoliteID, Material.rock, 0)
 				.setTextureName("stromatolite")
 				.setUnlocalizedName(Names.blockStromatolite).setHardness(0.7F).setResistance(5);
+		
+		permafrost = new BlockPermafrost(IDs.blockPermafrostID).setTextureName("permafrost")
+				.setUnlocalizedName(Names.blockPermafrost);
 		
 		// Ores
 		zirconOre = (BlockGenesisOre)new BlockGenesisOre(IDs.blockZirconOreID,
