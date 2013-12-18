@@ -37,6 +37,8 @@ public class Items {
 	public static ItemsToolSet hematiteTools;
 	public static ItemsSuitOfArmor hematiteArmor;
 	
+	public static ItemGenesis garnet;
+	
 	public static void init()
 	{
 		zircon = (ItemGenesis)new ItemGenesis(IDs.itemZirconID)
@@ -71,6 +73,9 @@ public class Items {
 		hematiteArmor = new ItemsSuitOfArmor(IDs.itemsHematiteArmorStartID,
 					EnumHelper.addArmorMaterial(Names.itemHematiteMaterial.toUpperCase(), 17, new int[] {3, 8, 6, 3}, 9),
 					Names.itemHematiteMaterial, hematite);
+		
+		garnet = (ItemGenesis) new ItemGenesis(IDs.itemGarnetID)
+				.setUnlocalizedName(Names.itemGarnet).setTextureName("garnet");
 	}
 	
 	public static void registerItems()

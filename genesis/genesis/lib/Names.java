@@ -39,6 +39,8 @@ public class Names {
 	public static final String blockHematiteOre = blockOre + "hematite";
 	public static final String blockHematite = blockStorage + "hematite";
 	
+	public static final String blockGarnetGraniteOre = blockOre + "garnetGranite";
+	
 	// Trees
 	public static final String blockLogGenesis = mod + "log.";
 	public static final String blockSaplingGenesis = mod + "sapling.";
@@ -70,6 +72,8 @@ public class Names {
 	
 	public static final String itemHematite = mod + "hematite";
 	public static final String itemHematiteMaterial = "hematite";
+	
+	public static final String itemGarnet = mod + "garnet";
 
 	// Swords and tools
 	public static final String itemTool = mod + "tool.";

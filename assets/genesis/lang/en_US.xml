@@ -36,6 +36,8 @@
 
 	<entry key="tile.genesis.ore.hematite.name">Hematite Ore</entry>
 	<entry key="tile.genesis.storage.hematite.name">Block of Hematite</entry>
+	
+	<entry key="tile.genesis.ore.garnetGranite.name">Granite Garnet Ore</entry>
 
 	<!-- Trees -->
 	<entry key="tile.genesis.log.sigillaria.name">Sigillaria Wood</entry>
@@ -94,6 +96,8 @@
 	<entry key="item.genesis.olivine.name">Olivine</entry>
 
 	<entry key="item.genesis.hematite.name">Hematite</entry>
+	
+	<entry key="item.genesis.garnet.name">Garnet</entry>
 
 	<!-- Swords/Tools -->
 	<entry key="item.genesis.sword.zircon.name">Zircon Sword</entry>
