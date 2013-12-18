@@ -123,7 +123,7 @@ public class Blocks {
 				.setTextureName("hematite_block").setUnlocalizedName(Names.blockHematite)
 				.setHardness(3).setResistance(10);
 		
-		garnetGraniteOre = (BlockGenesisOre) new BlockGenesisOre(IDs.blockGarnetGraniteOreID, Material.rock, 2, 1, 1, 2, 5)
+		garnetGraniteOre = (BlockGenesisOre) new BlockGenesisOre(IDs.blockGarnetGraniteOreID, Material.rock, 2, 1, 1, 3, 7)
 				.setTextureName("garnet_ore").setUnlocalizedName(Names.blockGarnetGraniteOre)
 				.setHardness(3).setResistance(10);
 		
@@ -144,7 +144,7 @@ public class Blocks {
 		hematiteOre.setDrop(new ItemStack(Items.hematite));
 		hematiteOre.setSmelting(new ItemStack(Item.ingotIron), 0.7F);
 		
-		garnetGraniteOre.setDrop(Items.garnet, 0, 0.2F);
+		garnetGraniteOre.setDrop(Items.garnet, 0, 1.0F);
 		
         MinecraftForge.setBlockHarvestLevel(moss, "shovel", 0);
         MinecraftForge.setBlockHarvestLevel(permafrost, "shovel", 0);
