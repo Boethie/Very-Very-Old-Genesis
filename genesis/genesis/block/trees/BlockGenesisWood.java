@@ -1,82 +1,81 @@
 package genesis.genesis.block.trees;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import genesis.genesis.common.Genesis;
-import genesis.genesis.lib.BlocksHelper;
-
 import java.util.List;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockWood;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 
-public class BlockGenesisWood extends BlockWood implements IBlockGenesisTrees
-{
-    @SideOnly(Side.CLIENT)
-    private Icon[] iconArray;
-    
-    private int woodSet;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-    public BlockGenesisWood(int blockID, int cat)
-    {
-        super(blockID);
-        setCreativeTab(Genesis.tabGenesis);
+import genesis.genesis.block.trees.TreeBlocks.TreeType;
+import genesis.genesis.common.Genesis;
+import genesis.genesis.item.itemblock.IItemBlockWithSubNames;
+
+public class BlockGenesisWood extends BlockWood implements IItemBlockWithSubNames {
+
+	protected String[] blockNames;
+	protected Icon[] blockIcons;
+	
+	public BlockGenesisWood(int id, int group) {
+		super(id);
+		
+		if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE)
+			blockNames = new String[TreeType.GROUP_SIZE];
+		else
+			blockNames = new String[TreeType.values().length - (group * TreeType.GROUP_SIZE)];
+		
+		for (int i = 0; i < blockNames.length; i++)
+			blockNames[i] = TreeType.values()[(group * TreeType.GROUP_SIZE) + i].getName();
+		
+		blockIcons = new Icon[blockNames.length];
+		
+		setCreativeTab(Genesis.tabGenesis);
 		setStepSound(Block.soundWoodFootstep);
-		setHardness(2);
-		setBurnProperties(blockID, 5, 5);
-		
-		
-		this.woodSet = cat;
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List itemList)
-    {
-		BlocksHelper.addTreeSubBlocksToCreative(blockID, creativeTabs, itemList, this.woodSet);
-    }
+		setBurnProperties(blockID, 4, 4);
+		setHardness(2.0F);
+	}
 	
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister)
-    {
-        iconArray = new Icon[TreeBlocks.woodTypeCount];
-        
-        for (int i = 0; i < TreeBlocks.woodTypeCount; ++i)
-        {
-            iconArray[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":planks_" + TreeBlocks.woodTypes.get(i).toLowerCase());
-        }
-    }
-	
-    @SideOnly(Side.CLIENT)
-
-    /**
-     * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
-     */
-    public Icon getIcon(int par1, int par2)
-    {
-        if (par2 < 0 || par2 >= this.iconArray.length)
-        {
-            par2 = 0;
-        }
-
-        return this.iconArray[woodSet*TreeBlocks.setSize + par2];
-    }
-
-    /**
-     * Determines the damage on the item the block drops. Used in cloth and wood.
-     */
-    public int damageDropped(int metadata)
-    {
-        return metadata;
-    }
-
 	@Override
-	public int getBlockSet() {
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister iconRegister) {
+		for (int i = 0; i < blockIcons.length; i++)
+			blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":planks_" + blockNames[i]);
+	}
+	
+	@Override
+	public Icon getIcon(int side, int metadata) {
+		if (metadata >= blockNames.length)
+			metadata = 0;
 		
-		return woodSet;
+		return blockIcons[metadata];
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+		for (int metadata = 0; metadata < blockNames.length; metadata++)
+			list.add(new ItemStack(blockID, 1, metadata));
+	}
+	
+	@Override
+	public int idDropped(int metadata, Random random, int unused) {
+		return blockID;
+	}
+
+	/* IItemBlockWithSubNames methods */
+	
+	@Override
+	public String getSubName(int metadata) {
+		if (metadata >= blockNames.length)
+			metadata = 0;
+		
+		return blockNames[metadata];
 	}
 }

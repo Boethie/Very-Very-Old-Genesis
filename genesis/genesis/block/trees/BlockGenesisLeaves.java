@@ -1,87 +1,87 @@
 package genesis.genesis.block.trees;
 
-import genesis.genesis.common.Genesis;
-import genesis.genesis.lib.BlocksHelper;
-import genesis.genesis.lib.IDs;
-
 import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-import net.minecraft.world.IBlockAccess;
 
-public class BlockGenesisLeaves extends BlockLeaves implements IBlockGenesisTrees {
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-    private static Icon[] leavesIcons = null;
-	
-    private static Icon[] leavesOpaqIcons = null;
+import genesis.genesis.block.trees.TreeBlocks.TreeType;
+import genesis.genesis.common.Genesis;
+import genesis.genesis.item.itemblock.IItemBlockWithSubNames;
+
+public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSubNames {
+
+    protected String[] blockNames;
+    protected Icon[] blockIcons;
     
-    public int leavesSet;
-    
-	public BlockGenesisLeaves(int par1, int set) {
-		super(par1);
+	public BlockGenesisLeaves(int id, int group) {
+		super(id);
 		
-		this.leavesSet = set;
-		this.setCreativeTab(Genesis.tabGenesis);
+		if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE)
+			blockNames = new String[TreeType.GROUP_SIZE];
+		else
+			blockNames = new String[TreeType.values().length - (group * TreeType.GROUP_SIZE)];
 		
-		setHardness(0.2F);
-		setLightOpacity(1);
+		for (int i = 0; i < blockNames.length; i++)
+			blockNames[i] = TreeType.values()[(group * TreeType.GROUP_SIZE) + i].getName();
+		
+		blockIcons = new Icon[blockNames.length * 2];
+		
+		setCreativeTab(Genesis.tabGenesis);
 		setStepSound(soundGrassFootstep);
 		setBurnProperties(blockID, 2, 8);
+		setLightOpacity(1);
+		setHardness(0.2F);
 	}
 	
+	@Override
 	@SideOnly(Side.CLIENT)
-    public Icon getIcon(int par1, int par2)
-    {
-		int index = (par2 & 3) + (leavesSet * TreeBlocks.setSize);
-        return Minecraft.getMinecraft().gameSettings.fancyGraphics ? leavesIcons[index] : leavesOpaqIcons[index];
+    public void registerIcons(IconRegister iconRegister) {
+		for (int i = 0; i < blockIcons.length; i += 2) {
+			blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":leaves_" + blockNames[i / 2]);						// Fancy graphics texture
+			blockIcons[i + 1] = iconRegister.registerIcon(Genesis.MOD_ID + ":leaves_" + blockNames[i / 2] + "_opaque");		// Fast graphics texture
+		}
     }
 	
+	@Override
+    public Icon getIcon(int id, int metadata) {
+		if (metadata >= blockNames.length)
+			metadata = 0;
+		
+        if (Minecraft.getMinecraft().gameSettings.fancyGraphics)
+        	return blockIcons[metadata * 2];
+        else
+        	return blockIcons[((metadata + 1) * 2) - 1];
+    }
+	
+	@Override
 	@SideOnly(Side.CLIENT)
-    public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List itemList)
-    {
-		BlocksHelper.addTreeSubBlocksToCreative(blockID, creativeTabs, itemList, leavesSet);
+	@SuppressWarnings({"rawtypes", "unchecked"})
+    public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+		for (int metadata = 0; metadata < blockNames.length; metadata++)
+			list.add(new ItemStack(blockID, 1, metadata));
     }
 	
-	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
-    {
-		leavesIcons = new Icon[TreeBlocks.woodTypeCount];
-        leavesOpaqIcons = new Icon[TreeBlocks.woodTypeCount];
-        
-        for (int i = 0; i < TreeBlocks.woodTypeCount; ++i)
-        {
-            leavesIcons[i] = par1IconRegister.registerIcon(Genesis.MOD_ID + ":leaves_" + TreeBlocks.woodTypes.get(i).toLowerCase());
-            leavesOpaqIcons[i] = par1IconRegister.registerIcon(Genesis.MOD_ID + ":leaves_" + TreeBlocks.woodTypes.get(i).toLowerCase()  + "_opaque");
-        }
+	@Override
+	public int idDropped(int metadata, Random random, int unused) {
+        return blockID;
     }
 	
-	public boolean isOpaqueCube()
-    {
-        return false;
-    }
+	/* IItemBlockWithSubNames methods */
 	
-	@SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
-    {
-        return true;
-    }
-	
-	public int idDropped(int par1, Random par2Random, int par3)
-    {
-        return IDs.blockSaplingID.getID(leavesSet);
-    }
-	
-	public int getBlockSet()
-	{
-		return leavesSet;
+	@Override
+	public String getSubName(int metadata) {
+		if (metadata >= blockNames.length)
+			metadata = 0;
+		
+		return blockNames[metadata];
 	}
-
 }

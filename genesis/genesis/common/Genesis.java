@@ -4,24 +4,10 @@ import java.util.HashMap;
 import java.util.logging.Level;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.MinecraftForge;
 
-import genesis.genesis.block.Blocks;
-import genesis.genesis.block.gui.TileEntityCampfire;
-import genesis.genesis.block.trees.TreeBlocks;
-import genesis.genesis.block.trees.TreeBlocks.TreeBlockType;
-import genesis.genesis.item.Items;
-import genesis.genesis.lib.ConfigHandler;
-import genesis.genesis.lib.LogHelper;
-import genesis.genesis.packet.GenesisPacket;
-import genesis.genesis.packet.GenesisPacketHandler;
-import genesis.genesis.world.WorldGenTreeSigillaria;
-
-import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -31,8 +17,18 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.ReflectionHelper;
+
+import genesis.genesis.block.Blocks;
+import genesis.genesis.block.gui.TileEntityCampfire;
+import genesis.genesis.block.trees.TreeBlocks;
+import genesis.genesis.block.trees.TreeBlocks.TreeBlockType;
+import genesis.genesis.block.trees.TreeBlocks.TreeType;
+import genesis.genesis.item.Items;
+import genesis.genesis.lib.ConfigHandler;
+import genesis.genesis.lib.LogHelper;
+import genesis.genesis.packet.GenesisPacket;
+import genesis.genesis.packet.GenesisPacketHandler;
 
 @Mod(modid = Genesis.MOD_ID, name = "Project Genesis", version = "0.0.1")
 @NetworkMod(clientSideRequired = true, serverSideRequired = true, channels = {GenesisPacket.CHANNEL}, packetHandler = GenesisPacketHandler.class)
@@ -48,15 +44,14 @@ public class Genesis {
 	
 	public static CreativeTabs tabGenesis = new CreativeTabs("tabGenesis") {
         public ItemStack getIconItemStack() {
-                return TreeBlocks.getBlockForType(TreeBlockType.SAPLING, TreeBlocks.SIGIL_NAME).getStack();
+                return TreeBlocks.getBlockForType(TreeBlockType.SAPLING, TreeType.SIGILLARIA.getName()).getStack();
         }
 	};
 	
-	public static HashMap<Class, String> teClassToNameMap;
+	public static HashMap<Class<?>, String> teClassToNameMap;
 	
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent evt)
-	{
+	public void preInit(FMLPreInitializationEvent evt) {
 		Genesis.instance = this;
 		
 		LogHelper.init();
@@ -82,13 +77,11 @@ public class Genesis {
 	}
 	
 	@EventHandler
-	public void Init(FMLInitializationEvent evt)
-	{
+	public void Init(FMLInitializationEvent evt) {
         NetworkRegistry.instance().registerGuiHandler(Genesis.instance, new GenesisGuiHandler());
 		
 		MinecraftForge.EVENT_BUS.register(new GenesisEventHandler());
 		
 		proxy.init();
 	}
-
 }
