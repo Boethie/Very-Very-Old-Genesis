@@ -12,7 +12,7 @@ public class BlockPermafrost extends BlockGenesis {
 	public BlockPermafrost(int blockID) {
 		super(blockID, Material.ground);
 		
-		setHardness(0.6F);
+		setHardness(0.5F);
 		setStepSound(soundGravelFootstep);
 		setTickRandomly(true);
 	}
