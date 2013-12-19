@@ -39,7 +39,7 @@ public class Names {
 	public static final String blockHematiteOre = blockOre + "hematite";
 	public static final String blockHematite = blockStorage + "hematite";
 	
-	public static final String blockGarnetGraniteOre = blockOre + "garnetGranite";
+	public static final String blockGarnetOre = blockOre + "garnet";
 	
 	// Trees
 	public static final String blockLogGenesis = mod + "log.";

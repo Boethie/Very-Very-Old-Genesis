@@ -37,7 +37,7 @@
 	<entry key="tile.genesis.ore.hematite.name">Hematite Ore</entry>
 	<entry key="tile.genesis.storage.hematite.name">Block of Hematite</entry>
 	
-	<entry key="tile.genesis.ore.garnetGranite.name">Granite Garnet Ore</entry>
+	<entry key="tile.genesis.ore.garnet.name">Garnet Ore</entry>
 
 	<!-- Trees -->
 	<entry key="tile.genesis.log.sigillaria.name">Sigillaria Wood</entry>
