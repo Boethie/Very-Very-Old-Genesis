@@ -4,7 +4,8 @@ import net.minecraft.item.Item;
 
 import net.minecraftforge.common.EnumHelper;
 
-import genesis.genesis.item.ItemSets.*;
+import genesis.genesis.item.ItemSets.ItemsSuitOfArmor;
+import genesis.genesis.item.ItemSets.ItemsToolSet;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.Names;
 
