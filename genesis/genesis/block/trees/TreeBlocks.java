@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.oredict.OreDictionary;
@@ -11,6 +12,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import genesis.genesis.block.BlockAndMeta;
+import genesis.genesis.block.BlockGenesisStairs;
 import genesis.genesis.block.plants.BlockGenesisFlowerPot;
 import genesis.genesis.common.Genesis;
 import genesis.genesis.item.itemblock.ItemBlockGenesisTree;
@@ -79,8 +81,8 @@ public class TreeBlocks {
 	public static Block[] blocksSaplings;
 	public static Block[] blocksLeaves;
 	public static Block[] blocksWoods;
-	public static Block[] blocksStairs;
 	public static Block[] blocksRottenLogs;
+	public static Block[] blocksStairs;
 	
 	public static void init() {
 		numGroups = TreeType.getNumGroups();
@@ -91,8 +93,8 @@ public class TreeBlocks {
 		blocksSaplings = new Block[numGroups];
 		blocksLeaves = new Block[numGroups];
 		blocksWoods = new Block[numGroups];
-		blocksStairs = new Block[numGroups];
 		blocksRottenLogs = new Block[numGroups];
+		blocksStairs = new Block[TreeType.values().length];
 		
 		for (int group = 0; group < numGroups; group++) {			
 			blocksLogs[group] = new BlockGenesisLog(IDs.blockLogID.getID(group), group)
@@ -110,6 +112,10 @@ public class TreeBlocks {
 			blocksRottenLogs[group] = new BlockRottenLog(IDs.blockRottenLogID.getID(group), group)
 				.setUnlocalizedName(Names.blockRottenLogGenesis);
 		}
+		
+		for (TreeType type : TreeType.values())
+			blocksStairs[type.ordinal()] = new BlockGenesisStairs(IDs.blockStairsStartID + type.ordinal(), blocksWoods[type.getGroup()], type.getMetadata())
+				.setUnlocalizedName(Names.blockStairsGenesis + type.getName());
 	}
 	
 	public static void registerBlocks() {
@@ -120,15 +126,18 @@ public class TreeBlocks {
 			GameRegistry.registerBlock(blocksWoods[group], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockWoodGenesis + group);
 			GameRegistry.registerBlock(blocksRottenLogs[group], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockRottenLogGenesis + group);
 			
+			GameRegistry.addSmelting(blocksLogs[group].blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
+			
 			OreDictionary.registerOre("logWood", new ItemStack(blocksLogs[group], 1, OreDictionary.WILDCARD_VALUE));
 			OreDictionary.registerOre("plankWood", new ItemStack(blocksWoods[group], 1, OreDictionary.WILDCARD_VALUE));
-			GameRegistry.addSmelting(blocksLogs[group].blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
 		}
 		
 		for (TreeType type : TreeType.values()) {
-			BlockGenesisFlowerPot.tryRegisterPlant(new ItemStack(blocksSaplings[type.getGroup()].blockID, 1, type.getMetadata()));
+			GameRegistry.registerBlock(blocksStairs[type.ordinal()], ItemBlock.class, Genesis.MOD_ID + "." + Names.blockStairsGenesis + type.getName());
 			
 			GameRegistry.addShapelessRecipe(new ItemStack(blocksWoods[type.getGroup()], 4, type.getMetadata()), new ItemStack(blocksLogs[type.getGroup()], 1, type.getMetadata()));
+			
+			BlockGenesisFlowerPot.tryRegisterPlant(new ItemStack(blocksSaplings[type.getGroup()].blockID, 1, type.getMetadata()));
 		}
 		
 		treeGenerators.add(new WorldGenTreeSigillaria(8, 3, true));
@@ -143,8 +152,8 @@ public class TreeBlocks {
 		LEAVES,
 		SAPLING,
 		WOOD,
-		STAIRS,
-		ROTTEN_LOG;
+		ROTTEN_LOG,
+		STAIRS;
 	}
 	
 	public static BlockAndMeta getBlockForType(TreeBlockType type, String name) {
@@ -165,11 +174,11 @@ public class TreeBlocks {
 		case WOOD:
 			block = blocksWoods[group];
 			break;
-		case STAIRS:
-			block = blocksWoods[group];
-			break;
 		case ROTTEN_LOG:
 			block = blocksRottenLogs[group];
+			break;
+		case STAIRS:
+			block = blocksStairs[treeType.ordinal()];
 			break;
 		default:
 			return null;
