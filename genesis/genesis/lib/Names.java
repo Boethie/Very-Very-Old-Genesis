@@ -22,6 +22,7 @@ public class Names {
 	public static final String blockLimestone = blockRock + "limestone";
 	public static final String blockGneiss = blockRock + "gneiss";
 	public static final String blockStromatolite = blockRock + "stromatolite";
+	public static final String blockSchist = blockRock + "schist";
 	
 	public static final String blockPermafrost = mod + "permafrost";
 	

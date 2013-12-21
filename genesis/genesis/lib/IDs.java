@@ -61,16 +61,17 @@ public class IDs {
 	public static final int TREE_BLOCK_COUNT = 2;
 
 	// ---- Blocks ----
-	public static int blockMossID = 2172;
+	public static int blockMossID = 2171;
 	
 	// Rocks
-	public static int blockGraniteID = 2171;
+	public static int blockGraniteID = 2172;
 	public static int blockGraniteMossyID = 2173;
 	public static int blockLimestoneID = 2174;
 	public static int blockGneissID = 2175;
 	public static int blockStromatoliteID = 2176;
+	public static int blockSchistID = 2177;
 	
-	public static int blockPermafrostID = 2177;
+	public static int blockPermafrostID = 2180;
 	
 	// Ores and ore storage
 	public static int blockZirconOreID = 2181;
