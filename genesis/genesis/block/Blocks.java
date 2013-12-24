@@ -31,6 +31,7 @@ public class Blocks {
 	public static Block limestone;
 	public static Block gneiss;
 	public static Block stromatolite;
+	public static Block schist;
 	
 	public static Block permafrost;
 	
@@ -75,6 +76,9 @@ public class Blocks {
 		stromatolite = new BlockGenesisRock(IDs.blockStromatoliteID, Material.rock, 0)
 				.setTextureName("stromatolite")
 				.setUnlocalizedName(Names.blockStromatolite).setHardness(0.75F).setResistance(8.5F);
+		schist = new BlockGenesisRock(IDs.blockSchistID, Material.rock, 0)
+				.setTextureName("schist")
+				.setUnlocalizedName(Names.blockSchist).setHardness(1.05F).setResistance(10.0F);
 		
 		permafrost = new BlockPermafrost(IDs.blockPermafrostID).setTextureName("permafrost")
 				.setUnlocalizedName(Names.blockPermafrost);
