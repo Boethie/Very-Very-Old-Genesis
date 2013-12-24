@@ -1,9 +1,10 @@
-package genesis.genesis.block.trees;
+package genesis.genesis.block;
 
-import genesis.genesis.common.Genesis;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
+
+import genesis.genesis.common.Genesis;
 
 public class BlockGenesisStairs extends BlockStairs {
 
@@ -13,6 +14,7 @@ public class BlockGenesisStairs extends BlockStairs {
 		if (modelBlock.blockMaterial == Material.wood)
 			setBurnProperties(blockID, 5, 5);
 		
+		setLightOpacity(0);
 		setCreativeTab(Genesis.tabGenesis);
 	}
 }

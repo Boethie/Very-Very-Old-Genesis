@@ -1,10 +1,6 @@
 package genesis.genesis.item.itemblock;
 
-import genesis.genesis.block.Blocks;
-import genesis.genesis.block.trees.IBlockGenesisTrees;
-import genesis.genesis.block.trees.TreeBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
 
@@ -14,17 +10,14 @@ public class ItemBlockGenesisTree extends ItemBlockWithMetadata {
 		super(itemID, block);
 	}
 	
-	public String getUnlocalizedName(ItemStack stack)
-    {
+	public String getUnlocalizedName(ItemStack stack) {
 		Block block = Block.blocksList[stack.itemID];
-		IBlockGenesisTrees tree = (IBlockGenesisTrees)block;
+		IItemBlockWithSubNames tree = (IItemBlockWithSubNames) block;
 		
-		return block.getUnlocalizedName() + TreeBlocks.woodTypes.get(getMetadata(stack.getItemDamage()) + (tree.getBlockSet() * 4));
+		return block.getUnlocalizedName() + tree.getSubName(stack.getItemDamage());
     }
 	
-	public int getMetadata(int damage)
-    {
+	public int getMetadata(int damage) {
           return damage & 3;
     }
-
 }

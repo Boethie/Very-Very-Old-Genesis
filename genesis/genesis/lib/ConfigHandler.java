@@ -10,26 +10,16 @@ public class ConfigHandler {
 		Configuration config = new Configuration(configFile);
 		config.load();
 		
-		for (int set = 0; set < IDs.TREE_BLOCK_COUNT; set++)
-		{
-			try
-			{
-			IDs.blockLogID.setID(set,
-					config.getBlock(Names.blockLogGenesis + set, IDs.blockLogID.getID(set)).getInt());
-			
-			IDs.blockSaplingID.setID(set,
-					config.getBlock(Names.blockSaplingGenesis + set, IDs.blockSaplingID.getID(set)).getInt());
-			
-			IDs.blockLeavesID.setID(set,
-					config.getBlock(Names.blockLeavesGenesis + set, IDs.blockLeavesID.getID(set)).getInt());
-			}
-			catch (Throwable e)
-			{
+		for (int i = 0; i < IDs.TREE_ID_SET_SIZE; i++) {
+			try {
+				IDs.blockLogID.setID(i, config.getBlock(Names.blockLogGenesis + i, IDs.blockLogID.getID(i)).getInt());
+				IDs.blockSaplingID.setID(i, config.getBlock(Names.blockSaplingGenesis + i, IDs.blockSaplingID.getID(i)).getInt());
+				IDs.blockLeavesID.setID(i, config.getBlock(Names.blockLeavesGenesis + i, IDs.blockLeavesID.getID(i)).getInt());
+			} catch (Throwable e) {
 				e.printStackTrace();
 			}
 		}
 		
 		config.save();
 	}
-
 }
