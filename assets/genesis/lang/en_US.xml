@@ -44,36 +44,41 @@
 	<entry key="tile.genesis.leaves.sigillaria.name">Sigillaria Leaves</entry>
 	<entry key="tile.genesis.sapling.sigillaria.name">Sigillaria Sapling</entry>
 	<entry key="tile.genesis.wood.sigillaria.name">Sigillaria Wood Planks</entry>
-	<entry key="tile.genesis.stairs.sigillaria.name">Sigillaria Wood Stairs</entry>
+	<entry key="tile.genesis.slab.sigillaria.name">Sigillaria Wood Slab</entry>
 	<entry key="tile.genesis.logRotten.sigillaria.name">Rotten Sigillaria Log</entry>
+	<entry key="tile.genesis.stairs.sigillaria.name">Sigillaria Wood Stairs</entry>
 
 	<entry key="tile.genesis.log.lepidodendron.name">Lepidodendron Wood</entry>
 	<entry key="tile.genesis.leaves.lepidodendron.name">Lepidodendron Leaves</entry>
 	<entry key="tile.genesis.sapling.lepidodendron.name">Lepidodendron Sapling</entry>
 	<entry key="tile.genesis.wood.lepidodendron.name">Lepidodendron Wood Planks</entry>
-	<entry key="tile.genesis.stairs.lepidodendron.name">Lepidodendron Wood Stairs</entry>
+	<entry key="tile.genesis.slab.lepidodendron.name">Lepidodendron Wood Slab</entry>
 	<entry key="tile.genesis.logRotten.lepidodendron.name">Rotten Lepidodendron Log</entry>
+	<entry key="tile.genesis.stairs.lepidodendron.name">Lepidodendron Wood Stairs</entry>
 
 	<entry key="tile.genesis.log.cordaites.name">Cordaites Wood</entry>
 	<entry key="tile.genesis.leaves.cordaites.name">Cordaites Leaves</entry>
 	<entry key="tile.genesis.sapling.cordaites.name">Cordaites Sapling</entry>
 	<entry key="tile.genesis.wood.cordaites.name">Cordaites Wood Planks</entry>
-	<entry key="tile.genesis.stairs.cordaites.name">Cordaites Wood Stairs</entry>
+	<entry key="tile.genesis.slab.cordaites.name">Cordaites Wood Slab</entry>
 	<entry key="tile.genesis.logRotten.cordaites.name">Rotten Cordaites Log</entry>
+	<entry key="tile.genesis.stairs.cordaites.name">Cordaites Wood Stairs</entry>
 	
 	<entry key="tile.genesis.log.araucarioxylon.name">Araucarioxylon Wood</entry>
     <entry key="tile.genesis.leaves.araucarioxylon.name">Araucarioxylon Leaves</entry>
     <entry key="tile.genesis.sapling.araucarioxylon.name">Araucarioxylon Sapling</entry>
     <entry key="tile.genesis.wood.araucarioxylon.name">Araucarioxylon Wood Planks</entry>
-    <entry key="tile.genesis.stairs.araucarioxylon.name">Araucarioxylon Wood Stairs</entry>
+    <entry key="tile.genesis.slab.araucarioxylon.name">Araucarioxylon Wood Slab</entry>
     <entry key="tile.genesis.logRotten.araucarioxylon.name">Rotten Araucarioxylon Log</entry>
+    <entry key="tile.genesis.stairs.araucarioxylon.name">Araucarioxylon Wood Stairs</entry>
     
     <entry key="tile.genesis.log.psaronius.name">Psaronius Wood</entry>
     <entry key="tile.genesis.leaves.psaronius.name">Psaronius Leaves</entry>
     <entry key="tile.genesis.sapling.psaronius.name">Psaronius Sapling</entry>
     <entry key="tile.genesis.wood.psaronius.name">Psaronius Wood Planks</entry>
-    <entry key="tile.genesis.stairs.psaronius.name">Psaronius Wood Stairs</entry>
+    <entry key="tile.genesis.slab.psaronius.name">Psaronius Wood Slab</entry>
     <entry key="tile.genesis.logRotten.psaronius.name">Rotten Psaronius Log</entry>
+    <entry key="tile.genesis.stairs.psaronius.name">Psaronius Wood Stairs</entry>
 	
 
 	<!-- Plants -->

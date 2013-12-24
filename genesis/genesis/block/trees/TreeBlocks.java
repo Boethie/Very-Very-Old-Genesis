@@ -3,6 +3,7 @@ package genesis.genesis.block.trees;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -13,9 +14,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 import genesis.genesis.block.BlockAndMeta;
 import genesis.genesis.block.BlockGenesisStairs;
+import genesis.genesis.block.BlockGenesisWoodSlab;
 import genesis.genesis.block.plants.BlockGenesisFlowerPot;
 import genesis.genesis.common.Genesis;
 import genesis.genesis.item.itemblock.ItemBlockGenesisTree;
+import genesis.genesis.item.itemblock.ItemGenesisWoodSlab;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.Names;
 import genesis.genesis.world.WorldGenTreeAraucarioxylon;
@@ -81,6 +84,8 @@ public class TreeBlocks {
 	public static Block[] blocksSaplings;
 	public static Block[] blocksLeaves;
 	public static Block[] blocksWoods;
+	public static Block[] blocksSingleSlabs;
+	public static Block[] blocksDoubleSlabs;
 	public static Block[] blocksRottenLogs;
 	public static Block[] blocksStairs;
 	
@@ -93,6 +98,8 @@ public class TreeBlocks {
 		blocksSaplings = new Block[numGroups];
 		blocksLeaves = new Block[numGroups];
 		blocksWoods = new Block[numGroups];
+		blocksSingleSlabs = new Block[numGroups];
+		blocksDoubleSlabs = new Block[numGroups];
 		blocksRottenLogs = new Block[numGroups];
 		blocksStairs = new Block[TreeType.values().length];
 		
@@ -108,6 +115,12 @@ public class TreeBlocks {
 			
 			blocksWoods[group] = new BlockGenesisWood(IDs.blockWoodID.getID(group), group)
 					.setUnlocalizedName(Names.blockWoodGenesis);
+			
+			blocksSingleSlabs[group] = new BlockGenesisWoodSlab(IDs.blockSlabID.getID(group), group, false)
+					.setUnlocalizedName(Names.blockSlabGenesis);
+			
+			blocksDoubleSlabs[group] = new BlockGenesisWoodSlab(IDs.blockDoubleSlabID.getID(group), group, true)
+					.setUnlocalizedName(Names.blockSlabGenesis);
 			
 			blocksRottenLogs[group] = new BlockRottenLog(IDs.blockRottenLogID.getID(group), group)
 				.setUnlocalizedName(Names.blockRottenLogGenesis);
@@ -125,6 +138,10 @@ public class TreeBlocks {
 			GameRegistry.registerBlock(blocksLeaves[group], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLeavesGenesis + group);
 			GameRegistry.registerBlock(blocksWoods[group], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockWoodGenesis + group);
 			GameRegistry.registerBlock(blocksRottenLogs[group], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockRottenLogGenesis + group);
+
+			ItemGenesisWoodSlab.setSlabs((BlockHalfSlab) blocksSingleSlabs[group], (BlockHalfSlab) blocksDoubleSlabs[group]);
+			GameRegistry.registerBlock(blocksSingleSlabs[group], ItemGenesisWoodSlab.class, Genesis.MOD_ID + "." + Names.blockSlabGenesis + group);
+			GameRegistry.registerBlock(blocksDoubleSlabs[group], ItemGenesisWoodSlab.class, Genesis.MOD_ID + "." + Names.blockSlabGenesis + "double." + group);
 			
 			GameRegistry.addSmelting(blocksLogs[group].blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
 			
@@ -152,6 +169,8 @@ public class TreeBlocks {
 		LEAVES,
 		SAPLING,
 		WOOD,
+		SINGLE_SLAB,
+		DOUBLE_SLAB,
 		ROTTEN_LOG,
 		STAIRS;
 	}
@@ -173,6 +192,12 @@ public class TreeBlocks {
 			break;
 		case WOOD:
 			block = blocksWoods[group];
+			break;
+		case SINGLE_SLAB:
+			block = blocksSingleSlabs[group];
+			break;
+		case DOUBLE_SLAB:
+			block = blocksDoubleSlabs[group];
 			break;
 		case ROTTEN_LOG:
 			block = blocksRottenLogs[group];
