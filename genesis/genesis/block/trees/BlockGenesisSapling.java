@@ -53,10 +53,7 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
 	
 	@Override
 	public Icon getIcon(int side, int metadata) {
-		if (metadata >= blockNames.length)
-			metadata = 0;
-		
-		return blockIcons[metadata];
+		return blockIcons[metadata & 3];
 	}
 	
 	@Override
@@ -77,7 +74,7 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
 		if (!TerrainGen.saplingGrowTree(world, random, x, y, z))
 			return;
 		
-		int metadata = world.getBlockMetadata(x, y, z);
+		int metadata = world.getBlockMetadata(x, y, z) & 3;
 		WorldGenTreeBase gen = TreeBlocks.getTreeGenerator(blockNames[metadata]);
 		
 		if (gen == null)
@@ -116,9 +113,6 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
 	
 	@Override
 	public String getSubName(int metadata) {
-		if (metadata >= blockNames.length)
-			metadata = 0;
-		
-		return blockNames[metadata];
+		return blockNames[metadata & 3];
 	}
 }

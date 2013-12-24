@@ -9,10 +9,9 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-
+import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
 import genesis.genesis.block.trees.TreeBlocks.TreeType;
 import genesis.genesis.common.Genesis;
 import genesis.genesis.item.itemblock.IItemBlockWithSubNames;
@@ -53,8 +52,7 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
 	
 	@Override
     public Icon getIcon(int id, int metadata) {
-		if (metadata >= blockNames.length)
-			metadata = 0;
+		metadata &= 3;
 		
         if (Minecraft.getMinecraft().gameSettings.fancyGraphics)
         	return blockIcons[metadata * 2];
@@ -72,16 +70,24 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
 	
 	@Override
 	public int idDropped(int metadata, Random random, int unused) {
-        return blockID;
+        return TreeBlocks.blocksSaplings[TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup()].blockID;
     }
+	
+	@Override
+	public boolean isOpaqueCube() {
+		return !Minecraft.getMinecraft().gameSettings.fancyGraphics;
+	}
+	
+	@Override
+	public boolean shouldSideBeRendered(IBlockAccess blockAccess, int x, int y, int z, int side) {
+		graphicsLevel = Minecraft.getMinecraft().gameSettings.fancyGraphics;
+		return super.shouldSideBeRendered(blockAccess, x, y, z, side);
+	}
 	
 	/* IItemBlockWithSubNames methods */
 	
 	@Override
 	public String getSubName(int metadata) {
-		if (metadata >= blockNames.length)
-			metadata = 0;
-		
-		return blockNames[metadata];
+		return blockNames[metadata & 3];
 	}
 }
