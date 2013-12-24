@@ -1,17 +1,5 @@
 package genesis.genesis.block.trees;
 
-import java.util.ArrayList;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockHalfSlab;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.ForgeDirection;
-import net.minecraftforge.oredict.OreDictionary;
-
-import cpw.mods.fml.common.registry.GameRegistry;
-
 import genesis.genesis.block.BlockAndMeta;
 import genesis.genesis.block.BlockGenesisStairs;
 import genesis.genesis.block.BlockGenesisWoodSlab;
@@ -27,6 +15,20 @@ import genesis.genesis.world.WorldGenTreeCordaites;
 import genesis.genesis.world.WorldGenTreeLepidodendron;
 import genesis.genesis.world.WorldGenTreePsaronius;
 import genesis.genesis.world.WorldGenTreeSigillaria;
+
+import java.util.ArrayList;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockHalfSlab;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class TreeBlocks {
 
@@ -131,6 +133,7 @@ public class TreeBlocks {
 				.setUnlocalizedName(Names.blockStairsGenesis + type.getName());
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static void registerBlocks() {
 		for (int group = 0; group < numGroups; group++) {
 			GameRegistry.registerBlock(blocksLogs[group], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLogGenesis + group);
@@ -153,6 +156,17 @@ public class TreeBlocks {
 			GameRegistry.registerBlock(blocksStairs[type.ordinal()], ItemBlock.class, Genesis.MOD_ID + "." + Names.blockStairsGenesis + type.getName());
 			
 			GameRegistry.addShapelessRecipe(new ItemStack(blocksWoods[type.getGroup()], 4, type.getMetadata()), new ItemStack(blocksLogs[type.getGroup()], 1, type.getMetadata()));
+			
+			IRecipe slabRecipe = new ShapedOreRecipe(new ItemStack(blocksSingleSlabs[type.getGroup()], 6, type.getMetadata()),
+					new String[] {"ppp"}, 'p', new ItemStack(blocksWoods[type.getGroup()], 1, type.getMetadata()));
+			IRecipe stairsRecipeForward = new ShapedOreRecipe(new ItemStack(blocksStairs[type.ordinal()], 4),
+					new String[] {"p  ", "pp ", "ppp"}, 'p', new ItemStack(blocksWoods[type.getGroup()], 1, type.getMetadata()));
+			IRecipe stairsRecipeBackward = new ShapedOreRecipe(new ItemStack(blocksStairs[type.ordinal()], 4),
+					new String[] {"  p", " pp", "ppp"}, 'p', new ItemStack(blocksWoods[type.getGroup()], 1, type.getMetadata()));
+			
+			CraftingManager.getInstance().getRecipeList().add(0, slabRecipe);
+			CraftingManager.getInstance().getRecipeList().add(0, stairsRecipeForward);
+			CraftingManager.getInstance().getRecipeList().add(0, stairsRecipeBackward);
 			
 			BlockGenesisFlowerPot.tryRegisterPlant(new ItemStack(blocksSaplings[type.getGroup()].blockID, 1, type.getMetadata()));
 		}
