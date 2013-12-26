@@ -1,4 +1,4 @@
-package genesis.genesis.block;
+package genesis.genesis.block.trees;
 
 import java.util.List;
 import java.util.Random;
@@ -78,7 +78,7 @@ public class BlockGenesisWoodSlab extends BlockWoodSlab implements IItemBlockWit
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int idPicked(World world, int x, int y, int z) {
-		int group = TreeType.valueOf(getSubName(world.getBlockMetadata(x, y, z))).getGroup();
+		int group = TreeType.valueOf(getSubName(world.getBlockMetadata(x, y, z)).toUpperCase()).getGroup();
 		return singleSlabIds[group];
 	}
 	

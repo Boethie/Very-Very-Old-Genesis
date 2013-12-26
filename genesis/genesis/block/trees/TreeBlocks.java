@@ -2,7 +2,6 @@ package genesis.genesis.block.trees;
 
 import genesis.genesis.block.BlockAndMeta;
 import genesis.genesis.block.BlockGenesisStairs;
-import genesis.genesis.block.BlockGenesisWoodSlab;
 import genesis.genesis.block.plants.BlockGenesisFlowerPot;
 import genesis.genesis.common.Genesis;
 import genesis.genesis.item.itemblock.ItemBlockGenesisTree;
