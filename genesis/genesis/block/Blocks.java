@@ -72,13 +72,13 @@ public class Blocks {
 				.setUnlocalizedName(Names.blockLimestone).setHardness(0.75F).setResistance(8.5F);
 		gneiss = new BlockGenesisRock(IDs.blockGneissID, Material.rock, 0)
 				.setTextureName("gneiss")
-				.setUnlocalizedName(Names.blockGneiss).setHardness(10.0F).setResistance(9.0F);
-		stromatolite = new BlockGenesisRock(IDs.blockStromatoliteID, Material.rock, 0)
-				.setTextureName("stromatolite")
-				.setUnlocalizedName(Names.blockStromatolite).setHardness(0.75F).setResistance(8.5F);
+				.setUnlocalizedName(Names.blockGneiss).setHardness(1.65F).setResistance(10.0F);
 		schist = new BlockGenesisRock(IDs.blockSchistID, Material.rock, 0)
 				.setTextureName("schist")
 				.setUnlocalizedName(Names.blockSchist).setHardness(1.05F).setResistance(10.0F);
+		stromatolite = new BlockGenesisRock(IDs.blockStromatoliteID, Material.rock, 0)
+				.setTextureName("stromatolite")
+				.setUnlocalizedName(Names.blockStromatolite).setHardness(0.75F).setResistance(8.5F);
 		
 		permafrost = new BlockPermafrost(IDs.blockPermafrostID).setTextureName("permafrost")
 				.setUnlocalizedName(Names.blockPermafrost);

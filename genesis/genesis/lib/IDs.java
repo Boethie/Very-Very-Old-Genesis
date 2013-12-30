@@ -57,8 +57,8 @@ public class IDs {
 	public static int blockGraniteMossyID = 2173;
 	public static int blockLimestoneID = 2174;
 	public static int blockGneissID = 2175;
-	public static int blockStromatoliteID = 2176;
-	public static int blockSchistID = 2177;
+	public static int blockSchistID = 2176;
+	public static int blockStromatoliteID = 2177;
 	
 	public static int blockPermafrostID = 2180;
 	
