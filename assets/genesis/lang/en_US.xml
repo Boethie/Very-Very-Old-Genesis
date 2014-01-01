@@ -22,6 +22,7 @@
 	<entry key="tile.genesis.rock.limestone.name">Limestone</entry>
 	<entry key="tile.genesis.rock.gneiss.name">Gneiss</entry>
 	<entry key="tile.genesis.rock.schist.name">Schist</entry>
+	<entry key="tile.genesis.rock.ironMeteorite.name">Iron Meteorite</entry>
 	<entry key="tile.genesis.rock.stromatolite.name">Stromatolite</entry>
 	
 	<entry key="tile.genesis.permafrost.name">Permafrost</entry>
@@ -34,9 +35,6 @@
 
 	<entry key="tile.genesis.ore.olivine.name">Olivine Ore</entry>
 	<entry key="tile.genesis.storage.olivine.name">Block of Olivine</entry>
-
-	<entry key="tile.genesis.ore.hematite.name">Hematite Ore</entry>
-	<entry key="tile.genesis.storage.hematite.name">Block of Hematite</entry>
 	
 	<entry key="tile.genesis.ore.garnet.name">Garnet Ore</entry>
 
@@ -100,7 +98,7 @@
 
 	<entry key="item.genesis.olivine.name">Olivine</entry>
 
-	<entry key="item.genesis.hematite.name">Hematite</entry>
+	<entry key="item.genesis.meteoricIronIngot.name">Meteoric Iron Ingot</entry>
 	
 	<entry key="item.genesis.garnet.name">Garnet</entry>
 
@@ -123,11 +121,11 @@
 	<entry key="item.genesis.tool.axe.olivine.name">Olivine Axe</entry>
 	<entry key="item.genesis.tool.hoe.olivine.name">Olivine Hoe</entry>
 
-	<entry key="item.genesis.sword.hematite.name">Hematite Sword</entry>
-	<entry key="item.genesis.tool.pickaxe.hematite.name">Hematite Pickaxe</entry>
-	<entry key="item.genesis.tool.shovel.hematite.name">Hematite Shovel</entry>
-	<entry key="item.genesis.tool.axe.hematite.name">Hematite Axe</entry>
-	<entry key="item.genesis.tool.hoe.hematite.name">Hematite Hoe</entry>
+	<entry key="item.genesis.sword.meteoricIron.name">Meteoric Iron Sword</entry>
+	<entry key="item.genesis.tool.pickaxe.meteoricIron.name">Meteoric Iron Pickaxe</entry>
+	<entry key="item.genesis.tool.shovel.meteoricIron.name">Meteoric Iron Shovel</entry>
+	<entry key="item.genesis.tool.axe.meteoricIron.name">Meteoric Iron Axe</entry>
+	<entry key="item.genesis.tool.hoe.meteoricIron.name">Meteoric Iron Hoe</entry>
 
 	<!-- Armor -->
 	<entry key="item.genesis.armor.helmet.zircon.name">Zircon Helmet</entry>
@@ -140,8 +138,8 @@
 	<entry key="item.genesis.armor.leggings.olivine.name">Olivine Leggings</entry>
 	<entry key="item.genesis.armor.boots.olivine.name">Olivine Boots</entry>
 
-	<entry key="item.genesis.armor.helmet.hematite.name">Hematite Helmet</entry>
-	<entry key="item.genesis.armor.chestplate.hematite.name">Hematite Chestplate</entry>
-	<entry key="item.genesis.armor.leggings.hematite.name">Hematite Leggings</entry>
-	<entry key="item.genesis.armor.boots.hematite.name">Hematite Boots</entry>
+	<entry key="item.genesis.armor.helmet.meteoricIron.name">Meteoric Iron Helmet</entry>
+	<entry key="item.genesis.armor.chestplate.meteoricIron.name">Meteoric Iron Chestplate</entry>
+	<entry key="item.genesis.armor.leggings.meteoricIron.name">Meteoric Iron Leggings</entry>
+	<entry key="item.genesis.armor.boots.meteoricIron.name">Meteoric Iron Boots</entry>
 </properties>

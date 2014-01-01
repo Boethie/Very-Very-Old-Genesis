@@ -22,9 +22,9 @@ public class Items {
 	public static ItemsToolSet olivineTools;
 	public static ItemsSuitOfArmor olivineArmor;
 	
-	public static ItemGenesis hematite;
-	public static ItemsToolSet hematiteTools;
-	public static ItemsSuitOfArmor hematiteArmor;
+	public static ItemGenesis meteoricIronIngot;
+	public static ItemsToolSet meteoricIronTools;
+	public static ItemsSuitOfArmor meteoricIronArmor;
 	
 	public static ItemGenesis garnet;
 	
@@ -54,14 +54,14 @@ public class Items {
 					EnumHelper.addArmorMaterial(Names.itemOlivineMaterial.toUpperCase(), 17, new int[] {3, 8, 6, 3}, 9),
 					Names.itemOlivineMaterial, olivine);
 		
-		hematite = (ItemGenesis) new ItemGenesis(IDs.itemHematiteID)
-				.setUnlocalizedName(Names.itemHematite).setTextureName("hematite");
-		hematiteTools = new ItemsToolSet(IDs.itemsHematiteToolsStartID, 
-				EnumHelper.addToolMaterial(Names.itemHematiteMaterial.toUpperCase(), 3, 375, 8, 3, 10),
-				Names.itemHematiteMaterial, hematite, Item.stick);
-		hematiteArmor = new ItemsSuitOfArmor(IDs.itemsHematiteArmorStartID,
-					EnumHelper.addArmorMaterial(Names.itemHematiteMaterial.toUpperCase(), 17, new int[] {3, 8, 6, 3}, 9),
-					Names.itemHematiteMaterial, hematite);
+		meteoricIronIngot = (ItemGenesis) new ItemGenesis(IDs.itemMeteoricIronIngotID)
+				.setUnlocalizedName(Names.itemMeteoricIronIngot).setTextureName("meteoricIron_ingot");
+		meteoricIronTools = new ItemsToolSet(IDs.itemsMeteoricIronToolsStartID, 
+				EnumHelper.addToolMaterial(Names.itemMeteoricIronMaterial.toUpperCase(), 3, 375, 8, 3, 10),
+				Names.itemMeteoricIronMaterial, meteoricIronIngot, Item.stick);
+		meteoricIronArmor = new ItemsSuitOfArmor(IDs.itemsMeteoricIronArmorStartID,
+					EnumHelper.addArmorMaterial(Names.itemMeteoricIronMaterial.toUpperCase(), 17, new int[] {3, 8, 6, 3}, 25),
+					Names.itemMeteoricIronMaterial, meteoricIronIngot);
 		
 		garnet = (ItemGenesis) new ItemGenesis(IDs.itemGarnetID)
 				.setUnlocalizedName(Names.itemGarnet).setTextureName("garnet");

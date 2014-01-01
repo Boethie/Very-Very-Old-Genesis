@@ -2,8 +2,6 @@ package genesis.genesis.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 
 import net.minecraftforge.common.MinecraftForge;
 
@@ -30,8 +28,9 @@ public class Blocks {
 	public static Block graniteMossy;
 	public static Block limestone;
 	public static Block gneiss;
-	public static Block stromatolite;
 	public static Block schist;
+	public static Block ironMeteorite;
+	public static Block stromatolite;
 	
 	public static Block permafrost;
 	
@@ -43,9 +42,6 @@ public class Blocks {
 
 	public static BlockGenesisOre olivineOre;
 	public static BlockGenesisOreStorage olivineBlock;
-
-	public static BlockGenesisOre hematiteOre;
-	public static BlockGenesisOreStorage hematiteBlock;
 	
 	public static BlockGenesisOre garnetOre;
 	
@@ -76,6 +72,9 @@ public class Blocks {
 		schist = new BlockGenesisRock(IDs.blockSchistID, Material.rock, 0)
 				.setTextureName("schist")
 				.setUnlocalizedName(Names.blockSchist).setHardness(1.05F).setResistance(10.0F);
+		ironMeteorite = new BlockGenesisRock(IDs.blockIronMeteoriteID, Material.rock, 0)
+				.setTextureName("iron_meteorite")
+				.setUnlocalizedName(Names.blockIronMeteorite).setHardness(1.0F).setResistance(10.0F);
 		stromatolite = new BlockGenesisRock(IDs.blockStromatoliteID, Material.rock, 0)
 				.setTextureName("stromatolite")
 				.setUnlocalizedName(Names.blockStromatolite).setHardness(0.75F).setResistance(8.5F);
@@ -102,13 +101,6 @@ public class Blocks {
 				.setTextureName("olivine_block").setUnlocalizedName(Names.blockOlivine)
 				.setHardness(5.0F).setResistance(10.0F);
 		
-		hematiteOre = (BlockGenesisOre) new BlockGenesisOre(IDs.blockHematiteOreID, Material.rock, 2, 1, 1, 1, 5)
-				.setTextureName("hematite_ore").setUnlocalizedName(Names.blockHematiteOre)
-				.setHardness(3.0F).setResistance(10.0F);
-		hematiteBlock = (BlockGenesisOreStorage) new BlockGenesisOreStorage(IDs.blockHematiteID, Material.iron, 2)
-				.setTextureName("hematite_block").setUnlocalizedName(Names.blockHematite)
-				.setHardness(5.0F).setResistance(10.0F);
-		
 		garnetOre = (BlockGenesisOre) new BlockGenesisOre(IDs.blockGarnetOreID, Material.rock, 2, 1, 1, 3, 7)
 				.setTextureName("garnet_ore").setUnlocalizedName(Names.blockGarnetOre)
 				.setHardness(3.0F).setResistance(10.0F);
@@ -125,9 +117,6 @@ public class Blocks {
 		quartzGraniteOre.setDrop(Items.quartz, 0, 0.2F);
 		
 		olivineOre.setDrop(Items.olivine, 0, 1.0F);
-
-		hematiteOre.setDrop(new ItemStack(Items.hematite));
-		hematiteOre.setSmelting(new ItemStack(Item.ingotIron), 0.7F);
 		
 		garnetOre.setDrop(Items.garnet, 0, 1.0F);
 		
@@ -136,7 +125,6 @@ public class Blocks {
 
 		zirconBlock.setRecipe(Items.zircon, false);
 		olivineBlock.setRecipe(Items.olivine, false);
-		hematiteBlock.setRecipe(Items.hematite, false);
 		
 		TreeBlocks.registerBlocks();
 		PlantBlocks.registerBlocks();

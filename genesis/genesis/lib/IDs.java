@@ -58,7 +58,8 @@ public class IDs {
 	public static int blockLimestoneID = 2174;
 	public static int blockGneissID = 2175;
 	public static int blockSchistID = 2176;
-	public static int blockStromatoliteID = 2177;
+	public static int blockIronMeteoriteID = 2177;
+	public static int blockStromatoliteID = 2178;
 	
 	public static int blockPermafrostID = 2180;
 	
@@ -116,9 +117,9 @@ public class IDs {
 	public static int itemsOlivineToolsStartID = 2242;
 	public static int itemsOlivineArmorStartID = 2247;
 	
-	public static int itemHematiteID = 2251;
-	public static int itemsHematiteToolsStartID = 2252;
-	public static int itemsHematiteArmorStartID = 2257;
+	public static int itemMeteoricIronIngotID = 2251;
+	public static int itemsMeteoricIronToolsStartID = 2252;
+	public static int itemsMeteoricIronArmorStartID = 2257;
 	
 	public static int itemGarnetID = 2261;
 	

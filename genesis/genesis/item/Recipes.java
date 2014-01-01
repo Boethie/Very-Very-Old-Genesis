@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
@@ -104,6 +105,8 @@ public class Recipes {
 			"|",
 			'c', Item.coal,
 			'|', PlantBlocks.calamitesPlant);
+		
+		GameRegistry.addSmelting(Blocks.ironMeteorite.blockID, new ItemStack(Items.meteoricIronIngot, 1), 0.75F);
 	}
 	
 }
