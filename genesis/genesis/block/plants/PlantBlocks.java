@@ -31,8 +31,6 @@ public class PlantBlocks {
 	public static BlockCalamitesPlant calamitesPlant;
 	public static BlockCalamitesStorage calamitesBlock;
 	
-	public static BlockGenesisPlant neuropterisPlant;
-	
 	public static BlockGenesisFlower flower;
 	
 	public static void init()
@@ -45,9 +43,6 @@ public class PlantBlocks {
 		calamitesBlock = (BlockCalamitesStorage)new BlockCalamitesStorage(IDs.blockCalamitesBlockID).setTextureName("calamites_block")
 				.setUnlocalizedName(Names.blockCalamites);
 		
-		neuropterisPlant = (BlockGenesisPlant)new BlockNeuropterisPlant(IDs.blockNeuropterisPlantID).setTextureName("neuropteris")
-				.setUnlocalizedName(Names.blockNeuropterisPlant);
-		
 		flower = (BlockGenesisFlower)new BlockGenesisFlower(IDs.blockFlowerID).setUnlocalizedName(Names.blockFlower);
 	}
 
@@ -55,8 +50,6 @@ public class PlantBlocks {
 	{
 		GameRegistry.registerBlock(calamitesPlant, Names.blockCalamitesPlant);
 		GameRegistry.registerBlock(calamitesBlock, Names.blockCalamites);
-		
-		GameRegistry.registerBlock(neuropterisPlant, Names.blockNeuropterisPlant);
 		
 		GameRegistry.registerBlock(flower, ItemBlockGenesisPlant.class, Names.blockFlower);
 		

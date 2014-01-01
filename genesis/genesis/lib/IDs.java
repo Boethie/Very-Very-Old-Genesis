@@ -96,8 +96,6 @@ public class IDs {
 	public static int blockCalamitesPlantID = 2200;
 	public static int blockCalamitesBlockID = 2201;
 	
-	public static int blockNeuropterisPlantID = 2202;
-	
 	public static int blockFlowerID = 2203;
 	
 	// Special
