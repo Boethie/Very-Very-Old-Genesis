@@ -64,6 +64,8 @@ public class Names {
 	
 	// ---- Items ----
 	// Crafting items
+	public static final String itemGraniteMaterial = "granite";
+	
 	public static final String itemZircon = mod + "zircon";
 	public static final String itemZirconMaterial = "zircon";
 	

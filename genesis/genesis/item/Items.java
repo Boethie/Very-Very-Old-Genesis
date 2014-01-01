@@ -1,9 +1,8 @@
 package genesis.genesis.item;
 
 import net.minecraft.item.Item;
-
 import net.minecraftforge.common.EnumHelper;
-
+import genesis.genesis.block.Blocks;
 import genesis.genesis.item.ItemSets.ItemsSuitOfArmor;
 import genesis.genesis.item.ItemSets.ItemsToolSet;
 import genesis.genesis.lib.IDs;
@@ -11,6 +10,8 @@ import genesis.genesis.lib.Names;
 
 public class Items {
 
+	public static ItemsToolSet graniteTools;
+	
 	public static ItemGenesis zircon;
 	public static ItemsToolSet zirconTools;
 	public static ItemsSuitOfArmor zirconArmor;
@@ -28,6 +29,10 @@ public class Items {
 	public static ItemGenesis garnet;
 	
 	public static void init() {
+		graniteTools = new ItemsToolSet(IDs.itemsGraniteToolsStartID,
+				EnumHelper.addToolMaterial(Names.itemGraniteMaterial.toUpperCase(), 1, 181, 4.0F, 1.0F, 5),
+				Names.itemGraniteMaterial, Blocks.granite, Item.stick);
+		
 		zircon = (ItemGenesis) new ItemGenesis(IDs.itemZirconID)
 				.setUnlocalizedName(Names.itemZircon).setTextureName("zircon");
 		zirconTools = new ItemsToolSet(IDs.itemsZirconToolsStartID, 

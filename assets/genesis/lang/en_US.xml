@@ -106,6 +106,12 @@
 	<entry key="item.genesis.garnet.name">Garnet</entry>
 
 	<!-- Swords/Tools -->
+	<entry key="item.genesis.sword.granite.name">Granite Sword</entry>
+	<entry key="item.genesis.tool.pickaxe.granite.name">Granite Pickaxe</entry>
+	<entry key="item.genesis.tool.shovel.granite.name">Granite Shovel</entry>
+	<entry key="item.genesis.tool.axe.granite.name">Granite Axe</entry>
+	<entry key="item.genesis.tool.hoe.granite.name">Granite Hoe</entry>
+	
 	<entry key="item.genesis.sword.zircon.name">Zircon Sword</entry>
 	<entry key="item.genesis.tool.pickaxe.zircon.name">Zircon Pickaxe</entry>
 	<entry key="item.genesis.tool.shovel.zircon.name">Zircon Shovel</entry>
