@@ -71,11 +71,11 @@ public class IDs {
 	
 	public static int blockOlivineOreID = 2184;
 	public static int blockOlivineID = 2185;
-
-	public static int blockHematiteOreID = 2186;
-	public static int blockHematiteID = 2187;
 	
-	public static int blockGarnetOreID = 2188;
+	public static int blockGarnetOreID = 2186;
+	
+	public static int blockMalachiteOreID = 2188;
+	public static int blockMalachiteID = 2189;
 	
 	// Trees
 	public static final int TREE_ID_SET_SIZE = 2;
@@ -122,5 +122,7 @@ public class IDs {
 	public static int itemsMeteoricIronArmorStartID = 2261;
 	
 	public static int itemGarnetID = 2265;
+	
+	public static int itemMalachiteID = 2266;
 	
 }

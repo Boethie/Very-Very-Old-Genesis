@@ -37,6 +37,9 @@
 	<entry key="tile.genesis.storage.olivine.name">Block of Olivine</entry>
 	
 	<entry key="tile.genesis.ore.garnet.name">Garnet Ore</entry>
+	
+	<entry key="tile.genesis.ore.malachite.name">Malachite Ore</entry>
+	<entry key="tile.genesis.storage.malachite.name">Block of Malachite</entry>
 
 	<!-- Trees -->
 	<entry key="tile.genesis.log.sigillaria.name">Sigillaria Wood</entry>
@@ -101,6 +104,8 @@
 	<entry key="item.genesis.meteoricIronIngot.name">Meteoric Iron Ingot</entry>
 	
 	<entry key="item.genesis.garnet.name">Garnet</entry>
+	
+	<entry key="item.genesis.malachite.name">Malachite</entry>
 
 	<!-- Swords/Tools -->
 	<entry key="item.genesis.sword.granite.name">Granite Sword</entry>

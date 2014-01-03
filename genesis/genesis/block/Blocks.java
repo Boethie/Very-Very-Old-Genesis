@@ -45,6 +45,9 @@ public class Blocks {
 	
 	public static BlockGenesisOre garnetOre;
 	
+	public static BlockGenesisOre malachiteOre;
+	public static BlockGenesisOreStorage malachiteBlock;
+	
 	public static void init() {
 		moss = new BlockMoss(IDs.blockMossID).setTextureName("moss")
 				.setUnlocalizedName(Names.blockMoss);
@@ -105,6 +108,13 @@ public class Blocks {
 				.setTextureName("garnet_ore").setUnlocalizedName(Names.blockGarnetOre)
 				.setHardness(3.0F).setResistance(10.0F);
 		
+		malachiteOre = (BlockGenesisOre) new BlockGenesisOre(IDs.blockMalachiteOreID, Material.rock, 1, 4, 8, 2, 5)
+				.setTextureName("malachite_ore").setUnlocalizedName(Names.blockMalachiteOre)
+				.setHardness(3.0F).setResistance(10.0F);
+		malachiteBlock = (BlockGenesisOreStorage) new BlockGenesisOreStorage(IDs.blockMalachiteID, Material.iron, 1)
+				.setTextureName("malachite_block").setUnlocalizedName(Names.blockMalachite)
+				.setHardness(5.0F).setResistance(10.0F);
+		
 		TreeBlocks.init();
 		PlantBlocks.init();
 	}
@@ -120,11 +130,14 @@ public class Blocks {
 		
 		garnetOre.setDrop(Items.garnet, 0, 1.0F);
 		
+		malachiteOre.setDrop(Items.malachite, 0, 0.2F);
+		
         MinecraftForge.setBlockHarvestLevel(moss, "shovel", 0);
         MinecraftForge.setBlockHarvestLevel(permafrost, "shovel", 0);
 
 		zirconBlock.setRecipe(Items.zircon, false);
 		olivineBlock.setRecipe(Items.olivine, false);
+		malachiteBlock.setRecipe(Items.malachite, false);
 		
 		TreeBlocks.registerBlocks();
 		PlantBlocks.registerBlocks();

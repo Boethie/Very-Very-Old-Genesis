@@ -28,6 +28,8 @@ public class Items {
 	
 	public static ItemGenesis garnet;
 	
+	public static ItemGenesis malachite;
+	
 	public static void init() {
 		graniteTools = new ItemsToolSet(IDs.itemsGraniteToolsStartID,
 				EnumHelper.addToolMaterial(Names.itemGraniteMaterial.toUpperCase(), 1, 181, 4.0F, 1.0F, 5),
@@ -65,6 +67,9 @@ public class Items {
 		
 		garnet = (ItemGenesis) new ItemGenesis(IDs.itemGarnetID)
 				.setUnlocalizedName(Names.itemGarnet).setTextureName("garnet");
+		
+		malachite = (ItemGenesis) new ItemGenesis(IDs.itemMalachiteID)
+				.setUnlocalizedName(Names.itemMalachite).setTextureName("malachite");
 	}
 	
 	public static void registerItems() {
