@@ -38,7 +38,7 @@ public class ItemGenesisDagger extends Item {
 		weaponDamage = 3.0F + toolMaterial.getDamageVsEntity();
 		
 		setUnlocalizedName(Names.itemDagger + materialName);
-		setMaxDamage(toolMaterial.getMaxUses());
+		setMaxDamage(toolMaterial.getMaxUses() / 2);
 		setCreativeTab(Genesis.tabGenesis);
 	}
 	

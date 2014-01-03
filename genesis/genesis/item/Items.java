@@ -36,10 +36,10 @@ public class Items {
 		zircon = (ItemGenesis) new ItemGenesis(IDs.itemZirconID)
 				.setUnlocalizedName(Names.itemZircon).setTextureName("zircon");
 		zirconTools = new ItemsToolSet(IDs.itemsZirconToolsStartID, 
-				EnumHelper.addToolMaterial(Names.itemZirconMaterial.toUpperCase(), 2, 625, 6.5F, 1.5F, 12),
+				EnumHelper.addToolMaterial(Names.itemZirconMaterial.toUpperCase(), 2, 625, 7, 2, 12),
 				Names.itemZirconMaterial, zircon, Item.stick);
 		zirconArmor = new ItemsSuitOfArmor(IDs.itemsZirconArmorStartID,
-					EnumHelper.addArmorMaterial(Names.itemZirconMaterial.toUpperCase(), 17, new int[] {2, 7, 5, 2}, 9),
+					EnumHelper.addArmorMaterial(Names.itemZirconMaterial.toUpperCase(), 25, new int[] {2, 7, 6, 2}, 9),
 					Names.itemZirconMaterial, zircon);
 		
 		quartz = (ItemGenesis) new ItemGenesis(IDs.itemQuartzID)
@@ -48,19 +48,19 @@ public class Items {
 		olivine = (ItemGenesis) new ItemGenesis(IDs.itemOlivineID)
 				.setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");
 		olivineTools = new ItemsToolSet(IDs.itemsOlivineToolsStartID, 
-				EnumHelper.addToolMaterial(Names.itemOlivineMaterial.toUpperCase(), 3, 500, 8, 3, 10),
+				EnumHelper.addToolMaterial(Names.itemOlivineMaterial.toUpperCase(), 3, 500, 7, 3, 14),
 				Names.itemOlivineMaterial, olivine, Item.stick);
 		olivineArmor = new ItemsSuitOfArmor(IDs.itemsOlivineArmorStartID,
-					EnumHelper.addArmorMaterial(Names.itemOlivineMaterial.toUpperCase(), 17, new int[] {3, 8, 6, 3}, 9),
+					EnumHelper.addArmorMaterial(Names.itemOlivineMaterial.toUpperCase(), 23, new int[] {3, 7, 5, 2}, 10),
 					Names.itemOlivineMaterial, olivine);
 		
 		meteoricIronIngot = (ItemGenesis) new ItemGenesis(IDs.itemMeteoricIronIngotID)
 				.setUnlocalizedName(Names.itemMeteoricIronIngot).setTextureName("meteoricIron_ingot");
 		meteoricIronTools = new ItemsToolSet(IDs.itemsMeteoricIronToolsStartID, 
-				EnumHelper.addToolMaterial(Names.itemMeteoricIronMaterial.toUpperCase(), 3, 375, 8, 3, 10),
+				EnumHelper.addToolMaterial(Names.itemMeteoricIronMaterial.toUpperCase(), 2, 366, 4, 1, 25),
 				Names.itemMeteoricIronMaterial, meteoricIronIngot, Item.stick);
 		meteoricIronArmor = new ItemsSuitOfArmor(IDs.itemsMeteoricIronArmorStartID,
-					EnumHelper.addArmorMaterial(Names.itemMeteoricIronMaterial.toUpperCase(), 17, new int[] {3, 8, 6, 3}, 25),
+					EnumHelper.addArmorMaterial(Names.itemMeteoricIronMaterial.toUpperCase(), 18, new int[] {2, 6, 5, 2}, 25),
 					Names.itemMeteoricIronMaterial, meteoricIronIngot);
 		
 		garnet = (ItemGenesis) new ItemGenesis(IDs.itemGarnetID)
