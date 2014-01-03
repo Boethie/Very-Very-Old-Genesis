@@ -104,24 +104,28 @@
 
 	<!-- Swords/Tools -->
 	<entry key="item.genesis.sword.granite.name">Granite Sword</entry>
+	<entry key="item.genesis.dagger.granite.name">Granite Dagger</entry>
 	<entry key="item.genesis.tool.pickaxe.granite.name">Granite Pickaxe</entry>
 	<entry key="item.genesis.tool.shovel.granite.name">Granite Shovel</entry>
 	<entry key="item.genesis.tool.axe.granite.name">Granite Axe</entry>
 	<entry key="item.genesis.tool.hoe.granite.name">Granite Hoe</entry>
 	
 	<entry key="item.genesis.sword.zircon.name">Zircon Sword</entry>
+	<entry key="item.genesis.dagger.zircon.name">Zircon Dagger</entry>
 	<entry key="item.genesis.tool.pickaxe.zircon.name">Zircon Pickaxe</entry>
 	<entry key="item.genesis.tool.shovel.zircon.name">Zircon Shovel</entry>
 	<entry key="item.genesis.tool.axe.zircon.name">Zircon Axe</entry>
 	<entry key="item.genesis.tool.hoe.zircon.name">Zircon Hoe</entry>
 
 	<entry key="item.genesis.sword.olivine.name">Olivine Sword</entry>
+	<entry key="item.genesis.dagger.olivine.name">Olivine Dagger</entry>
 	<entry key="item.genesis.tool.pickaxe.olivine.name">Olivine Pickaxe</entry>
 	<entry key="item.genesis.tool.shovel.olivine.name">Olivine Shovel</entry>
 	<entry key="item.genesis.tool.axe.olivine.name">Olivine Axe</entry>
 	<entry key="item.genesis.tool.hoe.olivine.name">Olivine Hoe</entry>
 
 	<entry key="item.genesis.sword.meteoricIron.name">Meteoric Iron Sword</entry>
+	<entry key="item.genesis.dagger.meteoricIron.name">Meteoric Iron Dagger</entry>
 	<entry key="item.genesis.tool.pickaxe.meteoricIron.name">Meteoric Iron Pickaxe</entry>
 	<entry key="item.genesis.tool.shovel.meteoricIron.name">Meteoric Iron Shovel</entry>
 	<entry key="item.genesis.tool.axe.meteoricIron.name">Meteoric Iron Axe</entry>

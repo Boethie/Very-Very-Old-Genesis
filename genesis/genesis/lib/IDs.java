@@ -104,23 +104,23 @@ public class IDs {
 	public static int blockTikiTorchID = 2219;
 	
 	// ---- Items ----
-	// Ore items, tools (5 IDs) and armors (4 IDs)
+	// Ore items, tools (6 IDs) and armors (4 IDs)
 	public static int itemsGraniteToolsStartID = 2225;
 	
-	public static int itemZirconID = 2230;
-	public static int itemsZirconToolsStartID = 2231;
-	public static int itemsZirconArmorStartID = 2236;
+	public static int itemZirconID = 2231;
+	public static int itemsZirconToolsStartID = 2232;
+	public static int itemsZirconArmorStartID = 2238;
 	
-	public static int itemQuartzID = 2240;
+	public static int itemQuartzID = 2242;
 	
-	public static int itemOlivineID = 2241;
-	public static int itemsOlivineToolsStartID = 2242;
-	public static int itemsOlivineArmorStartID = 2247;
+	public static int itemOlivineID = 2243;
+	public static int itemsOlivineToolsStartID = 2244;
+	public static int itemsOlivineArmorStartID = 2250;
 	
-	public static int itemMeteoricIronIngotID = 2251;
-	public static int itemsMeteoricIronToolsStartID = 2252;
-	public static int itemsMeteoricIronArmorStartID = 2257;
+	public static int itemMeteoricIronIngotID = 2254;
+	public static int itemsMeteoricIronToolsStartID = 2255;
+	public static int itemsMeteoricIronArmorStartID = 2261;
 	
-	public static int itemGarnetID = 2261;
+	public static int itemGarnetID = 2265;
 	
 }

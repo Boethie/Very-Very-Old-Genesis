@@ -78,6 +78,7 @@ public class Names {
 	// Swords and tools
 	public static final String itemTool = mod + "tool.";
 	public static final String itemSword = mod + "sword.";
+	public static final String itemDagger = mod + "dagger.";
 	public static final String itemPickaxe = itemTool + "pickaxe.";
 	public static final String itemAxe = itemTool + "axe.";
 	public static final String itemSpade = itemTool + "shovel.";
