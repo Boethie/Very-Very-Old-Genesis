@@ -22,7 +22,6 @@
 	<entry key="tile.genesis.rock.limestone.name">Limestone</entry>
 	<entry key="tile.genesis.rock.gneiss.name">Gneiss</entry>
 	<entry key="tile.genesis.rock.schist.name">Schist</entry>
-	<entry key="tile.genesis.rock.ironMeteorite.name">Iron Meteorite</entry>
 	<entry key="tile.genesis.rock.stromatolite.name">Stromatolite</entry>
 	
 	<entry key="tile.genesis.permafrost.name">Permafrost</entry>
@@ -40,6 +39,12 @@
 	
 	<entry key="tile.genesis.ore.malachite.name">Malachite Ore</entry>
 	<entry key="tile.genesis.storage.malachite.name">Block of Malachite</entry>
+	
+	<entry key="tile.genesis.rock.ironMeteorite.name">Iron Meteorite</entry>
+	<entry key="tile.genesis.storage.ironMeteorite.name">Block of Iron Meteorite</entry>
+	
+	<entry key="tile.genesis.ore.chalcopyrite.name">Chalcopyrite Ore</entry>
+    <entry key="tile.genesis.storage.chalcopyrite.name">Block of Chalcopyrite</entry>
 
 	<!-- Trees -->
 	<entry key="tile.genesis.log.sigillaria.name">Sigillaria Wood</entry>
@@ -106,6 +111,8 @@
 	<entry key="item.genesis.garnet.name">Garnet</entry>
 	
 	<entry key="item.genesis.malachite.name">Malachite</entry>
+	
+	<entry key="item.genesis.chalcopyriteIngot.name">Chalcopyrite Ingot</entry>
 
 	<!-- Swords/Tools -->
 	<entry key="item.genesis.sword.granite.name">Granite Sword</entry>
@@ -135,6 +142,13 @@
 	<entry key="item.genesis.tool.shovel.meteoricIron.name">Meteoric Iron Shovel</entry>
 	<entry key="item.genesis.tool.axe.meteoricIron.name">Meteoric Iron Axe</entry>
 	<entry key="item.genesis.tool.hoe.meteoricIron.name">Meteoric Iron Hoe</entry>
+	
+	<entry key="item.genesis.sword.chalcopyrite.name">Chalcopyrite Sword</entry>
+    <entry key="item.genesis.dagger.chalcopyrite.name">Chalcopyrite Dagger</entry>
+    <entry key="item.genesis.tool.pickaxe.chalcopyrite.name">Chalcopyrite Pickaxe</entry>
+    <entry key="item.genesis.tool.shovel.chalcopyrite.name">Chalcopyrite Shovel</entry>
+    <entry key="item.genesis.tool.axe.chalcopyrite.name">Chalcopyrite Axe</entry>
+    <entry key="item.genesis.tool.hoe.chalcopyrite.name">Chalcopyrite Hoe</entry>
 
 	<!-- Armor -->
 	<entry key="item.genesis.armor.helmet.zircon.name">Zircon Helmet</entry>

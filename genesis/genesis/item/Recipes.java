@@ -107,6 +107,7 @@ public class Recipes {
 			'|', PlantBlocks.calamitesPlant);
 		
 		GameRegistry.addSmelting(Blocks.ironMeteorite.blockID, new ItemStack(Items.meteoricIronIngot, 1), 0.75F);
+		GameRegistry.addSmelting(Blocks.chalcopyriteOre.blockID, new ItemStack(Items.chalcopyriteIngot, 1), 0.7F);
 	}
 	
 }

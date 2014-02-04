@@ -58,7 +58,6 @@ public class IDs {
 	public static int blockLimestoneID = 2174;
 	public static int blockGneissID = 2175;
 	public static int blockSchistID = 2176;
-	public static int blockIronMeteoriteID = 2177;
 	public static int blockStromatoliteID = 2178;
 	
 	public static int blockPermafrostID = 2180;
@@ -76,6 +75,12 @@ public class IDs {
 	
 	public static int blockMalachiteOreID = 2188;
 	public static int blockMalachiteID = 2189;
+	
+	public static int blockIronMeteoriteID = 2177;
+	public static int blockStorageIronMeteoriteID = 2179;
+	
+	public static int blockChalcopyriteOreID = 2204;
+	public static int blockChalcopyriteID = 2205;
 	
 	// Trees
 	public static final int TREE_ID_SET_SIZE = 2;
@@ -124,5 +129,9 @@ public class IDs {
 	public static int itemGarnetID = 2265;
 	
 	public static int itemMalachiteID = 2266;
+	
+	public static int itemChalcopyriteIngotID = 2267;
+	public static int itemsChalcopyriteToolsStartID = 2268;
+	//public static int itemsChalcopyriteArmorStartID = 2274;
 	
 }

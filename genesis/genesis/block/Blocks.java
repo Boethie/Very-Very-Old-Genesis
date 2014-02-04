@@ -30,9 +30,12 @@ public class Blocks {
 	public static Block gneiss;
 	public static Block schist;
 	public static Block ironMeteorite;
+	public static BlockGenesisOreStorage ironMeteoriteBlock;
 	public static Block stromatolite;
 	
 	public static Block permafrost;
+	
+	public static Block chalcopyriteOre;
 	
 	// Ores
 	public static BlockGenesisOre zirconOre;
@@ -47,6 +50,8 @@ public class Blocks {
 	
 	public static BlockGenesisOre malachiteOre;
 	public static BlockGenesisOreStorage malachiteBlock;
+	
+	public static BlockGenesisOreStorage chalcopyriteBlock;
 	
 	public static void init() {
 		moss = new BlockMoss(IDs.blockMossID).setTextureName("moss")
@@ -75,9 +80,6 @@ public class Blocks {
 		schist = new BlockGenesisRock(IDs.blockSchistID, Material.rock, 0)
 				.setTextureName("schist")
 				.setUnlocalizedName(Names.blockSchist).setHardness(1.05F).setResistance(10.0F);
-		ironMeteorite = new BlockGenesisRock(IDs.blockIronMeteoriteID, Material.rock, 0)
-				.setTextureName("iron_meteorite")
-				.setUnlocalizedName(Names.blockIronMeteorite).setHardness(1.0F).setResistance(10.0F);
 		stromatolite = new BlockGenesisRock(IDs.blockStromatoliteID, Material.rock, 0)
 				.setTextureName("stromatolite")
 				.setUnlocalizedName(Names.blockStromatolite).setHardness(0.75F).setResistance(8.5F);
@@ -115,6 +117,20 @@ public class Blocks {
 				.setTextureName("malachite_block").setUnlocalizedName(Names.blockMalachite)
 				.setHardness(5.0F).setResistance(10.0F);
 		
+		ironMeteorite = new BlockGenesisRock(IDs.blockIronMeteoriteID, Material.rock, 0)
+				.setTextureName("iron_meteorite")
+				.setUnlocalizedName(Names.blockIronMeteorite).setHardness(1.0F).setResistance(10.0F);
+		ironMeteoriteBlock = (BlockGenesisOreStorage) new BlockGenesisOreStorage(IDs.blockStorageIronMeteoriteID, Material.iron, 2)
+				.setTextureName("meteoric_iron_block").setUnlocalizedName(Names.blockStorageIronMeteorite)
+				.setHardness(5.0F).setResistance(10.0F);
+		
+		chalcopyriteOre = new BlockGenesisRock(IDs.blockChalcopyriteOreID, Material.rock, 1)
+				.setTextureName("chalcopyrite_ore").setUnlocalizedName(Names.blockChalcopyriteOre)
+				.setHardness(3.0F).setResistance(10.0F);
+		chalcopyriteBlock = (BlockGenesisOreStorage) new BlockGenesisOreStorage(IDs.blockChalcopyriteID, Material.iron, 2)
+				.setTextureName("chalcopyrite_block").setUnlocalizedName(Names.blockChalcopyrite)
+				.setHardness(5.0F).setResistance(10.0F);
+		
 		TreeBlocks.init();
 		PlantBlocks.init();
 	}
@@ -138,6 +154,8 @@ public class Blocks {
 		zirconBlock.setRecipe(Items.zircon, false);
 		olivineBlock.setRecipe(Items.olivine, false);
 		malachiteBlock.setRecipe(Items.malachite, false);
+		ironMeteoriteBlock.setRecipe(Items.meteoricIronIngot, false);
+		chalcopyriteBlock.setRecipe(Items.chalcopyriteIngot, false);
 		
 		TreeBlocks.registerBlocks();
 		PlantBlocks.registerBlocks();

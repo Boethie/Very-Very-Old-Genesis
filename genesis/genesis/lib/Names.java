@@ -22,7 +22,6 @@ public class Names {
 	public static final String blockLimestone = blockRock + "limestone";
 	public static final String blockGneiss = blockRock + "gneiss";
 	public static final String blockSchist = blockRock + "schist";
-	public static final String blockIronMeteorite = blockRock + "ironMeteorite";
 	public static final String blockStromatolite = blockRock + "stromatolite";
 	
 	public static final String blockPermafrost = mod + "permafrost";
@@ -42,6 +41,13 @@ public class Names {
 	
 	public static final String blockMalachiteOre = blockOre + "malachite";
 	public static final String blockMalachite = blockStorage + "malachite";
+	
+	public static final String blockIronMeteorite = blockRock + "ironMeteorite";
+	public static final String blockStorageIronMeteorite = blockStorage + "ironMeteorite";
+	
+	public static final String blockChalcopyriteOre = blockOre + "chalcopyrite";
+	public static final String blockChalcopyrite = blockStorage + "chalcopyrite";
+	
 	
 	// Trees
 	public static final String blockLogGenesis = mod + "log.";
@@ -79,6 +85,9 @@ public class Names {
 	public static final String itemGarnet = mod + "garnet";
 	
 	public static final String itemMalachite = mod + "malachite";
+	
+	public static final String itemChalcopyriteIngot = mod + "chalcopyriteIngot";
+	public static final String itemChalcopyriteIngotMaterial = "chalcopyrite";
 
 	// Swords and tools
 	public static final String itemTool = mod + "tool.";

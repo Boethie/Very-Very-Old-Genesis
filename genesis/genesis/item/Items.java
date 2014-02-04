@@ -30,6 +30,10 @@ public class Items {
 	
 	public static ItemGenesis malachite;
 	
+	public static ItemGenesis chalcopyriteIngot;
+	public static ItemsToolSet chalcopyriteTools;
+	//public static ItemsSuitOfArmor chalcopyriteArmor;
+	
 	public static void init() {
 		graniteTools = new ItemsToolSet(IDs.itemsGraniteToolsStartID,
 				EnumHelper.addToolMaterial(Names.itemGraniteMaterial.toUpperCase(), 1, 181, 4.0F, 1.0F, 5),
@@ -70,6 +74,15 @@ public class Items {
 		
 		malachite = (ItemGenesis) new ItemGenesis(IDs.itemMalachiteID)
 				.setUnlocalizedName(Names.itemMalachite).setTextureName("malachite");
+		
+		chalcopyriteIngot = (ItemGenesis) new ItemGenesis(IDs.itemChalcopyriteIngotID)
+			.setUnlocalizedName(Names.itemChalcopyriteIngot).setTextureName("chalcopyrite_ingot");
+		chalcopyriteTools = new ItemsToolSet(IDs.itemsChalcopyriteToolsStartID, 
+				EnumHelper.addToolMaterial(Names.itemChalcopyriteIngotMaterial.toUpperCase(), 2, 145, 5, 2, 12),
+				Names.itemChalcopyriteIngotMaterial, chalcopyriteIngot, Item.stick);
+		/**Waiting for texture*/
+		//olivineArmor = new ItemsSuitOfArmor(IDs.itemsOlivineArmorStartID,
+		//		EnumHelper.addArmorMaterial(Names.itemOlivineMaterial.toUpperCase(), 23, new int[] {3, 7, 5, 2}, 10),
 	}
 	
 	public static void registerItems() {
