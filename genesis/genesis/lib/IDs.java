@@ -78,8 +78,8 @@ public class IDs {
 	public static int blockMalachiteOreID = 2186;
 	public static int blockMalachiteID = 2187;
 	
-	public static int blockChalcopyriteOreID = 2288;
-	public static int blockChalcopyriteID = 2289;
+	public static int blockChalcopyriteOreID = 2188;
+	public static int blockChalcopyriteID = 2189;
 	
 	public static int blockZirconOreID = 2190;
 	public static int blockZirconID = 2191;
