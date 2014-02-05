@@ -19,35 +19,38 @@ public class Names {
 	public static final String blockRock = mod + "rock.";
 	public static final String blockGranite = blockRock + "granite";
 	public static final String blockGraniteMossy = blockRock + "graniteMossy";
-	public static final String blockLimestone = blockRock + "limestone";
+	public static final String blockRhyolite = blockRock + "rhyolite";
+	public static final String blockKomatiite = blockRock + "komatiite";
+	public static final String blockFauxAmphibolite = blockRock + "fauxamphibolite";
 	public static final String blockGneiss = blockRock + "gneiss";
-	public static final String blockSchist = blockRock + "schist";
+	public static final String blockQuartzite = blockRock + "quartzite";
+	public static final String blockLimestone = blockRock + "limestone";
 	public static final String blockStromatolite = blockRock + "stromatolite";
-	
+	public static final String blockSchist = blockRock + "shale";
 	public static final String blockPermafrost = mod + "permafrost";
 	
 	// Ores
 	public static final String blockOre = mod + "ore.";
 	
-	public static final String blockZirconOre = blockOre + "zircon";
-	public static final String blockZircon = blockStorage + "zircon";
+	public static final String blockIronMeteorite = blockRock + "ironMeteorite";
+	public static final String blockStorageIronMeteorite = blockStorage + "ironMeteorite";
 	
 	public static final String blockQuartzGraniteOre = blockOre + "quartzGranite";
-	
-	public static final String blockOlivineOre = blockOre + "olivine";
-	public static final String blockOlivine = blockStorage + "olivine";
-	
-	public static final String blockGarnetOre = blockOre + "garnet";
 	
 	public static final String blockMalachiteOre = blockOre + "malachite";
 	public static final String blockMalachite = blockStorage + "malachite";
 	
-	public static final String blockIronMeteorite = blockRock + "ironMeteorite";
-	public static final String blockStorageIronMeteorite = blockStorage + "ironMeteorite";
-	
 	public static final String blockChalcopyriteOre = blockOre + "chalcopyrite";
 	public static final String blockChalcopyrite = blockStorage + "chalcopyrite";
 	
+	public static final String blockZirconOre = blockOre + "zircon";
+	public static final String blockZircon = blockStorage + "zircon";
+	
+	public static final String blockGarnetOre = blockOre + "garnet";
+	public static final String blockGarnet = blockStorage + "garnet";
+	
+	public static final String blockOlivineOre = blockOre + "olivine";
+	public static final String blockOlivine = blockStorage + "olivine";
 	
 	// Trees
 	public static final String blockLogGenesis = mod + "log.";

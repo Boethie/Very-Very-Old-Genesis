@@ -55,39 +55,47 @@ public class IDs {
 	// Rocks
 	public static int blockGraniteID = 2172;
 	public static int blockGraniteMossyID = 2173;
-	public static int blockLimestoneID = 2174;
-	public static int blockGneissID = 2175;
-	public static int blockSchistID = 2176;
-	public static int blockStromatoliteID = 2178;
-	
-	public static int blockPermafrostID = 2180;
+	public static int blockRhyoliteID = 2174;
+	public static int blockKomatiiteID = 2175;
+	public static int blockFauxAmphiboliteID = 2176;
+	public static int blockGneissID = 2177;
+	public static int blockQuartziteID = 2178;
+	public static int blockLimestoneID = 2179;
+	public static int blockStromatoliteID = 2180;
+	public static int blockShaleID = 2181;
+	public static int blockPermafrostID = 2182;
+	/*public static int blockSmoothQuartziteID = 1;
+	public static int blockSmoothRhyoliteID = 1;
+	public static int blockSmoothLimestoneID = 1;*/
+
 	
 	// Ores and ore storage
-	public static int blockZirconOreID = 2181;
-	public static int blockZirconID = 2182;
+	public static int blockIronMeteoriteID = 2183;
+	public static int blockStorageIronMeteoriteID = 2184;
 	
-	public static int blockQuartzGraniteOreID = 2183;
+	public static int blockQuartzGraniteOreID = 2185;
 	
-	public static int blockOlivineOreID = 2184;
-	public static int blockOlivineID = 2185;
+	public static int blockMalachiteOreID = 2186;
+	public static int blockMalachiteID = 2187;
 	
-	public static int blockGarnetOreID = 2186;
+	public static int blockChalcopyriteOreID = 2288;
+	public static int blockChalcopyriteID = 2289;
 	
-	public static int blockMalachiteOreID = 2188;
-	public static int blockMalachiteID = 2189;
+	public static int blockZirconOreID = 2190;
+	public static int blockZirconID = 2191;
 	
-	public static int blockIronMeteoriteID = 2177;
-	public static int blockStorageIronMeteoriteID = 2179;
+	public static int blockGarnetOreID = 2192;
+	public static int blockGarnetID = 2193;
 	
-	public static int blockChalcopyriteOreID = 2204;
-	public static int blockChalcopyriteID = 2205;
+	public static int blockOlivineOreID = 2194;
+	public static int blockOlivineID = 2195;
 	
 	// Trees
 	public static final int TREE_ID_SET_SIZE = 2;
 	
-	public static IDSet blockLogID = new IDSet(2190, 2191);
-	public static IDSet blockSaplingID = new IDSet(2193, 2194);
-	public static IDSet blockLeavesID = new IDSet(2196, 2197);
+	public static IDSet blockLogID = new IDSet(2196, 2197);
+	public static IDSet blockSaplingID = new IDSet(2198, 2199);
+	public static IDSet blockLeavesID = new IDSet(2200, 2201);
 	
 	public static IDSet blockWoodID = new IDSet(2400, 2401);
 	public static IDSet blockSlabID = new IDSet(2403, 2404);
@@ -97,12 +105,12 @@ public class IDs {
 	public static int blockStairsStartID = 2412;
 	
 	// Plants
-	public static int blockFlowerPotID = 2199;
+	public static int blockFlowerPotID = 2202;
 	
-	public static int blockCalamitesPlantID = 2200;
-	public static int blockCalamitesBlockID = 2201;
+	public static int blockCalamitesPlantID = 2203;
+	public static int blockCalamitesBlockID = 2204;
 	
-	public static int blockFlowerID = 2203;
+	public static int blockFlowerID = 2205;
 	
 	// Special
 	public static int blockCampfireID = 2210;

@@ -19,33 +19,37 @@
 	<!-- Rocks -->
 	<entry key="tile.genesis.rock.granite.name">Granite</entry>
 	<entry key="tile.genesis.rock.graniteMossy.name">Mossy Granite</entry>
-	<entry key="tile.genesis.rock.limestone.name">Limestone</entry>
+	<entry key="tile.genesis.rock.rhyolite.name">Rhyolite</entry>
+	<entry key="tile.genesis.rock.komatiite.name">Komatiite</entry>
+	<entry key="tile.genesis.rock.fauxamphibolite.name">Faux-Amphibolite</entry>
 	<entry key="tile.genesis.rock.gneiss.name">Gneiss</entry>
-	<entry key="tile.genesis.rock.schist.name">Schist</entry>
+	<entry key="tile.genesis.rock.quartzite.name">Quartzite</entry>
+	<entry key="tile.genesis.rock.limestone.name">Limestone</entry>
 	<entry key="tile.genesis.rock.stromatolite.name">Stromatolite</entry>
-	
+	<entry key="tile.genesis.rock.shale.name">Shale</entry>
 	<entry key="tile.genesis.permafrost.name">Permafrost</entry>
 
 	<!-- Ores -->
+	<entry key="tile.genesis.rock.ironMeteorite.name">Iron Meteorite</entry>
+    <entry key="tile.genesis.storage.ironMeteorite.name">Block of Meteoric Iron</entry>
+    
+    <entry key="tile.genesis.ore.quartzGranite.name">Granite Quartz Ore</entry>
+    
+    <entry key="tile.genesis.ore.malachite.name">Malachite Ore</entry>
+    <entry key="tile.genesis.storage.malachite.name">Block of Malachite</entry>
+    
+    <entry key="tile.genesis.ore.chalcopyrite.name">Chalcopyrite Ore</entry>
+    <entry key="tile.genesis.storage.chalcopyrite.name">Block of Chalcopyrite</entry>
+    
 	<entry key="tile.genesis.ore.zircon.name">Zircon Ore</entry>
 	<entry key="tile.genesis.storage.zircon.name">Block of Zircon</entry>
-
-	<entry key="tile.genesis.ore.quartzGranite.name">Granite Quartz Ore</entry>
+	
+	<entry key="tile.genesis.ore.garnet.name">Garnet Ore</entry>
+	<entry key="tile.genesis.storage.garnet.name">Block of Garnet</entry>
 
 	<entry key="tile.genesis.ore.olivine.name">Olivine Ore</entry>
 	<entry key="tile.genesis.storage.olivine.name">Block of Olivine</entry>
 	
-	<entry key="tile.genesis.ore.garnet.name">Garnet Ore</entry>
-	
-	<entry key="tile.genesis.ore.malachite.name">Malachite Ore</entry>
-	<entry key="tile.genesis.storage.malachite.name">Block of Malachite</entry>
-	
-	<entry key="tile.genesis.rock.ironMeteorite.name">Iron Meteorite</entry>
-	<entry key="tile.genesis.storage.ironMeteorite.name">Block of Iron Meteorite</entry>
-	
-	<entry key="tile.genesis.ore.chalcopyrite.name">Chalcopyrite Ore</entry>
-    <entry key="tile.genesis.storage.chalcopyrite.name">Block of Chalcopyrite</entry>
-
 	<!-- Trees -->
 	<entry key="tile.genesis.log.sigillaria.name">Sigillaria Wood</entry>
 	<entry key="tile.genesis.leaves.sigillaria.name">Sigillaria Leaves</entry>
