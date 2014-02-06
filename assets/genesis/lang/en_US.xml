@@ -101,7 +101,7 @@
 	<entry key="tile.genesis.plant.flower.sciadophyton.name">Sciadophyton</entry>
 	<entry key="tile.genesis.plant.flower.psilophyton.name">Psilophyton</entry>
 
-	<entry key="item.genesis.plant.seed.rhizome.name">Rhizome</entry>
+	<entry key="item.genesis.plant.seed.rhizome.name">Rhizome of Zingiberopsis</entry>
 	<entry key="tile.genesis.plant.crop.zingiberopsis.name">Zingiberopsis</entry>
 
 	<!-- Items -->
