@@ -97,8 +97,8 @@ public class Blocks {
 				.setTextureName("stromatolite")
 				.setUnlocalizedName(Names.blockStromatolite).setHardness(0.75F).setResistance(8.5F);
 		shale = new BlockGenesisRock(IDs.blockShaleID, Material.rock, 0)
-				.setTextureName("schist")
-				.setUnlocalizedName(Names.blockSchist).setHardness(1.05F).setResistance(10.0F);
+				.setTextureName("shale")
+				.setUnlocalizedName(Names.blockShale).setHardness(1.05F).setResistance(10.0F);
 		permafrost = new BlockPermafrost(IDs.blockPermafrostID).setTextureName("permafrost")
 				.setUnlocalizedName(Names.blockPermafrost);
 		
@@ -152,6 +152,7 @@ public class Blocks {
 		
 		TreeBlocks.init();
 		PlantBlocks.init();
+		//CropBlocks.init();
 	}
 	
 	public static void registerBlocks() {

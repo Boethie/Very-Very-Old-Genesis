@@ -26,7 +26,7 @@ public class Names {
 	public static final String blockQuartzite = blockRock + "quartzite";
 	public static final String blockLimestone = blockRock + "limestone";
 	public static final String blockStromatolite = blockRock + "stromatolite";
-	public static final String blockSchist = blockRock + "shale";
+	public static final String blockShale = blockRock + "shale";
 	public static final String blockPermafrost = mod + "permafrost";
 	
 	// Ores
@@ -64,11 +64,16 @@ public class Names {
 	// Plants
 	public static final String blockPlant = mod + "plant.";
 	public static final String blockFlowerPot = blockPlant + "flowerpot";
+	public static final String blockCrop = blockPlant + "crop.";
+	public static final String itemSeed = blockPlant + "seed.";
 	
 	public static final String blockCalamitesPlant = blockPlant + "calamites";
 	public static final String blockCalamites = blockStorage + "calamites";
 	
 	public static final String blockFlower = blockPlant + "flower";
+	
+	public static final String itemRhizome = itemSeed + "rhizome";
+	public static final String blockZingiberopsis = blockCrop + "zingiveropsis";
 	
 	// ---- Items ----
 	// Crafting items
@@ -83,7 +88,7 @@ public class Names {
 	public static final String itemOlivineMaterial = "olivine";
 	
 	public static final String itemMeteoricIronIngot = mod + "meteoricIronIngot";
-	public static final String itemMeteoricIronMaterial = "meteoricIron";
+	public static final String itemMeteoricIronMaterial = "iron_meteoric";
 	
 	public static final String itemGarnet = mod + "garnet";
 	

@@ -112,6 +112,9 @@ public class IDs {
 	
 	public static int blockFlowerID = 2205;
 	
+	public static int itemRhizomeID = 2451;
+	public static int blockZingiberopsisID = 2206;
+	
 	// Special
 	public static int blockCampfireID = 2210;
 	public static int blockTikiTorchID = 2219;

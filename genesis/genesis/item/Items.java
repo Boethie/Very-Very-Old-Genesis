@@ -7,9 +7,11 @@ import genesis.genesis.item.ItemSets.ItemsSuitOfArmor;
 import genesis.genesis.item.ItemSets.ItemsToolSet;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.Names;
+import net.minecraft.block.Block;
 
 public class Items {
 
+	// Tools/Armors
 	public static ItemsToolSet graniteTools;
 	
 	public static ItemGenesis zircon;
@@ -34,9 +36,13 @@ public class Items {
 	public static ItemsToolSet chalcopyriteTools;
 	//public static ItemsSuitOfArmor chalcopyriteArmor;
 	
+	// Seeds/Foods
+	public static ItemGenesisSeed rhyzome;
+	
 	public static void init() {
+		// Tools/Armors
 		graniteTools = new ItemsToolSet(IDs.itemsGraniteToolsStartID,
-				EnumHelper.addToolMaterial(Names.itemGraniteMaterial.toUpperCase(), 1, 181, 4.0F, 1.0F, 5),
+				EnumHelper.addToolMaterial(Names.itemGraniteMaterial.toUpperCase(), 0, 181, 4.0F, 1.0F, 5),
 				Names.itemGraniteMaterial, Blocks.granite, Item.stick);
 		
 		zircon = (ItemGenesis) new ItemGenesis(IDs.itemZirconID)
@@ -61,7 +67,7 @@ public class Items {
 					Names.itemOlivineMaterial, olivine);
 		
 		meteoricIronIngot = (ItemGenesis) new ItemGenesis(IDs.itemMeteoricIronIngotID)
-				.setUnlocalizedName(Names.itemMeteoricIronIngot).setTextureName("meteoricIron_ingot");
+				.setUnlocalizedName(Names.itemMeteoricIronIngot).setTextureName("iron_meteoric_ingot");
 		meteoricIronTools = new ItemsToolSet(IDs.itemsMeteoricIronToolsStartID, 
 				EnumHelper.addToolMaterial(Names.itemMeteoricIronMaterial.toUpperCase(), 2, 366, 4, 1, 25),
 				Names.itemMeteoricIronMaterial, meteoricIronIngot, Item.stick);
@@ -83,6 +89,11 @@ public class Items {
 		/**Waiting for texture*/
 		//olivineArmor = new ItemsSuitOfArmor(IDs.itemsOlivineArmorStartID,
 		//		EnumHelper.addArmorMaterial(Names.itemOlivineMaterial.toUpperCase(), 23, new int[] {3, 7, 5, 2}, 10),
+		
+		// Seeds/Foods
+		rhyzome = (ItemGenesisSeed) new ItemGenesisSeed(IDs.itemRhizomeID, IDs.blockZingiberopsisID, 
+				Block.tilledField.blockID, Names.itemRhizome, 2, 1)
+				.setUnlocalizedName(Names.itemRhizome).setTextureName("zingiberopsis_rhizome");
 	}
 	
 	public static void registerItems() {

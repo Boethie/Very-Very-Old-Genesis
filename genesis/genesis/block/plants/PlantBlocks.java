@@ -6,6 +6,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.genesis.common.Genesis;
 import genesis.genesis.item.itemblock.ItemBlockGenesisPlant;
 import genesis.genesis.item.itemblock.ItemBlockGenesisTree;
+import genesis.genesis.block.plants.BlockGenesisCrop;
 import genesis.genesis.lib.IDs;
 import genesis.genesis.lib.Names;
 import net.minecraft.block.Block;
@@ -33,6 +34,8 @@ public class PlantBlocks {
 	
 	public static BlockGenesisFlower flower;
 	
+	public static BlockGenesisCrop zingiberopsis;
+	
 	public static void init()
 	{
 		flowerPot = (BlockGenesisFlowerPot)new BlockGenesisFlowerPot(IDs.blockFlowerPotID).setTextureName("flower_pot")
@@ -44,6 +47,11 @@ public class PlantBlocks {
 				.setUnlocalizedName(Names.blockCalamites);
 		
 		flower = (BlockGenesisFlower)new BlockGenesisFlower(IDs.blockFlowerID).setUnlocalizedName(Names.blockFlower);
+		
+		zingiberopsis = (BlockGenesisCrop) new BlockGenesisCrop(IDs.blockZingiberopsisID, IDs.itemRhizomeID, 
+				Block.tilledField.blockID, 8, 4).setUnlocalizedName(Names.blockZingiberopsis)
+				.setTextureName("zingiberopsis");
+		
 	}
 
 	public static void registerBlocks()

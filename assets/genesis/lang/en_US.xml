@@ -101,6 +101,8 @@
 	<entry key="tile.genesis.plant.flower.sciadophyton.name">Sciadophyton</entry>
 	<entry key="tile.genesis.plant.flower.psilophyton.name">Psilophyton</entry>
 
+	<entry key="item.genesis.plant.seed.rhizome.name">Rhizome</entry>
+	<entry key="tile.genesis.plant.crop.zingiberopsis.name">Zingiberopsis</entry>
 
 	<!-- Items -->
 	<!-- Crafting -->
@@ -140,12 +142,12 @@
 	<entry key="item.genesis.tool.axe.olivine.name">Olivine Axe</entry>
 	<entry key="item.genesis.tool.hoe.olivine.name">Olivine Hoe</entry>
 
-	<entry key="item.genesis.sword.meteoricIron.name">Meteoric Iron Sword</entry>
-	<entry key="item.genesis.dagger.meteoricIron.name">Meteoric Iron Dagger</entry>
-	<entry key="item.genesis.tool.pickaxe.meteoricIron.name">Meteoric Iron Pickaxe</entry>
-	<entry key="item.genesis.tool.shovel.meteoricIron.name">Meteoric Iron Shovel</entry>
-	<entry key="item.genesis.tool.axe.meteoricIron.name">Meteoric Iron Axe</entry>
-	<entry key="item.genesis.tool.hoe.meteoricIron.name">Meteoric Iron Hoe</entry>
+	<entry key="item.genesis.sword.iron_meteoric.name">Meteoric Iron Sword</entry>
+	<entry key="item.genesis.dagger.iron_meteoric.name">Meteoric Iron Dagger</entry>
+	<entry key="item.genesis.tool.pickaxe.iron_meteoric.name">Meteoric Iron Pickaxe</entry>
+	<entry key="item.genesis.tool.shovel.iron_meteoric.name">Meteoric Iron Shovel</entry>
+	<entry key="item.genesis.tool.axe.iron_meteoric.name">Meteoric Iron Axe</entry>
+	<entry key="item.genesis.tool.hoe.iron_meteoric.name">Meteoric Iron Hoe</entry>
 	
 	<entry key="item.genesis.sword.chalcopyrite.name">Chalcopyrite Sword</entry>
     <entry key="item.genesis.dagger.chalcopyrite.name">Chalcopyrite Dagger</entry>
@@ -165,8 +167,8 @@
 	<entry key="item.genesis.armor.leggings.olivine.name">Olivine Leggings</entry>
 	<entry key="item.genesis.armor.boots.olivine.name">Olivine Boots</entry>
 
-	<entry key="item.genesis.armor.helmet.meteoricIron.name">Meteoric Iron Helmet</entry>
-	<entry key="item.genesis.armor.chestplate.meteoricIron.name">Meteoric Iron Chestplate</entry>
-	<entry key="item.genesis.armor.leggings.meteoricIron.name">Meteoric Iron Leggings</entry>
-	<entry key="item.genesis.armor.boots.meteoricIron.name">Meteoric Iron Boots</entry>
+	<entry key="item.genesis.armor.helmet.iron_meteoric.name">Meteoric Iron Helmet</entry>
+	<entry key="item.genesis.armor.chestplate.iron_meteoric.name">Meteoric Iron Chestplate</entry>
+	<entry key="item.genesis.armor.leggings.iron_meteoric.name">Meteoric Iron Leggings</entry>
+	<entry key="item.genesis.armor.boots.iron_meteoric.name">Meteoric Iron Boots</entry>
 </properties>
