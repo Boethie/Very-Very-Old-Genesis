@@ -76,7 +76,7 @@ public class BlockGenesisCrop extends BlockCrops{
 
 		if (!par1World.isRemote)
 		{
-			if (par5 >= 7)
+			if (par5 >= Stages)
 			{
 				Random par1Random = new Random();
 				droppedAmmount = par1Random.nextInt(fullGrownDroppedAmmount) + 1;
@@ -93,9 +93,9 @@ public class BlockGenesisCrop extends BlockCrops{
 	@Override
 	public Icon getIcon(int par1, int par2)
 	{
-		if (par2 < 0 || par2 > 7)
+		if (par2 < 0 || par2 > Stages)
 		{
-			par2 = 7;
+			par2 = Stages;
 		}
 
 		return this.iconArray[par2];
