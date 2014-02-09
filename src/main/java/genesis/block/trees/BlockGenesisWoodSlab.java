@@ -7,8 +7,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockWoodSlab;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 import cpw.mods.fml.relauncher.Side;
@@ -17,7 +19,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import genesis.block.trees.TreeBlocks.TreeType;
 import genesis.common.Genesis;
 import genesis.item.itemblock.IItemBlockWithSubNames;
-import genesis.lib.IDs;
 
 public class BlockGenesisWoodSlab extends BlockWoodSlab implements IItemBlockWithSubNames {
 
@@ -26,8 +27,8 @@ public class BlockGenesisWoodSlab extends BlockWoodSlab implements IItemBlockWit
 	
 	private static int[] singleSlabIds = new int[IDs.TREE_ID_SET_SIZE];
 	
-	public BlockGenesisWoodSlab(int id, int group, boolean isDouble) {
-		super(id, isDouble);
+	public BlockGenesisWoodSlab(int group, boolean isDouble) {
+		super(isDouble);
 		
 		if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE)
 			blockNames = new String[TreeType.GROUP_SIZE];
@@ -43,15 +44,15 @@ public class BlockGenesisWoodSlab extends BlockWoodSlab implements IItemBlockWit
 		blockIcons = new IIcon[blockNames.length];
 		
 		setCreativeTab(Genesis.tabGenesis);
-		setStepSound(Block.soundWoodFootstep);
-		setBurnProperties(blockID, 4, 4);
+		setStepSound(Block.soundTypeWood);
+		//setBurnProperties(blockID, 4, 4);
 		setHardness(2.0F);
 		setLightOpacity(0);
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister iconRegister) {
+	public void registerBlockIcons(IIconRegister iconRegister) {
 		for (int i = 0; i < blockIcons.length; i++)
 			blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":planks_" + blockNames[i]);
 	}
@@ -63,12 +64,11 @@ public class BlockGenesisWoodSlab extends BlockWoodSlab implements IItemBlockWit
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	@SuppressWarnings({"rawtypes", "unchecked"})
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+	public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
 		for (int id : singleSlabIds) {
-			if (blockID == id) {				
+			if (item == id) {				
 				for (int metadata = 0; metadata < blockNames.length; metadata++)
-					list.add(new ItemStack(blockID, 1, metadata));
+					list.add(new ItemStack(item, 1, metadata));
 				
 				return;
 			}
@@ -76,14 +76,13 @@ public class BlockGenesisWoodSlab extends BlockWoodSlab implements IItemBlockWit
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
-	public int idPicked(World world, int x, int y, int z) {
+	public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z) {
 		int group = TreeType.valueOf(getSubName(world.getBlockMetadata(x, y, z)).toUpperCase()).getGroup();
 		return singleSlabIds[group];
 	}
 	
 	@Override
-	public int idDropped(int metadata, Random random, int unused) {
+	public Item getItemDropped(int metadata, Random random, int unused) {
 		int group = TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup();
 		return singleSlabIds[group];
 	}

@@ -10,33 +10,27 @@ import genesis.block.gui.ContainerGuiCampfire;
 import genesis.block.gui.TileEntityCampfire;
 
 public class GenesisGuiHandler implements IGuiHandler {
-	
+
 	public static final int GUI_CAMPFIRE = 0;
-	
+
 	@Override
-	public Object getServerGuiElement(int id, EntityPlayer player, World world,
-			int x, int y, int z)
-	{
-		switch (id)
-		{
-		case GUI_CAMPFIRE:
-			return new ContainerCampfire(player.inventory, (TileEntityCampfire)world.getBlockTileEntity(x, y, z));
+	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+		switch (id) {
+			case GUI_CAMPFIRE:
+				return new ContainerCampfire(player.inventory, (TileEntityCampfire) world.getTileEntity(x, y, z));
 		}
-		
+
 		return null;
 	}
-	
+
 	@Override
-	public Object getClientGuiElement(int id, EntityPlayer player, World world,
-			int x, int y, int z)
-	{
-		switch (id)
-		{
-		case GUI_CAMPFIRE:
-			return new ContainerGuiCampfire(player.inventory, (TileEntityCampfire)world.getBlockTileEntity(x, y, z));
+	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+		switch (id) {
+			case GUI_CAMPFIRE:
+				return new ContainerGuiCampfire(player.inventory, (TileEntityCampfire) world.getTileEntity(x, y, z));
 		}
-		
+
 		return null;
 	}
-	
+
 }

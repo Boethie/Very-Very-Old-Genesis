@@ -15,8 +15,8 @@ public class ItemGenesisPickaxe extends ItemPickaxe {
 	
 	protected String materialName;
 	
-	public ItemGenesisPickaxe(int itemID, EnumToolMaterial material, String materialName) {
-		super(itemID, material);
+	public ItemGenesisPickaxe(Item.ToolMaterial material, String materialName) {
+		super(material);
 		
 		this.materialName = materialName;
 		setUnlocalizedName(Names.itemPickaxe + materialName);

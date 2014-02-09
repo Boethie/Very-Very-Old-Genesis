@@ -15,8 +15,8 @@ public class ItemGenesisSpade extends ItemSpade {
 	
 	protected String materialName;
 	
-	public ItemGenesisSpade(int itemID, EnumToolMaterial material, String materialName) {
-		super(itemID, material);
+	public ItemGenesisSpade(Item.ToolMaterial material, String materialName) {
+		super(material);
 
 		this.materialName = materialName;
 		setUnlocalizedName(Names.itemSpade + materialName);

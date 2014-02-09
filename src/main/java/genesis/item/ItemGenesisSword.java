@@ -15,8 +15,8 @@ public class ItemGenesisSword extends ItemSword {
 	
 	protected String materialName;
 	
-	public ItemGenesisSword(int itemID, EnumToolMaterial material, String materialName) {
-		super(itemID, material);
+	public ItemGenesisSword(Item.ToolMaterial material, String materialName) {
+		super(material);
 		
 		this.materialName = materialName;
 		setUnlocalizedName(Names.itemSword + materialName);

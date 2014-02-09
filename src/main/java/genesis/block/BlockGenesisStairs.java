@@ -8,11 +8,11 @@ import genesis.common.Genesis;
 
 public class BlockGenesisStairs extends BlockStairs {
 
-	public BlockGenesisStairs(int blockID, Block modelBlock, int metadata) {
-		super(blockID, modelBlock, metadata);
+	public BlockGenesisStairs(Block modelBlock, int metadata) {
+		super(modelBlock, metadata);
 		
-		if (modelBlock.blockMaterial == Material.wood)
-			setBurnProperties(blockID, 5, 5);
+		if (modelBlock.getMaterial() == Material.wood)
+			//setBurnProperties(blockID, 5, 5);
 		
 		setLightOpacity(0);
 		setCreativeTab(Genesis.tabGenesis);

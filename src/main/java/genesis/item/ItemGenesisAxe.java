@@ -15,8 +15,8 @@ public class ItemGenesisAxe extends ItemAxe {
 	
 	protected String materialName;
 
-	public ItemGenesisAxe(int itemID, EnumToolMaterial material, String materialName) {
-		super(itemID, material);
+	public ItemGenesisAxe(Item.ToolMaterial material, String materialName) {
+		super(material);
 		
 		this.materialName = materialName;
 		setUnlocalizedName(Names.itemAxe + materialName);

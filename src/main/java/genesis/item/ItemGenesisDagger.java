@@ -9,6 +9,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -24,12 +25,12 @@ import genesis.lib.Names;
 public class ItemGenesisDagger extends Item {
 
 	private float weaponDamage;
-	private final EnumToolMaterial toolMaterial;
+	private final Item.ToolMaterial toolMaterial;
 	
 	protected String materialName;
 	
-	public ItemGenesisDagger(int id, EnumToolMaterial toolMaterial, String materialName) {
-		super(id);
+	public ItemGenesisDagger(Item.ToolMaterial toolMaterial, String materialName) {
+		super();
 		
 		this.toolMaterial = toolMaterial;
 		this.materialName = materialName;
@@ -59,10 +60,10 @@ public class ItemGenesisDagger extends Item {
 	
 	@Override
 	public float getStrVsBlock(ItemStack stack, Block block) {
-		if (block.blockID == Block.web.blockID)
+		if (block == Blocks.web)
 			return 15.0F;
 		else {
-			Material material = block.blockMaterial;
+			Material material = block.getMaterial();
 			return material != Material.plants && material != Material.vine && material != Material.coral && material != Material.leaves && material != Material.pumpkin ? 1.0F : 1.5F;
 		}
 	}
@@ -74,8 +75,8 @@ public class ItemGenesisDagger extends Item {
 	}
 	
 	@Override
-	public boolean onBlockDestroyed(ItemStack stack, World world, int id, int x, int y, int z, EntityLivingBase entity) {
-		if ((double) Block.blocksList[id].getBlockHardness(world, x, y, z) != 0.0D)
+	public boolean onBlockDestroyed(ItemStack stack, World world, Block block, int x, int y, int z, EntityLivingBase entity) {
+		if ((double) block.getBlockHardness(world, x, y, z) != 0.0D)
 			stack.damageItem(2, entity);
 		
 		return true;
@@ -104,8 +105,8 @@ public class ItemGenesisDagger extends Item {
 	}
 	
 	@Override
-	public boolean canHarvestBlock(Block block) {
-		return block.blockID == Block.web.blockID;
+	public boolean canHarvestBlock(Block block, ItemStack stack) {
+		return block == Blocks.web;
 	}
 	
 	@Override
@@ -115,7 +116,8 @@ public class ItemGenesisDagger extends Item {
 	
 	@Override
 	public boolean getIsRepairable(ItemStack stack1, ItemStack stack2) {
-		return toolMaterial.getToolCraftingMaterial() == stack2.itemID ? true : super.getIsRepairable(stack1, stack2);
+		// toolMaterial.getToolCraftingItem()
+		return toolMaterial.func_150995_f() == stack2.getItem() ? true : super.getIsRepairable(stack1, stack2);
 	}
 	
 	@Override

@@ -19,8 +19,8 @@ public class ItemGenesisArmor extends ItemArmor {
 	
 	protected String materialName;
 	
-    public ItemGenesisArmor(int itemID, EnumArmorMaterial armorMaterial, int armorType, String materialName) {
-		super(itemID, armorMaterial, 0, armorType);
+    public ItemGenesisArmor(ItemArmor.ArmorMaterial armorMaterial, int armorType, String materialName) {
+		super(armorMaterial, 0, armorType);
 		
 		this.materialName = materialName;
 		setCreativeTab(Genesis.tabGenesis);

@@ -7,6 +7,7 @@ import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
@@ -23,8 +24,8 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
     protected String[] blockNames;
     protected IIcon[] blockIcons;
     
-	public BlockGenesisLeaves(int id, int group) {
-		super(id);
+	public BlockGenesisLeaves(int group) {
+		super();
 		
 		if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE)
 			blockNames = new String[TreeType.GROUP_SIZE];
@@ -37,15 +38,15 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
 		blockIcons = new IIcon[blockNames.length * 2];
 		
 		setCreativeTab(Genesis.tabGenesis);
-		setStepSound(soundGrassFootstep);
-		setBurnProperties(blockID, 2, 8);
+		setStepSound(soundTypeGrass);
+		//setBurnProperties(blockID, 2, 8);
 		setLightOpacity(1);
 		setHardness(0.2F);
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister) {
+    public void registerBlockIcons(IIconRegister iconRegister) {
 		for (int i = 0; i < blockIcons.length; i += 2) {
 			blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":leaves_" + blockNames[i / 2]);						// Fancy graphics texture
 			blockIcons[i + 1] = iconRegister.registerIcon(Genesis.MOD_ID + ":leaves_" + blockNames[i / 2] + "_opaque");		// Fast graphics texture
@@ -64,16 +65,15 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	@SuppressWarnings({"rawtypes", "unchecked"})
-    public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+    public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
 		for (int metadata = 0; metadata < blockNames.length; metadata++)
-			list.add(new ItemStack(blockID, 1, metadata));
+			list.add(new ItemStack(item, 1, metadata));
     }
 	
 	@Override
-	public int idDropped(int metadata, Random random, int unused) {
-        return TreeBlocks.blocksSaplings[TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup()].blockID;
-    }
+	public Item getItemDropped(int metadata, Random random, int unused) {
+		return Item.getItemFromBlock(TreeBlocks.blocksSaplings[TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup()]);
+	}
 	
 	@Override
 	public boolean isOpaqueCube() {
@@ -82,8 +82,15 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
 	
 	@Override
 	public boolean shouldSideBeRendered(IBlockAccess blockAccess, int x, int y, int z, int side) {
-		graphicsLevel = Minecraft.getMinecraft().gameSettings.fancyGraphics;
+		// graphicsLevel = Minecraft.getMinecraft().gameSettings.fancyGraphics;
+		field_150121_P = Minecraft.getMinecraft().gameSettings.fancyGraphics;
 		return super.shouldSideBeRendered(blockAccess, x, y, z, side);
+	}
+	
+	@Override
+	public String[] func_150125_e() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	/* IItemBlockWithSubNames methods */

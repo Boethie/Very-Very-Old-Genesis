@@ -7,6 +7,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
@@ -28,8 +30,8 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
 	protected String[] blockNames;
 	protected IIcon[] blockIcons;
 	
-	public BlockGenesisSapling(int id, int group) {
-		super(id);
+	public BlockGenesisSapling(int group) {
+		super();
 		
 		if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE)
 			blockNames = new String[TreeType.GROUP_SIZE];
@@ -42,12 +44,12 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
 		blockIcons = new IIcon[blockNames.length];
 		
 		setCreativeTab(Genesis.tabGenesis);
-		setStepSound(soundGrassFootstep);
+		setStepSound(soundTypeGrass);
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister iconRegister) {
+	public void registerBlockIcons(IIconRegister iconRegister) {
 		for (int i = 0; i < blockIcons.length; i++)
 			blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":sapling_" + blockNames[i]);
 	}
@@ -59,15 +61,14 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	@SuppressWarnings({"rawtypes", "unchecked"})
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+	public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
 		for (int metadata = 0; metadata < blockNames.length; metadata++)
-			list.add(new ItemStack(blockID, 1, metadata));
+			list.add(new ItemStack(item, 1, metadata));
 	}
 	
 	@Override
-	public int idDropped(int metadata, Random random, int unused) {
-		return blockID;
+	public Item getItemDropped(int metadata, Random random, int unused) {
+		return Item.getItemFromBlock(TreeBlocks.blocksSaplings[TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup()]);
 	}
 	
 	@Override
@@ -81,10 +82,10 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
 		if (gen == null)
 			return;
 		
-		world.setBlock(x, y, z, 0, 0, 4);
+		world.setBlock(x, y, z, Blocks.air, 0, 4);
 		
 		if (!gen.generate(world, random, x, y, z))
-			world.setBlock(x, y, z, blockID, metadata, 4);
+			world.setBlock(x, y, z, this, metadata, 4);
 	}
 
 	/* IPlantInFlowerPot methods */

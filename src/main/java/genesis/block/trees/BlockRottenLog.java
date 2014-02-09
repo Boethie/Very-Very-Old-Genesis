@@ -16,10 +16,10 @@ import genesis.common.Genesis;
  */
 public class BlockRottenLog extends BlockGenesisLog {
 
-	public BlockRottenLog(int id, int group) {
-		super(id, group);
+	public BlockRottenLog(int group) {
+		super(group);
 		
-		// setStepSound(BlockSounds.soundRottenLogFootstep);
+		// setStepSound(BlockSounds.soundTypeRottenLog);
 	}
 	
 	// TODO: Change Silverfish to final mob
@@ -42,7 +42,7 @@ public class BlockRottenLog extends BlockGenesisLog {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister iconRegister) {
+	public void registerBlockIcons(IIconRegister iconRegister) {
 		for (int i = 0; i < blockIcons.length; i += 2) {
 			blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_"+ blockNames[i / 2] + "_rotten");				// Side texture
 			blockIcons[i + 1] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + blockNames[i / 2] + "_rotten_top");	// Top texture

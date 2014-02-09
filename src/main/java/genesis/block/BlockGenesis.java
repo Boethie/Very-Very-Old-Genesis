@@ -13,8 +13,8 @@ import genesis.common.Genesis;
 
 public class BlockGenesis extends Block {
 
-	public BlockGenesis(int blockID, Material material) {
-		super(blockID, material);
+	public BlockGenesis(Material material) {
+		super(material);
         setCreativeTab(Genesis.tabGenesis);
 	}
 	
@@ -23,14 +23,14 @@ public class BlockGenesis extends Block {
 	}
 	
 	@Override
-	public Block setUnlocalizedName(String unlocName) {
-		registerBlock(unlocName);
-		return super.setUnlocalizedName(unlocName);
+	public Block setBlockName(String name) {
+		registerBlock(name);
+		return super.setBlockName(name);
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister iconRegister) {
+	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.blockIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName());
     }
 	

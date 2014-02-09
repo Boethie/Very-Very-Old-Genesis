@@ -58,5 +58,11 @@ public class GenesisLoadingPlugin implements IFMLLoadingPlugin {
 	public void injectData(Map<String, Object> data) {
 		
 	}
+
+	@Override
+	public String getAccessTransformerClass() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

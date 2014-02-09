@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
@@ -22,8 +23,8 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
 	protected String[] blockNames;
 	protected IIcon[] blockIcons;
 	
-	public BlockGenesisLog(int id, int group) {
-		super(id);
+	public BlockGenesisLog(int group) {
+		super();
 		
 		if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE)
 			blockNames = new String[TreeType.GROUP_SIZE];
@@ -36,14 +37,14 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
 		blockIcons = new IIcon[blockNames.length * 2];
 		
 		setCreativeTab(Genesis.tabGenesis);
-		setStepSound(Block.soundWoodFootstep);
-		setBurnProperties(blockID, 4, 4);
+		setStepSound(Block.soundTypeWood);
+		//setBurnProperties(blockID, 4, 4);
 		setHardness(2.0F);
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister iconRegister) {
+	public void registerBlockIcons(IIconRegister iconRegister) {
 		for (int i = 0; i < blockIcons.length; i += 2) {
 			blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + blockNames[i / 2]);				// Side texture
 			blockIcons[i + 1] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + blockNames[i / 2] + "_top");	// Top texture
@@ -66,15 +67,14 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	@SuppressWarnings({"rawtypes", "unchecked"})
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+	public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
 		for (int metadata = 0; metadata < blockNames.length; metadata++)
-			list.add(new ItemStack(blockID, 1, metadata));
+			list.add(new ItemStack(item, 1, metadata));
 	}
 	
 	@Override
-	public int idDropped(int metadata, Random random, int unused) {
-		return blockID;
+	public Item getItemDropped(int metadata, Random random, int unused) {
+		return Item.getItemFromBlock(TreeBlocks.blocksLogs[TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup()]);
 	}
 	
 	/* IItemBlockWithSubNames methods */

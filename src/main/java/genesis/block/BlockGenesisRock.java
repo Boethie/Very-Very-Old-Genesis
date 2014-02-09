@@ -6,11 +6,10 @@ import net.minecraftforge.common.MinecraftForge;
 
 public class BlockGenesisRock extends BlockGenesis {
 
-	public BlockGenesisRock(int blockID, Material mat, int harvestLevel) {
-		super(blockID, mat);
-		
-        setStepSound(soundStoneFootstep);
-        
-        MinecraftForge.setBlockHarvestLevel(this, "pickaxe", harvestLevel);
+	public BlockGenesisRock(Material material, int harvestLevel) {
+		super(material);
+
+		setStepSound(soundTypeStone);
+		setHarvestLevel("pickaxe", harvestLevel, 0);
 	}
 }

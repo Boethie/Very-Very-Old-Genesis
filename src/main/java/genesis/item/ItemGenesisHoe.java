@@ -15,8 +15,8 @@ public class ItemGenesisHoe extends ItemHoe {
 	
 	protected String materialName;
 	
-	public ItemGenesisHoe(int itemID, EnumToolMaterial material, String materialName) {
-		super(itemID, material);
+	public ItemGenesisHoe(Item.ToolMaterial material, String materialName) {
+		super(material);
 
 		this.materialName = materialName;
 		setUnlocalizedName(Names.itemHoe + materialName);

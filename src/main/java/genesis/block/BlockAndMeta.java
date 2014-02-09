@@ -5,17 +5,17 @@ import net.minecraft.item.ItemStack;
 
 public class BlockAndMeta {
 	
-	public int blockID;
+	public Block block;
 	public int metadata;
 	
-	public BlockAndMeta(int blockID, int metadata)
+	public BlockAndMeta(Block block, int metadata)
 	{
-		this.blockID = blockID;
+		this.block = block;
 		this.metadata = metadata;
 	}
 	
 	public ItemStack getStack() {
-		return new ItemStack(blockID, 1, Block.blocksList[blockID].damageDropped(metadata));
+		return new ItemStack(block, 1, block.damageDropped(metadata));
 	}
 	
 }

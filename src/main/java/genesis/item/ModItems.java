@@ -1,17 +1,16 @@
 package genesis.item;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 
 import net.minecraftforge.common.util.EnumHelper;
 
-import genesis.block.Blocks;
+import genesis.block.ModBlocks;
 import genesis.item.ItemSets.ItemsSuitOfArmor;
 import genesis.item.ItemSets.ItemsToolSet;
-import genesis.lib.IDs;
 import genesis.lib.Names;
 
-public class Items {
+public class ModItems {
 
 	// Tools/Armors
 	public static ItemsToolSet graniteTools;
@@ -43,58 +42,51 @@ public class Items {
 	
 	public static void init() {
 		// Tools/Armors
-		graniteTools = new ItemsToolSet(IDs.itemsGraniteToolsStartID,
-				EnumHelper.addToolMaterial(Names.itemGraniteMaterial.toUpperCase(), 0, 181, 4.0F, 1.0F, 5),
-				Names.itemGraniteMaterial, Blocks.granite, Item.stick);
+		graniteTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemGraniteMaterial.toUpperCase(), 0, 181, 4.0F, 1.0F, 5),
+				Names.itemGraniteMaterial, ModBlocks.granite, Items.stick);
 		
-		zircon = (ItemGenesis) new ItemGenesis(IDs.itemZirconID)
-				.setUnlocalizedName(Names.itemZircon).setTextureName("zircon");
-		zirconTools = new ItemsToolSet(IDs.itemsZirconToolsStartID, 
+		zircon = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemZircon).setTextureName("zircon");
+		zirconTools = new ItemsToolSet(
 				EnumHelper.addToolMaterial(Names.itemZirconMaterial.toUpperCase(), 2, 625, 7, 2, 12),
-				Names.itemZirconMaterial, zircon, Item.stick);
-		zirconArmor = new ItemsSuitOfArmor(IDs.itemsZirconArmorStartID,
+				Names.itemZirconMaterial, zircon, Items.stick);
+		zirconArmor = new ItemsSuitOfArmor(
 					EnumHelper.addArmorMaterial(Names.itemZirconMaterial.toUpperCase(), 25, new int[] {2, 7, 6, 2}, 9),
 					Names.itemZirconMaterial, zircon);
 		
-		quartz = (ItemGenesis) new ItemGenesis(IDs.itemQuartzID)
-				.setUnlocalizedName(Names.itemQuartz).setTextureName("quartz");
+		quartz = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemQuartz).setTextureName("quartz");
 		
-		olivine = (ItemGenesis) new ItemGenesis(IDs.itemOlivineID)
-				.setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");
-		olivineTools = new ItemsToolSet(IDs.itemsOlivineToolsStartID, 
+		olivine = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");
+		olivineTools = new ItemsToolSet(
 				EnumHelper.addToolMaterial(Names.itemOlivineMaterial.toUpperCase(), 3, 500, 7, 3, 14),
-				Names.itemOlivineMaterial, olivine, Item.stick);
-		olivineArmor = new ItemsSuitOfArmor(IDs.itemsOlivineArmorStartID,
+				Names.itemOlivineMaterial, olivine, Items.stick);
+		olivineArmor = new ItemsSuitOfArmor(
 					EnumHelper.addArmorMaterial(Names.itemOlivineMaterial.toUpperCase(), 23, new int[] {3, 7, 5, 2}, 10),
 					Names.itemOlivineMaterial, olivine);
 		
-		meteoricIronIngot = (ItemGenesis) new ItemGenesis(IDs.itemMeteoricIronIngotID)
-				.setUnlocalizedName(Names.itemMeteoricIronIngot).setTextureName("iron_meteoric_ingot");
-		meteoricIronTools = new ItemsToolSet(IDs.itemsMeteoricIronToolsStartID, 
+		meteoricIronIngot = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemMeteoricIronIngot).setTextureName("iron_meteoric_ingot");
+		meteoricIronTools = new ItemsToolSet(
 				EnumHelper.addToolMaterial(Names.itemMeteoricIronMaterial.toUpperCase(), 2, 366, 4, 1, 25),
-				Names.itemMeteoricIronMaterial, meteoricIronIngot, Item.stick);
-		meteoricIronArmor = new ItemsSuitOfArmor(IDs.itemsMeteoricIronArmorStartID,
+				Names.itemMeteoricIronMaterial, meteoricIronIngot, Items.stick);
+		meteoricIronArmor = new ItemsSuitOfArmor(
 					EnumHelper.addArmorMaterial(Names.itemMeteoricIronMaterial.toUpperCase(), 18, new int[] {2, 6, 5, 2}, 25),
 					Names.itemMeteoricIronMaterial, meteoricIronIngot);
 		
-		garnet = (ItemGenesis) new ItemGenesis(IDs.itemGarnetID)
-				.setUnlocalizedName(Names.itemGarnet).setTextureName("garnet");
+		garnet = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemGarnet).setTextureName("garnet");
 		
-		malachite = (ItemGenesis) new ItemGenesis(IDs.itemMalachiteID)
-				.setUnlocalizedName(Names.itemMalachite).setTextureName("malachite");
+		malachite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemMalachite).setTextureName("malachite");
 		
-		chalcopyriteIngot = (ItemGenesis) new ItemGenesis(IDs.itemChalcopyriteIngotID)
-			.setUnlocalizedName(Names.itemChalcopyriteIngot).setTextureName("chalcopyrite_ingot");
-		chalcopyriteTools = new ItemsToolSet(IDs.itemsChalcopyriteToolsStartID, 
+		chalcopyriteIngot = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemChalcopyriteIngot).setTextureName("chalcopyrite_ingot");
+		chalcopyriteTools = new ItemsToolSet(
 				EnumHelper.addToolMaterial(Names.itemChalcopyriteIngotMaterial.toUpperCase(), 2, 145, 5, 2, 12),
-				Names.itemChalcopyriteIngotMaterial, chalcopyriteIngot, Item.stick);
-		/**Waiting for texture*/
-		//olivineArmor = new ItemsSuitOfArmor(IDs.itemsOlivineArmorStartID,
+				Names.itemChalcopyriteIngotMaterial, chalcopyriteIngot, Items.stick);
+		
+		/*Waiting for texture*/
+		//olivineArmor = new ItemsSuitOfArmor(
 		//		EnumHelper.addArmorMaterial(Names.itemOlivineMaterial.toUpperCase(), 23, new int[] {3, 7, 5, 2}, 10),
 		
 		// Seeds/Foods
 		rhyzome = (ItemGenesisSeed) new ItemGenesisSeed(IDs.itemRhizomeID, IDs.blockZingiberopsisID, 
-				Block.tilledField.blockID, Names.itemRhizome, 2, 1)
+				Blocks.farmland, Names.itemRhizome, 2, 1)
 				.setUnlocalizedName(Names.itemRhizome).setTextureName("zingiberopsis_rhizome");
 	}
 	

@@ -8,6 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EffectRenderer;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
@@ -15,6 +16,8 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+
+import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -26,417 +29,337 @@ public class BlockTikiTorch extends BlockGenesis {
 
 	public static final int TORCH_META = 8;
 	public static final int DIR_META = 7;
-	
+
 	public static IIcon iconLower;
 	public static IIcon iconUpper;
-	
-	protected BlockTikiTorch(int par1) {
-		super(par1, Material.circuits);
-		
+
+	protected BlockTikiTorch() {
+		super(Material.circuits);
+
 		setTickRandomly(true);
 		setCreativeTab(Genesis.tabGenesis);
 		setHardness(0.0F);
-		setLightValue(0.9375F);
-	}
-	
-	public void registerBlock(String name)
-	{
-		super.registerBlock(name);
-		
-		Item.itemsList[blockID].setFull3D();
+		setLightLevel(0.9375F);
 	}
 
 	@Override
-	public int getRenderType()
-	{
+	public void registerBlock(String name) {
+		super.registerBlock(name);
+
+		Item.getItemFromBlock(this).setFull3D();
+	}
+
+	@Override
+	public int getRenderType() {
 		return BlockTikiTorchRenderer.renderID;
 	}
 
 	@Override
-	public void registerIcons(IIconRegister iconRegister)
-	{
-		this.iconUpper = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_upper");
-		this.iconLower = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_lower");
-		
-		this.blockIcon = this.iconUpper;
+	public void registerBlockIcons(IIconRegister iconRegister) {
+		iconUpper = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_upper");
+		iconLower = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_lower");
+
+		blockIcon = iconUpper;
 	}
-	
-	public IIcon getIcon(int side, int metadata)
-	{
-		return isUpper(metadata) ? this.iconUpper : this.iconLower;
-	}
-	
+
 	@Override
-	public String getItemIconName()
-	{
+	public IIcon getIcon(int side, int metadata) {
+		return isUpper(metadata) ? iconUpper : iconLower;
+	}
+
+	@Override
+	public String getItemIconName() {
 		return Genesis.MOD_ID + ":" + getTextureName();
 	}
 
 	@Override
-	public boolean renderAsNormalBlock()
-	{
+	public boolean renderAsNormalBlock() {
 		return false;
 	}
 
 	@Override
-	public boolean isOpaqueCube()
-	{
+	public boolean isOpaqueCube() {
 		return false;
 	}
-	
-	public int setDirection(int metadata, int direction)
-	{
-		return (metadata & TORCH_META) | direction;
+
+	public int setDirection(int metadata, int direction) {
+		return metadata & TORCH_META | direction;
 	}
-	
-	public int getDirection(int metadata)
-	{
+
+	public int getDirection(int metadata) {
 		return metadata & DIR_META;
 	}
-	
-	public int setUpper(int metadata, boolean upper)
-	{
-		return (metadata & DIR_META) | (upper ? TORCH_META : 0);
+
+	public int setUpper(int metadata, boolean upper) {
+		return metadata & DIR_META | (upper ? TORCH_META : 0);
 	}
-	
-	public boolean isUpper(int metadata)
-	{
+
+	public boolean isUpper(int metadata) {
 		return (metadata & TORCH_META) != 0;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World world, int x, int y, int z, Random random)
-	{
+	public void randomDisplayTick(World world, int x, int y, int z, Random random) {
 		int metadata = world.getBlockMetadata(x, y, z);
-		
-		if (isUpper(metadata))
-		{
+
+		if (isUpper(metadata)) {
 			double xPos = x + 0.5;
 			double yPos = y + 0.7;
 			double zPos = z + 0.5;
-			
+
 			double off = 0.125;
-			
-			switch (getDirection(metadata))
-			{
-			case 1:
-				xPos -= off;
-				break;
-			case 2:
-				xPos += off;
-				break;
-			case 3:
-				zPos -= off;
-				break;
-			case 4:
-				zPos += off;
-				break;
+
+			switch (getDirection(metadata)) {
+				case 1:
+					xPos -= off;
+					break;
+				case 2:
+					xPos += off;
+					break;
+				case 3:
+					zPos -= off;
+					break;
+				case 4:
+					zPos += off;
+					break;
 			}
-	
+
 			world.spawnParticle("smoke", xPos, yPos, zPos, 0, 0, 0);
 			world.spawnParticle("flame", xPos, yPos, zPos, 0, 0, 0);
 		}
-		
+
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random random)
-	{
+	public void updateTick(World world, int x, int y, int z, Random random) {
 		checkIfCanStay(world, x, y, z);
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, int neighbourblockID)
-	{
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor) {
 		checkIfCanStay(world, x, y, z);
 	}
-	
-	public void checkIfCanStay(World world, int x, int y, int z)
-	{
-		if (!canTorchStay(world, x, y, z))
-		{
+
+	public void checkIfCanStay(World world, int x, int y, int z) {
+		if (!canTorchStay(world, x, y, z)) {
 			dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-			world.setBlock(x, y, z, 0);
+			world.setBlockToAir(x, y, z);
 		}
 	}
-	
-	protected boolean canPlaceTorchOn(World world, int x, int y, int z)
-	{
-		if (world.doesBlockHaveSolidTopSurface(x, y, z))
-		{
+
+	protected boolean canPlaceTorchOn(World world, int x, int y, int z) {
+		if (world.doesBlockHaveSolidTopSurface(world, x, y, z))
 			return true;
-		}
-		else
-		{
-			Block block = Block.blocksList[world.getBlockId(x, y, z)];
+		else {
+			Block block = world.getBlock(x, y, z);
 			return block != null && block.canPlaceTorchOnTop(world, x, y, z);
 		}
 	}
-	
-	public boolean canPlaceTikiTorchAt(World world, int x, int y, int z)
-	{
-		return (world.isBlockSolidOnSide(x - 1, y, z, EAST,  true) ||
-				world.isBlockSolidOnSide(x + 1, y, z, WEST,  true) ||
-				world.isBlockSolidOnSide(x, y, z - 1, SOUTH, true) ||
-				world.isBlockSolidOnSide(x, y, z + 1, NORTH, true) ||
-				canPlaceTorchOn(world, x, y - 1, z)) &&
-				world.getBlockMaterial(x, y + 1, z).isReplaceable();
+
+	public boolean canPlaceTikiTorchAt(World world, int x, int y, int z) {
+		return (world.isSideSolid(x - 1, y, z, ForgeDirection.EAST, true) || 
+				world.isSideSolid(x + 1, y, z, ForgeDirection.WEST, true) || 
+				world.isSideSolid(x, y, z - 1, ForgeDirection.SOUTH, true) || 
+				world.isSideSolid(x, y, z + 1, ForgeDirection.NORTH, true) || 
+				canPlaceTorchOn(world, x, y - 1, z)) && world.getBlock(x, y + 1, z).getMaterial().isReplaceable();
 	}
-	
-    public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack stack)
-    {
-    	if (canPlaceTikiTorchAt(world, x, y, z))
-    		return true;
-    	
-    	if (world.getBlockMaterial(x, y - 1, z).isReplaceable())
-    		return canPlaceTikiTorchAt(world, x, y - 1, z);
-    	
-    	return false;
-    }
-    
-    protected int correctSide(World world, int x, int y, int z, int metadata)
-    {
-		if (!canTorchStay(world, x, y, z, metadata, true))
-		{
-			if (world.getBlockMaterial(x, y + 1, z).isReplaceable())
-			{
-				if (world.isBlockSolidOnSide(x - 1, y, z, EAST, true))
-				{
+
+	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack stack) {
+		if (canPlaceTikiTorchAt(world, x, y, z))
+			return true;
+
+		if (world.getBlock(x, y - 1, z).getMaterial().isReplaceable())
+			return canPlaceTikiTorchAt(world, x, y - 1, z);
+
+		return false;
+	}
+
+	protected int correctSide(World world, int x, int y, int z, int metadata) {
+		if (!canTorchStay(world, x, y, z, metadata, true)) {
+			if (world.getBlock(x, y + 1, z).getMaterial().isReplaceable())
+				if (world.isSideSolid(x - 1, y, z, ForgeDirection.EAST, true))
 					return 1;
-				}
-				else if (world.isBlockSolidOnSide(x + 1, y, z, WEST, true))
-				{
+				else if (world.isSideSolid(x + 1, y, z, ForgeDirection.WEST, true))
 					return 2;
-				}
-				else if (world.isBlockSolidOnSide(x, y, z - 1, SOUTH, true))
-				{
+				else if (world.isSideSolid(x, y, z - 1, ForgeDirection.SOUTH, true))
 					return 3;
-				}
-				else if (world.isBlockSolidOnSide(x, y, z + 1, NORTH, true))
-				{
+				else if (world.isSideSolid(x, y, z + 1, ForgeDirection.NORTH, true))
 					return 4;
-				}
 				else if (canPlaceTorchOn(world, x, y - 1, z))
-				{
 					return 5;
-				}
-			}
-			
+
 			return -1;
 		}
-		
+
 		return 0;
-    }
-	
+	}
+
 	/**
-	 * Called when a block is placed using its ItemBlock. Args: World, X, Y, Z, side, hitX, hitY, hitZ, block metadata
+	 * Called when a block is placed using its ItemBlock. Args: World, X, Y, Z,
+	 * side, hitX, hitY, hitZ, block metadata
 	 */
-	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata)
-	{
+	@Override
+	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata) {
 		if (side == 0)
 			side = 1;
-		
+
 		int output = setDirection(metadata, 6 - side);
-		
-		if (world.getBlockMaterial(x, y + 1, z).isReplaceable())
-		{
+
+		if (world.getBlock(x, y + 1, z).getMaterial().isReplaceable())
 			output = setUpper(output, false);
-		}
-		
+
 		int correctSide = correctSide(world, x, y, z, output);
-		
+
 		if (correctSide > 0)
-		{
 			output = setDirection(output, correctSide);
-		}
-		else if (correctSide < 0)
-		{
+		else if (correctSide < 0) {
 			output = setUpper(output, true);
 			y--;
-			
+
 			correctSide = correctSide(world, x, y, z, setUpper(output, false));
-			
+
 			if (correctSide > 0)
-			{
 				output = setDirection(output, correctSide);
-			}
 		}
-		
+
 		return output;
 	}
-	
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack)
-	{
+
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {
 		int metadata = world.getBlockMetadata(x, y, z);
-		
-		if (!isUpper(metadata))
-		{
-			if (world.getBlockMaterial(x, y + 1, z).isReplaceable())
-				world.setBlock(x, y + 1, z, blockID, setUpper(metadata, true), 3);
-		}
-		else if (world.getBlockMaterial(x, y - 1, z).isReplaceable())
-		{
-			world.setBlock(x, y - 1, z, blockID, setUpper(metadata, false), 3);
-		}
+
+		if (!isUpper(metadata)) {
+			if (world.getBlock(x, y + 1, z).getMaterial().isReplaceable())
+				world.setBlock(x, y + 1, z, this, setUpper(metadata, true), 3);
+		} else if (world.getBlock(x, y - 1, z).getMaterial().isReplaceable())
+			world.setBlock(x, y - 1, z, this, setUpper(metadata, false), 3);
 		else
-		{
 			checkIfCanStay(world, x, y, z);
-		}
 	}
-	
-	public boolean canTorchStay(World world, int x, int y, int z)
-	{
+
+	public boolean canTorchStay(World world, int x, int y, int z) {
 		return canTorchStay(world, x, y, z, world.getBlockMetadata(x, y, z), false);
 	}
-		
-	public boolean canTorchStay(World world, int x, int y, int z, int metadata, boolean blankUpper)
-	{
+
+	public boolean canTorchStay(World world, int x, int y, int z, int metadata, boolean blankUpper) {
 		if (isUpper(metadata))
-		{
-			return world.getBlockId(x, y - 1, z) == this.blockID &&
-					!isUpper(world.getBlockMetadata(x, y - 1, z));
-		}
-		else if ((blankUpper && world.getBlockMaterial(x, y + 1, z).isReplaceable()) ||
-				(world.getBlockId(x, y + 1, z) == this.blockID &&
-				isUpper(world.getBlockMetadata(x, y + 1, z))))
-		{
-			switch (getDirection(metadata))
-			{
-			case 1:
-				if (world.isBlockSolidOnSide(x - 1, y, z, EAST, true))
-					return true;
-				break;
-			case 2:
-				if (world.isBlockSolidOnSide(x + 1, y, z, WEST, true))
-					return true;
-				break;
-			case 3:
-				if (world.isBlockSolidOnSide(x, y, z - 1, SOUTH, true))
-					return true;
-				break;
-			case 4:
-				if (world.isBlockSolidOnSide(x, y, z + 1, NORTH, true))
-					return true;
-				break;
-			case 5:
-				if (canPlaceTorchOn(world, x, y - 1, z))
-					return true;
-				break;
+			return world.getBlock(x, y - 1, z) == this && !isUpper(world.getBlockMetadata(x, y - 1, z));
+		else if (blankUpper && world.getBlock(x, y + 1, z).getMaterial().isReplaceable() || world.getBlock(x, y + 1, z) == this && isUpper(world.getBlockMetadata(x, y + 1, z)))
+			switch (getDirection(metadata)) {
+				case 1:
+					if (world.isSideSolid(x - 1, y, z, ForgeDirection.EAST, true))
+						return true;
+					break;
+				case 2:
+					if (world.isSideSolid(x + 1, y, z, ForgeDirection.WEST, true))
+						return true;
+					break;
+				case 3:
+					if (world.isSideSolid(x, y, z - 1, ForgeDirection.SOUTH, true))
+						return true;
+					break;
+				case 4:
+					if (world.isSideSolid(x, y, z + 1, ForgeDirection.NORTH, true))
+						return true;
+					break;
+				case 5:
+					if (canPlaceTorchOn(world, x, y - 1, z))
+						return true;
+					break;
 			}
-		}
-		
+
 		return false;
 	}
 
 	@Override
-	public MovingObjectPosition collisionRayTrace(World world, int x, int y, int z, Vec3 start, Vec3 end)
-	{
-		setBlockBounds(0.4F, 0.1875F, 0.4F,
-				0.6F, 1.7875F, 0.6F);
-		
+	public MovingObjectPosition collisionRayTrace(World world, int x, int y, int z, Vec3 start, Vec3 end) {
+		setBlockBounds(0.4F, 0.1875F, 0.4F, 0.6F, 1.7875F, 0.6F);
+
 		int metadata = world.getBlockMetadata(x, y, z);
-		
-		if (isUpper(metadata))
-		{
-			this.minY -= 1;
-			this.maxY -= 1;
+
+		if (isUpper(metadata)) {
+			minY -= 1;
+			maxY -= 1;
 		}
-		
+
 		double outOff = 0.125;
-		
-		switch (getDirection(metadata))
-		{
-		case 1:
-			this.minX = 0;
-			this.maxX -= outOff;
-			break;
-		case 2:
-			this.minX += outOff;
-			this.maxX = 1;
-			break;
-		case 3:
-			this.minZ = 0;
-			this.maxZ -= outOff;
-			break;
-		case 4:
-			this.minZ += outOff;
-			this.maxZ = 1;
-			break;
-		default:
-			this.minY -= 0.1875F;
-			this.maxY -= 0.1875F;
-			break;
+
+		switch (getDirection(metadata)) {
+			case 1:
+				minX = 0;
+				maxX -= outOff;
+				break;
+			case 2:
+				minX += outOff;
+				maxX = 1;
+				break;
+			case 3:
+				minZ = 0;
+				maxZ -= outOff;
+				break;
+			case 4:
+				minZ += outOff;
+				maxZ = 1;
+				break;
+			default:
+				minY -= 0.1875F;
+				maxY -= 0.1875F;
+				break;
 		}
-		
+
 		return super.collisionRayTrace(world, x, y, z, start, end);
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
-	{
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4) {
 		return null;
 	}
-	
+
 	@Override
-	public void breakBlock(World world, int x, int y, int z, int blockID, int metadata)
-	{
-		int otherX = x;
+	public void breakBlock(World world, int x, int y, int z, Block block, int metadata) {
 		int otherY = y;
-		int otherZ = z;
-		
+
 		if (!isUpper(metadata))
-		{
 			otherY++;
-		}
 		else
-		{
 			otherY--;
-		}
-		
-		if (world.getBlockId(otherX, otherY, otherZ) == blockID)
-		{
-			if (!world.isRemote)
-			{
-				/*PacketDispatcher.sendPacketToAllAround(otherX + 0.5, otherY + 0.5, otherZ + 0.5, 64, world.provider.dimensionId,
-						new BreakingParticlesPacket(otherX, otherY, otherZ, world).makePacket());*/
-			}
-			else
-			{
+
+		if (world.getBlock(x, otherY, z) == this) {
+			if (!world.isRemote) {
+				/*
+				 * PacketDispatcher.sendPacketToAllAround(otherX + 0.5, otherY +
+				 * 0.5, otherZ + 0.5, 64, world.provider.dimensionId, new
+				 * BreakingParticlesPacket(otherX, otherY, otherZ,
+				 * world).makePacket());
+				 */
+			} else {
 				Minecraft mc = ClientProxy.getMC();
-				
+
 				if (world == mc.theWorld)
-				{
-					mc.effectRenderer.addBlockDestroyEffects(otherX, otherY, otherZ,
-							blockID, world.getBlockMetadata(otherX, otherY, otherZ));
-				}
+					mc.effectRenderer.addBlockDestroyEffects(x, otherY, z, this, world.getBlockMetadata(x, otherY, z));
 			}
-			
-			world.setBlockToAir(otherX, otherY, otherZ);
+
+			world.setBlockToAir(x, otherY, z);
 		}
-		
-		super.breakBlock(world, x, y, z, blockID, metadata);
+
+		super.breakBlock(world, x, y, z, this, metadata);
 	}
-	
+
 	@Override
-	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata)
-	{
+	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata) {
 		if (world.isRemote)
-			breakBlock(world, x, y, z, blockID, metadata);
+			breakBlock(world, x, y, z, this, metadata);
 	}
-	
-	public boolean addBlockDestroyEffects(World world, int x, int y, int z, int meta, EffectRenderer effectRenderer)
-	{
+
+	public boolean addBlockDestroyEffects(World world, int x, int y, int z, int meta, EffectRenderer effectRenderer) {
 		if (!isUpper(meta))
-		{
 			blockIcon = iconLower;
-		}
 		else
-		{
 			blockIcon = iconUpper;
-		}
-		
+
 		return false;
 	}
-	
+
 }

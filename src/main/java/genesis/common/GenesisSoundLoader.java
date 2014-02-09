@@ -29,13 +29,12 @@ public class GenesisSoundLoader {
 		"strikeChablis1",
 		"strikeChablis2"
 	};
-	
-	
+
+
 	@ForgeSubscribe
 	public void onSound(SoundLoadEvent event) {
 
-		for(String s : soundNames){
+		for(String s : soundNames)
 			event.manager.addSound("genesis:" + s + ".ogg");
-		}
 	}
 }

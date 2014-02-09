@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.logging.Level;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 
@@ -19,66 +20,73 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
-import genesis.block.Blocks;
+import genesis.block.ModBlocks;
 import genesis.block.gui.TileEntityCampfire;
 import genesis.block.trees.TreeBlocks;
 import genesis.block.trees.TreeBlocks.TreeBlockType;
 import genesis.block.trees.TreeBlocks.TreeType;
-import genesis.item.Items;
+import genesis.item.ModItems;
 import genesis.lib.ConfigHandler;
 import genesis.lib.LogHelper;
 
 @Mod(modid = Genesis.MOD_ID, name = "Project Genesis", version = "0.0.1")
 public class Genesis {
-	
+
 	@Instance(Genesis.MOD_ID)
 	public static Genesis instance;
-	
+
 	@SidedProxy (clientSide = "genesis.genesis.client.ClientProxy", serverSide = "genesis.genesis.common.CommonProxy")
 	public static CommonProxy proxy;
-	
+
 	public static final String MOD_ID = "genesis";
-	
+
 	public static CreativeTabs tabGenesis = new CreativeTabs("tabGenesis") {
-        public ItemStack getIconItemStack() {
-                return TreeBlocks.getBlockForType(TreeBlockType.SAPLING, TreeType.SIGILLARIA.getName()).getStack();
-        }
+
+		@Override
+		public ItemStack getIconItemStack() {
+			return TreeBlocks.getBlockForType(TreeBlockType.SAPLING, TreeType.SIGILLARIA.getName()).getStack();
+		}
+
+		@Override
+		public Item getTabIconItem() {
+			return getIconItemStack().getItem();
+		}
 	};
-	
+
 	public static HashMap<Class<?>, String> teClassToNameMap;
-	
+
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent evt) {
 		Genesis.instance = this;
-		
+
 		LogHelper.init();
-		
+
 		ConfigHandler.init(evt.getSuggestedConfigurationFile());
-		
+
 		proxy.registerRenderers();
 		proxy.preInit();
-		
+
 		LogHelper.log(Level.INFO, "Preparing Blocks and Items");
-		Blocks.init();
-		Items.init();
-		
-		Blocks.registerBlocks();
-		Items.registerItems();
+		ModBlocks.init();
+		ModItems.init();
+
+		ModBlocks.registerBlocks();
+		ModItems.registerItems();
 		LogHelper.log(Level.INFO, "Blocks and Items Loaded");
-		
+
 		teClassToNameMap = ReflectionHelper.getPrivateValue(TileEntity.class, new TileEntity(), "classToNameMap", "field_70323_b");
-		
-        GameRegistry.registerTileEntity(TileEntityCampfire.class, MOD_ID + ".TileEntityCampfire");
-		
+
+		GameRegistry.registerTileEntity(TileEntityCampfire.class, MOD_ID + ".TileEntityCampfire");
+
 		MinecraftForge.EVENT_BUS.register(new GenesisSoundLoader());
 	}
-	
+
 	@EventHandler
 	public void Init(FMLInitializationEvent evt) {
-        NetworkRegistry.instance().registerGuiHandler(Genesis.instance, new GenesisGuiHandler());
-		
+		NetworkRegistry.INSTANCE.registerGuiHandler(Genesis.instance, new GenesisGuiHandler());
+
 		MinecraftForge.EVENT_BUS.register(new GenesisEventHandler());
-		
+
 		proxy.init();
 	}
 }
