@@ -1,0 +1,16 @@
+[
+{
+  "modid": "genesis",
+  "name": "Project Genesis",
+  "description": "WIP! Project Genesis adds a prehistoric dimension, consisting of lush but hostile biomes inhabited by wild creatures and tribes.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["Anaghold"],
+  "credits": "The team: Zaggy1024, Toxic Wolf, WThieves, tdriling, TheVoid, xLotto22, Sn0w",
+  "logoFile": "/assets/genesis/textures/logo/logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
