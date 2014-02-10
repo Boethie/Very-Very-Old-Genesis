@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 public class ItemBlockGenesisTree extends ItemBlockWithMetadata {
 
 	public ItemBlockGenesisTree(Block block) {
-		super(block);
+		super(block, block);
 	}
 	
 	public String getUnlocalizedName(ItemStack stack) {

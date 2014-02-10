@@ -25,8 +25,6 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
     protected IIcon[] blockIcons;
     
 	public BlockGenesisLeaves(int group) {
-		super();
-		
 		if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE)
 			blockNames = new String[TreeType.GROUP_SIZE];
 		else
@@ -38,10 +36,6 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
 		blockIcons = new IIcon[blockNames.length * 2];
 		
 		setCreativeTab(Genesis.tabGenesis);
-		setStepSound(soundTypeGrass);
-		//setBurnProperties(blockID, 2, 8);
-		setLightOpacity(1);
-		setHardness(0.2F);
 	}
 	
 	@Override

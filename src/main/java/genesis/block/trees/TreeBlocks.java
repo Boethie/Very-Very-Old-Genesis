@@ -3,8 +3,10 @@ package genesis.block.trees;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSlab;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
@@ -20,7 +22,6 @@ import genesis.block.BlockGenesisStairs;
 import genesis.block.plants.BlockGenesisFlowerPot;
 import genesis.common.Genesis;
 import genesis.item.itemblock.ItemBlockGenesisTree;
-import genesis.item.itemblock.ItemGenesisWoodSlab;
 import genesis.lib.Names;
 import genesis.world.WorldGenTreeAraucarioxylon;
 import genesis.world.WorldGenTreeBase;
@@ -135,15 +136,17 @@ public class TreeBlocks {
 	@SuppressWarnings("unchecked")
 	public static void registerBlocks() {
 		for (int group = 0; group < numGroups; group++) {
-			GameRegistry.registerBlock(blocksLogs[group], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLogGenesis + group);
-			GameRegistry.registerBlock(blocksSaplings[group], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockSaplingGenesis + group);
-			GameRegistry.registerBlock(blocksLeaves[group], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockLeavesGenesis + group);
-			GameRegistry.registerBlock(blocksWoods[group], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockWoodGenesis + group);
-			GameRegistry.registerBlock(blocksRottenLogs[group], ItemBlockGenesisTree.class, Genesis.MOD_ID + "." + Names.blockRottenLogGenesis + group);
-
-			ItemGenesisWoodSlab.setSlabs((BlockHalfSlab) blocksSingleSlabs[group], (BlockHalfSlab) blocksDoubleSlabs[group]);
-			GameRegistry.registerBlock(blocksSingleSlabs[group], ItemGenesisWoodSlab.class, Genesis.MOD_ID + "." + Names.blockSlabGenesis + group);
-			GameRegistry.registerBlock(blocksDoubleSlabs[group], ItemGenesisWoodSlab.class, Genesis.MOD_ID + "." + Names.blockSlabGenesis + "double." + group);
+			Genesis.proxy.registerBlock(blocksLogs[group], Names.blockLogGenesis + group, ItemBlockGenesisTree.class);
+			Genesis.proxy.registerBlock(blocksSaplings[group], Names.blockSaplingGenesis + group, ItemBlockGenesisTree.class);
+			Genesis.proxy.registerBlock(blocksLeaves[group], Names.blockLeavesGenesis + group, ItemBlockGenesisTree.class);
+			Genesis.proxy.registerBlock(blocksWoods[group], Names.blockWoodGenesis + group, ItemBlockGenesisTree.class);
+			Genesis.proxy.registerBlock(blocksRottenLogs[group], Names.blockRottenLogGenesis + group, ItemBlockGenesisTree.class);
+			
+			Genesis.proxy.registerBlock(blocksSingleSlabs[group], Names.blockSlabGenesis + group, ItemSlab.class,
+					new Object[] {blocksSingleSlabs[group], blocksSingleSlabs[group], blocksDoubleSlabs[group], false});
+			
+			Genesis.proxy.registerBlock(blocksDoubleSlabs[group], Names.blockSlabGenesis + "double." + group, ItemSlab.class,
+					new Object[] {blocksDoubleSlabs[group], blocksSingleSlabs[group], blocksDoubleSlabs[group], true});
 			
 			GameRegistry.addSmelting(blocksLogs[group], new ItemStack(Items.coal, 1, 1), 0.15F);
 			

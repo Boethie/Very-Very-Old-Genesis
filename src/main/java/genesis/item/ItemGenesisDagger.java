@@ -59,12 +59,13 @@ public class ItemGenesisDagger extends Item {
 	}
 	
 	@Override
-	public float getStrVsBlock(ItemStack stack, Block block) {
+	// public float getStrVsBlock(ItemStack stack, Block block) {
+	public float func_150893_a(ItemStack stack, Block block) {
 		if (block == Blocks.web)
 			return 15.0F;
 		else {
 			Material material = block.getMaterial();
-			return material != Material.plants && material != Material.vine && material != Material.coral && material != Material.leaves && material != Material.pumpkin ? 1.0F : 1.5F;
+			return material != Material.plants && material != Material.vine && material != Material.coral && material != Material.leaves && material != Material.gourd ? 1.0F : 1.5F;
 		}
 	}
 	

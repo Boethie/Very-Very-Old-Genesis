@@ -8,6 +8,7 @@ import net.minecraft.item.crafting.CraftingManager;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
+import genesis.item.ModItems;
 import genesis.item.itemblock.ItemBlockGenesisPlant;
 import genesis.lib.Names;
 
@@ -34,15 +35,14 @@ public class PlantBlocks {
 	public static BlockGenesisCrop zingiberopsis;
 
 	public static void init() {
-		flowerPot = (BlockGenesisFlowerPot) new BlockGenesisFlowerPot(IDs.blockFlowerPotID).setBlockTextureName("flower_pot").setBlockName(Names.blockFlowerPot);
+		flowerPot = (BlockGenesisFlowerPot) new BlockGenesisFlowerPot().setBlockTextureName("flower_pot").setBlockName(Names.blockFlowerPot);
 
-		calamitesPlant = (BlockCalamitesPlant) new BlockCalamitesPlant(IDs.blockCalamitesPlantID).setBlockTextureName("calamites").setBlockName(Names.blockCalamitesPlant);
-		calamitesBlock = (BlockCalamitesStorage) new BlockCalamitesStorage(IDs.blockCalamitesBlockID).setBlockTextureName("calamites_block").setBlockName(Names.blockCalamites);
+		calamitesPlant = (BlockCalamitesPlant) new BlockCalamitesPlant().setBlockTextureName("calamites").setBlockName(Names.blockCalamitesPlant);
+		calamitesBlock = (BlockCalamitesStorage) new BlockCalamitesStorage().setBlockTextureName("calamites_block").setBlockName(Names.blockCalamites);
 
-		flower = (BlockGenesisFlower) new BlockGenesisFlower(IDs.blockFlowerID).setBlockName(Names.blockFlower);
+		flower = (BlockGenesisFlower) new BlockGenesisFlower().setBlockName(Names.blockFlower);
 
-		zingiberopsis = (BlockGenesisCrop) new BlockGenesisCrop(IDs.blockZingiberopsisID, IDs.itemRhizomeID, Blocks.farmland, 8, 4).setBlockName(Names.blockZingiberopsis).setBlockTextureName("zingiberopsis");
-
+		zingiberopsis = (BlockGenesisCrop) new BlockGenesisCrop(ModItems.rhyzome, ModItems.rhyzome, Blocks.farmland, 8, 4).setBlockName(Names.blockZingiberopsis).setBlockTextureName("zingiberopsis");
 	}
 
 	public static void registerBlocks() {

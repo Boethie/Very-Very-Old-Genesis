@@ -26,8 +26,8 @@ public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecia
 	public EnumPlantType[] typesPlantable = {};
 	private EnumPlantType testingType;
 
-	protected BlockGenesisPlant(int id) {
-		super(id);
+	protected BlockGenesisPlant() {
+		super(0);
 
 		setCreativeTab(Genesis.tabGenesis);
 		setPlantBoundsSize(0.375F);

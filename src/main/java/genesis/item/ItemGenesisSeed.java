@@ -6,6 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import net.minecraftforge.common.EnumPlantType;
@@ -21,36 +22,34 @@ import genesis.lib.Names;
 
 public class ItemGenesisSeed extends ItemFood implements IPlantable {
 
-	protected int cropID;
+	protected Block cropBlock;
 
 	/**
 	 * 
-	 * @param seedID
-	 * @param cropID
-	 * @param soilID
-	 * @param seedname
+	 * @param cropBlock
+	 * @param seedName
 	 * @param healAmmount
 	 * @param saturationModifier
 	 */
-	public ItemGenesisSeed(int seedID, int cropID, int soilID, String seedname, int healAmmount, int saturationModifier) {
-		super(seedID, healAmmount, saturationModifier, false);
+	public ItemGenesisSeed(Block cropBlock, String seedName, int healAmmount, float saturationModifier) {
+		super(healAmmount, saturationModifier, false);
 
-		this.cropID = cropID;
+		this.cropBlock = cropBlock;
 		setCreativeTab(Genesis.tabGenesis);
-		setUnlocalizedName(Names.itemSeed + seedname);
+		setUnlocalizedName(Names.itemSeed + seedName);
 	}
 
 	@Override
-	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10) {
-		if (par7 != 1)
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+		if (side != 1)
 			return false;
-		else if (par2EntityPlayer.canPlayerEdit(par4, par5, par6, par7, par1ItemStack) && par2EntityPlayer.canPlayerEdit(par4, par5 + 1, par6, par7, par1ItemStack)) {
-			int i1 = par3World.getBlockId(par4, par5, par6);
-			Block soil = Block.blocksList[i1];
+		else if (player.canPlayerEdit(x, y, z, side, stack) && player.canPlayerEdit(x, y + 1, z, side, stack)) {
+			Block soil = world.getBlock(x, y, z);
 
-			if (soil != null && soil.canSustainPlant(par3World, par4, par5, par6, ForgeDirection.UP, this) && par3World.isAirBlock(par4, par5 + 1, par6)) {
-				par3World.setBlock(par4, par5 + 1, par6, cropID);
-				--par1ItemStack.stackSize;
+			if (soil != null && soil.canSustainPlant(world, x, y, z, ForgeDirection.UP, this) && world.isAirBlock(x, y + 1, z)) {
+				world.setBlock(x, y + 1, z, cropBlock);
+				stack.stackSize--;
+				
 				return true;
 			} else
 				return false;
@@ -75,17 +74,17 @@ public class ItemGenesisSeed extends ItemFood implements IPlantable {
 	}
 
 	@Override
-	public EnumPlantType getPlantType(World world, int x, int y, int z) {
+	public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
 		return EnumPlantType.Crop;
 	}
 
 	@Override
-	public int getPlantID(World world, int x, int y, int z) {
-		return cropID;
+	public Block getPlant(IBlockAccess world, int x, int y, int z) {
+		return cropBlock;
 	}
 
 	@Override
-	public int getPlantMetadata(World world, int x, int y, int z) {
+	public int getPlantMetadata(IBlockAccess world, int x, int y, int z) {
 		return 0;
 	}
 }

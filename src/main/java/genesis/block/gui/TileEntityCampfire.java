@@ -9,7 +9,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
@@ -193,7 +195,7 @@ public class TileEntityCampfire extends TileEntityFurnace {
 		}
 
 		if (invChange)
-			onInventoryChanged();
+			markDirty();
 	}
 
 	@Override
@@ -214,17 +216,17 @@ public class TileEntityCampfire extends TileEntityFurnace {
 		NBTTagCompound compound = new NBTTagCompound();
 		writeToNBT(compound);
 
-		return new Packet132TileEntityData(xCoord, yCoord, zCoord, 0, compound);
+		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, compound);
 	}
 
 	@Override
-	public void onDataPacket(INetworkManager net, Packet132TileEntityData packet) {
-		readFromNBT(packet.data);
+	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity packet) {
+		readFromNBT(packet.func_148857_g());
 	}
 
 	@Override
-	public void onInventoryChanged() {
-		super.onInventoryChanged();
+	public void markDirty() {
+		super.markDirty();
 
 		if (worldObj != null)
 			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
@@ -288,13 +290,13 @@ public class TileEntityCampfire extends TileEntityFurnace {
 	}
 
 	@Override
-	public String getInvName() {
+	public String getInventoryName() {
 		return Genesis.MOD_ID + ".TileEntityCampfire";
 	}
 
 	@Override
-	public boolean isInvNameLocalized() {
-		return customName != null;
+	public boolean hasCustomInventoryName() {
+		return customName != null && customName.length() > 0;
 	}
 
 	@Override
@@ -308,10 +310,10 @@ public class TileEntityCampfire extends TileEntityFurnace {
 	}
 
 	@Override
-	public void openChest() {}
+	public void openInventory() {}
 
 	@Override
-	public void closeChest() {}
+	public void closeInventory() {}
 
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
@@ -319,11 +321,11 @@ public class TileEntityCampfire extends TileEntityFurnace {
 		yCoord = compound.getInteger("y");
 		zCoord = compound.getInteger("z");
 
-		NBTTagList tagList = compound.getTagList("items");
+		NBTTagList tagList = compound.getTagList("items", 10);
 		inventory = new ItemStack[getSizeInventory()];
 
 		for (int i = 0; i < tagList.tagCount(); ++i) {
-			NBTTagCompound itemCompound = (NBTTagCompound) tagList.tagAt(i);
+			NBTTagCompound itemCompound = (NBTTagCompound) tagList.getCompoundTagAt(i);
 			byte slot = itemCompound.getByte("slot");
 
 			if (slot >= 0 && slot < inventory.length)
@@ -365,7 +367,7 @@ public class TileEntityCampfire extends TileEntityFurnace {
 
 		compound.setTag("items", itemList);
 
-		if (isInvNameLocalized())
+		if (hasCustomInventoryName())
 			compound.setString("customName", customName);
 	}
 
@@ -375,8 +377,7 @@ public class TileEntityCampfire extends TileEntityFurnace {
 	}
 
 	@Override
-	public boolean shouldRefresh(int oldID, int newID, int oldMeta, int newMeta, World world, int x, int y, int z) {
-		return oldID != newID;
+	public boolean shouldRefresh(Block oldBlock, Block newBlock, int oldMeta, int newMeta, World world, int x, int y, int z) {
+		return oldBlock != newBlock;
 	}
-
 }

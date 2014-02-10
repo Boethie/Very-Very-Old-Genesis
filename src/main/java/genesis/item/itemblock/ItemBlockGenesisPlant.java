@@ -9,7 +9,7 @@ import genesis.block.plants.PlantBlocks;
 public class ItemBlockGenesisPlant extends ItemBlockWithMetadata {
 
 	public ItemBlockGenesisPlant(Block block) {
-		super(block);
+		super(block, block);
 	}
 	
 	@Override

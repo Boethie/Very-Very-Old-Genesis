@@ -31,8 +31,6 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
 	protected IIcon[] blockIcons;
 	
 	public BlockGenesisSapling(int group) {
-		super();
-		
 		if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE)
 			blockNames = new String[TreeType.GROUP_SIZE];
 		else
@@ -45,6 +43,7 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
 		
 		setCreativeTab(Genesis.tabGenesis);
 		setStepSound(soundTypeGrass);
+		setHardness(0.0F);
 	}
 	
 	@Override
@@ -72,7 +71,8 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
 	}
 	
 	@Override
-	public void growTree(World world, int x, int y, int z, Random random) {
+	// public void growTree(World world, int x, int y, int z, Random random) {
+	public void func_149878_d(World world, int x, int y, int z, Random random) {
 		if (!TerrainGen.saplingGrowTree(world, random, x, y, z))
 			return;
 		

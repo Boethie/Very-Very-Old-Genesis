@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -39,12 +40,9 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 	@SideOnly(Side.CLIENT) IIcon calamitesPlantTopEggs1;
 	@SideOnly(Side.CLIENT) IIcon calamitesPlantTopEggs2;
 
-	public BlockCalamitesPlant(int id) {
-		super(id);
-
+	public BlockCalamitesPlant() {
 		setHardness(1.5F);
 		setStepSound(soundTypeWood);
-		// setBurnProperties(blockID, 4, 4);
 		setPlantBoundsSize(0.25F);
 		setStackable(10);
 		setPlantableTypes(new EnumPlantType[] { EnumPlantType.Plains, EnumPlantType.Desert });

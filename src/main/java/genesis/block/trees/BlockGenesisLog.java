@@ -24,8 +24,6 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
 	protected IIcon[] blockIcons;
 	
 	public BlockGenesisLog(int group) {
-		super();
-		
 		if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE)
 			blockNames = new String[TreeType.GROUP_SIZE];
 		else
@@ -37,9 +35,6 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
 		blockIcons = new IIcon[blockNames.length * 2];
 		
 		setCreativeTab(Genesis.tabGenesis);
-		setStepSound(Block.soundTypeWood);
-		//setBurnProperties(blockID, 4, 4);
-		setHardness(2.0F);
 	}
 	
 	@Override

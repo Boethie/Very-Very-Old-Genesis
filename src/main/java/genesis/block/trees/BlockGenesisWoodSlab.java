@@ -25,7 +25,7 @@ public class BlockGenesisWoodSlab extends BlockWoodSlab implements IItemBlockWit
 	protected String[] blockNames;
 	protected IIcon[] blockIcons;
 	
-	private static int[] singleSlabIds = new int[IDs.TREE_ID_SET_SIZE];
+	private static Block[] singleSlabBlocks = new Block[TreeType.getNumGroups()];
 	
 	public BlockGenesisWoodSlab(int group, boolean isDouble) {
 		super(isDouble);
@@ -38,16 +38,16 @@ public class BlockGenesisWoodSlab extends BlockWoodSlab implements IItemBlockWit
 		for (int i = 0; i < blockNames.length; i++)
 			blockNames[i] = TreeType.values()[(group * TreeType.GROUP_SIZE) + i].getName();
 		
-		if (!isDouble)
-			singleSlabIds[group] = id;
-		
 		blockIcons = new IIcon[blockNames.length];
 		
 		setCreativeTab(Genesis.tabGenesis);
 		setStepSound(Block.soundTypeWood);
-		//setBurnProperties(blockID, 4, 4);
 		setHardness(2.0F);
-		setLightOpacity(0);
+		setResistance(5.0F);
+		//setLightOpacity(0);
+		
+		if (!isDouble)
+			singleSlabBlocks[group] = this;
 	}
 	
 	@Override
@@ -65,8 +65,8 @@ public class BlockGenesisWoodSlab extends BlockWoodSlab implements IItemBlockWit
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
-		for (int id : singleSlabIds) {
-			if (item == id) {				
+		for (Block block : singleSlabBlocks) {
+			if (item == Item.getItemFromBlock(block)) {				
 				for (int metadata = 0; metadata < blockNames.length; metadata++)
 					list.add(new ItemStack(item, 1, metadata));
 				
@@ -78,17 +78,18 @@ public class BlockGenesisWoodSlab extends BlockWoodSlab implements IItemBlockWit
 	@Override
 	public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z) {
 		int group = TreeType.valueOf(getSubName(world.getBlockMetadata(x, y, z)).toUpperCase()).getGroup();
-		return singleSlabIds[group];
+		return new ItemStack(Item.getItemFromBlock(singleSlabBlocks[group]), 1, world.getBlockMetadata(x, y, z) & 3);
 	}
 	
 	@Override
 	public Item getItemDropped(int metadata, Random random, int unused) {
 		int group = TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup();
-		return singleSlabIds[group];
+		return Item.getItemFromBlock(singleSlabBlocks[group]);
 	}
 	
 	@Override
-	public String getFullSlabName(int metadata) {
+	// public string getFullSlabName(int metadata) { 
+	public String func_150002_b(int metadata) {
 		return getUnlocalizedName() + getSubName(metadata);
 	}
 	

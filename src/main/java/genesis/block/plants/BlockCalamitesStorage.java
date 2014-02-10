@@ -38,7 +38,7 @@ public class BlockCalamitesStorage extends BlockRotatedPillar {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	protected IIcon getEndIcon(int metadata) {
+	protected IIcon getTopIcon(int metadata) {
 		return topIcon;
 	}
 

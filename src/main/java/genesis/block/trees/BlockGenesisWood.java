@@ -24,8 +24,6 @@ public class BlockGenesisWood extends BlockWood implements IItemBlockWithSubName
 	protected IIcon[] blockIcons;
 	
 	public BlockGenesisWood(int group) {
-		super();
-		
 		if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE)
 			blockNames = new String[TreeType.GROUP_SIZE];
 		else
@@ -38,8 +36,8 @@ public class BlockGenesisWood extends BlockWood implements IItemBlockWithSubName
 		
 		setCreativeTab(Genesis.tabGenesis);
 		setStepSound(Block.soundTypeWood);
-		//setBurnProperties(blockID, 4, 4);
 		setHardness(2.0F);
+		setResistance(5.0F);
 	}
 	
 	@Override
