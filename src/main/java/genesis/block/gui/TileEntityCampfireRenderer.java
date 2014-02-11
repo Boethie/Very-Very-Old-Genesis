@@ -36,8 +36,7 @@ public class TileEntityCampfireRenderer extends TileEntitySpecialRenderer {
 
 		Item item = stack.getItem();
 		IIcon icon = stack.getIconIndex();
-
-		Minecraft mc = ClientProxy.getMC();
+		
 		int passes = 1;
 
 		IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(stack, ItemRenderType.EQUIPPED);
@@ -54,7 +53,7 @@ public class TileEntityCampfireRenderer extends TileEntitySpecialRenderer {
 			passes = item.getRenderPasses(stack.getItemDamage());
 
 		for (int pass = 0; pass < passes; pass++)
-			mc.entityRenderer.itemRenderer.renderItem(mc.thePlayer, stack, pass, ItemRenderType.EQUIPPED);
+			Minecraft.getMinecraft().entityRenderer.itemRenderer.renderItem(Minecraft.getMinecraft().thePlayer, stack, pass, ItemRenderType.EQUIPPED);
 	}
 
 	/**

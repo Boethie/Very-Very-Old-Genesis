@@ -3,17 +3,12 @@ package genesis.common;
 import net.minecraft.block.Block;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-
-import genesis.client.ServerTickHandler;
 
 public class CommonProxy {
 
 	public void registerRenderers() {}
 
-	public void preInit() {
-		TickRegistry.registerTickHandler(new ServerTickHandler(), Side.SERVER);
-	}
+	public void preInit() {}
 
 	public void init() {}
 	

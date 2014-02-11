@@ -2,6 +2,8 @@ package genesis.common;
 
 import net.minecraftforge.client.event.sound.SoundLoadEvent;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+
 public class GenesisSoundLoader {
 
 	public static final String[] soundNames = {
@@ -31,10 +33,12 @@ public class GenesisSoundLoader {
 	};
 
 
-	@ForgeSubscribe
+	@SubscribeEvent
 	public void onSound(SoundLoadEvent event) {
 
+		/* TODO: Find out how to add custom sounds
 		for(String s : soundNames)
 			event.manager.addSound("genesis:" + s + ".ogg");
+		*/
 	}
 }

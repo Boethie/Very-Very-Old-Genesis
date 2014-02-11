@@ -133,7 +133,6 @@ public class TreeBlocks {
 				.setBlockName(Names.blockStairsGenesis + type.getName());
 	}
 	
-	@SuppressWarnings("unchecked")
 	public static void registerBlocks() {
 		for (int group = 0; group < numGroups; group++) {
 			Genesis.proxy.registerBlock(blocksLogs[group], Names.blockLogGenesis + group, ItemBlockGenesisTree.class);
@@ -142,11 +141,11 @@ public class TreeBlocks {
 			Genesis.proxy.registerBlock(blocksWoods[group], Names.blockWoodGenesis + group, ItemBlockGenesisTree.class);
 			Genesis.proxy.registerBlock(blocksRottenLogs[group], Names.blockRottenLogGenesis + group, ItemBlockGenesisTree.class);
 			
-			Genesis.proxy.registerBlock(blocksSingleSlabs[group], Names.blockSlabGenesis + group, ItemSlab.class,
-					new Object[] {blocksSingleSlabs[group], blocksSingleSlabs[group], blocksDoubleSlabs[group], false});
+			//Genesis.proxy.registerBlock(blocksSingleSlabs[group], Names.blockSlabGenesis + group, ItemSlab.class,
+			//		new Object[] {((BlockSlab) blocksSingleSlabs[group]), ((BlockSlab) blocksDoubleSlabs[group]), false});
 			
-			Genesis.proxy.registerBlock(blocksDoubleSlabs[group], Names.blockSlabGenesis + "double." + group, ItemSlab.class,
-					new Object[] {blocksDoubleSlabs[group], blocksSingleSlabs[group], blocksDoubleSlabs[group], true});
+			//Genesis.proxy.registerBlock(blocksDoubleSlabs[group], Names.blockSlabGenesis + "double." + group, ItemSlab.class,
+			//		new Object[] {((BlockSlab) blocksSingleSlabs[group]), ((BlockSlab) blocksDoubleSlabs[group]), true});
 			
 			GameRegistry.addSmelting(blocksLogs[group], new ItemStack(Items.coal, 1, 1), 0.15F);
 			

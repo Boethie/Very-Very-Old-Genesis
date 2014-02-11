@@ -10,19 +10,16 @@ import genesis.common.Genesis;
 
 public class LogHelper {
 
-	private static Logger logger = Logger.getLogger(Genesis.MOD_ID);
-	private static boolean ready = false;
+	private static final Logger logger = Logger.getLogger(Genesis.MOD_ID);
 
 	public static void init() {
-		logger.setParent((Logger) FMLLog.getLogger());
-		ready = true;
+		// logger.setParent(FMLLog.getLogger());
+		
+		logger.info("Starting Project Genesis " + Genesis.MOD_VERSION);
 	}
 
 	public static void log(Level logLevel, String message) {
-		if (ready)
-			logger.log(logLevel, message);
-		else
-			System.out.println("[genesis] " + message);
+		logger.log(logLevel, message);
 	}
 
 	// For debugging

@@ -29,17 +29,19 @@ import genesis.item.ModItems;
 import genesis.lib.ConfigHandler;
 import genesis.lib.LogHelper;
 
-@Mod(modid = Genesis.MOD_ID, name = "Project Genesis", version = "0.0.1")
+@Mod(modid = Genesis.MOD_ID, name = "Project Genesis", version = Genesis.MOD_VERSION)
 public class Genesis {
 
 	@Instance(Genesis.MOD_ID)
 	public static Genesis instance;
 
-	@SidedProxy (clientSide = "genesis.genesis.client.ClientProxy", serverSide = "genesis.genesis.common.CommonProxy")
+	@SidedProxy (clientSide = "genesis.client.ClientProxy", serverSide = "genesis.common.CommonProxy")
 	public static CommonProxy proxy;
 
 	public static final String MOD_ID = "genesis";
-
+	public static final String MOD_VERSION = "0.0.1";
+	
+	public static HashMap<Class<?>, String> teClassToNameMap;
 	public static CreativeTabs tabGenesis = new CreativeTabs("tabGenesis") {
 
 		@Override
@@ -52,8 +54,6 @@ public class Genesis {
 			return getIconItemStack().getItem();
 		}
 	};
-
-	public static HashMap<Class<?>, String> teClassToNameMap;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent evt) {
@@ -82,7 +82,7 @@ public class Genesis {
 	}
 
 	@EventHandler
-	public void Init(FMLInitializationEvent evt) {
+	public void init(FMLInitializationEvent evt) {
 		NetworkRegistry.INSTANCE.registerGuiHandler(Genesis.instance, new GenesisGuiHandler());
 
 		MinecraftForge.EVENT_BUS.register(new GenesisEventHandler());

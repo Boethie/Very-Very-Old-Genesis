@@ -18,11 +18,9 @@ import genesis.block.plants.BlockGenesisPlantRenderer;
 import genesis.common.CommonProxy;
 
 public class ClientProxy extends CommonProxy {
-	
-	private static Minecraft mc;
-	
-	public void registerRenderers()
-	{
+
+	@Override
+	public void registerRenderers() {
 		super.registerRenderers();
 
 		RenderingRegistry.registerBlockHandler(new BlockMossRenderer());
@@ -30,32 +28,9 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(new BlockGenesisFlowerPotRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockTikiTorchRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockCampfireRenderer());
-		
+
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCampfire.class, new TileEntityCampfireRenderer());
-		
+
 		LanguageLoader.loadLanguages();
 	}
-	
-	@Override
-	public void preInit()
-	{
-		super.preInit();
-
-		TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
-	}
-	
-	@Override
-	public void init()
-	{
-		MinecraftForge.EVENT_BUS.register(new GenesisClientEventHandler());
-	}
-	
-	public static Minecraft getMC()
-	{
-		if (mc == null)
-			mc = Minecraft.getMinecraft();
-		
-		return mc;
-	}
-
 }

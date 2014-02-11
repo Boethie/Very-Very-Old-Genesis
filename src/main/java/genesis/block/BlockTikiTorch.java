@@ -334,12 +334,8 @@ public class BlockTikiTorch extends BlockGenesis {
 				 * BreakingParticlesPacket(otherX, otherY, otherZ,
 				 * world).makePacket());
 				 */
-			} else {
-				Minecraft mc = ClientProxy.getMC();
-
-				if (world == mc.theWorld)
-					mc.effectRenderer.addBlockDestroyEffects(x, otherY, z, this, world.getBlockMetadata(x, otherY, z));
-			}
+			} else if (world == Minecraft.getMinecraft().theWorld)
+					Minecraft.getMinecraft().effectRenderer.addBlockDestroyEffects(x, otherY, z, this, world.getBlockMetadata(x, otherY, z));
 
 			world.setBlockToAir(x, otherY, z);
 		}

@@ -27,16 +27,14 @@ public class ItemGenesisSeed extends ItemFood implements IPlantable {
 	/**
 	 * 
 	 * @param cropBlock
-	 * @param seedName
 	 * @param healAmmount
 	 * @param saturationModifier
 	 */
-	public ItemGenesisSeed(Block cropBlock, String seedName, int healAmmount, float saturationModifier) {
+	public ItemGenesisSeed(Block cropBlock, int healAmmount, float saturationModifier) {
 		super(healAmmount, saturationModifier, false);
 
 		this.cropBlock = cropBlock;
 		setCreativeTab(Genesis.tabGenesis);
-		setUnlocalizedName(Names.itemSeed + seedName);
 	}
 
 	@Override
