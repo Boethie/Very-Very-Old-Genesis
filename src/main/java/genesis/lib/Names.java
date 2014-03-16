@@ -73,7 +73,7 @@ public class Names {
 	public static final String blockFlower = blockPlant + "flower";
 
 	public static final String itemRhizome = itemSeed + "rhizome";
-	public static final String blockZingiberopsis = blockCrop + "zingiveropsis";
+	public static final String blockZingiberopsis = blockCrop + "zingiberopsis";
 
 	// ---- Items ----
 	// Crafting items

@@ -75,7 +75,7 @@ public class Recipes {
 		LogHelper.log(Level.INFO, "Registering recipes.");
 		adaptNetherQuartzRecipes();
 
-		CraftingManager.getInstance().addRecipe(new ItemStack(ModBlocks.tikiTorch, 2), "c", "|", "|", 'c', Items.coal, '|', PlantBlocks.calamitesPlant);
+		//CraftingManager.getInstance().addRecipe(new ItemStack(ModBlocks.tikiTorch, 2), "c", "|", "|", 'c', Items.coal, '|', PlantBlocks.calamitesPlant);
 
 		GameRegistry.addSmelting(ModBlocks.ironMeteorite, new ItemStack(ModItems.meteoricIronIngot, 1), 0.75F);
 		GameRegistry.addSmelting(ModBlocks.chalcopyriteOre, new ItemStack(ModItems.chalcopyriteIngot, 1), 0.7F);

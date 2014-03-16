@@ -37,7 +37,7 @@ public class PlantBlocks {
 	public static void init() {
 		flowerPot = (BlockGenesisFlowerPot) new BlockGenesisFlowerPot().setBlockTextureName("flower_pot").setBlockName(Names.blockFlowerPot);
 
-		calamitesPlant = (BlockCalamitesPlant) new BlockCalamitesPlant().setBlockTextureName("calamites").setBlockName(Names.blockCalamitesPlant);
+		//calamitesPlant = (BlockCalamitesPlant) new BlockCalamitesPlant().setBlockTextureName("calamites").setBlockName(Names.blockCalamitesPlant);
 		calamitesBlock = (BlockCalamitesStorage) new BlockCalamitesStorage().setBlockTextureName("calamites_block").setBlockName(Names.blockCalamites);
 
 		flower = (BlockGenesisFlower) new BlockGenesisFlower().setBlockName(Names.blockFlower);
@@ -46,14 +46,16 @@ public class PlantBlocks {
 	}
 
 	public static void registerBlocks() {
-		GameRegistry.registerBlock(calamitesPlant, Names.blockCalamitesPlant);
+		//GameRegistry.registerBlock(calamitesPlant, Names.blockCalamitesPlant);
 		GameRegistry.registerBlock(calamitesBlock, Names.blockCalamites);
 
 		GameRegistry.registerBlock(flower, ItemBlockGenesisPlant.class, Names.blockFlower);
+		
+		GameRegistry.registerBlock(zingiberopsis, Names.blockZingiberopsis);
 
-		CraftingManager.getInstance().addRecipe(new ItemStack(calamitesBlock), "CCC", "CCC", "CCC", 'C', calamitesPlant);
+		//CraftingManager.getInstance().addRecipe(new ItemStack(calamitesBlock), "CCC", "CCC", "CCC", 'C', calamitesPlant);
 
-		CraftingManager.getInstance().addRecipe(new ItemStack(calamitesPlant, 9), "C", 'C', calamitesBlock);
+		//CraftingManager.getInstance().addRecipe(new ItemStack(calamitesPlant, 9), "C", 'C', calamitesBlock);
 	}
 
 }

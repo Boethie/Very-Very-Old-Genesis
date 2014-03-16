@@ -25,7 +25,7 @@ public class BlockCalamitesStorage extends BlockRotatedPillar {
 		setHarvestLevel("axe", 0);
 	}
 
-	public void registerIcons(IIconRegister iconRegister) {
+	public void registerBlockIcons(IIconRegister iconRegister) {
 		topIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_top");
 		blockIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_side");
 	}

@@ -150,7 +150,7 @@ public class ModBlocks {
 		
 		TreeBlocks.init();
 		PlantBlocks.init();
-		//CropBlocks.init();
+		//CropBlocks.init(); #Cropblocks are basically just PlantBlocks
 	}
 	
 	public static void registerBlocks() {

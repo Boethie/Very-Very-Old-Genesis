@@ -6,6 +6,7 @@ import net.minecraft.init.Items;
 import net.minecraftforge.common.util.EnumHelper;
 
 import genesis.block.ModBlocks;
+import genesis.block.plants.PlantBlocks;
 import genesis.item.ItemSets.ItemsSuitOfArmor;
 import genesis.item.ItemSets.ItemsToolSet;
 import genesis.lib.Names;
@@ -85,7 +86,7 @@ public class ModItems {
 		//		EnumHelper.addArmorMaterial(Names.itemOlivineMaterial.toUpperCase(), 23, new int[] {3, 7, 5, 2}, 10),
 		
 		// Seeds/Foods
-		rhyzome = (ItemGenesisSeed) new ItemGenesisSeed(ModBlocks.rhyolite, 2, 1)
+		rhyzome = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.zingiberopsis, 2, 1)
 				.setUnlocalizedName(Names.itemRhizome).setTextureName("zingiberopsis_rhizome");
 	}
 	
