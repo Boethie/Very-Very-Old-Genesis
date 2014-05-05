@@ -102,17 +102,36 @@ public class ItemSets {
 		public ItemGenesisArmor boots;
 
 		public Object craftingObj;
-
-		public ItemsSuitOfArmor(ItemArmor.ArmorMaterial armorMaterial, String materialName, Object crafting) {
-			helmet = new ItemGenesisArmor(armorMaterial, 0, materialName);
-			chestplate = new ItemGenesisArmor(armorMaterial, 1, materialName);
-			leggings = new ItemGenesisArmor(armorMaterial, 2, materialName);
-			boots = new ItemGenesisArmor(armorMaterial, 3, materialName);
+		
+		public ItemsSuitOfArmor(ItemArmor.ArmorMaterial armorMaterial, String materialName, Object crafting){
+			this (armorMaterial, materialName, crafting, true, true, true, true);
+		}
+		
+		public ItemsSuitOfArmor(ItemArmor.ArmorMaterial armorMaterial, String materialName, Object crafting,
+				boolean enableHelmet,
+				boolean enableChestplate,
+				boolean enableLeggings,
+				boolean enableBoots) {
+			
+			if (enableHelmet)
+				helmet = new ItemGenesisArmor(armorMaterial, 0, materialName);
+			
+			if (enableChestplate)
+				chestplate = new ItemGenesisArmor(armorMaterial, 1, materialName);
+			
+			if (enableLeggings)
+				leggings = new ItemGenesisArmor(armorMaterial, 2, materialName);
+			
+			if (enableBoots)
+				boots = new ItemGenesisArmor(armorMaterial, 3, materialName);
+			
 			craftingObj = crafting;
 
 			suits.add(this);
 		}
-
+		
+		
+		
 		public void registerRecipes() {
 			registerRecipeWithDefault(craftingObj, this);
 		}
@@ -145,23 +164,32 @@ public class ItemSets {
 
 		@Override
 		public ItemStack getOutput(int recipe) {
+			Item item = null;
+			
 			switch (recipe) {
 				case 0:
-					return new ItemStack(helmet);
+					item = helmet;
+					break;
 				case 1:
-					return new ItemStack(chestplate);
+					item = chestplate;
+					break;
 				case 2:
-					return new ItemStack(leggings);
+					item = leggings;
+					break;
 				case 3:
-					return new ItemStack(boots);
-				default:
-					return null;
+					item = boots;
+					break;
+			}
+			
+			if (item == null){
+				return null;
+			}else{
+				return new ItemStack(item);
 			}
 		}
 	}
 
 	public static class ItemsToolSet implements IRecipeWithDefault {
-
 		private static final ArrayList<ItemsToolSet> sets = new ArrayList<ItemsToolSet>();
 
 		public static void registerAllCraftingRecipes() {
@@ -170,7 +198,7 @@ public class ItemSets {
 		}
 
 		public ItemGenesisSword sword;
-		public ItemGenesisDagger dagger;
+		public ItemGenesisKnife knife;
 		public ItemGenesisPickaxe pickaxe;
 		public ItemGenesisAxe axe;
 		public ItemGenesisSpade spade;
@@ -178,14 +206,37 @@ public class ItemSets {
 
 		public Object craftingObj;
 		public Object craftingHandleObj;
-
-		public ItemsToolSet(Item.ToolMaterial toolMaterial, String materialName, Object crafting, Object craftingHandle) {
-			sword = new ItemGenesisSword(toolMaterial, materialName);
-			dagger = new ItemGenesisDagger(toolMaterial, materialName);
-			pickaxe = new ItemGenesisPickaxe(toolMaterial, materialName);
-			axe = new ItemGenesisAxe(toolMaterial, materialName);
-			spade = new ItemGenesisSpade(toolMaterial, materialName);
-			hoe = new ItemGenesisHoe(toolMaterial, materialName);
+		
+		public ItemsToolSet(Item.ToolMaterial toolMaterial, String materialName, Object crafting, Object craftingHandle){
+			this (toolMaterial, materialName, crafting, craftingHandle, true, true, true, true, true, true);
+		}
+		
+		public ItemsToolSet(Item.ToolMaterial toolMaterial, String materialName, Object crafting, Object craftingHandle,
+				boolean enableSword,
+				boolean enableKnife,
+				boolean enablePickaxe,
+				boolean enableAxe,
+				boolean enableSpade,
+				boolean enableHoe) {
+			
+			if (enableSword)
+				sword = new ItemGenesisSword(toolMaterial, materialName);
+			
+			if (enableKnife)
+				knife = new ItemGenesisKnife(toolMaterial, materialName);
+			
+			if (enablePickaxe)
+				pickaxe = new ItemGenesisPickaxe(toolMaterial, materialName);
+			
+			if (enableAxe)
+				axe = new ItemGenesisAxe(toolMaterial, materialName);
+			
+			if (enableSpade)
+				spade = new ItemGenesisSpade(toolMaterial, materialName);
+			
+			if (enableHoe)
+				hoe = new ItemGenesisHoe(toolMaterial, materialName);
+			
 
 			craftingObj = crafting;
 			craftingHandleObj = craftingHandle;
@@ -206,7 +257,7 @@ public class ItemSets {
 		public int getRecipeWidth(int recipe) {
 			switch (recipe) {
 				case 0: // Sword
-				case 1: // Dagger
+				case 1: // knife
 				case 4: // Spade
 					return 1;
 				case 3: // Axe
@@ -224,7 +275,7 @@ public class ItemSets {
 			switch (recipe) {
 				case 0: // Sword
 					return new ItemStack[] { craftStack, craftStack, handle };
-				case 1: // Dagger
+				case 1: // knife
 					return new ItemStack[] { craftStack, handle };
 				case 2: // Pickaxe
 					return new ItemStack[] { craftStack, craftStack, craftStack, null, handle, null, null, handle, null };
@@ -241,21 +292,33 @@ public class ItemSets {
 
 		@Override
 		public ItemStack getOutput(int recipe) {
+			Item item = null;
+			
 			switch (recipe) {
 				case 0:
-					return new ItemStack(sword);
+					item = sword;
+					break;
 				case 1:
-					return new ItemStack(dagger);
+					item = knife;
+					break;
 				case 2:
-					return new ItemStack(pickaxe);
+					item = pickaxe;
+					break;
 				case 3:
-					return new ItemStack(axe);
+					item = axe;
+					break;
 				case 4:
-					return new ItemStack(spade);
+					item = spade;
+					break;
 				case 5:
-					return new ItemStack(hoe);
-				default:
-					return null;
+					item = hoe;
+					break;
+			}
+			
+			if (item == null){
+				return null;
+			}else{
+				return new ItemStack(item);
 			}
 		}
 	}

@@ -31,9 +31,12 @@ import genesis.world.WorldGenTreePsaronius;
 import genesis.world.WorldGenTreeSigillaria;
 
 public class TreeBlocks {
-
 	public enum TreeType {
-		SIGILLARIA("sigillaria"), LEPIDODENDRON("lepidodendron"), CORDAITES("cordaites"), ARAUCARIOXYLON("araucarioxylon"), PSARONIUS("psaronius");
+		SIGILLARIA("sigillaria"),
+		LEPIDODENDRON("lepidodendron"),
+		CORDAITES("cordaites"),
+		ARAUCARIOXYLON("araucarioxylon"),
+		PSARONIUS("psaronius");
 		
 		public static final int GROUP_SIZE = 4;
 		

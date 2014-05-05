@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
+import net.minecraft.block.BlockColored;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -11,11 +13,10 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
-
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import genesis.block.ModBlocks;
 import genesis.block.plants.PlantBlocks;
+import genesis.crafting.RecipeArmorHematite;
 import genesis.lib.LogHelper;
 
 public class Recipes {
@@ -76,9 +77,22 @@ public class Recipes {
 		adaptNetherQuartzRecipes();
 
 		//CraftingManager.getInstance().addRecipe(new ItemStack(ModBlocks.tikiTorch, 2), "c", "|", "|", 'c', Items.coal, '|', PlantBlocks.calamitesPlant);
-
+		
+		//add red die functionality into Hematite
+		{
+			ItemStack hematite = new ItemStack(ModItems.hematite, 1, 0);
+			
+			int i = 1;
+			
+			CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Blocks.wool, 1, BlockColored.func_150031_c(i)), hematite, new ItemStack(Item.getItemFromBlock(Blocks.wool), 1, 0));
+			CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, BlockColored.func_150031_c(i)), "###", "#X#", "###", '#', new ItemStack(Blocks.hardened_clay), 'X', hematite);
+			CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.stained_glass, 8, BlockColored.func_150031_c(i)), "###", "#X#", "###", '#', new ItemStack(Blocks.glass), 'X', hematite);
+			CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.carpet, 3, i), "##", '#', hematite);
+			CraftingManager.getInstance().getRecipeList().add(new RecipeArmorHematite());
+		}
+		
 		GameRegistry.addSmelting(ModBlocks.ironMeteorite, new ItemStack(ModItems.meteoricIronIngot, 1), 0.75F);
-		GameRegistry.addSmelting(ModBlocks.chalcopyriteOre, new ItemStack(ModItems.chalcopyriteIngot, 1), 0.7F);
+		GameRegistry.addSmelting(ModItems.hematite, new ItemStack(Items.iron_ingot), 0.7F);
 	}
 
 }

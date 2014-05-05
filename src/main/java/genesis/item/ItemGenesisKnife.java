@@ -22,14 +22,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 import genesis.common.Genesis;
 import genesis.lib.Names;
 
-public class ItemGenesisDagger extends Item {
+public class ItemGenesisKnife extends Item {
 
 	private float weaponDamage;
 	private final Item.ToolMaterial toolMaterial;
 	
 	protected String materialName;
 	
-	public ItemGenesisDagger(Item.ToolMaterial toolMaterial, String materialName) {
+	public ItemGenesisKnife(Item.ToolMaterial toolMaterial, String materialName) {
 		super();
 		
 		this.toolMaterial = toolMaterial;
@@ -37,7 +37,7 @@ public class ItemGenesisDagger extends Item {
 		maxStackSize = 1;
 		weaponDamage = 3.0F + toolMaterial.getDamageVsEntity();
 		
-		setUnlocalizedName(Names.itemDagger + materialName);
+		setUnlocalizedName(Names.itemKnife + materialName);
 		setMaxDamage(toolMaterial.getMaxUses() / 2);
 		setCreativeTab(Genesis.tabGenesis);
 	}
@@ -55,7 +55,7 @@ public class ItemGenesisDagger extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister register) {
-		itemIcon = register.registerIcon(Genesis.MOD_ID + ":" + materialName + "_dagger");
+		itemIcon = register.registerIcon(Genesis.MOD_ID + ":" + materialName + "_knife");
 	}
 	
 	@Override

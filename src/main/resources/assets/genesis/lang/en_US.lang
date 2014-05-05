@@ -34,7 +34,7 @@ tile.genesis.ore.quartzGranite.name=Granite Quartz Ore
 tile.genesis.ore.malachite.name=Malachite Ore
 tile.genesis.storage.malachite.name=Block of Malachite
 
-tile.genesis.ore.chalcopyrite.name=Chalcopyrite Ore
+tile.genesis.ore.hematite.name=Hematite Ore
 tile.genesis.storage.chalcopyrite.name=Block of Chalcopyrite
 
 tile.genesis.ore.zircon.name=Zircon Ore
@@ -52,7 +52,7 @@ tile.genesis.leaves.sigillaria.name=Sigillaria Leaves
 tile.genesis.sapling.sigillaria.name=Sigillaria Sapling
 tile.genesis.wood.sigillaria.name=Sigillaria Wood Planks
 tile.genesis.slab.sigillaria.name=Sigillaria Wood Slab
-tile.genesis.logRotten.sigillaria.name=Rotten Sigillaria Log
+tile.genesis.logRotten.sigillaria.name=Rotten Sigillaria Wood
 tile.genesis.stairs.sigillaria.name=Sigillaria Wood Stairs
 
 tile.genesis.log.lepidodendron.name=Lepidodendron Wood
@@ -60,7 +60,7 @@ tile.genesis.leaves.lepidodendron.name=Lepidodendron Leaves
 tile.genesis.sapling.lepidodendron.name=Lepidodendron Sapling
 tile.genesis.wood.lepidodendron.name=Lepidodendron Wood Planks
 tile.genesis.slab.lepidodendron.name=Lepidodendron Wood Slab
-tile.genesis.logRotten.lepidodendron.name=Rotten Lepidodendron Log
+tile.genesis.logRotten.lepidodendron.name=Rotten Lepidodendron Wood
 tile.genesis.stairs.lepidodendron.name=Lepidodendron Wood Stairs
 
 tile.genesis.log.cordaites.name=Cordaites Wood
@@ -68,23 +68,23 @@ tile.genesis.leaves.cordaites.name=Cordaites Leaves
 tile.genesis.sapling.cordaites.name=Cordaites Sapling
 tile.genesis.wood.cordaites.name=Cordaites Wood Planks
 tile.genesis.slab.cordaites.name=Cordaites Wood Slab
-tile.genesis.logRotten.cordaites.name=Rotten Cordaites Log
+tile.genesis.logRotten.cordaites.name=Rotten Cordaites Wood
 tile.genesis.stairs.cordaites.name=Cordaites Wood Stairs
 
-tile.genesis.log.araucarioxylon.name=Araucarioxylon Wood
+tile.genesis.log.araucarioxylon.name=Araucarioxylon Woods
 tile.genesis.leaves.araucarioxylon.name=Araucarioxylon Leaves
 tile.genesis.sapling.araucarioxylon.name=Araucarioxylon Sapling
 tile.genesis.wood.araucarioxylon.name=Araucarioxylon Wood Planks
 tile.genesis.slab.araucarioxylon.name=Araucarioxylon Wood Slab
-tile.genesis.logRotten.araucarioxylon.name=Rotten Araucarioxylon Log
+tile.genesis.logRotten.araucarioxylon.name=Rotten Araucarioxylon Wood
 tile.genesis.stairs.araucarioxylon.name=Araucarioxylon Wood Stairs
 
 tile.genesis.log.psaronius.name=Psaronius Wood
-tile.genesis.leaves.psaronius.name=Psaronius Leaves
+tile.genesis.leaves.psaronius.name=Pecopteris Leaves
 tile.genesis.sapling.psaronius.name=Psaronius Sapling
 tile.genesis.wood.psaronius.name=Psaronius Wood Planks
 tile.genesis.slab.psaronius.name=Psaronius Wood Slab
-tile.genesis.logRotten.psaronius.name=Rotten Psaronius Log
+tile.genesis.logRotten.psaronius.name=Rotten Psaronius Wood
 tile.genesis.stairs.psaronius.name=Psaronius Wood Stairs
 
 
@@ -114,39 +114,39 @@ item.genesis.garnet.name=Garnet
 
 item.genesis.malachite.name=Malachite
 
-item.genesis.chalcopyriteIngot.name=Chalcopyrite Ingot
+item.genesis.hematite.name=Hematite
 
 <!-- Swords/Tools -->
 item.genesis.sword.granite.name=Granite Sword
-item.genesis.dagger.granite.name=Granite Dagger
+item.genesis.knife.granite.name=Granite Knife
 item.genesis.tool.pickaxe.granite.name=Granite Pickaxe
 item.genesis.tool.shovel.granite.name=Granite Shovel
 item.genesis.tool.axe.granite.name=Granite Axe
 item.genesis.tool.hoe.granite.name=Granite Hoe
 
 item.genesis.sword.zircon.name=Zircon Sword
-item.genesis.dagger.zircon.name=Zircon Dagger
+item.genesis.knife.zircon.name=Zircon Knife
 item.genesis.tool.pickaxe.zircon.name=Zircon Pickaxe
 item.genesis.tool.shovel.zircon.name=Zircon Shovel
 item.genesis.tool.axe.zircon.name=Zircon Axe
 item.genesis.tool.hoe.zircon.name=Zircon Hoe
 
 item.genesis.sword.olivine.name=Olivine Sword
-item.genesis.dagger.olivine.name=Olivine Dagger
+item.genesis.knife.olivine.name=Olivine Knife
 item.genesis.tool.pickaxe.olivine.name=Olivine Pickaxe
 item.genesis.tool.shovel.olivine.name=Olivine Shovel
 item.genesis.tool.axe.olivine.name=Olivine Axe
 item.genesis.tool.hoe.olivine.name=Olivine Hoe
 
 item.genesis.sword.iron_meteoric.name=Meteoric Iron Sword
-item.genesis.dagger.iron_meteoric.name=Meteoric Iron Dagger
+item.genesis.knife.iron_meteoric.name=Meteoric Iron Knife
 item.genesis.tool.pickaxe.iron_meteoric.name=Meteoric Iron Pickaxe
 item.genesis.tool.shovel.iron_meteoric.name=Meteoric Iron Shovel
 item.genesis.tool.axe.iron_meteoric.name=Meteoric Iron Axe
 item.genesis.tool.hoe.iron_meteoric.name=Meteoric Iron Hoe
 
 item.genesis.sword.chalcopyrite.name=Chalcopyrite Sword
-item.genesis.dagger.chalcopyrite.name=Chalcopyrite Dagger
+item.genesis.knife.chalcopyrite.name=Chalcopyrite Knife
 item.genesis.tool.pickaxe.chalcopyrite.name=Chalcopyrite Pickaxe
 item.genesis.tool.shovel.chalcopyrite.name=Chalcopyrite Shovel
 item.genesis.tool.axe.chalcopyrite.name=Chalcopyrite Axe

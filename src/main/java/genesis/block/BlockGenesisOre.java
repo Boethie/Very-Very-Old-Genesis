@@ -11,8 +11,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class BlockGenesisOre extends BlockGenesisRock {
-
-	protected ItemStack drop;
 	protected int minDrop;
 	protected int maxDrop;
 	protected int minXP;
@@ -35,7 +33,7 @@ public class BlockGenesisOre extends BlockGenesisRock {
 		this(material, harvestLevel, 1, 1);
 	}
 	
-	public BlockGenesisOre setDrop(Object drop, int damage, float smeltXP) throws IllegalArgumentException {
+	public BlockGenesisOre setDropAndSmelting(Object drop, int damage, float smeltXP) throws IllegalArgumentException {
 		ItemStack stack;
 
 		if (drop instanceof Block)
@@ -51,12 +49,6 @@ public class BlockGenesisOre extends BlockGenesisRock {
 		return this;
 	}
 
-	public BlockGenesisOre setDrop(ItemStack drop) {
-		this.drop = drop;
-
-		return this;
-	}
-
 	public BlockGenesisOre setSmelting(ItemStack stack, float xp) {
 		// FurnaceRecipes.smelting().addSmelting(block, stack, xp);
 		FurnaceRecipes.smelting().func_151393_a(this, stack, xp);
@@ -68,11 +60,6 @@ public class BlockGenesisOre extends BlockGenesisRock {
 	public int quantityDropped(int metadata, int fortune, Random random) {
 		int bonus = Math.max(random.nextInt(fortune + 2) - 1, 0);
 		return MathHelper.getRandomIntegerInRange(random, minDrop, maxDrop) * (bonus + 1);
-	}
-
-	@Override
-	public int damageDropped(int par1) {
-		return drop.getItemDamage();
 	}
 
 	@Override

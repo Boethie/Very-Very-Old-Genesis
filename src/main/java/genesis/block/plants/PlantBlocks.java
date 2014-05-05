@@ -42,7 +42,7 @@ public class PlantBlocks {
 
 		flower = (BlockGenesisFlower) new BlockGenesisFlower().setBlockName(Names.blockFlower);
 
-		zingiberopsis = (BlockGenesisCrop) new BlockGenesisCrop(ModItems.rhyzome, ModItems.rhyzome, Blocks.farmland, 8, 4).setBlockName(Names.blockZingiberopsis).setBlockTextureName("zingiberopsis");
+		zingiberopsis = (BlockGenesisCrop) new BlockGenesisCrop(ModItems.rhizome, ModItems.rhizome, Blocks.farmland, 8, 4).setBlockName(Names.blockZingiberopsis).setBlockTextureName("zingiberopsis");
 	}
 
 	public static void registerBlocks() {

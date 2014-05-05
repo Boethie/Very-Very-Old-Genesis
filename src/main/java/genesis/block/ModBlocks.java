@@ -1,15 +1,14 @@
 package genesis.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-
-import cpw.mods.fml.common.registry.GameRegistry;
-
 import genesis.block.gui.BlockCampfire;
 import genesis.block.plants.PlantBlocks;
 import genesis.block.trees.TreeBlocks;
 import genesis.item.ModItems;
 import genesis.lib.Names;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemStack;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModBlocks {
 
@@ -42,8 +41,8 @@ public class ModBlocks {
 	public static BlockGenesisOre malachiteOre;
 	public static BlockGenesisOreStorage malachiteBlock;
 	
-	public static Block chalcopyriteOre;
-	public static BlockGenesisOreStorage chalcopyriteBlock;
+	public static BlockGenesisOre hematiteOre;
+	//public static BlockGenesisOreStorage chalcopyriteBlock;
 	
 	public static BlockGenesisOre zirconOre;
 	public static BlockGenesisOreStorage zirconBlock;
@@ -95,7 +94,7 @@ public class ModBlocks {
 				.setBlockName(Names.blockStromatolite).setHardness(0.75F).setResistance(8.5F);
 		shale = new BlockGenesisRock(Material.rock, 0)
 				.setBlockTextureName("shale")
-				.setBlockName(Names.blockShale).setHardness(1.05F).setResistance(10.0F);
+				.setBlockName(Names.blockShale).setHardness(0.75F).setResistance(8.5F);
 		
 		permafrost = new BlockPermafrost().setBlockTextureName("permafrost")
 				.setBlockName(Names.blockPermafrost);
@@ -119,12 +118,13 @@ public class ModBlocks {
 				.setBlockTextureName("malachite_block").setBlockName(Names.blockMalachite)
 				.setHardness(5.0F).setResistance(10.0F);
 		
-		chalcopyriteOre = new BlockGenesisRock(Material.rock, 1)
-				.setBlockTextureName("chalcopyrite_ore").setBlockName(Names.blockChalcopyriteOre)
+		hematiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 3)
+				.setBlockTextureName("hematite_ore").setBlockName(Names.blockHematiteOre)
 				.setHardness(3.0F).setResistance(10.0F);
-		chalcopyriteBlock = (BlockGenesisOreStorage) new BlockGenesisOreStorage(Material.iron, 2)
+		
+		/*chalcopyriteBlock = (BlockGenesisOreStorage) new BlockGenesisOreStorage(Material.iron, 2)
 				.setBlockTextureName("chalcopyrite_block").setBlockName(Names.blockChalcopyrite)
-				.setHardness(5.0F).setResistance(10.0F);
+				.setHardness(5.0F).setResistance(10.0F);*/
 
 		zirconOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1, 3, 7)
 				.setBlockTextureName("zircon_ore").setBlockName(Names.blockZirconOre)
@@ -156,15 +156,17 @@ public class ModBlocks {
 	public static void registerBlocks() {
 		GameRegistry.registerBlock(moss, Names.blockMoss);
 		
-		zirconOre.setDrop(ModItems.zircon, 0, 1.0F);
+		zirconOre.setDropAndSmelting(ModItems.zircon, 0, 1.0F);
 
-		quartzGraniteOre.setDrop(ModItems.quartz, 0, 0.2F);
+		quartzGraniteOre.setDropAndSmelting(ModItems.quartz, 0, 0.2F);
 		
-		olivineOre.setDrop(ModItems.olivine, 0, 1.0F);
+		olivineOre.setDropAndSmelting(ModItems.olivine, 0, 1.0F);
 		
-		garnetOre.setDrop(ModItems.garnet, 0, 1.0F);
+		garnetOre.setDropAndSmelting(ModItems.garnet, 0, 1.0F);
 		
-		malachiteOre.setDrop(ModItems.malachite, 0, 0.2F);
+		malachiteOre.setDropAndSmelting(ModItems.malachite, 0, 0.2F);
+		
+		hematiteOre.setDrop(new ItemStack(ModItems.hematite, 1, 0), 2, 4);
 		
         moss.setHarvestLevel("shovel", 0);
         permafrost.setHarvestLevel("shovel", 0);
@@ -173,7 +175,6 @@ public class ModBlocks {
 		olivineBlock.setRecipe(ModItems.olivine, false);
 		malachiteBlock.setRecipe(ModItems.malachite, false);
 		ironMeteoriteBlock.setRecipe(ModItems.meteoricIronIngot, false);
-		chalcopyriteBlock.setRecipe(ModItems.chalcopyriteIngot, false);
 		garnetBlock.setRecipe(ModItems.garnet, false);
 		
 		TreeBlocks.registerBlocks();

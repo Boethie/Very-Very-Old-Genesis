@@ -40,8 +40,8 @@ public class Names {
 	public static final String blockMalachiteOre = blockOre + "malachite";
 	public static final String blockMalachite = blockStorage + "malachite";
 
-	public static final String blockChalcopyriteOre = blockOre + "chalcopyrite";
-	public static final String blockChalcopyrite = blockStorage + "chalcopyrite";
+	public static final String blockHematiteOre = blockOre + "hematite";
+	public static final String blockChalcopyrite = blockStorage + "chalcopsyrite";
 
 	public static final String blockZirconOre = blockOre + "zircon";
 	public static final String blockZircon = blockStorage + "zircon";
@@ -94,13 +94,13 @@ public class Names {
 
 	public static final String itemMalachite = mod + "malachite";
 
-	public static final String itemChalcopyriteIngot = mod + "chalcopyriteIngot";
+	public static final String itemHematite = mod + "hematite";
 	public static final String itemChalcopyriteIngotMaterial = "chalcopyrite";
 
 	// Swords and tools
 	public static final String itemTool = mod + "tool.";
 	public static final String itemSword = mod + "sword.";
-	public static final String itemDagger = mod + "dagger.";
+	public static final String itemKnife = mod + "knife.";
 	public static final String itemPickaxe = itemTool + "pickaxe.";
 	public static final String itemAxe = itemTool + "axe.";
 	public static final String itemSpade = itemTool + "shovel.";
