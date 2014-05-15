@@ -34,7 +34,6 @@ public class ModBlocks {
 
 	// Ores
 	public static Block ironMeteorite;
-	public static BlockGenesisOreStorage ironMeteoriteBlock;
 	
 	public static BlockGenesisOre quartzGraniteOre;
 	
@@ -103,9 +102,6 @@ public class ModBlocks {
 		ironMeteorite = new BlockGenesisRock(Material.rock, 0)
 				.setBlockTextureName("iron_meteorite")
 				.setBlockName(Names.blockIronMeteorite).setHardness(1.0F).setResistance(10.0F);
-		ironMeteoriteBlock = (BlockGenesisOreStorage) new BlockGenesisOreStorage(Material.iron, 2)
-				.setBlockTextureName("meteoric_iron_block").setBlockName(Names.blockStorageIronMeteorite)
-				.setHardness(5.0F).setResistance(10.0F);
 		
 		quartzGraniteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 1, 1, 1, 2, 5)
 				.setBlockTextureName("quartz_granite_ore").setBlockName(Names.blockQuartzGraniteOre)
@@ -174,7 +170,6 @@ public class ModBlocks {
 		zirconBlock.setRecipe(ModItems.zircon, false);
 		olivineBlock.setRecipe(ModItems.olivine, false);
 		malachiteBlock.setRecipe(ModItems.malachite, false);
-		ironMeteoriteBlock.setRecipe(ModItems.meteoricIronIngot, false);
 		garnetBlock.setRecipe(ModItems.garnet, false);
 		
 		TreeBlocks.registerBlocks();

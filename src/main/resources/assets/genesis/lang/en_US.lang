@@ -26,8 +26,7 @@ tile.genesis.rock.shale.name=Shale
 tile.genesis.permafrost.name=Permafrost
 
 <!-- Ores -->
-tile.genesis.rock.ironMeteorite.name=Iron Meteorite
-tile.genesis.storage.ironMeteorite.name=Block of Meteoric Iron
+tile.genesis.rock.ironMeteorite.name=Octaedrite Fragment
 
 tile.genesis.ore.quartzGranite.name=Granite Quartz Ore
 
@@ -107,8 +106,6 @@ item.genesis.zircon.name=Zircon
 item.genesis.quartz.name=Quartz
 
 item.genesis.olivine.name=Olivine
-
-item.genesis.meteoricIronIngot.name=Meteoric Iron Ingot
 
 item.genesis.garnet.name=Garnet
 

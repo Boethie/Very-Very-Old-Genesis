@@ -26,7 +26,6 @@ public class ModItems {
 	public static ItemsToolSet olivineTools;
 	public static ItemsSuitOfArmor olivineArmor;
 	
-	public static ItemGenesis meteoricIronIngot;
 	public static ItemsToolSet meteoricIronTools;
 	public static ItemsSuitOfArmor meteoricIronArmor;
 	
@@ -65,11 +64,6 @@ public class ModItems {
 		//			EnumHelper.addArmorMaterial(Names.itemOlivineMaterial.toUpperCase(), 23, new int[] {3, 7, 5, 2}, 10),
 		//			Names.itemOlivineMaterial, olivine);
 		
-		meteoricIronIngot = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemMeteoricIronIngot).setTextureName("iron_meteoric_ingot");
-		meteoricIronTools = new ItemsToolSet(
-				EnumHelper.addToolMaterial(Names.itemMeteoricIronMaterial.toUpperCase(), 2, 366, 4, 1, 25),
-				Names.itemMeteoricIronMaterial, meteoricIronIngot, Items.stick,
-				false, true, true, true, true, true);
 		//meteoricIronArmor = new ItemsSuitOfArmor(
 		//			EnumHelper.addArmorMaterial(Names.itemMeteoricIronMaterial.toUpperCase(), 18, new int[] {2, 6, 5, 2}, 25),
 		//			Names.itemMeteoricIronMaterial, meteoricIronIngot);

@@ -90,8 +90,6 @@ public class Recipes {
 			CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.carpet, 3, i), "##", '#', hematite);
 			CraftingManager.getInstance().getRecipeList().add(new RecipeArmorHematite());
 		}
-		
-		GameRegistry.addSmelting(ModBlocks.ironMeteorite, new ItemStack(ModItems.meteoricIronIngot, 1), 0.75F);
 		GameRegistry.addSmelting(ModItems.hematite, new ItemStack(Items.iron_ingot), 0.7F);
 	}
 
