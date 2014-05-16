@@ -37,7 +37,7 @@ public abstract class WorldGenTreeBase extends WorldGenerator {
 	 *            whether or not to notify blocks of the tree being grown.
 	 *            Generally false for world generation, true for saplings.
 	 */
-	public WorldGenTreeBase(BlockAndMeta leaves, BlockAndMeta wood, boolean notify) {
+	public WorldGenTreeBase(BlockAndMeta wood, BlockAndMeta leaves, boolean notify) {
 		this.leaves = leaves;
 		this.wood = wood;
 		notifyFlag = notify;
