@@ -17,17 +17,10 @@ public class ModItems {
 	public static ItemsToolSet graniteTools;
 	
 	public static ItemGenesis zircon;
-	public static ItemsToolSet zirconTools;
-	public static ItemsSuitOfArmor zirconArmor;
 	
 	public static ItemGenesis quartz;
 	
 	public static ItemGenesis olivine;
-	public static ItemsToolSet olivineTools;
-	public static ItemsSuitOfArmor olivineArmor;
-	
-	public static ItemsToolSet meteoricIronTools;
-	public static ItemsSuitOfArmor meteoricIronArmor;
 	
 	public static ItemGenesis garnet;
 	
@@ -45,28 +38,13 @@ public class ModItems {
 				false, true, true, true, true, true);
 		
 		zircon = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemZircon).setTextureName("zircon");
-		zirconTools = new ItemsToolSet(
-				EnumHelper.addToolMaterial(Names.itemZirconMaterial.toUpperCase(), 2, 625, 7, 2, 12),
-				Names.itemZirconMaterial, zircon, Items.stick,
-				false, true, true, true, true, true);
-		//zirconArmor = new ItemsSuitOfArmor(
-		//			EnumHelper.addArmorMaterial(Names.itemZirconMaterial.toUpperCase(), 25, new int[] {2, 7, 6, 2}, 9),
-		//			Names.itemZirconMaterial, zircon);
 		
 		quartz = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemQuartz).setTextureName("quartz");
 		
 		olivine = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");
-		olivineTools = new ItemsToolSet(
-				EnumHelper.addToolMaterial(Names.itemOlivineMaterial.toUpperCase(), 3, 500, 7, 3, 14),
-				Names.itemOlivineMaterial, olivine, Items.stick,
-				false, true, true, true, true, true);
 		//olivineArmor = new ItemsSuitOfArmor(
 		//			EnumHelper.addArmorMaterial(Names.itemOlivineMaterial.toUpperCase(), 23, new int[] {3, 7, 5, 2}, 10),
 		//			Names.itemOlivineMaterial, olivine);
-		
-		//meteoricIronArmor = new ItemsSuitOfArmor(
-		//			EnumHelper.addArmorMaterial(Names.itemMeteoricIronMaterial.toUpperCase(), 18, new int[] {2, 6, 5, 2}, 25),
-		//			Names.itemMeteoricIronMaterial, meteoricIronIngot);
 		
 		garnet = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemGarnet).setTextureName("garnet");
 		
