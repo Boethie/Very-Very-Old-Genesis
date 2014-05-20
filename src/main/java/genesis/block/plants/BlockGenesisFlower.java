@@ -92,11 +92,9 @@ public class BlockGenesisFlower extends BlockFlower implements IPlantRenderSpeci
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		blockIcons = new IIcon[PlantBlocks.flowerTypes.size()];
-		int set = 0;
-
-		for (String s : PlantBlocks.flowerTypes) {
-			blockIcons[set] = iconRegister.registerIcon(Genesis.MOD_ID + ":" + s);
-			set++;
+		
+		for (int i = 0; i < blockIcons.length; i++)	{
+			blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":" + PlantBlocks.flowerTypes.get(i));
 		}
 	}
 

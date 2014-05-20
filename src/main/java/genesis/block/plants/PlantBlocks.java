@@ -10,15 +10,14 @@ import net.minecraft.item.crafting.CraftingManager;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import genesis.item.ModItems;
+import genesis.item.itemblock.ItemBlockGenesisFern;
 import genesis.item.itemblock.ItemBlockGenesisPlant;
 import genesis.lib.Names;
 
 public class PlantBlocks {
 
-	public static final String COOK_NAME = "cooksonia";
-	public static final String BARA_NAME = "baragwanathia";
-	public static final String SCIA_NAME = "sciadophyton";
-	public static final String PSILO_NAME = "psilophyton";
+	public static final String COOK_NAME = "cooksonia", BARA_NAME = "baragwanathia", 
+			SCIA_NAME = "sciadophyton", PSILO_NAME = "psilophyton";
 	
 	public static final String ZYGO_NAME = "zygopteris", MATON_NAME = "matonidium", 
 			ASTRA_NAME = "astralopteris", RUFF_NAME = "ruffordia";
@@ -31,14 +30,23 @@ public class PlantBlocks {
 			add(PSILO_NAME);
 		}
 	};
+	
+	public static final ArrayList<String> fernTypes = new ArrayList() {
+		{
+			add(ZYGO_NAME);
+			add(MATON_NAME);
+			add(ASTRA_NAME);
+			add(RUFF_NAME);
+		}
+	};
 
 	public static BlockGenesisFlowerPot flowerPot;
 	public static Block calamitesPlant;
 	public static BlockCalamitesStorage calamitesBlock;
 	public static BlockGenesisFlower flower;
 	public static BlockGenesisCrop zingiberopsis;
-	public static BlockGenesisFern zygopteris, matonidium, astralopteris, ruffordia;
-
+	public static BlockGenesisFern ferns;
+	
 	public static void init() {
 		flowerPot = (BlockGenesisFlowerPot) new BlockGenesisFlowerPot().setBlockTextureName("flower_pot").setBlockName(Names.blockFlowerPot);
 
@@ -49,10 +57,7 @@ public class PlantBlocks {
 
 		zingiberopsis = (BlockGenesisCrop) new BlockGenesisCrop(ModItems.rhizome, ModItems.rhizome, Blocks.farmland, 8, 4).setBlockName(Names.blockZingiberopsis).setBlockTextureName("zingiberopsis");
 		
-		zygopteris = (BlockGenesisFern) new BlockGenesisFern().setBlockTextureName(ZYGO_NAME).setBlockName(Names.blockFern + ZYGO_NAME);
-		matonidium = (BlockGenesisFern) new BlockGenesisFern().setBlockTextureName(MATON_NAME).setBlockName(Names.blockFern + MATON_NAME);
-		astralopteris = (BlockGenesisFern) new BlockGenesisFern().setBlockTextureName(ASTRA_NAME).setBlockName(Names.blockFern + ASTRA_NAME);
-		ruffordia = (BlockGenesisFern) new BlockGenesisFern().setBlockTextureName(RUFF_NAME).setBlockName(Names.blockFern + RUFF_NAME);
+		ferns = (BlockGenesisFern) new BlockGenesisFern().setBlockName(Names.blockFern);
 	}
 
 	public static void registerBlocks() {
@@ -63,10 +68,7 @@ public class PlantBlocks {
 		
 		GameRegistry.registerBlock(zingiberopsis, Names.blockZingiberopsis);
 		
-		GameRegistry.registerBlock(zygopteris, Names.blockFern + ZYGO_NAME);
-		GameRegistry.registerBlock(matonidium, Names.blockFern + MATON_NAME);
-		GameRegistry.registerBlock(astralopteris, Names.blockFern + ASTRA_NAME);
-		GameRegistry.registerBlock(ruffordia, Names.blockFern + RUFF_NAME);
+		GameRegistry.registerBlock(ferns, ItemBlockGenesisFern.class, Names.blockFern);
 
 		//CraftingManager.getInstance().addRecipe(new ItemStack(calamitesBlock), "CCC", "CCC", "CCC", 'C', calamitesPlant);
 

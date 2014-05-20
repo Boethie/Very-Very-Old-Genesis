@@ -1,13 +1,11 @@
 package genesis.block.plants;
 
+import genesis.block.ModBlocks;
 import genesis.common.Genesis;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -33,6 +31,7 @@ import cpw.mods.fml.relauncher.SideOnly;
  */
 public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShearable
 {
+	private IIcon[] blockIcons;
 	public EnumPlantType defaultType = EnumPlantType.Plains;
 	public EnumPlantType[] typesPlantable = {};
 	
@@ -43,15 +42,24 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 		setPlantBoundsSize(0.45f);
 		setStepSound(soundTypeGrass);
 	}
+	
 	public BlockGenesisFern setPlantableTypes(EnumPlantType[] types)
 	{
 		typesPlantable = types;
 		return this;
 	}
+	
 	protected void setPlantBoundsSize(float size)
 	{
 		setBlockBounds(0.5f - size, 0.0f, 0.5f - size, 0.5f + size, 1.0f, 0.5f + size);
 	}
+	
+	@Override
+	public int damageDropped(int meta)
+	{
+		return meta;
+	}
+	
 	/**
 	 * Not fully written yet. No need at this moment as I have no idea where these ferns will
 	 * generate.
@@ -65,29 +73,46 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 		}
 		return typesPlantable[0];
 	}
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tabs, List list)
 	{
-		list.add(new ItemStack(item, 1, 0));
+		int count = PlantBlocks.fernTypes.size(); // so we only call size() once
+		for (int i = 0; i < count; i++)
+		{
+			list.add(new ItemStack(item, 1, i));
+		}
 	}
+	
 	@Override
 	public int getRenderType()
 	{
 		return 1;
 	}
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register)
 	{
-		blockIcon = register.registerIcon(Genesis.MOD_ID + ":" + getTextureName());
+		blockIcons = new IIcon[PlantBlocks.fernTypes.size()];
+		for (int i = 0; i < blockIcons.length; i++)
+		{
+			blockIcons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantBlocks.fernTypes.get(i));
+		}
 	}
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int par1, int par2)
 	{
-		return blockIcon;
+		if (par2 >= blockIcons.length)
+		{
+			par2 = 0;
+		}
+		return blockIcons[par2];
 	}
+	
 	protected void dropIfCannotStay(World world, int x, int y, int z)
 	{
 		if (!canBlockStay(world, x, y, z))
@@ -95,16 +120,19 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 			world.setBlockToAir(x, y, z);
 		}
 	}
+	
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block)
 	{
 		dropIfCannotStay(world, x, y, z);
 	}
+	
 	@Override
 	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
 	{
 		return true;
 	}
+	
 	@Override
 	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) 
 	{
@@ -112,6 +140,7 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 		list.add(new ItemStack(this, 1, 0));
 		return list;
 	}
+	
 	@Override
 	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int meta, int fortune)
 	{
@@ -122,16 +151,18 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
             Item item = getItemDropped(meta, world.rand, fortune);
             if (item != null)
             {
-                ret.add(new ItemStack(item, 1, damageDropped(meta)));
+                ret.add(new ItemStack(item, 1, meta));
             }
         }
         return ret;
 	}
+	
 	@Override
 	public int quantityDroppedWithBonus(int par1, Random random)
 	{
 		return 0;
 	}
+	
 	// biome-dependent color code
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -139,10 +170,17 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 	{
 		return ColorizerGrass.getGrassColor(0.5d, 1.0d);
 	}
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int colorMultiplier(IBlockAccess world, int x, int y, int z)
 	{
 		return world.getBiomeGenForCoords(x, z).getBiomeGrassColor(x, y, z);
+	}
+	
+	@Override
+	protected boolean canPlaceBlockOn(Block block)
+	{
+		return super.canPlaceBlockOn(block) || block == ModBlocks.moss;
 	}
 }

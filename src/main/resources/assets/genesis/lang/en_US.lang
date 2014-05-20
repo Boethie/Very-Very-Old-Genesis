@@ -98,10 +98,10 @@ tile.genesis.plant.flower.psilophyton.name=Psilophyton
 
 item.genesis.plant.seed.rhizome.name=Zingiberopsis Rhizome
 tile.genesis.plant.crop.zingiberopsis.name=Zingiberopsis
-tile.genesis.plant.fern.zygopteris.name=Zygopteris Fern
-tile.genesis.plant.fern.matonidium.name=Matonidium Fern
-tile.genesis.plant.fern.astralopteris.name=Astralopteris Fern
-tile.genesis.plant.fern.ruffordia.name=Ruffordia Fern
+tile.genesis.plant.fern.zygopteris.name=Zygopteris
+tile.genesis.plant.fern.matonidium.name=Matonidium
+tile.genesis.plant.fern.astralopteris.name=Astralopteris
+tile.genesis.plant.fern.ruffordia.name=Ruffordia
 
 <!-- Items -->
 <!-- Crafting -->
