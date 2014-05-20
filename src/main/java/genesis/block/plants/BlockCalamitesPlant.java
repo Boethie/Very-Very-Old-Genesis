@@ -29,9 +29,8 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 
 	public static final int PLAIN_META_MASK = 7;
 	public static final int EGGS_META = 8;
-
+	
 	@SideOnly(Side.CLIENT) IIcon calamitesPlant;
-
 	@SideOnly(Side.CLIENT) IIcon calamitesPlantTop;
 
 	@SideOnly(Side.CLIENT) IIcon calamitesPlantEggs1;
@@ -206,6 +205,7 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 	private boolean secondSide;
 	private boolean reverseTex;
 
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
 		if (side == 0) {
@@ -244,10 +244,11 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 
 		return isTop ? calamitesPlantTop : calamitesPlant;
 	}
-
+	
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int side, int metadata) {
-		return blockIcon;
+		return calamitesPlant;
 	}
 
 	@Override
@@ -255,10 +256,10 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 		return reverseTex;
 	}
 
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister) {
-		String texName = getTextureName();
-		String texStart = Genesis.MOD_ID + ":" + texName;
+		String texStart = Genesis.MOD_ID + ":" + getTextureName();
 
 		calamitesPlant = iconRegister.registerIcon(texStart);
 		calamitesPlantTop = iconRegister.registerIcon(texStart + "_top");
@@ -267,10 +268,9 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 		calamitesPlantEggs2 = iconRegister.registerIcon(texStart + "_eggs_2");
 		calamitesPlantTopEggs1 = iconRegister.registerIcon(texStart + "_eggs_top_1");
 		calamitesPlantTopEggs2 = iconRegister.registerIcon(texStart + "_eggs_top_2");
-
-		blockIcon = calamitesPlant;
 	}
 
+	@SideOnly(Side.CLIENT)
 	@Override
 	public String getItemIconName() {
 		return Genesis.MOD_ID + ":" + getTextureName();

@@ -65,6 +65,7 @@ public class Names {
 	public static final String blockPlant = mod + "plant.";
 	public static final String blockFlowerPot = blockPlant + "flowerpot";
 	public static final String blockCrop = blockPlant + "crop.";
+	public static final String blockFern = blockPlant + "fern.";
 	public static final String itemSeed = blockPlant + "seed.";
 
 	public static final String blockCalamitesPlant = blockPlant + "calamites";

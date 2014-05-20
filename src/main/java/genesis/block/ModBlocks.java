@@ -31,10 +31,9 @@ public class ModBlocks {
 	public static Block stromatolite;
 	public static Block shale;
 	public static Block permafrost;
-
-	// Ores
-	public static Block ironMeteorite;
+	public static Block octaedrite;
 	
+	// Ores
 	public static BlockGenesisOre quartzGraniteOre;
 	
 	public static BlockGenesisOre malachiteOre;
@@ -98,11 +97,11 @@ public class ModBlocks {
 		permafrost = new BlockPermafrost().setBlockTextureName("permafrost")
 				.setBlockName(Names.blockPermafrost);
 		
-		// Ores
-		ironMeteorite = new BlockGenesisRock(Material.rock, 0)
+		octaedrite = new BlockGenesisRock(Material.rock, 0)
 				.setBlockTextureName("iron_meteorite")
 				.setBlockName(Names.blockIronMeteorite).setHardness(1.0F).setResistance(10.0F);
 		
+		// Ores
 		quartzGraniteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 1, 1, 1, 2, 5)
 				.setBlockTextureName("quartz_granite_ore").setBlockName(Names.blockQuartzGraniteOre)
 				.setHardness(3.0F).setResistance(10.0F);
@@ -117,10 +116,6 @@ public class ModBlocks {
 		hematiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 3)
 				.setBlockTextureName("hematite_ore").setBlockName(Names.blockHematiteOre)
 				.setHardness(3.0F).setResistance(10.0F);
-		
-		/*chalcopyriteBlock = (BlockGenesisOreStorage) new BlockGenesisOreStorage(Material.iron, 2)
-				.setBlockTextureName("chalcopyrite_block").setBlockName(Names.blockChalcopyrite)
-				.setHardness(5.0F).setResistance(10.0F);*/
 
 		zirconOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1, 3, 7)
 				.setBlockTextureName("zircon_ore").setBlockName(Names.blockZirconOre)

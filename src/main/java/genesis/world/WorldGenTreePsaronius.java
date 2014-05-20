@@ -26,7 +26,7 @@ public class WorldGenTreePsaronius extends WorldGenTreeBase {
 	 *            Generally false for world generation, true for saplings.
 	 */
 	public WorldGenTreePsaronius(int minH, int maxH, boolean notify) {
-		super(new BlockAndMeta(TreeBlocks.blocksLogs[1], 0), new BlockAndMeta(TreeBlocks.blocksLeaves[1], 1), notify);
+		super(new BlockAndMeta(TreeBlocks.blocksWoods[1], 0), new BlockAndMeta(TreeBlocks.blocksLeaves[1], 1), notify);
 		minHeight = minH;
 		maxHeight = maxH;
 	}
