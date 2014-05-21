@@ -7,7 +7,6 @@ import net.minecraftforge.common.util.EnumHelper;
 
 import genesis.block.ModBlocks;
 import genesis.block.plants.PlantBlocks;
-import genesis.item.ItemSets.ItemsSuitOfArmor;
 import genesis.item.ItemSets.ItemsToolSet;
 import genesis.lib.Names;
 
@@ -42,9 +41,6 @@ public class ModItems {
 		quartz = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemQuartz).setTextureName("quartz");
 		
 		olivine = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");
-		//olivineArmor = new ItemsSuitOfArmor(
-		//			EnumHelper.addArmorMaterial(Names.itemOlivineMaterial.toUpperCase(), 23, new int[] {3, 7, 5, 2}, 10),
-		//			Names.itemOlivineMaterial, olivine);
 		
 		garnet = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemGarnet).setTextureName("garnet");
 		
@@ -52,9 +48,6 @@ public class ModItems {
 		
 		hematite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemHematite).setTextureName("hematite");
 		
-		/*Waiting for texture*/
-		//olivineArmor = new ItemsSuitOfArmor(
-		//		EnumHelper.addArmorMaterial(Names.itemOlivineMaterial.toUpperCase(), 23, new int[] {3, 7, 5, 2}, 10),
 		
 		// Seeds/Foods
 		rhizome = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.zingiberopsis, 2, 1)

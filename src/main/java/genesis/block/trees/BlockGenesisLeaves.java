@@ -49,12 +49,12 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
 	
 	@Override
     public IIcon getIcon(int id, int metadata) {
+		metadata &= 3;
 		
-        if (Minecraft.getMinecraft().gameSettings.fancyGraphics) {
+        if (Minecraft.getMinecraft().gameSettings.fancyGraphics)
         	return blockIcons[metadata * 2];
-        } else {
-        	return blockIcons[(metadata * 2) + 1];
-        }
+        else
+        	return blockIcons[((metadata + 1) * 2) - 1];
     }
 	
 	@Override

@@ -14,7 +14,6 @@ import net.minecraft.item.crafting.ShapedRecipes;
 public class ItemSets {
 
 	public static void registerAllRecipes() {
-		ItemsSuitOfArmor.registerAllCraftingRecipes();
 		ItemsToolSet.registerAllCraftingRecipes();
 	}
 
@@ -87,108 +86,6 @@ public class ItemSets {
 		}
 	}
 
-	public static class ItemsSuitOfArmor implements IRecipeWithDefault {
-
-		private static final ArrayList<ItemsSuitOfArmor> suits = new ArrayList<ItemsSuitOfArmor>();
-
-		public static void registerAllCraftingRecipes() {
-			for (ItemsSuitOfArmor suit : suits)
-				suit.registerRecipes();
-		}
-
-		public ItemGenesisArmor helmet;
-		public ItemGenesisArmor chestplate;
-		public ItemGenesisArmor leggings;
-		public ItemGenesisArmor boots;
-
-		public Object craftingObj;
-		
-		public ItemsSuitOfArmor(ItemArmor.ArmorMaterial armorMaterial, String materialName, Object crafting){
-			this (armorMaterial, materialName, crafting, true, true, true, true);
-		}
-		
-		public ItemsSuitOfArmor(ItemArmor.ArmorMaterial armorMaterial, String materialName, Object crafting,
-				boolean enableHelmet,
-				boolean enableChestplate,
-				boolean enableLeggings,
-				boolean enableBoots) {
-			
-			if (enableHelmet)
-				helmet = new ItemGenesisArmor(armorMaterial, 0, materialName);
-			
-			if (enableChestplate)
-				chestplate = new ItemGenesisArmor(armorMaterial, 1, materialName);
-			
-			if (enableLeggings)
-				leggings = new ItemGenesisArmor(armorMaterial, 2, materialName);
-			
-			if (enableBoots)
-				boots = new ItemGenesisArmor(armorMaterial, 3, materialName);
-			
-			craftingObj = crafting;
-
-			suits.add(this);
-		}
-		
-		
-		
-		public void registerRecipes() {
-			registerRecipeWithDefault(craftingObj, this);
-		}
-
-		@Override
-		public int getRecipeCount() {
-			return 4;
-		}
-
-		@Override
-		public int getRecipeWidth(int recipe) {
-			return 3;
-		}
-
-		@Override
-		public ItemStack[] getDefaultRecipe(int recipe, ItemStack craftStack) {
-			switch (recipe) {
-				case 0:
-					return new ItemStack[] { craftStack, craftStack, craftStack, craftStack, null, craftStack };
-				case 1:
-					return new ItemStack[] { craftStack, null, craftStack, craftStack, craftStack, craftStack, craftStack, craftStack, craftStack };
-				case 2:
-					return new ItemStack[] { craftStack, craftStack, craftStack, craftStack, null, craftStack, craftStack, null, craftStack };
-				case 3:
-					return new ItemStack[] { craftStack, null, craftStack, craftStack, null, craftStack };
-				default:
-					return null;
-			}
-		}
-
-		@Override
-		public ItemStack getOutput(int recipe) {
-			Item item = null;
-			
-			switch (recipe) {
-				case 0:
-					item = helmet;
-					break;
-				case 1:
-					item = chestplate;
-					break;
-				case 2:
-					item = leggings;
-					break;
-				case 3:
-					item = boots;
-					break;
-			}
-			
-			if (item == null){
-				return null;
-			}else{
-				return new ItemStack(item);
-			}
-		}
-	}
-
 	public static class ItemsToolSet implements IRecipeWithDefault {
 		private static final ArrayList<ItemsToolSet> sets = new ArrayList<ItemsToolSet>();
 
@@ -197,7 +94,6 @@ public class ItemSets {
 				set.registerRecipes();
 		}
 
-		public ItemGenesisSword sword;
 		public ItemGenesisKnife knife;
 		public ItemGenesisPickaxe pickaxe;
 		public ItemGenesisAxe axe;
@@ -219,8 +115,6 @@ public class ItemSets {
 				boolean enableSpade,
 				boolean enableHoe) {
 			
-			if (enableSword)
-				sword = new ItemGenesisSword(toolMaterial, materialName);
 			
 			if (enableKnife)
 				knife = new ItemGenesisKnife(toolMaterial, materialName);
@@ -295,9 +189,6 @@ public class ItemSets {
 			Item item = null;
 			
 			switch (recipe) {
-				case 0:
-					item = sword;
-					break;
 				case 1:
 					item = knife;
 					break;
