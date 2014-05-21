@@ -32,8 +32,7 @@ public class Names {
 	// Ores
 	public static final String blockOre = mod + "ore.";
 
-	public static final String blockIronMeteorite = blockRock + "ironMeteorite";
-	public static final String blockStorageIronMeteorite = blockStorage + "ironMeteorite";
+	public static final String blockOctaedrite = blockRock + "octaedrite";
 
 	public static final String blockQuartzGraniteOre = blockOre + "quartzGranite";
 
@@ -65,7 +64,7 @@ public class Names {
 	public static final String blockPlant = mod + "plant.";
 	public static final String blockFlowerPot = blockPlant + "flowerpot";
 	public static final String blockCrop = blockPlant + "crop.";
-	public static final String blockFern = blockPlant + "fern";
+	public static final String blockFern = blockPlant + "fern.";
 	public static final String itemSeed = blockPlant + "seed.";
 
 	public static final String blockCalamitesPlant = blockPlant + "calamites";

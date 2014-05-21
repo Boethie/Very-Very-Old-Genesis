@@ -26,7 +26,7 @@ tile.genesis.rock.shale.name=Shale
 tile.genesis.permafrost.name=Permafrost
 
 <!-- Ores -->
-tile.genesis.rock.ironMeteorite.name=Octaedrite Fragment
+tile.genesis.rock.octaedrite.name=Octaedrite Fragment
 
 tile.genesis.ore.quartzGranite.name=Granite Quartz Ore
 

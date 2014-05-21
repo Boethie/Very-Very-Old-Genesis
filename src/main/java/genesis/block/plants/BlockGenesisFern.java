@@ -25,7 +25,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 /**
  * I am sure there is a much more easier and shorter way of writing this, but it is designed to be
  * flexible. i.e if we need to add/remove more ferns or change the properties of one. 
- * Code based off BlockGenesisFlower
+ * Code based off BlockGenesisFlower & BlockTallGrass
  * @author Arbiter
  *
  */
@@ -137,7 +137,7 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) 
 	{
 		ArrayList<ItemStack> list = new ArrayList<ItemStack>();
-		list.add(new ItemStack(this, 1, 0));
+		list.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
 		return list;
 	}
 	

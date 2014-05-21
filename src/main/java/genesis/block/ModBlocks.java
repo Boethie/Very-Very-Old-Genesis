@@ -98,8 +98,8 @@ public class ModBlocks {
 				.setBlockName(Names.blockPermafrost);
 		
 		octaedrite = new BlockGenesisRock(Material.rock, 0)
-				.setBlockTextureName("iron_meteorite")
-				.setBlockName(Names.blockIronMeteorite).setHardness(1.0F).setResistance(10.0F);
+				.setBlockTextureName("octaedrite_fragment")
+				.setBlockName(Names.blockOctaedrite).setHardness(1.0F).setResistance(10.0F);
 		
 		// Ores
 		quartzGraniteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 1, 1, 1, 2, 5)
