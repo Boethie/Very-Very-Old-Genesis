@@ -17,7 +17,7 @@ import genesis.lib.Names;
 public class PlantBlocks {
 
 	public static final String COOK_NAME = "cooksonia", BARA_NAME = "baragwanathia", 
-			SCIA_NAME = "sciadophyton", PSILO_NAME = "psilophyton";
+			SCIA_NAME = "sciadophyton", PSILO_NAME = "psilophyton", NOTHIA_NAME = "nothia";
 	
 	public static final String ZYGO_NAME = "zygopteris", MATON_NAME = "matonidium", 
 			ASTRA_NAME = "astralopteris", RUFF_NAME = "ruffordia";
@@ -28,6 +28,7 @@ public class PlantBlocks {
 			add(BARA_NAME);
 			add(SCIA_NAME);
 			add(PSILO_NAME);
+			add(NOTHIA_NAME);
 		}
 	};
 	
@@ -43,7 +44,7 @@ public class PlantBlocks {
 	public static BlockGenesisFlowerPot flowerPot;
 	public static Block calamitesPlant;
 	public static BlockCalamitesStorage calamitesBlock;
-	public static BlockGenesisFlower flower;
+	public static BlockGenesisTerrestrialPlant flower;
 	public static BlockGenesisCrop zingiberopsis;
 	public static BlockGenesisFern ferns;
 	
@@ -53,7 +54,7 @@ public class PlantBlocks {
 		// calamitesPlant = new BlockCalamitesPlant().setBlockTextureName("calamites").setBlockName(Names.blockCalamitesPlant);
 		calamitesBlock = (BlockCalamitesStorage) new BlockCalamitesStorage().setBlockTextureName("calamites_block").setBlockName(Names.blockCalamites);
 
-		flower = (BlockGenesisFlower) new BlockGenesisFlower().setBlockName(Names.blockFlower);
+		flower = (BlockGenesisTerrestrialPlant) new BlockGenesisTerrestrialPlant().setBlockName(Names.blockFlower);
 
 		zingiberopsis = (BlockGenesisCrop) new BlockGenesisCrop(ModItems.rhizome, ModItems.rhizome, Blocks.farmland, 8, 4).setBlockName(Names.blockZingiberopsis).setBlockTextureName("zingiberopsis");
 		

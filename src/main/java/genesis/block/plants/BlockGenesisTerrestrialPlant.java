@@ -22,7 +22,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import genesis.common.Genesis;
 
-public class BlockGenesisFlower extends BlockFlower implements IPlantRenderSpecials, IPlantInFlowerPot {
+public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantRenderSpecials, IPlantInFlowerPot {
 
 	public IIcon[] blockIcons;
 
@@ -30,7 +30,7 @@ public class BlockGenesisFlower extends BlockFlower implements IPlantRenderSpeci
 	public EnumPlantType[] typesPlantable = {};
 	private EnumPlantType testingType;
 
-	protected BlockGenesisFlower() {
+	protected BlockGenesisTerrestrialPlant() {
 		super(0);
 
 		setCreativeTab(Genesis.tabGenesis);
@@ -39,7 +39,7 @@ public class BlockGenesisFlower extends BlockFlower implements IPlantRenderSpeci
 		setStepSound(soundTypeGrass);
 	}
 
-	public BlockGenesisFlower setPlantableTypes(EnumPlantType[] types) {
+	public BlockGenesisTerrestrialPlant setPlantableTypes(EnumPlantType[] types) {
 		typesPlantable = types;
 		return this;
 	}

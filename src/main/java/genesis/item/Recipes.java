@@ -16,7 +16,6 @@ import net.minecraft.item.crafting.ShapelessRecipes;
 import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.block.ModBlocks;
 import genesis.block.plants.PlantBlocks;
-import genesis.crafting.RecipeArmorHematite;
 import genesis.lib.LogHelper;
 
 public class Recipes {
@@ -88,7 +87,6 @@ public class Recipes {
 			CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, BlockColored.func_150031_c(i)), "###", "#X#", "###", '#', new ItemStack(Blocks.hardened_clay), 'X', hematite);
 			CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.stained_glass, 8, BlockColored.func_150031_c(i)), "###", "#X#", "###", '#', new ItemStack(Blocks.glass), 'X', hematite);
 			CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.carpet, 3, i), "##", '#', hematite);
-			CraftingManager.getInstance().getRecipeList().add(new RecipeArmorHematite());
 		}
 		GameRegistry.addSmelting(ModItems.hematite, new ItemStack(Items.iron_ingot), 0.7F);
 	}
