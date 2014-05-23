@@ -45,7 +45,8 @@ public class PlantBlocks {
 	public static Block calamitesPlant;
 	public static BlockCalamitesStorage calamitesBlock;
 	public static BlockGenesisTerrestrialPlant flower;
-	public static BlockGenesisCrop zingiberopsis;
+	public static BlockZingiberopsisBase zingiberopsis;
+	public static BlockZingiberopsisTop zingTop;
 	public static BlockGenesisFern ferns;
 	
 	public static void init() {
@@ -56,7 +57,9 @@ public class PlantBlocks {
 
 		flower = (BlockGenesisTerrestrialPlant) new BlockGenesisTerrestrialPlant().setBlockName(Names.blockFlower);
 
-		zingiberopsis = (BlockGenesisCrop) new BlockGenesisCrop(ModItems.rhizome, ModItems.rhizome, Blocks.farmland, 8, 4).setBlockName(Names.blockZingiberopsis).setBlockTextureName("zingiberopsis");
+		zingiberopsis = (BlockZingiberopsisBase) new BlockZingiberopsisBase().setBlockName(Names.blockZingiberopsis).setBlockTextureName("zingiberopsis");
+		
+		zingTop = (BlockZingiberopsisTop) new BlockZingiberopsisTop().setBlockName(Names.blockZingiberopsis).setBlockTextureName("zingiberopsis");
 		
 		ferns = (BlockGenesisFern) new BlockGenesisFern().setBlockName(Names.blockFern);
 	}
@@ -68,6 +71,8 @@ public class PlantBlocks {
 		GameRegistry.registerBlock(flower, ItemBlockGenesisPlant.class, Names.blockFlower);
 		
 		GameRegistry.registerBlock(zingiberopsis, Names.blockZingiberopsis);
+		
+		GameRegistry.registerBlock(zingTop, Names.blockZingiberopsis + ".top");
 		
 		GameRegistry.registerBlock(ferns, ItemBlockGenesisFern.class, Names.blockFern);
 

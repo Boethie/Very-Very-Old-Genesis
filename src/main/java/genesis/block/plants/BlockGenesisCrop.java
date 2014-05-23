@@ -23,12 +23,12 @@ public class BlockGenesisCrop extends BlockCrops {
 
 	@SideOnly(Side.CLIENT) private IIcon[] iconArray;
 
-	private Item seedItem;
-	private Item cropItem;
-	private Block soilBlock;
-	private int stages;
-	private int fullGrownDroppedAmmount;
-	private int droppedAmmount;
+	protected Item seedItem;
+	protected Item cropItem;
+	protected Block soilBlock;
+	protected int stages;
+	protected int fullGrownDroppedAmount;
+	protected int droppedAmount;
 
 	/**
 	 * 
@@ -43,7 +43,7 @@ public class BlockGenesisCrop extends BlockCrops {
 		this.seedItem = seedItem;
 		this.soilBlock = soilBlock;
 		this.stages = stages;
-		this.fullGrownDroppedAmmount = fullGrownDroppedAmmount;
+		this.fullGrownDroppedAmount = fullGrownDroppedAmmount;
 		
 		setCreativeTab((CreativeTabs) null);
 	}
@@ -67,7 +67,7 @@ public class BlockGenesisCrop extends BlockCrops {
 
 	@Override
 	public int quantityDropped(Random par1Random) {
-		return droppedAmmount;
+		return droppedAmount;
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -75,29 +75,6 @@ public class BlockGenesisCrop extends BlockCrops {
     {
         return this.func_149866_i();
     }
-
-	@Override
-	public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7) {
-		super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, par7);
-		if (!par1World.isRemote)
-		{
-			if (par5 >= stages - 1) {
-				Random par1Random = new Random();
-				droppedAmmount = par1Random.nextInt(fullGrownDroppedAmmount) + 1;
-				
-				dropBlockAsItem(par1World, par2, par3, par4, new ItemStack(this.cropItem));
-				if(this.cropItem != this.seedItem)
-				{
-					int seeddrops = par1Random.nextInt(3);
-					for(int i = 0; i < seeddrops; i++)
-					{
-						dropBlockAsItem(par1World, par2, par3, par4, new ItemStack(this.seedItem));
-					}
-				}
-			} else
-				dropBlockAsItem(par1World, par2, par3, par4, new ItemStack(this.seedItem));
-		}
-	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
