@@ -1,23 +1,18 @@
 package genesis.block.plants;
 
-import java.util.Random;
+import genesis.common.Genesis;
 
-import sun.rmi.log.ReliableLog.LogFile;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
-import genesis.common.Genesis;
 
 public class BlockGenesisCrop extends BlockCrops {
 
