@@ -15,7 +15,7 @@ public class ItemBlockGenesisPlant extends ItemBlockWithMetadata {
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 		Block block = Block.getBlockFromItem(stack.getItem());
-		return block.getUnlocalizedName() + "." + PlantBlocks.flowerTypes.get(getMetadata(stack.getItemDamage()));
+		return block.getUnlocalizedName() + PlantBlocks.plantTypes.get(getMetadata(stack.getItemDamage()));
     }
 	
 	@Override

@@ -22,7 +22,7 @@ public class PlantBlocks {
 	public static final String ZYGO_NAME = "zygopteris", MATON_NAME = "matonidium", 
 			ASTRA_NAME = "astralopteris", RUFF_NAME = "ruffordia";
 
-	public static final ArrayList<String> flowerTypes = new ArrayList() {
+	public static final ArrayList<String> plantTypes = new ArrayList() {
 		{
 			add(COOK_NAME);
 			add(BARA_NAME);
@@ -44,7 +44,7 @@ public class PlantBlocks {
 	public static BlockGenesisFlowerPot flowerPot;
 	public static Block calamitesPlant;
 	public static BlockCalamitesStorage calamitesBlock;
-	public static BlockGenesisTerrestrialPlant flower;
+	public static BlockGenesisTerrestrialPlant plants;
 	public static BlockZingiberopsisBase zingiberopsis;
 	public static BlockZingiberopsisTop zingTop;
 	public static BlockGenesisFern ferns;
@@ -55,7 +55,7 @@ public class PlantBlocks {
 		// calamitesPlant = new BlockCalamitesPlant().setBlockTextureName("calamites").setBlockName(Names.blockCalamitesPlant);
 		calamitesBlock = (BlockCalamitesStorage) new BlockCalamitesStorage().setBlockTextureName("calamites_block").setBlockName(Names.blockCalamites);
 
-		flower = (BlockGenesisTerrestrialPlant) new BlockGenesisTerrestrialPlant().setBlockName(Names.blockFlower);
+		plants = (BlockGenesisTerrestrialPlant) new BlockGenesisTerrestrialPlant().setBlockName(Names.blockPlant);
 
 		zingiberopsis = (BlockZingiberopsisBase) new BlockZingiberopsisBase().setBlockName(Names.blockZingiberopsis).setBlockTextureName("zingiberopsis");
 		
@@ -68,7 +68,7 @@ public class PlantBlocks {
 		// GameRegistry.registerBlock(calamitesPlant, Names.blockCalamitesPlant);
 		GameRegistry.registerBlock(calamitesBlock, Names.blockCalamites);
 
-		GameRegistry.registerBlock(flower, ItemBlockGenesisPlant.class, Names.blockFlower);
+		GameRegistry.registerBlock(plants, ItemBlockGenesisPlant.class, Names.blockPlant);
 		
 		GameRegistry.registerBlock(zingiberopsis, Names.blockZingiberopsis);
 		

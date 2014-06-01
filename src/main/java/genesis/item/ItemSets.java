@@ -2,10 +2,8 @@ package genesis.item;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
@@ -104,11 +102,10 @@ public class ItemSets {
 		public Object craftingHandleObj;
 		
 		public ItemsToolSet(Item.ToolMaterial toolMaterial, String materialName, Object crafting, Object craftingHandle){
-			this (toolMaterial, materialName, crafting, craftingHandle, true, true, true, true, true, true);
+			this (toolMaterial, materialName, crafting, craftingHandle, true, true, true, true, true);
 		}
 		
 		public ItemsToolSet(Item.ToolMaterial toolMaterial, String materialName, Object crafting, Object craftingHandle,
-				boolean enableSword,
 				boolean enableKnife,
 				boolean enablePickaxe,
 				boolean enableAxe,

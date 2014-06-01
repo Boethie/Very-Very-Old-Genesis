@@ -40,7 +40,6 @@ public class Names {
 	public static final String blockMalachite = blockStorage + "malachite";
 
 	public static final String blockHematiteOre = blockOre + "hematite";
-	public static final String blockChalcopyrite = blockStorage + "chalcopsyrite";
 
 	public static final String blockZirconOre = blockOre + "zircon";
 	public static final String blockZircon = blockStorage + "zircon";
@@ -69,8 +68,6 @@ public class Names {
 
 	public static final String blockCalamitesPlant = blockPlant + "calamites";
 	public static final String blockCalamites = blockStorage + "calamites";
-
-	public static final String blockFlower = blockPlant + "flower";
 
 	public static final String itemRhizome = itemSeed + "rhizome";
 	public static final String blockZingiberopsis = blockCrop + "zingiberopsis";

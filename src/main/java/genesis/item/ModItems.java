@@ -33,8 +33,7 @@ public class ModItems {
 	public static void init() {
 		// Tools/Armors
 		graniteTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemGraniteMaterial.toUpperCase(), 0, 181, 4.0F, 1.0F, 5),
-				Names.itemGraniteMaterial, ModBlocks.granite, Items.stick,
-				false, true, true, true, true, true);
+				Names.itemGraniteMaterial, ModBlocks.granite, Items.stick, true, true, true, true, true);
 		
 		zircon = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemZircon).setTextureName("zircon");
 		
@@ -50,7 +49,7 @@ public class ModItems {
 		
 		
 		// Seeds/Foods
-		rhizome = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.zingiberopsis, 2, 1)
+		rhizome = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.zingiberopsis, 1, 0.5f)
 				.setUnlocalizedName(Names.itemRhizome).setTextureName("zingiberopsis_rhizome");
 	}
 	

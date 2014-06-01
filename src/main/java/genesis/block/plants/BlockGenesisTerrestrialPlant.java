@@ -1,5 +1,6 @@
 package genesis.block.plants;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -15,6 +16,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.relauncher.Side;
@@ -22,7 +24,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import genesis.common.Genesis;
 
-public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantRenderSpecials, IPlantInFlowerPot {
+public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantRenderSpecials, IPlantInFlowerPot, IShearable {
 
 	public IIcon[] blockIcons;
 
@@ -70,7 +72,8 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativeTabs, List itemList) {
-		for (int set = 0; set < PlantBlocks.flowerTypes.size(); set++)
+		int size = PlantBlocks.plantTypes.size();
+		for (int set = 0; set < size; set++)
 			itemList.add(new ItemStack(item, 1, set));
 	}
 
@@ -91,10 +94,10 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
-		blockIcons = new IIcon[PlantBlocks.flowerTypes.size()];
+		blockIcons = new IIcon[PlantBlocks.plantTypes.size()];
 		
 		for (int i = 0; i < blockIcons.length; i++)	{
-			blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":" + PlantBlocks.flowerTypes.get(i));
+			blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":" + PlantBlocks.plantTypes.get(i));
 		}
 	}
 
@@ -121,6 +124,12 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
 		return count;
 	}
 
+	@Override
+	public Item getItemDropped(int par1, Random random, int meta)
+	{
+		return null;
+	}
+	
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random random) {
 		dropIfCannotStay(world, x, y, z);
@@ -187,5 +196,19 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
 	@Override
 	public Block getBlockForRender(IBlockAccess world, int x, int y, int z) {
 		return this;
+	}
+
+	@Override
+	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z) 
+	{
+		return true;
+	}
+
+	@Override
+	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) 
+	{
+		ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+		list.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
+		return list;
 	}
 }

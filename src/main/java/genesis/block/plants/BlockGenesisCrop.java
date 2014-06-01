@@ -1,9 +1,7 @@
 package genesis.block.plants;
 
 import genesis.common.Genesis;
-
 import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;

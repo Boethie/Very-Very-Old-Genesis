@@ -40,7 +40,6 @@ public class ModBlocks {
 	public static BlockGenesisOreStorage malachiteBlock;
 	
 	public static BlockGenesisOre hematiteOre;
-	//public static BlockGenesisOreStorage chalcopyriteBlock;
 	
 	public static BlockGenesisOre zirconOre;
 	public static BlockGenesisOreStorage zirconBlock;
