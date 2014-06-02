@@ -34,21 +34,12 @@ public class ModBlocks {
 	public static Block octaedrite;
 	
 	// Ores
-	public static BlockGenesisOre quartzGraniteOre;
-	
-	public static BlockGenesisOre malachiteOre;
-	public static BlockGenesisOreStorage malachiteBlock;
-	
-	public static BlockGenesisOre hematiteOre;
-	
-	public static BlockGenesisOre zirconOre;
-	public static BlockGenesisOreStorage zirconBlock;
-	
+	public static BlockGenesisOre quartzGraniteOre;	
+	public static BlockGenesisOre malachiteOre;	
+	public static BlockGenesisOre hematiteOre;	
+	public static BlockGenesisOre zirconOre;	
 	public static BlockGenesisOre garnetOre;
-	public static BlockGenesisOreStorage garnetBlock;
-
 	public static BlockGenesisOre olivineOre;
-	public static BlockGenesisOreStorage olivineBlock;
 	
 	public static void init() {
 		moss = new BlockMoss().setBlockTextureName("moss")
@@ -108,9 +99,6 @@ public class ModBlocks {
 		malachiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 1, 4, 8, 2, 5)
 				.setBlockTextureName("malachite_ore").setBlockName(Names.blockMalachiteOre)
 				.setHardness(3.0F).setResistance(10.0F);
-		malachiteBlock = (BlockGenesisOreStorage) new BlockGenesisOreStorage(Material.iron, 1)
-				.setBlockTextureName("malachite_block").setBlockName(Names.blockMalachite)
-				.setHardness(5.0F).setResistance(10.0F);
 		
 		hematiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 3)
 				.setBlockTextureName("hematite_ore").setBlockName(Names.blockHematiteOre)
@@ -119,24 +107,15 @@ public class ModBlocks {
 		zirconOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1, 3, 7)
 				.setBlockTextureName("zircon_ore").setBlockName(Names.blockZirconOre)
 				.setHardness(3.0F).setResistance(10.0F);
-		zirconBlock = (BlockGenesisOreStorage) new BlockGenesisOreStorage(Material.iron, 2)
-				.setBlockTextureName("zircon_block").setBlockName(Names.blockZircon)
-				.setHardness(5.0F).setResistance(10.0F);
 		
 		garnetOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1, 3, 7)
 				.setBlockTextureName("garnet_ore").setBlockName(Names.blockGarnetOre)
 				.setHardness(3.0F).setResistance(10.0F);
-		garnetBlock = (BlockGenesisOreStorage) new BlockGenesisOreStorage(Material.iron, 2)
-				.setBlockTextureName("garnet_block").setBlockName(Names.blockGarnet)
-				.setHardness(5.0F).setResistance(10.0F);
 		
 		
 		olivineOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1, 3, 7)
 				.setBlockTextureName("olivine_ore").setBlockName(Names.blockOlivineOre)
 				.setHardness(3.0F).setResistance(10.0F);
-		olivineBlock = (BlockGenesisOreStorage) new BlockGenesisOreStorage(Material.iron, 2)
-				.setBlockTextureName("olivine_block").setBlockName(Names.blockOlivine)
-				.setHardness(5.0F).setResistance(10.0F);
 		
 		TreeBlocks.init();
 		PlantBlocks.init();
@@ -160,11 +139,6 @@ public class ModBlocks {
 		
         moss.setHarvestLevel("shovel", 0);
         permafrost.setHarvestLevel("shovel", 0);
-
-		zirconBlock.setRecipe(ModItems.zircon, false);
-		olivineBlock.setRecipe(ModItems.olivine, false);
-		malachiteBlock.setRecipe(ModItems.malachite, false);
-		garnetBlock.setRecipe(ModItems.garnet, false);
 		
 		TreeBlocks.registerBlocks();
 		PlantBlocks.registerBlocks();
