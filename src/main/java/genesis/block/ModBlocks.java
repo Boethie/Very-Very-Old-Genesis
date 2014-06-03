@@ -92,11 +92,11 @@ public class ModBlocks {
 				.setBlockName(Names.blockOctaedrite).setHardness(1.0F).setResistance(10.0F);
 		
 		// Ores
-		quartzGraniteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 1, 1, 1, 2, 5)
+		quartzGraniteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 1, 1, 1)
 				.setBlockTextureName("quartz_granite_ore").setBlockName(Names.blockQuartzGraniteOre)
 				.setHardness(3.0F).setResistance(10.0F);
 		
-		malachiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 1, 4, 8, 2, 5)
+		malachiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 1, 4, 8)
 				.setBlockTextureName("malachite_ore").setBlockName(Names.blockMalachiteOre)
 				.setHardness(3.0F).setResistance(10.0F);
 		
@@ -104,16 +104,16 @@ public class ModBlocks {
 				.setBlockTextureName("hematite_ore").setBlockName(Names.blockHematiteOre)
 				.setHardness(3.0F).setResistance(10.0F);
 
-		zirconOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1, 3, 7)
+		zirconOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1)
 				.setBlockTextureName("zircon_ore").setBlockName(Names.blockZirconOre)
 				.setHardness(3.0F).setResistance(10.0F);
 		
-		garnetOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1, 3, 7)
+		garnetOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1)
 				.setBlockTextureName("garnet_ore").setBlockName(Names.blockGarnetOre)
 				.setHardness(3.0F).setResistance(10.0F);
 		
 		
-		olivineOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1, 3, 7)
+		olivineOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1)
 				.setBlockTextureName("olivine_ore").setBlockName(Names.blockOlivineOre)
 				.setHardness(3.0F).setResistance(10.0F);
 		

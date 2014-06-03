@@ -13,12 +13,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import net.minecraftforge.event.terraingen.TerrainGen;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
+import genesis.block.ModBlocks;
 import genesis.block.plants.IPlantInFlowerPot;
 import genesis.block.trees.TreeBlocks.TreeType;
 import genesis.common.Genesis;
@@ -105,6 +103,11 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
 		// return getIcon(0, world.getBlockMetadata(x, y, z);
 		return null;
 	}
+	
+	protected boolean canPlaceBlockOn(Block block)
+    {
+        return super.canPlaceBlockOn(block) || block == ModBlocks.moss;
+    }
 
 	@Override
 	public Block getBlockForRender(IBlockAccess world, int x, int y, int z) {
