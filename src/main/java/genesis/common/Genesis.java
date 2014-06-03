@@ -6,6 +6,7 @@ import genesis.block.trees.TreeBlocks;
 import genesis.block.trees.TreeBlocks.TreeBlockType;
 import genesis.block.trees.TreeBlocks.TreeType;
 import genesis.client.event.GuiEventHandler;
+import genesis.entity.ModEntities;
 import genesis.item.ModItems;
 import genesis.lib.ConfigHandler;
 import genesis.lib.GenesisVersion;
@@ -81,6 +82,9 @@ public class Genesis {
 		ModItems.registerItems();
 		LogHelper.log(Level.INFO, "Blocks and Items Loaded");
 
+		ModEntities.init();
+		LogHelper.log(Level.INFO, "Registered Entities");
+		
 		/* When retrieving static fields via reflection, it is unnecessary to pass an actual instance of the class */
 		teClassToNameMap = ReflectionHelper.getPrivateValue(TileEntity.class, null, "classToNameMap", "field_70323_b");
 

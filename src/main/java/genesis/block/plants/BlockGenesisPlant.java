@@ -10,10 +10,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.util.ForgeDirection;
-
+import genesis.client.renderer.BlockGenesisPlantRenderer;
 import genesis.common.Genesis;
 
 public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecials, IPlantInFlowerPot {

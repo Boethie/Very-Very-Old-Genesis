@@ -1,20 +1,17 @@
 package genesis.client;
 
 import net.minecraft.client.Minecraft;
-
 import net.minecraftforge.common.MinecraftForge;
-
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
-
-import genesis.block.BlockMossRenderer;
-import genesis.block.BlockTikiTorchRenderer;
-import genesis.block.gui.BlockCampfireRenderer;
 import genesis.block.gui.TileEntityCampfire;
-import genesis.block.gui.TileEntityCampfireRenderer;
-import genesis.block.plants.BlockGenesisFlowerPotRenderer;
-import genesis.block.plants.BlockGenesisPlantRenderer;
+import genesis.client.renderer.BlockCampfireRenderer;
+import genesis.client.renderer.BlockGenesisFlowerPotRenderer;
+import genesis.client.renderer.BlockGenesisPlantRenderer;
+import genesis.client.renderer.BlockMossRenderer;
+import genesis.client.renderer.BlockTikiTorchRenderer;
+import genesis.client.renderer.TileEntityCampfireRenderer;
 import genesis.common.CommonProxy;
 
 public class ClientProxy extends CommonProxy {

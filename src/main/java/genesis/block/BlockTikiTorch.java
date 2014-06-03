@@ -16,13 +16,11 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-
 import net.minecraftforge.common.util.ForgeDirection;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
 import genesis.client.ClientProxy;
+import genesis.client.renderer.BlockTikiTorchRenderer;
 import genesis.common.Genesis;
 
 public class BlockTikiTorch extends BlockGenesis {

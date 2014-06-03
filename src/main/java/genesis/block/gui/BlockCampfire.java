@@ -22,10 +22,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import genesis.block.ModBlocks;
+import genesis.client.renderer.BlockCampfireRenderer;
 import genesis.common.Genesis;
 import genesis.common.GenesisGuiHandler;
 

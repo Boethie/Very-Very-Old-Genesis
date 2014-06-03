@@ -15,10 +15,9 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
 import net.minecraftforge.event.ForgeEventFactory;
-
 import genesis.block.BlockAndMeta;
+import genesis.client.renderer.BlockGenesisFlowerPotRenderer;
 
 public class BlockGenesisFlowerPot extends BlockFlowerPot {
 
