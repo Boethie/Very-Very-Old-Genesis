@@ -7,8 +7,6 @@ public class Names {
 	public static final String mod = Genesis.MOD_ID + ".";
 
 	// ---- Blocks ----
-	public static final String blockStorage = mod + "storage.";
-
 	public static final String blockTikiTorch = mod + "tikiTorch";
 	public static final String blockCampfire = mod + "campfire";
 
@@ -37,18 +35,14 @@ public class Names {
 	public static final String blockQuartzGraniteOre = blockOre + "quartzGranite";
 
 	public static final String blockMalachiteOre = blockOre + "malachite";
-	public static final String blockMalachite = blockStorage + "malachite";
 
 	public static final String blockHematiteOre = blockOre + "hematite";
 
 	public static final String blockZirconOre = blockOre + "zircon";
-	public static final String blockZircon = blockStorage + "zircon";
 
 	public static final String blockGarnetOre = blockOre + "garnet";
-	public static final String blockGarnet = blockStorage + "garnet";
 
 	public static final String blockOlivineOre = blockOre + "olivine";
-	public static final String blockOlivine = blockStorage + "olivine";
 
 	// Trees
 	public static final String blockLogGenesis = mod + "log.";
@@ -67,10 +61,11 @@ public class Names {
 	public static final String itemSeed = blockPlant + "seed.";
 
 	public static final String blockCalamitesPlant = blockPlant + "calamites";
-	public static final String blockCalamites = blockStorage + "calamites";
 
 	public static final String itemRhizome = itemSeed + "rhizome";
 	public static final String blockZingiberopsis = blockCrop + "zingiberopsis";
+	
+	public static final String blockAsteroxylon = blockPlant + "asteroxylon";
 
 	// ---- Items ----
 	// Crafting items

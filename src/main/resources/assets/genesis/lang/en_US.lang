@@ -97,6 +97,9 @@ tile.genesis.plant.sciadophyton.name=Sciadophyton
 tile.genesis.plant.psilophyton.name=Psilophyton
 tile.genesis.plant.nothia.name=Nothia
 
+tile.genesis.plant.asteroxylon.name=Asteroxylon
+tile.genesis.plant.asteroxylon.top=Asteroxylon Top
+
 item.genesis.plant.seed.rhizome.name=Zingiberopsis Rhizome
 tile.genesis.plant.crop.zingiberopsis.name=Zingiberopsis
 tile.genesis.plant.fern.zygopteris.name=Zygopteris

@@ -9,6 +9,7 @@ import net.minecraft.block.BlockFlower;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -22,6 +23,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+import genesis.block.ModBlocks;
 import genesis.common.Genesis;
 
 public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantRenderSpecials, IPlantInFlowerPot, IShearable {
@@ -136,13 +138,18 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
 	}
 
 	@Override
+	protected boolean canPlaceBlockOn(Block block)
+	{
+		return super.canPlaceBlockOn(block) || block == ModBlocks.moss;
+	}
+	
+	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
 		boolean out = false;
 		Block block = world.getBlock(x, y - 1, z);
-
+		
 		if (block != null)
 			out = block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
-
 		return out;
 	}
 

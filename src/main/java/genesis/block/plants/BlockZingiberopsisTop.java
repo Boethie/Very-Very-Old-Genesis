@@ -30,12 +30,6 @@ public class BlockZingiberopsisTop extends BlockGenesisPlantTop
 	public BlockZingiberopsisTop()
 	{
 		super();
-		disableStats();
-		setTickRandomly(true);
-		setHardness(0.0f);
-		setResistance(0.0f);
-		setStepSound(soundTypeGrass);
-		setCreativeTab((CreativeTabs)null);
 	}
 	
 	protected void updateBlock(World world, int x, int y, int z)

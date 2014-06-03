@@ -89,7 +89,7 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
 	@Override
 	public int quantityDropped(int par1, int par2, Random par3)
 	{
-		return par1 == stages - 1 ? fullGrownDroppedAmount : 1 + par3.nextInt(fullGrownDroppedAmount - 1);
+		return par1 == stages - 1 ? fullGrownDroppedAmount : 1;
 	}
 	
 	protected void checkAndUpdateTop(World world, int x, int y, int z, int meta)

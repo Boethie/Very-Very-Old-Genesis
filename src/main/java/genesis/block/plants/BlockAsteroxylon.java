@@ -1,15 +1,22 @@
 package genesis.block.plants;
 
+import genesis.common.Genesis;
+
 import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.ColorizerGrass;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * 
@@ -18,9 +25,13 @@ import net.minecraft.world.World;
  */
 public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IGrowable
 {
+	@SideOnly(Side.CLIENT)
+	public IIcon[] icons;
+	
 	public BlockAsteroxylon()
 	{
 		super();
+		setCreativeTab(Genesis.tabGenesis);
 	}
 	
 	@Override
@@ -31,9 +42,54 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
+	public int getRenderColor(int par1)
+	{
+		return ColorizerGrass.getGrassColor(0.5d, 1.0d);
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public int colorMultiplier(IBlockAccess world, int x, int y, int z)
+	{
+		return world.getBiomeGenForCoords(x, z).getBiomeGrassColor(x, y, z);
+	}
+	
+	@Override
+	public void breakBlock(World world, int x, int y, int z, Block block, int meta)
+	{
+		Block b = world.getBlock(x, y + 1, z);
+		if (b != null && b instanceof BlockAsteroxylonTop)
+		{
+			world.setBlockToAir(x, y + 1, z);
+		}
+		super.breakBlock(world, x, y, z, block, meta);
+	}
+	
+	@Override
 	public int damageDropped(int meta)
 	{
 		return 0;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister register)
+	{
+		icons = new IIcon[2];
+		icons[0] = register.registerIcon(Genesis.MOD_ID + ":asteroxylon");
+		icons[1] = register.registerIcon(Genesis.MOD_ID + ":asteroxylon_bottom");
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int par1, int par2)
+	{
+		if (par2 > 1)
+		{
+			par2 = 1;
+		}
+		return icons[par2];
 	}
 
 	@Override
@@ -51,6 +107,7 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 	@Override
 	public void func_149853_b(World var1, Random var2, int var3, int var4, int var5) 
 	{
-		
+		var1.setBlock(var3, var4 + 1, var5, PlantBlocks.asterTop);
+		var1.setBlockMetadataWithNotify(var3, var4, var5, 1, 2);
 	}
 }

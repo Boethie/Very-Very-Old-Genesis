@@ -10,7 +10,11 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 /**
- * 
+ * A class to represent a block that can only appear on the top of another block (preferably a plant).
+ * An abstract, pre-defined class is used to minimize the amount of code needed as all top blocks will
+ * behave in the way as defined in this class. <br /><br />
+ * The benefit of inheritance however, is that any of these methods can be overridden, which opens up 
+ * many more options. 
  * @author Arbiter
  *
  */
