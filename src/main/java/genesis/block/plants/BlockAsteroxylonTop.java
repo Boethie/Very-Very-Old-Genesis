@@ -1,18 +1,22 @@
 package genesis.block.plants;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.ArrayList;
+
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IShearable;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * 
  * @author Arbiter
  *
  */
-public class BlockAsteroxylonTop extends BlockGenesisPlantTop
+public class BlockAsteroxylonTop extends BlockGenesisPlantTop implements IShearable
 {
 	public BlockAsteroxylonTop()
 	{
@@ -59,9 +63,22 @@ public class BlockAsteroxylonTop extends BlockGenesisPlantTop
 		Block below = world.getBlock(x, y - 1, z);
 		if (below != null && below instanceof BlockAsteroxylon)
 		{
-			((BlockAsteroxylon)below).dropBlockAsItem(world, x, y - 1, z, world.getBlockMetadata(x, y - 1, z), 0);
 			world.setBlockToAir(x, y - 1, z);
 		}
 		super.breakBlock(world, x, y, z, block, meta);
+	}
+
+	@Override
+	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z) 
+	{
+		return true;
+	}
+
+	@Override
+	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) 
+	{
+		ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+		list.add(new ItemStack(PlantBlocks.asteroxylon, 2, 0));
+		return list;
 	}
 }

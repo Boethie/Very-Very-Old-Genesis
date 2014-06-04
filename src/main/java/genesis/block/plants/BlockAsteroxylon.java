@@ -2,6 +2,7 @@ package genesis.block.plants;
 
 import genesis.common.Genesis;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -39,6 +40,7 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 	public void getSubBlocks(Item item, CreativeTabs creativeTabs, List itemList) 
 	{
 		itemList.add(new ItemStack(item, 1, 0));
+		itemList.add(new ItemStack(item, 1, 1));
 	}
 	
 	@Override
@@ -82,6 +84,14 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 	}
 	
 	@Override
+	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune)
+	{
+		ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+		list.add(new ItemStack(this, world.getBlockMetadata(x, y, z) + 1, 0));
+		return list;
+	}
+	
+	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int par1, int par2)
 	{
@@ -90,6 +100,16 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 			par2 = 1;
 		}
 		return icons[par2];
+	}
+	
+	@Override
+	public void onBlockAdded(World world, int x, int y, int z)
+	{
+		super.onBlockAdded(world, x, y, z);
+		if (world.isAirBlock(x, y + 1, z) && world.getBlockMetadata(x, y, z) == 1)
+		{
+			world.setBlock(x, y + 1, z, PlantBlocks.asterTop);
+		}
 	}
 
 	@Override
@@ -107,7 +127,10 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 	@Override
 	public void func_149853_b(World var1, Random var2, int var3, int var4, int var5) 
 	{
-		var1.setBlock(var3, var4 + 1, var5, PlantBlocks.asterTop);
+		if (var1.isAirBlock(var3, var4 + 1, var5))
+		{
+			var1.setBlock(var3, var4 + 1, var5, PlantBlocks.asterTop);
+		}
 		var1.setBlockMetadataWithNotify(var3, var4, var5, 1, 2);
 	}
 }
