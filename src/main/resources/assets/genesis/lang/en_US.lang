@@ -31,19 +31,14 @@ tile.genesis.rock.octaedrite.name=Octaedrite Fragment
 tile.genesis.ore.quartzGranite.name=Granite Quartz Ore
 
 tile.genesis.ore.malachite.name=Malachite Ore
-tile.genesis.storage.malachite.name=Block of Malachite
 
 tile.genesis.ore.hematite.name=Hematite Ore
-tile.genesis.storage.chalcopyrite.name=Block of Chalcopyrite
 
 tile.genesis.ore.zircon.name=Zircon Ore
-tile.genesis.storage.zircon.name=Block of Zircon
 
 tile.genesis.ore.garnet.name=Garnet Ore
-tile.genesis.storage.garnet.name=Block of Garnet
 
 tile.genesis.ore.olivine.name=Olivine Ore
-tile.genesis.storage.olivine.name=Block of Olivine
 
 <!-- Trees -->
 tile.genesis.log.sigillaria.name=Sigillaria Wood
@@ -89,7 +84,7 @@ tile.genesis.stairs.psaronius.name=Psaronius Wood Stairs
 
 <!-- Plants -->
 tile.genesis.plant.calamites.name=Calamites
-tile.genesis.storage.calamites.name=Block of Calamites
+tile.storage.genesis.plant.calamites.name=Block of Calamites
 
 tile.genesis.plant.cooksonia.name=Cooksonia
 tile.genesis.plant.baragwanathia.name=Baragwanathia
@@ -103,6 +98,7 @@ tile.genesis.plant.asteroxylon.top=Asteroxylon Top
 
 item.genesis.plant.seed.rhizome.name=Zingiberopsis Rhizome
 tile.genesis.plant.crop.zingiberopsis.name=Zingiberopsis
+
 tile.genesis.plant.fern.zygopteris.name=Zygopteris
 tile.genesis.plant.fern.matonidium.name=Matonidium
 tile.genesis.plant.fern.astralopteris.name=Astralopteris
@@ -123,53 +119,8 @@ item.genesis.malachite.name=Malachite
 item.genesis.hematite.name=Hematite
 
 <!-- Swords/Tools -->
-item.genesis.sword.granite.name=Granite Sword
 item.genesis.knife.granite.name=Granite Knife
 item.genesis.tool.pickaxe.granite.name=Granite Pickaxe
 item.genesis.tool.shovel.granite.name=Granite Shovel
 item.genesis.tool.axe.granite.name=Granite Axe
 item.genesis.tool.hoe.granite.name=Granite Hoe
-
-item.genesis.sword.zircon.name=Zircon Sword
-item.genesis.knife.zircon.name=Zircon Knife
-item.genesis.tool.pickaxe.zircon.name=Zircon Pickaxe
-item.genesis.tool.shovel.zircon.name=Zircon Shovel
-item.genesis.tool.axe.zircon.name=Zircon Axe
-item.genesis.tool.hoe.zircon.name=Zircon Hoe
-
-item.genesis.sword.olivine.name=Olivine Sword
-item.genesis.knife.olivine.name=Olivine Knife
-item.genesis.tool.pickaxe.olivine.name=Olivine Pickaxe
-item.genesis.tool.shovel.olivine.name=Olivine Shovel
-item.genesis.tool.axe.olivine.name=Olivine Axe
-item.genesis.tool.hoe.olivine.name=Olivine Hoe
-
-item.genesis.sword.iron_meteoric.name=Meteoric Iron Sword
-item.genesis.knife.iron_meteoric.name=Meteoric Iron Knife
-item.genesis.tool.pickaxe.iron_meteoric.name=Meteoric Iron Pickaxe
-item.genesis.tool.shovel.iron_meteoric.name=Meteoric Iron Shovel
-item.genesis.tool.axe.iron_meteoric.name=Meteoric Iron Axe
-item.genesis.tool.hoe.iron_meteoric.name=Meteoric Iron Hoe
-
-item.genesis.sword.chalcopyrite.name=Chalcopyrite Sword
-item.genesis.knife.chalcopyrite.name=Chalcopyrite Knife
-item.genesis.tool.pickaxe.chalcopyrite.name=Chalcopyrite Pickaxe
-item.genesis.tool.shovel.chalcopyrite.name=Chalcopyrite Shovel
-item.genesis.tool.axe.chalcopyrite.name=Chalcopyrite Axe
-item.genesis.tool.hoe.chalcopyrite.name=Chalcopyrite Hoe
-
-<!-- Armor -->
-item.genesis.armor.helmet.zircon.name=Zircon Helmet
-item.genesis.armor.chestplate.zircon.name=Zircon Chestplate
-item.genesis.armor.leggings.zircon.name=Zircon Leggings
-item.genesis.armor.boots.zircon.name=Zircon Boots
-
-item.genesis.armor.helmet.olivine.name=Olivine Helmet
-item.genesis.armor.chestplate.olivine.name=Olivine Chestplate
-item.genesis.armor.leggings.olivine.name=Olivine Leggings
-item.genesis.armor.boots.olivine.name=Olivine Boots
-
-item.genesis.armor.helmet.iron_meteoric.name=Meteoric Iron Helmet
-item.genesis.armor.chestplate.iron_meteoric.name=Meteoric Iron Chestplate
-item.genesis.armor.leggings.iron_meteoric.name=Meteoric Iron Leggings
-item.genesis.armor.boots.iron_meteoric.name=Meteoric Iron Boots

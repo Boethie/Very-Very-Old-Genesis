@@ -103,15 +103,21 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 	}
 	
 	@Override
-	public void onBlockAdded(World world, int x, int y, int z)
+	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
 	{
-		super.onBlockAdded(world, x, y, z);
-		if (world.isAirBlock(x, y + 1, z) && world.getBlockMetadata(x, y, z) == 1)
+		if (world.isAirBlock(x, y + 1, z) && meta == 1)
 		{
 			world.setBlock(x, y + 1, z, PlantBlocks.asterTop);
 		}
+		return super.onBlockPlaced(world, x, y, z, side, hitX, hitY, hitZ, meta);
 	}
 
+	@Override
+	public Item getItem(World world, int x, int y, int z)
+	{
+		return new ItemStack(Item.getItemFromBlock(PlantBlocks.asteroxylon), 1, world.getBlockMetadata(x, y, z)).getItem();
+	}
+	
 	@Override
 	public boolean func_149851_a(World var1, int var2, int var3, int var4, boolean var5)
 	{

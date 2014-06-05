@@ -3,6 +3,7 @@ package genesis.block.plants;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
@@ -68,6 +69,12 @@ public class BlockAsteroxylonTop extends BlockGenesisPlantTop implements ISheara
 		super.breakBlock(world, x, y, z, block, meta);
 	}
 
+	@Override
+	public Item getItem(World world, int x, int y, int z)
+	{
+		return new ItemStack(Item.getItemFromBlock(PlantBlocks.asteroxylon), 1, 1).getItem();
+	}
+	
 	@Override
 	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z) 
 	{
