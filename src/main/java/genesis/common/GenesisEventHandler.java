@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -50,10 +51,10 @@ public class GenesisEventHandler {
 	{
 		World world = event.entityPlayer.worldObj;
 		Block block = world.getBlock(event.x, event.y, event.z);
-		Item itemInHand = event.entityPlayer.getCurrentEquippedItem().getItem();
-		if(itemInHand != null)
+		ItemStack stack = event.entityPlayer.getCurrentEquippedItem();
+		if (stack != null)
 		{
-			Block blockInHand = Block.getBlockFromItem(itemInHand);
+			Block blockInHand = Block.getBlockFromItem(stack.getItem());
 			if(event.face == 1 && block instanceof BlockMoss && blockInHand instanceof BlockBush && event.action == Action.RIGHT_CLICK_BLOCK)
 			{
 				world.setBlock(event.x, event.y + 1, event.z, blockInHand);
