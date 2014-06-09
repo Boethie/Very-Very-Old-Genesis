@@ -96,6 +96,10 @@ tile.genesis.plant.asteroxylon.name=Asteroxylon
 tile.genesis.plant.asteroxylon.tall.name=Tall Asteroxylon
 tile.genesis.plant.asteroxylon.top=Asteroxylon Top
 
+tile.genesis.plant.coral.heliolites.name=Heliolites
+tile.genesis.plant.coral.favosites.name=Favosites
+tile.genesis.plant.coral.halysites.name=Halysites
+
 item.genesis.plant.seed.rhizome.name=Zingiberopsis Rhizome
 tile.genesis.plant.crop.zingiberopsis.name=Zingiberopsis
 
@@ -103,6 +107,7 @@ tile.genesis.plant.fern.zygopteris.name=Zygopteris
 tile.genesis.plant.fern.matonidium.name=Matonidium
 tile.genesis.plant.fern.astralopteris.name=Astralopteris
 tile.genesis.plant.fern.ruffordia.name=Ruffordia
+tile.genesis.plant.fern.hausmannia.name=Hausmannia
 
 <!-- Items -->
 <!-- Crafting -->

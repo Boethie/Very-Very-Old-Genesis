@@ -12,6 +12,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.common.Genesis;
 import genesis.item.ModItems;
 import genesis.item.itemblock.ItemBlockAsteroxylon;
+import genesis.item.itemblock.ItemBlockGenesisCoral;
 import genesis.item.itemblock.ItemBlockGenesisFern;
 import genesis.item.itemblock.ItemBlockGenesisPlant;
 import genesis.lib.Names;
@@ -22,7 +23,10 @@ public class PlantBlocks {
 			SCIA_NAME = "sciadophyton", PSILO_NAME = "psilophyton", NOTHIA_NAME = "nothia";
 	
 	public static final String ZYGO_NAME = "zygopteris", MATON_NAME = "matonidium", 
-			ASTRA_NAME = "astralopteris", RUFF_NAME = "ruffordia";
+			ASTRA_NAME = "astralopteris", RUFF_NAME = "ruffordia", HAUS_NAME = "hausmannia";
+	
+	public static final String HELIO_NAME = "heliolites", FAVOS_NAME = "favosites", 
+			HALY_NAME = "halysites";
 
 	public static final ArrayList<String> plantTypes = new ArrayList() {
 		{
@@ -40,6 +44,15 @@ public class PlantBlocks {
 			add(MATON_NAME);
 			add(ASTRA_NAME);
 			add(RUFF_NAME);
+			add(HAUS_NAME);
+		}
+	};
+	
+	public static final ArrayList<String> coralTypes = new ArrayList() {
+		{
+			add(HELIO_NAME);
+			add(FAVOS_NAME);
+			add(HALY_NAME);
 		}
 	};
 
@@ -52,6 +65,7 @@ public class PlantBlocks {
 	public static BlockGenesisFern ferns;
 	public static BlockAsteroxylon asteroxylon;
 	public static BlockAsteroxylonTop asterTop;
+	public static BlockGenesisCoral coral;
 	
 	public static void init() {
 		flowerPot = (BlockGenesisFlowerPot) new BlockGenesisFlowerPot().setBlockTextureName("flower_pot").setBlockName(Names.blockFlowerPot);
@@ -66,6 +80,8 @@ public class PlantBlocks {
 		zingTop = (BlockZingiberopsisTop) new BlockZingiberopsisTop().setBlockName(Names.blockZingiberopsis).setBlockTextureName("zingiberopsis");
 		
 		ferns = (BlockGenesisFern) new BlockGenesisFern().setBlockName(Names.blockFern);
+		
+		coral = (BlockGenesisCoral) new BlockGenesisCoral().setBlockName(Names.blockCoral);
 		
 		asteroxylon = (BlockAsteroxylon) new BlockAsteroxylon().setBlockName(Names.blockAsteroxylon);
 		
@@ -83,6 +99,8 @@ public class PlantBlocks {
 		GameRegistry.registerBlock(zingTop, Names.blockZingiberopsis + ".top");
 		
 		GameRegistry.registerBlock(ferns, ItemBlockGenesisFern.class, Names.blockFern);
+		
+		GameRegistry.registerBlock(coral, ItemBlockGenesisCoral.class, Names.blockCoral);
 		
 		GameRegistry.registerBlock(asteroxylon, ItemBlockAsteroxylon.class, Names.blockAsteroxylon);
 		
