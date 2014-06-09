@@ -66,6 +66,7 @@ public class Names {
 	public static final String blockZingiberopsis = blockCrop + "zingiberopsis";
 	
 	public static final String blockAsteroxylon = blockPlant + "asteroxylon";
+	public static final String blockCoral = blockPlant + "coral.";
 
 	// ---- Items ----
 	// Crafting items
@@ -79,27 +80,18 @@ public class Names {
 	public static final String itemOlivine = mod + "olivine";
 	public static final String itemOlivineMaterial = "olivine";
 
-	public static final String itemMeteoricIronIngot = mod + "meteoricIronIngot";
-	public static final String itemMeteoricIronMaterial = "iron_meteoric";
-
 	public static final String itemGarnet = mod + "garnet";
 
 	public static final String itemMalachite = mod + "malachite";
 
 	public static final String itemHematite = mod + "hematite";
-	public static final String itemChalcopyriteIngotMaterial = "chalcopyrite";
 
 	// Swords and tools
 	public static final String itemTool = mod + "tool.";
-	public static final String itemSword = mod + "sword.";
 	public static final String itemKnife = mod + "knife.";
 	public static final String itemPickaxe = itemTool + "pickaxe.";
 	public static final String itemAxe = itemTool + "axe.";
 	public static final String itemSpade = itemTool + "shovel.";
 	public static final String itemHoe = itemTool + "hoe.";
-
-	// Armor
-	public static final String itemArmor = mod + "armor.";
-	public static final String[] itemArmorTypes = { "helmet.", "chestplate.", "leggings.", "boots." };
 
 }
