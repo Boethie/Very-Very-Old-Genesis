@@ -67,6 +67,7 @@ public class Names {
 	
 	public static final String blockAsteroxylon = blockPlant + "asteroxylon";
 	public static final String blockCoral = blockPlant + "coral.";
+	public static final String blockSponge = blockPlant + "sponge.";
 
 	// ---- Items ----
 	// Crafting items

@@ -70,9 +70,20 @@ public class BlockAsteroxylonTop extends BlockGenesisPlantTop implements ISheara
 	}
 
 	@Override
+	public int damageDropped(int meta)
+	{
+		return 1;
+	}
+	
+	@Override
 	public Item getItem(World world, int x, int y, int z)
 	{
-		return new ItemStack(Item.getItemFromBlock(PlantBlocks.asteroxylon), 1, 1).getItem();
+		Block b = world.getBlock(x, y - 1, z);
+		if (b != null && b instanceof BlockAsteroxylon)
+		{
+			return ((BlockAsteroxylon)b).getItem(world, x, y - 1, z);
+		}
+		return Item.getItemFromBlock(PlantBlocks.asteroxylon);
 	}
 	
 	@Override

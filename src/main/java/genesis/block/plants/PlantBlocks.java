@@ -15,18 +15,23 @@ import genesis.item.itemblock.ItemBlockAsteroxylon;
 import genesis.item.itemblock.ItemBlockGenesisCoral;
 import genesis.item.itemblock.ItemBlockGenesisFern;
 import genesis.item.itemblock.ItemBlockGenesisPlant;
+import genesis.item.itemblock.ItemBlockGenesisSponge;
 import genesis.lib.Names;
 
 public class PlantBlocks {
 
 	public static final String COOK_NAME = "cooksonia", BARA_NAME = "baragwanathia", 
-			SCIA_NAME = "sciadophyton", PSILO_NAME = "psilophyton", NOTHIA_NAME = "nothia";
+			SCIA_NAME = "sciadophyton", PSILO_NAME = "psilophyton", NOTHIA_NAME = "nothia",
+			RHYNIA_NAME = "rhynia";
 	
 	public static final String ZYGO_NAME = "zygopteris", MATON_NAME = "matonidium", 
 			ASTRA_NAME = "astralopteris", RUFF_NAME = "ruffordia", HAUS_NAME = "hausmannia";
 	
 	public static final String HELIO_NAME = "heliolites", FAVOS_NAME = "favosites", 
 			HALY_NAME = "halysites";
+	
+	public static final String VAUXIA_NAME = "vauxia", HAZELIA_NAME = "hazelia", 
+			WAPKIA_NAME = "wapkia", DIAG_NAME = "diagoniella", PIR_NAME = "pirania";
 
 	public static final ArrayList<String> plantTypes = new ArrayList() {
 		{
@@ -35,6 +40,7 @@ public class PlantBlocks {
 			add(SCIA_NAME);
 			add(PSILO_NAME);
 			add(NOTHIA_NAME);
+			add(RHYNIA_NAME);
 		}
 	};
 	
@@ -55,6 +61,16 @@ public class PlantBlocks {
 			add(HALY_NAME);
 		}
 	};
+	
+	public static final ArrayList<String> spongeTypes = new ArrayList() {
+		{
+			add(VAUXIA_NAME);
+			add(HAZELIA_NAME);
+			add(WAPKIA_NAME);
+			add(DIAG_NAME);
+			add(PIR_NAME);
+		}
+	};
 
 	public static BlockGenesisFlowerPot flowerPot;
 	public static Block calamitesPlant;
@@ -66,6 +82,7 @@ public class PlantBlocks {
 	public static BlockAsteroxylon asteroxylon;
 	public static BlockAsteroxylonTop asterTop;
 	public static BlockGenesisCoral coral;
+	public static BlockGenesisSponge sponge;
 	
 	public static void init() {
 		flowerPot = (BlockGenesisFlowerPot) new BlockGenesisFlowerPot().setBlockTextureName("flower_pot").setBlockName(Names.blockFlowerPot);
@@ -82,6 +99,8 @@ public class PlantBlocks {
 		ferns = (BlockGenesisFern) new BlockGenesisFern().setBlockName(Names.blockFern);
 		
 		coral = (BlockGenesisCoral) new BlockGenesisCoral().setBlockName(Names.blockCoral);
+		
+		sponge = (BlockGenesisSponge) new BlockGenesisSponge().setBlockName(Names.blockSponge);
 		
 		asteroxylon = (BlockAsteroxylon) new BlockAsteroxylon().setBlockName(Names.blockAsteroxylon);
 		
@@ -101,6 +120,8 @@ public class PlantBlocks {
 		GameRegistry.registerBlock(ferns, ItemBlockGenesisFern.class, Names.blockFern);
 		
 		GameRegistry.registerBlock(coral, ItemBlockGenesisCoral.class, Names.blockCoral);
+		
+		GameRegistry.registerBlock(sponge, ItemBlockGenesisSponge.class, Names.blockSponge);
 		
 		GameRegistry.registerBlock(asteroxylon, ItemBlockAsteroxylon.class, Names.blockAsteroxylon);
 		

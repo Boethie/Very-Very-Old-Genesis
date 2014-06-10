@@ -100,6 +100,12 @@ tile.genesis.plant.coral.heliolites.name=Heliolites
 tile.genesis.plant.coral.favosites.name=Favosites
 tile.genesis.plant.coral.halysites.name=Halysites
 
+tile.genesis.plant.sponge.vauxia.name=Vauxia
+tile.genesis.plant.sponge.hazelia.name=Hazelia
+tile.genesis.plant.sponge.wapkia.name=Wapkia
+tile.genesis.plant.sponge.diagoniella.name=Diagoniella
+tile.genesis.plant.sponge.pirania.name=Pirania
+
 item.genesis.plant.seed.rhizome.name=Zingiberopsis Rhizome
 tile.genesis.plant.crop.zingiberopsis.name=Zingiberopsis
 
