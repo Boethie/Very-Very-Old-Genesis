@@ -5,7 +5,6 @@ import genesis.lib.PlantMetadata;
 
 import java.util.List;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,21 +19,23 @@ import cpw.mods.fml.relauncher.SideOnly;
  * @author Arbiter
  *
  */
-public class BlockGenesisSponge extends BlockGenesisAquaticPlant
+public class BlockGenesisAlgae extends BlockGenesisAquaticPlant
 {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] icons;
 	
-	public BlockGenesisSponge()
+	public BlockGenesisAlgae()
 	{
-		super(Material.sponge);
+		super(Material.plants);
+		setHardness(0.0F);
+		setStepSound(soundTypeGrass);
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, List list)
+	public void getSubBlocks(Item item, CreativeTabs tabs, List list)
 	{
-		int size = PlantMetadata.spongeTypes.size();
+		int size = PlantMetadata.algaeTypes.size();
 		for (int i = 0; i < size; i++)
 		{
 			list.add(new ItemStack(item, 1, i));
@@ -51,10 +52,10 @@ public class BlockGenesisSponge extends BlockGenesisAquaticPlant
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register)
 	{
-		icons = new IIcon[PlantMetadata.spongeTypes.size()];
+		icons = new IIcon[PlantMetadata.algaeTypes.size()];
 		for (int i = 0; i < icons.length; i++)
 		{
-			icons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.spongeTypes.get(i));
+			icons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.algaeTypes.get(i));
 		}
 	}
 	

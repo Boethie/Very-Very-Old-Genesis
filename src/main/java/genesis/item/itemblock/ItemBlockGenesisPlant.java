@@ -1,10 +1,9 @@
 package genesis.item.itemblock;
 
+import genesis.lib.PlantMetadata;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
-
-import genesis.block.plants.PlantBlocks;
 
 public class ItemBlockGenesisPlant extends ItemBlockWithMetadata {
 
@@ -15,7 +14,7 @@ public class ItemBlockGenesisPlant extends ItemBlockWithMetadata {
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 		Block block = Block.getBlockFromItem(stack.getItem());
-		return block.getUnlocalizedName() + PlantBlocks.plantTypes.get(getMetadata(stack.getItemDamage()));
+		return block.getUnlocalizedName() + PlantMetadata.plantTypes.get(getMetadata(stack.getItemDamage()));
     }
 	
 	@Override

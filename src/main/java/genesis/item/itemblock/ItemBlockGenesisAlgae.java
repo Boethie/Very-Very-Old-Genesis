@@ -10,9 +10,9 @@ import net.minecraft.item.ItemStack;
  * @author Arbiter
  *
  */
-public class ItemBlockGenesisSponge extends ItemBlockWithMetadata
+public class ItemBlockGenesisAlgae extends ItemBlockWithMetadata
 {
-	public ItemBlockGenesisSponge(Block block)
+	public ItemBlockGenesisAlgae(Block block)
 	{
 		super(block, block);
 		setMaxDamage(0);
@@ -29,6 +29,6 @@ public class ItemBlockGenesisSponge extends ItemBlockWithMetadata
 	public String getUnlocalizedName(ItemStack item)
 	{
 		Block b = Block.getBlockFromItem(item.getItem());
-		return b.getUnlocalizedName() + PlantMetadata.spongeTypes.get(getMetadata(item.getItemDamage()));
+		return b.getUnlocalizedName() + PlantMetadata.algaeTypes.get(getMetadata(item.getItemDamage()));
 	}
 }

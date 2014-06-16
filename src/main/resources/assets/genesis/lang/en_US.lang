@@ -91,6 +91,7 @@ tile.genesis.plant.baragwanathia.name=Baragwanathia
 tile.genesis.plant.sciadophyton.name=Sciadophyton
 tile.genesis.plant.psilophyton.name=Psilophyton
 tile.genesis.plant.nothia.name=Nothia
+tile.genesis.plant.rhynia.name=Rhynia
 
 tile.genesis.plant.asteroxylon.name=Asteroxylon
 tile.genesis.plant.asteroxylon.tall.name=Tall Asteroxylon
@@ -105,6 +106,9 @@ tile.genesis.plant.sponge.hazelia.name=Hazelia
 tile.genesis.plant.sponge.wapkia.name=Wapkia
 tile.genesis.plant.sponge.diagoniella.name=Diagoniella
 tile.genesis.plant.sponge.pirania.name=Pirania
+
+tile.genesis.plant.algae.margaretia.name=Margaretia
+tile.genesis.plant.algae.bangiomorpha.name=Bangiomorpha
 
 item.genesis.plant.seed.rhizome.name=Zingiberopsis Rhizome
 tile.genesis.plant.crop.zingiberopsis.name=Zingiberopsis

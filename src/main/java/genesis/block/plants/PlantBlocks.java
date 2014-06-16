@@ -3,6 +3,7 @@ package genesis.block.plants;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
@@ -12,66 +13,15 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.common.Genesis;
 import genesis.item.ModItems;
 import genesis.item.itemblock.ItemBlockAsteroxylon;
+import genesis.item.itemblock.ItemBlockGenesisAlgae;
 import genesis.item.itemblock.ItemBlockGenesisCoral;
 import genesis.item.itemblock.ItemBlockGenesisFern;
 import genesis.item.itemblock.ItemBlockGenesisPlant;
 import genesis.item.itemblock.ItemBlockGenesisSponge;
 import genesis.lib.Names;
 
-public class PlantBlocks {
-
-	public static final String COOK_NAME = "cooksonia", BARA_NAME = "baragwanathia", 
-			SCIA_NAME = "sciadophyton", PSILO_NAME = "psilophyton", NOTHIA_NAME = "nothia",
-			RHYNIA_NAME = "rhynia";
-	
-	public static final String ZYGO_NAME = "zygopteris", MATON_NAME = "matonidium", 
-			ASTRA_NAME = "astralopteris", RUFF_NAME = "ruffordia", HAUS_NAME = "hausmannia";
-	
-	public static final String HELIO_NAME = "heliolites", FAVOS_NAME = "favosites", 
-			HALY_NAME = "halysites";
-	
-	public static final String VAUXIA_NAME = "vauxia", HAZELIA_NAME = "hazelia", 
-			WAPKIA_NAME = "wapkia", DIAG_NAME = "diagoniella", PIR_NAME = "pirania";
-
-	public static final ArrayList<String> plantTypes = new ArrayList() {
-		{
-			add(COOK_NAME);
-			add(BARA_NAME);
-			add(SCIA_NAME);
-			add(PSILO_NAME);
-			add(NOTHIA_NAME);
-			add(RHYNIA_NAME);
-		}
-	};
-	
-	public static final ArrayList<String> fernTypes = new ArrayList() {
-		{
-			add(ZYGO_NAME);
-			add(MATON_NAME);
-			add(ASTRA_NAME);
-			add(RUFF_NAME);
-			add(HAUS_NAME);
-		}
-	};
-	
-	public static final ArrayList<String> coralTypes = new ArrayList() {
-		{
-			add(HELIO_NAME);
-			add(FAVOS_NAME);
-			add(HALY_NAME);
-		}
-	};
-	
-	public static final ArrayList<String> spongeTypes = new ArrayList() {
-		{
-			add(VAUXIA_NAME);
-			add(HAZELIA_NAME);
-			add(WAPKIA_NAME);
-			add(DIAG_NAME);
-			add(PIR_NAME);
-		}
-	};
-
+public class PlantBlocks 
+{
 	public static BlockGenesisFlowerPot flowerPot;
 	public static Block calamitesPlant;
 	public static BlockCalamitesStorage calamitesBlock;
@@ -81,8 +31,10 @@ public class PlantBlocks {
 	public static BlockGenesisFern ferns;
 	public static BlockAsteroxylon asteroxylon;
 	public static BlockAsteroxylonTop asterTop;
-	public static BlockGenesisCoral coral;
+	public static BlockGenesisCoral coral; 
 	public static BlockGenesisSponge sponge;
+	public static BlockGenesisAlgae algae;
+	public static BlockHausmanniaTop hausTop;
 	
 	public static void init() {
 		flowerPot = (BlockGenesisFlowerPot) new BlockGenesisFlowerPot().setBlockTextureName("flower_pot").setBlockName(Names.blockFlowerPot);
@@ -97,10 +49,12 @@ public class PlantBlocks {
 		zingTop = (BlockZingiberopsisTop) new BlockZingiberopsisTop().setBlockName(Names.blockZingiberopsis).setBlockTextureName("zingiberopsis");
 		
 		ferns = (BlockGenesisFern) new BlockGenesisFern().setBlockName(Names.blockFern);
+		//hausTop = (BlockHausmanniaTop) new BlockHausmanniaTop();
 		
 		coral = (BlockGenesisCoral) new BlockGenesisCoral().setBlockName(Names.blockCoral);
 		
 		sponge = (BlockGenesisSponge) new BlockGenesisSponge().setBlockName(Names.blockSponge);
+		algae = (BlockGenesisAlgae) new BlockGenesisAlgae().setBlockName(Names.blockAlgae);
 		
 		asteroxylon = (BlockAsteroxylon) new BlockAsteroxylon().setBlockName(Names.blockAsteroxylon);
 		
@@ -110,7 +64,6 @@ public class PlantBlocks {
 	public static void registerBlocks() {
 		// GameRegistry.registerBlock(calamitesPlant, Names.blockCalamitesPlant);
 		GameRegistry.registerBlock(calamitesBlock, "storage." + Names.blockCalamitesPlant);
-
 		GameRegistry.registerBlock(plants, ItemBlockGenesisPlant.class, Names.blockPlant);
 		
 		GameRegistry.registerBlock(zingiberopsis, Names.blockZingiberopsis);
@@ -118,10 +71,12 @@ public class PlantBlocks {
 		GameRegistry.registerBlock(zingTop, Names.blockZingiberopsis + ".top");
 		
 		GameRegistry.registerBlock(ferns, ItemBlockGenesisFern.class, Names.blockFern);
+		//GameRegistry.registerBlock(hausTop, Names.blockFern);
 		
 		GameRegistry.registerBlock(coral, ItemBlockGenesisCoral.class, Names.blockCoral);
 		
 		GameRegistry.registerBlock(sponge, ItemBlockGenesisSponge.class, Names.blockSponge);
+		GameRegistry.registerBlock(algae, ItemBlockGenesisAlgae.class, Names.blockAlgae);
 		
 		GameRegistry.registerBlock(asteroxylon, ItemBlockAsteroxylon.class, Names.blockAsteroxylon);
 		

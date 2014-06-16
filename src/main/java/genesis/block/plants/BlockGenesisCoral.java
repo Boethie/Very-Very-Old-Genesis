@@ -1,6 +1,7 @@
 package genesis.block.plants;
 
 import genesis.common.Genesis;
+import genesis.lib.PlantMetadata;
 
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class BlockGenesisCoral extends Block
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tabs, List list)
 	{
-		int size = PlantBlocks.coralTypes.size();
+		int size = PlantMetadata.coralTypes.size();
 		for (int i = 0; i < size; i++)
 		{
 			list.add(new ItemStack(item, 1, i));
@@ -53,10 +54,10 @@ public class BlockGenesisCoral extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register)
 	{
-		icons = new IIcon[PlantBlocks.coralTypes.size()];
+		icons = new IIcon[PlantMetadata.coralTypes.size()];
 		for (int i = 0; i < icons.length; i++)
 		{
-			icons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantBlocks.coralTypes.get(i));
+			icons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.coralTypes.get(i));
 		}
 	}
 	

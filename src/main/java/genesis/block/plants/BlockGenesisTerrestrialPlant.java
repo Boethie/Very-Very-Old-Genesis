@@ -1,5 +1,9 @@
 package genesis.block.plants;
 
+import genesis.block.ModBlocks;
+import genesis.common.Genesis;
+import genesis.lib.PlantMetadata;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -9,22 +13,16 @@ import net.minecraft.block.BlockFlower;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.ForgeDirection;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
-import genesis.block.ModBlocks;
-import genesis.common.Genesis;
 
 public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantRenderSpecials, IPlantInFlowerPot, IShearable {
 
@@ -74,7 +72,7 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativeTabs, List itemList) {
-		int size = PlantBlocks.plantTypes.size();
+		int size = PlantMetadata.plantTypes.size();
 		for (int set = 0; set < size; set++)
 			itemList.add(new ItemStack(item, 1, set));
 	}
@@ -96,10 +94,10 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
-		blockIcons = new IIcon[PlantBlocks.plantTypes.size()];
+		blockIcons = new IIcon[PlantMetadata.plantTypes.size()];
 		
 		for (int i = 0; i < blockIcons.length; i++)	{
-			blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":" + PlantBlocks.plantTypes.get(i));
+			blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.plantTypes.get(i));
 		}
 	}
 
