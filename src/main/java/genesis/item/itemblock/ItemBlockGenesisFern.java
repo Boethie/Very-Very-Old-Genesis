@@ -1,10 +1,12 @@
 package genesis.item.itemblock;
 
 import genesis.block.plants.BlockGenesisFern;
+import genesis.block.plants.PlantBlocks;
 import genesis.lib.PlantMetadata;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -32,7 +34,14 @@ public class ItemBlockGenesisFern extends ItemBlockWithMetadata
 	@Override
 	public int getMetadata(int meta)
 	{
-		return meta & 15;
+		return meta & 0x0f;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIconFromDamage(int meta)
+	{
+		return meta == 4 ? PlantBlocks.hausTop.getIcon(2, meta) : PlantBlocks.ferns.getIcon(2, meta);
 	}
 	
 	@Override

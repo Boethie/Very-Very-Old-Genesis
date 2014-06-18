@@ -1,4 +1,4 @@
-package genesis.block.plants;
+package genesis.block.aquatic;
 
 import genesis.block.ModBlocks;
 import genesis.common.Genesis;
@@ -72,7 +72,7 @@ public class BlockGenesisAquaticPlant extends Block
 			{
 				waterCount++;
 			}
-			else if (b == PlantBlocks.sponge)
+			else if (b == AquaticBlocks.sponge || b == AquaticBlocks.algae)
 			{
 				waterCount++;
 			}
@@ -95,7 +95,7 @@ public class BlockGenesisAquaticPlant extends Block
 	{
 		boolean flag = false;
 		final Block[] blockList = new Block[] {Blocks.dirt, Blocks.gravel, Blocks.sand,
-				Blocks.clay, PlantBlocks.coral, ModBlocks.granite, Blocks.stone,
+				Blocks.clay, AquaticBlocks.coral, ModBlocks.granite, Blocks.stone,
 				ModBlocks.limestone, ModBlocks.gneiss, ModBlocks.quartzite, ModBlocks.rhyolite,
 				ModBlocks.shale};
 		for (Block b : blockList)

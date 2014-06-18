@@ -135,7 +135,8 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 		blockIcons = new IIcon[PlantMetadata.fernTypes.size()];
 		for (int i = 0; i < blockIcons.length; i++)
 		{
-			blockIcons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.fernTypes.get(i));
+			blockIcons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.fernTypes.get(i) + 
+					(i == 4 ? "_bottom" : ""));
 		}
 	}
 	

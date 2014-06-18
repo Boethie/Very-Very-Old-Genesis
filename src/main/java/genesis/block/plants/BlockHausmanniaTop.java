@@ -1,8 +1,10 @@
 package genesis.block.plants;
 
-import java.util.ArrayList;
+import genesis.common.Genesis;
 
+import java.util.ArrayList;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.ColorizerGrass;
@@ -22,6 +24,8 @@ public class BlockHausmanniaTop extends BlockGenesisPlantTop implements IShearab
 	public BlockHausmanniaTop()
 	{
 		super();
+		setCreativeTab((CreativeTabs)null);
+		setBlockTextureName(Genesis.MOD_ID + ":" + "hausmannia_top");
 	}
 	
 	@Override
@@ -64,12 +68,6 @@ public class BlockHausmanniaTop extends BlockGenesisPlantTop implements IShearab
 			world.setBlockToAir(x, y - 1, z);
 		}
 		super.breakBlock(world, x, y, z, block, meta);
-	}
-
-	@Override
-	public int damageDropped(int meta)
-	{
-		return 1;
 	}
 	
 	@Override

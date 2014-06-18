@@ -1,4 +1,4 @@
-package genesis.block.plants;
+package genesis.block.aquatic;
 
 import genesis.common.Genesis;
 import genesis.lib.PlantMetadata;

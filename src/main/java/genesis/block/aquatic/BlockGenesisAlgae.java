@@ -1,11 +1,10 @@
-package genesis.block.plants;
+package genesis.block.aquatic;
 
 import genesis.common.Genesis;
 import genesis.lib.PlantMetadata;
 
 import java.util.List;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,24 +19,23 @@ import cpw.mods.fml.relauncher.SideOnly;
  * @author Arbiter
  *
  */
-public class BlockGenesisCoral extends Block
+public class BlockGenesisAlgae extends BlockGenesisAquaticPlant
 {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] icons;
 	
-	public BlockGenesisCoral()
+	public BlockGenesisAlgae()
 	{
-		super(Material.coral);
-		setHardness(0.75F);
-		setResistance(8.5F);
-		setStepSound(soundTypeStone);
-		setCreativeTab(Genesis.tabGenesis);
+		super(Material.plants);
+		setHardness(0.0F);
+		setStepSound(soundTypeGrass);
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tabs, List list)
 	{
-		int size = PlantMetadata.coralTypes.size();
+		int size = PlantMetadata.algaeTypes.size();
 		for (int i = 0; i < size; i++)
 		{
 			list.add(new ItemStack(item, 1, i));
@@ -54,10 +52,10 @@ public class BlockGenesisCoral extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register)
 	{
-		icons = new IIcon[PlantMetadata.coralTypes.size()];
+		icons = new IIcon[PlantMetadata.algaeTypes.size()];
 		for (int i = 0; i < icons.length; i++)
 		{
-			icons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.coralTypes.get(i));
+			icons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.algaeTypes.get(i));
 		}
 	}
 	

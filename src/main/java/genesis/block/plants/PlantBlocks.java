@@ -1,24 +1,12 @@
 package genesis.block.plants;
 
-import java.util.ArrayList;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-
-import cpw.mods.fml.common.registry.GameRegistry;
-
 import genesis.common.Genesis;
-import genesis.item.ModItems;
 import genesis.item.itemblock.ItemBlockAsteroxylon;
-import genesis.item.itemblock.ItemBlockGenesisAlgae;
-import genesis.item.itemblock.ItemBlockGenesisCoral;
 import genesis.item.itemblock.ItemBlockGenesisFern;
 import genesis.item.itemblock.ItemBlockGenesisPlant;
-import genesis.item.itemblock.ItemBlockGenesisSponge;
 import genesis.lib.Names;
+import net.minecraft.block.Block;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class PlantBlocks 
 {
@@ -31,9 +19,6 @@ public class PlantBlocks
 	public static BlockGenesisFern ferns;
 	public static BlockAsteroxylon asteroxylon;
 	public static BlockAsteroxylonTop asterTop;
-	public static BlockGenesisCoral coral; 
-	public static BlockGenesisSponge sponge;
-	public static BlockGenesisAlgae algae;
 	public static BlockHausmanniaTop hausTop;
 	
 	public static void init() {
@@ -49,12 +34,7 @@ public class PlantBlocks
 		zingTop = (BlockZingiberopsisTop) new BlockZingiberopsisTop().setBlockName(Names.blockZingiberopsis).setBlockTextureName("zingiberopsis");
 		
 		ferns = (BlockGenesisFern) new BlockGenesisFern().setBlockName(Names.blockFern);
-		//hausTop = (BlockHausmanniaTop) new BlockHausmanniaTop();
-		
-		coral = (BlockGenesisCoral) new BlockGenesisCoral().setBlockName(Names.blockCoral);
-		
-		sponge = (BlockGenesisSponge) new BlockGenesisSponge().setBlockName(Names.blockSponge);
-		algae = (BlockGenesisAlgae) new BlockGenesisAlgae().setBlockName(Names.blockAlgae);
+		hausTop = (BlockHausmanniaTop) new BlockHausmanniaTop();
 		
 		asteroxylon = (BlockAsteroxylon) new BlockAsteroxylon().setBlockName(Names.blockAsteroxylon);
 		
@@ -71,12 +51,7 @@ public class PlantBlocks
 		GameRegistry.registerBlock(zingTop, Names.blockZingiberopsis + ".top");
 		
 		GameRegistry.registerBlock(ferns, ItemBlockGenesisFern.class, Names.blockFern);
-		//GameRegistry.registerBlock(hausTop, Names.blockFern);
-		
-		GameRegistry.registerBlock(coral, ItemBlockGenesisCoral.class, Names.blockCoral);
-		
-		GameRegistry.registerBlock(sponge, ItemBlockGenesisSponge.class, Names.blockSponge);
-		GameRegistry.registerBlock(algae, ItemBlockGenesisAlgae.class, Names.blockAlgae);
+		GameRegistry.registerBlock(hausTop, Names.blockFern + ".top");
 		
 		GameRegistry.registerBlock(asteroxylon, ItemBlockAsteroxylon.class, Names.blockAsteroxylon);
 		

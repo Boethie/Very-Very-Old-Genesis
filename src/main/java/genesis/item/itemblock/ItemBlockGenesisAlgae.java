@@ -22,7 +22,7 @@ public class ItemBlockGenesisAlgae extends ItemBlockWithMetadata
 	@Override
 	public int getMetadata(int meta)
 	{
-		return meta % 15;
+		return meta & 0x0f;
 	}
 	
 	@Override
