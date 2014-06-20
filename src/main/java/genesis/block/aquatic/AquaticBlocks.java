@@ -20,12 +20,12 @@ public final class AquaticBlocks
 	private AquaticBlocks() {}
 	
 	public static void init()
-	{
-		algae = (BlockGenesisAlgae) new BlockGenesisAlgae().setBlockName(Names.blockAlgae);
-		
+	{		
 		coral = (BlockGenesisCoral) new BlockGenesisCoral().setBlockName(Names.blockCoral);
 		
 		sponge = (BlockGenesisSponge) new BlockGenesisSponge().setBlockName(Names.blockSponge);
+
+		algae = (BlockGenesisAlgae) new BlockGenesisAlgae().setBlockName(Names.blockAlgae);
 	}
 	public static void registerBlocks()
 	{

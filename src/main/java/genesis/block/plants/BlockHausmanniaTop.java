@@ -1,12 +1,15 @@
 package genesis.block.plants;
 
+import genesis.client.renderer.BlockHausmanniaRenderer;
 import genesis.common.Genesis;
 
 import java.util.ArrayList;
+
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -21,11 +24,21 @@ import cpw.mods.fml.relauncher.SideOnly;
  */
 public class BlockHausmanniaTop extends BlockGenesisPlantTop implements IShearable
 {
+	@SideOnly(Side.CLIENT)
+	private IIcon plantIcon;
+	@SideOnly(Side.CLIENT)
+	private IIcon topIcon;
+	
 	public BlockHausmanniaTop()
 	{
 		super();
 		setCreativeTab((CreativeTabs)null);
-		setBlockTextureName(Genesis.MOD_ID + ":" + "hausmannia_top");
+	}
+	
+	@Override
+	public int getRenderType()
+	{
+		return BlockHausmanniaRenderer.renderID;
 	}
 	
 	@Override
@@ -50,6 +63,13 @@ public class BlockHausmanniaTop extends BlockGenesisPlantTop implements IShearab
 	public int getRenderColor(int par1)
 	{
 		return ColorizerGrass.getGrassColor(0.5d, 1.0d);
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int par1, int meta)
+	{
+		return this.plantIcon;
 	}
 	
 	@Override
@@ -82,5 +102,18 @@ public class BlockHausmanniaTop extends BlockGenesisPlantTop implements IShearab
 		ArrayList<ItemStack> list = new ArrayList<ItemStack>();
 		list.add(new ItemStack(PlantBlocks.ferns, 2, 4));
 		return list;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister register)
+	{
+		plantIcon = register.registerIcon(Genesis.MOD_ID + ":hausmannia_bottom");
+		topIcon = register.registerIcon(Genesis.MOD_ID + ":hausmannia_top");
+	}
+	
+	public IIcon getTopIcon()
+	{
+		return this.topIcon;
 	}
 }

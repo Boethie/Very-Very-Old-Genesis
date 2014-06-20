@@ -121,12 +121,6 @@ public class TreeBlocks {
 			Genesis.proxy.registerBlock(blocksLeaves[group], Names.blockLeavesGenesis + group, ItemBlockGenesisTree.class);
 			Genesis.proxy.registerBlock(blocksRottenLogs[group], Names.blockRottenLogGenesis + group, ItemBlockGenesisTree.class);
 			
-			//Genesis.proxy.registerBlock(blocksSingleSlabs[group], Names.blockSlabGenesis + group, ItemSlab.class,
-			//		new Object[] {((BlockSlab) blocksSingleSlabs[group]), ((BlockSlab) blocksDoubleSlabs[group]), false});
-			
-			//Genesis.proxy.registerBlock(blocksDoubleSlabs[group], Names.blockSlabGenesis + "double." + group, ItemSlab.class,
-			//		new Object[] {((BlockSlab) blocksSingleSlabs[group]), ((BlockSlab) blocksDoubleSlabs[group]), true});
-			
 			GameRegistry.addSmelting(blocksLogs[group], new ItemStack(Items.coal, 1, 1), 0.15F);
 			
 			OreDictionary.registerOre("logWood", new ItemStack(blocksLogs[group], 1, OreDictionary.WILDCARD_VALUE));
@@ -143,11 +137,7 @@ public class TreeBlocks {
 		LOG,
 		LEAVES,
 		SAPLING,
-		WOOD,
-		SINGLE_SLAB,
-		DOUBLE_SLAB,
-		ROTTEN_LOG,
-		STAIRS;
+		ROTTEN_LOG;
 	}
 	
 	public static BlockAndMeta getBlockForType(TreeBlockType type, String name) {

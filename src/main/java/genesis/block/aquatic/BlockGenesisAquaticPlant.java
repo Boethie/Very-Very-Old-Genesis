@@ -72,7 +72,7 @@ public class BlockGenesisAquaticPlant extends Block
 			{
 				waterCount++;
 			}
-			else if (b == AquaticBlocks.sponge || b == AquaticBlocks.algae)
+			else if (b == AquaticBlocks.sponge)
 			{
 				waterCount++;
 			}
@@ -122,7 +122,7 @@ public class BlockGenesisAquaticPlant extends Block
 					canSustainPlant(world, x, y, z, ForgeDirection.DOWN, null);
 	}
 	
-	protected void dropSpongeIfCannotStay(World world, int x, int y, int z)
+	protected void dropPlantIfCannotStay(World world, int x, int y, int z)
 	{
 		if (!canBlockStay(world, x, y, z))
 		{
@@ -137,7 +137,7 @@ public class BlockGenesisAquaticPlant extends Block
 		super.onBlockAdded(world, x, y, z);
 		if (!canBlockStay(world, x, y, z))
 		{
-			dropSpongeIfCannotStay(world, x, y, z);
+			dropPlantIfCannotStay(world, x, y, z);
 		}
 	}
 	
@@ -147,7 +147,7 @@ public class BlockGenesisAquaticPlant extends Block
 		super.onNeighborBlockChange(world, x, y, z, block);
 		if (!canBlockStay(world, x, y, z))
 		{
-			dropSpongeIfCannotStay(world, x, y, z);
+			dropPlantIfCannotStay(world, x, y, z);
 		}
 	}
 }
