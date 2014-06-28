@@ -1,5 +1,6 @@
 package genesis.block.plants;
 
+import genesis.block.ModBlocks;
 import genesis.common.Genesis;
 import genesis.item.ModItems;
 
@@ -46,6 +47,11 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
 			icons[i] = register.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + 
 					"_stage_" + i + (i >= 5 ? "_bottom" : ""));
 		}
+	}
+
+	@Override
+	protected boolean canPlaceBlockOn(Block block) {
+		return block == soilBlock || block == ModBlocks.moss;
 	}
 	
 	@Override

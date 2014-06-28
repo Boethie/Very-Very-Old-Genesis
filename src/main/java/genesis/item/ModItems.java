@@ -16,16 +16,12 @@ public class ModItems {
 	public static ItemsToolSet graniteTools;
 	
 	public static ItemGenesis zircon;
-	
-	public static ItemGenesis quartz;
-	
-	public static ItemGenesis olivine;
-	
-	public static ItemGenesis garnet;
-	
-	public static ItemGenesis malachite;
-	
+	public static ItemGenesis quartz;	
+	public static ItemGenesis olivine;	
+	public static ItemGenesis garnet;	
+	public static ItemGenesis malachite;	
 	public static ItemGenesis hematite;
+	public static ItemGenesis biotite;
 	
 	// Seeds/Foods
 	public static ItemGenesisSeed rhizome;
@@ -46,6 +42,8 @@ public class ModItems {
 		malachite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemMalachite).setTextureName("malachite");
 		
 		hematite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemHematite).setTextureName("hematite");
+		
+		biotite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemBiotite).setTextureName("biotite");
 		
 		
 		// Seeds/Foods

@@ -71,7 +71,7 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 	@Override
 	public int damageDropped(int meta)
 	{
-		return meta;
+		return 0;
 	}
 	
 	@Override
@@ -110,6 +110,12 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 			world.setBlock(x, y + 1, z, PlantBlocks.asterTop);
 		}
 		return super.onBlockPlaced(world, x, y, z, side, hitX, hitY, hitZ, meta);
+	}
+
+	@Override
+	public Item getItem(World world, int x, int y, int z)
+	{
+		return new ItemStack(Item.getItemFromBlock(PlantBlocks.asteroxylon), 1, world.getBlockMetadata(x, y, z)).getItem();
 	}
 	
 	@Override

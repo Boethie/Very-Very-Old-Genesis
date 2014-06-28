@@ -1,9 +1,9 @@
 package genesis.block;
 
-import genesis.block.aquatic.AquaticBlocks;
 import genesis.block.gui.BlockCampfire;
 import genesis.block.plants.PlantBlocks;
 import genesis.block.trees.TreeBlocks;
+import genesis.common.Genesis;
 import genesis.item.ModItems;
 import genesis.lib.Names;
 import net.minecraft.block.Block;
@@ -19,6 +19,7 @@ public class ModBlocks {
 	public static Block moss;
 	public static Block tikiTorch;
 	public static BlockCampfire campfire;
+	public static BlockPortalGenesis portal;
 	
 	// Rocks
 	public static Block granite;
@@ -33,6 +34,7 @@ public class ModBlocks {
 	public static Block shale;
 	public static Block permafrost;
 	public static Block octaedrite;
+	public static Block trondhjemite;
 	
 	// Ores
 	public static BlockGenesisOre quartzGraniteOre;	
@@ -41,6 +43,7 @@ public class ModBlocks {
 	public static BlockGenesisOre zirconOre;	
 	public static BlockGenesisOre garnetOre;
 	public static BlockGenesisOre olivineOre;
+	public static BlockGenesisOre biotiteOre;
 	
 	public static void init() {
 		moss = new BlockMoss().setBlockTextureName("moss")
@@ -51,28 +54,31 @@ public class ModBlocks {
 		
 		campfire = (BlockCampfire) new BlockCampfire().setBlockTextureName("campfire")
 				.setBlockName(Names.blockCampfire);
+		portal = (BlockPortalGenesis) new BlockPortalGenesis().setBlockTextureName(Genesis.MOD_ID + ":genesis_portal")
+				.setBlockName(Names.blockPortal);
+
 		
 		
 		// Rocks
-		granite = new BlockGenesisRock(Material.rock, 0)
+		granite = new BlockGenesisRockOres(Material.rock, 0)
 				.setBlockTextureName("granite")
 				.setBlockName(Names.blockGranite).setHardness(2.0F).setResistance(10.0F);
 		graniteMossy = new BlockGenesisRock(Material.rock, 0)
 				.setBlockTextureName("granite_mossy")
 				.setBlockName(Names.blockGraniteMossy).setHardness(2.0F).setResistance(10.0F);
-		rhyolite = new BlockGenesisRock(Material.rock, 0)
+		rhyolite = new BlockGenesisRockOres(Material.rock, 0)
 				.setBlockTextureName("rhyolite")
 				.setBlockName(Names.blockRhyolite).setHardness(1.65F).setResistance(10.0F);
-		komatiite = new BlockGenesisRock(Material.rock, 0)
+		komatiite = new BlockGenesisRockOres(Material.rock, 0)
 				.setBlockTextureName("komatiite")
 				.setBlockName(Names.blockKomatiite).setHardness(1.95F).setResistance(10.0F);
-		fauxAmphibolite = new BlockGenesisRock(Material.rock, 0)
+		fauxAmphibolite = new BlockGenesisRockOres(Material.rock, 0)
 				.setBlockTextureName("faux_amphibolite")
 				.setBlockName(Names.blockFauxAmphibolite).setHardness(1.2F).setResistance(10.0F);
-		gneiss = new BlockGenesisRock(Material.rock, 0)
+		gneiss = new BlockGenesisRockOres(Material.rock, 0)
 				.setBlockTextureName("gneiss")
 				.setBlockName(Names.blockGneiss).setHardness(1.65F).setResistance(10.0F);
-		quartzite = new BlockGenesisRock(Material.rock, 0)
+		quartzite = new BlockGenesisRockOres(Material.rock, 0)
 				.setBlockTextureName("quartzite")
 				.setBlockName(Names.blockQuartzite).setHardness(1.95F).setResistance(10.0F);
 		limestone = new BlockGenesisRock(Material.rock, 0)
@@ -91,41 +97,40 @@ public class ModBlocks {
 		octaedrite = new BlockGenesisRock(Material.rock, 0)
 				.setBlockTextureName("octaedrite_fragment")
 				.setBlockName(Names.blockOctaedrite).setHardness(1.0F).setResistance(10.0F);
+		trondhjemite = new BlockGenesisRock(Material.rock, 0).setBlockTextureName("trondhjemite")
+				.setBlockName(Names.blockTrondhjemite)
+				.setHardness(2.0F).setResistance(10.0F);
 		
 		// Ores
 		quartzGraniteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 1, 1, 1)
 				.setBlockTextureName("quartz_granite_ore").setBlockName(Names.blockQuartzGraniteOre)
-				.setHardness(3.0F).setResistance(10.0F);
-		
+				.setHardness(3.0F).setResistance(10.0F);		
 		malachiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 1, 4, 8)
 				.setBlockTextureName("malachite_ore").setBlockName(Names.blockMalachiteOre)
-				.setHardness(3.0F).setResistance(10.0F);
-		
+				.setHardness(3.0F).setResistance(10.0F);		
 		hematiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 3)
 				.setBlockTextureName("hematite_ore").setBlockName(Names.blockHematiteOre)
 				.setHardness(3.0F).setResistance(10.0F);
-
 		zirconOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1)
 				.setBlockTextureName("zircon_ore").setBlockName(Names.blockZirconOre)
-				.setHardness(3.0F).setResistance(10.0F);
-		
+				.setHardness(3.0F).setResistance(10.0F);		
 		garnetOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1)
 				.setBlockTextureName("garnet_ore").setBlockName(Names.blockGarnetOre)
-				.setHardness(3.0F).setResistance(10.0F);
-		
-		
+				.setHardness(3.0F).setResistance(10.0F);		
 		olivineOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1)
 				.setBlockTextureName("olivine_ore").setBlockName(Names.blockOlivineOre)
+				.setHardness(3.0F).setResistance(10.0F);
+		biotiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1)
+				.setBlockTextureName("biotite_ore").setBlockName(Names.blockBiotiteOre)
 				.setHardness(3.0F).setResistance(10.0F);
 		
 		TreeBlocks.init();
 		PlantBlocks.init();
-		AquaticBlocks.init();
-		//CropBlocks.init(); #Cropblocks are basically just PlantBlocks
 	}
 	
 	public static void registerBlocks() {
 		GameRegistry.registerBlock(moss, Names.blockMoss);
+		GameRegistry.registerBlock(portal, Names.blockPortal);
 		
 		zirconOre.setDropAndSmelting(ModItems.zircon, 0, 1.0F);
 
@@ -139,11 +144,12 @@ public class ModBlocks {
 		
 		hematiteOre.setDrop(new ItemStack(ModItems.hematite, 1, 0), 2, 4);
 		
+		biotiteOre.setDrop(new ItemStack(ModItems.biotite, 1, 0), 2, 4);
+		
         moss.setHarvestLevel("shovel", 0);
         permafrost.setHarvestLevel("shovel", 0);
 		
 		TreeBlocks.registerBlocks();
 		PlantBlocks.registerBlocks();
-		AquaticBlocks.registerBlocks();
 	}
 }

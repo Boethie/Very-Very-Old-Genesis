@@ -21,7 +21,7 @@ import genesis.block.plants.IPlantInFlowerPot;
 import genesis.block.trees.TreeBlocks.TreeType;
 import genesis.common.Genesis;
 import genesis.item.itemblock.IItemBlockWithSubNames;
-import genesis.world.WorldGenTreeBase;
+import genesis.world.gen.feature.WorldGenTreeBase;
 
 public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerPot, IItemBlockWithSubNames {
 	

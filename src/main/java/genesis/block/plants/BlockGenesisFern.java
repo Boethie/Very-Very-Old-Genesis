@@ -2,12 +2,9 @@ package genesis.block.plants;
 
 import genesis.block.ModBlocks;
 import genesis.common.Genesis;
-import genesis.lib.PlantMetadata;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -21,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.IShearable;
+import net.minecraftforge.common.util.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -80,46 +78,11 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tabs, List list)
 	{
-		int count = PlantMetadata.fernTypes.size(); // so we only call size() once
+		int count = PlantBlocks.fernTypes.size(); // so we only call size() once
 		for (int i = 0; i < count; i++)
 		{
 			list.add(new ItemStack(item, 1, i));
 		}
-	}
-	
-	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta)
-	{		
-		if (PlantMetadata.fernTypes.get(meta) == "hausmannia")
-		{
-			Block b = world.getBlock(x, y + 1, z);
-			if (b != null && b instanceof BlockHausmanniaTop)
-			{
-				world.setBlockToAir(x, y + 1, z);
-			}
-		}
-		super.breakBlock(world, x, y, z, block, meta);
-	}
-	
-	@Override
-	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
-	{
-		if (world.isAirBlock(x, y + 1, z) && PlantMetadata.fernTypes.get(meta) == "hausmannia")
-		{
-			world.setBlock(x, y + 1, z, PlantBlocks.hausTop);
-		}
-		return super.onBlockPlaced(world, x, y, z, side, hitX, hitY, hitZ, meta);
-	}
-	
-	@Override
-	public void onBlockAdded(World world, int x, int y, int z)
-	{
-		if (world.isAirBlock(x, y + 1, z) && 
-				PlantMetadata.fernTypes.get(world.getBlockMetadata(x, y, z)) == "hausmannia")
-		{
-			world.setBlock(x, y + 1, z, PlantBlocks.hausTop);
-		}
-		super.onBlockAdded(world, x, y, z);
 	}
 	
 	@Override
@@ -132,11 +95,10 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register)
 	{
-		blockIcons = new IIcon[PlantMetadata.fernTypes.size()];
+		blockIcons = new IIcon[PlantBlocks.fernTypes.size()];
 		for (int i = 0; i < blockIcons.length; i++)
 		{
-			blockIcons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.fernTypes.get(i) + 
-					(i == 4 ? "_bottom" : ""));
+			blockIcons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantBlocks.fernTypes.get(i));
 		}
 	}
 	
@@ -215,6 +177,7 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 	{
 		return world.getBiomeGenForCoords(x, z).getBiomeGrassColor(x, y, z);
 	}
+	
 	@Override
 	protected boolean canPlaceBlockOn(Block block)
 	{

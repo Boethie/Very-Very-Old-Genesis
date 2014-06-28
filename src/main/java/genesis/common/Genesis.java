@@ -11,6 +11,9 @@ import genesis.item.ModItems;
 import genesis.lib.ConfigHandler;
 import genesis.lib.GenesisVersion;
 import genesis.lib.LogHelper;
+import genesis.world.WorldProviderGenesis;
+import genesis.world.WorldTypeGenesis;
+import genesis.world.biome.GenesisBiomes;
 
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -19,6 +22,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.WorldType;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -60,6 +65,8 @@ public class Genesis {
 			return getIconItemStack().getItem();
 		}
 	};
+	
+	public static int dimensionID = DimensionManager.getNextFreeDimId();
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent evt) {
@@ -80,6 +87,9 @@ public class Genesis {
 
 		ModBlocks.registerBlocks();
 		ModItems.registerItems();
+		
+		GenesisBiomes.config();
+		
 		LogHelper.log(Level.INFO, "Blocks and Items Loaded");
 
 		ModEntities.init();
@@ -99,6 +109,13 @@ public class Genesis {
 
 		MinecraftForge.EVENT_BUS.register(new GuiEventHandler());
 		MinecraftForge.EVENT_BUS.register(new GenesisEventHandler());
+		
+		GenesisBiomes.init();
+
+		DimensionManager.registerProviderType(dimensionID, WorldProviderGenesis.class, true);
+		DimensionManager.registerDimension(dimensionID, dimensionID);
+		WorldTypeGenesis genesisTestType = new WorldTypeGenesis("genesisTestType");
+		
 
 		proxy.init();
 	}

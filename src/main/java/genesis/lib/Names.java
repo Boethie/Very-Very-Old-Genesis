@@ -13,6 +13,9 @@ public class Names {
 	// Moss
 	public static final String blockMoss = mod + "moss";
 
+	//Portal
+	public static final String blockPortal = mod + "portal";
+
 	// Rock blocks
 	public static final String blockRock = mod + "rock.";
 	public static final String blockGranite = blockRock + "granite";
@@ -26,23 +29,18 @@ public class Names {
 	public static final String blockStromatolite = blockRock + "stromatolite";
 	public static final String blockShale = blockRock + "shale";
 	public static final String blockPermafrost = mod + "permafrost";
+	public static final String blockTrondhjemite = blockRock + "trondhjemite";
 
 	// Ores
 	public static final String blockOre = mod + "ore.";
-
 	public static final String blockOctaedrite = blockRock + "octaedrite";
-
 	public static final String blockQuartzGraniteOre = blockOre + "quartzGranite";
-
 	public static final String blockMalachiteOre = blockOre + "malachite";
-
 	public static final String blockHematiteOre = blockOre + "hematite";
-
 	public static final String blockZirconOre = blockOre + "zircon";
-
 	public static final String blockGarnetOre = blockOre + "garnet";
-
 	public static final String blockOlivineOre = blockOre + "olivine";
+	public static final String blockBiotiteOre = blockOre + "biotite";
 
 	// Trees
 	public static final String blockLogGenesis = mod + "log.";
@@ -59,6 +57,12 @@ public class Names {
 	public static final String blockCrop = blockPlant + "crop.";
 	public static final String blockFern = blockPlant + "fern.";
 	public static final String itemSeed = blockPlant + "seed.";
+	
+	// Aquatic
+	public static final String blockAquatic = mod + "aquatic.";
+	public static final String blockCoral = blockAquatic + "coral.";
+	public static final String blockSponge = blockAquatic + "sponge.";
+	public static final String blockAlgae = blockAquatic + "algae.";
 
 	public static final String blockCalamitesPlant = blockPlant + "calamites";
 
@@ -66,9 +70,6 @@ public class Names {
 	public static final String blockZingiberopsis = blockCrop + "zingiberopsis";
 	
 	public static final String blockAsteroxylon = blockPlant + "asteroxylon";
-	public static final String blockCoral = blockPlant + "coral.";
-	public static final String blockSponge = blockPlant + "sponge.";
-	public static final String blockAlgae = blockPlant + "algae.";
 
 	// ---- Items ----
 	// Crafting items
@@ -76,19 +77,15 @@ public class Names {
 
 	public static final String itemZircon = mod + "zircon";
 	public static final String itemZirconMaterial = "zircon";
-
 	public static final String itemQuartz = mod + "quartz";
-
 	public static final String itemOlivine = mod + "olivine";
 	public static final String itemOlivineMaterial = "olivine";
-
 	public static final String itemGarnet = mod + "garnet";
-
 	public static final String itemMalachite = mod + "malachite";
-
 	public static final String itemHematite = mod + "hematite";
+	public static final String itemBiotite = mod + "biotite";
 
-	// Swords and tools
+	// Tools
 	public static final String itemTool = mod + "tool.";
 	public static final String itemKnife = mod + "knife.";
 	public static final String itemPickaxe = itemTool + "pickaxe.";

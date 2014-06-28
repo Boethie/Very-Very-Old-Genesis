@@ -1,8 +1,3 @@
-
-<!-- Creative Mode Tabs -->
-itemGroup.tabGenesis=Genesis
-
-
 <!-- Blocks -->
 
 <!-- Tiki Torch -->
@@ -24,21 +19,17 @@ tile.genesis.rock.limestone.name=Limestone
 tile.genesis.rock.stromatolite.name=Stromatolite
 tile.genesis.rock.shale.name=Shale
 tile.genesis.permafrost.name=Permafrost
+tile.genesis.rock.trondhjemite.name=Trondhjemite
 
 <!-- Ores -->
 tile.genesis.rock.octaedrite.name=Octaedrite Fragment
-
 tile.genesis.ore.quartzGranite.name=Granite Quartz Ore
-
 tile.genesis.ore.malachite.name=Malachite Ore
-
 tile.genesis.ore.hematite.name=Hematite Ore
-
 tile.genesis.ore.zircon.name=Zircon Ore
-
 tile.genesis.ore.garnet.name=Garnet Ore
-
 tile.genesis.ore.olivine.name=Olivine Ore
+tile.genesis.ore.biotite.name=Biotite Ore
 
 <!-- Trees -->
 tile.genesis.log.sigillaria.name=Sigillaria Wood
@@ -91,24 +82,10 @@ tile.genesis.plant.baragwanathia.name=Baragwanathia
 tile.genesis.plant.sciadophyton.name=Sciadophyton
 tile.genesis.plant.psilophyton.name=Psilophyton
 tile.genesis.plant.nothia.name=Nothia
-tile.genesis.plant.rhynia.name=Rhynia
 
 tile.genesis.plant.asteroxylon.name=Asteroxylon
 tile.genesis.plant.asteroxylon.tall.name=Tall Asteroxylon
 tile.genesis.plant.asteroxylon.top=Asteroxylon Top
-
-tile.genesis.plant.coral.heliolites.name=Heliolites
-tile.genesis.plant.coral.favosites.name=Favosites
-tile.genesis.plant.coral.halysites.name=Halysites
-
-tile.genesis.plant.sponge.vauxia.name=Vauxia
-tile.genesis.plant.sponge.hazelia.name=Hazelia
-tile.genesis.plant.sponge.wapkia.name=Wapkia
-tile.genesis.plant.sponge.diagoniella.name=Diagoniella
-tile.genesis.plant.sponge.pirania.name=Pirania
-
-tile.genesis.plant.algae.margaretia.name=Margaretia
-tile.genesis.plant.algae.bangiomorpha.name=Bangiomorpha
 
 item.genesis.plant.seed.rhizome.name=Zingiberopsis Rhizome
 tile.genesis.plant.crop.zingiberopsis.name=Zingiberopsis
@@ -117,25 +94,45 @@ tile.genesis.plant.fern.zygopteris.name=Zygopteris
 tile.genesis.plant.fern.matonidium.name=Matonidium
 tile.genesis.plant.fern.astralopteris.name=Astralopteris
 tile.genesis.plant.fern.ruffordia.name=Ruffordia
-tile.genesis.plant.fern.hausmannia.name=Hausmannia
+
+<!-- Aquatic -->
+tile.genesis.aquatic.coral.heliolites.name=Heliolites
+tile.genesis.aquatic.coral.favosites.name=Favosites
+tile.genesis.aquatic.coral.halysites.name=Halysites
+
+tile.genesis.aquatic.sponge.vauxia.name=Vauxia
+tile.genesis.aquatic.sponge.hazelia.name=Hazelia
+tile.genesis.aquatic.sponge.wapkia.name=Wapkia
+tile.genesis.aquatic.sponge.diagoniella.name=Diagoniella
+tile.genesis.aquatic.sponge.pirania.name=Pirania
+
+tile.genesis.aquatic.algae.margaretia.name=Margaretia
+tile.genesis.aquatic.algae.bangiomorpha.name=Bangiomorpha
+
 
 <!-- Items -->
 <!-- Crafting -->
 item.genesis.zircon.name=Zircon
-
 item.genesis.quartz.name=Quartz
-
 item.genesis.olivine.name=Olivine
-
 item.genesis.garnet.name=Garnet
-
 item.genesis.malachite.name=Malachite
-
 item.genesis.hematite.name=Hematite
+item.genesis.biotite.name=Biotite
 
-<!-- Swords/Tools -->
+<!-- Tools -->
 item.genesis.knife.granite.name=Granite Knife
 item.genesis.tool.pickaxe.granite.name=Granite Pickaxe
 item.genesis.tool.shovel.granite.name=Granite Shovel
 item.genesis.tool.axe.granite.name=Granite Axe
 item.genesis.tool.hoe.granite.name=Granite Hoe
+
+
+<!-- Other -->
+
+<!-- Creative Mode Tabs -->
+itemGroup.tabGenesis=Genesis
+
+<!-- World type name -->
+generator.genesisTestType=Genesis World
+
