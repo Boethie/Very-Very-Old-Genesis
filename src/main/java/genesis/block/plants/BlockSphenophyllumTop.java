@@ -16,12 +16,12 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @Author("Arbiter")
-public class BlockZingiberopsisTop extends BlockGenesisPlantTop
+public class BlockSphenophyllumTop extends BlockGenesisPlantTop
 {
 	@SideOnly(Side.CLIENT)
-	private IIcon[] icons;
+	public IIcon[] icons;
 	
-	public BlockZingiberopsisTop()
+	public BlockSphenophyllumTop()
 	{
 		super();
 	}
@@ -29,7 +29,7 @@ public class BlockZingiberopsisTop extends BlockGenesisPlantTop
 	protected void updateBlock(World world, int x, int y, int z)
 	{
 		Block b = world.getBlock(x, y - 1, z);
-		if (b instanceof BlockZingiberopsisBase)
+		if (b instanceof BlockSphenophyllumBase)
 		{
 			int meta = world.getBlockMetadata(x, y - 1, z) - 5;
 			if (meta >= 0)
@@ -46,10 +46,10 @@ public class BlockZingiberopsisTop extends BlockGenesisPlantTop
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta)
 	{
-		Block down = world.getBlock(x, y - 1, z);
-		if (down instanceof BlockZingiberopsisBase)
+		Block below = world.getBlock(x, y - 1, z);
+		if (below instanceof BlockSphenophyllumBase)
 		{
-			((BlockZingiberopsisBase)down).dropBlockAsItem(world, x, y - 1, z, world.getBlockMetadata(x, y, z) + 5, 0);
+			((BlockSphenophyllumBase)below).dropBlockAsItem(world, x, y - 1, z, meta + 5, 0);
 			world.setBlockToAir(x, y - 1, z);
 		}
 		super.breakBlock(world, x, y, z, block, meta);
@@ -70,10 +70,6 @@ public class BlockZingiberopsisTop extends BlockGenesisPlantTop
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int par1, int meta)
 	{
-		if (meta >= 3)
-		{
-			meta = 2;
-		}
 		return icons[meta];
 	}
 	

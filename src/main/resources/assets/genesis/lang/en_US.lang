@@ -35,42 +35,42 @@ tile.genesis.ore.biotite.name=Biotite Ore
 tile.genesis.log.sigillaria.name=Sigillaria Wood
 tile.genesis.leaves.sigillaria.name=Sigillaria Leaves
 tile.genesis.sapling.sigillaria.name=Sigillaria Sapling
-tile.genesis.wood.sigillaria.name=Sigillaria Wood Planks
-tile.genesis.slab.sigillaria.name=Sigillaria Wood Slab
 tile.genesis.logRotten.sigillaria.name=Rotten Sigillaria Wood
-tile.genesis.stairs.sigillaria.name=Sigillaria Wood Stairs
 
 tile.genesis.log.lepidodendron.name=Lepidodendron Wood
 tile.genesis.leaves.lepidodendron.name=Lepidodendron Leaves
 tile.genesis.sapling.lepidodendron.name=Lepidodendron Sapling
-tile.genesis.wood.lepidodendron.name=Lepidodendron Wood Planks
-tile.genesis.slab.lepidodendron.name=Lepidodendron Wood Slab
 tile.genesis.logRotten.lepidodendron.name=Rotten Lepidodendron Wood
-tile.genesis.stairs.lepidodendron.name=Lepidodendron Wood Stairs
 
 tile.genesis.log.cordaites.name=Cordaites Wood
 tile.genesis.leaves.cordaites.name=Cordaites Leaves
 tile.genesis.sapling.cordaites.name=Cordaites Sapling
-tile.genesis.wood.cordaites.name=Cordaites Wood Planks
-tile.genesis.slab.cordaites.name=Cordaites Wood Slab
 tile.genesis.logRotten.cordaites.name=Rotten Cordaites Wood
-tile.genesis.stairs.cordaites.name=Cordaites Wood Stairs
 
 tile.genesis.log.araucarioxylon.name=Araucarioxylon Wood
 tile.genesis.leaves.araucarioxylon.name=Araucarioxylon Leaves
 tile.genesis.sapling.araucarioxylon.name=Araucarioxylon Sapling
-tile.genesis.wood.araucarioxylon.name=Araucarioxylon Wood Planks
-tile.genesis.slab.araucarioxylon.name=Araucarioxylon Wood Slab
 tile.genesis.logRotten.araucarioxylon.name=Rotten Araucarioxylon Wood
-tile.genesis.stairs.araucarioxylon.name=Araucarioxylon Wood Stairs
 
 tile.genesis.log.psaronius.name=Psaronius Wood
 tile.genesis.leaves.psaronius.name=Pecopteris Leaves
 tile.genesis.sapling.psaronius.name=Psaronius Sapling
-tile.genesis.wood.psaronius.name=Psaronius Wood Planks
-tile.genesis.slab.psaronius.name=Psaronius Wood Slab
 tile.genesis.logRotten.psaronius.name=Rotten Psaronius Wood
-tile.genesis.stairs.psaronius.name=Psaronius Wood Stairs
+
+tile.genesis.log.archeopteris.name=Archeopteris Wood
+tile.genesis.leaves.archeopteris.name=Archeopteris Leaves
+tile.genesis.sapling.archeopteris.name=Archeopteris Sapling
+tile.genesis.logRotten.archeopteris.name=Rotten Archeopteris Wood
+
+tile.genesis.log.bjuvia.name=Bjuvia Wood
+tile.genesis.leaves.bjuvia.name=Bjuvia Leaves
+tile.genesis.sapling.bjuvia.name=Bjuvia Sapling
+tile.genesis.logRotten.bjuvia.name=Rotten Bjuvia Wood
+
+tile.genesis.log.glossopteris.name=Glossopteris Wood
+tile.genesis.leaves.glossopteris.name=Glossopteris Leaves
+tile.genesis.sapling.glossopteris.name=Glossopteris Sapling
+tile.genesis.logRotten.glossopteris.name=Rotten Glossopteris Wood
 
 
 <!-- Plants -->
@@ -89,6 +89,9 @@ tile.genesis.plant.asteroxylon.top=Asteroxylon Top
 
 item.genesis.plant.seed.rhizome.name=Zingiberopsis Rhizome
 tile.genesis.plant.crop.zingiberopsis.name=Zingiberopsis
+
+item.genesis.plant.seed.sphenophyllumSpore.name=Sphenophyllum Spore
+tile.genesis.plant.crop.sphenophyllum.name=Sphenophyllum
 
 tile.genesis.plant.fern.zygopteris.name=Zygopteris
 tile.genesis.plant.fern.matonidium.name=Matonidium
@@ -119,6 +122,7 @@ item.genesis.garnet.name=Garnet
 item.genesis.malachite.name=Malachite
 item.genesis.hematite.name=Hematite
 item.genesis.biotite.name=Biotite
+item.genesis.sphenoFiber.name=Sphenophyllum Fiber
 
 <!-- Tools -->
 item.genesis.knife.granite.name=Granite Knife

@@ -5,30 +5,31 @@ import genesis.common.Genesis;
 import genesis.item.ModItems;
 import genesis.lib.Author;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.IGrowable;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.util.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @Author("Arbiter")
-public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowable
+public class BlockSphenophyllumBase extends BlockGenesisCrop
 {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] icons;
 	
-	public BlockZingiberopsisBase()
+	public BlockSphenophyllumBase()
 	{
-		super(ModItems.rhizome, ModItems.rhizome, Blocks.farmland, 8, 4);
+		super(ModItems.sphenoSpore, ModItems.sphenoFiber, Blocks.farmland, 8, 2);
 		disableStats();
 		setTickRandomly(true);
 		setCreativeTab((CreativeTabs)null);
@@ -45,10 +46,11 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
 					"_stage_" + i + (i >= 5 ? "_bottom" : ""));
 		}
 	}
-
+	
 	@Override
-	protected boolean canPlaceBlockOn(Block block) {
-		return block == soilBlock || block == ModBlocks.moss;
+	protected boolean canPlaceBlockOn(Block block)
+	{
+		return block == soilBlock || block == ModBlocks.moss || block == Blocks.grass;
 	}
 	
 	@Override
@@ -56,21 +58,6 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
 	public IIcon getIcon(int par1, int meta)
 	{
 		return icons[meta];
-	}
-	
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
-	{
-		int meta = world.getBlockMetadata(x, y, z);
-		if (meta > 5)
-		{
-			setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
-		}
-		else
-		{
-			float f = 1 / (6 - meta); // to calculate the percentage of the block the boudns should reach
-			setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 0.0f + f, 1.0f);
-		}
 	}
 	
 	@Override
@@ -84,30 +71,25 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
 		}
 	}
 	
-	@Override
-	public Item getItemDropped(int meta, Random par2Random, int par3)
-	{
-		return meta == 3 ? func_149865_P() : func_149866_i();
-	}
-	@Override
-	public int quantityDropped(int par1, int par2, Random par3)
-	{
-		return par1 == stages - 1 ? fullGrownDroppedAmount : 1;
-	}
-	
 	protected void checkAndUpdateTop(World world, int x, int y, int z, int meta)
 	{
 		if (meta >= 5)
 		{
 			if (world.getBlock(x, y + 1, z) == Blocks.air)
 			{
-				world.setBlock(x, y + 1, z, PlantBlocks.zingTop, meta - 5, 2);
+				world.setBlock(x, y + 1, z, PlantBlocks.sphenoTop, meta - 5, 2);
 			}
-			else if (world.getBlock(x, y + 1, z) instanceof BlockZingiberopsisTop)
+			else if (world.getBlock(x, y + 1, z) instanceof BlockSphenophyllumTop)
 			{
 				world.setBlockMetadataWithNotify(x, y + 1, z, meta - 5, 2);
 			}
 		}
+	}
+	
+	@Override
+	public int quantityDropped(int par1, int par2, Random random)
+	{
+		return par1 == stages - 1 ? random.nextInt(3) : 0;
 	}
 	
 	@Override
@@ -117,40 +99,35 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
 	}
 	
 	@Override
-	protected Item func_149865_P() 
-	{
-		return ModItems.rhizome;
-	}
-	
-	@Override
-	protected Item func_149866_i()
-	{
-		return ModItems.rhizome;
-	}
-	
-	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta)
 	{
 		Block b = world.getBlock(x, y + 1, z);
-		if (b instanceof BlockZingiberopsisTop)
+		if (b instanceof BlockSphenophyllumTop)
 		{
 			world.setBlockToAir(x, y + 1, z);
 		}
 		super.breakBlock(world, x, y, z, block, meta);
 	}
 	
-	/**
-	 * Overridden to provide custom code when grown using bonemeal.
-	 */
 	@Override
-	public void func_149853_b(World world, Random random, int x, int y, int z)
+	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int meta, int fortune)
 	{
-		int meta = world.getBlockMetadata(x, y, z) + MathHelper.getRandomIntegerInRange(random, 2, 5);
-		if (meta >= stages)
+		ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+		int count = world.rand.nextInt(3) + 1;
+		if (meta == 7)
 		{
-			meta = stages - 1;
+			for (int i = 0; i < count + fortune; i++)
+			{
+				list.add(new ItemStack(seedItem, 1, 0));
+			}
+			list.add(new ItemStack(cropItem, 1, 0));
 		}
-		world.setBlockMetadataWithNotify(x, y, z, meta, 2);
-		checkAndUpdateTop(world, x, y, z, meta);
+		return list;
+	}
+	
+	@Override
+	public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable)
+	{
+		return canPlaceBlockOn(world.getBlock(x, y - 1, z));
 	}
 }

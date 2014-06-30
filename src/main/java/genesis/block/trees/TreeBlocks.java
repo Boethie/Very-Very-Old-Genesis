@@ -33,7 +33,10 @@ public class TreeBlocks {
 		LEPIDODENDRON("lepidodendron"),
 		CORDAITES("cordaites"),
 		ARAUCARIOXYLON("araucarioxylon"),
-		PSARONIUS("psaronius");
+		PSARONIUS("psaronius"),
+		ARCHEOPTERIS("archeopteris"),
+		BJUVIA("bjuvia"),
+		GLOSSOPTERIS("glossopteris");
 		
 		public static final int GROUP_SIZE = 4;
 		
@@ -85,11 +88,7 @@ public class TreeBlocks {
 	public static Block[] blocksLogs;
 	public static Block[] blocksSaplings;
 	public static Block[] blocksLeaves;
-	public static Block[] blocksWoods;
-	public static Block[] blocksSingleSlabs;
-	public static Block[] blocksDoubleSlabs;
 	public static Block[] blocksRottenLogs;
-	public static Block[] blocksStairs;
 	
 	public static void init() {
 		numGroups = TreeType.getNumGroups();
@@ -99,11 +98,7 @@ public class TreeBlocks {
 		blocksLogs = new Block[numGroups];
 		blocksSaplings = new Block[numGroups];
 		blocksLeaves = new Block[numGroups];
-		blocksWoods = new Block[numGroups];
-		blocksSingleSlabs = new Block[numGroups];
-		blocksDoubleSlabs = new Block[numGroups];
 		blocksRottenLogs = new Block[numGroups];
-		blocksStairs = new Block[TreeType.values().length];
 		
 		for (int group = 0; group < numGroups; group++) {			
 			blocksLogs[group] = new BlockGenesisLog(group)
@@ -115,22 +110,9 @@ public class TreeBlocks {
 			blocksLeaves[group] = new BlockGenesisLeaves(group)
 					.setBlockName(Names.blockLeavesGenesis);
 			
-			blocksWoods[group] = new BlockGenesisWood(group)
-					.setBlockName(Names.blockWoodGenesis);
-			
-			blocksSingleSlabs[group] = new BlockGenesisWoodSlab(group, false)
-					.setBlockName(Names.blockSlabGenesis);
-			
-			blocksDoubleSlabs[group] = new BlockGenesisWoodSlab(group, true)
-					.setBlockName(Names.blockSlabGenesis);
-			
 			blocksRottenLogs[group] = new BlockRottenLog(group)
 				.setBlockName(Names.blockRottenLogGenesis);
 		}
-		
-		for (TreeType type : TreeType.values())
-			blocksStairs[type.ordinal()] = new BlockGenesisStairs(blocksWoods[type.getGroup()], type.getMetadata())
-				.setBlockName(Names.blockStairsGenesis + type.getName());
 	}
 	
 	public static void registerBlocks() {
@@ -138,37 +120,14 @@ public class TreeBlocks {
 			Genesis.proxy.registerBlock(blocksLogs[group], Names.blockLogGenesis + group, ItemBlockGenesisTree.class);
 			Genesis.proxy.registerBlock(blocksSaplings[group], Names.blockSaplingGenesis + group, ItemBlockGenesisTree.class);
 			Genesis.proxy.registerBlock(blocksLeaves[group], Names.blockLeavesGenesis + group, ItemBlockGenesisTree.class);
-			Genesis.proxy.registerBlock(blocksWoods[group], Names.blockWoodGenesis + group, ItemBlockGenesisTree.class);
 			Genesis.proxy.registerBlock(blocksRottenLogs[group], Names.blockRottenLogGenesis + group, ItemBlockGenesisTree.class);
-			
-			//Genesis.proxy.registerBlock(blocksSingleSlabs[group], Names.blockSlabGenesis + group, ItemSlab.class,
-			//		new Object[] {((BlockSlab) blocksSingleSlabs[group]), ((BlockSlab) blocksDoubleSlabs[group]), false});
-			
-			//Genesis.proxy.registerBlock(blocksDoubleSlabs[group], Names.blockSlabGenesis + "double." + group, ItemSlab.class,
-			//		new Object[] {((BlockSlab) blocksSingleSlabs[group]), ((BlockSlab) blocksDoubleSlabs[group]), true});
 			
 			GameRegistry.addSmelting(blocksLogs[group], new ItemStack(Items.coal, 1, 1), 0.15F);
 			
 			OreDictionary.registerOre("logWood", new ItemStack(blocksLogs[group], 1, OreDictionary.WILDCARD_VALUE));
-			OreDictionary.registerOre("plankWood", new ItemStack(blocksWoods[group], 1, OreDictionary.WILDCARD_VALUE));
 		}
 		
-		for (TreeType type : TreeType.values()) {
-			GameRegistry.registerBlock(blocksStairs[type.ordinal()], ItemBlock.class, Genesis.MOD_ID + "." + Names.blockStairsGenesis + type.getName());
-			
-			GameRegistry.addShapelessRecipe(new ItemStack(blocksWoods[type.getGroup()], 4, type.getMetadata()), new ItemStack(blocksLogs[type.getGroup()], 1, type.getMetadata()));
-			
-			IRecipe slabRecipe = new ShapedOreRecipe(new ItemStack(blocksSingleSlabs[type.getGroup()], 6, type.getMetadata()),
-					new String[] {"ppp"}, 'p', new ItemStack(blocksWoods[type.getGroup()], 1, type.getMetadata()));
-			IRecipe stairsRecipeForward = new ShapedOreRecipe(new ItemStack(blocksStairs[type.ordinal()], 4),
-					new String[] {"p  ", "pp ", "ppp"}, 'p', new ItemStack(blocksWoods[type.getGroup()], 1, type.getMetadata()));
-			IRecipe stairsRecipeBackward = new ShapedOreRecipe(new ItemStack(blocksStairs[type.ordinal()], 4),
-					new String[] {"  p", " pp", "ppp"}, 'p', new ItemStack(blocksWoods[type.getGroup()], 1, type.getMetadata()));
-			
-			CraftingManager.getInstance().getRecipeList().add(0, slabRecipe);
-			CraftingManager.getInstance().getRecipeList().add(0, stairsRecipeForward);
-			CraftingManager.getInstance().getRecipeList().add(0, stairsRecipeBackward);
-			
+		for (TreeType type : TreeType.values()) {			
 			BlockGenesisFlowerPot.tryRegisterPlant(new ItemStack(blocksSaplings[type.getGroup()], 1, type.getMetadata()));
 		}
 		
@@ -183,11 +142,7 @@ public class TreeBlocks {
 		LOG,
 		LEAVES,
 		SAPLING,
-		WOOD,
-		SINGLE_SLAB,
-		DOUBLE_SLAB,
-		ROTTEN_LOG,
-		STAIRS;
+		ROTTEN_LOG;
 	}
 	
 	public static BlockAndMeta getBlockForType(TreeBlockType type, String name) {
@@ -205,20 +160,8 @@ public class TreeBlocks {
 		case SAPLING:
 			block = blocksSaplings[group];
 			break;
-		case WOOD:
-			block = blocksWoods[group];
-			break;
-		case SINGLE_SLAB:
-			block = blocksSingleSlabs[group];
-			break;
-		case DOUBLE_SLAB:
-			block = blocksDoubleSlabs[group];
-			break;
 		case ROTTEN_LOG:
 			block = blocksRottenLogs[group];
-			break;
-		case STAIRS:
-			block = blocksStairs[treeType.ordinal()];
 			break;
 		default:
 			return null;

@@ -52,6 +52,8 @@ public class PlantBlocks {
 	public static BlockGenesisFern ferns;
 	public static BlockAsteroxylon asteroxylon;
 	public static BlockAsteroxylonTop asterTop;
+	public static BlockSphenophyllumBase sphenophyllum;
+	public static BlockSphenophyllumTop sphenoTop;
 	
 	public static void init() {
 		flowerPot = (BlockGenesisFlowerPot) new BlockGenesisFlowerPot().setBlockTextureName("flower_pot").setBlockName(Names.blockFlowerPot);
@@ -62,14 +64,15 @@ public class PlantBlocks {
 		plants = (BlockGenesisTerrestrialPlant) new BlockGenesisTerrestrialPlant().setBlockName(Names.blockPlant);
 
 		zingiberopsis = (BlockZingiberopsisBase) new BlockZingiberopsisBase().setBlockName(Names.blockZingiberopsis).setBlockTextureName("zingiberopsis");
-		
 		zingTop = (BlockZingiberopsisTop) new BlockZingiberopsisTop().setBlockName(Names.blockZingiberopsis).setBlockTextureName("zingiberopsis");
 		
 		ferns = (BlockGenesisFern) new BlockGenesisFern().setBlockName(Names.blockFern);
 		
-		asteroxylon = (BlockAsteroxylon) new BlockAsteroxylon().setBlockName(Names.blockAsteroxylon);
-		
+		asteroxylon = (BlockAsteroxylon) new BlockAsteroxylon().setBlockName(Names.blockAsteroxylon);		
 		asterTop = (BlockAsteroxylonTop) new BlockAsteroxylonTop().setBlockName(Names.blockAsteroxylon + ".top").setBlockTextureName(Genesis.MOD_ID + ":asteroxylon_top");
+		
+		sphenophyllum = (BlockSphenophyllumBase) new BlockSphenophyllumBase().setBlockName(Names.blockSphenophyllum).setBlockTextureName("sphenophyllum");
+		sphenoTop = (BlockSphenophyllumTop) new BlockSphenophyllumTop().setBlockName(Names.blockSphenophyllum).setBlockTextureName("sphenophyllum");
 	}
 
 	public static void registerBlocks() {
@@ -78,15 +81,16 @@ public class PlantBlocks {
 
 		GameRegistry.registerBlock(plants, ItemBlockGenesisPlant.class, Names.blockPlant);
 		
-		GameRegistry.registerBlock(zingiberopsis, Names.blockZingiberopsis);
-		
+		GameRegistry.registerBlock(zingiberopsis, Names.blockZingiberopsis);		
 		GameRegistry.registerBlock(zingTop, Names.blockZingiberopsis + ".top");
 		
 		GameRegistry.registerBlock(ferns, ItemBlockGenesisFern.class, Names.blockFern);
 		
-		GameRegistry.registerBlock(asteroxylon, ItemBlockAsteroxylon.class, Names.blockAsteroxylon);
-		
+		GameRegistry.registerBlock(asteroxylon, ItemBlockAsteroxylon.class, Names.blockAsteroxylon);		
 		GameRegistry.registerBlock(asterTop, Names.blockAsteroxylon + ".top");
+		
+		GameRegistry.registerBlock(sphenophyllum, Names.blockSphenophyllum);
+		GameRegistry.registerBlock(sphenoTop, Names.blockSphenophyllum + ".top");
 
 		//CraftingManager.getInstance().addRecipe(new ItemStack(calamitesBlock), "CCC", "CCC", "CCC", 'C', calamitesPlant);
 

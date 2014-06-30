@@ -2,8 +2,8 @@ package genesis.lib;
 
 import genesis.common.Genesis;
 
-public class Names {
-
+public final class Names {
+	
 	public static final String mod = Genesis.MOD_ID + ".";
 
 	// ---- Blocks ----
@@ -46,10 +46,7 @@ public class Names {
 	public static final String blockLogGenesis = mod + "log.";
 	public static final String blockSaplingGenesis = mod + "sapling.";
 	public static final String blockLeavesGenesis = mod + "leaves.";
-	public static final String blockWoodGenesis = mod + "wood.";
-	public static final String blockSlabGenesis = mod + "slab.";
 	public static final String blockRottenLogGenesis = mod + "logRotten.";
-	public static final String blockStairsGenesis = mod + "stairs.";
 
 	// Plants
 	public static final String blockPlant = mod + "plant.";
@@ -69,11 +66,14 @@ public class Names {
 	public static final String itemRhizome = itemSeed + "rhizome";
 	public static final String blockZingiberopsis = blockCrop + "zingiberopsis";
 	
+	public static final String itemSphenoSpore = itemSeed + "sphenophyllumSpore";
+	public static final String blockSphenophyllum = blockCrop + "sphenophyllum";
 	public static final String blockAsteroxylon = blockPlant + "asteroxylon";
 
 	// ---- Items ----
 	// Crafting items
 	public static final String itemGraniteMaterial = "granite";
+	public static final String itemSphenoFiber = mod + "sphenoFiber";
 
 	public static final String itemZircon = mod + "zircon";
 	public static final String itemZirconMaterial = "zircon";
