@@ -1,5 +1,6 @@
 package genesis.block.gui;
 
+import genesis.common.Genesis;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -15,8 +16,6 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
-
-import genesis.common.Genesis;
 
 public class TileEntityCampfire extends TileEntityFurnace {
 
@@ -373,7 +372,7 @@ public class TileEntityCampfire extends TileEntityFurnace {
 
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		return AxisAlignedBB.getAABBPool().getAABB(xCoord - 0.25, yCoord, zCoord - 0.25, xCoord + 1.25, yCoord + 1.25, zCoord + 1.25);
+		return AxisAlignedBB.getBoundingBox(xCoord - 0.25, yCoord, zCoord - 0.25, xCoord + 1.25, yCoord + 1.25, zCoord + 1.25);
 	}
 
 	@Override

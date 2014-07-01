@@ -1,10 +1,12 @@
 package genesis.block.plants;
 
+import genesis.common.Genesis;
+import genesis.lib.MiscHelpers;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,15 +17,10 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.util.ForgeDirection;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
-import genesis.common.Genesis;
-import genesis.lib.MiscHelpers;
 
 public class BlockCalamitesPlant extends BlockGenesisPlant {
 
@@ -328,7 +325,7 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 		float size = 0.15F;
-		return AxisAlignedBB.getAABBPool().getAABB(x + 0.5 - size, y, z + 0.5 - size, x + 0.5 + size, y + 1, z + 0.5 + size);
+		return AxisAlignedBB.getBoundingBox(x + 0.5 - size, y, z + 0.5 - size, x + 0.5 + size, y + 1, z + 0.5 + size);
 	}
 
 	@Override
