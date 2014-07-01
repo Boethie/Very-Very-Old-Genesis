@@ -1,8 +1,9 @@
 package genesis.item;
 
+import genesis.lib.LogHelper;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 
 import net.minecraft.block.BlockColored;
 import net.minecraft.init.Blocks;
@@ -13,10 +14,10 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
+
+import org.apache.logging.log4j.Level;
+
 import cpw.mods.fml.common.registry.GameRegistry;
-import genesis.block.ModBlocks;
-import genesis.block.plants.PlantBlocks;
-import genesis.lib.LogHelper;
 
 public class Recipes {
 

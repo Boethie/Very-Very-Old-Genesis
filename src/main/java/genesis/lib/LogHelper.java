@@ -1,16 +1,16 @@
 package genesis.lib;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import genesis.common.Genesis;
+
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.FMLLog;
-
-import genesis.common.Genesis;
 
 public class LogHelper {
 
-	private static final Logger logger = Logger.getLogger(Genesis.MOD_ID);
+	private static final Logger logger = LogManager.getLogger(Genesis.MOD_ID);
 
 	public static void init() {
 		// logger.setParent(FMLLog.getLogger());
@@ -24,7 +24,7 @@ public class LogHelper {
 
 	// For debugging
 	public static void log(String message) {
-		log(Level.FINE, "[" + FMLCommonHandler.instance().getEffectiveSide() + "] " + message);
+		log(Level.TRACE, "[" + FMLCommonHandler.instance().getEffectiveSide() + "] " + message);
 	}
 
 }
