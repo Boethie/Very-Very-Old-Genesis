@@ -60,13 +60,14 @@ public final class Names {
 	public static final String blockCoral = blockAquatic + "coral.";
 	public static final String blockSponge = blockAquatic + "sponge.";
 	public static final String blockAlgae = blockAquatic + "algae.";
+	public static final String blockPteridinium = blockAquatic + "pteridinium";
 
 	public static final String blockCalamitesPlant = blockPlant + "calamites";
 
 	public static final String itemRhizome = itemSeed + "rhizome";
 	public static final String blockZingiberopsis = blockCrop + "zingiberopsis";
 	
-	public static final String itemSphenoSpore = itemSeed + "sphenophyllumSpore";
+	public static final String itemSphenoSpores = itemSeed + "sphenophyllumSpores";
 	public static final String blockSphenophyllum = blockCrop + "sphenophyllum";
 	public static final String blockAsteroxylon = blockPlant + "asteroxylon";
 
@@ -92,5 +93,10 @@ public final class Names {
 	public static final String itemAxe = itemTool + "axe.";
 	public static final String itemSpade = itemTool + "shovel.";
 	public static final String itemHoe = itemTool + "hoe.";
+	
+	// Foods
+	public static final String itemFood = mod + "food.";
+	public static final String itemRawEryops = itemFood + "rawEryops";
+	public static final String itemCookedEryops = itemFood + "cookedEryops";
 
 }

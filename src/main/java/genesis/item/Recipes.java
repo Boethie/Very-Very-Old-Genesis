@@ -90,6 +90,7 @@ public class Recipes {
 			CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.carpet, 3, i), "##", '#', hematite);
 		}
 		GameRegistry.addSmelting(ModItems.hematite, new ItemStack(Items.iron_ingot), 0.7F);
+		GameRegistry.addSmelting(ModItems.rawEryops, new ItemStack(ModItems.cookedEryops), 0.1F);
 	}
 
 }

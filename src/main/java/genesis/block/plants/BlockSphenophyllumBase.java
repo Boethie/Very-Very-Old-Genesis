@@ -9,27 +9,27 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.IGrowable;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.util.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @Author("Arbiter")
-public class BlockSphenophyllumBase extends BlockGenesisCrop
+public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowable
 {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] icons;
 	
 	public BlockSphenophyllumBase()
 	{
-		super(ModItems.sphenoSpore, ModItems.sphenoFiber, Blocks.farmland, 8, 2);
+		super(ModItems.sphenoSpores, ModItems.sphenoFiber, Blocks.farmland, 8, 2);
 		disableStats();
 		setTickRandomly(true);
 		setCreativeTab((CreativeTabs)null);
@@ -99,6 +99,18 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop
 	}
 	
 	@Override
+	protected Item func_149866_i()
+	{
+		return ModItems.sphenoSpores;
+	}
+	
+	@Override
+	protected Item func_149865_P()
+	{
+		return ModItems.sphenoFiber;
+	}
+	
+	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta)
 	{
 		Block b = world.getBlock(x, y + 1, z);
@@ -118,16 +130,22 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop
 		{
 			for (int i = 0; i < count + fortune; i++)
 			{
-				list.add(new ItemStack(seedItem, 1, 0));
+				list.add(new ItemStack(func_149866_i(), 1, 0));
 			}
-			list.add(new ItemStack(cropItem, 1, 0));
+			list.add(new ItemStack(func_149865_P(), 1, 0));
 		}
 		return list;
 	}
 	
 	@Override
-	public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable)
+	public void func_149853_b(World world, Random random, int x, int y, int z)
 	{
-		return canPlaceBlockOn(world.getBlock(x, y - 1, z));
+		int meta = world.getBlockMetadata(x, y, z) + MathHelper.getRandomIntegerInRange(random, 2, 5);
+		if (meta >= stages)
+		{
+			meta = stages - 1;
+		}
+		world.setBlockMetadataWithNotify(x, y, z, meta, 2);
+		checkAndUpdateTop(world, x, y, z, meta);
 	}
 }

@@ -4,13 +4,16 @@ import genesis.common.Genesis;
 import genesis.lib.MiscHelpers;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
@@ -43,7 +46,7 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 		setStackable(10);
 		setPlantableTypes(new EnumPlantType[] { EnumPlantType.Plains, EnumPlantType.Desert });
 		setHarvestLevel("axe", 0);
-		setCreativeTab(null);
+		setCreativeTab(Genesis.tabGenesis);
 	}
 
 	public static class CalamitesProperties {
@@ -299,14 +302,7 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		if (dropEggs(world, x, y, z, world.getBlockMetadata(x, y, z)))
-			return true;
-
-		/*
-		 * if (!world.isRemote) { updateTick(world, x, y, z, world.rand); }
-		 */
-
-		return false;
+		return dropEggs(world, x, y, z, world.getBlockMetadata(x, y, z));
 	}
 
 	@Override
@@ -331,6 +327,12 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 	@Override
 	public float renderScale(IBlockAccess world, int x, int y, int z) {
 		return 0.75F;
+	}
+	
+	@Override
+	public void getSubBlocks(Item item, CreativeTabs tabs, List list)
+	{
+		list.add(new ItemStack(item, 1, 0));
 	}
 
 }

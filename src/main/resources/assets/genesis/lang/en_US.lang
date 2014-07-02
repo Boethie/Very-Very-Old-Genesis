@@ -90,7 +90,7 @@ tile.genesis.plant.asteroxylon.top=Asteroxylon Top
 item.genesis.plant.seed.rhizome.name=Zingiberopsis Rhizome
 tile.genesis.plant.crop.zingiberopsis.name=Zingiberopsis
 
-item.genesis.plant.seed.sphenophyllumSpore.name=Sphenophyllum Spore
+item.genesis.plant.seed.sphenophyllumSpores.name=Sphenophyllum Spores
 tile.genesis.plant.crop.sphenophyllum.name=Sphenophyllum
 
 tile.genesis.plant.fern.zygopteris.name=Zygopteris
@@ -112,6 +112,8 @@ tile.genesis.aquatic.sponge.pirania.name=Pirania
 tile.genesis.aquatic.algae.margaretia.name=Margaretia
 tile.genesis.aquatic.algae.bangiomorpha.name=Bangiomorpha
 
+tile.genesis.aquatic.pteridinium.name=Pteridinium
+
 
 <!-- Items -->
 <!-- Crafting -->
@@ -130,6 +132,10 @@ item.genesis.tool.pickaxe.granite.name=Granite Pickaxe
 item.genesis.tool.shovel.granite.name=Granite Shovel
 item.genesis.tool.axe.granite.name=Granite Axe
 item.genesis.tool.hoe.granite.name=Granite Hoe
+
+<!-- Foods -->
+item.genesis.food.rawEryops.name=Raw Eryops Leg
+item.genesis.food.cookedEryops.name=Cooked Eryops Leg
 
 
 <!-- Other -->

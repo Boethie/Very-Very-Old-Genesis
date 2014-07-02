@@ -29,14 +29,14 @@ import genesis.world.gen.feature.WorldGenTreeSigillaria;
 
 public class TreeBlocks {
 	public enum TreeType {
+		ARCHEOPTERIS("archeopteris"),
 		SIGILLARIA("sigillaria"),
 		LEPIDODENDRON("lepidodendron"),
 		CORDAITES("cordaites"),
-		ARAUCARIOXYLON("araucarioxylon"),
 		PSARONIUS("psaronius"),
-		ARCHEOPTERIS("archeopteris"),
 		BJUVIA("bjuvia"),
-		GLOSSOPTERIS("glossopteris");
+		GLOSSOPTERIS("glossopteris"),
+		ARAUCARIOXYLON("araucarioxylon");
 		
 		public static final int GROUP_SIZE = 4;
 		
