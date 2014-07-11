@@ -12,6 +12,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Author("Arbiter")
 public class ItemGenesisFood extends ItemFood
@@ -72,5 +73,15 @@ public class ItemGenesisFood extends ItemFood
 				}
 			}
 		}
+	}
+	
+	/**
+	 * Temporary workaround for ItemFoods not being dynamically registered with the GameData.
+	 * Call this method last when declaring your food object.
+	 **/
+	public ItemGenesisFood register()
+	{
+	    GameRegistry.registerItem(this, this.getUnlocalizedName(), Genesis.MOD_ID);
+	    return this;
 	}
 }

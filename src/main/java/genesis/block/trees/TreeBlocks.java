@@ -29,7 +29,7 @@ import genesis.world.gen.feature.WorldGenTreeSigillaria;
 
 public class TreeBlocks {
 	public enum TreeType {
-		ARCHEOPTERIS("archeopteris"),
+		ARCHAEOPTERIS("archaeopteris"),
 		SIGILLARIA("sigillaria"),
 		LEPIDODENDRON("lepidodendron"),
 		CORDAITES("cordaites"),

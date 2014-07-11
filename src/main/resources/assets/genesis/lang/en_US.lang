@@ -57,10 +57,10 @@ tile.genesis.leaves.psaronius.name=Pecopteris Leaves
 tile.genesis.sapling.psaronius.name=Psaronius Sapling
 tile.genesis.logRotten.psaronius.name=Rotten Psaronius Wood
 
-tile.genesis.log.archeopteris.name=Archeopteris Wood
-tile.genesis.leaves.archeopteris.name=Archeopteris Leaves
-tile.genesis.sapling.archeopteris.name=Archeopteris Sapling
-tile.genesis.logRotten.archeopteris.name=Rotten Archeopteris Wood
+tile.genesis.log.archaeopteris.name=Archaeopteris Wood
+tile.genesis.leaves.archaeopteris.name=Archaeopteris Leaves
+tile.genesis.sapling.archaeopteris.name=Archaeopteris Sapling
+tile.genesis.logRotten.archaeopteris.name=Rotten Archaeopteris Wood
 
 tile.genesis.log.bjuvia.name=Bjuvia Wood
 tile.genesis.leaves.bjuvia.name=Bjuvia Leaves
