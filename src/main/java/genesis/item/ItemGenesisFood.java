@@ -1,7 +1,6 @@
 package genesis.item;
 
 import genesis.common.Genesis;
-import genesis.lib.Author;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +13,9 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Author("Arbiter")
+/**
+ * @author Arbiter
+ **/
 public class ItemGenesisFood extends ItemFood
 {
 	private Map<Float, PotionEffect> effects;

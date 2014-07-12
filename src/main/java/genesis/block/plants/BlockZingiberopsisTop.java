@@ -1,7 +1,6 @@
 package genesis.block.plants;
 
 import genesis.common.Genesis;
-import genesis.lib.Author;
 
 import java.util.List;
 
@@ -15,7 +14,9 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Author("Arbiter")
+/**
+ * @author Arbiter
+ **/
 public class BlockZingiberopsisTop extends BlockGenesisPlantTop
 {
 	@SideOnly(Side.CLIENT)

@@ -106,24 +106,31 @@ public class ModBlocks {
 		quartzGraniteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 1, 1, 1)
 				.setBlockTextureName("quartz_granite_ore").setBlockName(Names.blockQuartzGraniteOre)
 				.setHardness(3.0F).setResistance(10.0F);		
+		quartzGraniteOre.setHarvestLevel("pickaxe", 1);
 		malachiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 1, 4, 8)
 				.setBlockTextureName("malachite_ore").setBlockName(Names.blockMalachiteOre)
 				.setHardness(3.0F).setResistance(10.0F);		
+		malachiteOre.setHarvestLevel("pickaxe", 1);
 		hematiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 3)
 				.setBlockTextureName("hematite_ore").setBlockName(Names.blockHematiteOre)
 				.setHardness(3.0F).setResistance(10.0F);
+		hematiteOre.setHarvestLevel("pickaxe", 1);
 		zirconOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1)
 				.setBlockTextureName("zircon_ore").setBlockName(Names.blockZirconOre)
-				.setHardness(3.0F).setResistance(10.0F);		
+				.setHardness(3.0F).setResistance(10.0F);
+		zirconOre.setHarvestLevel("pickaxe", 1);
 		garnetOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1)
 				.setBlockTextureName("garnet_ore").setBlockName(Names.blockGarnetOre)
-				.setHardness(3.0F).setResistance(10.0F);		
+				.setHardness(3.0F).setResistance(10.0F);
+		garnetOre.setHarvestLevel("pickaxe", 1);
 		olivineOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1)
 				.setBlockTextureName("olivine_ore").setBlockName(Names.blockOlivineOre)
 				.setHardness(3.0F).setResistance(10.0F);
+		olivineOre.setHarvestLevel("pickaxe", 1);
 		biotiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1)
 				.setBlockTextureName("biotite_ore").setBlockName(Names.blockBiotiteOre)
 				.setHardness(3.0F).setResistance(10.0F);
+		biotiteOre.setHarvestLevel("pickaxe", 1);
 		
 		TreeBlocks.init();
 		PlantBlocks.init();

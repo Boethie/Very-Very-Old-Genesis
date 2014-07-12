@@ -13,10 +13,10 @@ import java.lang.annotation.Target;
  * @author Arbiter
  *
  */
-@Author("Arbiter")
+@Derp("Arbiter")
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.TYPE)
-public @interface Author
+public @interface Derp
 {
 	/**
 	 * The default value holding the author of the type. <br />

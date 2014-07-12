@@ -3,13 +3,14 @@ package genesis.block.aquatic;
 import genesis.item.itemblock.ItemBlockGenesisAlgae;
 import genesis.item.itemblock.ItemBlockGenesisCoral;
 import genesis.item.itemblock.ItemBlockGenesisSponge;
-import genesis.lib.Author;
 import genesis.lib.Names;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Author("Arbiter")
+/**
+ * @author Arbiter
+ **/
 public final class AquaticBlocks
 {
 	public static final Material aquatic = (new Material(MapColor.grassColor));

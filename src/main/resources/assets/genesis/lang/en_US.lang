@@ -133,6 +133,36 @@ item.genesis.tool.shovel.granite.name=Granite Shovel
 item.genesis.tool.axe.granite.name=Granite Axe
 item.genesis.tool.hoe.granite.name=Granite Hoe
 
+item.genesis.knife.rhyolite.name=Rhyolite Knife
+item.genesis.tool.pickaxe.rhyolite.name=Rhyolite Pickaxe
+item.genesis.tool.shovel.rhyolite.name=Rhyolite Shovel
+item.genesis.tool.axe.rhyolite.name=Rhyolite Axe
+item.genesis.tool.hoe.rhyolite.name=Rhyolite Hoe
+
+item.genesis.knife.quartzite.name=Quartzite Knife
+item.genesis.tool.pickaxe.quartzite.name=Quartzite Pickaxe
+item.genesis.tool.shovel.quartzite.name=Quartzite Shovel
+item.genesis.tool.axe.quartzite.name=Quartzite Axe
+item.genesis.tool.hoe.quartzite.name=Quartzite Hoe
+
+item.genesis.knife.limestone.name=Limestone Knife
+item.genesis.tool.pickaxe.limestone.name=Limestone Pickaxe
+item.genesis.tool.shovel.limestone.name=Limestone Shovel
+item.genesis.tool.axe.limestone.name=Limestone Axe
+item.genesis.tool.hoe.limestone.name=Limestone Hoe
+
+item.genesis.knife.flint.name=Flint Knife
+item.genesis.tool.pickaxe.flint.name=Flint Pickaxe
+item.genesis.tool.shovel.flint.name=Flint Shovel
+item.genesis.tool.axe.flint.name=Flint Axe
+item.genesis.tool.hoe.flint.name=Flint Hoe
+
+tooltip.toolquality=Tool Quality
+toolquality.crude=Crude
+toolquality.chipped=Chipped
+toolquality.sharpened=Sharpened
+toolquality.polished=Polished
+
 <!-- Foods -->
 item.genesis.food.rawEryops.name=Raw Eryops Leg
 item.genesis.food.cookedEryops.name=Cooked Eryops Leg

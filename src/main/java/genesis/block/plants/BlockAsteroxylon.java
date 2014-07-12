@@ -1,7 +1,6 @@
 package genesis.block.plants;
 
 import genesis.common.Genesis;
-import genesis.lib.Author;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +19,9 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Author("Arbiter")
+/**
+ * @author Arbiter
+ **/
 public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IGrowable
 {
 	@SideOnly(Side.CLIENT)

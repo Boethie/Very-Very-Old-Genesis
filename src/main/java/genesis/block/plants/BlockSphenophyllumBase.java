@@ -3,7 +3,6 @@ package genesis.block.plants;
 import genesis.block.ModBlocks;
 import genesis.common.Genesis;
 import genesis.item.ModItems;
-import genesis.lib.Author;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -21,7 +20,9 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Author("Arbiter")
+/**
+ * @author Arbiter
+ **/
 public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowable
 {
 	@SideOnly(Side.CLIENT)

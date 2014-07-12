@@ -1,7 +1,6 @@
 package genesis.block.aquatic;
 
 import genesis.common.Genesis;
-import genesis.lib.Author;
 import genesis.lib.PlantMetadata;
 
 import java.util.List;
@@ -14,7 +13,9 @@ import net.minecraft.util.IIcon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Author("Arbiter")
+/**
+ * @author Arbiter
+ **/
 public class BlockGenesisAlgae extends BlockGenesisAquaticPlant
 {
 	@SideOnly(Side.CLIENT)

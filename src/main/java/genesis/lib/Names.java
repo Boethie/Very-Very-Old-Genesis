@@ -74,6 +74,35 @@ public final class Names {
 	// ---- Items ----
 	// Crafting items
 	public static final String itemGraniteMaterial = "granite";
+	public static final String itemGraniteCrudeMaterial = "granite_crude";
+	public static final String itemGraniteChippedMaterial = "granite_chipped";
+	public static final String itemGraniteSharpenedMaterial = "granite_sharpened";
+	public static final String itemGranitePolishedMaterial = "granite_polished";
+	
+    public static final String itemRhyoliteMaterial = "rhyolite";
+    public static final String itemRhyoliteCrudeMaterial = "rhyolite_crude";
+    public static final String itemRhyoliteChippedMaterial = "rhyolite_chipped";
+    public static final String itemRhyoliteSharpenedMaterial = "rhyolite_sharpened";
+    public static final String itemRhyolitePolishedMaterial = "rhyolite_polished";
+	
+    public static final String itemQuartziteMaterial = "quartzite";
+    public static final String itemQuartziteCrudeMaterial = "quartzite_crude";
+    public static final String itemQuartziteChippedMaterial = "quartzite_chipped";
+    public static final String itemQuartziteSharpenedMaterial = "quartzite_sharpened";
+    public static final String itemQuartzitePolishedMaterial = "quartzite_polished";
+    
+    public static final String itemLimestoneMaterial = "limestone";
+    public static final String itemLimestoneCrudeMaterial = "limestone_crude";
+    public static final String itemLimestoneChippedMaterial = "limestone_chipped";
+    public static final String itemLimestoneSharpenedMaterial = "limestone_sharpened";
+    public static final String itemLimestonePolishedMaterial = "limestone_polished";
+    
+    public static final String itemFlintMaterial = "flint";
+    public static final String itemFlintCrudeMaterial = "flint_crude";
+    public static final String itemFlintChippedMaterial = "flint_chipped";
+    public static final String itemFlintSharpenedMaterial = "flint_sharpened";
+    public static final String itemFlintPolishedMaterial = "flint_polished";
+    
 	public static final String itemSphenoFiber = mod + "sphenoFiber";
 
 	public static final String itemZircon = mod + "zircon";
