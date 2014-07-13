@@ -1,0 +1,178 @@
+<!-- Blocks -->
+
+<!-- Tiki Torch -->
+tile.genesis.tikiTorch.name=Torche tiki
+tile.genesis.campfire.name=Feu de camp
+
+<!-- Moss -->
+tile.genesis.moss.name=Mousse
+
+<!-- Rocks -->
+tile.genesis.rock.granite.name=Granite
+tile.genesis.rock.graniteMossy.name=Granite moussu
+tile.genesis.rock.rhyolite.name=Rhyolite
+tile.genesis.rock.komatiite.name=Komatiite
+tile.genesis.rock.fauxamphibolite.name=Faux-Amphibolite
+tile.genesis.rock.gneiss.name=Gneiss
+tile.genesis.rock.quartzite.name=Quartzite
+tile.genesis.rock.limestone.name=Calcaire
+tile.genesis.rock.stromatolite.name=Stromatolite
+tile.genesis.rock.shale.name=Schiste argileux
+tile.genesis.permafrost.name=Pergélisol
+tile.genesis.rock.trondhjemite.name=Trondhjémite
+
+<!-- Ores -->
+tile.genesis.rock.octaedrite.name=Fragment d'octaédrite
+tile.genesis.ore.quartzGranite.name=Minerai de quartz
+tile.genesis.ore.malachite.name=Minerai de malachite
+tile.genesis.ore.hematite.name=Minerai d'hématite
+tile.genesis.ore.zircon.name=Minerai de zircon
+tile.genesis.ore.garnet.name=Minerai de grenat
+tile.genesis.ore.olivine.name=Minerai d'olivine
+tile.genesis.ore.biotite.name=Minerai de biotite
+
+<!-- Trees -->
+tile.genesis.log.sigillaria.name=Bois de Sigillaria
+tile.genesis.leaves.sigillaria.name=Feuilles de Sigillaria
+tile.genesis.sapling.sigillaria.name=Pousse de Sigillaria
+tile.genesis.logRotten.sigillaria.name=Bois pourri de Sigillaria
+
+tile.genesis.log.lepidodendron.name=Bois de Lepidodendron
+tile.genesis.leaves.lepidodendron.name=Feuilles Lepidodendron
+tile.genesis.sapling.lepidodendron.name=Pousse de Lepidodendron
+tile.genesis.logRotten.lepidodendron.name=Bois pourri de Lepidodendron
+
+tile.genesis.log.cordaites.name=Bois de Cordaites
+tile.genesis.leaves.cordaites.name=Feuilles de Cordaites
+tile.genesis.sapling.cordaites.name=Pousse de Cordaites
+tile.genesis.logRotten.cordaites.name=Bois pourri de Cordaites
+
+tile.genesis.log.araucarioxylon.name=Bois d'Araucarioxylon
+tile.genesis.leaves.araucarioxylon.name=Feuilles d'Araucarioxylon
+tile.genesis.sapling.araucarioxylon.name=Pousse d'Araucarioxylon
+tile.genesis.logRotten.araucarioxylon.name=Bois pourri d'Araucarioxylon
+
+tile.genesis.log.psaronius.name=Bois de Psaronius
+tile.genesis.leaves.psaronius.name=Feuilles de Pecopteris
+tile.genesis.sapling.psaronius.name=Pousse de Psaronius
+tile.genesis.logRotten.psaronius.name=Bois pourri de Psaronius
+
+tile.genesis.log.archaeopteris.name=Bois d'Archaeopteris
+tile.genesis.leaves.archaeopteris.name=Feuilles d'Archaeopteris
+tile.genesis.sapling.archaeopteris.name=Pousse d'Archaeopteris
+tile.genesis.logRotten.archaeopteris.name=Bois pourri d'Archaeopteris
+
+tile.genesis.log.bjuvia.name=Bois de Bjuvia
+tile.genesis.leaves.bjuvia.name=Feuilles de Bjuvia
+tile.genesis.sapling.bjuvia.name=Pousse de Bjuvia
+tile.genesis.logRotten.bjuvia.name=Bois pourri de Bjuvia
+
+tile.genesis.log.glossopteris.name=Bois de Glossopteris
+tile.genesis.leaves.glossopteris.name=Feuilles de Glossopteris
+tile.genesis.sapling.glossopteris.name=Pousse de Glossopteris
+tile.genesis.logRotten.glossopteris.name=Bois pourri Glossopteris
+
+
+<!-- Plants -->
+tile.genesis.plant.calamites.name=Calamites
+tile.storage.genesis.plant.calamites.name=Bloc de Calamites
+
+tile.genesis.plant.cooksonia.name=Cooksonia
+tile.genesis.plant.baragwanathia.name=Baragwanathia
+tile.genesis.plant.sciadophyton.name=Sciadophyton
+tile.genesis.plant.psilophyton.name=Psilophyton
+tile.genesis.plant.nothia.name=Nothia
+
+tile.genesis.plant.asteroxylon.name=Asteroxylon
+tile.genesis.plant.asteroxylon.tall.name=Grand Asteroxylon
+tile.genesis.plant.asteroxylon.top=Asteroxylon haut
+
+item.genesis.plant.seed.rhizome.name=Rhizome de Zingiberopsis
+tile.genesis.plant.crop.zingiberopsis.name=Zingiberopsis
+
+item.genesis.plant.seed.sphenophyllumSpores.name=Spores de Sphenophyllum
+tile.genesis.plant.crop.sphenophyllum.name=Sphenophyllum
+
+tile.genesis.plant.fern.zygopteris.name=Zygopteris
+tile.genesis.plant.fern.matonidium.name=Matonidium
+tile.genesis.plant.fern.astralopteris.name=Astralopteris
+tile.genesis.plant.fern.ruffordia.name=Ruffordia
+
+<!-- Aquatic -->
+tile.genesis.aquatic.coral.heliolites.name=Heliolites
+tile.genesis.aquatic.coral.favosites.name=Favosites
+tile.genesis.aquatic.coral.halysites.name=Halysites
+
+tile.genesis.aquatic.sponge.vauxia.name=Vauxia
+tile.genesis.aquatic.sponge.hazelia.name=Hazelia
+tile.genesis.aquatic.sponge.wapkia.name=Wapkia
+tile.genesis.aquatic.sponge.diagoniella.name=Diagoniella
+tile.genesis.aquatic.sponge.pirania.name=Pirania
+
+tile.genesis.aquatic.algae.margaretia.name=Margaretia
+tile.genesis.aquatic.algae.bangiomorpha.name=Bangiomorpha
+
+tile.genesis.aquatic.pteridinium.name=Pteridinium
+
+
+<!-- Items -->
+<!-- Crafting -->
+item.genesis.zircon.name=Zircon
+item.genesis.quartz.name=Quartz
+item.genesis.olivine.name=Olivine
+item.genesis.garnet.name=Grenat
+item.genesis.malachite.name=Malachite
+item.genesis.hematite.name=Hématite
+item.genesis.biotite.name=Biotite
+item.genesis.sphenoFiber.name=Fibre de Sphenophyllum
+
+<!-- Tools -->
+item.genesis.knife.granite.name=Couteau en granite
+item.genesis.tool.pickaxe.granite.name=Pioche en granite
+item.genesis.tool.shovel.granite.name=Pelle en granite
+item.genesis.tool.axe.granite.name=Hache en granite
+item.genesis.tool.hoe.granite.name=Houe en granite
+
+item.genesis.knife.rhyolite.name=Couteau en rhyolite
+item.genesis.tool.pickaxe.rhyolite.name=Pioche en rhyolite
+item.genesis.tool.shovel.rhyolite.name=Pelle en rhyolite
+item.genesis.tool.axe.rhyolite.name=Hache en rhyolite
+item.genesis.tool.hoe.rhyolite.name=Houe en rhyolite
+
+item.genesis.knife.quartzite.name=Couteau en quartzite
+item.genesis.tool.pickaxe.quartzite.name=Pioche en quartzite
+item.genesis.tool.shovel.quartzite.name=Pelle en quartzite
+item.genesis.tool.axe.quartzite.name=Hache en quartzite
+item.genesis.tool.hoe.quartzite.name=Houe en quartzite
+
+item.genesis.knife.limestone.name=Couteau en calcaire
+item.genesis.tool.pickaxe.limestone.name=Pioche en calcaire
+item.genesis.tool.shovel.limestone.name=Pelle en calcaire
+item.genesis.tool.axe.limestone.name=Hache en calcaire
+item.genesis.tool.hoe.limestone.name=Houe en calcaire
+
+item.genesis.knife.flint.name=Couteau en silex
+item.genesis.tool.pickaxe.flint.name=Pioche en silex
+item.genesis.tool.shovel.flint.name=Pelle en silex
+item.genesis.tool.axe.flint.name=Hache en silex
+item.genesis.tool.hoe.flint.name=Houe en silex
+
+tooltip.toolquality=Qualité de l'outil
+toolquality.crude=Brut
+toolquality.chipped=Taillé
+toolquality.sharpened=Aiguisé
+toolquality.polished=Poli
+
+<!-- Foods -->
+item.genesis.food.rawEryops.name=Cuisse d'Eryops crue
+item.genesis.food.cookedEryops.name=Cuisse d'Eryops cuite
+
+
+<!-- Other -->
+
+<!-- Creative Mode Tabs -->
+itemGroup.tabGenesis=Genesis
+
+<!-- World type name -->
+generator.genesisTestType=Genesis World
+
