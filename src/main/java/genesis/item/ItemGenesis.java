@@ -1,6 +1,7 @@
 package genesis.item;
 
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
@@ -12,7 +13,7 @@ public class ItemGenesis extends Item {
 
 	public ItemGenesis() {
 		super();
-		setCreativeTab(Genesis.tabGenesis);
+		setCreativeTab(GenesisTabs.tabGenesisMaterials);
 	}
 
 	public void registerItem(String name) {

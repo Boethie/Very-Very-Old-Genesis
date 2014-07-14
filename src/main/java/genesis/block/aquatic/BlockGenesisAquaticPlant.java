@@ -1,7 +1,7 @@
 package genesis.block.aquatic;
 
 import genesis.block.ModBlocks;
-import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -24,7 +24,7 @@ public class BlockGenesisAquaticPlant extends Block
 		setResistance(0.0F);
 		setHardness(0.6F);
 		setStepSound(soundTypeCloth);
-		setCreativeTab(Genesis.tabGenesis);
+		setCreativeTab(GenesisTabs.tabGenesisDecoration);
 	}
 	
 	@Override

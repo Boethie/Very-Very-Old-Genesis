@@ -22,6 +22,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import genesis.client.ClientProxy;
 import genesis.client.renderer.BlockTikiTorchRenderer;
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 
 public class BlockTikiTorch extends BlockGenesis {
 
@@ -35,7 +36,7 @@ public class BlockTikiTorch extends BlockGenesis {
 		super(Material.circuits);
 
 		setTickRandomly(true);
-		setCreativeTab(Genesis.tabGenesis);
+		setCreativeTab(GenesisTabs.tabGenesisDecoration);
 		setHardness(0.0F);
 		setLightLevel(0.9375F);
 	}

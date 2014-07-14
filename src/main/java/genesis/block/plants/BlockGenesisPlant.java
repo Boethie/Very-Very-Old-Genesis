@@ -14,6 +14,7 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.util.ForgeDirection;
 import genesis.client.renderer.BlockGenesisPlantRenderer;
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 
 public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecials, IPlantInFlowerPot {
 
@@ -28,7 +29,7 @@ public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecia
 	protected BlockGenesisPlant() {
 		super(0);
 
-		setCreativeTab(Genesis.tabGenesis);
+		setCreativeTab(GenesisTabs.tabGenesisDecoration);
 		setPlantBoundsSize(0.375F);
 	}
 

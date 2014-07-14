@@ -20,6 +20,7 @@ import genesis.block.ModBlocks;
 import genesis.block.plants.IPlantInFlowerPot;
 import genesis.block.trees.TreeBlocks.TreeType;
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 import genesis.item.itemblock.IItemBlockWithSubNames;
 import genesis.world.gen.feature.WorldGenTreeBase;
 
@@ -39,7 +40,7 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
 		
 		blockIcons = new IIcon[blockNames.length];
 		
-		setCreativeTab(Genesis.tabGenesis);
+		setCreativeTab(GenesisTabs.tabGenesisDecoration);
 		setStepSound(soundTypeGrass);
 		setHardness(0.0F);
 	}

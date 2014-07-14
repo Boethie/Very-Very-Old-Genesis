@@ -54,18 +54,6 @@ public class Genesis {
 	public static final String MOD_VERSION = "0.0.0.1";
 	
 	public static HashMap<Class<?>, String> teClassToNameMap;
-	public static CreativeTabs tabGenesis = new CreativeTabs("tabGenesis") {
-
-		@Override
-		public ItemStack getIconItemStack() {
-			return TreeBlocks.getBlockForType(TreeBlockType.SAPLING, TreeType.SIGILLARIA.getName()).getStack();
-		}
-
-		@Override
-		public Item getTabIconItem() {
-			return getIconItemStack().getItem();
-		}
-	};
 	
 	public static int dimensionID = DimensionManager.getNextFreeDimId();
 

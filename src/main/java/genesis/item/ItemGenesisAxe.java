@@ -3,6 +3,7 @@ package genesis.item;
 import java.util.List;
 
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 import genesis.item.ItemSets.ToolQuality;
 import genesis.lib.Names;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -27,7 +28,7 @@ public class ItemGenesisAxe extends ItemAxe implements IUpgradeableTool<ItemGene
 		this.materialName = materialName;
 		this.quality = quality;
 		setUnlocalizedName(Names.itemAxe + "." + material.name().toLowerCase() + quality.toString().toLowerCase());
-		setCreativeTab(Genesis.tabGenesis);
+		setCreativeTab(GenesisTabs.tabGenesisTools);
 	}
 	
 	public void registerItem(String name) {

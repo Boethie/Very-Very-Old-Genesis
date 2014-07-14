@@ -2,9 +2,12 @@ package genesis.block.plants;
 
 import genesis.block.ModBlocks;
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -38,7 +41,7 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 	public BlockGenesisFern()
 	{
 		super();
-		setCreativeTab(Genesis.tabGenesis);
+		setCreativeTab(GenesisTabs.tabGenesisDecoration);
 		setPlantBoundsSize(0.45f);
 		setStepSound(soundTypeGrass);
 	}
