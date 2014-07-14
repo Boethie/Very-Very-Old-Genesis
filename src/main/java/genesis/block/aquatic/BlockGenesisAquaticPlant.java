@@ -72,7 +72,7 @@ public class BlockGenesisAquaticPlant extends Block
 			{
 				waterCount++;
 			}
-			else if (b instanceof BlockGenesisAquaticPlant)
+			else if (b == AquaticBlocks.sponge)
 			{
 				waterCount++;
 			}
@@ -118,13 +118,12 @@ public class BlockGenesisAquaticPlant extends Block
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z)
 	{
-		return canPlaceBlockOn(world.getBlock(x, y - 1, z)) &&
-				canSustainPlant(world, x, y, z, ForgeDirection.DOWN, null);
+			return canPlaceBlockOn(world.getBlock(x, y - 1, z)) &&
+					canSustainPlant(world, x, y, z, ForgeDirection.DOWN, null);
 	}
 	
 	protected void dropPlantIfCannotStay(World world, int x, int y, int z)
 	{
-		System.out.println("called");
 		if (!canBlockStay(world, x, y, z))
 		{
 			dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 2);

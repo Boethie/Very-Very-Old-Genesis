@@ -1,10 +1,5 @@
 package genesis.block.gui;
 
-import genesis.block.ModBlocks;
-import genesis.client.renderer.BlockCampfireRenderer;
-import genesis.common.Genesis;
-import genesis.common.GenesisGuiHandler;
-
 import java.util.List;
 import java.util.Random;
 
@@ -28,6 +23,10 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.GameRegistry;
+import genesis.block.ModBlocks;
+import genesis.client.renderer.BlockCampfireRenderer;
+import genesis.common.Genesis;
+import genesis.common.GenesisGuiHandler;
 
 public class BlockCampfire extends BlockContainer {
 
@@ -138,7 +137,7 @@ public class BlockCampfire extends BlockContainer {
 	}
 
 	protected AxisAlignedBB makeBB(double minX, double minY, double minZ, double maxX, double maxY, double maxZ) {
-		return AxisAlignedBB.getBoundingBox(minX, minY, minZ, maxX, maxY, maxZ);
+		return AxisAlignedBB.getAABBPool().getAABB(minX, minY, minZ, maxX, maxY, maxZ);
 	}
 
 	protected void addIfIntersects(AxisAlignedBB aabb, AxisAlignedBB mask, List list) {
@@ -201,7 +200,7 @@ public class BlockCampfire extends BlockContainer {
 				AxisAlignedBB fireBB = makeBB(x + 0.5, y, z + 0.5, x + 0.5, y + 0.3, z + 0.5);
 				fireBB = fireBB.expand(dist, 0, dist);
 
-				Vec3 vec = Vec3.createVectorHelper(posX, posY, posZ);
+				Vec3 vec = world.getWorldVec3Pool().getVecFromPool(posX, posY, posZ);
 
 				if (fireBB.isVecInside(vec)) {
 					entity.setFire(8);

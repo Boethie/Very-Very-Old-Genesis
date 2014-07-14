@@ -1,19 +1,30 @@
 package genesis.world;
 
 import genesis.common.Genesis;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.WorldSettings.GameType;
+import net.minecraft.world.WorldType;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraft.world.biome.WorldChunkManagerHell;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.ChunkProviderFlat;
+import net.minecraft.world.gen.ChunkProviderGenerate;
+import net.minecraft.world.gen.FlatGeneratorInfo;
+import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.common.DimensionManager;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class WorldProviderGenesis extends WorldProvider
 {
@@ -23,8 +34,7 @@ public class WorldProviderGenesis extends WorldProvider
     /**
      * Creates the light to brightness table
      */
-    @Override
-	protected void generateLightBrightnessTable()
+    protected void generateLightBrightnessTable()
     {
         float f = 0.0F;
 
@@ -38,8 +48,7 @@ public class WorldProviderGenesis extends WorldProvider
     /**
      * creates a new world chunk manager for WorldProvider
      */
-    @Override
-	protected void registerWorldChunkManager()
+    protected void registerWorldChunkManager()
     {
         this.worldChunkMgr = new WorldChunkManagerGenesis(worldObj);
         this.dimensionId = Genesis.dimensionID;
@@ -48,8 +57,7 @@ public class WorldProviderGenesis extends WorldProvider
     /**
      * Returns a new chunk provider which generates chunks for this world
      */
-    @Override
-	public IChunkProvider createChunkGenerator()
+    public IChunkProvider createChunkGenerator()
     {
         return new ChunkProviderGenesis(worldObj, worldObj.getSeed());
     }
@@ -57,8 +65,7 @@ public class WorldProviderGenesis extends WorldProvider
     /**
      * Will check if the x, z position specified is alright to be set as the map spawn point
      */
-    @Override
-	public boolean canCoordinateBeSpawn(int par1, int par2)
+    public boolean canCoordinateBeSpawn(int par1, int par2)
     {
         return this.worldObj.getTopBlock(par1, par2) == Blocks.grass;
     }
@@ -66,8 +73,7 @@ public class WorldProviderGenesis extends WorldProvider
     /**
      * Calculates the angle of sun and moon in the sky relative to a specified time (usually worldTime)
      */
-    @Override
-	public float calculateCelestialAngle(long par1, float par3)
+    public float calculateCelestialAngle(long par1, float par3)
     {
         int j = (int)(par1 % 34000L);
         float f1 = ((float)j + par3) / 34000.0F - 0.25F;
@@ -88,8 +94,7 @@ public class WorldProviderGenesis extends WorldProvider
         return f1;
     }
 
-    @Override
-	public int getMoonPhase(long par1)
+    public int getMoonPhase(long par1)
     {
         return (int)(par1 / 34000L % 8L + 8L) % 8;
     }
@@ -97,8 +102,7 @@ public class WorldProviderGenesis extends WorldProvider
     /**
      * Returns 'true' if in the "main surface world", but 'false' if in the Nether or End dimensions.
      */
-    @Override
-	public boolean isSurfaceWorld()
+    public boolean isSurfaceWorld()
     {
         return true;
     }
@@ -106,8 +110,7 @@ public class WorldProviderGenesis extends WorldProvider
     /**
      * Returns array with sunrise/sunset colors
      */
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public float[] calcSunriseSunsetColors(float par1, float par2)
     {
         float f2 = 0.4F;
@@ -134,8 +137,7 @@ public class WorldProviderGenesis extends WorldProvider
     /**
      * Return Vec3D with biome specific fog color
      */
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public Vec3 getFogColor(float par1, float par2)
     {
         float f2 = MathHelper.cos(par1 * (float)Math.PI * 2.0F) * 2.0F + 0.5F;
@@ -156,14 +158,13 @@ public class WorldProviderGenesis extends WorldProvider
         f3 *= f2 * 0.94F + 0.06F;
         f4 *= f2 * 0.94F + 0.06F;
         f5 *= f2 * 0.91F + 0.09F;
-        return Vec3.createVectorHelper((double)f3, (double)f4, (double)f5);
+        return this.worldObj.getWorldVec3Pool().getVecFromPool((double)f3, (double)f4, (double)f5);
     }
 
     /**
      * True if the player can respawn in this dimension (true = overworld, false = nether).
      */
-    @Override
-	public boolean canRespawnHere()
+    public boolean canRespawnHere()
     {
         return true;
     }
@@ -176,15 +177,13 @@ public class WorldProviderGenesis extends WorldProvider
     /**
      * the y level at which clouds are rendered.
      */
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public float getCloudHeight()
     {
         return this.terrainType.getCloudHeight();
     }
 
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public boolean isSkyColored()
     {
         return true;
@@ -193,14 +192,12 @@ public class WorldProviderGenesis extends WorldProvider
     /**
      * Gets the hard-coded portal location to use when entering this dimension.
      */
-    @Override
-	public ChunkCoordinates getEntrancePortalLocation()
+    public ChunkCoordinates getEntrancePortalLocation()
     {
         return null;
     }
 
-    @Override
-	public int getAverageGroundLevel()
+    public int getAverageGroundLevel()
     {
         return this.terrainType.getMinimumSpawnHeight(this.worldObj);
     }
@@ -209,8 +206,7 @@ public class WorldProviderGenesis extends WorldProvider
      * returns true if this dimension is supposed to display void particles and pull in the far plane based on the
      * user's Y offset.
      */
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public boolean getWorldHasVoidParticles()
     {
         return this.terrainType.hasVoidParticles(this.hasNoSky);
@@ -221,8 +217,7 @@ public class WorldProviderGenesis extends WorldProvider
      * maximum. The default factor of 0.03125 relative to 256, for example, means the void fog will be at its maximum at
      * (256*0.03125), or 8.
      */
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public double getVoidFogYFactor()
     {
         return this.terrainType.voidFadeMagnitude();
@@ -231,8 +226,7 @@ public class WorldProviderGenesis extends WorldProvider
     /**
      * Returns true if the given X,Z coordinate should show environmental fog.
      */
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public boolean doesXZShowFog(int par1, int par2)
     {
         return false;
@@ -249,8 +243,7 @@ public class WorldProviderGenesis extends WorldProvider
      * 
      * @param dim Dimension ID
      */
-    @Override
-	public void setDimension(int dim)
+    public void setDimension(int dim)
     {
         this.dimensionId = dim;
     }
@@ -260,8 +253,7 @@ public class WorldProviderGenesis extends WorldProvider
      * EXA: DIM1, DIM-1
      * @return The sub-folder name to save this world's chunks to.
      */
-    @Override
-	public String getSaveFolder()
+    public String getSaveFolder()
     {
         return (dimensionId == 0 ? null : "DIM" + dimensionId);
     }
@@ -271,8 +263,7 @@ public class WorldProviderGenesis extends WorldProvider
      *
      * @return The message to be displayed
      */
-    @Override
-	public String getWelcomeMessage()
+    public String getWelcomeMessage()
     {
         return null;
     }
@@ -282,8 +273,7 @@ public class WorldProviderGenesis extends WorldProvider
      *
      * @return The message to be displayed
      */
-    @Override
-	public String getDepartMessage()
+    public String getDepartMessage()
     {
         return null;
     }
@@ -294,56 +284,48 @@ public class WorldProviderGenesis extends WorldProvider
      * Exa: Nether movement is 8.0
      * @return The movement factor
      */
-    @Override
-	public double getMovementFactor()
+    public double getMovementFactor()
     {
         return 1.0;
     }
 
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public IRenderHandler getSkyRenderer()
     {
         return this.skyRenderer;
     }
 
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public void setSkyRenderer(IRenderHandler skyRenderer)
     {
         this.skyRenderer = skyRenderer;
     }
 
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public IRenderHandler getCloudRenderer()
     {
         return cloudRenderer;
     }
 
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public void setCloudRenderer(IRenderHandler renderer)
     {
         cloudRenderer = renderer;
     }
 
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public IRenderHandler getWeatherRenderer()
     {
         return weatherRenderer;
     }
 
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public void setWeatherRenderer(IRenderHandler renderer)
     {
         weatherRenderer = renderer;
     }
 
-    @Override
-	public ChunkCoordinates getRandomizedSpawnPoint()
+    public ChunkCoordinates getRandomizedSpawnPoint()
     {
         ChunkCoordinates chunkcoordinates = new ChunkCoordinates(this.worldObj.getSpawnPoint());
 
@@ -370,8 +352,7 @@ public class WorldProviderGenesis extends WorldProvider
      * @param z Z Postion
      * @return True to 'spin' the cursor
      */
-    @Override
-	public boolean shouldMapSpin(String entity, double x, double y, double z)
+    public boolean shouldMapSpin(String entity, double x, double y, double z)
     {
         return false;
     }
@@ -382,53 +363,45 @@ public class WorldProviderGenesis extends WorldProvider
      * @param player The player that is respawning
      * @return The dimension to respawn the player in
      */
-    @Override
-	public int getRespawnDimension(EntityPlayerMP player)
+    public int getRespawnDimension(EntityPlayerMP player)
     {
         return Genesis.dimensionID;
     }
 
     /*======================================= Start Moved From World =========================================*/
 
-    @Override
-	public boolean isDaytime()
+    public boolean isDaytime()
     {
         return worldObj.skylightSubtracted < 4;
     }
 
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public Vec3 getSkyColor(Entity cameraEntity, float partialTicks)
     {
         return worldObj.getSkyColorBody(cameraEntity, partialTicks);
     }
 
-    @Override
-	public void setWorldTime(long time)
+    public void setWorldTime(long time)
     {
         worldObj.getWorldInfo().setWorldTime(time);
     }
 
-    @Override
-	public long getWorldTime()
+    public long getWorldTime()
     {
         return worldObj.getWorldInfo().getWorldTime();
     }
 
-    @Override
-	public int getHeight()
+    public int getHeight()
     {
         return 256;
     }
 
-    @Override
-	public int getActualHeight()
+    public int getActualHeight()
     {
         return hasNoSky ? 128 : 256;
     }
 
-    @Override
-	public double getHorizon()
+    public double getHorizon()
     {
         return worldObj.getWorldInfo().getTerrainType().getHorizon(worldObj);
     }

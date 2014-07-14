@@ -1,6 +1,5 @@
 package genesis.block;
 
-import genesis.block.aquatic.AquaticBlocks;
 import genesis.block.gui.BlockCampfire;
 import genesis.block.plants.PlantBlocks;
 import genesis.block.trees.TreeBlocks;
@@ -127,7 +126,6 @@ public class ModBlocks {
 		
 		TreeBlocks.init();
 		PlantBlocks.init();
-		AquaticBlocks.init();
 	}
 	
 	public static void registerBlocks() {
@@ -153,6 +151,5 @@ public class ModBlocks {
 		
 		TreeBlocks.registerBlocks();
 		PlantBlocks.registerBlocks();
-		AquaticBlocks.registerBlocks();
 	}
 }

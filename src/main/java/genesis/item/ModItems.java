@@ -25,13 +25,9 @@ public class ModItems {
 	
 	public static ItemGenesis sphenoFiber;
 	
-	// Seeds
+	// Seeds/Foods
 	public static ItemGenesisSeed rhizome;
-	public static ItemGenesisSeed sphenoSpores;
-	
-	// Foods
-	public static ItemGenesisFood rawEryops;
-	public static ItemGenesisFood cookedEryops;
+	public static ItemGenesisSeed sphenoSpore;
 	
 	public static void init() {
 		// Tools/Armors
@@ -51,13 +47,8 @@ public class ModItems {
 		// Seeds/Foods
 		rhizome = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.zingiberopsis, 1, 0.5f)
 				.setUnlocalizedName(Names.itemRhizome).setTextureName("zingiberopsis_rhizome");
-		sphenoSpores = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.sphenophyllum, 1, 1.0f)
-				.setUnlocalizedName(Names.itemSphenoSpores).setTextureName("sphenophyllum_spores");
-		
-		rawEryops = (ItemGenesisFood) new ItemGenesisFood(3, 1.8F)
-				.setUnlocalizedName(Names.itemRawEryops).setTextureName("eryops_raw_leg");
-		cookedEryops = (ItemGenesisFood) new ItemGenesisFood(8, 12.8F)
-				.setUnlocalizedName(Names.itemCookedEryops).setTextureName("eryops_cooked_leg");
+		sphenoSpore = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.sphenophyllum, 1, 1.0f)
+				.setUnlocalizedName(Names.itemSphenoSpore).setTextureName("sphenophyllum_spores");
 	}
 	
 	public static void registerItems() {

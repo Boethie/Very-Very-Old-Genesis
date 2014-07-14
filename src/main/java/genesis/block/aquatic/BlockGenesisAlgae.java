@@ -1,11 +1,11 @@
 package genesis.block.aquatic;
 
 import genesis.common.Genesis;
-import genesis.lib.Author;
 import genesis.lib.PlantMetadata;
 
 import java.util.List;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -14,7 +14,11 @@ import net.minecraft.util.IIcon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Author("Arbiter")
+/**
+ * 
+ * @author Arbiter
+ *
+ */
 public class BlockGenesisAlgae extends BlockGenesisAquaticPlant
 {
 	@SideOnly(Side.CLIENT)
@@ -22,7 +26,7 @@ public class BlockGenesisAlgae extends BlockGenesisAquaticPlant
 	
 	public BlockGenesisAlgae()
 	{
-		super(AquaticBlocks.aquatic);
+		super(Material.plants);
 		setHardness(0.0F);
 		setStepSound(soundTypeGrass);
 	}
