@@ -3,10 +3,8 @@ package genesis.block.trees;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSlab;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
@@ -15,7 +13,6 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.block.BlockAndMeta;
-import genesis.block.BlockGenesisStairs;
 import genesis.block.plants.BlockGenesisFlowerPot;
 import genesis.common.Genesis;
 import genesis.item.itemblock.ItemBlockGenesisTree;

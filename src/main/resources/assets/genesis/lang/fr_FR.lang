@@ -38,7 +38,7 @@ tile.genesis.sapling.sigillaria.name=Pousse de Sigillaria
 tile.genesis.logRotten.sigillaria.name=Bois pourri de Sigillaria
 
 tile.genesis.log.lepidodendron.name=Bois de Lepidodendron
-tile.genesis.leaves.lepidodendron.name=Feuilles Lepidodendron
+tile.genesis.leaves.lepidodendron.name=Feuilles de Lepidodendron
 tile.genesis.sapling.lepidodendron.name=Pousse de Lepidodendron
 tile.genesis.logRotten.lepidodendron.name=Bois pourri de Lepidodendron
 
@@ -70,7 +70,7 @@ tile.genesis.logRotten.bjuvia.name=Bois pourri de Bjuvia
 tile.genesis.log.glossopteris.name=Bois de Glossopteris
 tile.genesis.leaves.glossopteris.name=Feuilles de Glossopteris
 tile.genesis.sapling.glossopteris.name=Pousse de Glossopteris
-tile.genesis.logRotten.glossopteris.name=Bois pourri Glossopteris
+tile.genesis.logRotten.glossopteris.name=Bois pourri de Glossopteris
 
 
 <!-- Plants -->

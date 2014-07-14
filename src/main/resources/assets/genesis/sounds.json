@@ -1,0 +1,59 @@
+{
+	"step.moss": {
+    "category": "neutral",
+    "sounds": [
+      "moss_step1",
+      "moss_step2",
+      "moss_step3",
+      "moss_step4"
+    ]
+  }, 
+
+  	"dig.moss": {
+    "category": "block",
+    "sounds": [
+      "moss_dig1",
+      "moss_dig2",
+      "moss_dig3",
+      "moss_dig4"
+    ]
+  },
+
+    "step.rottenLog": {
+    "category": "block",
+    "sounds": [
+      "rotten_log_step1",
+      "rotten_log_step2",
+      "rotten_log_step3",
+      "rotten_log_step4"
+    ]
+  },
+
+    "dig.rottenLog": {
+    "category": "block",
+    "sounds": [
+      "rotten_log_strike1",
+      "rotten_log_strike2",
+      "rotten_log_break"
+    ]
+  },
+
+    "dig.fern": {
+    "category": "block",
+    "sounds": [
+      "fern_step1",
+      "fern_step2",
+      "fern_step3",
+      "fern_step4"
+    ]
+  },
+
+  "dig.calamites": {
+    "category": "block",
+    "sounds": [
+      "calamites_break1",
+      "calamites_break2",
+      "calamites_break3"
+    ]
+  }
+}
