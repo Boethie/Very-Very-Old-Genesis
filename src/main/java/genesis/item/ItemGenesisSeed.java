@@ -8,16 +8,14 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 import genesis.lib.Names;
 
 public class ItemGenesisSeed extends ItemFood implements IPlantable {
@@ -34,7 +32,7 @@ public class ItemGenesisSeed extends ItemFood implements IPlantable {
 		super(healAmmount, saturationModifier, false);
 
 		this.cropBlock = cropBlock;
-		setCreativeTab(Genesis.tabGenesis);
+		setCreativeTab(GenesisTabs.tabGenesisMaterials);
 	}
 
 	@Override

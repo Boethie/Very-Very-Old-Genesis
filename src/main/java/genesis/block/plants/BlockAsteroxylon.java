@@ -1,6 +1,7 @@
 package genesis.block.plants;
 
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +31,8 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 	public BlockAsteroxylon()
 	{
 		super();
-		setCreativeTab(Genesis.tabGenesis);
-	}
+        setCreativeTab(GenesisTabs.tabGenesisDecoration);
+    }
 	
 	@Override
 	@SideOnly(Side.CLIENT)

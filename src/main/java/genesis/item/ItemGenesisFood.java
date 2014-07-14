@@ -1,6 +1,7 @@
 package genesis.item;
 
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +26,7 @@ public class ItemGenesisFood extends ItemFood
 	{
 		super(hunger, saturation, false);
 		effects = new HashMap<Float, PotionEffect>();
-		setCreativeTab(Genesis.tabGenesis);
+		setCreativeTab(GenesisTabs.tabGenesisFood);
 	}
 	public ItemGenesisFood setWolfEdible(boolean edible)
 	{

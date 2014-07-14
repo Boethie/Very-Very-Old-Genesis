@@ -18,6 +18,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.client.renderer.BlockMossRenderer;
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 
 public class BlockMoss extends BlockGrass {
 
@@ -28,7 +29,7 @@ public class BlockMoss extends BlockGrass {
 	protected BlockMoss() {
 		super();
 
-		setCreativeTab(Genesis.tabGenesis);
+		setCreativeTab(GenesisTabs.tabGenesis);
 		setHardness(0.6F);
 		setStepSound(soundTypeGrass);
 	}

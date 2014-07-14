@@ -1,27 +1,26 @@
 package genesis.block;
 
+import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
+
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.common.Genesis;
-import genesis.item.ModItems;
 
 public class BlockGenesis extends Block {
 	protected Drop drop;
 	
 	public BlockGenesis(Material material) {
 		super(material);
-        setCreativeTab(Genesis.tabGenesis);
+        setCreativeTab(GenesisTabs.tabGenesis);
 	}
 	
 	public void registerBlock(String name) {

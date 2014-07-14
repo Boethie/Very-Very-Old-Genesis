@@ -1,6 +1,7 @@
 package genesis.item;
 
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 import genesis.item.ItemSets.ToolQuality;
 import genesis.lib.Names;
 
@@ -52,7 +53,7 @@ public class ItemGenesisKnife extends Item implements IUpgradeableTool<ItemGenes
 		this.quality = quality;
 		setUnlocalizedName(Names.itemKnife + toolMaterial.name().toLowerCase() + "." + quality.toString().toLowerCase());
 		setMaxDamage(toolMaterial.getMaxUses() / 2);
-		setCreativeTab(Genesis.tabGenesis);
+		setCreativeTab(GenesisTabs.tabGenesisTools);
 	}
 	
 	public void registerItem(String name) {

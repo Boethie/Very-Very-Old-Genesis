@@ -5,11 +5,10 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 
 public class BlockCalamitesStorage extends BlockRotatedPillar {
 
@@ -18,7 +17,7 @@ public class BlockCalamitesStorage extends BlockRotatedPillar {
 	public BlockCalamitesStorage() {
 		super(new Material(MapColor.foliageColor));
 
-		setCreativeTab(Genesis.tabGenesis);
+	    setCreativeTab(GenesisTabs.tabGenesis);
 		setHardness(2);
 		setStepSound(soundTypeWood);
 		// setBurnProperties(blockID, 4, 4);

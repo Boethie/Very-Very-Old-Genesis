@@ -1,6 +1,7 @@
 package genesis.block.plants;
 
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 import genesis.lib.MiscHelpers;
 
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 		setStackable(10);
 		setPlantableTypes(new EnumPlantType[] { EnumPlantType.Plains, EnumPlantType.Desert });
 		setHarvestLevel("axe", 0);
-		setCreativeTab(Genesis.tabGenesis);
+	    setCreativeTab(GenesisTabs.tabGenesisDecoration);
 	}
 
 	public static class CalamitesProperties {

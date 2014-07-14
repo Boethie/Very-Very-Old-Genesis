@@ -15,16 +15,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.ForgeDirection;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
 import genesis.block.ModBlocks;
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 
 public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantRenderSpecials, IPlantInFlowerPot, IShearable {
 
@@ -37,7 +35,7 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
 	protected BlockGenesisTerrestrialPlant() {
 		super(0);
 
-		setCreativeTab(Genesis.tabGenesis);
+		setCreativeTab(GenesisTabs.tabGenesisDecoration);
 		setPlantBoundsSize(0.375F);
 
 		setStepSound(soundTypeGrass);

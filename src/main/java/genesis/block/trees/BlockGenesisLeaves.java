@@ -11,12 +11,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
 import genesis.block.trees.TreeBlocks.TreeType;
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 import genesis.item.itemblock.IItemBlockWithSubNames;
 
 public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSubNames {
@@ -35,7 +34,7 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
 		
 		blockIcons = new IIcon[blockNames.length * 2];
 		
-		setCreativeTab(Genesis.tabGenesis);
+		setCreativeTab(GenesisTabs.tabGenesisDecoration);
 	}
 	
 	@Override

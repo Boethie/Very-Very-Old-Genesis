@@ -4,6 +4,7 @@ import genesis.block.ModBlocks;
 import genesis.client.renderer.BlockCampfireRenderer;
 import genesis.common.Genesis;
 import genesis.common.GenesisGuiHandler;
+import genesis.common.GenesisTabs;
 
 import java.util.List;
 import java.util.Random;
@@ -40,7 +41,7 @@ public class BlockCampfire extends BlockContainer {
 	public BlockCampfire() {
 		super(Material.rock);
 
-		setCreativeTab(Genesis.tabGenesis);
+		setCreativeTab(GenesisTabs.tabGenesisDecoration);
 		setBlockBounds(0, 0, 0, 1, 1, 1);
 		setTickRandomly(true);
 	}
