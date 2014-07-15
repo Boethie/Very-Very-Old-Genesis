@@ -171,7 +171,11 @@ item.genesis.food.cookedEryops.name=Cuisse d'Eryops cuite
 <!-- Other -->
 
 <!-- Creative Mode Tabs -->
-itemGroup.tabGenesis=Genesis
+itemGroup.tabGenesisBlock=Blocs de construction Genesis
+itemGroup.tabGenesisDecorations=Blocs décoratifs Genesis
+itemGroup.tabGenesisMaterials=Matières premières Genesis
+itemGroup.tabGenesisFood=Nourriture Genesis
+itemGroup.tabGenesisTools=Outils Genesis
 
 <!-- World type name -->
 generator.genesisTestType=Genesis World
