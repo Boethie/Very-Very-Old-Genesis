@@ -19,7 +19,8 @@ import genesis.lib.Names;
 public class PlantBlocks {
 
 	public static final String COOK_NAME = "cooksonia", BARA_NAME = "baragwanathia", 
-			SCIA_NAME = "sciadophyton", PSILO_NAME = "psilophyton", NOTHIA_NAME = "nothia";
+			SCIA_NAME = "sciadophyton", PSILO_NAME = "psilophyton", NOTHIA_NAME = "nothia", 
+			RHYNIA_NAME = "rhynia";
 	
 	public static final String ZYGO_NAME = "zygopteris", MATON_NAME = "matonidium", 
 			ASTRA_NAME = "astralopteris", RUFF_NAME = "ruffordia";
@@ -31,6 +32,7 @@ public class PlantBlocks {
 			add(SCIA_NAME);
 			add(PSILO_NAME);
 			add(NOTHIA_NAME);
+			add(RHYNIA_NAME);
 		}
 	};
 	
@@ -92,9 +94,8 @@ public class PlantBlocks {
 		GameRegistry.registerBlock(sphenophyllum, Names.blockSphenophyllum);
 		GameRegistry.registerBlock(sphenoTop, Names.blockSphenophyllum + ".top");
 
-		//CraftingManager.getInstance().addRecipe(new ItemStack(calamitesBlock), "CCC", "CCC", "CCC", 'C', calamitesPlant);
-
-		//CraftingManager.getInstance().addRecipe(new ItemStack(calamitesPlant, 9), "C", 'C', calamitesBlock);
+		CraftingManager.getInstance().addRecipe(new ItemStack(calamitesBlock), "CCC", "CCC", "CCC", 'C', calamitesPlant);
+		CraftingManager.getInstance().addRecipe(new ItemStack(calamitesPlant, 9), "C", 'C', calamitesBlock);
 	}
 
 }

@@ -91,6 +91,7 @@ public class Recipes {
 		}
 		GameRegistry.addSmelting(ModItems.hematite, new ItemStack(Items.iron_ingot), 0.7F);
 		GameRegistry.addSmelting(ModItems.rawEryops, new ItemStack(ModItems.cookedEryops), 0.1F);
+		GameRegistry.addSmelting(ModItems.rawCeratites, new ItemStack(ModItems.cookedCeratites), 0.1F);
 	}
 
 }

@@ -166,6 +166,11 @@ toolquality.polished=Polished
 <!-- Foods -->
 item.genesis.food.rawEryops.name=Raw Eryops Leg
 item.genesis.food.cookedEryops.name=Cooked Eryops Leg
+item.genesis.food.rawAphthoroblattina.name=Raw Aphthoroblattina
+item.genesis.food.cookedAphthoroblattina.name=Cooked Aphthoroblattina
+item.genesis.food.rawCeratites.name=Raw Ceratites
+item.genesis.food.cookedCeratites.name=Cooked Ceratites
+
 
 
 <!-- Other -->

@@ -27,7 +27,7 @@ public class BlockGenesisSponge extends BlockGenesisAquaticPlant
 	
 	public BlockGenesisSponge()
 	{
-		super(Material.sponge);
+		super(Material.water);
 	}
 	
 	@Override

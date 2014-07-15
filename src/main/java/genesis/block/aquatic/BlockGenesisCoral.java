@@ -1,7 +1,6 @@
 package genesis.block.aquatic;
 
 import genesis.common.Genesis;
-import genesis.common.GenesisTabs;
 import genesis.lib.PlantMetadata;
 
 import java.util.List;
@@ -28,11 +27,11 @@ public class BlockGenesisCoral extends Block
 	
 	public BlockGenesisCoral()
 	{
-		super(Material.coral);
+		super(Material.water);
 		setHardness(0.75F);
 		setResistance(8.5F);
 		setStepSound(soundTypeStone);
-		setCreativeTab(GenesisTabs.tabGenesisDecoration);
+		setCreativeTab(Genesis.tabGenesis);
 	}
 	
 	@Override

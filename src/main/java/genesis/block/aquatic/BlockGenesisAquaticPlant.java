@@ -1,7 +1,7 @@
 package genesis.block.aquatic;
 
 import genesis.block.ModBlocks;
-import genesis.common.GenesisTabs;
+import genesis.common.Genesis;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -124,7 +124,6 @@ public class BlockGenesisAquaticPlant extends Block
 	
 	protected void dropPlantIfCannotStay(World world, int x, int y, int z)
 	{
-		System.out.println("called");
 		if (!canBlockStay(world, x, y, z))
 		{
 			dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 2);

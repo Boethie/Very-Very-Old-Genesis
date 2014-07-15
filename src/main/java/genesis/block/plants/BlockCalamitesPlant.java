@@ -1,7 +1,6 @@
 package genesis.block.plants;
 
 import genesis.common.Genesis;
-import genesis.common.GenesisTabs;
 import genesis.lib.MiscHelpers;
 
 import java.util.ArrayList;
@@ -13,6 +12,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -47,7 +47,7 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 		setStackable(10);
 		setPlantableTypes(new EnumPlantType[] { EnumPlantType.Plains, EnumPlantType.Desert });
 		setHarvestLevel("axe", 0);
-	    setCreativeTab(GenesisTabs.tabGenesisDecoration);
+		setCreativeTab(GenesisTabs.tabGenesisDecoration);
 	}
 
 	public static class CalamitesProperties {
@@ -151,16 +151,6 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 		return metadata & PLAIN_META_MASK;
 	}
 
-	@Override
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		Block block = world.getBlock(x, y - 1, z);
-
-		if (block != null)
-			return block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) && MiscHelpers.isWaterInRange(world, x, y, z, 2, 1) || canStayStacked(world, x, y, z, this);
-
-		return false;
-	}
-
 	private void resetAll(World world, ArrayList<ChunkPosition> positions, int exceptY, boolean skipTop) {
 		ChunkPosition lastPos = null;
 
@@ -172,6 +162,29 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 				int resetMetadata = world.getBlockMetadata(pos.chunkPosX, pos.chunkPosY, pos.chunkPosZ);
 				world.setBlockMetadataWithNotify(pos.chunkPosX, pos.chunkPosY, pos.chunkPosZ, setAge(resetMetadata, 0), 3);
 			}
+	}
+	
+	@Override
+	protected boolean canPlaceBlockOn(Block block)
+	{
+		return super.canPlaceBlockOn(block) || block == PlantBlocks.calamitesPlant
+				|| block == Blocks.dirt;
+	}
+	
+	@Override
+	public boolean canPlaceBlockAt(World world, int x, int y, int z)
+	{
+		return canPlaceBlockOn(world.getBlock(x, y - 1, z))
+				&& MiscHelpers.isWaterInRange(world, x, y - 1, z, 1, 15)
+				&& canBlockStay(world, x, y, z); // 15 so the calamites can grow high
+	}
+	
+	@Override
+	public boolean canBlockStay(World world, int x, int y, int z)
+	{
+		return canPlaceBlockOn(world.getBlock(x, y - 1, z)) 
+				&& MiscHelpers.isWaterInRange(world, x, y - 1, z, 1, 15) // 15 so the calamites can grow high
+				&& canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 	}
 
 	@Override

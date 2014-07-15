@@ -127,5 +127,9 @@ public final class Names {
 	public static final String itemFood = mod + "food.";
 	public static final String itemRawEryops = itemFood + "rawEryops";
 	public static final String itemCookedEryops = itemFood + "cookedEryops";
+	public static final String itemRawAphthoroblattina = itemFood + "rawAphthoroblattina";
+	public static final String itemCookedAphthoroblattina = itemFood + "cookedAphthoroblattina";
+	public static final String itemRawCeratites = itemFood + "rawCeratites";
+	public static final String itemCookedCeratites = itemFood + "cookedCeratites";
 
 }
