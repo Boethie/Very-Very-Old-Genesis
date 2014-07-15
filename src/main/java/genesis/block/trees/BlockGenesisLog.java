@@ -32,7 +32,6 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
 			blockNames[i] = TreeType.values()[(group * TreeType.GROUP_SIZE) + i].getName();
 		
 		blockIcons = new IIcon[blockNames.length * 2];
-		
 		setCreativeTab(GenesisTabs.tabGenesisDecoration);
 	}
 	

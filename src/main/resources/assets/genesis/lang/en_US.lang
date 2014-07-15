@@ -176,7 +176,11 @@ item.genesis.food.cookedCeratites.name=Cooked Ceratites
 <!-- Other -->
 
 <!-- Creative Mode Tabs -->
-itemGroup.tabGenesis=Genesis
+itemGroup.tabGenesisBlock=Genesis Building Blocks
+itemGroup.tabGenesisDecorations=Genesis Decorations
+itemGroup.tabGenesisMaterials=Genesis Materials
+itemGroup.tabGenesisFood=Genesis Food
+itemGroup.tabGenesisTools=Genesis Tools
 
 <!-- World type name -->
 generator.genesisTestType=Genesis World

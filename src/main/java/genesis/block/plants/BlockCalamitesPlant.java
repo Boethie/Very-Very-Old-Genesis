@@ -1,6 +1,7 @@
 package genesis.block.plants;
 
 import genesis.common.Genesis;
+import genesis.common.GenesisTabs;
 import genesis.lib.MiscHelpers;
 
 import java.util.ArrayList;
