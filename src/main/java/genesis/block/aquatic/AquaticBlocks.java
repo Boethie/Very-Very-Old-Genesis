@@ -3,11 +3,12 @@ package genesis.block.aquatic;
 import genesis.item.itemblock.ItemBlockGenesisAlgae;
 import genesis.item.itemblock.ItemBlockGenesisCoral;
 import genesis.item.itemblock.ItemBlockGenesisSponge;
-import genesis.lib.Author;
 import genesis.lib.Names;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Author("Arbiter")
+/**
+ *  @author Arbiter
+ **/
 public final class AquaticBlocks
 {	
 	public static BlockGenesisAlgae algae;
