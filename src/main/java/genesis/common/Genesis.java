@@ -51,7 +51,7 @@ public class Genesis {
 	public static ModMetadata metadata;
 	
 	public static final String MOD_ID = "genesis";
-	public static final String MOD_VERSION = "0.0.0.1";
+	public static final String MOD_VERSION = "0.0.0.2";
 	
 	public static HashMap<Class<?>, String> teClassToNameMap;
 	

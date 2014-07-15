@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.logging.Level;
 
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.ForgeVersion.Status;
 
 import com.google.common.io.ByteStreams;
 import com.google.gson.Gson;
@@ -48,7 +49,7 @@ public class GenesisVersion
 					Map<String, String> versionData = (Map<String, String>) json.get("data");
 
 					String newVersion = versionData.get(MinecraftForge.MC_VERSION + "-current");
-					
+
 					ArtifactVersion version = new DefaultArtifactVersion(Genesis.MOD_VERSION);
 					
 					if(newVersion != null)
@@ -65,9 +66,15 @@ public class GenesisVersion
 							
 						target = newVersion;
 					}
+					else
+					{
+					    status = Status.FAILED;
+					}
 				}
 				catch(Exception e)
 				{
+				    System.out.println(e);
+				    e.printStackTrace();
 					status = Status.FAILED;
 				}
 			}
