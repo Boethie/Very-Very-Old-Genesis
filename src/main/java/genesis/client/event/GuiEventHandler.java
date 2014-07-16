@@ -7,7 +7,6 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.event.GuiScreenEvent;
-//import net.minecraftforge.client.event.GuiScreenEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class GuiEventHandler 

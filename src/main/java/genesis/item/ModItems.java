@@ -37,6 +37,12 @@ public class ModItems {
 	public static ItemGenesisFood rawEryops;
 	public static ItemGenesisFood cookedEryops;
 	
+	public static ItemGenesisFood rawAphthoroblattina;
+	public static ItemGenesisFood cookedAphthoroblattina;
+	
+	public static ItemGenesisFood rawCeratites;
+	public static ItemGenesisFood cookedCeratites;
+	
 	public static void init() {
 		// Tools/Armors
 	    graniteTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemGraniteCrudeMaterial.toUpperCase(), 1, 375, 4.0F, 1.0F, 5),
@@ -84,6 +90,16 @@ public class ModItems {
 				.setUnlocalizedName(Names.itemRawEryops).setTextureName(Genesis.MOD_ID + ":eryops_raw_leg")).register();
 		cookedEryops = ((ItemGenesisFood) new ItemGenesisFood(8, 12.8F)
 				.setUnlocalizedName(Names.itemCookedEryops).setTextureName(Genesis.MOD_ID + ":eryops_cooked_leg")).register();
+		
+		rawAphthoroblattina = ((ItemGenesisFood) new ItemGenesisFood(1, 0.6F)
+				.setUnlocalizedName(Names.itemRawAphthoroblattina).setTextureName(Genesis.MOD_ID + ":aphthoroblattina_raw")).register();
+		cookedAphthoroblattina = ((ItemGenesisFood) new ItemGenesisFood(2, 1.2F)
+				.setUnlocalizedName(Names.itemCookedAphthoroblattina).setTextureName(Genesis.MOD_ID + ":aphthoroblattina_cooked")).register();
+		
+		rawCeratites = ((ItemGenesisFood) new ItemGenesisFood(1, 1.2F)
+				.setUnlocalizedName(Names.itemRawCeratites).setTextureName(Genesis.MOD_ID + ":ceratites_raw")).register();
+		cookedCeratites = ((ItemGenesisFood) new ItemGenesisFood(5, 6.0F)
+				.setUnlocalizedName(Names.itemCookedCeratites).setTextureName(Genesis.MOD_ID + ":ceratites_cooked")).register();
 	}
 	
 	public static void registerItems() {
