@@ -19,6 +19,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import genesis.client.renderer.BlockMossRenderer;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
+import genesis.common.GenesisSoundHandler;
 
 public class BlockMoss extends BlockGrass {
 
@@ -31,7 +32,7 @@ public class BlockMoss extends BlockGrass {
 
 		setCreativeTab(GenesisTabs.tabGenesis);
 		setHardness(0.6F);
-		setStepSound(soundTypeGrass);
+		setStepSound(GenesisSoundHandler.soundTypeMoss);
 	}
 
 	public boolean canSustainPlant(World world, int x, int y, int z, ForgeDirection direction, IPlantable plant) {

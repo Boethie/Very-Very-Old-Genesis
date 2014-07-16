@@ -1,6 +1,7 @@
 package genesis.block.plants;
 
 import genesis.common.Genesis;
+import genesis.common.GenesisSoundHandler;
 import genesis.common.GenesisTabs;
 import genesis.lib.MiscHelpers;
 
@@ -43,7 +44,7 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 
 	public BlockCalamitesPlant() {
 		setHardness(1.5F);
-		setStepSound(soundTypeWood);
+		setStepSound(GenesisSoundHandler.soundTypeCalamites);
 		setPlantBoundsSize(0.25F);
 		setStackable(10);
 		setPlantableTypes(new EnumPlantType[] { EnumPlantType.Plains, EnumPlantType.Desert });

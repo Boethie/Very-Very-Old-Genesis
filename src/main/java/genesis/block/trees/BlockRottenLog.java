@@ -9,6 +9,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
+import genesis.common.GenesisSoundHandler;
 
 /**
  * Rotten logs spawn mobs upon breaking
@@ -18,7 +19,7 @@ public class BlockRottenLog extends BlockGenesisLog {
 	public BlockRottenLog(int group) {
 		super(group);
 		setCreativeTab(GenesisTabs.tabGenesisDecoration);
-		// setStepSound(BlockSounds.soundTypeRottenLog);
+		setStepSound(GenesisSoundHandler.soundTypeRottenLog);
 	}
 	
 	// TODO: Change Silverfish to final mob

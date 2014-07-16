@@ -88,8 +88,6 @@ public class Genesis {
 		teClassToNameMap = ReflectionHelper.getPrivateValue(TileEntity.class, null, "classToNameMap", "field_70323_b");
 
 		GameRegistry.registerTileEntity(TileEntityCampfire.class, MOD_ID + ".TileEntityCampfire");
-
-		MinecraftForge.EVENT_BUS.register(new GenesisSoundLoader());
 	}
 
 	@EventHandler

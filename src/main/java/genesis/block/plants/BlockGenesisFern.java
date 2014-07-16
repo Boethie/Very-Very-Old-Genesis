@@ -1,6 +1,7 @@
 package genesis.block.plants;
 
 import genesis.block.ModBlocks;
+import genesis.common.GenesisSoundHandler;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 
@@ -43,7 +44,7 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 		super();
 		setCreativeTab(GenesisTabs.tabGenesisDecoration);
 		setPlantBoundsSize(0.45f);
-		setStepSound(soundTypeGrass);
+		setStepSound(GenesisSoundHandler.soundTypeFern);
 	}
 	
 	public BlockGenesisFern setPlantableTypes(EnumPlantType[] types)
