@@ -48,7 +48,7 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 		setStackable(10);
 		setPlantableTypes(new EnumPlantType[] { EnumPlantType.Plains, EnumPlantType.Desert });
 		setHarvestLevel("axe", 0);
-		setCreativeTab(GenesisTabs.tabGenesisDecoration);
+		setCreativeTab(GenesisTabs.tabGenesisMaterials);
 	}
 
 	public static class CalamitesProperties {
