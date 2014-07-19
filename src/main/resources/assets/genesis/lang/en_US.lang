@@ -81,6 +81,7 @@ tile.genesis.plant.baragwanathia.name=Baragwanathia
 tile.genesis.plant.sciadophyton.name=Sciadophyton
 tile.genesis.plant.psilophyton.name=Psilophyton
 tile.genesis.plant.nothia.name=Nothia
+tile.genesis.plant.rhynia.name=Rhynia
 
 tile.genesis.plant.asteroxylon.name=Asteroxylon
 tile.genesis.plant.asteroxylon.tall.name=Tall Asteroxylon
@@ -176,7 +177,7 @@ item.genesis.food.cookedCeratites.name=Cooked Ceratites
 
 <!-- Creative Mode Tabs -->
 itemGroup.tabGenesisBlock=Genesis Building Blocks
-itemGroup.tabGenesisDecorations=Genesis Decorations
+itemGroup.tabGenesisDecoration=Genesis Decorations
 itemGroup.tabGenesisMaterials=Genesis Materials
 itemGroup.tabGenesisFood=Genesis Food
 itemGroup.tabGenesisTools=Genesis Tools
