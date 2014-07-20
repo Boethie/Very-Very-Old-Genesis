@@ -61,6 +61,7 @@ tile.genesis.log.bjuvia.name=Bjuvia Wood
 tile.genesis.leaves.bjuvia.name=Bjuvia Leaves
 tile.genesis.sapling.bjuvia.name=Bjuvia Sapling
 tile.genesis.logRotten.bjuvia.name=Rotten Bjuvia Wood
+tile.genesis.bjuviaCone.name=Bjuvia Cone
 
 tile.genesis.log.glossopteris.name=Glossopteris Wood
 tile.genesis.leaves.glossopteris.name=Glossopteris Leaves
@@ -126,6 +127,7 @@ item.genesis.hematite.name=Hematite
 item.genesis.malachite.name=Malachite
 item.genesis.olivine.name=Olivine
 item.genesis.sphenoFiber.name=Sphenophyllum Fiber
+item.genesis.bjuviaSeeds.name=Bjuvia Seeds
 
 <!-- Tools -->
 item.genesis.knife.granite.name=Granite Knife

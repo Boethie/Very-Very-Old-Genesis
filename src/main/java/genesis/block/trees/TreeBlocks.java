@@ -86,6 +86,7 @@ public class TreeBlocks {
 	public static Block[] blocksSaplings;
 	public static Block[] blocksLeaves;
 	public static Block[] blocksRottenLogs;
+	public static BlockBjuviaCone bjuviaCone;
 	
 	public static void init() {
 		numGroups = TreeType.getNumGroups();
@@ -96,6 +97,7 @@ public class TreeBlocks {
 		blocksSaplings = new Block[numGroups];
 		blocksLeaves = new Block[numGroups];
 		blocksRottenLogs = new Block[numGroups];
+		bjuviaCone = (BlockBjuviaCone) new BlockBjuviaCone().setBlockName(Names.blockBjuviaCone);
 		
 		for (int group = 0; group < numGroups; group++) {			
 			blocksLogs[group] = new BlockGenesisLog(group)
@@ -128,11 +130,16 @@ public class TreeBlocks {
 			BlockGenesisFlowerPot.tryRegisterPlant(new ItemStack(blocksSaplings[type.getGroup()], 1, type.getMetadata()));
 		}
 		
+		GameRegistry.registerBlock(bjuviaCone, Names.blockBjuviaCone);
+		
+		treeGenerators.add(null); // there are no world gens for the archeopteris, bjuvia, etc. yet, so it is set to null
 		treeGenerators.add(new WorldGenTreeSigillaria(8, 3, true));
 		treeGenerators.add(new WorldGenTreeLepidodendron(10, 5, true));
 		treeGenerators.add(new WorldGenTreeCordaites(15, 5, true));
-		treeGenerators.add(new WorldGenTreeAraucarioxylon(20, 7, true));
 		treeGenerators.add(new WorldGenTreePsaronius(5, 4, true));
+		treeGenerators.add(null);
+		treeGenerators.add(null);
+		treeGenerators.add(new WorldGenTreeAraucarioxylon(20, 7, true));
 	}
 
 	public static enum TreeBlockType {

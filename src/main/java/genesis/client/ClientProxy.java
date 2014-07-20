@@ -2,6 +2,7 @@ package genesis.client;
 
 import genesis.block.gui.TileEntityCampfire;
 import genesis.client.event.GuiEventHandler;
+import genesis.client.renderer.BlockBjuviaConeRenderer;
 import genesis.client.renderer.BlockCampfireRenderer;
 import genesis.client.renderer.BlockGenesisFlowerPotRenderer;
 import genesis.client.renderer.BlockGenesisPlantRenderer;
@@ -30,6 +31,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(new BlockGenesisFlowerPotRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockTikiTorchRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockCampfireRenderer());
+		RenderingRegistry.registerBlockHandler(new BlockBjuviaConeRenderer());
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCampfire.class, new TileEntityCampfireRenderer());
 

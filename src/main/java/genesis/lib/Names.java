@@ -47,6 +47,7 @@ public final class Names {
 	public static final String blockSaplingGenesis = mod + "sapling.";
 	public static final String blockLeavesGenesis = mod + "leaves.";
 	public static final String blockRottenLogGenesis = mod + "logRotten.";
+	public static final String blockBjuviaCone = mod + "bjuviaCone";
 
 	// Plants
 	public static final String blockPlant = mod + "plant.";
@@ -104,6 +105,7 @@ public final class Names {
     public static final String itemFlintPolishedMaterial = "flint_polished";
     
 	public static final String itemSphenoFiber = mod + "sphenoFiber";
+	public static final String itemBjuviaSeeds = mod + "bjuviaSeeds";
 
 	public static final String itemZircon = mod + "zircon";
 	public static final String itemZirconMaterial = "zircon";
