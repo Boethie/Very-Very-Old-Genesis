@@ -26,7 +26,7 @@ public class WorldGenTreeSigillaria extends WorldGenTreeBase {
 	 *            Generally false for world generation, true for saplings.
 	 */
 	public WorldGenTreeSigillaria(int minH, int maxH, boolean notify) {
-		super(new BlockAndMeta(TreeBlocks.blocksLogs[0], 0), new BlockAndMeta(TreeBlocks.blocksLeaves[0], 0), notify);
+		super(new BlockAndMeta(TreeBlocks.blocksLogs[0], 1), new BlockAndMeta(TreeBlocks.blocksLeaves[0], 1), notify);
 		minHeight = minH;
 		maxHeight = maxH;
 	}

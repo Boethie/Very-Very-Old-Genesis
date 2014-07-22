@@ -107,7 +107,7 @@ public class ModBlocks {
 				.setBlockTextureName("quartz_granite_ore").setBlockName(Names.blockQuartzGraniteOre)
 				.setHardness(3.0F).setResistance(10.0F);		
 		quartzGraniteOre.setHarvestLevel("pickaxe", 1);
-		malachiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 1, 4, 8)
+		malachiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 1, 2, 4)
 				.setBlockTextureName("malachite_ore").setBlockName(Names.blockMalachiteOre)
 				.setHardness(3.0F).setResistance(10.0F);		
 		malachiteOre.setHarvestLevel("pickaxe", 1);

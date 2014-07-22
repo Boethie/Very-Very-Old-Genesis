@@ -25,6 +25,10 @@ public final class PlantMetadata
 			WAPKIA_NAME = "wapkia", DIAG_NAME = "diagoniella", PIR_NAME = "pirania";
 	
 	public static final String MARGAR_NAME = "margaretia", BANGI_NAME = "bangiomorpha";
+	
+	public static final String ARCH_NAME = "archaeopteris", SIGIL_NAME = "sigillaria",
+			LEPID_NAME = "lepidodendron", CORD_NAME = "cordaites", PSAR_NAME = "psaronius",
+			BJUVIA_NAME = "bjuvia", GLOSSO_NAME = "glossopteris", ARAUC_NAME = "auracarioxylon";
 
 	public static final ArrayList<String> plantTypes = new ArrayList() {
 		{
@@ -69,6 +73,19 @@ public final class PlantMetadata
 		{
 			add(MARGAR_NAME);
 			add(BANGI_NAME);
+		}
+	};
+	
+	public static final ArrayList<String> treeTypes = new ArrayList() {
+		{
+			add(ARCH_NAME);
+			add(SIGIL_NAME);
+			add(LEPID_NAME);
+			add(CORD_NAME);
+			add(PSAR_NAME);
+			add(BJUVIA_NAME);
+			add(GLOSSO_NAME);
+			add(ARAUC_NAME);
 		}
 	};
 }
