@@ -28,6 +28,13 @@ public class ModItems {
 	public static ItemGenesis biotite;
 	
 	public static ItemGenesis sphenoFiber;
+	public static ItemGenesis bjuviaSeeds;
+	
+	public static ItemGenesis ceratitesShell;
+	public static ItemGenesis arthopleuraChitin;
+	public static ItemGenesis tyrannosaurasTooth;
+	public static ItemGenesis velociraptorClaw;
+	public static ItemGenesis archeopterixFeather;
 	
 	// Seeds
 	public static ItemGenesisSeed rhizome;
@@ -79,6 +86,13 @@ public class ModItems {
 		biotite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemBiotite).setTextureName("biotite");
 		
 		sphenoFiber = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemSphenoFiber).setTextureName("sphenophyllum_fiber");
+		bjuviaSeeds = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemBjuviaSeeds).setTextureName("seeds_bjuvia");
+		
+		ceratitesShell = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemCeratitesShell).setTextureName("ceratites_shell");
+		arthopleuraChitin = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemArthopleuraChitin).setTextureName("arthropleura_chitin");
+		tyrannosaurasTooth = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemTyrannosaurasTooth).setTextureName("tyrannosaurus_tooth");
+		velociraptorClaw = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemVelociraptorClaw).setTextureName("velociraptor_claw");
+		archeopterixFeather = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemArcheopterixFeather).setTextureName("archeopterix_feather");
 		
 		// Seeds/Foods
 		rhizome = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.zingiberopsis, 1, 0.5f)

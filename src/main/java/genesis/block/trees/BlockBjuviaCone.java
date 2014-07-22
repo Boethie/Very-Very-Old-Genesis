@@ -65,7 +65,7 @@ public class BlockBjuviaCone extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register)
 	{
-		coneIcon = register.registerIcon(Genesis.MOD_ID + ":cone_bjuvia");
+		coneIcon = register.registerIcon(Genesis.MOD_ID + ":bjuvia_cone");
 	}
 	
 	@Override
@@ -110,7 +110,7 @@ public class BlockBjuviaCone extends Block
 		Block b = world.getBlock(x, y - 1, z);
 		if (b != null)
 		{
-			return b == TreeBlocks.blocksLogs[5];
+			return b == TreeBlocks.blocksLogs[0];
 		}
 		return false;
 	}

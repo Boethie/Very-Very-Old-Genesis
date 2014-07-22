@@ -26,7 +26,7 @@ public class WorldGenTreeLepidodendron extends WorldGenTreeBase {
 	 *            Generally false for world generation, true for saplings.
 	 */
 	public WorldGenTreeLepidodendron(int minH, int maxH, boolean notify) {
-		super(new BlockAndMeta(TreeBlocks.blocksLogs[0], 1), new BlockAndMeta(TreeBlocks.blocksLeaves[0], 1), notify);
+		super(new BlockAndMeta(TreeBlocks.blocksLogs[0], 2), new BlockAndMeta(TreeBlocks.blocksLeaves[0], 2), notify);
 		minHeight = minH;
 		maxHeight = maxH;
 	}

@@ -14,5 +14,10 @@ public class MiscHelpers {
 
 		return false;
 	}
+	
+	public static double getLengthFromPixels(int pixels)
+	{
+		return (double)((1.0d / 16.0D) * (double)pixels);
+	}
 
 }

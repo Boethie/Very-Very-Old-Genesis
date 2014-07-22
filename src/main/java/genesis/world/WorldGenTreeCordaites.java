@@ -26,7 +26,7 @@ public class WorldGenTreeCordaites extends WorldGenTreeBase {
 	 *            Generally false for world generation, true for saplings.
 	 */
 	public WorldGenTreeCordaites(int minH, int maxH, boolean notify) {
-		super(new BlockAndMeta(TreeBlocks.blocksLogs[0], 2), new BlockAndMeta(TreeBlocks.blocksLeaves[0], 2), notify);
+		super(new BlockAndMeta(TreeBlocks.blocksLogs[0], 3), new BlockAndMeta(TreeBlocks.blocksLeaves[0], 3), notify);
 		minHeight = minH;
 		maxHeight = maxH;
 	}

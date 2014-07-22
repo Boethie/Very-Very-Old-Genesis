@@ -106,6 +106,11 @@ public final class Names {
     
 	public static final String itemSphenoFiber = mod + "sphenoFiber";
 	public static final String itemBjuviaSeeds = mod + "bjuviaSeeds";
+	public static final String itemCeratitesShell = mod + "ceratitesShell";
+	public static final String itemArthopleuraChitin = mod + "arthopleuraChitin";
+	public static final String itemTyrannosaurasTooth = mod + "tyrannosaurasTooth";
+	public static final String itemVelociraptorClaw = mod + "velociraptorClaw";
+	public static final String itemArcheopterixFeather = mod + "archeopterixFeather";
 
 	public static final String itemZircon = mod + "zircon";
 	public static final String itemZirconMaterial = "zircon";
