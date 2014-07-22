@@ -129,10 +129,10 @@ item.genesis.olivine.name=Olivine
 item.genesis.sphenoFiber.name=Sphenophyllum Fiber
 item.genesis.bjuviaSeeds.name=Bjuvia Seeds
 item.genesis.ceratitesShell.name=Ceratites Shell
-item.genesis.arthopleuraChitin.name=Arthopleura Chitin
-item.genesis.tyrannosaurasTooth.name=Tyrannosauras Tooth
+item.genesis.arthopleuraChitin.name=Arthropleura Chitin
+item.genesis.tyrannosaurasTooth.name=Tyrannosaurus Tooth
 item.genesis.velociraptorClaw.name=Velociraptor Claw
-item.genesis.archeopterixFeather.name=Archeopterix Feather
+item.genesis.archeopterixFeather.name=Archaeopteryx Feather
 
 <!-- Tools -->
 item.genesis.knife.granite.name=Granite Knife
@@ -168,8 +168,8 @@ item.genesis.tool.hoe.flint.name=Flint Hoe
 tooltip.toolquality=Tool Quality
 toolquality.crude=Crude
 toolquality.chipped=Chipped
-toolquality.sharpened=Sharpened
 toolquality.polished=Polished
+toolquality.sharpened=Sharpened
 
 <!-- Foods -->
 item.genesis.food.rawEryops.name=Raw Eryops Leg
@@ -184,10 +184,10 @@ item.genesis.food.cookedCeratites.name=Cooked Ceratites
 
 <!-- Creative Mode Tabs -->
 itemGroup.tabGenesisBlock=Genesis Building Blocks
-itemGroup.tabGenesisDecoration=Genesis Decorations
+itemGroup.tabGenesisDecoration=Genesis Decoration Blocks
 itemGroup.tabGenesisMaterials=Genesis Materials
-itemGroup.tabGenesisFood=Genesis Food
+itemGroup.tabGenesisFood=Genesis Foodstuffs
 itemGroup.tabGenesisTools=Genesis Tools
 
 <!-- World type name -->
-generator.genesisTestType=Genesis World
+generator.genesisTestType=Genesis World Test
