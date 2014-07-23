@@ -129,10 +129,10 @@ item.genesis.olivine.name=Olivine
 item.genesis.sphenoFiber.name=Sphenophyllum Fiber
 item.genesis.bjuviaSeeds.name=Bjuvia Seeds
 item.genesis.ceratitesShell.name=Ceratites Shell
-item.genesis.arthopleuraChitin.name=Arthropleura Chitin
-item.genesis.tyrannosaurasTooth.name=Tyrannosaurus Tooth
+item.genesis.arthropleuraChitin.name=Arthropleura Chitin
+item.genesis.tyrannosaurusTooth.name=Tyrannosaurus Tooth
 item.genesis.velociraptorClaw.name=Velociraptor Claw
-item.genesis.archeopterixFeather.name=Archaeopteryx Feather
+item.genesis.archeopterixFeather.name=Archaeopterix Feather
 
 <!-- Tools -->
 item.genesis.knife.granite.name=Granite Knife
@@ -178,6 +178,10 @@ item.genesis.food.rawAphthoroblattina.name=Raw Aphthoroblattina
 item.genesis.food.cookedAphthoroblattina.name=Cooked Aphthoroblattina
 item.genesis.food.rawCeratites.name=Raw Ceratites
 item.genesis.food.cookedCeratites.name=Cooked Ceratites
+item.genesis.food.rawMixosaurusFillet.name=Raw Mixosaurus Fillet
+item.genesis.food.cookedMixosaurusFillet.name=Cooked Mixosaurus Fillet
+item.genesis.food.rawArcheopterixThigh.name=Raw Archeopterix Thigh
+item.genesis.food.cookedArcheopterixThigh.name=Cooked Archeopterix Thigh
 
 
 <!-- Other -->

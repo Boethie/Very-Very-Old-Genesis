@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -85,5 +86,13 @@ public class ItemGenesisFood extends ItemFood
 	{
 	    GameRegistry.registerItem(this, this.getUnlocalizedName(), Genesis.MOD_ID);
 	    return this;
+	}
+	
+	@Override
+	public Item setTextureName(String name)
+	{
+		Item item = super.setTextureName(Genesis.MOD_ID + ":" + name);
+		register();
+		return item;
 	}
 }

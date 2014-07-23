@@ -1,11 +1,13 @@
 package genesis.item.itemblock;
 
 import genesis.block.plants.BlockAsteroxylon;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import genesis.block.plants.PlantBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * 
@@ -14,9 +16,12 @@ import net.minecraft.item.ItemStack;
  */
 public class ItemBlockAsteroxylon extends ItemBlockWithMetadata
 {
+	private Block block;
+	
 	public ItemBlockAsteroxylon(Block block)
 	{
 		super(block, block);
+		this.block = block;
 		setMaxDamage(0);
 		setHasSubtypes(true);
 	}
@@ -26,6 +31,12 @@ public class ItemBlockAsteroxylon extends ItemBlockWithMetadata
 	{
 		Block b = Block.getBlockFromItem(item.getItem());
 		return b.getUnlocalizedName() + (getMetadata(item.getItemDamage()) == 1 ? ".tall" : "");
+	}
+	
+	@Override
+	public IIcon getIconFromDamage(int meta)
+	{
+		return PlantBlocks.asteroxylon.getIcon(2, meta);
 	}
 	
 	@Override

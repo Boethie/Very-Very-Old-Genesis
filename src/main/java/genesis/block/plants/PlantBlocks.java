@@ -89,7 +89,7 @@ public class PlantBlocks {
 		GameRegistry.registerBlock(ferns, ItemBlockGenesisFern.class, Names.blockFern);
 		
 		GameRegistry.registerBlock(asteroxylon, ItemBlockAsteroxylon.class, Names.blockAsteroxylon);		
-		GameRegistry.registerBlock(asterTop, Names.blockAsteroxylon + ".top");
+		GameRegistry.registerBlock(asterTop, ItemBlockAsteroxylon.class, Names.blockAsteroxylon + ".top");
 		
 		GameRegistry.registerBlock(sphenophyllum, Names.blockSphenophyllum);
 		GameRegistry.registerBlock(sphenoTop, Names.blockSphenophyllum + ".top");

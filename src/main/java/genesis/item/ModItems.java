@@ -31,8 +31,8 @@ public class ModItems {
 	public static ItemGenesis bjuviaSeeds;
 	
 	public static ItemGenesis ceratitesShell;
-	public static ItemGenesis arthopleuraChitin;
-	public static ItemGenesis tyrannosaurasTooth;
+	public static ItemGenesis arthropleuraChitin;
+	public static ItemGenesis tyrannosaurusTooth;
 	public static ItemGenesis velociraptorClaw;
 	public static ItemGenesis archeopterixFeather;
 	
@@ -49,6 +49,12 @@ public class ModItems {
 	
 	public static ItemGenesisFood rawCeratites;
 	public static ItemGenesisFood cookedCeratites;
+	
+	public static ItemGenesisFood rawMixosaurusFillet;
+	public static ItemGenesisFood cookedMixosaurusFillet;
+	
+	public static ItemGenesisFood rawArcheopterixThigh;
+	public static ItemGenesisFood cookedArcheopterixThigh;
 	
 	public static void init() {
 		// Tools/Armors
@@ -89,8 +95,8 @@ public class ModItems {
 		bjuviaSeeds = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemBjuviaSeeds).setTextureName("seeds_bjuvia");
 		
 		ceratitesShell = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemCeratitesShell).setTextureName("ceratites_shell");
-		arthopleuraChitin = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemArthopleuraChitin).setTextureName("arthropleura_chitin");
-		tyrannosaurasTooth = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemTyrannosaurasTooth).setTextureName("tyrannosaurus_tooth");
+		arthropleuraChitin = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemArthopleuraChitin).setTextureName("arthropleura_chitin");
+		tyrannosaurusTooth = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemTyrannosaurasTooth).setTextureName("tyrannosaurus_tooth");
 		velociraptorClaw = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemVelociraptorClaw).setTextureName("velociraptor_claw");
 		archeopterixFeather = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemArcheopterixFeather).setTextureName("archeopterix_feather");
 		
@@ -100,20 +106,30 @@ public class ModItems {
 		sphenoSpores = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.sphenophyllum, 1, 1.0f)
 				.setUnlocalizedName(Names.itemSphenoSpores).setTextureName("sphenophyllum_spores");
 		
-		rawEryops = ((ItemGenesisFood) new ItemGenesisFood(3, 1.8F)
-				.setUnlocalizedName(Names.itemRawEryops).setTextureName(Genesis.MOD_ID + ":eryops_raw_leg")).register();
-		cookedEryops = ((ItemGenesisFood) new ItemGenesisFood(8, 12.8F)
-				.setUnlocalizedName(Names.itemCookedEryops).setTextureName(Genesis.MOD_ID + ":eryops_cooked_leg")).register();
+		rawEryops = (ItemGenesisFood) new ItemGenesisFood(3, 1.8F)
+				.setUnlocalizedName(Names.itemRawEryops).setTextureName("eryops_raw_leg");
+		cookedEryops = (ItemGenesisFood) new ItemGenesisFood(8, 12.8F)
+				.setUnlocalizedName(Names.itemCookedEryops).setTextureName("eryops_cooked_leg");
 		
-		rawAphthoroblattina = ((ItemGenesisFood) new ItemGenesisFood(1, 0.6F)
-				.setUnlocalizedName(Names.itemRawAphthoroblattina).setTextureName(Genesis.MOD_ID + ":aphthoroblattina_raw")).register();
-		cookedAphthoroblattina = ((ItemGenesisFood) new ItemGenesisFood(2, 1.2F)
-				.setUnlocalizedName(Names.itemCookedAphthoroblattina).setTextureName(Genesis.MOD_ID + ":aphthoroblattina_cooked")).register();
+		rawAphthoroblattina = (ItemGenesisFood) new ItemGenesisFood(1, 0.6F)
+				.setUnlocalizedName(Names.itemRawAphthoroblattina).setTextureName("aphthoroblattina_raw");
+		cookedAphthoroblattina = (ItemGenesisFood) new ItemGenesisFood(2, 1.2F)
+				.setUnlocalizedName(Names.itemCookedAphthoroblattina).setTextureName("aphthoroblattina_cooked");
 		
-		rawCeratites = ((ItemGenesisFood) new ItemGenesisFood(1, 1.2F)
-				.setUnlocalizedName(Names.itemRawCeratites).setTextureName(Genesis.MOD_ID + ":ceratites_raw")).register();
-		cookedCeratites = ((ItemGenesisFood) new ItemGenesisFood(5, 6.0F)
-				.setUnlocalizedName(Names.itemCookedCeratites).setTextureName(Genesis.MOD_ID + ":ceratites_cooked")).register();
+		rawCeratites = (ItemGenesisFood) new ItemGenesisFood(1, 1.2F)
+				.setUnlocalizedName(Names.itemRawCeratites).setTextureName("ceratites_raw");
+		cookedCeratites = (ItemGenesisFood) new ItemGenesisFood(5, 6.0F)
+				.setUnlocalizedName(Names.itemCookedCeratites).setTextureName("ceratites_cooked");
+		
+		rawMixosaurusFillet = (ItemGenesisFood) new ItemGenesisFood(1, 1.2F)
+				.setUnlocalizedName(Names.itemRawMixosaurus).setTextureName("mixosaurus_fillet_raw");
+		cookedMixosaurusFillet = (ItemGenesisFood) new ItemGenesisFood(5, 6.0F)
+				.setUnlocalizedName(Names.itemCookedMixosaurus).setTextureName("mixosaurus_fillet_cooked");
+		
+		rawArcheopterixThigh = (ItemGenesisFood) new ItemGenesisFood(2, 1.2F)
+				.setUnlocalizedName(Names.itemRawArcheopterix).setTextureName("archeopterix_thigh_raw");
+		cookedArcheopterixThigh = (ItemGenesisFood) new ItemGenesisFood(6, 7.2F)
+				.setUnlocalizedName(Names.itemCookedArcheopterix).setTextureName("archeopterix_thigh_cooked");
 	}
 	
 	public static void registerItems() {

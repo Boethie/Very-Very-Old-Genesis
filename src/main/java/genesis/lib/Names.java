@@ -107,8 +107,8 @@ public final class Names {
 	public static final String itemSphenoFiber = mod + "sphenoFiber";
 	public static final String itemBjuviaSeeds = mod + "bjuviaSeeds";
 	public static final String itemCeratitesShell = mod + "ceratitesShell";
-	public static final String itemArthopleuraChitin = mod + "arthopleuraChitin";
-	public static final String itemTyrannosaurasTooth = mod + "tyrannosaurasTooth";
+	public static final String itemArthopleuraChitin = mod + "arthropleuraChitin";
+	public static final String itemTyrannosaurasTooth = mod + "tyrannosaurusTooth";
 	public static final String itemVelociraptorClaw = mod + "velociraptorClaw";
 	public static final String itemArcheopterixFeather = mod + "archeopterixFeather";
 
@@ -138,5 +138,9 @@ public final class Names {
 	public static final String itemCookedAphthoroblattina = itemFood + "cookedAphthoroblattina";
 	public static final String itemRawCeratites = itemFood + "rawCeratites";
 	public static final String itemCookedCeratites = itemFood + "cookedCeratites";
+	public static final String itemRawMixosaurus = itemFood + "rawMixosaurusFillet";
+	public static final String itemCookedMixosaurus = itemFood + "cookedMixosaurusFillet";
+	public static final String itemRawArcheopterix = itemFood + "rawArcheopterixThigh";
+	public static final String itemCookedArcheopterix = itemFood + "cookedArcheopterixThigh";
 
 }

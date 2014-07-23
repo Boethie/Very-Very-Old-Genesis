@@ -1,10 +1,11 @@
 package genesis.block;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
@@ -20,19 +21,16 @@ public class BlockPermafrost extends BlockGenesis {
 	
 	// TODO: Currently mimics behaviour of ice, change if necessary
 	public void updateTick(World world, int x, int y, int z, Random random) {
-		if (world.getSavedLightValue(EnumSkyBlock.Block, x, y + 1, z) > 8)
+		if (world.getSavedLightValue(EnumSkyBlock.Block, x, y + 1, z) > 8) {
 			world.setBlock(x, y, z, Blocks.dirt);
+		}
 	}
 	
 	@Override
-	public int quantityDropped(Random random)
+	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int meta, int fortune)
 	{
-		return 1;
-	}
-	
-	@Override
-	public Item getItemDropped(int par1, Random random, int par3)
-	{
-		return Item.getItemFromBlock(Blocks.dirt);
+		ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+		list.add(new ItemStack(Blocks.dirt));
+		return list;
 	}
 }
