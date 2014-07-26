@@ -12,20 +12,21 @@ import genesis.lib.Names;
 
 public class ModItems {
 
-	// Tools/Armors
+	// Tools
 	public static ItemsToolSet graniteTools;
 	public static ItemsToolSet rhyoliteTools;
 	public static ItemsToolSet quartziteTools;
 	public static ItemsToolSet limestoneTools;
 	public static ItemsToolSet flintTools;
 	
-	public static ItemGenesis zircon;
-	public static ItemGenesis quartz;	
-	public static ItemGenesis olivine;	
-	public static ItemGenesis garnet;	
-	public static ItemGenesis malachite;	
-	public static ItemGenesis hematite;
+	// Crafting
+	public static ItemGenesis quartz;
 	public static ItemGenesis biotite;
+	public static ItemGenesis zircon;
+	public static ItemGenesis garnet;
+	public static ItemGenesis hematite;
+	public static ItemGenesis malachite;	
+	public static ItemGenesis olivine;
 	
 	public static ItemGenesis sphenoFiber;
 	public static ItemGenesis bjuviaSeeds;
@@ -57,7 +58,7 @@ public class ModItems {
 	public static ItemGenesisFood cookedArcheopterixThigh;
 	
 	public static void init() {
-		// Tools/Armors
+		// Tools
 	    graniteTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemGraniteCrudeMaterial.toUpperCase(), 1, 375, 4.0F, 1.0F, 5),
 				EnumHelper.addToolMaterial(Names.itemGraniteChippedMaterial.toUpperCase(), 1, 390, 4.0F, 1.0F, 5),
 				EnumHelper.addToolMaterial(Names.itemGraniteSharpenedMaterial.toUpperCase(), 1, 425, 4.0F, 1.0F, 5),
@@ -83,13 +84,14 @@ public class ModItems {
                 EnumHelper.addToolMaterial(Names.itemFlintSharpenedMaterial.toUpperCase(), 1, 403, 4.0F, 1.0F, 5),
                 EnumHelper.addToolMaterial(Names.itemFlintPolishedMaterial.toUpperCase(), 1, 493, 4.0F, 1.0F, 5), Names.itemFlintMaterial, Items.flint, Items.stick);
 		
-		zircon = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemZircon).setTextureName("zircon");		
-		quartz = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemQuartz).setTextureName("quartz");		
-		olivine = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");		
-		garnet = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemGarnet).setTextureName("garnet");		
-		malachite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemMalachite).setTextureName("malachite");		
-		hematite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemHematite).setTextureName("hematite");		
+		// Crafting
+		quartz = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemQuartz).setTextureName("quartz");	
 		biotite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemBiotite).setTextureName("biotite");
+		zircon = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemZircon).setTextureName("zircon");
+		garnet = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemGarnet).setTextureName("garnet");
+		hematite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemHematite).setTextureName("hematite");
+		malachite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemMalachite).setTextureName("malachite");
+		olivine = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");		
 		
 		sphenoFiber = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemSphenoFiber).setTextureName("sphenophyllum_fiber");
 		bjuviaSeeds = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemBjuviaSeeds).setTextureName("seeds_bjuvia");
@@ -100,12 +102,13 @@ public class ModItems {
 		velociraptorClaw = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemVelociraptorClaw).setTextureName("velociraptor_claw");
 		archeopterixFeather = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemArcheopterixFeather).setTextureName("archeopterix_feather");
 		
-		// Seeds/Foods
+		// Seeds
 		rhizome = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.zingiberopsis, 1, 0.5f)
 				.setUnlocalizedName(Names.itemRhizome).setTextureName("zingiberopsis_rhizome");
 		sphenoSpores = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.sphenophyllum, 1, 1.0f)
 				.setUnlocalizedName(Names.itemSphenoSpores).setTextureName("sphenophyllum_spores");
 		
+		// Foods
 		rawEryops = (ItemGenesisFood) new ItemGenesisFood(3, 1.8F)
 				.setUnlocalizedName(Names.itemRawEryops).setTextureName("eryops_raw_leg");
 		cookedEryops = (ItemGenesisFood) new ItemGenesisFood(8, 12.8F)
