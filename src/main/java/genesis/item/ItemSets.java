@@ -1,5 +1,7 @@
 package genesis.item;
 
+import genesis.block.trees.TreeBlocks;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemSets
 {
@@ -242,7 +245,10 @@ public class ItemSets
 
         public void registerRecipes()
         {
-            registerRecipeWithDefault(craftingObj, this);
+        	for(Block block:TreeBlocks.blocksLogs){
+        		craftingHandleObj=new ItemStack(block,1,OreDictionary.WILDCARD_VALUE);
+        		registerRecipeWithDefault(craftingObj, this);
+        	}
         }
 
         @Override
