@@ -1,5 +1,6 @@
 package genesis.item;
 
+import genesis.block.ModBlocks;
 import genesis.lib.LogHelper;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import org.apache.logging.log4j.Level;
 
@@ -77,7 +79,7 @@ public class Recipes {
 		adaptNetherQuartzRecipes();
 
 		//CraftingManager.getInstance().addRecipe(new ItemStack(ModBlocks.tikiTorch, 2), "c", "|", "|", 'c', Items.coal, '|', PlantBlocks.calamitesPlant);
-		
+		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.campfire,new Object[]{" A ","A A","BBB",Character.valueOf('A'),"logWood",Character.valueOf('B'),ModBlocks.granite}));
 		//add red die functionality into Hematite
 		{
 			ItemStack hematite = new ItemStack(ModItems.hematite, 1, 0);
