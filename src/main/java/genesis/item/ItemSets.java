@@ -254,7 +254,7 @@ public class ItemSets
         @Override
         public int getRecipeCount()
         {
-            return 6;
+            return 5;
         }
 
         @Override
@@ -262,12 +262,12 @@ public class ItemSets
         {
             switch (recipe)
             {
-                case 0: // Sword
-                case 1: // knife
-                case 4: // Spade
+                //case 0: // Sword
+                case 0: // knife
+                case 3: // Spade
                     return 1;
-                case 3: // Axe
-                case 5: // Hoe
+                case 2: // Axe
+                case 4: // Hoe
                     return 2;
                 default:
                     return 3;
@@ -281,32 +281,32 @@ public class ItemSets
 
             switch (recipe)
             {
-                case 0: // Sword
+                /*case 0: // Sword
                     return new ItemStack[]
                     {
                     craftStack, craftStack, handle
-                    };
-                case 1: // knife
+                    };*/
+                case 0: // knife
                     return new ItemStack[]
                     {
                     craftStack, handle
                     };
-                case 2: // Pickaxe
+                case 1: // Pickaxe
                     return new ItemStack[]
                     {
                     craftStack, craftStack, craftStack, null, handle, null, null, handle, null
                     };
-                case 3: // Axe
+                case 2: // Axe
                     return new ItemStack[]
                     {
                     craftStack, craftStack, craftStack, handle, null, handle
                     };
-                case 4: // Spade
+                case 3: // Spade
                     return new ItemStack[]
                     {
                     craftStack, handle, handle
                     };
-                case 5: // Hoe
+                case 4: // Hoe
                     return new ItemStack[]
                     {
                     craftStack, craftStack, null, handle, null, handle
@@ -323,19 +323,19 @@ public class ItemSets
 
             switch (recipe)
             {
-                case 1:
+                case 0:
                     item = knifeCrude;
                     break;
-                case 2:
+                case 1:
                     item = pickaxeCrude;
                     break;
-                case 3:
+                case 2:
                     item = axeCrude;
                     break;
-                case 4:
+                case 3:
                     item = spadeCrude;
                     break;
-                case 5:
+                case 4:
                     item = hoeCrude;
                     break;
             }
