@@ -109,6 +109,9 @@ public class BlockTikiTorch extends BlockGenesis {
 
 			double off = 0.125;
 
+			if(getDirection(metadata)!=5){
+				yPos += 0.1875;
+			}
 			switch (getDirection(metadata)) {
 				case 1:
 					xPos -= off;
@@ -148,7 +151,7 @@ public class BlockTikiTorch extends BlockGenesis {
 	}
 
 	protected boolean canPlaceTorchOn(World world, int x, int y, int z) {
-		if (world.doesBlockHaveSolidTopSurface(world, x, y, z))
+		if (World.doesBlockHaveSolidTopSurface(world, x, y, z))
 			return true;
 		else {
 			Block block = world.getBlock(x, y, z);
@@ -164,7 +167,7 @@ public class BlockTikiTorch extends BlockGenesis {
 				canPlaceTorchOn(world, x, y - 1, z)) && world.getBlock(x, y + 1, z).getMaterial().isReplaceable();
 	}
 
-	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack stack) {
+	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
 		if (canPlaceTikiTorchAt(world, x, y, z))
 			return true;
 
