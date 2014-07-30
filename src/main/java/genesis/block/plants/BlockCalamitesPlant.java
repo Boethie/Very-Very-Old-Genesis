@@ -1,5 +1,6 @@
 package genesis.block.plants;
 
+import genesis.block.ModBlocks;
 import genesis.common.Genesis;
 import genesis.common.GenesisSoundHandler;
 import genesis.common.GenesisTabs;
@@ -169,26 +170,42 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 	@Override
 	protected boolean canPlaceBlockOn(Block block)
 	{
-		return super.canPlaceBlockOn(block) || block == PlantBlocks.calamitesPlant
-				|| block == Blocks.dirt;
+		return super.canPlaceBlockOn(block) 
+				|| block == PlantBlocks.calamitesPlant
+				|| block == ModBlocks.moss;
 	}
 	
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z)
 	{
-		return canPlaceBlockOn(world.getBlock(x, y - 1, z))
-				&& MiscHelpers.isWaterInRange(world, x, y - 1, z, 1, 15)
-				&& canBlockStay(world, x, y, z); // 15 so the calamites can grow high
+		boolean flag = false;
+		flag = canPlaceBlockOn(world.getBlock(x, y - 1, z)) &&
+				canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) &&
+				MiscHelpers.isWaterInRange(world, x, y - 1, z, 1, 15);
+		return flag;
 	}
 	
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z)
 	{
-		return canPlaceBlockOn(world.getBlock(x, y - 1, z)) 
-				&& MiscHelpers.isWaterInRange(world, x, y - 1, z, 1, 15) // 15 so the calamites can grow high
-				&& canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
+		return canPlaceBlockAt(world, x, y, z);
 	}
-
+	
+	protected void dropIfCannotStay(World world, int x, int y, int z)
+	{
+		if (!canBlockStay(world, x, y, z))
+		{
+			dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+			world.setBlockToAir(x, y, z);
+		}
+	}
+	
+	@Override
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block block)
+	{
+		dropIfCannotStay(world, x, y, z);
+	}
+	
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 		if (world.isRemote)
@@ -327,11 +344,6 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 
 		if (!world.isRemote && world.rand.nextFloat() <= chance)
 			dropEggs(world, x, y, z, metadata);
-	}
-
-	@Override
-	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata) {
-		return metadata;
 	}
 
 	@Override

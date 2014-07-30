@@ -96,6 +96,10 @@ public class PlantBlocks {
 
 		CraftingManager.getInstance().addRecipe(new ItemStack(calamitesBlock), "CCC", "CCC", "CCC", 'C', calamitesPlant);
 		CraftingManager.getInstance().addRecipe(new ItemStack(calamitesPlant, 9), "C", 'C', calamitesBlock);
+		
+		Blocks.fire.setFireInfo(plants, 60, 100);
+		Blocks.fire.setFireInfo(ferns, 60, 100);
+		Blocks.fire.setFireInfo(calamitesPlant, 30, 60);
 	}
 
 }

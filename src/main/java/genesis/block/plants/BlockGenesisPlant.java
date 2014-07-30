@@ -16,6 +16,10 @@ import genesis.client.renderer.BlockGenesisPlantRenderer;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 
+/**
+ * @deprecated Unused class
+ */
+@Deprecated
 public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecials, IPlantInFlowerPot {
 
 	public boolean stackable = false;

@@ -29,8 +29,8 @@ public class BlockBjuviaCone extends Block
 	public BlockBjuviaCone()
 	{
 		super(Material.wood);
-		setHardness(4.0F);
-		setResistance(10.0F);
+		setHardness(0.2F);
+		setResistance(5.0F);
 		setStepSound(soundTypeWood);
 		setCreativeTab(GenesisTabs.tabGenesisDecoration);
 		setTickRandomly(true);
@@ -104,7 +104,7 @@ public class BlockBjuviaCone extends Block
 		}
 	}
 	
-	@Override
+	/*@Override
 	public boolean canBlockStay(World world, int x, int y, int z)
 	{
 		Block b = world.getBlock(x, y - 1, z);
@@ -113,5 +113,5 @@ public class BlockBjuviaCone extends Block
 			return b == TreeBlocks.blocksLogs[0];
 		}
 		return false;
-	}
+	}*/
 }

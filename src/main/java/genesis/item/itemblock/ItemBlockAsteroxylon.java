@@ -15,13 +15,10 @@ import cpw.mods.fml.relauncher.SideOnly;
  *
  */
 public class ItemBlockAsteroxylon extends ItemBlockWithMetadata
-{
-	private Block block;
-	
+{	
 	public ItemBlockAsteroxylon(Block block)
 	{
 		super(block, block);
-		this.block = block;
 		setMaxDamage(0);
 		setHasSubtypes(true);
 	}
@@ -36,7 +33,7 @@ public class ItemBlockAsteroxylon extends ItemBlockWithMetadata
 	@Override
 	public IIcon getIconFromDamage(int meta)
 	{
-		return PlantBlocks.asteroxylon.getIcon(2, meta);
+		return PlantBlocks.asteroxylon.getIconForItemRender();
 	}
 	
 	@Override

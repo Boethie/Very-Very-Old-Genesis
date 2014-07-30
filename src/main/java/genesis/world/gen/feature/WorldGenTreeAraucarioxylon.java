@@ -26,7 +26,7 @@ public class WorldGenTreeAraucarioxylon extends WorldGenTreeBase {
 	 *            Generally false for world generation, true for saplings.
 	 */
 	public WorldGenTreeAraucarioxylon(int minH, int maxH, boolean notify) {
-		super(new BlockAndMeta(TreeBlocks.blocksLogs[0], 7), new BlockAndMeta(TreeBlocks.blocksLeaves[0], 7), notify);
+		super(new BlockAndMeta(TreeBlocks.blocksLogs[1], 3), new BlockAndMeta(TreeBlocks.blocksLeaves[1], 3), notify);
 		minHeight = minH;
 		maxHeight = maxH;
 	}

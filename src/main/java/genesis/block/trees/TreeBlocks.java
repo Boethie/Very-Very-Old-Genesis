@@ -3,6 +3,7 @@ package genesis.block.trees;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -140,6 +141,9 @@ public class TreeBlocks {
 		treeGenerators.add(null);
 		treeGenerators.add(null);
 		treeGenerators.add(new WorldGenTreeAraucarioxylon(20, 7, true));
+		Blocks.fire.setFireInfo(blocksLogs[0], 5, 5);
+		Blocks.fire.setFireInfo(blocksRottenLogs[0], 10, 10);
+		Blocks.fire.setFireInfo(blocksLeaves[0], 30, 60);
 	}
 
 	public static enum TreeBlockType {

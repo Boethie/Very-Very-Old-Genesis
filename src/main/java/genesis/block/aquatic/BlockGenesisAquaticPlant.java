@@ -16,7 +16,7 @@ import net.minecraftforge.common.util.ForgeDirection;
  * @author Arbiter
  *
  */
-public class BlockGenesisAquaticPlant extends Block
+public abstract class BlockGenesisAquaticPlant extends Block
 {
 	public BlockGenesisAquaticPlant(Material material)
 	{

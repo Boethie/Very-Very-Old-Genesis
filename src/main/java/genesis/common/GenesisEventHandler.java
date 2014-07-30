@@ -46,6 +46,9 @@ public class GenesisEventHandler {
 		}
 	}
 	
+	/*
+	 * Conflicts too much
+	 * 
 	@SubscribeEvent
 	public void onPlayerInteract(PlayerInteractEvent event)
 	{
@@ -60,5 +63,5 @@ public class GenesisEventHandler {
 				world.setBlock(event.x, event.y + 1, event.z, blockInHand);
 			}
 		}
-	}
+	}*/
 }

@@ -21,6 +21,7 @@ tile.genesis.rock.stromatolite.name=Stromatolite
 tile.genesis.rock.shale.name=Shale
 tile.genesis.rock.octaedrite.name=Octaedrite Fragment
 tile.genesis.permafrost.name=Permafrost
+tile.genesis.rock.oldRedSandstone.name=Old Red Sandstone
 
 <!-- Ores -->
 tile.genesis.ore.quartzGranite.name=Granite Quartz Ore

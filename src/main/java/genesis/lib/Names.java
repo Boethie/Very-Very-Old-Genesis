@@ -30,6 +30,7 @@ public final class Names {
 	public static final String blockShale = blockRock + "shale";
 	public static final String blockPermafrost = mod + "permafrost";
 	public static final String blockTrondhjemite = blockRock + "trondhjemite";
+	public static final String blockOldRedSandstone = blockRock + "oldRedSandstone";
 
 	// Ores
 	public static final String blockOre = mod + "ore.";
