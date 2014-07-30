@@ -12,24 +12,25 @@ tile.genesis.rock.granite.name=Granite
 tile.genesis.rock.graniteMossy.name=Granite moussu
 tile.genesis.rock.rhyolite.name=Rhyolite
 tile.genesis.rock.komatiite.name=Komatiite
-tile.genesis.rock.fauxamphibolite.name=Faux-Amphibolite
+tile.genesis.rock.trondhjemite.name=Trondhjémite
+tile.genesis.rock.fauxamphibolite.name=Faux-amphibolite
 tile.genesis.rock.gneiss.name=Gneiss
 tile.genesis.rock.quartzite.name=Quartzite
+tile.genesis.rock.oldRedSandstone.name=Vieux grès rouge
 tile.genesis.rock.limestone.name=Calcaire
 tile.genesis.rock.stromatolite.name=Stromatolite
 tile.genesis.rock.shale.name=Schiste argileux
+tile.genesis.rock.octaedrite.name=Fragment d'octaédrite
 tile.genesis.permafrost.name=Pergélisol
-tile.genesis.rock.trondhjemite.name=Trondhjémite
 
 <!-- Ores -->
-tile.genesis.rock.octaedrite.name=Fragment d'octaédrite
 tile.genesis.ore.quartzGranite.name=Minerai de quartz
-tile.genesis.ore.malachite.name=Minerai de malachite
-tile.genesis.ore.hematite.name=Minerai d'hématite
+tile.genesis.ore.biotite.name=Minerai de biotite
 tile.genesis.ore.zircon.name=Minerai de zircon
 tile.genesis.ore.garnet.name=Minerai de grenat
+tile.genesis.ore.hematite.name=Minerai d'hématite
+tile.genesis.ore.malachite.name=Minerai de malachite
 tile.genesis.ore.olivine.name=Minerai d'olivine
-tile.genesis.ore.biotite.name=Minerai de biotite
 
 <!-- Trees -->
 tile.genesis.log.sigillaria.name=Bois de Sigillaria
@@ -66,6 +67,7 @@ tile.genesis.log.bjuvia.name=Bois de Bjuvia
 tile.genesis.leaves.bjuvia.name=Feuilles de Bjuvia
 tile.genesis.sapling.bjuvia.name=Pousse de Bjuvia
 tile.genesis.logRotten.bjuvia.name=Bois pourri de Bjuvia
+tile.genesis.bjuviaCone.name=Cône de Bjuvia
 
 tile.genesis.log.glossopteris.name=Bois de Glossopteris
 tile.genesis.leaves.glossopteris.name=Feuilles de Glossopteris
@@ -116,15 +118,22 @@ tile.genesis.aquatic.pteridinium.name=Pteridinium
 
 
 <!-- Items -->
+
 <!-- Crafting -->
-item.genesis.zircon.name=Zircon
 item.genesis.quartz.name=Quartz
-item.genesis.olivine.name=Olivine
-item.genesis.garnet.name=Grenat
-item.genesis.malachite.name=Malachite
-item.genesis.hematite.name=Hématite
 item.genesis.biotite.name=Biotite
+item.genesis.zircon.name=Zircon
+item.genesis.garnet.name=Grenat
+item.genesis.hematite.name=Hématite
+item.genesis.malachite.name=Malachite
+item.genesis.olivine.name=Olivine
 item.genesis.sphenoFiber.name=Fibre de Sphenophyllum
+item.genesis.bjuviaSeeds.name=Graines de Bjuvia
+item.genesis.ceratitesShell.name=Coquille de Ceratites
+item.genesis.arthropleuraChitin.name=Chitine d'Arthropleura
+item.genesis.tyrannosaurusTooth.name=Dent de Tyrannosaurus
+item.genesis.velociraptorClaw.name=Griffe de Velociraptor
+item.genesis.archaeopteryxFeather.name=Plume d'Archaeopteryx
 
 <!-- Tools -->
 item.genesis.knife.granite.name=Couteau en granite
@@ -170,6 +179,11 @@ item.genesis.food.rawAphthoroblattina.name=Aphthoroblattina cru
 item.genesis.food.cookedAphthoroblattina.name=Aphthoroblattina cuit
 item.genesis.food.rawCeratites.name=Ceratites cru
 item.genesis.food.cookedCeratites.name=Ceratites cuit
+item.genesis.food.rawMixosaurusFillet.name=Filet de Mixosaurus cru
+item.genesis.food.cookedMixosaurusFillet.name=Filet de Mixosaurus cuit
+item.genesis.food.rawArchaeopteryxThigh.name=Cuisse d'Archaeopteryx crue
+item.genesis.food.cookedArchaeopteryxThigh.name=Cuisse d'Archaeopteryx cuite
+
 
 <!-- Other -->
 
@@ -182,4 +196,3 @@ itemGroup.tabGenesisTools=Outils Genesis
 
 <!-- World type name -->
 generator.genesisTestType=Genesis World
-
