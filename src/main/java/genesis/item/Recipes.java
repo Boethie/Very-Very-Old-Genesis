@@ -1,11 +1,13 @@
 package genesis.item;
 
 import genesis.block.ModBlocks;
+import genesis.block.plants.PlantBlocks;
 import genesis.lib.LogHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockColored;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -22,7 +24,8 @@ import org.apache.logging.log4j.Level;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Recipes {
-
+	//Items/blocks working as dye
+	public static final Object[] DYE_ITEMS=new Object[]{null,ModItems.hematite,PlantBlocks.calamitesPlant};
 	public static void adaptNetherQuartzRecipes() {
 		List<IRecipe> recipeList = CraftingManager.getInstance().getRecipeList();
 		ArrayList<IRecipe> addRecipes = new ArrayList();
@@ -81,15 +84,21 @@ public class Recipes {
 		//CraftingManager.getInstance().addRecipe(new ItemStack(ModBlocks.tikiTorch, 2), "c", "|", "|", 'c', Items.coal, '|', PlantBlocks.calamitesPlant);
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.campfire,new Object[]{" A ","A A","BBB",Character.valueOf('A'),"logWood",Character.valueOf('B'),ModBlocks.granite}));
 		//add red die functionality into Hematite
+		for(int i=0;i<Recipes.DYE_ITEMS.length;i++)
 		{
-			ItemStack hematite = new ItemStack(ModItems.hematite, 1, 0);
-			
-			int i = 1;
-			
-			CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Blocks.wool, 1, BlockColored.func_150031_c(i)), hematite, new ItemStack(Item.getItemFromBlock(Blocks.wool), 1, 0));
-			CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, BlockColored.func_150031_c(i)), "###", "#X#", "###", '#', new ItemStack(Blocks.hardened_clay), 'X', hematite);
-			CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.stained_glass, 8, BlockColored.func_150031_c(i)), "###", "#X#", "###", '#', new ItemStack(Blocks.glass), 'X', hematite);
-			CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.carpet, 3, i), "##", '#', hematite);
+			if(Recipes.DYE_ITEMS[i]!=null){
+				ItemStack dye;
+				if(Recipes.DYE_ITEMS[i] instanceof Item)
+					dye = new ItemStack((Item)Recipes.DYE_ITEMS[i], 1, 0);
+				else if(Recipes.DYE_ITEMS[i] instanceof Block)
+					dye = new ItemStack((Block)Recipes.DYE_ITEMS[i], 1, 0);
+				else
+					dye = (ItemStack) Recipes.DYE_ITEMS[i];
+				CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Blocks.wool, 1, BlockColored.func_150031_c(i)), dye, new ItemStack(Item.getItemFromBlock(Blocks.wool), 1, 0));
+				CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.stained_hardened_clay, 8, BlockColored.func_150031_c(i)), "###", "#X#", "###", '#', new ItemStack(Blocks.hardened_clay), 'X', dye);
+				CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.stained_glass, 8, BlockColored.func_150031_c(i)), "###", "#X#", "###", '#', new ItemStack(Blocks.glass), 'X', dye);
+				CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.carpet, 3, i), "##", '#', dye);
+			}
 		}
 		GameRegistry.addSmelting(ModItems.hematite, new ItemStack(Items.iron_ingot), 0.7F);
 		GameRegistry.addSmelting(ModItems.rawEryops, new ItemStack(ModItems.cookedEryops), 0.1F);
