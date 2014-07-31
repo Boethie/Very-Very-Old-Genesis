@@ -81,7 +81,7 @@ public class Recipes {
 		LogHelper.log(Level.INFO, "Registering recipes.");
 		adaptNetherQuartzRecipes();
 
-		//CraftingManager.getInstance().addRecipe(new ItemStack(ModBlocks.tikiTorch, 2), "c", "|", "|", 'c', Items.coal, '|', PlantBlocks.calamitesPlant);
+		CraftingManager.getInstance().addRecipe(new ItemStack(ModBlocks.tikiTorch, 2), "c", "|", "|", 'c', Items.coal, '|', PlantBlocks.calamitesPlant);
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.campfire,new Object[]{" A ","A A","BBB",Character.valueOf('A'),"logWood",Character.valueOf('B'),ModBlocks.granite}));
 		//add red die functionality into Hematite
 		for(int i=0;i<Recipes.DYE_ITEMS.length;i++)

@@ -21,6 +21,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.block.ModBlocks;
+import genesis.client.renderer.BlockGenesisPlantRenderer;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 
@@ -88,7 +89,7 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
 
 	@Override
 	public int getRenderType() {
-		return 1;
+		return BlockGenesisPlantRenderer.renderID;
 	}
 
 	@Override
@@ -215,5 +216,17 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
 		ArrayList<ItemStack> list = new ArrayList<ItemStack>();
 		list.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
 		return list;
+	}
+
+	@Override
+	public double randomPos(IBlockAccess world, int x, int y, int z) {
+		// TODO Auto-generated method stub
+		return 0.4;
+	}
+
+	@Override
+	public double randomYPos(IBlockAccess world, int x, int y, int z) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

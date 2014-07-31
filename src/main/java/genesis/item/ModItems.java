@@ -60,29 +60,29 @@ public class ModItems {
 	public static void init() {
 		// Tools
 	    graniteTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemGraniteCrudeMaterial.toUpperCase(), 1, 375, 4.0F, 1.0F, 5),
-				EnumHelper.addToolMaterial(Names.itemGraniteChippedMaterial.toUpperCase(), 1, 390, 4.0F, 1.0F, 5),
-				EnumHelper.addToolMaterial(Names.itemGraniteSharpenedMaterial.toUpperCase(), 1, 425, 4.0F, 1.0F, 5),
-				EnumHelper.addToolMaterial(Names.itemGranitePolishedMaterial.toUpperCase(), 1, 415, 4.0F, 1.0F, 5), Names.itemGraniteMaterial, ModBlocks.granite, Items.stick);
+				EnumHelper.addToolMaterial(Names.itemGraniteChippedMaterial.toUpperCase(), 1, 390, 4.6F, 1.0F, 5),
+				EnumHelper.addToolMaterial(Names.itemGraniteSharpenedMaterial.toUpperCase(), 1, 425, 4.9F, 1.0F, 5),
+				EnumHelper.addToolMaterial(Names.itemGranitePolishedMaterial.toUpperCase(), 1, 415, 5.2F, 1.0F, 5), Names.itemGraniteMaterial, ModBlocks.granite, Items.stick);
 		
 	    rhyoliteTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemRhyoliteCrudeMaterial.toUpperCase(), 1, 375, 4.0F, 1.0F, 5),
-	            EnumHelper.addToolMaterial(Names.itemRhyoliteChippedMaterial.toUpperCase(), 1, 390, 4.0F, 1.0F, 5),
-	            EnumHelper.addToolMaterial(Names.itemRhyoliteSharpenedMaterial.toUpperCase(), 1, 425, 4.0F, 1.0F, 5),
-	            EnumHelper.addToolMaterial(Names.itemRhyolitePolishedMaterial.toUpperCase(), 1, 415, 4.0F, 1.0F, 5), Names.itemRhyoliteMaterial, ModBlocks.rhyolite, Items.stick);
+	            EnumHelper.addToolMaterial(Names.itemRhyoliteChippedMaterial.toUpperCase(), 1, 390, 4.6F, 1.0F, 5),
+	            EnumHelper.addToolMaterial(Names.itemRhyoliteSharpenedMaterial.toUpperCase(), 1, 425, 4.9F, 1.0F, 5),
+	            EnumHelper.addToolMaterial(Names.itemRhyolitePolishedMaterial.toUpperCase(), 1, 415, 5.2F, 1.0F, 5), Names.itemRhyoliteMaterial, ModBlocks.rhyolite, Items.stick);
 		
 	    quartziteTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemQuartziteCrudeMaterial.toUpperCase(), 1, 375, 4.0F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemQuartziteChippedMaterial.toUpperCase(), 1, 452, 4.0F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemQuartziteSharpenedMaterial.toUpperCase(), 1, 487, 4.0F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemQuartzitePolishedMaterial.toUpperCase(), 1, 477, 4.0F, 1.0F, 5), Names.itemQuartziteMaterial, ModBlocks.quartzite, Items.stick);
+                EnumHelper.addToolMaterial(Names.itemQuartziteChippedMaterial.toUpperCase(), 1, 452, 4.6F, 1.0F, 5),
+                EnumHelper.addToolMaterial(Names.itemQuartziteSharpenedMaterial.toUpperCase(), 1, 487, 4.9F, 1.0F, 5),
+                EnumHelper.addToolMaterial(Names.itemQuartzitePolishedMaterial.toUpperCase(), 1, 477, 5.2F, 1.0F, 5), Names.itemQuartziteMaterial, ModBlocks.quartzite, Items.stick);
 	    
 	    limestoneTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemLimestoneCrudeMaterial.toUpperCase(), 1, 187, 4.0F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemLimestoneChippedMaterial.toUpperCase(), 1, 202, 4.0F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemLimestoneSharpenedMaterial.toUpperCase(), 1, 237, 4.0F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemLimestonePolishedMaterial.toUpperCase(), 1, 247, 4.0F, 1.0F, 5), Names.itemLimestoneMaterial, ModBlocks.limestone, Items.stick);
+                EnumHelper.addToolMaterial(Names.itemLimestoneChippedMaterial.toUpperCase(), 1, 202, 4.6F, 1.0F, 5),
+                EnumHelper.addToolMaterial(Names.itemLimestoneSharpenedMaterial.toUpperCase(), 1, 237, 4.9F, 1.0F, 5),
+                EnumHelper.addToolMaterial(Names.itemLimestonePolishedMaterial.toUpperCase(), 1, 247, 5.2F, 1.0F, 5), Names.itemLimestoneMaterial, ModBlocks.limestone, Items.stick);
 	    
 	    flintTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemFlintCrudeMaterial.toUpperCase(), 1, 353, 4.0F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemFlintChippedMaterial.toUpperCase(), 1, 368, 4.0F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemFlintSharpenedMaterial.toUpperCase(), 1, 403, 4.0F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemFlintPolishedMaterial.toUpperCase(), 1, 493, 4.0F, 1.0F, 5), Names.itemFlintMaterial, Items.flint, Items.stick);
+                EnumHelper.addToolMaterial(Names.itemFlintChippedMaterial.toUpperCase(), 1, 368, 4.6F, 1.0F, 5),
+                EnumHelper.addToolMaterial(Names.itemFlintSharpenedMaterial.toUpperCase(), 1, 403, 4.9F, 1.0F, 5),
+                EnumHelper.addToolMaterial(Names.itemFlintPolishedMaterial.toUpperCase(), 1, 493, 5.2F, 1.0F, 5), Names.itemFlintMaterial, Items.flint, Items.stick);
 		
 		// Crafting
 		quartz = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemQuartz).setTextureName("quartz");	

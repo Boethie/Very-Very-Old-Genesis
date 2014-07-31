@@ -10,9 +10,12 @@ import genesis.client.renderer.BlockMossRenderer;
 import genesis.client.renderer.BlockTikiTorchRenderer;
 import genesis.client.renderer.TileEntityCampfireRenderer;
 import genesis.common.CommonProxy;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.relauncher.Side;
 
 public class ClientProxy extends CommonProxy {
 
@@ -36,5 +39,8 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCampfire.class, new TileEntityCampfireRenderer());
 
 		LanguageLoader.loadLanguages();
+	}
+	public boolean areLeavesOpaque(){
+		return FMLCommonHandler.instance().getEffectiveSide()==Side.SERVER?false:!Minecraft.getMinecraft().gameSettings.fancyGraphics;
 	}
 }

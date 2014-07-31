@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.block.trees.TreeBlocks.TreeType;
@@ -70,7 +71,7 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
 	
 	@Override
 	public boolean isOpaqueCube() {
-		return !Minecraft.getMinecraft().gameSettings.fancyGraphics;
+		return Genesis.proxy.areLeavesOpaque();
 	}
 	
 	@Override

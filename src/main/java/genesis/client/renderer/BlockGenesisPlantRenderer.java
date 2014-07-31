@@ -1,5 +1,6 @@
 package genesis.client.renderer;
 
+import genesis.block.plants.BlockGenesisPlantTop;
 import genesis.block.plants.IPlantRenderSpecials;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.EntityRenderer;
@@ -36,12 +37,33 @@ public class BlockGenesisPlantRenderer implements ISimpleBlockRenderingHandler {
 		}
 
 		tessellator.setColorOpaque_F(red, green, blue);
-
+		double xd=x;
+		double yd=y;
+		double zd=z;
+		double xzscale;
+		double yscale;
+		int ybase=y;
+		Block blockBelow=world.getBlock(x, y-1, z);
+		if(block instanceof BlockGenesisPlantTop&& blockBelow != null && blockBelow instanceof IPlantRenderSpecials){
+			ybase--;
+			xzscale=((IPlantRenderSpecials)blockBelow).randomPos(world, x, ybase, z);
+			yscale=((IPlantRenderSpecials)blockBelow).randomYPos(world, x, ybase, z);
+		}
+		else{
+			xzscale=specials.randomPos(world, x, y, z);
+			yscale=specials.randomYPos(world, x, y, z);
+		}
+		long i1 = (long)(x * 3129871) ^ (long)z * 116129781L ^ (long)ybase;
+        i1 = i1 * i1 * 42317861L + i1 * 11L;
+        xd += ((double)((float)(i1 >> 16 & 15L) / 15.0F) - 0.5D) * xzscale;
+        yd += ((double)((float)(i1 >> 20 & 15L) / 15.0F) - 1.0D) * yscale;
+        zd += ((double)((float)(i1 >> 24 & 15L) / 15.0F) - 0.5D) * xzscale;
+		
 		double size = 0.45;
-		double minX = x + 0.5 - size;
-		double maxX = x + 0.5 + size;
-		double minZ = z + 0.5 - size;
-		double maxZ = z + 0.5 + size;
+		double minX = xd + 0.5 - size;
+		double maxX = xd + 0.5 + size;
+		double minZ = zd + 0.5 - size;
+		double maxZ = zd + 0.5 + size;
 
 		IIcon icon = renderer.overrideBlockTexture;
 		double minU;
@@ -64,10 +86,10 @@ public class BlockGenesisPlantRenderer implements ISimpleBlockRenderingHandler {
 			maxU = tempMinU;
 		}
 
-		tessellator.addVertexWithUV(maxX, y + 1, maxZ, minU, minV);
-		tessellator.addVertexWithUV(maxX, y, maxZ, minU, maxV);
-		tessellator.addVertexWithUV(minX, y, minZ, maxU, maxV);
-		tessellator.addVertexWithUV(minX, y + 1, minZ, maxU, minV);
+		tessellator.addVertexWithUV(maxX, yd + 1, maxZ, minU, minV);
+		tessellator.addVertexWithUV(maxX, yd, maxZ, minU, maxV);
+		tessellator.addVertexWithUV(minX, yd, minZ, maxU, maxV);
+		tessellator.addVertexWithUV(minX, yd + 1, minZ, maxU, minV);
 
 		// Side 2
 		if (!renderer.hasOverrideBlockTexture())
@@ -78,16 +100,16 @@ public class BlockGenesisPlantRenderer implements ISimpleBlockRenderingHandler {
 		maxU = icon.getMaxU();
 		maxV = icon.getMaxV();
 
-		if (specials.shouldReverseTex(world, x, y, z, 2)) {
+		if (!specials.shouldReverseTex(world, x, y, z, 2)) {
 			double tempMinU = minU;
 			minU = maxU;
 			maxU = tempMinU;
 		}
 
-		tessellator.addVertexWithUV(minX, y + 1, minZ, maxU, minV);
-		tessellator.addVertexWithUV(minX, y, minZ, maxU, maxV);
-		tessellator.addVertexWithUV(maxX, y, maxZ, minU, maxV);
-		tessellator.addVertexWithUV(maxX, y + 1, maxZ, minU, minV);
+		tessellator.addVertexWithUV(minX, yd + 1, minZ, maxU, minV);
+		tessellator.addVertexWithUV(minX, yd, minZ, maxU, maxV);
+		tessellator.addVertexWithUV(maxX, yd, maxZ, minU, maxV);
+		tessellator.addVertexWithUV(maxX, yd + 1, maxZ, minU, minV);
 
 		// Side 1
 		if (!renderer.hasOverrideBlockTexture())
@@ -104,10 +126,10 @@ public class BlockGenesisPlantRenderer implements ISimpleBlockRenderingHandler {
 			maxU = tempMinU;
 		}
 
-		tessellator.addVertexWithUV(maxX, y + 1, minZ, minU, minV);
-		tessellator.addVertexWithUV(maxX, y, minZ, minU, maxV);
-		tessellator.addVertexWithUV(minX, y, maxZ, maxU, maxV);
-		tessellator.addVertexWithUV(minX, y + 1, maxZ, maxU, minV);
+		tessellator.addVertexWithUV(maxX, yd + 1, minZ, minU, minV);
+		tessellator.addVertexWithUV(maxX, yd, minZ, minU, maxV);
+		tessellator.addVertexWithUV(minX, yd, maxZ, maxU, maxV);
+		tessellator.addVertexWithUV(minX, yd + 1, maxZ, maxU, minV);
 
 		// Side 3
 		if (!renderer.hasOverrideBlockTexture())
@@ -118,16 +140,16 @@ public class BlockGenesisPlantRenderer implements ISimpleBlockRenderingHandler {
 		maxU = icon.getMaxU();
 		maxV = icon.getMaxV();
 
-		if (specials.shouldReverseTex(world, x, y, z, 3)) {
+		if (!specials.shouldReverseTex(world, x, y, z, 3)) {
 			double tempMinU = minU;
 			minU = maxU;
 			maxU = tempMinU;
 		}
 
-		tessellator.addVertexWithUV(minX, y + 1, maxZ, maxU, minV);
-		tessellator.addVertexWithUV(minX, y, maxZ, maxU, maxV);
-		tessellator.addVertexWithUV(maxX, y, minZ, minU, maxV);
-		tessellator.addVertexWithUV(maxX, y + 1, minZ, minU, minV);
+		tessellator.addVertexWithUV(minX, yd + 1, maxZ, maxU, minV);
+		tessellator.addVertexWithUV(minX, yd, maxZ, maxU, maxV);
+		tessellator.addVertexWithUV(maxX, yd, minZ, minU, maxV);
+		tessellator.addVertexWithUV(maxX, yd + 1, minZ, minU, minV);
 
 		return true;
 	}

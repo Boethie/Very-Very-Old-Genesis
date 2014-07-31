@@ -22,7 +22,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 /**
  * @author Arbiter
  **/
-public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowable
+public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowable, IPlantRenderSpecials
 {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] icons;
@@ -153,5 +153,22 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
 		}
 		world.setBlockMetadataWithNotify(x, y, z, meta, 2);
 		checkAndUpdateTop(world, x, y, z, meta);
+	}
+	@Override
+	public double randomPos(IBlockAccess world, int x, int y, int z) {
+		// TODO Auto-generated method stub
+		return 0.3;
+	}
+
+	@Override
+	public double randomYPos(IBlockAccess world, int x, int y, int z) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z,
+			int side) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

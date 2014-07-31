@@ -94,7 +94,7 @@ public class Genesis {
 	public void init(FMLInitializationEvent evt) {
 		NetworkRegistry.INSTANCE.registerGuiHandler(Genesis.instance, new GenesisGuiHandler());
 
-		MinecraftForge.EVENT_BUS.register(new GuiEventHandler());
+		//MinecraftForge.EVENT_BUS.register(new GuiEventHandler());
 		MinecraftForge.EVENT_BUS.register(new GenesisEventHandler());
 		
 		GenesisBiomes.init();

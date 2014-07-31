@@ -1,6 +1,7 @@
 package genesis.block.plants;
 
 import genesis.block.ModBlocks;
+import genesis.client.renderer.BlockGenesisPlantRenderer;
 import genesis.common.GenesisSoundHandler;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
@@ -33,7 +34,7 @@ import cpw.mods.fml.relauncher.SideOnly;
  * @author Arbiter
  *
  */
-public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShearable
+public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShearable, IPlantRenderSpecials
 {
 	private IIcon[] blockIcons;
 	public EnumPlantType defaultType = EnumPlantType.Plains;
@@ -92,7 +93,7 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 	@Override
 	public int getRenderType()
 	{
-		return 1;
+		return BlockGenesisPlantRenderer.renderID;
 	}
 	
 	@Override
@@ -186,5 +187,19 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 	protected boolean canPlaceBlockOn(Block block)
 	{
 		return super.canPlaceBlockOn(block) || block == ModBlocks.moss;
+	}
+	@Override
+	public double randomPos(IBlockAccess world, int x, int y, int z) {
+		return 0.5;
+	}
+
+	@Override
+	public double randomYPos(IBlockAccess world, int x, int y, int z) {
+		return 0.2;
+	}
+	@Override
+	public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z,
+			int side) {
+		return false;
 	}
 }

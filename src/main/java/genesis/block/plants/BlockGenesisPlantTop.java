@@ -1,5 +1,7 @@
 package genesis.block.plants;
 
+import genesis.client.renderer.BlockGenesisPlantRenderer;
+
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -7,6 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 /**
@@ -18,7 +21,7 @@ import net.minecraft.world.World;
  * @author Arbiter
  *
  */
-public abstract class BlockGenesisPlantTop extends Block
+public abstract class BlockGenesisPlantTop extends Block implements IPlantRenderSpecials
 {
 	public BlockGenesisPlantTop()
 	{
@@ -46,7 +49,7 @@ public abstract class BlockGenesisPlantTop extends Block
 	@Override
 	public int getRenderType()
 	{
-		return 1;
+		return BlockGenesisPlantRenderer.renderID;
 	}
 	
 	@Override
@@ -75,5 +78,22 @@ public abstract class BlockGenesisPlantTop extends Block
 	public Item getItemDropped(int par1, Random par2, int par3)
 	{
 		return null;
+	}
+	@Override
+	public double randomPos(IBlockAccess world, int x, int y, int z) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double randomYPos(IBlockAccess world, int x, int y, int z) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z,
+			int side) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

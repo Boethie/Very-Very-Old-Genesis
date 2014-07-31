@@ -19,5 +19,8 @@ public class CommonProxy {
 	public void registerBlock(Block block, String name, Class itemClass, Object[] itemClassArgs) {
 		GameRegistry.registerBlock(block, itemClass, Genesis.MOD_ID + "." + name, Genesis.MOD_ID, itemClassArgs);
 	}
+	public boolean areLeavesOpaque(){
+		return false;
+	}
 
 }

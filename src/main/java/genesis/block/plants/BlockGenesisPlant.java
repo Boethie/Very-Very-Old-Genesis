@@ -217,4 +217,14 @@ public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecia
 		return null;
 	}
 
+	@Override
+	public double randomPos(IBlockAccess world, int x, int y, int z) {
+		return 0;
+	}
+
+	@Override
+	public double randomYPos(IBlockAccess world, int x, int y, int z) {
+		return 0;
+	}
+
 }
