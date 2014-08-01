@@ -49,7 +49,7 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
 	}
 
 	@Override
-	protected boolean canPlaceBlockOn(Block block) {
+	public boolean canPlaceBlockOn(Block block) {
 		return block == soilBlock || block == ModBlocks.moss;
 	}
 	

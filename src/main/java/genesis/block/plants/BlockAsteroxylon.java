@@ -55,7 +55,10 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 		return world.getBiomeGenForCoords(x, z).getBiomeGrassColor(x, y, z);
 	}
 	@Override
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
+	public boolean canReplace(World world, int x, int y, int z,int side, ItemStack stack) {
+		if(stack.getItemDamage()==0){
+			return super.canPlaceBlockAt(world, x, y, z);
+		}
 		return (world.isAirBlock(x, y+1, z)||world.getBlock(x, y+1, z) instanceof BlockGenesisPlantTop)&&super.canPlaceBlockAt(world, x, y, z);
 	}
 	@Override
@@ -110,7 +113,7 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 	@Override
 	public boolean func_149851_a(World var1, int var2, int var3, int var4, boolean var5)
 	{
-		return true;
+		return var1.getBlockMetadata(var2, var3, var4)==0;
 	}
 
 	@Override
@@ -129,8 +132,8 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 		var1.setBlockMetadataWithNotify(var3, var4, var5, 1, 2);
 	}
 	
-	public IIcon getIconForItemRender()
+	/*public IIcon getIconForItemRender()
 	{
 		return icons[0];
-	}
+	}*/
 }

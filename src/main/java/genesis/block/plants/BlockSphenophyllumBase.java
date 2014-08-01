@@ -30,7 +30,7 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowabl
 	
 	public BlockSphenophyllumBase()
 	{
-		super(ModItems.sphenoSpores, ModItems.sphenoFiber, Blocks.farmland, 8, 2);
+		super(ModItems.sphenoSpores, ModItems.sphenoFiber, Blocks.dirt, 8, 2);
 		disableStats();
 		setTickRandomly(true);
 		setCreativeTab((CreativeTabs)null);
@@ -49,7 +49,7 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowabl
 	}
 	
 	@Override
-	protected boolean canPlaceBlockOn(Block block)
+	public boolean canPlaceBlockOn(Block block)
 	{
 		return block == soilBlock || block == ModBlocks.moss || block == Blocks.grass;
 	}
@@ -85,6 +85,10 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowabl
 				world.setBlockMetadataWithNotify(x, y + 1, z, meta - 5, 2);
 			}
 		}
+	}
+	@Override
+	public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_){
+		return p_149742_1_.getBlock(p_149742_2_, p_149742_3_-1, p_149742_4_)!=Blocks.farmland &&super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_);
 	}
 	@Override
 	public boolean isTall(){

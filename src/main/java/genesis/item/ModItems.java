@@ -104,9 +104,9 @@ public class ModItems {
 		archeopterixFeather = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemArcheopterixFeather).setTextureName("archeopterix_feather");
 		
 		// Seeds
-		rhizome = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.zingiberopsis, 1, 0.5f)
+		rhizome = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.zingiberopsis, 1, 0.5f,true)
 				.setUnlocalizedName(Names.itemRhizome).setTextureName("zingiberopsis_rhizome");
-		sphenoSpores = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.sphenophyllum, 1, 1.0f)
+		sphenoSpores = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.sphenophyllum,false)
 				.setUnlocalizedName(Names.itemSphenoSpores).setTextureName("sphenophyllum_spores");
 		
 		// Foods

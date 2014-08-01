@@ -42,7 +42,10 @@ public class GenesisEventHandler {
 		Block b = world.getBlock(event.x, event.y, event.z);
 		if(b instanceof BlockMoss)
 		{
+			world.playSoundEffect((double)((float)event.x + 0.5F), (double)((float)event.y + 0.5F), (double)((float)event.z + 0.5F)
+					, Blocks.farmland.stepSound.getStepResourcePath(), (Blocks.farmland.stepSound.getVolume() + 1.0F) / 2.0F, Blocks.farmland.stepSound.getPitch() * 0.8F);
 			world.setBlock(event.x, event.y, event.z, Blocks.farmland);
+			event.setResult(Result.ALLOW);
 		}
 	}
 	
