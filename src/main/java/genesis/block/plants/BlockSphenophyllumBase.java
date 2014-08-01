@@ -86,19 +86,15 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowabl
 			}
 		}
 	}
-	
+	@Override
+	public boolean isTall(){
+		return true;
+	}
 	@Override
 	public int quantityDropped(int par1, int par2, Random random)
 	{
 		return par1 == stages - 1 ? random.nextInt(3) : 0;
 	}
-	
-	@Override
-	public int getRenderType()
-	{
-		return 1;
-	}
-	
 	@Override
 	protected Item func_149866_i()
 	{
@@ -149,4 +145,5 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowabl
 		world.setBlockMetadataWithNotify(x, y, z, meta, 2);
 		checkAndUpdateTop(world, x, y, z, meta);
 	}
+	
 }

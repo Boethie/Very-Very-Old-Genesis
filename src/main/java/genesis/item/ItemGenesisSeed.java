@@ -42,7 +42,7 @@ public class ItemGenesisSeed extends ItemFood implements IPlantable {
 		else if (player.canPlayerEdit(x, y, z, side, stack) && player.canPlayerEdit(x, y + 1, z, side, stack)) {
 			Block soil = world.getBlock(x, y, z);
 
-			if (soil != null && soil.canSustainPlant(world, x, y, z, ForgeDirection.UP, this) && world.isAirBlock(x, y + 1, z)) {
+			if (soil != null && soil.canSustainPlant(world, x, y, z, ForgeDirection.UP, this) && cropBlock.canPlaceBlockAt(world, x, y+1, z)) {
 				world.setBlock(x, y + 1, z, cropBlock);
 				stack.stackSize--;
 				

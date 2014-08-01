@@ -1,18 +1,22 @@
 package genesis.block.plants;
 
+import genesis.client.renderer.BlockGenesisPlantRenderer;
 import genesis.common.Genesis;
+
 import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockGenesisCrop extends BlockCrops {
+public class BlockGenesisCrop extends BlockCrops implements IPlantRenderSpecials{
 
 	@SideOnly(Side.CLIENT) private IIcon[] iconArray;
 
@@ -84,5 +88,39 @@ public class BlockGenesisCrop extends BlockCrops {
 
 		for (int i = 0; i < iconArray.length; ++i)
 			iconArray[i] = par1IconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_stage_" + i);
+	}
+	@Override
+	public boolean canBlockStay(World p_149718_1_, int p_149718_2_, int p_149718_3_, int p_149718_4_)
+    {
+		if(!this.isTall()){
+			return super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
+		}
+		return (p_149718_1_.isAirBlock(p_149718_2_, p_149718_3_+1, p_149718_4_)||p_149718_1_.getBlock(p_149718_2_, p_149718_3_+1, p_149718_4_) instanceof BlockGenesisPlantTop)
+				&& super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
+    }
+	public boolean isTall(){
+		return false;
+	}
+	@Override
+	public int getRenderType()
+	{
+		return BlockGenesisPlantRenderer.renderID;
+	}
+	@Override
+	public double randomPos(IBlockAccess world, int x, int y, int z) {
+		// TODO Auto-generated method stub
+		return 0.3;
+	}
+
+	@Override
+	public double randomYPos(IBlockAccess world, int x, int y, int z) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z,
+			int side) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

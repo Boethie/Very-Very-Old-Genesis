@@ -27,7 +27,6 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 {
 	@SideOnly(Side.CLIENT)
 	public IIcon[] icons;
-	
 	public BlockAsteroxylon()
 	{
 		super();
@@ -55,11 +54,13 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 	{
 		return world.getBiomeGenForCoords(x, z).getBiomeGrassColor(x, y, z);
 	}
-	
+	@Override
+	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
+		return (world.isAirBlock(x, y+1, z)||world.getBlock(x, y+1, z) instanceof BlockGenesisPlantTop)&&super.canPlaceBlockAt(world, x, y, z);
+	}
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta)
 	{
-		System.out.println(meta);
 		Block b = world.getBlock(x, y + 1, z);
 		if (b != null && b instanceof BlockAsteroxylonTop)
 		{

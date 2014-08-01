@@ -181,7 +181,7 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 		boolean flag = false;
 		flag = canPlaceBlockOn(world.getBlock(x, y - 1, z)) &&
 				canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) &&
-				MiscHelpers.isWaterInRange(world, x, y - 1, z, 1, 15);
+				(MiscHelpers.isWaterInRange(world, x, y - 1, z, 2, 2) || (world.getBlock(x, y-1, z)==this && MiscHelpers.isWaterInRange(world, x, y - 1, z, 2, 15)));
 		return flag;
 	}
 	
