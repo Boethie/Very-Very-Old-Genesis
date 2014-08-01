@@ -59,18 +59,13 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta)
 	{
+		System.out.println(meta);
 		Block b = world.getBlock(x, y + 1, z);
 		if (b != null && b instanceof BlockAsteroxylonTop)
 		{
 			world.setBlockToAir(x, y + 1, z);
 		}
 		super.breakBlock(world, x, y, z, block, meta);
-	}
-	
-	@Override
-	public int damageDropped(int meta)
-	{
-		return 0;
 	}
 	
 	@Override
@@ -86,7 +81,7 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune)
 	{
 		ArrayList<ItemStack> list = new ArrayList<ItemStack>();
-		list.add(new ItemStack(this, world.getBlockMetadata(x, y, z) + 1, 0));
+		list.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
 		return list;
 	}
 	
@@ -109,12 +104,6 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
 			world.setBlock(x, y + 1, z, PlantBlocks.asterTop);
 		}
 		return super.onBlockPlaced(world, x, y, z, side, hitX, hitY, hitZ, meta);
-	}
-
-	@Override
-	public Item getItem(World world, int x, int y, int z)
-	{
-		return new ItemStack(Item.getItemFromBlock(PlantBlocks.asteroxylon), 1, world.getBlockMetadata(x, y, z)).getItem();
 	}
 	
 	@Override

@@ -1,6 +1,7 @@
 package genesis.block.plants;
 
 import genesis.block.ModBlocks;
+import genesis.client.renderer.BlockGenesisPlantRenderer;
 import genesis.common.Genesis;
 import genesis.item.ModItems;
 
@@ -114,7 +115,7 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
 	@Override
 	public int getRenderType()
 	{
-		return 1;
+		return BlockGenesisPlantRenderer.renderID;
 	}
 	
 	@Override

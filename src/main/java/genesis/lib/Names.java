@@ -99,11 +99,11 @@ public final class Names {
     public static final String itemLimestoneSharpenedMaterial = "limestone_sharpened";
     public static final String itemLimestonePolishedMaterial = "limestone_polished";
     
-    public static final String itemFlintMaterial = "flint";
-    public static final String itemFlintCrudeMaterial = "flint_crude";
-    public static final String itemFlintChippedMaterial = "flint_chipped";
-    public static final String itemFlintSharpenedMaterial = "flint_sharpened";
-    public static final String itemFlintPolishedMaterial = "flint_polished";
+    public static final String itemFlintMaterial = "flint_brownish";
+    public static final String itemFlintCrudeMaterial = "flint_brownish_crude";
+    public static final String itemFlintChippedMaterial = "flint_brownish_chipped";
+    public static final String itemFlintSharpenedMaterial = "flint_brownish_sharpened";
+    public static final String itemFlintPolishedMaterial = "flint_brownish_polished";
     
 	public static final String itemSphenoFiber = mod + "sphenoFiber";
 	public static final String itemBjuviaSeeds = mod + "bjuviaSeeds";

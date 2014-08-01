@@ -1,6 +1,8 @@
 package genesis.block.aquatic;
 
 import genesis.block.ModBlocks;
+import genesis.block.plants.IPlantRenderSpecials;
+import genesis.client.renderer.BlockGenesisPlantRenderer;
 import genesis.common.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -16,7 +18,7 @@ import net.minecraftforge.common.util.ForgeDirection;
  * @author Arbiter
  *
  */
-public abstract class BlockGenesisAquaticPlant extends Block
+public abstract class BlockGenesisAquaticPlant extends Block implements IPlantRenderSpecials
 {
 	public BlockGenesisAquaticPlant(Material material)
 	{
@@ -30,7 +32,7 @@ public abstract class BlockGenesisAquaticPlant extends Block
 	@Override
 	public int getRenderType()
 	{
-		return 1;
+		return BlockGenesisPlantRenderer.renderID;
 	}
 	
 	@Override
@@ -149,5 +151,22 @@ public abstract class BlockGenesisAquaticPlant extends Block
 		{
 			dropPlantIfCannotStay(world, x, y, z);
 		}
+	}
+	@Override
+	public double randomPos(IBlockAccess world, int x, int y, int z) {
+		// TODO Auto-generated method stub
+		return 0.4;
+	}
+
+	@Override
+	public double randomYPos(IBlockAccess world, int x, int y, int z) {
+		// TODO Auto-generated method stub
+		return 0.2;
+	}
+	@Override
+	public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z,
+			int side) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

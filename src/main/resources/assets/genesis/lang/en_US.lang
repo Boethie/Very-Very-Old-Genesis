@@ -160,11 +160,11 @@ item.genesis.tool.shovel.limestone.name=Limestone Shovel
 item.genesis.tool.axe.limestone.name=Limestone Axe
 item.genesis.tool.hoe.limestone.name=Limestone Hoe
 
-item.genesis.knife.flint.name=Flint Knife
-item.genesis.tool.pickaxe.flint.name=Flint Pickaxe
-item.genesis.tool.shovel.flint.name=Flint Shovel
-item.genesis.tool.axe.flint.name=Flint Axe
-item.genesis.tool.hoe.flint.name=Flint Hoe
+item.genesis.knife.flint.name=Brownish Flint Knife
+item.genesis.tool.pickaxe.flint.name=Brownish Flint Pickaxe
+item.genesis.tool.shovel.flint.name=Brownish Flint Shovel
+item.genesis.tool.axe.flint.name=Brownish Flint Axe
+item.genesis.tool.hoe.flint.name=Brownish Flint Hoe
 
 tooltip.toolquality=Tool Quality
 toolquality.crude=Crude

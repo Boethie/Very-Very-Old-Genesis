@@ -17,6 +17,7 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import org.apache.logging.log4j.Level;
@@ -81,7 +82,7 @@ public class Recipes {
 		LogHelper.log(Level.INFO, "Registering recipes.");
 		adaptNetherQuartzRecipes();
 
-		CraftingManager.getInstance().addRecipe(new ItemStack(ModBlocks.tikiTorch, 2), "c", "|", "|", 'c', Items.coal, '|', PlantBlocks.calamitesPlant);
+		CraftingManager.getInstance().addRecipe(new ItemStack(ModBlocks.tikiTorch, 2), "c", "|", "|", 'c', new ItemStack(Items.coal,0,OreDictionary.WILDCARD_VALUE), '|', PlantBlocks.calamitesPlant);
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.campfire,new Object[]{" A ","A A","BBB",Character.valueOf('A'),"logWood",Character.valueOf('B'),ModBlocks.granite}));
 		//add red die functionality into Hematite
 		for(int i=0;i<Recipes.DYE_ITEMS.length;i++)

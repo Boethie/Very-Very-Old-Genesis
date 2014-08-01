@@ -44,10 +44,15 @@ public class BlockGenesisPlantRenderer implements ISimpleBlockRenderingHandler {
 		double yscale;
 		int ybase=y;
 		Block blockBelow=world.getBlock(x, y-1, z);
-		if(block instanceof BlockGenesisPlantTop&& blockBelow != null && blockBelow instanceof IPlantRenderSpecials){
-			ybase--;
-			xzscale=((IPlantRenderSpecials)blockBelow).randomPos(world, x, ybase, z);
-			yscale=((IPlantRenderSpecials)blockBelow).randomYPos(world, x, ybase, z);
+		if(block instanceof BlockGenesisPlantTop){
+			if(blockBelow != null && blockBelow instanceof IPlantRenderSpecials){
+				ybase--;
+				xzscale=((IPlantRenderSpecials)blockBelow).randomPos(world, x, ybase, z);
+				yscale=((IPlantRenderSpecials)blockBelow).randomYPos(world, x, ybase, z);
+			}
+			else{
+				return false;
+			}
 		}
 		else{
 			xzscale=specials.randomPos(world, x, y, z);

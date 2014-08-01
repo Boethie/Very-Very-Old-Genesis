@@ -173,37 +173,38 @@ public class ItemSets
             {
                 knifeCrude = new ItemGenesisKnife(toolMaterial1, materialName + "_crude_chipped", ToolQuality.CRUDE);
                 knifeChipped = new ItemGenesisKnife(toolMaterial2, materialName + "_crude_chipped", ToolQuality.CHIPPED);
-                knifeSharpened = new ItemGenesisKnife(toolMaterial3, materialName + "_sharpened_polished", ToolQuality.SHARPENED);
-                knifePolished = new ItemGenesisKnife(toolMaterial4, materialName + "_sharpened_polished", ToolQuality.POLISHED);
+                knifePolished = new ItemGenesisKnife(toolMaterial3, materialName + "_sharpened_polished", ToolQuality.POLISHED);
+                knifeSharpened = new ItemGenesisKnife(toolMaterial4, materialName + "_sharpened_polished", ToolQuality.SHARPENED);
+                
             }
 
             if (enablePickaxe)
             {
                 pickaxeCrude = new ItemGenesisPickaxe(toolMaterial1, materialName + "_crude_chipped", ToolQuality.CRUDE);
                 pickaxeChipped = new ItemGenesisPickaxe(toolMaterial2, materialName + "_crude_chipped", ToolQuality.CHIPPED);
-                pickaxeSharpened = new ItemGenesisPickaxe(toolMaterial3, materialName + "_sharpened_polished", ToolQuality.SHARPENED);
-                pickaxePolished = new ItemGenesisPickaxe(toolMaterial4, materialName + "_sharpened_polished", ToolQuality.POLISHED);
+                pickaxePolished = new ItemGenesisPickaxe(toolMaterial3, materialName + "_sharpened_polished", ToolQuality.POLISHED);
+                pickaxeSharpened = new ItemGenesisPickaxe(toolMaterial4, materialName + "_sharpened_polished", ToolQuality.SHARPENED);
             }
             if (enableAxe)
             {
                 axeCrude = new ItemGenesisAxe(toolMaterial1, materialName + "_crude_chipped", ToolQuality.CRUDE);
                 axeChipped = new ItemGenesisAxe(toolMaterial2, materialName + "_crude_chipped", ToolQuality.CHIPPED);
-                axeSharpened = new ItemGenesisAxe(toolMaterial3, materialName + "_sharpened_polished", ToolQuality.SHARPENED);
-                axePolished = new ItemGenesisAxe(toolMaterial4, materialName + "_sharpened_polished", ToolQuality.POLISHED);
+                axePolished = new ItemGenesisAxe(toolMaterial3, materialName + "_sharpened_polished", ToolQuality.POLISHED);
+                axeSharpened = new ItemGenesisAxe(toolMaterial4, materialName + "_sharpened_polished", ToolQuality.SHARPENED);
             }
             if (enableSpade)
             {
                 spadeCrude = new ItemGenesisSpade(toolMaterial1, materialName + "_crude_chipped", ToolQuality.CRUDE);
                 spadeChipped = new ItemGenesisSpade(toolMaterial2, materialName + "_crude_chipped", ToolQuality.CHIPPED);
-                spadeSharpened = new ItemGenesisSpade(toolMaterial3, materialName + "_sharpened_polished", ToolQuality.SHARPENED);
-                spadePolished = new ItemGenesisSpade(toolMaterial4, materialName + "_sharpened_polished", ToolQuality.POLISHED);
+                spadePolished = new ItemGenesisSpade(toolMaterial3, materialName + "_sharpened_polished", ToolQuality.POLISHED);
+                spadeSharpened = new ItemGenesisSpade(toolMaterial4, materialName + "_sharpened_polished", ToolQuality.SHARPENED);
             }
             if (enableHoe)
             {
                 hoeCrude = new ItemGenesisHoe(toolMaterial1, materialName + "_crude_chipped", ToolQuality.CRUDE);
                 hoeChipped = new ItemGenesisHoe(toolMaterial2, materialName + "_crude_chipped", ToolQuality.CHIPPED);
-                hoeSharpened = new ItemGenesisHoe(toolMaterial3, materialName + "_sharpened_polished", ToolQuality.SHARPENED);
-                hoePolished = new ItemGenesisHoe(toolMaterial4, materialName + "_sharpened_polished", ToolQuality.POLISHED);
+                hoePolished = new ItemGenesisHoe(toolMaterial3, materialName + "_sharpened_polished", ToolQuality.POLISHED);
+                hoeSharpened = new ItemGenesisHoe(toolMaterial4, materialName + "_sharpened_polished", ToolQuality.SHARPENED);
 
             }
             setupHierarchy();
