@@ -74,7 +74,6 @@ tile.genesis.leaves.glossopteris.name=Feuilles de Glossopteris
 tile.genesis.sapling.glossopteris.name=Pousse de Glossopteris
 tile.genesis.logRotten.glossopteris.name=Bois pourri de Glossopteris
 
-
 <!-- Plants -->
 tile.genesis.plant.calamites.name=Calamites
 tile.storage.genesis.plant.calamites.name=Bloc de Calamites
@@ -160,17 +159,17 @@ item.genesis.tool.shovel.limestone.name=Pelle en calcaire
 item.genesis.tool.axe.limestone.name=Hache en calcaire
 item.genesis.tool.hoe.limestone.name=Houe en calcaire
 
-item.genesis.knife.flint.name=Couteau en silex
-item.genesis.tool.pickaxe.flint.name=Pioche en silex
-item.genesis.tool.shovel.flint.name=Pelle en silex
-item.genesis.tool.axe.flint.name=Hache en silex
-item.genesis.tool.hoe.flint.name=Houe en silex
+item.genesis.knife.flint.name=Couteau en silex brunâtre
+item.genesis.tool.pickaxe.flint.name=Pioche en silex brunâtre
+item.genesis.tool.shovel.flint.name=Pelle en silex brunâtre
+item.genesis.tool.axe.flint.name=Hache en silex brunâtre
+item.genesis.tool.hoe.flint.name=Houe en silex brunâtre
 
 tooltip.toolquality=Qualité de l'outil
-toolquality.crude=Brut
-toolquality.chipped=Taillé
-toolquality.sharpened=Aiguisé
-toolquality.polished=Poli
+toolquality.crude=Brute
+toolquality.chipped=Taillée
+toolquality.sharpened=Aiguisée
+toolquality.polished=Polie
 
 <!-- Foods -->
 item.genesis.food.rawEryops.name=Cuisse d'Eryops crue
@@ -189,10 +188,10 @@ item.genesis.food.cookedArchaeopteryxThigh.name=Cuisse d'Archaeopteryx cuite
 
 <!-- Creative Mode Tabs -->
 itemGroup.tabGenesisBlock=Blocs de construction Genesis
-itemGroup.tabGenesisDecorations=Blocs décoratifs Genesis
-itemGroup.tabGenesisMaterials=Matières premières Genesis
+itemGroup.tabGenesisDecoration=Blocs décoratifs Genesis
 itemGroup.tabGenesisFood=Nourriture Genesis
 itemGroup.tabGenesisTools=Outils Genesis
+itemGroup.tabGenesisMaterials=Matières premières Genesis
 
 <!-- World type name -->
-generator.genesisTestType=Genesis World
+generator.genesisTestType=Genesis World Test
