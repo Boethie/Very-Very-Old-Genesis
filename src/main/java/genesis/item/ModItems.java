@@ -21,9 +21,9 @@ public class ModItems {
 	
 	// Crafting
 	public static ItemGenesis quartz;
-	public static ItemGenesis biotite;
 	public static ItemGenesis zircon;
 	public static ItemGenesis garnet;
+	public static ItemGenesis biotite;
 	public static ItemGenesis hematite;
 	public static ItemGenesis malachite;	
 	public static ItemGenesis olivine;
@@ -35,7 +35,7 @@ public class ModItems {
 	public static ItemGenesis arthropleuraChitin;
 	public static ItemGenesis tyrannosaurusTooth;
 	public static ItemGenesis velociraptorClaw;
-	public static ItemGenesis archeopterixFeather;
+	public static ItemGenesis archaeopteryxFeather;
 	
 	// Seeds
 	public static ItemGenesisSeed rhizome;
@@ -54,42 +54,41 @@ public class ModItems {
 	public static ItemGenesisFood rawMixosaurusFillet;
 	public static ItemGenesisFood cookedMixosaurusFillet;
 	
-	public static ItemGenesisFood rawArcheopterixThigh;
-	public static ItemGenesisFood cookedArcheopterixThigh;
+	public static ItemGenesisFood rawArchaeopteryxThigh;
+	public static ItemGenesisFood cookedArchaeopteryxThigh;
 	
 	public static void init() {
 		// Tools
 	    graniteTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemGraniteCrudeMaterial.toUpperCase(), 1, 375, 4.0F, 1.0F, 5),
-				EnumHelper.addToolMaterial(Names.itemGraniteChippedMaterial.toUpperCase(), 1, 390, 4.6F, 1.0F, 5),
-				EnumHelper.addToolMaterial(Names.itemGranitePolishedMaterial.toUpperCase(), 1, 415, 4.9F, 1.0F, 5),
-				EnumHelper.addToolMaterial(Names.itemGraniteSharpenedMaterial.toUpperCase(), 1, 425, 5.2F, 1.0F, 5), Names.itemGraniteMaterial, ModBlocks.granite, Items.stick);
+				EnumHelper.addToolMaterial(Names.itemGraniteChippedMaterial.toUpperCase(), 1, 390, 5.2F, 1.0F, 5),
+				EnumHelper.addToolMaterial(Names.itemGranitePolishedMaterial.toUpperCase(), 1, 415, 7.2F, 1.0F, 5),
+				EnumHelper.addToolMaterial(Names.itemGraniteSharpenedMaterial.toUpperCase(), 1, 425, 8.0F, 1.0F, 5), Names.itemGraniteMaterial, ModBlocks.granite, Items.stick);
 		
 	    rhyoliteTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemRhyoliteCrudeMaterial.toUpperCase(), 1, 375, 4.0F, 1.0F, 5),
-	            EnumHelper.addToolMaterial(Names.itemRhyoliteChippedMaterial.toUpperCase(), 1, 390, 4.6F, 1.0F, 5),
-	            EnumHelper.addToolMaterial(Names.itemRhyolitePolishedMaterial.toUpperCase(), 1, 415, 4.9F, 1.0F, 5),
-	            EnumHelper.addToolMaterial(Names.itemRhyoliteSharpenedMaterial.toUpperCase(), 1, 425, 5.2F, 1.0F, 5),Names.itemRhyoliteMaterial, ModBlocks.rhyolite, Items.stick);
+	            EnumHelper.addToolMaterial(Names.itemRhyoliteChippedMaterial.toUpperCase(), 1, 390, 5.2F, 1.0F, 5),
+	            EnumHelper.addToolMaterial(Names.itemRhyolitePolishedMaterial.toUpperCase(), 1, 415, 7.2F, 1.0F, 5),
+	            EnumHelper.addToolMaterial(Names.itemRhyoliteSharpenedMaterial.toUpperCase(), 1, 425, 8.0F, 1.0F, 5),Names.itemRhyoliteMaterial, ModBlocks.rhyolite, Items.stick);
 		
-	    quartziteTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemQuartziteCrudeMaterial.toUpperCase(), 1, 375, 4.0F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemQuartziteChippedMaterial.toUpperCase(), 1, 452, 4.6F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemQuartzitePolishedMaterial.toUpperCase(), 1, 477, 4.9F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemQuartziteSharpenedMaterial.toUpperCase(), 1, 487, 5.2F, 1.0F, 5), Names.itemQuartziteMaterial, ModBlocks.quartzite, Items.stick);
+	    quartziteTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemQuartziteCrudeMaterial.toUpperCase(), 1, 437, 4.0F, 1.0F, 5),
+                EnumHelper.addToolMaterial(Names.itemQuartziteChippedMaterial.toUpperCase(), 1, 452, 5.2F, 1.0F, 5),
+                EnumHelper.addToolMaterial(Names.itemQuartzitePolishedMaterial.toUpperCase(), 1, 477, 7.2F, 1.0F, 5),
+                EnumHelper.addToolMaterial(Names.itemQuartziteSharpenedMaterial.toUpperCase(), 1, 487, 8.0F, 1.0F, 5), Names.itemQuartziteMaterial, ModBlocks.quartzite, Items.stick);
 	    
 	    limestoneTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemLimestoneCrudeMaterial.toUpperCase(), 1, 187, 4.0F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemLimestoneChippedMaterial.toUpperCase(), 1, 202, 4.6F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemLimestonePolishedMaterial.toUpperCase(), 1, 247, 4.9F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemLimestoneSharpenedMaterial.toUpperCase(), 1, 237, 5.2F, 1.0F, 5)
-                , Names.itemLimestoneMaterial, ModBlocks.limestone, Items.stick);
+                EnumHelper.addToolMaterial(Names.itemLimestoneChippedMaterial.toUpperCase(), 1, 202, 5.2F, 1.0F, 5),
+                EnumHelper.addToolMaterial(Names.itemLimestonePolishedMaterial.toUpperCase(), 1, 247, 7.2F, 1.0F, 5),
+                EnumHelper.addToolMaterial(Names.itemLimestoneSharpenedMaterial.toUpperCase(), 1, 237, 8.0F, 1.0F, 5), Names.itemLimestoneMaterial, ModBlocks.limestone, Items.stick);
 	    
 	    flintTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemFlintCrudeMaterial.toUpperCase(), 1, 353, 4.0F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemFlintChippedMaterial.toUpperCase(), 1, 368, 4.6F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemFlintPolishedMaterial.toUpperCase(), 1, 493, 4.9F, 1.0F, 5),
-                EnumHelper.addToolMaterial(Names.itemFlintSharpenedMaterial.toUpperCase(), 1, 403, 5.2F, 1.0F, 5), Names.itemFlintMaterial, Items.flint, Items.stick);
+                EnumHelper.addToolMaterial(Names.itemFlintChippedMaterial.toUpperCase(), 1, 368, 5.2F, 1.0F, 5),
+                EnumHelper.addToolMaterial(Names.itemFlintPolishedMaterial.toUpperCase(), 1, 493, 7.2F, 1.0F, 5),
+                EnumHelper.addToolMaterial(Names.itemFlintSharpenedMaterial.toUpperCase(), 1, 403, 8.0F, 1.0F, 5), Names.itemFlintMaterial, Items.flint, Items.stick);
 		
 		// Crafting
 		quartz = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemQuartz).setTextureName("quartz");	
-		biotite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemBiotite).setTextureName("biotite");
 		zircon = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemZircon).setTextureName("zircon");
 		garnet = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemGarnet).setTextureName("garnet");
+		biotite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemBiotite).setTextureName("biotite");
 		hematite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemHematite).setTextureName("hematite");
 		malachite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemMalachite).setTextureName("malachite");
 		olivine = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");		
@@ -101,7 +100,7 @@ public class ModItems {
 		arthropleuraChitin = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemArthopleuraChitin).setTextureName("arthropleura_chitin");
 		tyrannosaurusTooth = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemTyrannosaurasTooth).setTextureName("tyrannosaurus_tooth");
 		velociraptorClaw = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemVelociraptorClaw).setTextureName("velociraptor_claw");
-		archeopterixFeather = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemArcheopterixFeather).setTextureName("archeopterix_feather");
+		archaeopteryxFeather = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemArchaeopteryxFeather).setTextureName("archaeopteryx_feather");
 		
 		// Seeds
 		rhizome = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.zingiberopsis, 1, 0.5f,true)
@@ -130,10 +129,10 @@ public class ModItems {
 		cookedMixosaurusFillet = (ItemGenesisFood) new ItemGenesisFood(5, 6.0F)
 				.setUnlocalizedName(Names.itemCookedMixosaurus).setTextureName("mixosaurus_fillet_cooked");
 		
-		rawArcheopterixThigh = (ItemGenesisFood) new ItemGenesisFood(2, 1.2F)
-				.setUnlocalizedName(Names.itemRawArcheopterix).setTextureName("archeopterix_thigh_raw");
-		cookedArcheopterixThigh = (ItemGenesisFood) new ItemGenesisFood(6, 7.2F)
-				.setUnlocalizedName(Names.itemCookedArcheopterix).setTextureName("archeopterix_thigh_cooked");
+		rawArchaeopteryxThigh = (ItemGenesisFood) new ItemGenesisFood(2, 1.2F)
+				.setUnlocalizedName(Names.itemRawArchaeopteryx).setTextureName("archaeopteryx_thigh_raw");
+		cookedArchaeopteryxThigh = (ItemGenesisFood) new ItemGenesisFood(6, 7.2F)
+				.setUnlocalizedName(Names.itemCookedArchaeopteryx).setTextureName("archaeopteryx_thigh_cooked");
 	}
 	
 	public static void registerItems() {
