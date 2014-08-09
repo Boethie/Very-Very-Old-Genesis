@@ -39,9 +39,9 @@ public class ModBlocks {
 	
 	// Ores
 	public static BlockGenesisOre quartzGraniteOre;
-	public static BlockGenesisOre biotiteOre;
 	public static BlockGenesisOre zirconOre;
 	public static BlockGenesisOre garnetOre;
+	public static BlockGenesisOre manganeseOre;
 	public static BlockGenesisOre hematiteOre;
 	public static BlockGenesisOre malachiteOre;
 	public static BlockGenesisOre olivineOre;
@@ -107,10 +107,6 @@ public class ModBlocks {
 				.setBlockTextureName("quartz_granite_ore").setBlockName(Names.blockQuartzGraniteOre)
 				.setHardness(3.0F).setResistance(10.0F);		
 		quartzGraniteOre.setHarvestLevel("pickaxe", 1);
-		biotiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1)
-				.setBlockTextureName("biotite_ore").setBlockName(Names.blockBiotiteOre)
-				.setHardness(3.0F).setResistance(10.0F);
-		biotiteOre.setHarvestLevel("pickaxe", 1);
 		zirconOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1)
 				.setBlockTextureName("zircon_ore").setBlockName(Names.blockZirconOre)
 				.setHardness(3.0F).setResistance(10.0F);
@@ -119,6 +115,10 @@ public class ModBlocks {
 				.setBlockTextureName("garnet_ore").setBlockName(Names.blockGarnetOre)
 				.setHardness(3.0F).setResistance(10.0F);
 		garnetOre.setHarvestLevel("pickaxe", 1);
+		manganeseOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 2, 1, 1)
+				.setBlockTextureName("manganese_ore").setBlockName(Names.blockManganeseOre)
+				.setHardness(3.0F).setResistance(10.0F);
+		manganeseOre.setHarvestLevel("pickaxe", 1);
 		hematiteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 3)
 				.setBlockTextureName("hematite_ore").setBlockName(Names.blockHematiteOre)
 				.setHardness(3.0F).setResistance(10.0F);
@@ -143,11 +143,11 @@ public class ModBlocks {
 
 		quartzGraniteOre.setDropAndSmelting(ModItems.quartz, 0, 0.2F);
 		
-		biotiteOre.setDrop(new ItemStack(ModItems.biotite, 1, 0), 2, 4);
-		
 		zirconOre.setDropAndSmelting(ModItems.zircon, 0, 1.0F);
 		
 		garnetOre.setDropAndSmelting(ModItems.garnet, 0, 1.0F);
+		
+		manganeseOre.setDrop(new ItemStack(ModItems.manganese, 1, 0), 2, 4);
 		
 		hematiteOre.setDrop(new ItemStack(ModItems.hematite, 1, 0), 2, 4);
 		
