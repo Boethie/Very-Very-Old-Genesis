@@ -3,6 +3,7 @@ package genesis.block.plants;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.ColorizerGrass;
@@ -21,7 +22,7 @@ public class BlockAsteroxylonTop extends BlockGenesisPlantTop implements ISheara
 {
 	public BlockAsteroxylonTop()
 	{
-		super();
+		super(Material.plants);
 		float size = 0.375F;
 		setBlockBounds(0.5F - size, 0, 0.5F - size, 0.5F + size, 1, 0.5F + size);
 	}

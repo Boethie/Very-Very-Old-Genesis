@@ -63,6 +63,8 @@ public final class Names {
 	public static final String blockSponge = blockAquatic + "sponge.";
 	public static final String blockAlgae = blockAquatic + "algae.";
 	public static final String blockPteridinium = blockAquatic + "pteridinium";
+	public static final String blockCharnia = blockAquatic + "charnia";
+	public static final String blockCharniaTop = blockCharnia + ".top";
 
 	public static final String blockCalamitesPlant = blockPlant + "calamites";
 

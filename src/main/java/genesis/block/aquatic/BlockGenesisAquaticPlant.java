@@ -80,7 +80,7 @@ public abstract class BlockGenesisAquaticPlant extends Block implements IPlantRe
 			}
 			index++;
 		}
-		if (waterCount >= 1 && blocks[2] == Blocks.water)
+		if (waterCount >= 1 && ((blocks[2] == Blocks.water) || (blocks[2] instanceof BlockCharniaTop)))
 		{
 			flag = true;
 		}

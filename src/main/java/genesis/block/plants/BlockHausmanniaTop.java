@@ -6,6 +6,7 @@ import genesis.common.Genesis;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -31,7 +32,7 @@ public class BlockHausmanniaTop extends BlockGenesisPlantTop implements IShearab
 	
 	public BlockHausmanniaTop()
 	{
-		super();
+		super(Material.plants);
 		setCreativeTab((CreativeTabs)null);
 	}
 	

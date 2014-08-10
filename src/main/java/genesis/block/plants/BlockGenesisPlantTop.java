@@ -26,9 +26,9 @@ import net.minecraft.world.World;
  */
 public abstract class BlockGenesisPlantTop extends Block implements IPlantRenderSpecials
 {
-	public BlockGenesisPlantTop()
+	public BlockGenesisPlantTop(Material material)
 	{
-		super(Material.plants);
+		super(material);
 		disableStats();
 		setTickRandomly(true);
 		setHardness(0.0f);
