@@ -189,7 +189,7 @@ item.genesis.food.cookedArcheopterixThigh.name=Cooked Archeopterix Thigh
 
 <!-- Creative Mode Tabs -->
 itemGroup.tabGenesisBlock=Genesis Building Blocks
-itemGroup.tabGenesisDecoration=Genesis Decoration Blocks
+itemGroup.tabGenesisDecorations=Genesis Decoration Blocks
 itemGroup.tabGenesisMaterials=Genesis Materials
 itemGroup.tabGenesisFood=Genesis Foodstuffs
 itemGroup.tabGenesisTools=Genesis Tools

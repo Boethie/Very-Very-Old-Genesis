@@ -28,7 +28,7 @@ public class GenesisTabs
         }
     };
     
-    public static final CreativeTabs tabGenesisDecoration = new CreativeTabs("tabGenesisDecoration")
+    public static final CreativeTabs tabGenesisDecoration = new CreativeTabs("tabGenesisDecorations")
     {
         @Override
         public ItemStack getIconItemStack() 

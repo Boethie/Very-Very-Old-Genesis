@@ -188,7 +188,7 @@ item.genesis.food.cookedArchaeopteryxThigh.name=Cuisse d'Archaeopteryx cuite
 
 <!-- Creative Mode Tabs -->
 itemGroup.tabGenesisBlock=Blocs de construction Genesis
-itemGroup.tabGenesisDecoration=Blocs décoratifs Genesis
+itemGroup.tabGenesisDecorations=Blocs décoratifs Genesis
 itemGroup.tabGenesisFood=Nourriture Genesis
 itemGroup.tabGenesisTools=Outils Genesis
 itemGroup.tabGenesisMaterials=Matières premières Genesis
