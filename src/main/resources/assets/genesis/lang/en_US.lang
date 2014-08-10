@@ -16,22 +16,21 @@ tile.genesis.rock.trondhjemite.name=Trondhjemite
 tile.genesis.rock.fauxamphibolite.name=Faux-Amphibolite
 tile.genesis.rock.gneiss.name=Gneiss
 tile.genesis.rock.quartzite.name=Quartzite
+tile.genesis.rock.oldRedSandstone.name=Old Red Sandstone
 tile.genesis.rock.limestone.name=Limestone
 tile.genesis.rock.stromatolite.name=Stromatolite
 tile.genesis.rock.shale.name=Shale
 tile.genesis.rock.octaedrite.name=Octaedrite Fragment
 tile.genesis.permafrost.name=Permafrost
-tile.genesis.rock.oldRedSandstone.name=Old Red Sandstone
 
 <!-- Ores -->
 tile.genesis.ore.quartzGranite.name=Granite Quartz Ore
-tile.genesis.ore.biotite.name=Biotite Ore
 tile.genesis.ore.zircon.name=Zircon Ore
 tile.genesis.ore.garnet.name=Garnet Ore
+tile.genesis.ore.manganese.name=Manganese Ore
 tile.genesis.ore.hematite.name=Hematite Ore
 tile.genesis.ore.malachite.name=Malachite Ore
 tile.genesis.ore.olivine.name=Olivine Ore
-tile.genesis.ore.manganese.name=Manganese Ore
 
 <!-- Trees -->
 tile.genesis.log.archaeopteris.name=Archaeopteris Wood
@@ -122,13 +121,12 @@ tile.genesis.aquatic.pteridinium.name=Pteridinium
 
 <!-- Crafting -->
 item.genesis.quartz.name=Quartz
-item.genesis.biotite.name=Biotite
 item.genesis.zircon.name=Zircon
 item.genesis.garnet.name=Garnet
+item.genesis.manganese.name=Manganese
 item.genesis.hematite.name=Hematite
 item.genesis.malachite.name=Malachite
 item.genesis.olivine.name=Olivine
-item.genesis.manganese.name=Manganese
 item.genesis.sphenoFiber.name=Sphenophyllum Fiber
 item.genesis.bjuviaSeeds.name=Bjuvia Seeds
 item.genesis.ceratitesShell.name=Ceratites Shell
@@ -182,14 +180,10 @@ item.genesis.food.rawAphthoroblattina.name=Raw Aphthoroblattina
 item.genesis.food.cookedAphthoroblattina.name=Cooked Aphthoroblattina
 item.genesis.food.rawCeratites.name=Raw Ceratites
 item.genesis.food.cookedCeratites.name=Cooked Ceratites
-item.genesis.food.rawMixosaurusFillet.name=Raw Mixosaurus Fillet
-item.genesis.food.cookedMixosaurusFillet.name=Cooked Mixosaurus Fillet
-item.genesis.food.rawArcheopterixThigh.name=Raw Archeopterix Thigh
-item.genesis.food.cookedArcheopterixThigh.name=Cooked Archeopterix Thigh
-item.genesis.food.rawLiopleurodon.name=Raw Liopleurodon
-item.genesis.food.cookedLiopleurodon.name=Cooked Liopleurodon
-item.genesis.food.rawGigantoraptor.name=Raw Gigantoraptor
-item.genesis.food.cookedGigantoraptor.name=Cooked Gigantoraptor
+item.genesis.food.rawLiopleurodonFillet.name=Raw Liopleurodon Fillet
+item.genesis.food.cookedLiopleurodonFillet.name=Cooked Liopleurodon Fillet
+item.genesis.food.rawGigantoraptorThigh.name=Raw Gigantoraptor Thigh
+item.genesis.food.cookedGigantoraptorThigh.name=Cooked Gigantoraptor Thigh
 item.genesis.food.rawClimatius.name=Raw Climatius
 item.genesis.food.cookedClimatius.name=Cooked Climatius
 
