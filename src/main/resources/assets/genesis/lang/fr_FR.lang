@@ -134,6 +134,7 @@ item.genesis.arthropleuraChitin.name=Chitine d'Arthropleura
 item.genesis.tyrannosaurusTooth.name=Dent de Tyrannosaurus
 item.genesis.utahraptorClaw.name=Griffe de Utahraptor
 item.genesis.utahraptorFeather.name=Plume d'Utahraptor
+item.genesis.epidexipteryxFeather.name=Plume d'Epidexipteryx
 
 <!-- Tools -->
 item.genesis.knife.granite.name=Couteau en granite

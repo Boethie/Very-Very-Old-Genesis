@@ -135,6 +135,7 @@ item.genesis.arthropleuraChitin.name=Arthropleura Chitin
 item.genesis.tyrannosaurusTooth.name=Tyrannosaurus Tooth
 item.genesis.utahraptorClaw.name=Utahraptor Claw
 item.genesis.utahraptorFeather.name=Utahraptor Feather
+item.genesis.epidexipteryxFeather.name=Epidexipteryx Feather
 
 <!-- Tools -->
 item.genesis.knife.granite.name=Granite Knife
