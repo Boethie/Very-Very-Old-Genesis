@@ -41,7 +41,7 @@ public final class Names {
 	public static final String blockZirconOre = blockOre + "zircon";
 	public static final String blockGarnetOre = blockOre + "garnet";
 	public static final String blockOlivineOre = blockOre + "olivine";
-	public static final String blockBiotiteOre = blockOre + "biotite";
+	public static final String blockManganeseOre = blockOre + "manganese";
 
 	// Trees
 	public static final String blockLogGenesis = mod + "log.";
@@ -110,8 +110,8 @@ public final class Names {
 	public static final String itemCeratitesShell = mod + "ceratitesShell";
 	public static final String itemArthopleuraChitin = mod + "arthropleuraChitin";
 	public static final String itemTyrannosaurasTooth = mod + "tyrannosaurusTooth";
-	public static final String itemVelociraptorClaw = mod + "velociraptorClaw";
-	public static final String itemArcheopterixFeather = mod + "archeopterixFeather";
+	public static final String itemUtahraptorClaw = mod + "utahraptorClaw";
+	public static final String itemUtahraptorFeather = mod + "utahraptorFeather";
 
 	public static final String itemZircon = mod + "zircon";
 	public static final String itemZirconMaterial = "zircon";
@@ -121,7 +121,7 @@ public final class Names {
 	public static final String itemGarnet = mod + "garnet";
 	public static final String itemMalachite = mod + "malachite";
 	public static final String itemHematite = mod + "hematite";
-	public static final String itemBiotite = mod + "biotite";
+	public static final String itemManganese = mod + "manganese";
 
 	// Tools
 	public static final String itemTool = mod + "tool.";
@@ -143,5 +143,8 @@ public final class Names {
 	public static final String itemCookedMixosaurus = itemFood + "cookedMixosaurusFillet";
 	public static final String itemRawArcheopterix = itemFood + "rawArcheopterixThigh";
 	public static final String itemCookedArcheopterix = itemFood + "cookedArcheopterixThigh";
-
+    public static final String itemRawLiopleurodon = itemFood + "rawLiopleurodon";
+    public static final String itemCookedLiopleurodon = itemFood + "cookedLiopleurodon";
+    public static final String itemRawGigantoraptor = itemFood + "rawGigantoraptor";
+    public static final String itemCookedGigantoraptor = itemFood + "cookedGigantoraptor";
 }

@@ -78,7 +78,7 @@ public class GenesisTabs
         @Override
         public ItemStack getIconItemStack()
         {
-            return new ItemStack(ModItems.biotite);
+            return new ItemStack(ModItems.manganese);
         }
         
         @Override
