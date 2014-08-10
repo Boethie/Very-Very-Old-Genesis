@@ -183,10 +183,10 @@ item.genesis.food.rawAphthoroblattina.name=Raw Aphthoroblattina
 item.genesis.food.cookedAphthoroblattina.name=Cooked Aphthoroblattina
 item.genesis.food.rawCeratites.name=Raw Ceratites
 item.genesis.food.cookedCeratites.name=Cooked Ceratites
-item.genesis.food.rawLiopleurodonFillet.name=Raw Liopleurodon Fillet
-item.genesis.food.cookedLiopleurodonFillet.name=Cooked Liopleurodon Fillet
-item.genesis.food.rawGigantoraptorThigh.name=Raw Gigantoraptor Thigh
-item.genesis.food.cookedGigantoraptorThigh.name=Cooked Gigantoraptor Thigh
+item.genesis.food.rawLiopleurodon.name=Raw Liopleurodon Fillet
+item.genesis.food.cookedLiopleurodon.name=Cooked Liopleurodon Fillet
+item.genesis.food.rawGigantoraptor.name=Raw Gigantoraptor Thigh
+item.genesis.food.cookedGigantoraptor.name=Cooked Gigantoraptor Thigh
 item.genesis.food.rawClimatius.name=Raw Climatius
 item.genesis.food.cookedClimatius.name=Cooked Climatius
 
