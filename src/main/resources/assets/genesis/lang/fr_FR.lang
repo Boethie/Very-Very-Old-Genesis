@@ -31,6 +31,7 @@ tile.genesis.ore.garnet.name=Minerai de grenat
 tile.genesis.ore.hematite.name=Minerai d'hématite
 tile.genesis.ore.malachite.name=Minerai de malachite
 tile.genesis.ore.olivine.name=Minerai d'olivine
+tile.genesis.ore.manganese.name=Minerai d'manganese
 
 <!-- Trees -->
 tile.genesis.log.sigillaria.name=Bois de Sigillaria

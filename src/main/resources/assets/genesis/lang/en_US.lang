@@ -31,6 +31,7 @@ tile.genesis.ore.garnet.name=Garnet Ore
 tile.genesis.ore.hematite.name=Hematite Ore
 tile.genesis.ore.malachite.name=Malachite Ore
 tile.genesis.ore.olivine.name=Olivine Ore
+tile.genesis.ore.manganese.name=Manganese Ore
 
 <!-- Trees -->
 tile.genesis.log.archaeopteris.name=Archaeopteris Wood
