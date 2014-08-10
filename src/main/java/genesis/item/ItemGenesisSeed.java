@@ -35,7 +35,7 @@ public class ItemGenesisSeed extends ItemFood implements IPlantable{
 		this.farmlandCrop=farmlandCrop;
 		this.edible=true;
 		this.cropBlock = cropBlock;
-		setCreativeTab(GenesisTabs.tabGenesisMaterials);
+		setCreativeTab(GenesisTabs.tabGenesisFood);
 	}
 	/**
 	 * Not edible version

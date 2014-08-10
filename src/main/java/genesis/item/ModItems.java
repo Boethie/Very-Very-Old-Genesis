@@ -36,8 +36,9 @@ public class ModItems {
 	public static ItemGenesis tyrannosaurusTooth;
 	public static ItemGenesis utahraptorClaw;
 	public static ItemGenesis utahraptorFeather;
-	
-	// Seeds
+    public static ItemGenesis epidexipteryxFeather;
+
+    // Seeds
 	public static ItemGenesisSeed rhizome;
 	public static ItemGenesisSeed sphenoSpores;
 	
@@ -56,8 +57,11 @@ public class ModItems {
 	
 	public static ItemGenesisFood rawGigantoraptorThigh;
 	public static ItemGenesisFood cookedGigantoraptorThigh;
-	
-	public static void init() {
+
+    public static ItemGenesisFood rawClimatius;
+    public static ItemGenesisFood cookedClimatius;
+
+    public static void init() {
 		// Tools
 	    graniteTools = new ItemsToolSet(EnumHelper.addToolMaterial(Names.itemGraniteCrudeMaterial.toUpperCase(), 1, 375, 4.0F, 1.0F, 5),
 				EnumHelper.addToolMaterial(Names.itemGraniteChippedMaterial.toUpperCase(), 1, 390, 5.2F, 1.0F, 5),
@@ -101,7 +105,8 @@ public class ModItems {
 		tyrannosaurusTooth = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemTyrannosaurasTooth).setTextureName("tyrannosaurus_tooth");
 		utahraptorClaw = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemUtahraptorClaw).setTextureName("utahraptor_claw");
 		utahraptorFeather = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemUtahraptorFeather).setTextureName("utahraptor_feather");
-		
+        epidexipteryxFeather = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemEpidexipteryxFeather).setTextureName("epidexipteryx_feather");
+
 		// Seeds
 		rhizome = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.zingiberopsis, 1, 0.5f,true)
 				.setUnlocalizedName(Names.itemRhizome).setTextureName("zingiberopsis_rhizome");
@@ -133,6 +138,11 @@ public class ModItems {
 				.setUnlocalizedName(Names.itemRawGigantoraptor).setTextureName("gigantoraptor_thigh_raw");
 		cookedGigantoraptorThigh = (ItemGenesisFood) new ItemGenesisFood(6, 7.2F)
 				.setUnlocalizedName(Names.itemCookedGigantoraptor).setTextureName("gigantoraptor_thigh_cooked");
+
+        rawClimatius = (ItemGenesisFood) new ItemGenesisFood(2, 1.2F)
+                .setUnlocalizedName(Names.itemRawClimatius).setTextureName("climatius_raw");
+        cookedClimatius = (ItemGenesisFood) new ItemGenesisFood(5, 6F)
+                .setUnlocalizedName(Names.itemCookedClimatius).setTextureName("climatius_cooked");
 	}
 	
 	public static void registerItems() {

@@ -2,6 +2,7 @@ package genesis.client.renderer;
 
 import java.util.Random;
 
+import genesis.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
@@ -63,7 +64,7 @@ public class BlockCampfireRenderer implements ISimpleBlockRenderingHandler {
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(campfire.getMixedBrightnessForBlock(world, x, y, z));
 
-		IIcon icon = renderer.getBlockIconFromSideAndMetadata(campfire, 0, metadata);
+		IIcon icon = ModBlocks.granite.getIcon(0, 0);
 
 		Vec4 up = new Vec4(0, 1, 0);
 

@@ -31,6 +31,7 @@ tile.genesis.ore.garnet.name=Garnet Ore
 tile.genesis.ore.hematite.name=Hematite Ore
 tile.genesis.ore.malachite.name=Malachite Ore
 tile.genesis.ore.olivine.name=Olivine Ore
+tile.genesis.ore.manganese.name=Manganese Ore
 
 <!-- Trees -->
 tile.genesis.log.archaeopteris.name=Archaeopteris Wood
@@ -127,13 +128,15 @@ item.genesis.garnet.name=Garnet
 item.genesis.hematite.name=Hematite
 item.genesis.malachite.name=Malachite
 item.genesis.olivine.name=Olivine
+item.genesis.manganese.name=Manganese
 item.genesis.sphenoFiber.name=Sphenophyllum Fiber
 item.genesis.bjuviaSeeds.name=Bjuvia Seeds
 item.genesis.ceratitesShell.name=Ceratites Shell
 item.genesis.arthropleuraChitin.name=Arthropleura Chitin
 item.genesis.tyrannosaurusTooth.name=Tyrannosaurus Tooth
-item.genesis.velociraptorClaw.name=Velociraptor Claw
-item.genesis.archeopterixFeather.name=Archaeopterix Feather
+item.genesis.utahraptorClaw.name=Utahraptor Claw
+item.genesis.utahraptorFeather.name=Utahraptor Feather
+item.genesis.epidexipteryxFeather.name=Epidexipteryx Feather
 
 <!-- Tools -->
 item.genesis.knife.granite.name=Granite Knife
@@ -183,13 +186,18 @@ item.genesis.food.rawMixosaurusFillet.name=Raw Mixosaurus Fillet
 item.genesis.food.cookedMixosaurusFillet.name=Cooked Mixosaurus Fillet
 item.genesis.food.rawArcheopterixThigh.name=Raw Archeopterix Thigh
 item.genesis.food.cookedArcheopterixThigh.name=Cooked Archeopterix Thigh
-
+item.genesis.food.rawLiopleurodon.name=Raw Liopleurodon
+item.genesis.food.cookedLiopleurodon.name=Cooked Liopleurodon
+item.genesis.food.rawGigantoraptor.name=Raw Gigantoraptor
+item.genesis.food.cookedGigantoraptor.name=Cooked Gigantoraptor
+item.genesis.food.rawClimatius.name=Raw Climatius
+item.genesis.food.cookedClimatius.name=Cooked Climatius
 
 <!-- Other -->
 
 <!-- Creative Mode Tabs -->
 itemGroup.tabGenesisBlock=Genesis Building Blocks
-itemGroup.tabGenesisDecoration=Genesis Decoration Blocks
+itemGroup.tabGenesisDecorations=Genesis Decoration Blocks
 itemGroup.tabGenesisMaterials=Genesis Materials
 itemGroup.tabGenesisFood=Genesis Foodstuffs
 itemGroup.tabGenesisTools=Genesis Tools

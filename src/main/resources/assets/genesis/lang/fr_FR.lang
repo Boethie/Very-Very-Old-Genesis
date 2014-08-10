@@ -31,6 +31,7 @@ tile.genesis.ore.garnet.name=Minerai de grenat
 tile.genesis.ore.hematite.name=Minerai d'hématite
 tile.genesis.ore.malachite.name=Minerai de malachite
 tile.genesis.ore.olivine.name=Minerai d'olivine
+tile.genesis.ore.manganese.name=Minerai d'manganese
 
 <!-- Trees -->
 tile.genesis.log.sigillaria.name=Bois de Sigillaria
@@ -126,13 +127,15 @@ item.genesis.garnet.name=Grenat
 item.genesis.hematite.name=Hématite
 item.genesis.malachite.name=Malachite
 item.genesis.olivine.name=Olivine
+item.genesis.manganese.name=Manganese
 item.genesis.sphenoFiber.name=Fibre de Sphenophyllum
 item.genesis.bjuviaSeeds.name=Graines de Bjuvia
 item.genesis.ceratitesShell.name=Coquille de Ceratites
 item.genesis.arthropleuraChitin.name=Chitine d'Arthropleura
 item.genesis.tyrannosaurusTooth.name=Dent de Tyrannosaurus
-item.genesis.velociraptorClaw.name=Griffe de Velociraptor
-item.genesis.archaeopteryxFeather.name=Plume d'Archaeopteryx
+item.genesis.utahraptorClaw.name=Griffe de Utahraptor
+item.genesis.utahraptorFeather.name=Plume d'Utahraptor
+item.genesis.epidexipteryxFeather.name=Plume d'Epidexipteryx
 
 <!-- Tools -->
 item.genesis.knife.granite.name=Couteau en granite
@@ -182,13 +185,18 @@ item.genesis.food.rawMixosaurusFillet.name=Filet de Mixosaurus cru
 item.genesis.food.cookedMixosaurusFillet.name=Filet de Mixosaurus cuit
 item.genesis.food.rawArchaeopteryxThigh.name=Cuisse d'Archaeopteryx crue
 item.genesis.food.cookedArchaeopteryxThigh.name=Cuisse d'Archaeopteryx cuite
-
+item.genesis.food.rawLiopleurodon.name=Cuisse d'Liopleurodon crue
+item.genesis.food.cookedLiopleurodon.name=Cuisse d'Liopleurodon cuite
+item.genesis.food.rawGigantoraptor.name=Cuisse d'Gigantoraptor crue
+item.genesis.food.cookedGigantoraptor.name=Cuisse d'Gigantoraptor cuite
+item.genesis.food.rawClimatius.name=Cuisse d'Climatius crue
+item.genesis.food.cookedClimatius.name=Cuisse d'Climatius cuite
 
 <!-- Other -->
 
 <!-- Creative Mode Tabs -->
 itemGroup.tabGenesisBlock=Blocs de construction Genesis
-itemGroup.tabGenesisDecoration=Blocs décoratifs Genesis
+itemGroup.tabGenesisDecorations=Blocs décoratifs Genesis
 itemGroup.tabGenesisFood=Nourriture Genesis
 itemGroup.tabGenesisTools=Outils Genesis
 itemGroup.tabGenesisMaterials=Matières premières Genesis

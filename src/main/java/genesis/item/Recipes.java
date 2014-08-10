@@ -105,6 +105,7 @@ public class Recipes {
 		GameRegistry.addSmelting(ModItems.rawEryops, new ItemStack(ModItems.cookedEryops), 0.1F);
 		GameRegistry.addSmelting(ModItems.rawAphthoroblattina, new ItemStack(ModItems.cookedAphthoroblattina), 0.1F);
 		GameRegistry.addSmelting(ModItems.rawCeratites, new ItemStack(ModItems.cookedCeratites), 0.1F);
+		GameRegistry.addSmelting(ModItems.rawClimatius, new ItemStack(ModItems.cookedClimatius), 0.1F);
 	}
 
 }

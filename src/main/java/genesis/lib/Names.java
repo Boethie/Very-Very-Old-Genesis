@@ -112,6 +112,7 @@ public final class Names {
 	public static final String itemTyrannosaurasTooth = mod + "tyrannosaurusTooth";
 	public static final String itemUtahraptorClaw = mod + "utahraptorClaw";
 	public static final String itemUtahraptorFeather = mod + "utahraptorFeather";
+	public static final String itemEpidexipteryxFeather = mod + "epidexipteryxFeather";
 
 	public static final String itemZircon = mod + "zircon";
 	public static final String itemZirconMaterial = "zircon";
@@ -147,4 +148,6 @@ public final class Names {
     public static final String itemCookedLiopleurodon = itemFood + "cookedLiopleurodon";
     public static final String itemRawGigantoraptor = itemFood + "rawGigantoraptor";
     public static final String itemCookedGigantoraptor = itemFood + "cookedGigantoraptor";
+    public static final String itemRawClimatius = itemFood + "rawClimatius";
+    public static final String itemCookedClimatius = itemFood + "cookedClimatius";
 }
