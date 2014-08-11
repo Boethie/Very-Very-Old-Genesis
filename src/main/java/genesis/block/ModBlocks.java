@@ -1,6 +1,8 @@
 package genesis.block;
 
 import genesis.block.aquatic.AquaticBlocks;
+import genesis.block.fluid.BlockKomatiicicLava;
+import genesis.block.fluid.FluidKomatiicicLava;
 import genesis.block.gui.BlockCampfire;
 import genesis.block.plants.PlantBlocks;
 import genesis.block.trees.TreeBlocks;
@@ -10,6 +12,8 @@ import genesis.lib.Names;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.BlockFluidBase;
+import net.minecraftforge.fluids.Fluid;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModBlocks {
@@ -45,6 +49,10 @@ public class ModBlocks {
 	public static BlockGenesisOre hematiteOre;
 	public static BlockGenesisOre malachiteOre;
 	public static BlockGenesisOre olivineOre;
+	
+	// Fluid(Blocks)
+	public static BlockFluidBase komatiicicLava;
+	public static Fluid fluidKomatiicicLava;
 	
 	
 	public static void init() {
@@ -132,6 +140,12 @@ public class ModBlocks {
 				.setHardness(3.0F).setResistance(10.0F);
 		olivineOre.setHarvestLevel("pickaxe", 1);
 		
+		// Fluid blocks
+		fluidKomatiicicLava = new FluidKomatiicicLava(Names.fluidKomatiicicLava);
+		komatiicicLava = (BlockFluidBase) new BlockKomatiicicLava(fluidKomatiicicLava, Material.lava)
+			.setBlockTextureName("komatiitic_lava")
+			.setBlockName(Names.blockKomatiiciLava);
+		
 		TreeBlocks.init();
 		PlantBlocks.init();
 		AquaticBlocks.init();
@@ -140,6 +154,8 @@ public class ModBlocks {
 	public static void registerBlocks() {
 		GameRegistry.registerBlock(moss, Names.blockMoss);
 		GameRegistry.registerBlock(portal, Names.blockPortal);
+		
+		GameRegistry.registerBlock(komatiicicLava, Names.blockKomatiiciLava);
 
 		quartzGraniteOre.setDropAndSmelting(ModItems.quartz, 0, 0.2F);
 		

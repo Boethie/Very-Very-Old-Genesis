@@ -148,4 +148,9 @@ public final class Names {
     public static final String itemCookedLiopleurodon = itemFood + "cookedLiopleurodon";
     public static final String itemRawGigantoraptor = itemFood + "rawGigantoraptor";
     public static final String itemCookedGigantoraptor = itemFood + "cookedGigantoraptor";
+    
+    // Fluids
+    public static final String fluidKomatiicicLava = "komatiiciclava";
+    public static final String blockKomatiiciLava = mod + "komatiicicLavaBlock";
+    
 }

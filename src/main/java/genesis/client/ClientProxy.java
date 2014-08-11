@@ -2,6 +2,7 @@ package genesis.client;
 
 import genesis.block.gui.TileEntityCampfire;
 import genesis.client.event.GuiEventHandler;
+import genesis.client.event.TextureStitchEventHandler;
 import genesis.client.renderer.BlockBjuviaConeRenderer;
 import genesis.client.renderer.BlockCampfireRenderer;
 import genesis.client.renderer.BlockGenesisFlowerPotRenderer;
@@ -23,6 +24,7 @@ public class ClientProxy extends CommonProxy {
     public void preInit() 
     {
         MinecraftForge.EVENT_BUS.register(new GuiEventHandler());
+        MinecraftForge.EVENT_BUS.register(new TextureStitchEventHandler());
     }
     
 	@Override
@@ -40,6 +42,7 @@ public class ClientProxy extends CommonProxy {
 
 		LanguageLoader.loadLanguages();
 	}
+	@Override
 	public boolean areLeavesOpaque(){
 		return FMLCommonHandler.instance().getEffectiveSide()==Side.SERVER?false:!Minecraft.getMinecraft().gameSettings.fancyGraphics;
 	}
