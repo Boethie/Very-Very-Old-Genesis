@@ -23,11 +23,9 @@ file("build.properties").withReader {
     ext.config = new ConfigSlurper().parse prop
 }
 
-// Snapshot versioning - Example: 14w23u5
-//def date = new Date()
-//version = date.format("yy") + "w" + date.format("w") + "u" + date.format("u")
-
-version = "${config.version_major}.${config.version_minor}.${config.version_revision}.${config.version_build}"
+// Snapshot versioning - Format: <Year>w<Week of Year>u<Day of Week>, Example: 14w23u5
+def date = new Date()
+version = date.format("yy") + "w" + date.format("w") + "u" + date.format("u")
 group = "genesis"
 
 minecraft {
