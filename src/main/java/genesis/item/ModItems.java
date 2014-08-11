@@ -4,6 +4,7 @@ import genesis.block.ModBlocks;
 import genesis.block.plants.PlantBlocks;
 import genesis.item.ItemSets.ItemsToolSet;
 import genesis.lib.Names;
+import net.minecraft.init.Items;
 
 public class ModItems {
 
