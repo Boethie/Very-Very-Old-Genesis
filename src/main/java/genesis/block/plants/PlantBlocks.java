@@ -1,20 +1,19 @@
 package genesis.block.plants;
 
+import genesis.common.Genesis;
+import genesis.item.itemblock.ItemBlockAsteroxylon;
+import genesis.item.itemblock.ItemBlockGenesisFern;
+import genesis.item.itemblock.ItemBlockGenesisFlower;
+import genesis.item.itemblock.ItemBlockGenesisPlant;
+import genesis.lib.Names;
+
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
-
 import cpw.mods.fml.common.registry.GameRegistry;
-
-import genesis.common.Genesis;
-import genesis.item.ModItems;
-import genesis.item.itemblock.ItemBlockAsteroxylon;
-import genesis.item.itemblock.ItemBlockGenesisFern;
-import genesis.item.itemblock.ItemBlockGenesisPlant;
-import genesis.lib.Names;
 
 public class PlantBlocks {
 
@@ -56,6 +55,7 @@ public class PlantBlocks {
 	public static BlockAsteroxylonTop asterTop;
 	public static BlockSphenophyllumBase sphenophyllum;
 	public static BlockSphenophyllumTop sphenoTop;
+	public static BlockGenesisFlower flowers;
 	
 	public static void init() {
 		flowerPot = (BlockGenesisFlowerPot) new BlockGenesisFlowerPot().setBlockTextureName("flower_pot").setBlockName(Names.blockFlowerPot);
@@ -75,6 +75,8 @@ public class PlantBlocks {
 		
 		sphenophyllum = (BlockSphenophyllumBase) new BlockSphenophyllumBase().setBlockName(Names.blockSphenophyllum).setBlockTextureName("sphenophyllum");
 		sphenoTop = (BlockSphenophyllumTop) new BlockSphenophyllumTop().setBlockName(Names.blockSphenophyllum).setBlockTextureName("sphenophyllum");
+		
+		flowers = (BlockGenesisFlower) new BlockGenesisFlower().setBlockName(Names.blockFlower);
 	}
 
 	public static void registerBlocks() {
@@ -93,6 +95,8 @@ public class PlantBlocks {
 		
 		GameRegistry.registerBlock(sphenophyllum, Names.blockSphenophyllum);
 		GameRegistry.registerBlock(sphenoTop, Names.blockSphenophyllum + ".top");
+		
+		GameRegistry.registerBlock(flowers, ItemBlockGenesisFlower.class, Names.blockFlower);
 
 		CraftingManager.getInstance().addRecipe(new ItemStack(calamitesBlock), "CCC", "CCC", "CCC", 'C', calamitesPlant);
 		CraftingManager.getInstance().addRecipe(new ItemStack(calamitesPlant, 9), "C", 'C', calamitesBlock);

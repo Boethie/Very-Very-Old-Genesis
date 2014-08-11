@@ -16,18 +16,18 @@ tile.genesis.rock.trondhjemite.name=Trondhjemite
 tile.genesis.rock.fauxamphibolite.name=Faux-Amphibolite
 tile.genesis.rock.gneiss.name=Gneiss
 tile.genesis.rock.quartzite.name=Quartzite
+tile.genesis.rock.oldRedSandstone.name=Old Red Sandstone
 tile.genesis.rock.limestone.name=Limestone
 tile.genesis.rock.stromatolite.name=Stromatolite
 tile.genesis.rock.shale.name=Shale
 tile.genesis.rock.octaedrite.name=Octaedrite Fragment
 tile.genesis.permafrost.name=Permafrost
-tile.genesis.rock.oldRedSandstone.name=Old Red Sandstone
 
 <!-- Ores -->
 tile.genesis.ore.quartzGranite.name=Granite Quartz Ore
-tile.genesis.ore.biotite.name=Biotite Ore
 tile.genesis.ore.zircon.name=Zircon Ore
 tile.genesis.ore.garnet.name=Garnet Ore
+tile.genesis.ore.manganese.name=Manganese Ore
 tile.genesis.ore.hematite.name=Hematite Ore
 tile.genesis.ore.malachite.name=Malachite Ore
 tile.genesis.ore.olivine.name=Olivine Ore
@@ -101,6 +101,8 @@ tile.genesis.plant.fern.matonidium.name=Matonidium
 tile.genesis.plant.fern.astralopteris.name=Astralopteris
 tile.genesis.plant.fern.ruffordia.name=Ruffordia
 
+tile.genesis.plant.flower.mabelia.name=Mabelia
+
 <!-- Aquatic -->
 tile.genesis.aquatic.coral.heliolites.name=Heliolites
 tile.genesis.aquatic.coral.favosites.name=Favosites
@@ -117,14 +119,17 @@ tile.genesis.aquatic.algae.bangiomorpha.name=Bangiomorpha
 
 tile.genesis.aquatic.pteridinium.name=Pteridinium
 
+tile.genesis.aquatic.charnia.name=Charnia
+tile.genesis.aquatic.charnia.top.name=Charnia Top
+
 
 <!-- Items -->
 
 <!-- Crafting -->
 item.genesis.quartz.name=Quartz
-item.genesis.biotite.name=Biotite
 item.genesis.zircon.name=Zircon
 item.genesis.garnet.name=Garnet
+item.genesis.manganese.name=Manganese
 item.genesis.hematite.name=Hematite
 item.genesis.malachite.name=Malachite
 item.genesis.olivine.name=Olivine
@@ -137,6 +142,8 @@ item.genesis.tyrannosaurusTooth.name=Tyrannosaurus Tooth
 item.genesis.utahraptorClaw.name=Utahraptor Claw
 item.genesis.utahraptorFeather.name=Utahraptor Feather
 item.genesis.epidexipteryxFeather.name=Epidexipteryx Feather
+item.genesis.cynognathusHide.name=Cynognathus Hide
+item.genesis.leaellynasauraHide.name=Leaellynasaura Hide
 
 <!-- Tools -->
 item.genesis.knife.granite.name=Granite Knife
@@ -182,15 +189,12 @@ item.genesis.food.rawAphthoroblattina.name=Raw Aphthoroblattina
 item.genesis.food.cookedAphthoroblattina.name=Cooked Aphthoroblattina
 item.genesis.food.rawCeratites.name=Raw Ceratites
 item.genesis.food.cookedCeratites.name=Cooked Ceratites
-item.genesis.food.rawMixosaurusFillet.name=Raw Mixosaurus Fillet
-item.genesis.food.cookedMixosaurusFillet.name=Cooked Mixosaurus Fillet
-item.genesis.food.rawArcheopterixThigh.name=Raw Archeopterix Thigh
-item.genesis.food.cookedArcheopterixThigh.name=Cooked Archeopterix Thigh
-item.genesis.food.rawLiopleurodon.name=Raw Liopleurodon
-item.genesis.food.cookedLiopleurodon.name=Cooked Liopleurodon
-item.genesis.food.rawGigantoraptor.name=Raw Gigantoraptor
-item.genesis.food.cookedGigantoraptor.name=Cooked Gigantoraptor
-
+item.genesis.food.rawLiopleurodon.name=Raw Liopleurodon Fillet
+item.genesis.food.cookedLiopleurodon.name=Cooked Liopleurodon Fillet
+item.genesis.food.rawGigantoraptor.name=Raw Gigantoraptor Thigh
+item.genesis.food.cookedGigantoraptor.name=Cooked Gigantoraptor Thigh
+item.genesis.food.rawClimatius.name=Raw Climatius
+item.genesis.food.cookedClimatius.name=Cooked Climatius
 
 <!-- Other -->
 

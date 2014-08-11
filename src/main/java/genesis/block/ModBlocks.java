@@ -40,6 +40,7 @@ public class ModBlocks {
 	public static Block shale;
 	public static Block octaedrite;
 	public static Block permafrost;
+	public static Block oldRedSandstone;
 	
 	// Ores
 	public static BlockGenesisOre quartzGraniteOre;
@@ -109,6 +110,9 @@ public class ModBlocks {
 		
 		permafrost = new BlockPermafrost().setBlockTextureName("permafrost")
 				.setBlockName(Names.blockPermafrost);
+		
+		oldRedSandstone = new BlockOldRedSandstone().setBlockName(Names.blockOldRedSandstone)
+				.setBlockTextureName("old_red_sandstone");
 		
 		// Ores
 		quartzGraniteOre = (BlockGenesisOre) new BlockGenesisOre(Material.rock, 1, 1, 1)

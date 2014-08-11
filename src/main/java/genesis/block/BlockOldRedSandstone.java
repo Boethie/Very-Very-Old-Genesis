@@ -12,12 +12,12 @@ import cpw.mods.fml.relauncher.SideOnly;
  * @author Arbiter
  *
  */
-public class BlockRedSandstone extends BlockGenesisRock
+public class BlockOldRedSandstone extends BlockGenesisRock
 {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] icons;
 	
-	public BlockRedSandstone()
+	public BlockOldRedSandstone()
 	{
 		super(Material.rock, 1);
 		setHardness(0.8F);

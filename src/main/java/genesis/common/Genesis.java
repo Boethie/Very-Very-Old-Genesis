@@ -38,7 +38,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
-@Mod(modid = Genesis.MOD_ID, name = "Project Genesis", version = Genesis.MOD_VERSION)
+@Mod(modid = Genesis.MOD_ID, name = "Project Genesis", version = Genesis.MOD_VERSION, dependencies = "required-after:Forge")
 public class Genesis {
 
 	@Instance(Genesis.MOD_ID)
@@ -51,7 +51,7 @@ public class Genesis {
 	public static ModMetadata metadata;
 	
 	public static final String MOD_ID = "genesis";
-	public static final String MOD_VERSION = "0.0.0.2";
+	public static final String MOD_VERSION = "@VERSION@";
 	
 	public static HashMap<Class<?>, String> teClassToNameMap;
 	

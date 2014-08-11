@@ -5,12 +5,13 @@
   "description": "WIP! Project Genesis adds a prehistoric dimension, consisting of lush but hostile biomes inhabited by wild creatures and tribes.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://github.com/Anaghold/GenesisMod",
   "updateUrl": "",
   "authors": ["Anaghold"],
   "credits": "The team: Anaghold, Zaggy1024, Toxic Wolf, WThieves, tdriling, kris91268, TheVoid, xLotto22, Sn0w",
-  "logoFile": "/assets/genesis/textures/logo/logo.png",
+  "logoFile": "assets/genesis/textures/logo/logo.png",
   "screenshots": [],
-  "dependencies": []
+  "requiredMods": ["Forge"],
+  "dependencies": ["Forge"]
 }
 ]

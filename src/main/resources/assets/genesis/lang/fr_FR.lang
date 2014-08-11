@@ -25,9 +25,9 @@ tile.genesis.permafrost.name=Pergélisol
 
 <!-- Ores -->
 tile.genesis.ore.quartzGranite.name=Minerai de quartz
-tile.genesis.ore.biotite.name=Minerai de biotite
 tile.genesis.ore.zircon.name=Minerai de zircon
 tile.genesis.ore.garnet.name=Minerai de grenat
+tile.genesis.ore.manganese.name=Minerai de manganèse
 tile.genesis.ore.hematite.name=Minerai d'hématite
 tile.genesis.ore.malachite.name=Minerai de malachite
 tile.genesis.ore.olivine.name=Minerai d'olivine
@@ -116,14 +116,17 @@ tile.genesis.aquatic.algae.bangiomorpha.name=Bangiomorpha
 
 tile.genesis.aquatic.pteridinium.name=Pteridinium
 
+tile.genesis.aquatic.charnia.name=Charnia
+tile.genesis.aquatic.charnia.top.name=Charnia haut
+
 
 <!-- Items -->
 
 <!-- Crafting -->
 item.genesis.quartz.name=Quartz
-item.genesis.biotite.name=Biotite
 item.genesis.zircon.name=Zircon
 item.genesis.garnet.name=Grenat
+item.genesis.manganese.name=Manganèse
 item.genesis.hematite.name=Hématite
 item.genesis.malachite.name=Malachite
 item.genesis.olivine.name=Olivine
@@ -133,7 +136,7 @@ item.genesis.bjuviaSeeds.name=Graines de Bjuvia
 item.genesis.ceratitesShell.name=Coquille de Ceratites
 item.genesis.arthropleuraChitin.name=Chitine d'Arthropleura
 item.genesis.tyrannosaurusTooth.name=Dent de Tyrannosaurus
-item.genesis.utahraptorClaw.name=Griffe de Utahraptor
+item.genesis.utahraptorClaw.name=Griffe d'Utahraptor
 item.genesis.utahraptorFeather.name=Plume d'Utahraptor
 item.genesis.epidexipteryxFeather.name=Plume d'Epidexipteryx
 
@@ -181,14 +184,12 @@ item.genesis.food.rawAphthoroblattina.name=Aphthoroblattina cru
 item.genesis.food.cookedAphthoroblattina.name=Aphthoroblattina cuit
 item.genesis.food.rawCeratites.name=Ceratites cru
 item.genesis.food.cookedCeratites.name=Ceratites cuit
-item.genesis.food.rawMixosaurusFillet.name=Filet de Mixosaurus cru
-item.genesis.food.cookedMixosaurusFillet.name=Filet de Mixosaurus cuit
-item.genesis.food.rawArchaeopteryxThigh.name=Cuisse d'Archaeopteryx crue
-item.genesis.food.cookedArchaeopteryxThigh.name=Cuisse d'Archaeopteryx cuite
-item.genesis.food.rawLiopleurodon.name=Cuisse d'Liopleurodon crue
-item.genesis.food.cookedLiopleurodon.name=Cuisse d'Liopleurodon cuite
-item.genesis.food.rawGigantoraptor.name=Cuisse d'Gigantoraptor crue
-item.genesis.food.cookedGigantoraptor.name=Cuisse d'Gigantoraptor cuite
+item.genesis.food.rawLiopleurodon.name=Filet de Liopleurodon cru
+item.genesis.food.cookedLiopleurodon.name=Filet de Liopleurodon cuit
+item.genesis.food.rawGigantoraptor.name=Cuisse de Gigantoraptor crue
+item.genesis.food.cookedGigantoraptor.name=Cuisse de Gigantoraptor cuite
+item.genesis.food.rawClimatius.name=Climatius crue
+item.genesis.food.cookedClimatius.name=Climatius cuit
 
 <!-- Other -->
 

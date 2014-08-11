@@ -1,5 +1,6 @@
 package genesis.block.aquatic;
 
+import genesis.item.itemblock.ItemBlockCharnia;
 import genesis.item.itemblock.ItemBlockGenesisAlgae;
 import genesis.item.itemblock.ItemBlockGenesisCoral;
 import genesis.item.itemblock.ItemBlockGenesisSponge;
@@ -16,6 +17,9 @@ public final class AquaticBlocks
 	public static BlockGenesisSponge sponge;
 	public static BlockPteridinium pteridinium;
 	
+	public static BlockCharnia charnia;
+	public static BlockCharniaTop charniaTop;
+	
 	private AquaticBlocks() {}
 	
 	public static void init()
@@ -26,7 +30,14 @@ public final class AquaticBlocks
 
 		algae = (BlockGenesisAlgae) new BlockGenesisAlgae().setBlockName(Names.blockAlgae);
 		
-		pteridinium = (BlockPteridinium) new BlockPteridinium().setBlockName(Names.blockPteridinium).setBlockTextureName("pteridinium");
+		pteridinium = (BlockPteridinium) new BlockPteridinium().setBlockName(Names.blockPteridinium)
+				.setBlockTextureName("pteridinium");
+		
+		charnia = (BlockCharnia) new BlockCharnia().setBlockName(Names.blockCharnia)
+				.setBlockTextureName("charnia_bottom");
+		
+		charniaTop = (BlockCharniaTop) new BlockCharniaTop().setBlockName(Names.blockCharniaTop)
+				.setBlockTextureName("charnia_top");
 	}
 	public static void registerBlocks()
 	{
@@ -37,5 +48,9 @@ public final class AquaticBlocks
 		GameRegistry.registerBlock(sponge, ItemBlockGenesisSponge.class, Names.blockSponge);
 		
 		GameRegistry.registerBlock(pteridinium, Names.blockPteridinium);
+		
+		GameRegistry.registerBlock(charnia, ItemBlockCharnia.class, Names.blockCharnia);
+		
+		GameRegistry.registerBlock(charniaTop, Names.blockCharniaTop);
 	}
 }

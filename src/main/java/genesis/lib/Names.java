@@ -56,6 +56,7 @@ public final class Names {
 	public static final String blockCrop = blockPlant + "crop.";
 	public static final String blockFern = blockPlant + "fern.";
 	public static final String itemSeed = blockPlant + "seed.";
+	public static final String blockFlower = blockPlant + "flower.";
 	
 	// Aquatic
 	public static final String blockAquatic = mod + "aquatic.";
@@ -63,6 +64,8 @@ public final class Names {
 	public static final String blockSponge = blockAquatic + "sponge.";
 	public static final String blockAlgae = blockAquatic + "algae.";
 	public static final String blockPteridinium = blockAquatic + "pteridinium";
+	public static final String blockCharnia = blockAquatic + "charnia";
+	public static final String blockCharniaTop = blockCharnia + ".top";
 
 	public static final String blockCalamitesPlant = blockPlant + "calamites";
 
@@ -113,6 +116,9 @@ public final class Names {
 	public static final String itemUtahraptorClaw = mod + "utahraptorClaw";
 	public static final String itemUtahraptorFeather = mod + "utahraptorFeather";
 	public static final String itemEpidexipteryxFeather = mod + "epidexipteryxFeather";
+	
+	public static final String itemCynognathusHide = mod + "cynognathusHide";
+	public static final String itemLeaellynasauraHide = mod + "leaellynasuraHide";
 
 	public static final String itemZircon = mod + "zircon";
 	public static final String itemZirconMaterial = "zircon";
@@ -148,6 +154,8 @@ public final class Names {
     public static final String itemCookedLiopleurodon = itemFood + "cookedLiopleurodon";
     public static final String itemRawGigantoraptor = itemFood + "rawGigantoraptor";
     public static final String itemCookedGigantoraptor = itemFood + "cookedGigantoraptor";
+    public static final String itemRawClimatius = itemFood + "rawClimatius";
+    public static final String itemCookedClimatius = itemFood + "cookedClimatius";
     
     // Fluids
     public static final String fluidKomatiicicLava = "komatiiciclava";
