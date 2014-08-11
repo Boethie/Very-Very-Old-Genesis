@@ -5,6 +5,7 @@ import genesis.block.plants.PlantBlocks;
 import genesis.item.ItemSets.ItemsToolSet;
 import genesis.lib.Names;
 import net.minecraft.init.Items;
+import net.minecraftforge.common.util.EnumHelper;
 
 public class ModItems {
 
