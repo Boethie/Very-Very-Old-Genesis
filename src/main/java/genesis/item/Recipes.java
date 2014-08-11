@@ -26,7 +26,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Recipes {
 	//Items/blocks working as dye
-	public static final Object[] DYE_ITEMS=new Object[]{null,ModItems.hematite,ModItems.malachite};
+	public static final Object[] DYE_ITEMS=new Object[]{ModItems.manganese,ModItems.hematite,ModItems.malachite};
 	public static void adaptNetherQuartzRecipes() {
 		List<IRecipe> recipeList = CraftingManager.getInstance().getRecipeList();
 		ArrayList<IRecipe> addRecipes = new ArrayList();
