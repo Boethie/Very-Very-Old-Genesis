@@ -1,5 +1,6 @@
 package genesis.block.aquatic;
 
+import genesis.item.itemblock.ItemBlockCharnia;
 import genesis.item.itemblock.ItemBlockGenesisAlgae;
 import genesis.item.itemblock.ItemBlockGenesisCoral;
 import genesis.item.itemblock.ItemBlockGenesisSponge;
@@ -48,7 +49,7 @@ public final class AquaticBlocks
 		
 		GameRegistry.registerBlock(pteridinium, Names.blockPteridinium);
 		
-		GameRegistry.registerBlock(charnia, Names.blockCharnia);
+		GameRegistry.registerBlock(charnia, ItemBlockCharnia.class, Names.blockCharnia);
 		
 		GameRegistry.registerBlock(charniaTop, Names.blockCharniaTop);
 	}

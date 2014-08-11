@@ -100,6 +100,8 @@ tile.genesis.plant.fern.matonidium.name=Matonidium
 tile.genesis.plant.fern.astralopteris.name=Astralopteris
 tile.genesis.plant.fern.ruffordia.name=Ruffordia
 
+tile.genesis.plant.flower.mabelia.name=Mabelia
+
 <!-- Aquatic -->
 tile.genesis.aquatic.coral.heliolites.name=Heliolites
 tile.genesis.aquatic.coral.favosites.name=Favosites
@@ -138,6 +140,8 @@ item.genesis.tyrannosaurusTooth.name=Tyrannosaurus Tooth
 item.genesis.utahraptorClaw.name=Utahraptor Claw
 item.genesis.utahraptorFeather.name=Utahraptor Feather
 item.genesis.epidexipteryxFeather.name=Epidexipteryx Feather
+item.genesis.cynognathusHide.name=Cynognathus Hide
+item.genesis.leaellynasauraHide.name=Leaellynasaura Hide
 
 <!-- Tools -->
 item.genesis.knife.granite.name=Granite Knife

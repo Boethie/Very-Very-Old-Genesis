@@ -37,6 +37,9 @@ public class ModItems {
 	public static ItemGenesis utahraptorClaw;
 	public static ItemGenesis utahraptorFeather;
     public static ItemGenesis epidexipteryxFeather;
+   
+    public static ItemGenesis cynognathusHide;
+    public static ItemGenesis leaellynasauraHide;
 
     // Seeds
 	public static ItemGenesisSeed rhizome;
@@ -89,23 +92,43 @@ public class ModItems {
                 EnumHelper.addToolMaterial(Names.itemFlintSharpenedMaterial.toUpperCase(), 1, 403, 8.0F, 1.0F, 5), Names.itemFlintMaterial, Items.flint, Items.stick);
 		
 		// Crafting
-		quartz = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemQuartz).setTextureName("quartz");	
-		zircon = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemZircon).setTextureName("zircon");
-		garnet = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemGarnet).setTextureName("garnet");
-		manganese = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemManganese).setTextureName("manganese");
-		hematite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemHematite).setTextureName("hematite");
-		malachite = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemMalachite).setTextureName("malachite");
-		olivine = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");		
+		quartz = (ItemGenesis) new ItemGenesis()
+			.setUnlocalizedName(Names.itemQuartz).setTextureName("quartz");	
+		zircon = (ItemGenesis) new ItemGenesis()
+			.setUnlocalizedName(Names.itemZircon).setTextureName("zircon");
+		garnet = (ItemGenesis) new ItemGenesis()
+			.setUnlocalizedName(Names.itemGarnet).setTextureName("garnet");
+		manganese = (ItemGenesis) new ItemGenesis()
+			.setUnlocalizedName(Names.itemManganese).setTextureName("manganese");
+		hematite = (ItemGenesis) new ItemGenesis()
+			.setUnlocalizedName(Names.itemHematite).setTextureName("hematite");
+		malachite = (ItemGenesis) new ItemGenesis()
+			.setUnlocalizedName(Names.itemMalachite).setTextureName("malachite");
+		olivine = (ItemGenesis) new ItemGenesis()
+			.setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");		
 		
-		sphenoFiber = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemSphenoFiber).setTextureName("sphenophyllum_fiber");
-		bjuviaSeeds = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemBjuviaSeeds).setTextureName("seeds_bjuvia");
+		sphenoFiber = (ItemGenesis) new ItemGenesis()
+			.setUnlocalizedName(Names.itemSphenoFiber).setTextureName("sphenophyllum_fiber");
+		bjuviaSeeds = (ItemGenesis) new ItemGenesis()
+			.setUnlocalizedName(Names.itemBjuviaSeeds).setTextureName("seeds_bjuvia");
 		
-		ceratitesShell = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemCeratitesShell).setTextureName("ceratites_shell");
-		arthropleuraChitin = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemArthopleuraChitin).setTextureName("arthropleura_chitin");
-		tyrannosaurusTooth = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemTyrannosaurasTooth).setTextureName("tyrannosaurus_tooth");
-		utahraptorClaw = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemUtahraptorClaw).setTextureName("utahraptor_claw");
-		utahraptorFeather = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemUtahraptorFeather).setTextureName("utahraptor_feather");
-        epidexipteryxFeather = (ItemGenesis) new ItemGenesis().setUnlocalizedName(Names.itemEpidexipteryxFeather).setTextureName("epidexipteryx_feather");
+		ceratitesShell = (ItemGenesis) new ItemGenesis()
+			.setUnlocalizedName(Names.itemCeratitesShell).setTextureName("ceratites_shell");
+		arthropleuraChitin = (ItemGenesis) new ItemGenesis()
+			.setUnlocalizedName(Names.itemArthopleuraChitin).setTextureName("arthropleura_chitin");
+		tyrannosaurusTooth = (ItemGenesis) new ItemGenesis()
+			.setUnlocalizedName(Names.itemTyrannosaurasTooth).setTextureName("tyrannosaurus_tooth");
+		utahraptorClaw = (ItemGenesis) new ItemGenesis()
+			.setUnlocalizedName(Names.itemUtahraptorClaw).setTextureName("utahraptor_claw");
+		utahraptorFeather = (ItemGenesis) new ItemGenesis()
+			.setUnlocalizedName(Names.itemUtahraptorFeather).setTextureName("utahraptor_feather");
+        epidexipteryxFeather = (ItemGenesis) new ItemGenesis()
+        	.setUnlocalizedName(Names.itemEpidexipteryxFeather).setTextureName("epidexipteryx_feather");
+        
+        cynognathusHide = (ItemGenesis) new ItemGenesis()
+        	.setUnlocalizedName(Names.itemCynognathusHide).setTextureName("cynognathus_hide");
+        leaellynasauraHide = (ItemGenesis) new ItemGenesis()
+        	.setUnlocalizedName(Names.itemLeaellynasauraHide).setTextureName("leaellynasaura_hide");
 
 		// Seeds
 		rhizome = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.zingiberopsis, 1, 0.5f,true)

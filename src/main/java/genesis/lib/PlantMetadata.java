@@ -29,6 +29,8 @@ public final class PlantMetadata
 	public static final String ARCH_NAME = "archaeopteris", SIGIL_NAME = "sigillaria",
 			LEPID_NAME = "lepidodendron", CORD_NAME = "cordaites", PSAR_NAME = "psaronius",
 			BJUVIA_NAME = "bjuvia", GLOSSO_NAME = "glossopteris", ARAUC_NAME = "auracarioxylon";
+	
+	public static final String MABELIA_NAME = "mabelia";
 
 	public static final ArrayList<String> plantTypes = new ArrayList() {
 		{
@@ -86,6 +88,12 @@ public final class PlantMetadata
 			add(BJUVIA_NAME);
 			add(GLOSSO_NAME);
 			add(ARAUC_NAME);
+		}
+	};
+	
+	public static final ArrayList<String> flowerTypes = new ArrayList() {
+		{
+			add(MABELIA_NAME);
 		}
 	};
 }
