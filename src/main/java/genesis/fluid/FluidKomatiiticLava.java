@@ -1,20 +1,21 @@
-package genesis.block.fluid;
+package genesis.fluid;
 
+import genesis.fluid.block.BlockKomatiiticLava;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
 /**
- * Fluid for {@link BlockKomatiicicLava}.
+ * Fluid for {@link BlockKomatiiticLava}.
  * @author rubensworks
  *
  */
-public class FluidKomatiicicLava extends Fluid {
+public class FluidKomatiiticLava extends Fluid {
 
 	/**
 	 * Make a new instance.
 	 * @param fluidName The fluid name that will be used inside the {@link FluidRegistry}.
 	 */
-	public FluidKomatiicicLava(String fluidName) {
+	public FluidKomatiiticLava(String fluidName) {
 		super(fluidName);
 		FluidRegistry.registerFluid(this);
 		setDensity(1500); // How tick the fluid is, affects movement inside the liquid.

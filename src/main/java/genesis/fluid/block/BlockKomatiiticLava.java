@@ -1,9 +1,10 @@
-package genesis.block.fluid;
+package genesis.fluid.block;
 
 import genesis.block.ModBlocks;
 import genesis.client.event.TextureStitchEventHandler;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
+import genesis.fluid.FluidKomatiiticLava;
 
 import java.util.Random;
 
@@ -21,11 +22,11 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 /**
- * Fluid block for {@link FluidKomatiicicLava}.
+ * Fluid block for {@link FluidKomatiiticLava}.
  * @author rubensworks
  *
  */
-public class BlockKomatiicicLava extends BlockFluidClassic {
+public class BlockKomatiiticLava extends BlockFluidClassic {
 	
 	@SideOnly(Side.CLIENT)
     protected IIcon[] icon;
@@ -36,7 +37,7 @@ public class BlockKomatiicicLava extends BlockFluidClassic {
 	 * @param fluid The fluid to bind with.
 	 * @param material The material of the block.
 	 */
-	public BlockKomatiicicLava(Fluid fluid, Material material) {
+	public BlockKomatiiticLava(Fluid fluid, Material material) {
 		super(fluid, material);
 		setCreativeTab(GenesisTabs.tabGenesisMaterials);
 		disableStats();
@@ -74,11 +75,7 @@ public class BlockKomatiicicLava extends BlockFluidClassic {
 			int ty = y + direction.offsetY;
 			int tz = z + direction.offsetZ;
 			if(world.getBlock(tx, ty, tz) == Blocks.water) {
-				if(this.isSourceBlock(world, x, y, z)) {
-					world.setBlock(x, y, z, ModBlocks.komatiite);
-				} else {
-					world.setBlock(x, y, z, Blocks.cobblestone);
-				}
+				world.setBlock(x, y, z, ModBlocks.komatiite);
 				return;
 			}
 		}

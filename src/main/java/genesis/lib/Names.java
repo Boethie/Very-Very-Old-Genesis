@@ -158,7 +158,8 @@ public final class Names {
     public static final String itemCookedClimatius = itemFood + "cookedClimatius";
     
     // Fluids
-    public static final String fluidKomatiicicLava = "komatiiciclava";
-    public static final String blockKomatiiciLava = mod + "komatiicicLavaBlock";
+    public static final String fluidKomatiicicLava = "komatiiticlava";
+    public static final String blockKomatiiciLava = mod + "komatiiticLavaBlock";
+    public static final String bucketKomatiiciLava = mod + "komatiiticLavaBucket";
     
 }

@@ -2,11 +2,8 @@ package genesis.common;
 
 import genesis.block.ModBlocks;
 import genesis.block.gui.TileEntityCampfire;
-import genesis.block.trees.TreeBlocks;
-import genesis.block.trees.TreeBlocks.TreeBlockType;
-import genesis.block.trees.TreeBlocks.TreeType;
-import genesis.client.event.GuiEventHandler;
 import genesis.entity.ModEntities;
+import genesis.fluid.BucketHandler;
 import genesis.item.ModItems;
 import genesis.lib.ConfigHandler;
 import genesis.lib.GenesisVersion;
@@ -17,9 +14,6 @@ import genesis.world.biome.GenesisBiomes;
 
 import java.util.HashMap;
 
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -96,6 +90,7 @@ public class Genesis {
 
 		//MinecraftForge.EVENT_BUS.register(new GuiEventHandler());
 		MinecraftForge.EVENT_BUS.register(new GenesisEventHandler());
+		MinecraftForge.EVENT_BUS.register(BucketHandler.getInstance());
 		
 		GenesisBiomes.init();
 

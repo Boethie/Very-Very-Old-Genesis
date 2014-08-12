@@ -2,6 +2,7 @@ package genesis.item;
 
 import genesis.block.ModBlocks;
 import genesis.block.plants.PlantBlocks;
+import genesis.fluid.item.ItemGenesisBucket;
 import genesis.item.ItemSets.ItemsToolSet;
 import genesis.lib.Names;
 import net.minecraft.init.Items;
@@ -60,6 +61,9 @@ public class ModItems {
 
     public static ItemGenesisFood rawClimatius;
     public static ItemGenesisFood cookedClimatius;
+    
+    // Buckets
+    public static ItemGenesisBucket komatiiticLavaBucket;
 
     public static void init() {
 		// Tools
@@ -163,6 +167,11 @@ public class ModItems {
                 .setUnlocalizedName(Names.itemRawClimatius).setTextureName("climatius_raw");
         cookedClimatius = (ItemGenesisFood) new ItemGenesisFood(5, 6F)
                 .setUnlocalizedName(Names.itemCookedClimatius).setTextureName("climatius_cooked");
+        
+        // Buckets
+        komatiiticLavaBucket = (ItemGenesisBucket) new ItemGenesisBucket(ModBlocks.komatiiticLava,
+        		ModBlocks.fluidKomatiiticLava).setUnlocalizedName(Names.bucketKomatiiciLava)
+        		.setTextureName("komatiitic_lava_bucket");
 	}
 	
 	public static void registerItems() {
