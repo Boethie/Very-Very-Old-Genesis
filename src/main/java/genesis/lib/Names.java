@@ -25,12 +25,12 @@ public final class Names {
 	public static final String blockFauxAmphibolite = blockRock + "fauxamphibolite";
 	public static final String blockGneiss = blockRock + "gneiss";
 	public static final String blockQuartzite = blockRock + "quartzite";
+    public static final String blockOldRedSandstone = blockRock + "oldRedSandstone";
 	public static final String blockLimestone = blockRock + "limestone";
 	public static final String blockStromatolite = blockRock + "stromatolite";
 	public static final String blockShale = blockRock + "shale";
 	public static final String blockPermafrost = mod + "permafrost";
 	public static final String blockTrondhjemite = blockRock + "trondhjemite";
-	public static final String blockOldRedSandstone = blockRock + "oldRedSandstone";
 
 	// Ores
 	public static final String blockOre = mod + "ore.";
@@ -118,7 +118,7 @@ public final class Names {
 	public static final String itemEpidexipteryxFeather = mod + "epidexipteryxFeather";
 	
 	public static final String itemCynognathusHide = mod + "cynognathusHide";
-	public static final String itemLeaellynasauraHide = mod + "leaellynasuraHide";
+	public static final String itemLeaellynasauraHide = mod + "leaellynasauraHide";
 
 	public static final String itemZircon = mod + "zircon";
 	public static final String itemZirconMaterial = "zircon";

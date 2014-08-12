@@ -40,7 +40,7 @@ public class GenesisVersion
 			{
 				try
 				{
-					URL infoFile = new URL("http://forgemoddev.weebly.com/files/theme/genesis_data.json");
+					URL infoFile = new URL("https://www.dropbox.com/s/ngtsfpfx71m9yua/genesis_data.json?raw=1");
 					InputStream is = infoFile.openStream();
 					String data = new String(ByteStreams.toByteArray(is));
 					is.close();

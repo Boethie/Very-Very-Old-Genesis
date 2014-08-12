@@ -146,17 +146,17 @@ public class ItemSets
         public ItemGenesisSpade spadeChipped;
         public ItemGenesisHoe hoeChipped;
 
-        public ItemGenesisKnife knifeSharpened;
-        public ItemGenesisPickaxe pickaxeSharpened;
-        public ItemGenesisAxe axeSharpened;
-        public ItemGenesisSpade spadeSharpened;
-        public ItemGenesisHoe hoeSharpened;
-
         public ItemGenesisKnife knifePolished;
         public ItemGenesisPickaxe pickaxePolished;
         public ItemGenesisAxe axePolished;
         public ItemGenesisSpade spadePolished;
         public ItemGenesisHoe hoePolished;
+
+        public ItemGenesisKnife knifeSharpened;
+        public ItemGenesisPickaxe pickaxeSharpened;
+        public ItemGenesisAxe axeSharpened;
+        public ItemGenesisSpade spadeSharpened;
+        public ItemGenesisHoe hoeSharpened;
 
         public Object craftingObj;
         public Object craftingHandleObj;
@@ -219,29 +219,29 @@ public class ItemSets
         {
 
             axeCrude.setNextTier(axeChipped);
-            axeChipped.setNextTier(axeSharpened);
-            axeSharpened.setNextTier(axePolished);
-            axePolished.setNextTier(null);
+            axeChipped.setNextTier(axePolished);
+            axePolished.setNextTier(axeSharpened);
+            axeSharpened.setNextTier(null);
 
             hoeCrude.setNextTier(hoeChipped);
-            hoeChipped.setNextTier(hoeSharpened);
-            hoeSharpened.setNextTier(hoePolished);
-            hoePolished.setNextTier(null);
+            hoeChipped.setNextTier(hoePolished);
+            hoePolished.setNextTier(hoeSharpened);
+            hoeSharpened.setNextTier(null);
 
             knifeCrude.setNextTier(knifeChipped);
-            knifeChipped.setNextTier(knifeSharpened);
-            knifeSharpened.setNextTier(knifePolished);
-            knifePolished.setNextTier(null);
+            knifeChipped.setNextTier(knifePolished);
+            knifePolished.setNextTier(knifeSharpened);
+            knifeSharpened.setNextTier(null);
 
             pickaxeCrude.setNextTier(pickaxeChipped);
-            pickaxeChipped.setNextTier(pickaxeSharpened);
             pickaxeChipped.setNextTier(pickaxePolished);
-            pickaxePolished.setNextTier(null);
+            pickaxePolished.setNextTier(pickaxeSharpened);
+            pickaxeSharpened.setNextTier(null);
 
             spadeCrude.setNextTier(spadeChipped);
-            spadeChipped.setNextTier(spadeSharpened);
-            spadeSharpened.setNextTier(spadePolished);
-            spadePolished.setNextTier(null);
+            spadeChipped.setNextTier(spadePolished);
+            spadePolished.setNextTier(spadeSharpened);
+            spadeSharpened.setNextTier(null);
         }
 
         public void registerRecipes()
