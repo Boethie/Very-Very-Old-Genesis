@@ -16,7 +16,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemGenesisHoe extends ItemHoe implements IUpgradeableTool<ItemGenesisHoe>{
+public class ItemGenesisHoe extends ItemHoe {
 	
 	protected String materialName;
 	private ItemGenesisHoe nextTier;
@@ -51,17 +51,5 @@ public class ItemGenesisHoe extends ItemHoe implements IUpgradeableTool<ItemGene
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean p_77624_4_)
     {
         list.add(StatCollector.translateToLocal("tooltip.toolquality") + ": " + StatCollector.translateToLocal(quality.localizeableString));
-    }
-	
-    @Override
-    public void setNextTier(ItemGenesisHoe nextTier)
-    {
-        this.nextTier = nextTier;
-    }
-
-    @Override
-    public ItemGenesisHoe getNextTier()
-    {
-        return nextTier;
     }
 }

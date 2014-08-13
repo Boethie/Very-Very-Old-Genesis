@@ -55,8 +55,8 @@ public class BlockTikiTorch extends BlockGenesis {
 
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister) {
-		iconUpper = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_upper");
-		iconLower = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_lower");
+		iconUpper = iconRegister.registerIcon(getTextureName() + "_upper");
+		iconLower = iconRegister.registerIcon(getTextureName() + "_lower");
 
 		blockIcon = iconUpper;
 	}

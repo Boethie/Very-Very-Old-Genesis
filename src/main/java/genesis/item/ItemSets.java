@@ -1,5 +1,6 @@
 package genesis.item;
 
+import genesis.block.gui.PolissoirRecipes;
 import genesis.block.trees.TreeBlocks;
 
 import java.util.ArrayList;
@@ -217,31 +218,25 @@ public class ItemSets
 
         private void setupHierarchy()
         {
+            PolissoirRecipes.instance().addChippedRecipe(new ItemStack(axeCrude), new ItemStack(axeChipped));
+            PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(axeChipped), new ItemStack(axePolished));
+            PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(axePolished), new ItemStack(axeSharpened));
 
-            axeCrude.setNextTier(axeChipped);
-            axeChipped.setNextTier(axePolished);
-            axePolished.setNextTier(axeSharpened);
-            axeSharpened.setNextTier(null);
+            PolissoirRecipes.instance().addChippedRecipe(new ItemStack(hoeCrude), new ItemStack(hoeChipped));
+            PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(hoeChipped), new ItemStack(hoePolished));
+            PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(hoePolished), new ItemStack(hoeSharpened));
 
-            hoeCrude.setNextTier(hoeChipped);
-            hoeChipped.setNextTier(hoePolished);
-            hoePolished.setNextTier(hoeSharpened);
-            hoeSharpened.setNextTier(null);
+            PolissoirRecipes.instance().addChippedRecipe(new ItemStack(knifeCrude), new ItemStack(knifeChipped));
+            PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(knifeChipped), new ItemStack(knifePolished));
+            PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(knifePolished), new ItemStack(knifeSharpened));
 
-            knifeCrude.setNextTier(knifeChipped);
-            knifeChipped.setNextTier(knifePolished);
-            knifePolished.setNextTier(knifeSharpened);
-            knifeSharpened.setNextTier(null);
+            PolissoirRecipes.instance().addChippedRecipe(new ItemStack(pickaxeCrude), new ItemStack(pickaxeChipped));
+            PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(pickaxeChipped), new ItemStack(pickaxePolished));
+            PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(pickaxePolished), new ItemStack(pickaxeSharpened));
 
-            pickaxeCrude.setNextTier(pickaxeChipped);
-            pickaxeChipped.setNextTier(pickaxePolished);
-            pickaxePolished.setNextTier(pickaxeSharpened);
-            pickaxeSharpened.setNextTier(null);
-
-            spadeCrude.setNextTier(spadeChipped);
-            spadeChipped.setNextTier(spadePolished);
-            spadePolished.setNextTier(spadeSharpened);
-            spadeSharpened.setNextTier(null);
+            PolissoirRecipes.instance().addChippedRecipe(new ItemStack(spadeCrude), new ItemStack(spadeChipped));
+            PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(spadeChipped), new ItemStack(spadePolished));
+            PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(spadePolished), new ItemStack(spadeSharpened));
         }
 
         public void registerRecipes()

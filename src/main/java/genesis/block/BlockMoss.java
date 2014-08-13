@@ -101,10 +101,10 @@ public class BlockMoss extends BlockGrass {
 
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister) {
-		this.blockIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_side");
-		this.iconGrassTop = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_top");
-		this.iconSnowSide = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_side_snowed");
-		this.iconSideOverlay = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_side_overlay");
+		this.blockIcon = iconRegister.registerIcon(getTextureName() + "_side");
+		this.iconGrassTop = iconRegister.registerIcon(getTextureName() + "_top");
+		this.iconSnowSide = iconRegister.registerIcon(getTextureName() + "_side_snowed");
+		this.iconSideOverlay = iconRegister.registerIcon(getTextureName() + "_side_overlay");
 	}
 
 	@Override

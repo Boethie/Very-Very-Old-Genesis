@@ -7,8 +7,9 @@ public final class Names {
 	public static final String mod = Genesis.MOD_ID + ".";
 
 	// ---- Blocks ----
-	public static final String blockTikiTorch = mod + "tikiTorch";
+    public static final String blockTikiTorch = mod + "tikiTorch";
 	public static final String blockCampfire = mod + "campfire";
+    public static final String blockPolissoir = mod + "polissoir";
 
 	// Moss
 	public static final String blockMoss = mod + "moss";
@@ -122,6 +123,7 @@ public final class Names {
 
 	public static final String itemZircon = mod + "zircon";
 	public static final String itemZirconMaterial = "zircon";
+    public static final String itemBrownishFlintPebble = mod + "brownishFlintPebble";
 	public static final String itemQuartz = mod + "quartz";
 	public static final String itemOlivine = mod + "olivine";
 	public static final String itemOlivineMaterial = "olivine";
@@ -158,8 +160,20 @@ public final class Names {
     public static final String itemCookedClimatius = itemFood + "cookedClimatius";
     
     // Fluids
-    public static final String fluidKomatiicicLava = "komatiiticlava";
+    public static final String fluidKomatiicicLava = mod + "komatiiticlava";
     public static final String blockKomatiiciLava = mod + "komatiiticLavaBlock";
     public static final String bucketKomatiiciLava = mod + "komatiiticLavaBucket";
-    
+
+    // --- Other ---
+    // Containers
+    public static final String container = "container." + mod;
+    public static final String containerCampfire = container + "campfire";
+    public static final String containerPolissoir = container + "polissoir";
+
+    // Creative Tabs
+    public static final String tabBlock = mod + "tabBlock";
+    public static final String tabDecorations = mod + "tabDecorations";
+    public static final String tabTools = mod + "tabTools";
+    public static final String tabFood = mod + "tabFood";
+    public static final String tabMaterials = mod + "tabMaterials";
 }

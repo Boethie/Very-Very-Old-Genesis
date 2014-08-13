@@ -1,5 +1,6 @@
 package genesis.block.gui;
 
+import net.minecraft.client.resources.I18n;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.gui.GuiButton;
@@ -8,28 +9,19 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
-import genesis.block.ModBlocks;
 import genesis.common.Genesis;
 
 public class ContainerGuiCampfire extends GuiContainer {
 
-	public static final ResourceLocation backgroundLocation = new ResourceLocation(Genesis.MOD_ID + ":textures/gui/campfire.png");
+	public static final ResourceLocation campfireGuiTextures = new ResourceLocation(Genesis.MOD_ID, "textures/gui/container/campfire.png");
+	private TileEntityCampfire campfire;
 
-	InventoryPlayer playerInventory;
-	TileEntityCampfire campfireEnt;
-
-	protected ItemStack titleItem;
-
-	public ContainerGuiCampfire(InventoryPlayer playerInv, TileEntityCampfire campfire) {
-		super(new ContainerCampfire(playerInv, campfire));
-
-		playerInventory = playerInv;
-		campfireEnt = campfire;
-		titleItem = new ItemStack(ModBlocks.campfire);
+	public ContainerGuiCampfire(InventoryPlayer playerInv, TileEntityCampfire tileCampfire) {
+		super(new ContainerCampfire(playerInv, tileCampfire));
+		campfire = tileCampfire;
 	}
 
 	@Override
@@ -44,8 +36,9 @@ public class ContainerGuiCampfire extends GuiContainer {
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		fontRendererObj.drawString(titleItem.getDisplayName(), 8, 6, 4210752);
-		fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, ySize - 93, 4210752);
+        String s = campfire.hasCustomInventoryName() ? campfire.getInventoryName() : I18n.format(campfire.getInventoryName());
+		fontRendererObj.drawString(s, xSize / 2 - fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
+		fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, ySize - 96 + 2, 4210752);
 
 		/*
 		 * GL11.glTranslatef(-guiLeft, -guiTop, 0); // Undo GUI translation for
@@ -81,26 +74,26 @@ public class ContainerGuiCampfire extends GuiContainer {
 		int originX = (width - xSize) / 2;
 		int originY = (height - ySize) / 2;
 
-		mc.renderEngine.bindTexture(backgroundLocation);
+		mc.renderEngine.bindTexture(campfireGuiTextures);
 		drawTexturedModalRect(originX, originY, 0, 0, xSize, ySize);
 
 		// Burn progress
 		drawImage(originX + 47, originY + 33, 204, 0, 18, 18, 256, 256);
 
-		int fireHeight = campfireEnt.getBurnTimeRemainingScaled(13);
+		int fireHeight = campfire.getBurnTimeRemainingScaled(13);
 
 		if (fireHeight >= 13)
 			fireHeight = 18;
 
 		drawImage(originX + 47, originY + 48 - fireHeight, // Pos
-				204, 34 - fireHeight, // U, V
-				18, fireHeight + 3, // W, H
-				256, 256); // Tex
+                204, 34 - fireHeight, // U, V
+                18, fireHeight + 3, // W, H
+                256, 256); // Tex
 
 		// Cook progress
 		drawImage(originX + 72, originY + 33, 229, 0, 22, 18, 256, 256);
 
-		int cookWidth = campfireEnt.getCookProgressScaled(22);
+		int cookWidth = campfire.getCookProgressScaled(22);
 		drawImage(originX + 72, originY + 33, // Pos
 				229, 19, // U, V
 				cookWidth, 18, // W, H
@@ -114,7 +107,7 @@ public class ContainerGuiCampfire extends GuiContainer {
 			int y = originY + slot.yDisplayPosition - 1;
 
 			if (slot instanceof SlotFurnace) {
-				mc.renderEngine.bindTexture(backgroundLocation);
+				mc.renderEngine.bindTexture(campfireGuiTextures);
 				drawImage(x - 4, y - 4, 177, 0, 26, 26, 256, 256);
 				mc.renderEngine.bindTexture(statIcons);
 			} else

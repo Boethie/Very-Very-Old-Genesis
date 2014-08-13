@@ -9,7 +9,7 @@
   "updateUrl": "",
   "authors": ["Anaghold"],
   "credits": "The team: Anaghold, Zaggy1024, Toxic Wolf, WThieves, tdriling, kris91268, TheVoid, xLotto22, Sn0w",
-  "logoFile": "assets/genesis/textures/logo/logo.png",
+  "logoFile": "assets/genesis/textures/gui/logo.png",
   "screenshots": [],
   "requiredMods": ["Forge"],
   "dependencies": ["Forge"]

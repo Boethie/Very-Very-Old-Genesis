@@ -39,6 +39,8 @@ public class ModItems {
     public static ItemGenesis cynognathusHide;
     public static ItemGenesis leaellynasauraHide;
 
+    public static ItemGenesis brownishFlintPebble;
+
     // Seeds
 	public static ItemGenesisSeed rhizome;
 	public static ItemGenesisSeed sphenoSpores;
@@ -93,7 +95,9 @@ public class ModItems {
                 EnumHelper.addToolMaterial(Names.itemFlintSharpenedMaterial.toUpperCase(), 1, 403, 8.0F, 1.0F, 5), Names.itemFlintMaterial, Items.flint, Items.stick);
 		
 		// Crafting
-		quartz = (ItemGenesis) new ItemGenesis()
+        brownishFlintPebble = (ItemGenesis) new ItemGenesis()
+            .setUnlocalizedName(Names.itemBrownishFlintPebble).setTextureName("brownish_flint_pebble");
+        quartz = (ItemGenesis) new ItemGenesis()
 			.setUnlocalizedName(Names.itemQuartz).setTextureName("quartz");	
 		zircon = (ItemGenesis) new ItemGenesis()
 			.setUnlocalizedName(Names.itemZircon).setTextureName("zircon");
@@ -106,10 +110,13 @@ public class ModItems {
 		malachite = (ItemGenesis) new ItemGenesis()
 			.setUnlocalizedName(Names.itemMalachite).setTextureName("malachite");
 		olivine = (ItemGenesis) new ItemGenesis()
-			.setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");		
-		
+			.setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");
+
+        sphenoSpores = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.sphenophyllum,false)
+                .setUnlocalizedName(Names.itemSphenoSpores).setTextureName("sphenophyllum_spores");
 		sphenoFiber = (ItemGenesis) new ItemGenesis()
 			.setUnlocalizedName(Names.itemSphenoFiber).setTextureName("sphenophyllum_fiber");
+
 		bjuviaSeeds = (ItemGenesis) new ItemGenesis()
 			.setUnlocalizedName(Names.itemBjuviaSeeds).setTextureName("seeds_bjuvia");
 		
@@ -131,11 +138,8 @@ public class ModItems {
         leaellynasauraHide = (ItemGenesis) new ItemGenesis()
         	.setUnlocalizedName(Names.itemLeaellynasauraHide).setTextureName("leaellynasaura_hide");
 
-		// Seeds
-		rhizome = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.zingiberopsis, 1, 0.5f,true)
+        rhizome = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.zingiberopsis, 1, 0.5f,true)
 				.setUnlocalizedName(Names.itemRhizome).setTextureName("zingiberopsis_rhizome");
-		sphenoSpores = (ItemGenesisSeed) new ItemGenesisSeed(PlantBlocks.sphenophyllum,false)
-				.setUnlocalizedName(Names.itemSphenoSpores).setTextureName("sphenophyllum_spores");
 		
 		// Foods
 		rawEryops = (ItemGenesisFood) new ItemGenesisFood(3, 1.8F)

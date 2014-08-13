@@ -3,7 +3,6 @@ package genesis.block.gui;
 import genesis.block.ModBlocks;
 import genesis.client.renderer.BlockCampfireRenderer;
 import genesis.common.Genesis;
-import genesis.common.GenesisGuiHandler;
 import genesis.common.GenesisTabs;
 
 import java.util.List;
@@ -30,6 +29,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.GameRegistry;
 
+import static genesis.common.GenesisGuiHandler.Element.CAMPFIRE;
+
 public class BlockCampfire extends BlockContainer {
 
 	public static final int DIR_BITS = 7;
@@ -55,8 +56,8 @@ public class BlockCampfire extends BlockContainer {
 
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister) {
-		poleIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":campfire_pole");
-		poleVIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":campfire_v_pole");
+		poleIcon = iconRegister.registerIcon(getTextureName() + "_pole");
+		poleVIcon = iconRegister.registerIcon(getTextureName() + "_v_pole");
 
 		blockIcon = ModBlocks.granite.getIcon(0, 0);
 	}
@@ -310,7 +311,7 @@ public class BlockCampfire extends BlockContainer {
 
 			return true;
 		} else {
-			player.openGui(Genesis.instance, GenesisGuiHandler.GUI_CAMPFIRE, world, x, y, z);
+			player.openGui(Genesis.instance, CAMPFIRE.getId(), world, x, y, z);
 
 			return true;
 		}

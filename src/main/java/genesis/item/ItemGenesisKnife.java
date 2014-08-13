@@ -35,7 +35,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemGenesisKnife extends Item implements IUpgradeableTool<ItemGenesisKnife>{
+public class ItemGenesisKnife extends Item {
 
 	private float weaponDamage;
 	private final Item.ToolMaterial toolMaterial;
@@ -152,18 +152,6 @@ public class ItemGenesisKnife extends Item implements IUpgradeableTool<ItemGenes
 	{
 	    list.add(StatCollector.translateToLocal("tooltip.toolquality") + ": " + StatCollector.translateToLocal(quality.localizeableString));
 	}
-	
-    @Override
-    public void setNextTier(ItemGenesisKnife nextTier)
-    {
-        this.nextTier = nextTier;
-    }
-
-    @Override
-    public ItemGenesisKnife getNextTier()
-    {
-        return this.nextTier;
-    }
     
     @Override
     public boolean itemInteractionForEntity(ItemStack itemstack, EntityPlayer player, EntityLivingBase entity)

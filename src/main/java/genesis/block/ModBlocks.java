@@ -2,6 +2,7 @@ package genesis.block;
 
 import genesis.block.aquatic.AquaticBlocks;
 import genesis.block.gui.BlockCampfire;
+import genesis.block.gui.BlockPolissoir;
 import genesis.block.plants.PlantBlocks;
 import genesis.block.trees.TreeBlocks;
 import genesis.common.Genesis;
@@ -23,6 +24,7 @@ public class ModBlocks {
 
 	public static Block moss;
 	public static BlockCampfire campfire;
+    public static Block polissoir;
 	public static Block tikiTorch;
 	public static BlockPortalGenesis portal;
 	
@@ -57,16 +59,24 @@ public class ModBlocks {
 	
 	
 	public static void init() {
-		moss = new BlockMoss().setBlockTextureName("moss")
+		moss = new BlockMoss()
+                .setBlockTextureName(Genesis.MOD_ID + ":moss")
 				.setBlockName(Names.blockMoss);
 				
-		campfire = (BlockCampfire) new BlockCampfire().setBlockTextureName("campfire")
+		campfire = (BlockCampfire) new BlockCampfire()
+                .setBlockTextureName(Genesis.MOD_ID + ":campfire")
 				.setBlockName(Names.blockCampfire);
-				
-		tikiTorch = new BlockTikiTorch().setBlockTextureName("tiki_torch")
+
+        polissoir = new BlockPolissoir()
+                .setBlockTextureName("stone")
+                .setBlockName(Names.blockPolissoir);
+
+		tikiTorch = new BlockTikiTorch()
+                .setBlockTextureName(Genesis.MOD_ID + ":tiki_torch")
 				.setBlockName(Names.blockTikiTorch);
 		
-		portal = (BlockPortalGenesis) new BlockPortalGenesis().setBlockTextureName(Genesis.MOD_ID + ":genesis_portal")
+		portal = (BlockPortalGenesis) new BlockPortalGenesis()
+                .setBlockTextureName(Genesis.MOD_ID + ":genesis_portal")
 				.setBlockName(Names.blockPortal);
 
 		// Rocks

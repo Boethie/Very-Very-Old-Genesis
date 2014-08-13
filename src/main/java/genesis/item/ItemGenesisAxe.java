@@ -16,7 +16,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemGenesisAxe extends ItemAxe implements IUpgradeableTool<ItemGenesisAxe>{
+public class ItemGenesisAxe extends ItemAxe {
 	
 	protected String materialName;
 	private ItemGenesisAxe nextTier;
@@ -52,17 +52,5 @@ public class ItemGenesisAxe extends ItemAxe implements IUpgradeableTool<ItemGene
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean p_77624_4_)
     {
         list.add(StatCollector.translateToLocal("tooltip.toolquality") + ": " + StatCollector.translateToLocal(quality.localizeableString));
-    }
-    
-	@Override
-	public void setNextTier(ItemGenesisAxe pickaxe)
-    {
-        this.nextTier = pickaxe;
-    }
-    
-    @Override
-    public ItemGenesisAxe getNextTier()
-    {
-        return this.nextTier;
     }
 }

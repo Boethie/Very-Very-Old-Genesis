@@ -1,7 +1,9 @@
 package genesis.common;
 
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import genesis.block.ModBlocks;
 import genesis.block.gui.TileEntityCampfire;
+import genesis.block.gui.TileEntityPolissoir;
 import genesis.entity.ModEntities;
 import genesis.fluid.BucketHandler;
 import genesis.item.ModItems;
@@ -46,8 +48,8 @@ public class Genesis {
 	
 	public static final String MOD_ID = "genesis";
 	public static final String MOD_VERSION = "@VERSION@";
-	
-	public static HashMap<Class<?>, String> teClassToNameMap;
+
+	public static HashMap<Class<? extends TileEntity>, String> teClassToNameMap;
 	
 	public static int dimensionID = DimensionManager.getNextFreeDimId();
 
@@ -77,11 +79,9 @@ public class Genesis {
 
 		ModEntities.init();
 		LogHelper.log(Level.INFO, "Registered Entities");
-		
-		/* When retrieving static fields via reflection, it is unnecessary to pass an actual instance of the class */
-		teClassToNameMap = ReflectionHelper.getPrivateValue(TileEntity.class, null, "classToNameMap", "field_70323_b");
 
-		GameRegistry.registerTileEntity(TileEntityCampfire.class, MOD_ID + ".TileEntityCampfire");
+		GameRegistry.registerTileEntity(TileEntityCampfire.class, MOD_ID + ".Campfire");
+        GameRegistry.registerTileEntity(TileEntityPolissoir.class, MOD_ID + ".Polissoir");
 	}
 
 	@EventHandler
@@ -101,4 +101,10 @@ public class Genesis {
 
 		proxy.init();
 	}
+
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent evt) {
+		/* When retrieving static fields via reflection, it is unnecessary to pass an actual instance of the class */
+        teClassToNameMap = ReflectionHelper.getPrivateValue(TileEntity.class, null, "classToNameMap", "field_70323_b");
+    }
 }

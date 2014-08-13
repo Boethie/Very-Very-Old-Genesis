@@ -1,6 +1,7 @@
 package genesis.block.gui;
 
 import genesis.common.Genesis;
+import genesis.lib.Names;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -18,9 +19,6 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public class TileEntityCampfire extends TileEntityFurnace {
-
-	public BlockCampfire blockCampfire;
-
 	protected ItemStack[] inventory = new ItemStack[3];
 	protected boolean wasBurning = false;
 
@@ -30,16 +28,6 @@ public class TileEntityCampfire extends TileEntityFurnace {
 
 	public TileEntityCampfire() {
 		super();
-	}
-
-	@Override
-	public Block getBlockType() {
-		super.getBlockType();
-
-		if (blockCampfire == null)
-			blockCampfire = (BlockCampfire) blockType;
-
-		return blockType;
 	}
 
 	public boolean canSmeltItemType(ItemStack stack) {
@@ -186,6 +174,7 @@ public class TileEntityCampfire extends TileEntityFurnace {
 			boolean burning = isBurning();
 
 			if (wasBurning != burning) {
+                BlockCampfire blockCampfire = (BlockCampfire) worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord);
 				worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, blockCampfire.setFireLit(worldObj.getBlockMetadata(xCoord, yCoord, zCoord), burning), 2);
 
 				invChange = true;
@@ -290,7 +279,7 @@ public class TileEntityCampfire extends TileEntityFurnace {
 
 	@Override
 	public String getInventoryName() {
-		return Genesis.MOD_ID + ".TileEntityCampfire";
+		return Names.containerCampfire;
 	}
 
 	@Override
@@ -320,23 +309,23 @@ public class TileEntityCampfire extends TileEntityFurnace {
 		yCoord = compound.getInteger("y");
 		zCoord = compound.getInteger("z");
 
-		NBTTagList tagList = compound.getTagList("items", 10);
+		NBTTagList tagList = compound.getTagList("Items", 10);
 		inventory = new ItemStack[getSizeInventory()];
 
 		for (int i = 0; i < tagList.tagCount(); ++i) {
-			NBTTagCompound itemCompound = (NBTTagCompound) tagList.getCompoundTagAt(i);
-			byte slot = itemCompound.getByte("slot");
+			NBTTagCompound itemCompound = tagList.getCompoundTagAt(i);
+			byte slot = itemCompound.getByte("Slot");
 
 			if (slot >= 0 && slot < inventory.length)
 				inventory[slot] = ItemStack.loadItemStackFromNBT(itemCompound);
 		}
 
-		furnaceBurnTime = compound.getInteger("burnTime");
-		furnaceCookTime = compound.getInteger("cookTime");
+		furnaceBurnTime = compound.getInteger("BurnTime");
+		furnaceCookTime = compound.getInteger("CookTime");
 		currentItemBurnTime = getItemBurnTime(inventory[1]);
 
-		if (compound.hasKey("customName"))
-			customName = compound.getString("customName");
+		if (compound.hasKey("CustomName"))
+			customName = compound.getString("CustomName");
 	}
 
 	@Override
@@ -346,8 +335,8 @@ public class TileEntityCampfire extends TileEntityFurnace {
 		compound.setInteger("y", yCoord);
 		compound.setInteger("z", zCoord);
 
-		compound.setInteger("burnTime", furnaceBurnTime);
-		compound.setInteger("cookTime", furnaceCookTime);
+		compound.setInteger("BurnTime", furnaceBurnTime);
+		compound.setInteger("CookTime", furnaceCookTime);
 
 		NBTTagList itemList = new NBTTagList();
 		int i = 0;
@@ -355,7 +344,7 @@ public class TileEntityCampfire extends TileEntityFurnace {
 		for (ItemStack stack : inventory) {
 			if (stack != null) {
 				NBTTagCompound itemComp = new NBTTagCompound();
-				itemComp.setByte("slot", (byte) i);
+				itemComp.setByte("Slot", (byte) i);
 				stack.writeToNBT(itemComp);
 
 				itemList.appendTag(itemComp);
@@ -364,10 +353,10 @@ public class TileEntityCampfire extends TileEntityFurnace {
 			i++;
 		}
 
-		compound.setTag("items", itemList);
+		compound.setTag("Items", itemList);
 
 		if (hasCustomInventoryName())
-			compound.setString("customName", customName);
+			compound.setString("CustomName", customName);
 	}
 
 	@Override

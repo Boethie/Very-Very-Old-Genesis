@@ -52,14 +52,4 @@ public class ItemGenesisPickaxe extends ItemPickaxe {
     {
         list.add(StatCollector.translateToLocal("tooltip.toolquality") + ": " + StatCollector.translateToLocal(quality.localizeableString));
     }
-	
-	public void setNextTier(ItemGenesisPickaxe pickaxe)
-	{
-	    this.nextTier = pickaxe;
-	}
-	
-	public ItemGenesisPickaxe getNextTier()
-	{
-	    return this.nextTier;
-	}
 }

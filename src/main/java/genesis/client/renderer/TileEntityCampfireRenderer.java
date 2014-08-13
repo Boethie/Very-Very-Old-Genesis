@@ -2,6 +2,7 @@ package genesis.client.renderer;
 
 import java.util.Random;
 
+import genesis.block.ModBlocks;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.block.Block;
@@ -63,11 +64,9 @@ public class TileEntityCampfireRenderer extends TileEntitySpecialRenderer {
 		GL11.glPushMatrix();
 		GL11.glTranslated(x + 0.5, y + 1, z + 0.5);
 
-		campfire.getBlockType();
+		Random blockRand = ModBlocks.campfire.getRandomAt(campfire.getWorldObj(), campfire.xCoord, campfire.yCoord, campfire.zCoord);
 
-		Random blockRand = campfire.blockCampfire.getRandomAt(campfire.getWorldObj(), campfire.xCoord, campfire.yCoord, campfire.zCoord);
-
-		GL11.glRotatef(campfire.blockCampfire.getBlockRotationAt(campfire.getWorldObj(), campfire.xCoord, campfire.yCoord, campfire.zCoord) - 90, 0, 1, 0);
+		GL11.glRotatef(ModBlocks.campfire.getBlockRotationAt(campfire.getWorldObj(), campfire.xCoord, campfire.yCoord, campfire.zCoord) - 90, 0, 1, 0);
 
 		model.stick.rotationPointY = 0.75F;
 		model.stick.rotateAngleX = 0;

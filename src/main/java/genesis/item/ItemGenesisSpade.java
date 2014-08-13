@@ -16,7 +16,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemGenesisSpade extends ItemSpade implements IUpgradeableTool<ItemGenesisSpade>{
+public class ItemGenesisSpade extends ItemSpade {
 	
 	protected String materialName;
 	private ItemGenesisSpade nextTier;
@@ -51,17 +51,5 @@ public class ItemGenesisSpade extends ItemSpade implements IUpgradeableTool<Item
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean p_77624_4_)
     {
         list.add(StatCollector.translateToLocal("tooltip.toolquality") + ": " + StatCollector.translateToLocal(quality.localizeableString));
-    }
-	
-    @Override
-    public void setNextTier(ItemGenesisSpade nextTier)
-    {
-        this.nextTier = nextTier;
-    }
-
-    @Override
-    public ItemGenesisSpade getNextTier()
-    {
-        return this.nextTier;
     }
 }
