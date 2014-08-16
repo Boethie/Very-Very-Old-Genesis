@@ -1,5 +1,5 @@
 {
-	"step.moss": {
+  "step.moss": {
     "category": "neutral",
     "sounds": [
       "moss_step1",
@@ -9,7 +9,7 @@
     ]
   }, 
 
-  	"dig.moss": {
+  "dig.moss": {
     "category": "block",
     "sounds": [
       "moss_dig1",
@@ -19,7 +19,7 @@
     ]
   },
 
-    "step.rottenLog": {
+  "step.rottenLog": {
     "category": "block",
     "sounds": [
       "rotten_log_step1",
@@ -29,7 +29,7 @@
     ]
   },
 
-    "dig.rottenLog": {
+  "dig.rottenLog": {
     "category": "block",
     "sounds": [
       "rotten_log_strike1",
@@ -38,7 +38,7 @@
     ]
   },
 
-    "dig.fern": {
+  "dig.fern": {
     "category": "block",
     "sounds": [
       "fern_step1",
@@ -54,6 +54,20 @@
       "calamites_break1",
       "calamites_break2",
       "calamites_break3"
+    ]
+  },
+
+  "polissoir.chipped": {
+    "category": "neutral",
+    "sounds": [
+      "polissoir_chipped"
+    ]
+  },
+
+  "polissoir.polished": {
+    "category": "neutral",
+    "sounds": [
+      "polissoir_polished"
     ]
   }
 }

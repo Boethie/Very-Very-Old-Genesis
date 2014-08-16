@@ -4,12 +4,12 @@ import net.minecraft.item.ItemStack;
 
 public interface IRecipeWithDefault {
 
-	int getRecipeCount();
+    int getRecipeCount();
 
-	int getRecipeWidth(int recipe);
-	
-	ItemStack[] getDefaultRecipe(int recipe, ItemStack craftStack);
+    int getRecipeWidth(int recipe);
 
-	ItemStack getOutput(int recipe);
-	
+    ItemStack[] getDefaultRecipe(int recipe, ItemStack craftStack);
+
+    ItemStack getOutput(int recipe);
+
 }

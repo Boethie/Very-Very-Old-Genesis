@@ -2,11 +2,14 @@ package genesis.block.gui;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -26,6 +29,15 @@ public class BlockPolissoir extends BlockContainer {
         setCreativeTab(GenesisTabs.tabGenesisDecoration);
     }
 
+    public static void updatePolissoirBlockState(World world, int x, int y, int z) {
+        TileEntity tileentity = world.getTileEntity(x, y, z);
+
+        if (tileentity != null) {
+            tileentity.validate();
+            world.setTileEntity(x, y, z, tileentity);
+        }
+    }
+
     @Override
     public Block setBlockName(String unlocName) {
         GameRegistry.registerBlock(this, unlocName);
@@ -33,19 +45,25 @@ public class BlockPolissoir extends BlockContainer {
     }
 
     @Override
-    public int getRenderType() {
-        return renderId;
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister iconRegister) {
+        this.blockIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName());
     }
 
     @Override
-    public boolean isOpaqueCube() {
-        return false;
+    public int getRenderType() {
+        return renderId;
     }
 
     /*@Override
     public boolean renderAsNormalBlock() {
         return false;
     }*/
+
+    @Override
+    public boolean isOpaqueCube() {
+        return false;
+    }
 
     @Override
     public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
@@ -108,14 +126,5 @@ public class BlockPolissoir extends BlockContainer {
     @Override
     public int getComparatorInputOverride(World world, int x, int y, int z, int par5) {
         return Container.calcRedstoneFromInventory((IInventory) world.getTileEntity(x, y, z));
-    }
-
-    public static void updatePolissoirBlockState(World world, int x, int y, int z) {
-        TileEntity tileentity = world.getTileEntity(x, y, z);
-
-        if (tileentity != null) {
-            tileentity.validate();
-            world.setTileEntity(x, y, z, tileentity);
-        }
     }
 }

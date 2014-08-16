@@ -1,17 +1,17 @@
 package genesis.lib;
 
-import java.io.File;
-
 import net.minecraftforge.common.config.Configuration;
+
+import java.io.File;
 
 public class ConfigHandler {
 
-	public static void init(File configFile) {
-		Configuration config = new Configuration(configFile);
-		config.load();
+    public static void init(File configFile) {
+        Configuration config = new Configuration(configFile);
+        config.load();
 
 		/*
-		for (int i = 0; i < IDs.TREE_ID_SET_SIZE; i++) {
+        for (int i = 0; i < IDs.TREE_ID_SET_SIZE; i++) {
 			try {
 				IDs.blockLogID.setID(i, config.getBlock(Names.blockLogGenesis + i, IDs.blockLogID.getID(i)).getInt());
 				IDs.blockSaplingID.setID(i, config.getBlock(Names.blockSaplingGenesis + i, IDs.blockSaplingID.getID(i)).getInt());
@@ -22,6 +22,6 @@ public class ConfigHandler {
 		}
 		 */
 
-		config.save();
-	}
+        config.save();
+    }
 }

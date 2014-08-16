@@ -172,11 +172,11 @@ item.genesis.tool.shovel.limestone.name=Limestone Shovel
 item.genesis.tool.axe.limestone.name=Limestone Axe
 item.genesis.tool.hoe.limestone.name=Limestone Hoe
 
-item.genesis.knife.flint.name=Brownish Flint Knife
-item.genesis.tool.pickaxe.flint.name=Brownish Flint Pickaxe
-item.genesis.tool.shovel.flint.name=Brownish Flint Shovel
-item.genesis.tool.axe.flint.name=Brownish Flint Axe
-item.genesis.tool.hoe.flint.name=Brownish Flint Hoe
+item.genesis.knife.brownishFlint.name=Brownish Flint Knife
+item.genesis.tool.pickaxe.brownishFlint.name=Brownish Flint Pickaxe
+item.genesis.tool.shovel.brownishFlint.name=Brownish Flint Shovel
+item.genesis.tool.axe.brownishFlint.name=Brownish Flint Axe
+item.genesis.tool.hoe.brownishFlint.name=Brownish Flint Hoe
 
 tooltip.toolquality=Tool Quality
 toolquality.crude=Crude
@@ -199,7 +199,7 @@ item.genesis.food.rawClimatius.name=Raw Climatius
 item.genesis.food.cookedClimatius.name=Cooked Climatius
 
 <!-- Fluids -->
-fluid.genesis.komatiiticlava=Komatiitic Lava
+fluid.genesis.komatiiticLava=Komatiitic Lava
 item.genesis.komatiiticLavaBucket.name=Komatiitic Lava Bucket
 tile.genesis.komatiiticLavaBlock.name=Komatiitic Lava
 

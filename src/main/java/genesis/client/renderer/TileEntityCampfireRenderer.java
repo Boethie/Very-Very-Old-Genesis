@@ -1,10 +1,8 @@
 package genesis.client.renderer;
 
-import java.util.Random;
-
 import genesis.block.ModBlocks;
-import org.lwjgl.opengl.GL11;
-
+import genesis.block.gui.ModelCampfireTE;
+import genesis.block.gui.TileEntityCampfire;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -17,107 +15,107 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.IItemRenderer.ItemRenderType;
 import net.minecraftforge.client.MinecraftForgeClient;
-import genesis.block.gui.ModelCampfireTE;
-import genesis.block.gui.TileEntityCampfire;
-import genesis.client.ClientProxy;
+import org.lwjgl.opengl.GL11;
+
+import java.util.Random;
 
 public class TileEntityCampfireRenderer extends TileEntitySpecialRenderer {
 
-	public static final ResourceLocation RES_CAMPFIRE_MODEL = new ResourceLocation("genesis:textures/blocks/campfire_model.png");
+    public static final ResourceLocation RES_CAMPFIRE_MODEL = new ResourceLocation("genesis:textures/blocks/campfire_model.png");
 
-	public ModelCampfireTE model;
+    public ModelCampfireTE model;
 
-	public TileEntityCampfireRenderer() {
-		model = new ModelCampfireTE();
-	}
+    public TileEntityCampfireRenderer() {
+        model = new ModelCampfireTE();
+    }
 
-	protected void renderItemStack(ItemStack stack) {
-		float scale = 0.375F;
-		GL11.glScaled(scale, scale, scale);
+    protected void renderItemStack(ItemStack stack) {
+        float scale = 0.375F;
+        GL11.glScaled(scale, scale, scale);
 
-		Item item = stack.getItem();
-		IIcon icon = stack.getIconIndex();
-		
-		int passes = 1;
+        Item item = stack.getItem();
+        IIcon icon = stack.getIconIndex();
 
-		IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(stack, ItemRenderType.EQUIPPED);
+        int passes = 1;
 
-		if (customRenderer == null && (stack.getItemSpriteNumber() != 0 || !RenderBlocks.renderItemIn3d(Block.getBlockFromItem(stack.getItem()).getRenderType()))) {
-			GL11.glScalef(1, 1, 3);
-			GL11.glTranslatef(0.53125F, -0.3125F, 0.05F);
-			GL11.glRotatef(-335, 0, 0, 1);
-			GL11.glRotatef(-50, 0, 1, 0);
-		} else
-			GL11.glScalef(1.5F, 1.5F, 1.5F);
+        IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(stack, ItemRenderType.EQUIPPED);
 
-		if (item.requiresMultipleRenderPasses())
-			passes = item.getRenderPasses(stack.getItemDamage());
+        if (customRenderer == null && (stack.getItemSpriteNumber() != 0 || !RenderBlocks.renderItemIn3d(Block.getBlockFromItem(stack.getItem()).getRenderType()))) {
+            GL11.glScalef(1, 1, 3);
+            GL11.glTranslatef(0.53125F, -0.3125F, 0.05F);
+            GL11.glRotatef(-335, 0, 0, 1);
+            GL11.glRotatef(-50, 0, 1, 0);
+        } else
+            GL11.glScalef(1.5F, 1.5F, 1.5F);
 
-		for (int pass = 0; pass < passes; pass++)
-			Minecraft.getMinecraft().entityRenderer.itemRenderer.renderItem(Minecraft.getMinecraft().thePlayer, stack, pass, ItemRenderType.EQUIPPED);
-	}
+        if (item.requiresMultipleRenderPasses())
+            passes = item.getRenderPasses(stack.getItemDamage());
 
-	/**
-	 * Renders the TileEntity for the chest at a position.
-	 */
-	public void renderTileEntityCampfireAt(TileEntityCampfire campfire, double x, double y, double z, float partialTick) {
-		GL11.glPushMatrix();
-		GL11.glTranslated(x + 0.5, y + 1, z + 0.5);
+        for (int pass = 0; pass < passes; pass++)
+            Minecraft.getMinecraft().entityRenderer.itemRenderer.renderItem(Minecraft.getMinecraft().thePlayer, stack, pass, ItemRenderType.EQUIPPED);
+    }
 
-		Random blockRand = ModBlocks.campfire.getRandomAt(campfire.getWorldObj(), campfire.xCoord, campfire.yCoord, campfire.zCoord);
+    /**
+     * Renders the TileEntity for the chest at a position.
+     */
+    public void renderTileEntityCampfireAt(TileEntityCampfire campfire, double x, double y, double z, float partialTick) {
+        GL11.glPushMatrix();
+        GL11.glTranslated(x + 0.5, y + 1, z + 0.5);
 
-		GL11.glRotatef(ModBlocks.campfire.getBlockRotationAt(campfire.getWorldObj(), campfire.xCoord, campfire.yCoord, campfire.zCoord) - 90, 0, 1, 0);
+        Random blockRand = ModBlocks.campfire.getRandomAt(campfire.getWorldObj(), campfire.xCoord, campfire.yCoord, campfire.zCoord);
 
-		model.stick.rotationPointY = 0.75F;
-		model.stick.rotateAngleX = 0;
-		model.stick.rotateAngleY = campfire.prevRot + (campfire.rot - campfire.prevRot) * partialTick;
-		model.stick.rotateAngleZ = (float) Math.PI / 2;
+        GL11.glRotatef(ModBlocks.campfire.getBlockRotationAt(campfire.getWorldObj(), campfire.xCoord, campfire.yCoord, campfire.zCoord) - 90, 0, 1, 0);
 
-		ItemStack cooking = campfire.getStackInSlot(0);
+        model.stick.rotationPointY = 0.75F;
+        model.stick.rotateAngleX = 0;
+        model.stick.rotateAngleY = campfire.prevRot + (campfire.rot - campfire.prevRot) * partialTick;
+        model.stick.rotateAngleZ = (float) Math.PI / 2;
 
-		if (cooking != null) {
-			GL11.glPushMatrix();
-			model.stick.postRender(0.0625F);
-			renderItemStack(cooking);
-			GL11.glPopMatrix();
-		}
+        ItemStack cooking = campfire.getStackInSlot(0);
 
-		ItemStack output = campfire.getStackInSlot(2);
+        if (cooking != null) {
+            GL11.glPushMatrix();
+            model.stick.postRender(0.0625F);
+            renderItemStack(cooking);
+            GL11.glPopMatrix();
+        }
 
-		if (output != null) {
-			GL11.glPushMatrix();
+        ItemStack output = campfire.getStackInSlot(2);
 
-			int count = Math.min(output.stackSize, 6);
-			float div = Math.max(count, 4);
+        if (output != null) {
+            GL11.glPushMatrix();
 
-			for (int i = 0; i < count; i++) {
-				GL11.glPushMatrix();
-				GL11.glTranslatef(0.4F, -0.75F, 0.4F);
+            int count = Math.min(output.stackSize, 6);
+            float div = Math.max(count, 4);
 
-				float randAmt = 15;
-				GL11.glRotatef(45 - randAmt / 2 + blockRand.nextFloat() * randAmt, 0, 1, 0);
+            for (int i = 0; i < count; i++) {
+                GL11.glPushMatrix();
+                GL11.glTranslatef(0.4F, -0.75F, 0.4F);
 
-				GL11.glRotatef(-45, 1, 0, 0);
-				renderItemStack(output);
-				GL11.glPopMatrix();
+                float randAmt = 15;
+                GL11.glRotatef(45 - randAmt / 2 + blockRand.nextFloat() * randAmt, 0, 1, 0);
 
-				if (count % 2 == 0 && i % 2 == 0)
-					GL11.glRotatef(180, 0, 1, 0);
-				else
-					GL11.glRotatef(360 / div, 0, 1, 0);
-			}
+                GL11.glRotatef(-45, 1, 0, 0);
+                renderItemStack(output);
+                GL11.glPopMatrix();
 
-			GL11.glPopMatrix();
-		}
+                if (count % 2 == 0 && i % 2 == 0)
+                    GL11.glRotatef(180, 0, 1, 0);
+                else
+                    GL11.glRotatef(360 / div, 0, 1, 0);
+            }
 
-		bindTexture(RES_CAMPFIRE_MODEL);
-		model.renderAll();
+            GL11.glPopMatrix();
+        }
 
-		GL11.glPopMatrix();
-	}
+        bindTexture(RES_CAMPFIRE_MODEL);
+        model.renderAll();
 
-	@Override
-	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float partialTick) {
-		renderTileEntityCampfireAt((TileEntityCampfire) tileEntity, x, y, z, partialTick);
-	}
+        GL11.glPopMatrix();
+    }
+
+    @Override
+    public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float partialTick) {
+        renderTileEntityCampfireAt((TileEntityCampfire) tileEntity, x, y, z, partialTick);
+    }
 }

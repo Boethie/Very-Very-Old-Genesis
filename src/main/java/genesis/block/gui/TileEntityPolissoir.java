@@ -2,6 +2,7 @@ package genesis.block.gui;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import genesis.common.Genesis;
 import genesis.lib.Names;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -10,13 +11,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.StringUtils;
 
 public class TileEntityPolissoir extends TileEntity implements ISidedInventory {
     private static final int[] slotsTop = new int[]{0};
     private static final int[] slotsBottom = new int[]{2, 1};
     private static final int[] slotsSides = new int[]{1};
-    private ItemStack[] polissoirItemStacks = new ItemStack[3];
     public int polissoirUpgradeTime;
+    private ItemStack[] polissoirItemStacks = new ItemStack[3];
     private ItemStack lastUpgradeItem;
     private String inventoryName;
 
@@ -93,13 +95,13 @@ public class TileEntityPolissoir extends TileEntity implements ISidedInventory {
         return hasCustomInventoryName() ? inventoryName : Names.containerPolissoir;
     }
 
+    public void setInventoryName(String customName) {
+        inventoryName = customName;
+    }
+
     @Override
     public boolean hasCustomInventoryName() {
         return inventoryName != null && inventoryName.length() > 0;
-    }
-
-    public void setInventoryName(String customName) {
-        inventoryName = customName;
     }
 
     @Override
@@ -175,6 +177,7 @@ public class TileEntityPolissoir extends TileEntity implements ISidedInventory {
     public void updateEntity() {
         boolean wasBurning = isBurning();
         boolean updateInv = false;
+        boolean smeltItem = false;
 
         if (!isBurning()) {
             polissoirUpgradeTime = 0;
@@ -205,8 +208,7 @@ public class TileEntityPolissoir extends TileEntity implements ISidedInventory {
                     if (polissoirUpgradeTime == PolissoirRecipes.instance().getUpgradeTime(polissoirItemStacks[0])) {
                         polissoirUpgradeTime = 0;
                         lastUpgradeItem = null;
-                        smeltItem();
-                        updateInv = true;
+                        smeltItem = true;
                     }
                 }
             }
@@ -215,6 +217,11 @@ public class TileEntityPolissoir extends TileEntity implements ISidedInventory {
                 updateInv = true;
                 BlockPolissoir.updatePolissoirBlockState(worldObj, xCoord, yCoord, zCoord);
             }
+        }
+
+        if (smeltItem) {
+            smeltItem();
+            updateInv = true;
         }
 
         if (updateInv) {
@@ -250,18 +257,38 @@ public class TileEntityPolissoir extends TileEntity implements ISidedInventory {
 
     public void smeltItem() {
         if (canSmelt()) {
-            ItemStack itemstack = PolissoirRecipes.instance().getResult(polissoirItemStacks[0]);
-
-            if (polissoirItemStacks[2] == null) {
-                polissoirItemStacks[2] = itemstack.copy();
-            } else if (polissoirItemStacks[2].getItem() == itemstack.getItem()) {
-                polissoirItemStacks[2].stackSize += itemstack.stackSize;
+            boolean hasChippedRecipe = PolissoirRecipes.instance().hasChippedRecipe(polissoirItemStacks[0]);
+            boolean hasPolishedRecipe = PolissoirRecipes.instance().hasPolishedRecipe(polissoirItemStacks[0]);
+            boolean hasSharpenedRecipe = PolissoirRecipes.instance().hasSharpenedRecipe(polissoirItemStacks[0]);
+            String sound = hasChippedRecipe ? "chipped" : hasPolishedRecipe || hasSharpenedRecipe ? "polished" : null;
+            if (!StringUtils.isNullOrEmpty(sound)) {
+                worldObj.playSoundEffect((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D, Genesis.MOD_ID + ":polissoir." + sound, 1.0F, worldObj.rand.nextFloat() * 0.1F + 0.9F);
             }
 
-            --polissoirItemStacks[0].stackSize;
+            if (!worldObj.isRemote) {
+                ItemStack itemstack = PolissoirRecipes.instance().getResult(polissoirItemStacks[0]);
 
-            if (polissoirItemStacks[0].stackSize <= 0) {
-                polissoirItemStacks[0] = null;
+                if (polissoirItemStacks[2] == null) {
+                    polissoirItemStacks[2] = itemstack.copy();
+                } else if (polissoirItemStacks[2].getItem() == itemstack.getItem()) {
+                    polissoirItemStacks[2].stackSize += itemstack.stackSize;
+                }
+
+                if (polissoirItemStacks[0].isItemStackDamageable() && polissoirItemStacks[2].isItemStackDamageable()) {
+                    polissoirItemStacks[2].setItemDamage(polissoirItemStacks[0].getItemDamage());
+                }
+
+                if (polissoirItemStacks[0].hasTagCompound()) {
+                    NBTTagCompound compound = new NBTTagCompound();
+                    compound.setTag("tag", polissoirItemStacks[0].getTagCompound());
+                    polissoirItemStacks[2].readFromNBT(compound);
+                }
+
+                --polissoirItemStacks[0].stackSize;
+
+                if (polissoirItemStacks[0].stackSize <= 0) {
+                    polissoirItemStacks[0] = null;
+                }
             }
         }
     }

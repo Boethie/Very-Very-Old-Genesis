@@ -1,21 +1,17 @@
 package genesis.block.plants;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import genesis.block.ModBlocks;
 import genesis.common.Genesis;
 import genesis.common.GenesisSoundHandler;
 import genesis.common.GenesisTabs;
 import genesis.lib.MiscHelpers;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -26,341 +22,341 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.util.ForgeDirection;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class BlockCalamitesPlant extends BlockGenesisPlant {
 
-	public static final int PLAIN_META_MASK = 7;
-	public static final int EGGS_META = 8;
-	
-	@SideOnly(Side.CLIENT) IIcon calamitesPlant;
-	@SideOnly(Side.CLIENT) IIcon calamitesPlantTop;
+    public static final int PLAIN_META_MASK = 7;
+    public static final int EGGS_META = 8;
 
-	@SideOnly(Side.CLIENT) IIcon calamitesPlantEggs1;
-	@SideOnly(Side.CLIENT) IIcon calamitesPlantEggs2;
+    @SideOnly(Side.CLIENT)
+    IIcon calamitesPlant;
+    @SideOnly(Side.CLIENT)
+    IIcon calamitesPlantTop;
 
-	@SideOnly(Side.CLIENT) IIcon calamitesPlantTopEggs1;
-	@SideOnly(Side.CLIENT) IIcon calamitesPlantTopEggs2;
+    @SideOnly(Side.CLIENT)
+    IIcon calamitesPlantEggs1;
+    @SideOnly(Side.CLIENT)
+    IIcon calamitesPlantEggs2;
 
-	public BlockCalamitesPlant() {
-		setHardness(1.5F);
-		setStepSound(GenesisSoundHandler.soundTypeCalamites);
-		setPlantBoundsSize(0.25F);
-		setStackable(10);
-		setPlantableTypes(new EnumPlantType[] { EnumPlantType.Plains, EnumPlantType.Desert });
-		setHarvestLevel("axe", 0);
-		setCreativeTab(GenesisTabs.tabGenesisMaterials);
-	}
+    @SideOnly(Side.CLIENT)
+    IIcon calamitesPlantTopEggs1;
+    @SideOnly(Side.CLIENT)
+    IIcon calamitesPlantTopEggs2;
+    private boolean secondSide;
+    private boolean reverseTex;
 
-	public static class CalamitesProperties {
+    public BlockCalamitesPlant() {
+        setHardness(1.5F);
+        setStepSound(GenesisSoundHandler.soundTypeCalamites);
+        setPlantBoundsSize(0.25F);
+        setStackable(10);
+        setPlantableTypes(new EnumPlantType[]{EnumPlantType.Plains, EnumPlantType.Desert});
+        setHarvestLevel("axe", 0);
+        setCreativeTab(GenesisTabs.tabGenesisMaterials);
+    }
 
-		public int height;
-		public int position;
-		public boolean hasEggs;
-		public boolean top;
-		public ArrayList<ChunkPosition> positions;
+    public CalamitesProperties getProperties(IBlockAccess world, int x, int y, int z) {
+        Block block = world.getBlock(x, y, z);
+        int metadata = world.getBlockMetadata(x, y, z);
 
-		public CalamitesProperties(int height, int position, boolean hasEggs, ArrayList<ChunkPosition> positions) {
-			this.height = height;
-			this.position = position;
-			this.hasEggs = hasEggs;
-			top = position == height - 1;
-			this.positions = positions;
-		}
-	}
+        if (block == this) {
+            int height = 1;
+            int position = 0;
+            boolean hasEggs = hasEggs(metadata);
 
-	public CalamitesProperties getProperties(IBlockAccess world, int x, int y, int z) {
-		Block block = world.getBlock(x, y, z);
-		int metadata = world.getBlockMetadata(x, y, z);
+            int up = 2;
+            int off = 1;
+            ArrayList<ChunkPosition> downPositions = new ArrayList();
+            ArrayList<ChunkPosition> upPositions = new ArrayList();
 
-		if (block == this) {
-			int height = 1;
-			int position = 0;
-			boolean hasEggs = hasEggs(metadata);
+            do {
+                if (up == 2)
+                    off = -1;
+                else
+                    off = 1;
 
-			int up = 2;
-			int off = 1;
-			ArrayList<ChunkPosition> downPositions = new ArrayList();
-			ArrayList<ChunkPosition> upPositions = new ArrayList();
+                do {
+                    block = world.getBlock(x, y + off, z);
+                    metadata = world.getBlockMetadata(x, y + off, z);
 
-			do {
-				if (up == 2)
-					off = -1;
-				else
-					off = 1;
+                    if (block == this) {
+                        height++;
 
-				do {
-					block = world.getBlock(x, y + off, z);
-					metadata = world.getBlockMetadata(x, y + off, z);
+                        if (up == 2) {
+                            position++;
+                            downPositions.add(new ChunkPosition(x, y + off, z));
+                        } else
+                            upPositions.add(new ChunkPosition(x, y + off, z));
+                    }
 
-					if (block == this) {
-						height++;
+                    if (!hasEggs && hasEggs(metadata))
+                        hasEggs = true;
 
-						if (up == 2) {
-							position++;
-							downPositions.add(new ChunkPosition(x, y + off, z));
-						} else
-							upPositions.add(new ChunkPosition(x, y + off, z));
-					}
+                    if (up == 2)
+                        off--;
+                    else
+                        off++;
+                } while (block == this);
 
-					if (!hasEggs && hasEggs(metadata))
-						hasEggs = true;
+                up--;
+            } while (up > 0);
 
-					if (up == 2)
-						off--;
-					else
-						off++;
-				} while (block == this);
+            ArrayList<ChunkPosition> positions = new ArrayList();
 
-				up--;
-			} while (up > 0);
+            for (int i = downPositions.size() - 1; i >= 0; i--)
+                positions.add(downPositions.get(i));
 
-			ArrayList<ChunkPosition> positions = new ArrayList();
+            positions.add(new ChunkPosition(x, y, z));
 
-			for (int i = downPositions.size() - 1; i >= 0; i--)
-				positions.add(downPositions.get(i));
+            for (int i = 0; i < upPositions.size(); i++)
+                positions.add(upPositions.get(i));
 
-			positions.add(new ChunkPosition(x, y, z));
+            return new CalamitesProperties(height, position, hasEggs, positions);
+        }
 
-			for (int i = 0; i < upPositions.size(); i++)
-				positions.add(upPositions.get(i));
+        return null;
+    }
 
-			return new CalamitesProperties(height, position, hasEggs, positions);
-		}
+    private boolean isTop(IBlockAccess world, int x, int y, int z) {
+        return world.getBlock(x, y + 1, z) != this;
+    }
 
-		return null;
-	}
+    private int setHasEggs(int metadata, boolean hasEggs) {
+        return metadata & PLAIN_META_MASK | (hasEggs ? EGGS_META : 0);
+    }
 
-	private boolean isTop(IBlockAccess world, int x, int y, int z) {
-		return world.getBlock(x, y + 1, z) != this;
-	}
+    private boolean hasEggs(int metadata) {
+        return (metadata & EGGS_META) != 0;
+    }
 
-	private int setHasEggs(int metadata, boolean hasEggs) {
-		return metadata & PLAIN_META_MASK | (hasEggs ? EGGS_META : 0);
-	}
+    @Override
+    protected int setAge(int metadata, int age) {
+        return metadata & EGGS_META | Math.min(age, PLAIN_META_MASK);
+    }
 
-	private boolean hasEggs(int metadata) {
-		return (metadata & EGGS_META) != 0;
-	}
+    @Override
+    protected int getAge(int metadata) {
+        return metadata & PLAIN_META_MASK;
+    }
 
-	@Override
-	protected int setAge(int metadata, int age) {
-		return metadata & EGGS_META | Math.min(age, PLAIN_META_MASK);
-	}
+    private void resetAll(World world, ArrayList<ChunkPosition> positions, int exceptY, boolean skipTop) {
+        ChunkPosition lastPos = null;
 
-	@Override
-	protected int getAge(int metadata) {
-		return metadata & PLAIN_META_MASK;
-	}
+        if (skipTop)
+            lastPos = positions.get(positions.size() - 1);
 
-	private void resetAll(World world, ArrayList<ChunkPosition> positions, int exceptY, boolean skipTop) {
-		ChunkPosition lastPos = null;
+        for (ChunkPosition pos : positions)
+            if (pos != lastPos && pos.chunkPosY != exceptY) {
+                int resetMetadata = world.getBlockMetadata(pos.chunkPosX, pos.chunkPosY, pos.chunkPosZ);
+                world.setBlockMetadataWithNotify(pos.chunkPosX, pos.chunkPosY, pos.chunkPosZ, setAge(resetMetadata, 0), 3);
+            }
+    }
 
-		if (skipTop)
-			lastPos = positions.get(positions.size() - 1);
+    @Override
+    protected boolean canPlaceBlockOn(Block block) {
+        return super.canPlaceBlockOn(block)
+                || block == PlantBlocks.calamitesPlant
+                || block == ModBlocks.moss;
+    }
 
-		for (ChunkPosition pos : positions)
-			if (pos != lastPos && pos.chunkPosY != exceptY) {
-				int resetMetadata = world.getBlockMetadata(pos.chunkPosX, pos.chunkPosY, pos.chunkPosZ);
-				world.setBlockMetadataWithNotify(pos.chunkPosX, pos.chunkPosY, pos.chunkPosZ, setAge(resetMetadata, 0), 3);
-			}
-	}
-	
-	@Override
-	protected boolean canPlaceBlockOn(Block block)
-	{
-		return super.canPlaceBlockOn(block) 
-				|| block == PlantBlocks.calamitesPlant
-				|| block == ModBlocks.moss;
-	}
-	
-	@Override
-	public boolean canPlaceBlockAt(World world, int x, int y, int z)
-	{
-		boolean flag = false;
-		flag = canPlaceBlockOn(world.getBlock(x, y - 1, z)) &&
-				canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) &&
-				(MiscHelpers.isWaterInRange(world, x, y - 1, z, 2, 2) || (world.getBlock(x, y-1, z)==this && MiscHelpers.isWaterInRange(world, x, y - 1, z, 2, 15)));
-		return flag;
-	}
-	
-	@Override
-	public boolean canBlockStay(World world, int x, int y, int z)
-	{
-		return canPlaceBlockAt(world, x, y, z);
-	}
-	
-	protected void dropIfCannotStay(World world, int x, int y, int z)
-	{
-		if (!canBlockStay(world, x, y, z))
-		{
-			dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-			world.setBlockToAir(x, y, z);
-		}
-	}
-	
-	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block)
-	{
-		dropIfCannotStay(world, x, y, z);
-	}
-	
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
-		if (world.isRemote)
-			return;
+    @Override
+    public boolean canPlaceBlockAt(World world, int x, int y, int z) {
+        boolean flag = false;
+        flag = canPlaceBlockOn(world.getBlock(x, y - 1, z)) &&
+                canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) &&
+                (MiscHelpers.isWaterInRange(world, x, y - 1, z, 2, 2) || (world.getBlock(x, y - 1, z) == this && MiscHelpers.isWaterInRange(world, x, y - 1, z, 2, 15)));
+        return flag;
+    }
 
-		CalamitesProperties props = getProperties(world, x, y, z);
+    @Override
+    public boolean canBlockStay(World world, int x, int y, int z) {
+        return canPlaceBlockAt(world, x, y, z);
+    }
 
-		int metadata = world.getBlockMetadata(x, y, z);
-		int age = getAge(metadata);
-		boolean resetAges = false;
+    protected void dropIfCannotStay(World world, int x, int y, int z) {
+        if (!canBlockStay(world, x, y, z)) {
+            dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+            world.setBlockToAir(x, y, z);
+        }
+    }
 
-		if (hasEggs(metadata) && age >= 4) {
-			metadata = setHasEggs(metadata, false);
-			resetAges = true;
-		} else if (props.top && props.height < stackedLimit) {
-			if (age >= PLAIN_META_MASK && world.getBlock(x, y + 1, z).getMaterial().isReplaceable() && rand.nextBoolean())
-				world.setBlock(x, y + 1, z, this);
-		} else if (!props.hasEggs && age >= PLAIN_META_MASK && rand.nextBoolean()) {
-			metadata = setHasEggs(metadata, true);
-			resetAges = true;
-		}
+    @Override
+    public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+        dropIfCannotStay(world, x, y, z);
+    }
 
-		if (resetAges) {
-			age = -1;
-			resetAll(world, props.positions, y, props.height < stackedLimit);
-		}
+    @Override
+    public void updateTick(World world, int x, int y, int z, Random rand) {
+        if (world.isRemote)
+            return;
 
-		world.setBlockMetadataWithNotify(x, y, z, setAge(metadata, age + 1), 3);
-	}
+        CalamitesProperties props = getProperties(world, x, y, z);
 
-	private boolean secondSide;
-	private boolean reverseTex;
+        int metadata = world.getBlockMetadata(x, y, z);
+        int age = getAge(metadata);
+        boolean resetAges = false;
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
-		if (side == 0) {
-			Random rand = new Random((x + z) * y * y * x * z);
-			rand.nextFloat(); // Just to (hopefully) help the booleans be more
-								// random
-			secondSide = rand.nextBoolean();
-			reverseTex = rand.nextBoolean();
-		}
+        if (hasEggs(metadata) && age >= 4) {
+            metadata = setHasEggs(metadata, false);
+            resetAges = true;
+        } else if (props.top && props.height < stackedLimit) {
+            if (age >= PLAIN_META_MASK && world.getBlock(x, y + 1, z).getMaterial().isReplaceable() && rand.nextBoolean())
+                world.setBlock(x, y + 1, z, this);
+        } else if (!props.hasEggs && age >= PLAIN_META_MASK && rand.nextBoolean()) {
+            metadata = setHasEggs(metadata, true);
+            resetAges = true;
+        }
 
-		int metadata = world.getBlockMetadata(x, y, z);
-		boolean isTop = isTop(world, x, y, z);
+        if (resetAges) {
+            age = -1;
+            resetAll(world, props.positions, y, props.height < stackedLimit);
+        }
 
-		if (hasEggs(metadata))
-			if (secondSide ? side == 1 || side == 3 : side == 0 || side == 2)
-				return isTop ? calamitesPlantTopEggs1 : calamitesPlantEggs1;
-			else
-				switch (side) {
-					case 0:
-						if (secondSide && !reverseTex)
-							return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
-						break;
-					case 1:
-						if (!secondSide && reverseTex)
-							return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
-						break;
-					case 2:
-						if (secondSide && reverseTex)
-							return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
-						break;
-					case 3:
-						if (!secondSide && !reverseTex)
-							return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
-						break;
-				}
+        world.setBlockMetadataWithNotify(x, y, z, setAge(metadata, age + 1), 3);
+    }
 
-		return isTop ? calamitesPlantTop : calamitesPlant;
-	}
-	
-	@SideOnly(Side.CLIENT)
-	@Override
-	public IIcon getIcon(int side, int metadata) {
-		return calamitesPlant;
-	}
+    @SideOnly(Side.CLIENT)
+    @Override
+    public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
+        if (side == 0) {
+            Random rand = new Random((x + z) * y * y * x * z);
+            rand.nextFloat(); // Just to (hopefully) help the booleans be more
+            // random
+            secondSide = rand.nextBoolean();
+            reverseTex = rand.nextBoolean();
+        }
 
-	@Override
-	public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z, int side) {
-		return reverseTex;
-	}
+        int metadata = world.getBlockMetadata(x, y, z);
+        boolean isTop = isTop(world, x, y, z);
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		String texStart = Genesis.MOD_ID + ":" + getTextureName();
+        if (hasEggs(metadata))
+            if (secondSide ? side == 1 || side == 3 : side == 0 || side == 2)
+                return isTop ? calamitesPlantTopEggs1 : calamitesPlantEggs1;
+            else
+                switch (side) {
+                    case 0:
+                        if (secondSide && !reverseTex)
+                            return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
+                        break;
+                    case 1:
+                        if (!secondSide && reverseTex)
+                            return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
+                        break;
+                    case 2:
+                        if (secondSide && reverseTex)
+                            return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
+                        break;
+                    case 3:
+                        if (!secondSide && !reverseTex)
+                            return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
+                        break;
+                }
 
-		calamitesPlant = iconRegister.registerIcon(texStart);
-		calamitesPlantTop = iconRegister.registerIcon(texStart + "_top");
+        return isTop ? calamitesPlantTop : calamitesPlant;
+    }
 
-		calamitesPlantEggs1 = iconRegister.registerIcon(texStart + "_eggs_1");
-		calamitesPlantEggs2 = iconRegister.registerIcon(texStart + "_eggs_2");
-		calamitesPlantTopEggs1 = iconRegister.registerIcon(texStart + "_eggs_top_1");
-		calamitesPlantTopEggs2 = iconRegister.registerIcon(texStart + "_eggs_top_2");
-	}
+    @SideOnly(Side.CLIENT)
+    @Override
+    public IIcon getIcon(int side, int metadata) {
+        return calamitesPlant;
+    }
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public String getItemIconName() {
-		return Genesis.MOD_ID + ":" + getTextureName();
-	}
+    @Override
+    public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z, int side) {
+        return reverseTex;
+    }
 
-	private boolean dropEggs(World world, int x, int y, int z, int metadata) {
-		if (hasEggs(metadata)) {
-			if (world.isRemote)
-				return true;
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void registerBlockIcons(IIconRegister iconRegister) {
+        String texStart = Genesis.MOD_ID + ":" + getTextureName();
 
-			if (world.getBlock(x, y, z) == this)
-				world.setBlockMetadataWithNotify(x, y, z, setHasEggs(metadata, false), 3);
+        calamitesPlant = iconRegister.registerIcon(texStart);
+        calamitesPlantTop = iconRegister.registerIcon(texStart + "_top");
 
-			EntityItem itemDrop = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(Items.egg));
-			double div = Math.sqrt(itemDrop.motionX * itemDrop.motionX + itemDrop.motionY * itemDrop.motionY + itemDrop.motionZ * itemDrop.motionZ) * 2;
-			double dirX = itemDrop.motionX / div;
-			double dirY = itemDrop.motionY / div;
-			double dirZ = itemDrop.motionZ / div;
-			itemDrop.setPosition(itemDrop.posX + dirX, itemDrop.posY + dirY, itemDrop.posZ + dirZ);
+        calamitesPlantEggs1 = iconRegister.registerIcon(texStart + "_eggs_1");
+        calamitesPlantEggs2 = iconRegister.registerIcon(texStart + "_eggs_2");
+        calamitesPlantTopEggs1 = iconRegister.registerIcon(texStart + "_eggs_top_1");
+        calamitesPlantTopEggs2 = iconRegister.registerIcon(texStart + "_eggs_top_2");
+    }
 
-			world.spawnEntityInWorld(itemDrop);
+    @SideOnly(Side.CLIENT)
+    @Override
+    public String getItemIconName() {
+        return Genesis.MOD_ID + ":" + getTextureName();
+    }
 
-			return true;
-		}
+    private boolean dropEggs(World world, int x, int y, int z, int metadata) {
+        if (hasEggs(metadata)) {
+            if (world.isRemote)
+                return true;
 
-		return false;
-	}
+            if (world.getBlock(x, y, z) == this)
+                world.setBlockMetadataWithNotify(x, y, z, setHasEggs(metadata, false), 3);
 
-	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		return dropEggs(world, x, y, z, world.getBlockMetadata(x, y, z));
-	}
+            EntityItem itemDrop = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(Items.egg));
+            double div = Math.sqrt(itemDrop.motionX * itemDrop.motionX + itemDrop.motionY * itemDrop.motionY + itemDrop.motionZ * itemDrop.motionZ) * 2;
+            double dirX = itemDrop.motionX / div;
+            double dirY = itemDrop.motionY / div;
+            double dirZ = itemDrop.motionZ / div;
+            itemDrop.setPosition(itemDrop.posX + dirX, itemDrop.posY + dirY, itemDrop.posZ + dirZ);
 
-	@Override
-	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance, int fortune) {
-		super.dropBlockAsItemWithChance(world, x, y, z, metadata, chance, fortune);
+            world.spawnEntityInWorld(itemDrop);
 
-		if (!world.isRemote && world.rand.nextFloat() <= chance)
-			dropEggs(world, x, y, z, metadata);
-	}
+            return true;
+        }
 
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		float size = 0.15F;
-		return AxisAlignedBB.getBoundingBox(x + 0.5 - size, y, z + 0.5 - size, x + 0.5 + size, y + 1, z + 0.5 + size);
-	}
+        return false;
+    }
 
-	@Override
-	public float renderScale(IBlockAccess world, int x, int y, int z) {
-		return 0.75F;
-	}
-	
-	@Override
-	public void getSubBlocks(Item item, CreativeTabs tabs, List list)
-	{
-		list.add(new ItemStack(item, 1, 0));
-	}
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+        return dropEggs(world, x, y, z, world.getBlockMetadata(x, y, z));
+    }
+
+    @Override
+    public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance, int fortune) {
+        super.dropBlockAsItemWithChance(world, x, y, z, metadata, chance, fortune);
+
+        if (!world.isRemote && world.rand.nextFloat() <= chance)
+            dropEggs(world, x, y, z, metadata);
+    }
+
+    @Override
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+        float size = 0.15F;
+        return AxisAlignedBB.getBoundingBox(x + 0.5 - size, y, z + 0.5 - size, x + 0.5 + size, y + 1, z + 0.5 + size);
+    }
+
+    @Override
+    public float renderScale(IBlockAccess world, int x, int y, int z) {
+        return 0.75F;
+    }
+
+    @Override
+    public void getSubBlocks(Item item, CreativeTabs tabs, List list) {
+        list.add(new ItemStack(item, 1, 0));
+    }
+
+    public static class CalamitesProperties {
+
+        public int height;
+        public int position;
+        public boolean hasEggs;
+        public boolean top;
+        public ArrayList<ChunkPosition> positions;
+
+        public CalamitesProperties(int height, int position, boolean hasEggs, ArrayList<ChunkPosition> positions) {
+            this.height = height;
+            this.position = position;
+            this.hasEggs = hasEggs;
+            top = position == height - 1;
+            this.positions = positions;
+        }
+    }
 
 }

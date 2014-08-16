@@ -2,51 +2,27 @@ package genesis.item;
 
 import genesis.block.gui.PolissoirRecipes;
 import genesis.block.trees.TreeBlocks;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraft.util.StringUtils;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.oredict.OreDictionary;
+import org.apache.commons.lang3.text.WordUtils;
 
-public class ItemSets
-{
+import java.util.ArrayList;
+import java.util.List;
 
-    public enum ToolType
-    {
-        AXE, HOE, KNIFE, PICKAXE, SPADE;
-    }
+public class ItemSets {
 
-    public enum ToolQuality
-    {
-        CRUDE("toolquality.crude"), CHIPPED("toolquality.chipped"), SHARPENED(
-                "toolquality.sharpened"), POLISHED("toolquality.polished");
-
-        public String localizeableString;
-
-        ToolQuality(String str)
-        {
-            localizeableString = str;
-        }
-
-        public String toString()
-        {
-            return this.localizeableString;
-        }
-    }
-
-    public static void registerAllRecipes()
-    {
+    public static void registerAllRecipes() {
         ItemsToolSet.registerAllCraftingRecipes();
     }
 
-    public static ItemStack getStackFromObject(Object obj)
-    {
+    public static ItemStack getStackFromObject(Object obj) {
         if (obj instanceof Item)
             return new ItemStack((Item) obj);
         else if (obj instanceof Block)
@@ -57,8 +33,7 @@ public class ItemSets
         return null;
     }
 
-    public static void registerRecipeWithDefault(Object craftingObj, IRecipeWithDefault iRecipeDef)
-    {
+    public static void registerRecipeWithDefault(Object craftingObj, IRecipeWithDefault iRecipeDef) {
         if (craftingObj == null)
             return;
 
@@ -66,19 +41,16 @@ public class ItemSets
         ItemStack[][] recipes = new ItemStack[recipeCount][];
         int[] recipeWidths = new int[recipeCount];
 
-        if (craftingObj instanceof Object[][])
-        {
+        if (craftingObj instanceof Object[][]) {
             Object[][] recipeObjs = (Object[][]) craftingObj;
 
             int recipe = 0;
 
-            for (Object[] aObj : recipeObjs)
-            {
+            for (Object[] aObj : recipeObjs) {
                 ItemStack[] items = new ItemStack[aObj.length];
                 int item = 0;
 
-                for (Object obj : aObj)
-                {
+                for (Object obj : aObj) {
                     if (obj instanceof Integer)
                         recipeWidths[recipe] = (Integer) obj;
                     else
@@ -90,14 +62,11 @@ public class ItemSets
                 recipes[recipe] = items;
                 recipe++;
             }
-        }
-        else
-        {
+        } else {
             ItemStack craftStack = getStackFromObject(craftingObj);
 
             if (craftStack != null)
-                for (int i = 0; i < recipeCount; i++)
-                {
+                for (int i = 0; i < recipeCount; i++) {
                     recipes[i] = iRecipeDef.getDefaultRecipe(i, craftStack);
                     recipeWidths[i] = iRecipeDef.getRecipeWidth(i);
                 }
@@ -105,15 +74,13 @@ public class ItemSets
                 recipes = null;
         }
 
-        if (recipes != null)
-        {
+        if (recipes != null) {
             @SuppressWarnings("unchecked")
             List<IRecipe> recipeList = CraftingManager.getInstance().getRecipeList();
 
             int recipe = 0;
 
-            for (ItemStack[] items : recipes)
-            {
+            for (ItemStack[] items : recipes) {
                 int width = recipeWidths[recipe];
                 ItemStack output = iRecipeDef.getOutput(recipe);
 
@@ -125,15 +92,29 @@ public class ItemSets
         }
     }
 
-    public static class ItemsToolSet implements IRecipeWithDefault
-    {
-        private static final ArrayList<ItemsToolSet> sets = new ArrayList<ItemsToolSet>();
+    public enum ToolType {
+        AXE, HOE, KNIFE, PICKAXE, SPADE;
+    }
 
-        public static void registerAllCraftingRecipes()
-        {
-            for (ItemsToolSet set : sets)
-                set.registerRecipes();
+    public enum ToolQuality {
+        CRUDE("toolquality.crude"),
+        CHIPPED("toolquality.chipped"),
+        POLISHED("toolquality.polished"),
+        SHARPENED("toolquality.sharpened");
+
+        public String localizeableString;
+
+        ToolQuality(String str) {
+            localizeableString = str;
         }
+
+        public String toString() {
+            return this.localizeableString;
+        }
+    }
+
+    public static class ItemsToolSet implements IRecipeWithDefault {
+        private static final ArrayList<ItemsToolSet> sets = new ArrayList<ItemsToolSet>();
 
         public ItemGenesisKnife knifeCrude;
         public ItemGenesisPickaxe pickaxeCrude;
@@ -162,52 +143,96 @@ public class ItemSets
         public Object craftingObj;
         public Object craftingHandleObj;
 
-        public ItemsToolSet(Item.ToolMaterial toolMaterial1, Item.ToolMaterial toolMaterial2, Item.ToolMaterial toolMaterial3, Item.ToolMaterial toolMaterial4, String materialName, Object crafting, Object craftingHandle)
-        {
-            this(toolMaterial1, toolMaterial2, toolMaterial3, toolMaterial4, materialName, crafting, craftingHandle, true, true, true, true, true);
+        public ItemsToolSet(String materialName, Object crafting, Object craftingHandle, Object[] material1, Object[] material2, Object[] material3, Object[] material4) {
+            this(materialName, crafting, craftingHandle, material1, material2, material3, material4, true, true, true, true, true);
         }
 
-        public ItemsToolSet(Item.ToolMaterial toolMaterial1, Item.ToolMaterial toolMaterial2, Item.ToolMaterial toolMaterial3, Item.ToolMaterial toolMaterial4, String materialName, Object crafting, Object craftingHandle, boolean enableKnife, boolean enablePickaxe, boolean enableAxe, boolean enableSpade, boolean enableHoe)
-        {
+        public ItemsToolSet(String materialName, Object crafting, Object craftingHandle, Object[] material1, Object[] material2, Object[] material3, Object[] material4, boolean enableKnife, boolean enablePickaxe, boolean enableAxe, boolean enableSpade, boolean enableHoe) {
+            String material = materialName.toUpperCase() + "_";
+            Item.ToolMaterial toolMaterial1 = EnumHelper.addToolMaterial(material + "CRUDE", (Integer) material1[0], (Integer) material1[1], (Float) material1[2], (Float) material1[3], (Integer) material1[4]);
+            Item.ToolMaterial toolMaterial2 = EnumHelper.addToolMaterial(material + "CHIPPED", (Integer) material2[0], (Integer) material2[1], (Float) material2[2], (Float) material2[3], (Integer) material2[4]);
+            Item.ToolMaterial toolMaterial3 = EnumHelper.addToolMaterial(material + "POLISHED", (Integer) material3[0], (Integer) material3[1], (Float) material3[2], (Float) material3[3], (Integer) material3[4]);
+            Item.ToolMaterial toolMaterial4 = EnumHelper.addToolMaterial(material + "SHARPENED", (Integer) material4[0], (Integer) material4[1], (Float) material4[2], (Float) material4[3], (Integer) material4[4]);
 
-            if (enableKnife)
-            {
+            String[] strings = materialName.split("_");
+            String unlocalizedName = "";
+            if (strings.length > 0) {
+                for (int i = 0; i < strings.length; i++) {
+                    if (i > 0) strings[i] = WordUtils.capitalize(strings[i]);
+                    unlocalizedName += strings[i];
+                }
+            }
+
+            if (enableKnife) {
                 knifeCrude = new ItemGenesisKnife(toolMaterial1, materialName + "_crude_chipped", ToolQuality.CRUDE);
                 knifeChipped = new ItemGenesisKnife(toolMaterial2, materialName + "_crude_chipped", ToolQuality.CHIPPED);
                 knifePolished = new ItemGenesisKnife(toolMaterial3, materialName + "_sharpened_polished", ToolQuality.POLISHED);
                 knifeSharpened = new ItemGenesisKnife(toolMaterial4, materialName + "_sharpened_polished", ToolQuality.SHARPENED);
-                
+
+                if (!StringUtils.isNullOrEmpty(unlocalizedName)) {
+                    knifeCrude.setUnlocalizedName(unlocalizedName);
+                    knifeChipped.setUnlocalizedName(unlocalizedName);
+                    knifePolished.setUnlocalizedName(unlocalizedName);
+                    knifeSharpened.setUnlocalizedName(unlocalizedName);
+                }
             }
 
-            if (enablePickaxe)
-            {
+            if (enablePickaxe) {
                 pickaxeCrude = new ItemGenesisPickaxe(toolMaterial1, materialName + "_crude_chipped", ToolQuality.CRUDE);
                 pickaxeChipped = new ItemGenesisPickaxe(toolMaterial2, materialName + "_crude_chipped", ToolQuality.CHIPPED);
                 pickaxePolished = new ItemGenesisPickaxe(toolMaterial3, materialName + "_sharpened_polished", ToolQuality.POLISHED);
                 pickaxeSharpened = new ItemGenesisPickaxe(toolMaterial4, materialName + "_sharpened_polished", ToolQuality.SHARPENED);
+
+                if (!StringUtils.isNullOrEmpty(unlocalizedName)) {
+                    pickaxeCrude.setUnlocalizedName(unlocalizedName);
+                    pickaxeChipped.setUnlocalizedName(unlocalizedName);
+                    pickaxePolished.setUnlocalizedName(unlocalizedName);
+                    pickaxeSharpened.setUnlocalizedName(unlocalizedName);
+                }
             }
-            if (enableAxe)
-            {
+
+            if (enableAxe) {
                 axeCrude = new ItemGenesisAxe(toolMaterial1, materialName + "_crude_chipped", ToolQuality.CRUDE);
                 axeChipped = new ItemGenesisAxe(toolMaterial2, materialName + "_crude_chipped", ToolQuality.CHIPPED);
                 axePolished = new ItemGenesisAxe(toolMaterial3, materialName + "_sharpened_polished", ToolQuality.POLISHED);
                 axeSharpened = new ItemGenesisAxe(toolMaterial4, materialName + "_sharpened_polished", ToolQuality.SHARPENED);
+
+                if (!StringUtils.isNullOrEmpty(unlocalizedName)) {
+                    axeCrude.setUnlocalizedName(unlocalizedName);
+                    axeChipped.setUnlocalizedName(unlocalizedName);
+                    axePolished.setUnlocalizedName(unlocalizedName);
+                    axeSharpened.setUnlocalizedName(unlocalizedName);
+                }
             }
-            if (enableSpade)
-            {
+
+            if (enableSpade) {
                 spadeCrude = new ItemGenesisSpade(toolMaterial1, materialName + "_crude_chipped", ToolQuality.CRUDE);
                 spadeChipped = new ItemGenesisSpade(toolMaterial2, materialName + "_crude_chipped", ToolQuality.CHIPPED);
                 spadePolished = new ItemGenesisSpade(toolMaterial3, materialName + "_sharpened_polished", ToolQuality.POLISHED);
                 spadeSharpened = new ItemGenesisSpade(toolMaterial4, materialName + "_sharpened_polished", ToolQuality.SHARPENED);
+
+                if (!StringUtils.isNullOrEmpty(unlocalizedName)) {
+                    spadeCrude.setUnlocalizedName(unlocalizedName);
+                    spadeChipped.setUnlocalizedName(unlocalizedName);
+                    spadePolished.setUnlocalizedName(unlocalizedName);
+                    spadeSharpened.setUnlocalizedName(unlocalizedName);
+                }
             }
-            if (enableHoe)
-            {
+
+            if (enableHoe) {
                 hoeCrude = new ItemGenesisHoe(toolMaterial1, materialName + "_crude_chipped", ToolQuality.CRUDE);
                 hoeChipped = new ItemGenesisHoe(toolMaterial2, materialName + "_crude_chipped", ToolQuality.CHIPPED);
                 hoePolished = new ItemGenesisHoe(toolMaterial3, materialName + "_sharpened_polished", ToolQuality.POLISHED);
                 hoeSharpened = new ItemGenesisHoe(toolMaterial4, materialName + "_sharpened_polished", ToolQuality.SHARPENED);
 
+                if (!StringUtils.isNullOrEmpty(unlocalizedName)) {
+                    hoeCrude.setUnlocalizedName(unlocalizedName);
+                    hoeChipped.setUnlocalizedName(unlocalizedName);
+                    hoePolished.setUnlocalizedName(unlocalizedName);
+                    hoeSharpened.setUnlocalizedName(unlocalizedName);
+                }
             }
+
             setupHierarchy();
 
             craftingObj = crafting;
@@ -216,8 +241,12 @@ public class ItemSets
             sets.add(this);
         }
 
-        private void setupHierarchy()
-        {
+        public static void registerAllCraftingRecipes() {
+            for (ItemsToolSet set : sets)
+                set.registerRecipes();
+        }
+
+        private void setupHierarchy() {
             PolissoirRecipes.instance().addChippedRecipe(new ItemStack(axeCrude), new ItemStack(axeChipped));
             PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(axeChipped), new ItemStack(axePolished));
             PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(axePolished), new ItemStack(axeSharpened));
@@ -239,25 +268,21 @@ public class ItemSets
             PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(spadePolished), new ItemStack(spadeSharpened));
         }
 
-        public void registerRecipes()
-        {
-        	for(Block block:TreeBlocks.blocksLogs){
-        		craftingHandleObj=new ItemStack(block,1,OreDictionary.WILDCARD_VALUE);
-        		registerRecipeWithDefault(craftingObj, this);
-        	}
+        public void registerRecipes() {
+            for (Block block : TreeBlocks.blocksLogs) {
+                craftingHandleObj = new ItemStack(block, 1, OreDictionary.WILDCARD_VALUE);
+                registerRecipeWithDefault(craftingObj, this);
+            }
         }
 
         @Override
-        public int getRecipeCount()
-        {
+        public int getRecipeCount() {
             return 5;
         }
 
         @Override
-        public int getRecipeWidth(int recipe)
-        {
-            switch (recipe)
-            {
+        public int getRecipeWidth(int recipe) {
+            switch (recipe) {
                 //case 0: // Sword
                 case 0: // knife
                 case 3: // Spade
@@ -271,12 +296,10 @@ public class ItemSets
         }
 
         @Override
-        public ItemStack[] getDefaultRecipe(int recipe, ItemStack craftStack)
-        {
+        public ItemStack[] getDefaultRecipe(int recipe, ItemStack craftStack) {
             ItemStack handle = getStackFromObject(craftingHandleObj);
 
-            switch (recipe)
-            {
+            switch (recipe) {
                 /*case 0: // Sword
                     return new ItemStack[]
                     {
@@ -284,41 +307,39 @@ public class ItemSets
                     };*/
                 case 0: // knife
                     return new ItemStack[]
-                    {
-                    craftStack, handle
-                    };
+                            {
+                                    craftStack, handle
+                            };
                 case 1: // Pickaxe
                     return new ItemStack[]
-                    {
-                    craftStack, craftStack, craftStack, null, handle, null, null, handle, null
-                    };
+                            {
+                                    craftStack, craftStack, craftStack, null, handle, null, null, handle, null
+                            };
                 case 2: // Axe
                     return new ItemStack[]
-                    {
-                    craftStack, craftStack, craftStack, handle, null, handle
-                    };
+                            {
+                                    craftStack, craftStack, craftStack, handle, null, handle
+                            };
                 case 3: // Spade
                     return new ItemStack[]
-                    {
-                    craftStack, handle, handle
-                    };
+                            {
+                                    craftStack, handle, handle
+                            };
                 case 4: // Hoe
                     return new ItemStack[]
-                    {
-                    craftStack, craftStack, null, handle, null, handle
-                    };
+                            {
+                                    craftStack, craftStack, null, handle, null, handle
+                            };
                 default:
                     return null;
             }
         }
 
         @Override
-        public ItemStack getOutput(int recipe)
-        {
+        public ItemStack getOutput(int recipe) {
             Item item = null;
 
-            switch (recipe)
-            {
+            switch (recipe) {
                 case 0:
                     item = knifeCrude;
                     break;
@@ -336,12 +357,9 @@ public class ItemSets
                     break;
             }
 
-            if (item == null)
-            {
+            if (item == null) {
                 return null;
-            }
-            else
-            {
+            } else {
                 return new ItemStack(item);
             }
         }
