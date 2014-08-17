@@ -33,6 +33,7 @@ public final class Names {
     public static final String blockTrondhjemite = blockRock + "trondhjemite";
     public static final String blockOctaedrite = blockRock + "octaedrite";
     public static final String blockPermafrost = mod + "permafrost";
+
     // Ores
     public static final String blockOre = mod + "ore.";
     public static final String blockQuartzGraniteOre = blockOre + "quartzGranite";
@@ -63,6 +64,7 @@ public final class Names {
     public static final String blockFlower = blockPlant + "flower.";
     public static final String blockCalamitesPlant = blockPlant + "calamites";
     public static final String blockAsteroxylon = blockPlant + "asteroxylon";
+
     // Aquatic
     public static final String blockAquatic = mod + "aquatic.";
     public static final String blockCoral = blockAquatic + "coral.";
@@ -89,6 +91,7 @@ public final class Names {
     public static final String itemMalachite = mod + "malachite";
     public static final String itemHematite = mod + "hematite";
     public static final String itemManganese = mod + "manganese";
+
     // Tools
     public static final String itemTool = mod + "tool.";
     public static final String itemPickaxe = itemTool + "pickaxe.";
@@ -96,6 +99,7 @@ public final class Names {
     public static final String itemSpade = itemTool + "shovel.";
     public static final String itemHoe = itemTool + "hoe.";
     public static final String itemKnife = mod + "knife.";
+
     // Foods
     public static final String itemFood = mod + "food.";
     public static final String itemRawEryops = itemFood + "rawEryops";
@@ -114,21 +118,25 @@ public final class Names {
     public static final String itemCookedGigantoraptor = itemFood + "cookedGigantoraptor";
     public static final String itemRawClimatius = itemFood + "rawClimatius";
     public static final String itemCookedClimatius = itemFood + "cookedClimatius";
+
     // Fluids
     public static final String fluidKomatiiticLava = mod + "komatiiticLava";
     public static final String blockKomatiiticLava = mod + "komatiiticLavaBlock";
     public static final String bucketKomatiiticLava = mod + "komatiiticLavaBucket";
+
     // --- Other ---
     // Containers
     public static final String container = "container." + mod;
     public static final String containerCampfire = container + "campfire";
     public static final String containerPolissoir = container + "polissoir";
+
     // Creative Tabs
     public static final String tabBlock = mod + "tabBlock";
     public static final String tabDecorations = mod + "tabDecorations";
     public static final String tabTools = mod + "tabTools";
     public static final String tabFood = mod + "tabFood";
     public static final String tabMaterials = mod + "tabMaterials";
+
     // ---- Items ----
     // Crafting items
     public static final String itemGraniteMaterial = "granite";

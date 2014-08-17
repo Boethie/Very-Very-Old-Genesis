@@ -7,6 +7,7 @@ import genesis.client.renderer.BlockGenesisPlantRenderer;
 import genesis.common.Genesis;
 import genesis.common.GenesisSoundHandler;
 import genesis.common.GenesisTabs;
+import genesis.lib.PlantMetadata;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -73,7 +74,7 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs tabs, List list) {
-        int count = PlantBlocks.fernTypes.size(); // so we only call size() once
+        int count = PlantMetadata.fernTypes.size(); // so we only call size() once
         for (int i = 0; i < count; i++) {
             list.add(new ItemStack(item, 1, i));
         }
@@ -87,9 +88,9 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {
-        blockIcons = new IIcon[PlantBlocks.fernTypes.size()];
+        blockIcons = new IIcon[PlantMetadata.fernTypes.size()];
         for (int i = 0; i < blockIcons.length; i++) {
-            blockIcons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantBlocks.fernTypes.get(i));
+            blockIcons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.fernTypes.get(i));
         }
     }
 

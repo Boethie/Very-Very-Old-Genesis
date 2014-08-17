@@ -15,31 +15,6 @@ import net.minecraft.item.crafting.CraftingManager;
 import java.util.ArrayList;
 
 public class PlantBlocks {
-
-    public static final String COOK_NAME = "cooksonia", BARA_NAME = "baragwanathia",
-            SCIA_NAME = "sciadophyton", PSILO_NAME = "psilophyton", NOTHIA_NAME = "nothia",
-            RHYNIA_NAME = "rhynia";
-    public static final ArrayList<String> plantTypes = new ArrayList() {
-        {
-            add(COOK_NAME);
-            add(BARA_NAME);
-            add(SCIA_NAME);
-            add(PSILO_NAME);
-            add(NOTHIA_NAME);
-            add(RHYNIA_NAME);
-        }
-    };
-    public static final String ZYGO_NAME = "zygopteris", MATON_NAME = "matonidium",
-            ASTRA_NAME = "astralopteris", RUFF_NAME = "ruffordia";
-    public static final ArrayList<String> fernTypes = new ArrayList() {
-        {
-            add(ZYGO_NAME);
-            add(MATON_NAME);
-            add(ASTRA_NAME);
-            add(RUFF_NAME);
-        }
-    };
-
     public static BlockGenesisFlowerPot flowerPot;
     public static Block calamitesPlant;
     public static BlockCalamitesStorage calamitesBlock;
@@ -101,5 +76,4 @@ public class PlantBlocks {
         Blocks.fire.setFireInfo(ferns, 60, 100);
         Blocks.fire.setFireInfo(calamitesPlant, 30, 60);
     }
-
 }

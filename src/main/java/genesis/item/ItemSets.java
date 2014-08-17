@@ -115,33 +115,12 @@ public class ItemSets {
 
     public static class ItemsToolSet implements IRecipeWithDefault {
         private static final ArrayList<ItemsToolSet> sets = new ArrayList<ItemsToolSet>();
-
-        public ItemGenesisKnife knifeCrude;
-        public ItemGenesisPickaxe pickaxeCrude;
-        public ItemGenesisAxe axeCrude;
-        public ItemGenesisSpade spadeCrude;
-        public ItemGenesisHoe hoeCrude;
-
-        public ItemGenesisKnife knifeChipped;
-        public ItemGenesisPickaxe pickaxeChipped;
-        public ItemGenesisAxe axeChipped;
-        public ItemGenesisSpade spadeChipped;
-        public ItemGenesisHoe hoeChipped;
-
-        public ItemGenesisKnife knifePolished;
-        public ItemGenesisPickaxe pickaxePolished;
-        public ItemGenesisAxe axePolished;
-        public ItemGenesisSpade spadePolished;
-        public ItemGenesisHoe hoePolished;
-
-        public ItemGenesisKnife knifeSharpened;
-        public ItemGenesisPickaxe pickaxeSharpened;
-        public ItemGenesisAxe axeSharpened;
-        public ItemGenesisSpade spadeSharpened;
-        public ItemGenesisHoe hoeSharpened;
-
-        public Object craftingObj;
-        public Object craftingHandleObj;
+        public ItemGenesisKnife knifeCrude, knifeChipped, knifePolished, knifeSharpened;
+        public ItemGenesisPickaxe pickaxeCrude, pickaxeChipped, pickaxePolished, pickaxeSharpened;
+        public ItemGenesisAxe axeCrude, axeChipped, axePolished, axeSharpened;
+        public ItemGenesisSpade spadeCrude, spadeChipped, spadePolished, spadeSharpened;
+        public ItemGenesisHoe hoeCrude, hoeChipped, hoePolished, hoeSharpened;
+        public Object craftingObj, craftingHandleObj;
 
         public ItemsToolSet(String materialName, Object crafting, Object craftingHandle, Object[] material1, Object[] material2, Object[] material3, Object[] material4) {
             this(materialName, crafting, craftingHandle, material1, material2, material3, material4, true, true, true, true, true);
