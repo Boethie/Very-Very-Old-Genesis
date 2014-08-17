@@ -3,6 +3,7 @@
 <!-- Tiki Torch -->
 tile.genesis.tikiTorch.name=Torche tiki
 tile.genesis.campfire.name=Feu de camp
+tile.genesis.polissoir.name=Polissoir
 
 <!-- Moss -->
 tile.genesis.moss.name=Mousse
@@ -31,7 +32,6 @@ tile.genesis.ore.manganese.name=Minerai de manganèse
 tile.genesis.ore.hematite.name=Minerai d'hématite
 tile.genesis.ore.malachite.name=Minerai de malachite
 tile.genesis.ore.olivine.name=Minerai d'olivine
-tile.genesis.ore.manganese.name=Minerai d'manganese
 
 <!-- Trees -->
 tile.genesis.log.sigillaria.name=Bois de Sigillaria
@@ -100,6 +100,8 @@ tile.genesis.plant.fern.matonidium.name=Matonidium
 tile.genesis.plant.fern.astralopteris.name=Astralopteris
 tile.genesis.plant.fern.ruffordia.name=Ruffordia
 
+tile.genesis.plant.flower.mabelia.name=Mabelia
+
 <!-- Aquatic -->
 tile.genesis.aquatic.coral.heliolites.name=Heliolites
 tile.genesis.aquatic.coral.favosites.name=Favosites
@@ -123,6 +125,7 @@ tile.genesis.aquatic.charnia.top.name=Charnia haut
 <!-- Items -->
 
 <!-- Crafting -->
+item.genesis.brownishFlintPebble.name=Galet de silex brunâtre
 item.genesis.quartz.name=Quartz
 item.genesis.zircon.name=Zircon
 item.genesis.garnet.name=Grenat
@@ -139,6 +142,8 @@ item.genesis.tyrannosaurusTooth.name=Dent de Tyrannosaurus
 item.genesis.utahraptorClaw.name=Griffe d'Utahraptor
 item.genesis.utahraptorFeather.name=Plume d'Utahraptor
 item.genesis.epidexipteryxFeather.name=Plume d'Epidexipteryx
+item.genesis.cynognathusHide.name=Peau de Cynognathus
+item.genesis.leaellynasauraHide.name=Peau de Leaellynasaura
 
 <!-- Tools -->
 item.genesis.knife.granite.name=Couteau en granite
@@ -165,11 +170,11 @@ item.genesis.tool.shovel.limestone.name=Pelle en calcaire
 item.genesis.tool.axe.limestone.name=Hache en calcaire
 item.genesis.tool.hoe.limestone.name=Houe en calcaire
 
-item.genesis.knife.flint.name=Couteau en silex brunâtre
-item.genesis.tool.pickaxe.flint.name=Pioche en silex brunâtre
-item.genesis.tool.shovel.flint.name=Pelle en silex brunâtre
-item.genesis.tool.axe.flint.name=Hache en silex brunâtre
-item.genesis.tool.hoe.flint.name=Houe en silex brunâtre
+item.genesis.knife.brownishFlint.name=Couteau en silex brunâtre
+item.genesis.tool.pickaxe.brownishFlint.name=Pioche en silex brunâtre
+item.genesis.tool.shovel.brownishFlint.name=Pelle en silex brunâtre
+item.genesis.tool.axe.brownishFlint.name=Hache en silex brunâtre
+item.genesis.tool.hoe.brownishFlint.name=Houe en silex brunâtre
 
 tooltip.toolquality=Qualité de l'outil
 toolquality.crude=Brute
@@ -188,10 +193,20 @@ item.genesis.food.rawLiopleurodon.name=Filet de Liopleurodon cru
 item.genesis.food.cookedLiopleurodon.name=Filet de Liopleurodon cuit
 item.genesis.food.rawGigantoraptor.name=Cuisse de Gigantoraptor crue
 item.genesis.food.cookedGigantoraptor.name=Cuisse de Gigantoraptor cuite
-item.genesis.food.rawClimatius.name=Climatius crue
+item.genesis.food.rawClimatius.name=Climatius cru
 item.genesis.food.cookedClimatius.name=Climatius cuit
 
+<!-- Fluids -->
+fluid.genesis.komatiiticLava=Lave Komatiitic
+item.genesis.komatiiticLavaBucket.name=Seau de lave Komatiitic
+tile.genesis.komatiiticLavaBlock.name=Lave Komatiitic
+
+
 <!-- Other -->
+
+<!-- Containers -->
+container.genesis.campfire=Feu de camp
+container.genesis.polissoir=Polissoir
 
 <!-- Creative Mode Tabs -->
 itemGroup.tabGenesisBlock=Blocs de construction Genesis

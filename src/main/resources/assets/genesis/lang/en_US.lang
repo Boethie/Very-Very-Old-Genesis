@@ -32,7 +32,6 @@ tile.genesis.ore.manganese.name=Manganese Ore
 tile.genesis.ore.hematite.name=Hematite Ore
 tile.genesis.ore.malachite.name=Malachite Ore
 tile.genesis.ore.olivine.name=Olivine Ore
-tile.genesis.ore.manganese.name=Manganese Ore
 
 <!-- Trees -->
 tile.genesis.log.archaeopteris.name=Archaeopteris Wood
@@ -135,7 +134,6 @@ item.genesis.manganese.name=Manganese
 item.genesis.hematite.name=Hematite
 item.genesis.malachite.name=Malachite
 item.genesis.olivine.name=Olivine
-item.genesis.manganese.name=Manganese
 item.genesis.sphenoFiber.name=Sphenophyllum Fiber
 item.genesis.bjuviaSeeds.name=Bjuvia Seeds
 item.genesis.ceratitesShell.name=Ceratites Shell
@@ -203,6 +201,7 @@ fluid.genesis.komatiiticLava=Komatiitic Lava
 item.genesis.komatiiticLavaBucket.name=Komatiitic Lava Bucket
 tile.genesis.komatiiticLavaBlock.name=Komatiitic Lava
 
+
 <!-- Other -->
 
 <!-- Containers -->
@@ -212,9 +211,9 @@ container.genesis.polissoir=Polissoir
 <!-- Creative Tabs -->
 itemGroup.genesis.tabBlock=Genesis Building Blocks
 itemGroup.genesis.tabDecorations=Genesis Decoration Blocks
-itemGroup.genesis.tabMaterials=Genesis Materials
 itemGroup.genesis.tabFood=Genesis Foodstuffs
 itemGroup.genesis.tabTools=Genesis Tools
+itemGroup.genesis.tabMaterials=Genesis Materials
 
 <!-- World type name -->
 generator.genesisTestType=Genesis World Test
