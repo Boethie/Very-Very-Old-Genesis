@@ -1,17 +1,21 @@
 package genesis.block.plants;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import genesis.block.ModBlocks;
 import genesis.client.renderer.BlockGenesisPlantRenderer;
 import genesis.common.Genesis;
 import genesis.common.GenesisSoundHandler;
 import genesis.common.GenesisTabs;
 import genesis.lib.PlantMetadata;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -21,10 +25,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.IShearable;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * I am sure there is a much more easier and shorter way of writing this, but it is designed to be
@@ -176,5 +178,13 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
     public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z,
                                     int side) {
         return false;
+    }
+    
+    @Override
+    public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+    	if(world.rand.nextInt(30) == 0) {
+    		Genesis.proxy.playSound(x, y, z, "dig.fern", 1.0F, 1.0F);
+    	}
+    	super.onEntityCollidedWithBlock(world, x, y, z, entity);
     }
 }

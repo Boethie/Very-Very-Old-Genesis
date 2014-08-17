@@ -1,7 +1,7 @@
 package genesis.common;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
 
@@ -21,6 +21,10 @@ public class CommonProxy {
 
     public boolean areLeavesOpaque() {
         return false;
+    }
+    
+    public void playSound(double x, double y, double z, String sound, float volume, float frequency) {
+    	// Nothing if server-side.
     }
 
 }
