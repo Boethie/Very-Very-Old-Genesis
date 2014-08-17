@@ -1,12 +1,15 @@
 package genesis.block.plants;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import genesis.block.ModBlocks;
 import genesis.common.Genesis;
 import genesis.common.GenesisSoundHandler;
 import genesis.common.GenesisTabs;
 import genesis.lib.MiscHelpers;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -22,10 +25,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockCalamitesPlant extends BlockGenesisPlant {
 
@@ -177,7 +178,8 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
         return canPlaceBlockAt(world, x, y, z);
     }
 
-    protected void dropIfCannotStay(World world, int x, int y, int z) {
+    @Override
+	protected void dropIfCannotStay(World world, int x, int y, int z) {
         if (!canBlockStay(world, x, y, z)) {
             dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
             world.setBlockToAir(x, y, z);
@@ -304,6 +306,8 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
             double dirY = itemDrop.motionY / div;
             double dirZ = itemDrop.motionZ / div;
             itemDrop.setPosition(itemDrop.posX + dirX, itemDrop.posY + dirY, itemDrop.posZ + dirZ);
+            
+            Genesis.proxy.playSound(x, y, z, "dig.calamites", 0.1F + world.rand.nextFloat() * 0.9F, 1.0F);
 
             world.spawnEntityInWorld(itemDrop);
 
