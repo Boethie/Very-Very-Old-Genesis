@@ -153,7 +153,7 @@ public class ModBlocks {
         olivineOre.setHarvestLevel("pickaxe", 1);
 
         // Fluid blocks
-        fluidKomatiiticLava = new FluidKomatiiticLava(Names.fluidKomatiicicLava);
+        fluidKomatiiticLava = new FluidKomatiiticLava(Names.fluidKomatiiticLava);
         komatiiticLava = (BlockFluidBase) new BlockKomatiiticLava(fluidKomatiiticLava, Material.lava)
                 .setBlockTextureName("komatiitic_lava")
                 .setBlockName(Names.blockKomatiiticLava);

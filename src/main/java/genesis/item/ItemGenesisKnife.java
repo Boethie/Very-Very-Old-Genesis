@@ -31,7 +31,6 @@ public class ItemGenesisKnife extends Item {
     private final ToolQuality quality;
     protected String materialName;
     private float weaponDamage;
-    private ItemGenesisKnife nextTier;
 
     public ItemGenesisKnife(Item.ToolMaterial toolMaterial, String materialName, ToolQuality quality) {
         super();

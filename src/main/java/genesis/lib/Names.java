@@ -115,7 +115,7 @@ public final class Names {
     public static final String itemRawClimatius = itemFood + "rawClimatius";
     public static final String itemCookedClimatius = itemFood + "cookedClimatius";
     // Fluids
-    public static final String fluidKomatiicicLava = mod + "komatiiticLava";
+    public static final String fluidKomatiiticLava = mod + "komatiiticLava";
     public static final String blockKomatiiticLava = mod + "komatiiticLavaBlock";
     public static final String bucketKomatiiticLava = mod + "komatiiticLavaBucket";
     // --- Other ---

@@ -92,7 +92,7 @@ public class ModItems {
                 new Object[]{1, 247, 7.2F, 1.0F, 5},
                 new Object[]{1, 237, 8.0F, 1.0F, 5});
 
-        flintTools = new ItemsToolSet(Names.itemBrownishFlintMaterial, Items.flint, Items.stick,
+        flintTools = new ItemsToolSet(Names.itemBrownishFlintMaterial, brownishFlintPebble, Items.stick,
                 new Object[]{1, 353, 4.0F, 1.0F, 5},
                 new Object[]{1, 368, 5.2F, 1.0F, 5},
                 new Object[]{1, 493, 7.2F, 1.0F, 5},

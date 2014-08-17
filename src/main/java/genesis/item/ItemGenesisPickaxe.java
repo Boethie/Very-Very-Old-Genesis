@@ -19,7 +19,6 @@ import java.util.List;
 public class ItemGenesisPickaxe extends ItemPickaxe {
 
     protected String materialName;
-    private ItemGenesisPickaxe nextTier;
     private ToolQuality quality;
 
     public ItemGenesisPickaxe(Item.ToolMaterial material, String materialName, ToolQuality quality) {

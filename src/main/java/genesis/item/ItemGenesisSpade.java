@@ -19,7 +19,6 @@ import java.util.List;
 public class ItemGenesisSpade extends ItemSpade {
 
     protected String materialName;
-    private ItemGenesisSpade nextTier;
     private ToolQuality quality;
 
     public ItemGenesisSpade(Item.ToolMaterial material, String materialName, ToolQuality quality) {

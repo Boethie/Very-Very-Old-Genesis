@@ -19,7 +19,6 @@ import java.util.List;
 public class ItemGenesisAxe extends ItemAxe {
 
     protected String materialName;
-    private ItemGenesisAxe nextTier;
     private ToolQuality quality;
 
     public ItemGenesisAxe(Item.ToolMaterial material, String materialName, ToolQuality quality) {

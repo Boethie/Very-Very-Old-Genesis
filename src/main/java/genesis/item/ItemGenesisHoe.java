@@ -19,7 +19,6 @@ import java.util.List;
 public class ItemGenesisHoe extends ItemHoe {
 
     protected String materialName;
-    private ItemGenesisHoe nextTier;
     private ToolQuality quality;
 
     public ItemGenesisHoe(Item.ToolMaterial material, String materialName, ToolQuality quality) {
