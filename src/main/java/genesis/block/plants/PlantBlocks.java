@@ -75,5 +75,6 @@ public class PlantBlocks {
         Blocks.fire.setFireInfo(plants, 60, 100);
         Blocks.fire.setFireInfo(ferns, 60, 100);
         Blocks.fire.setFireInfo(calamitesPlant, 30, 60);
+        Blocks.fire.setFireInfo(asteroxylon, 60, 100);
     }
 }

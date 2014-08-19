@@ -3,7 +3,7 @@ package genesis.fluid.block;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.block.ModBlocks;
-import genesis.client.event.TextureStitchEventHandler;
+import genesis.client.GenesisClientEventHandler;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 import genesis.fluid.FluidKomatiiticLava;
@@ -47,7 +47,7 @@ public class BlockKomatiiticLava extends BlockFluidClassic {
         // Check if the fluid already has a block, to comply with the FluidDict way of working.
         if (fluid.getBlock() == null) {
             fluid.setBlock(this);
-            TextureStitchEventHandler.fluidMap.put(fluid, this);
+            GenesisClientEventHandler.fluidMap.put(fluid, this);
         }
     }
 

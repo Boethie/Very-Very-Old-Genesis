@@ -1,15 +1,40 @@
-package genesis.client.event;
+package genesis.client;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import genesis.common.Genesis;
 import genesis.lib.GenesisVersion;
-import genesis.lib.GenesisVersion.Status;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.event.GuiScreenEvent;
+import net.minecraftforge.client.event.TextureStitchEvent;
+import net.minecraftforge.fluids.BlockFluidBase;
+import net.minecraftforge.fluids.Fluid;
 
-public class GuiEventHandler {
+import java.util.HashMap;
+import java.util.Map;
+
+public class GenesisClientEventHandler {
+    /**
+     * The mapping of {@link net.minecraftforge.fluids.Fluid} to {@link net.minecraftforge.fluids.BlockFluidBase}.
+     */
+    public static Map<Fluid, BlockFluidBase> fluidMap = new HashMap<Fluid, BlockFluidBase>();
+
+    /**
+     * After the texture stitching.
+     *
+     * @param event The received event.
+     */
+    @SubscribeEvent
+    @SideOnly(Side.CLIENT)
+    public void postStitch(TextureStitchEvent.Post event) {
+        for (Map.Entry<Fluid, BlockFluidBase> fluids : GenesisClientEventHandler.fluidMap.entrySet()) {
+            fluids.getKey().setIcons(fluids.getValue().getBlockTextureFromSide(0), fluids.getValue().getBlockTextureFromSide(1));
+        }
+    }
+
     @SubscribeEvent
     public void onGuiDraw(GuiScreenEvent.DrawScreenEvent event) {
         if (event.gui instanceof GuiMainMenu) {
@@ -21,7 +46,7 @@ public class GuiEventHandler {
         }
     }
 
-    private String getStringFromStatus(Status status) {
+    private String getStringFromStatus(GenesisVersion.Status status) {
         switch (status) {
             case OUTDATED:
                 return EnumChatFormatting.RED + "OUTDATED: Genesis " + GenesisVersion.getTarget();

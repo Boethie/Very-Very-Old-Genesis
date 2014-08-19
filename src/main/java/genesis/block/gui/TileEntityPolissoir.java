@@ -262,7 +262,7 @@ public class TileEntityPolissoir extends TileEntity implements ISidedInventory {
             boolean hasSharpenedRecipe = PolissoirRecipes.instance().hasSharpenedRecipe(polissoirItemStacks[0]);
             String sound = hasChippedRecipe ? "chipped" : hasPolishedRecipe || hasSharpenedRecipe ? "polished" : null;
             if (!StringUtils.isNullOrEmpty(sound)) {
-                worldObj.playSoundEffect((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D, Genesis.MOD_ID + ":polissoir." + sound, 1.0F, worldObj.rand.nextFloat() * 0.1F + 0.9F);
+                Genesis.proxy.playSound(xCoord, yCoord, zCoord, "polissoir." + sound, 1.0F, worldObj.rand.nextFloat() * 0.1F + 0.9F);
             }
 
             if (!worldObj.isRemote) {

@@ -103,6 +103,8 @@ public class Recipes {
         GameRegistry.addSmelting(ModItems.rawAphthoroblattina, new ItemStack(ModItems.cookedAphthoroblattina), 0.1F);
         GameRegistry.addSmelting(ModItems.rawCeratites, new ItemStack(ModItems.cookedCeratites), 0.1F);
         GameRegistry.addSmelting(ModItems.rawClimatius, new ItemStack(ModItems.cookedClimatius), 0.1F);
+        GameRegistry.addSmelting(ModItems.rawGigantoraptorThigh, new ItemStack(ModItems.cookedGigantoraptorThigh), 0.1F);
+        GameRegistry.addSmelting(ModItems.rawLiopleurodonFillet, new ItemStack(ModItems.cookedLiopleurodonFillet), 0.1F);
     }
 
 }

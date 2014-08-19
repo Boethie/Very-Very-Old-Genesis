@@ -77,9 +77,11 @@ public class TreeBlocks {
         treeGenerators.add(null);
         treeGenerators.add(null);
         treeGenerators.add(new WorldGenTreeAraucarioxylon(20, 7, true));
-        Blocks.fire.setFireInfo(blocksLogs[0], 5, 5);
-        Blocks.fire.setFireInfo(blocksRottenLogs[0], 10, 10);
-        Blocks.fire.setFireInfo(blocksLeaves[0], 30, 60);
+        for (int group = 0; group < numGroups; group++) {
+            Blocks.fire.setFireInfo(blocksLogs[group], 5, 5);
+            Blocks.fire.setFireInfo(blocksRottenLogs[group], 10, 10);
+            Blocks.fire.setFireInfo(blocksLeaves[group], 30, 60);
+        }
     }
 
     public static BlockAndMeta getBlockForType(TreeBlockType type, String name) {

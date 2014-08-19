@@ -56,7 +56,6 @@ public class Genesis {
 
         ConfigHandler.init(evt.getSuggestedConfigurationFile());
 
-        proxy.registerRenderers();
         proxy.preInit();
 
         LogHelper.log(Level.INFO, "Preparing Blocks and Items");

@@ -1,8 +1,6 @@
 package genesis.client;
 
 import genesis.block.gui.TileEntityCampfire;
-import genesis.client.event.GuiEventHandler;
-import genesis.client.event.TextureStitchEventHandler;
 import genesis.client.renderer.BlockBjuviaConeRenderer;
 import genesis.client.renderer.BlockCampfireRenderer;
 import genesis.client.renderer.BlockGenesisFlowerPotRenderer;
@@ -23,17 +21,15 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 
 public class ClientProxy extends CommonProxy {
-
     @Override
     public void preInit() {
-        MinecraftForge.EVENT_BUS.register(new GuiEventHandler());
-        MinecraftForge.EVENT_BUS.register(new TextureStitchEventHandler());
+        super.preInit();
+
+        MinecraftForge.EVENT_BUS.register(new GenesisClientEventHandler());
     }
 
     @Override
     public void registerRenderers() {
-        super.registerRenderers();
-
         RenderingRegistry.registerBlockHandler(new BlockMossRenderer());
         RenderingRegistry.registerBlockHandler(new BlockGenesisPlantRenderer());
         RenderingRegistry.registerBlockHandler(new BlockGenesisFlowerPotRenderer());
@@ -42,20 +38,16 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerBlockHandler(new BlockBjuviaConeRenderer());
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCampfire.class, new TileEntityCampfireRenderer());
-
-        LanguageLoader.loadLanguages();
     }
 
     @Override
     public boolean areLeavesOpaque() {
-        return FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER ? false : !Minecraft.getMinecraft().gameSettings.fancyGraphics;
+        return FMLCommonHandler.instance().getEffectiveSide() != Side.SERVER && !Minecraft.getMinecraft().gameSettings.fancyGraphics;
     }
     
     @Override
     public void playSound(double x, double y, double z, String sound, float volume, float frequency) {
     	ResourceLocation soundLocation = new ResourceLocation(Genesis.MOD_ID, sound);
-    	FMLClientHandler.instance().getClient().getSoundHandler()
-    		.playSound(new PositionedSoundRecord(soundLocation,
-    				volume, frequency, (float) x, (float) y, (float) z));
+    	FMLClientHandler.instance().getClient().getSoundHandler().playSound(new PositionedSoundRecord(soundLocation, volume, frequency, (float) x, (float) y, (float) z));
     }
 }

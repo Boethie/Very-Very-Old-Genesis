@@ -307,7 +307,7 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
             double dirZ = itemDrop.motionZ / div;
             itemDrop.setPosition(itemDrop.posX + dirX, itemDrop.posY + dirY, itemDrop.posZ + dirZ);
             
-            Genesis.proxy.playSound(x, y, z, "dig.calamites", 0.1F + world.rand.nextFloat() * 0.9F, 1.0F);
+            Genesis.proxy.playSound(x, y, z, "dig.calamites", 1.0F, 0.1F + world.rand.nextFloat() * 0.9F);
 
             world.spawnEntityInWorld(itemDrop);
 

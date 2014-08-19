@@ -183,7 +183,7 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
     @Override
     public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
     	if(world.rand.nextInt(30) == 0) {
-    		Genesis.proxy.playSound(x, y, z, "dig.fern", 0.1F + world.rand.nextFloat() * 0.9F, 1.0F);
+    		Genesis.proxy.playSound(x, y, z, "dig.fern", 1.0F, 0.1F + world.rand.nextFloat() * 0.9F);
     	}
     	super.onEntityCollidedWithBlock(world, x, y, z, entity);
     }

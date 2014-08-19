@@ -108,10 +108,6 @@ public final class Names {
     public static final String itemCookedAphthoroblattina = itemFood + "cookedAphthoroblattina";
     public static final String itemRawCeratites = itemFood + "rawCeratites";
     public static final String itemCookedCeratites = itemFood + "cookedCeratites";
-    public static final String itemRawMixosaurus = itemFood + "rawMixosaurusFillet";
-    public static final String itemCookedMixosaurus = itemFood + "cookedMixosaurusFillet";
-    public static final String itemRawArcheopterix = itemFood + "rawArcheopterixThigh";
-    public static final String itemCookedArcheopterix = itemFood + "cookedArcheopterixThigh";
     public static final String itemRawLiopleurodon = itemFood + "rawLiopleurodon";
     public static final String itemCookedLiopleurodon = itemFood + "cookedLiopleurodon";
     public static final String itemRawGigantoraptor = itemFood + "rawGigantoraptor";
@@ -144,6 +140,4 @@ public final class Names {
     public static final String itemQuartziteMaterial = "quartzite";
     public static final String itemLimestoneMaterial = "limestone";
     public static final String itemBrownishFlintMaterial = "brownish_flint";
-    public static final String itemZirconMaterial = "zircon";
-    public static final String itemOlivineMaterial = "olivine";
 }
