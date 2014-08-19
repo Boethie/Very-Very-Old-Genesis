@@ -37,9 +37,9 @@ public class GenesisBiomes {
         Configuration config = new Configuration(configFile);
         config.load();
 
-        rainforestId = config.get(config.CATEGORY_GENERAL, "Biome ID of Rainforest", 120).getInt();
-        riverId = config.get(config.CATEGORY_GENERAL, "Biome ID of River (Genesis)", 121).getInt();
-        rainforestSwampId = config.get(config.CATEGORY_GENERAL, "Biome ID of Rainforest Swamp", 122).getInt();
+        rainforestId = config.get(Configuration.CATEGORY_GENERAL, "Biome ID of Rainforest", 120).getInt();
+        riverId = config.get(Configuration.CATEGORY_GENERAL, "Biome ID of River (Genesis)", 121).getInt();
+        rainforestSwampId = config.get(Configuration.CATEGORY_GENERAL, "Biome ID of Rainforest Swamp", 122).getInt();
 
         config.save();
     }

@@ -1,16 +1,10 @@
 package genesis.client;
 
 import genesis.block.gui.TileEntityCampfire;
-import genesis.client.renderer.BlockBjuviaConeRenderer;
-import genesis.client.renderer.BlockCampfireRenderer;
-import genesis.client.renderer.BlockGenesisFlowerPotRenderer;
-import genesis.client.renderer.BlockGenesisPlantRenderer;
-import genesis.client.renderer.BlockMossRenderer;
-import genesis.client.renderer.BlockTikiTorchRenderer;
-import genesis.client.renderer.TileEntityCampfireRenderer;
+import genesis.block.gui.TileEntityPolissoir;
+import genesis.client.renderer.*;
 import genesis.common.CommonProxy;
 import genesis.common.Genesis;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -38,11 +32,12 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerBlockHandler(new BlockBjuviaConeRenderer());
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCampfire.class, new TileEntityCampfireRenderer());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPolissoir.class, new TileEntityPolissoirRenderer());
     }
 
     @Override
     public boolean areLeavesOpaque() {
-        return FMLCommonHandler.instance().getEffectiveSide() != Side.SERVER && !Minecraft.getMinecraft().gameSettings.fancyGraphics;
+        return FMLCommonHandler.instance().getEffectiveSide() != Side.SERVER && !FMLClientHandler.instance().getClient().gameSettings.fancyGraphics;
     }
     
     @Override

@@ -3,6 +3,7 @@ package genesis.client.renderer;
 import genesis.block.ModBlocks;
 import genesis.block.gui.ModelCampfireTE;
 import genesis.block.gui.TileEntityCampfire;
+import genesis.common.Genesis;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -21,7 +22,7 @@ import java.util.Random;
 
 public class TileEntityCampfireRenderer extends TileEntitySpecialRenderer {
 
-    public static final ResourceLocation RES_CAMPFIRE_MODEL = new ResourceLocation("genesis:textures/blocks/campfire_model.png");
+    public static final ResourceLocation RES_CAMPFIRE_MODEL = new ResourceLocation(Genesis.MOD_ID, "textures/blocks/campfire_model.png");
 
     public ModelCampfireTE model;
 

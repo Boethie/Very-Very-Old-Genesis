@@ -27,6 +27,7 @@ public class BlockPolissoir extends BlockContainer {
     public BlockPolissoir() {
         super(Material.rock);
         setCreativeTab(GenesisTabs.tabGenesisDecoration);
+        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.56F, 1.0F);
     }
 
     public static void updatePolissoirBlockState(World world, int x, int y, int z) {
@@ -47,7 +48,7 @@ public class BlockPolissoir extends BlockContainer {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        this.blockIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName());
+        this.blockIcon = iconRegister.registerIcon(getTextureName());
     }
 
     @Override
