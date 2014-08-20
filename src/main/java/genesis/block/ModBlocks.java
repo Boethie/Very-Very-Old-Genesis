@@ -169,6 +169,8 @@ public class ModBlocks {
 
         GameRegistry.registerBlock(komatiiticLava, Names.blockKomatiiticLava);
 
+        GameRegistry.addRecipe(new ItemStack(polissoir), "XXX", "XXX", 'X', granite);
+
         quartzGraniteOre.setDropAndSmelting(ModItems.quartz, 0, 0.2F);
 
         zirconOre.setDropAndSmelting(ModItems.zircon, 0, 1.0F);

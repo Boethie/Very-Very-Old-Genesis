@@ -17,7 +17,21 @@ public class TileEntityPolissoirRenderer extends TileEntitySpecialRenderer {
         GL11.glPushMatrix();
         GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
         GL11.glScalef(1.0F, -1F, -1F);
-        GL11.glRotatef(0.0F, 0.0F, 1.0F, 0.0F);
+        switch (tileEntity.getBlockMetadata()) {
+            case 3:
+                scale = 180.0F;
+                break;
+            case 4:
+                scale = -90.0F;
+                break;
+            case 5:
+                scale = 90.0F;
+                break;
+            default:
+                scale = 0.0F;
+        }
+        GL11.glRotatef(scale, 0.0F, 1.0F, 0.0F);
+
         GL11.glRotatef(90, 0, 1.0F, 0);
         model.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
         GL11.glPopMatrix();
