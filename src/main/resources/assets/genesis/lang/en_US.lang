@@ -113,9 +113,12 @@ tile.genesis.aquatic.sponge.hazelia.name=Hazelia
 tile.genesis.aquatic.sponge.wapkia.name=Wapkia
 tile.genesis.aquatic.sponge.diagoniella.name=Diagoniella
 tile.genesis.aquatic.sponge.pirania.name=Pirania
+tile.genesis.aquatic.sponge.chancelloria.name=Chancelloria
 
 tile.genesis.aquatic.algae.margaretia.name=Margaretia
 tile.genesis.aquatic.algae.bangiomorpha.name=Bangiomorpha
+tile.genesis.aquatic.algae.thaumaptilon.name=Thaumaptilon
+tile.genesis.aquatic.algae.dinomischus.name=Dinomischus
 
 tile.genesis.aquatic.pteridinium.name=Pteridinium
 

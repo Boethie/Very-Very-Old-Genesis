@@ -22,6 +22,7 @@ public class BlockGenesisSponge extends BlockGenesisAquaticPlant {
 
     public BlockGenesisSponge() {
         super(Material.water);
+        setStepSound(soundTypeCloth);
     }
 
     @Override
