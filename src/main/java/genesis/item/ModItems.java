@@ -54,8 +54,8 @@ public class ModItems {
     public static ItemGenesisFood rawCeratites;
     public static ItemGenesisFood cookedCeratites;
 
-    public static ItemGenesisFood rawLiopleurodonFillet;
-    public static ItemGenesisFood cookedLiopleurodonFillet;
+    public static ItemGenesisFood rawLiopleurodon;
+    public static ItemGenesisFood cookedLiopleurodon;
 
     public static ItemGenesisFood rawGigantoraptorThigh;
     public static ItemGenesisFood cookedGigantoraptorThigh;
@@ -161,10 +161,10 @@ public class ModItems {
         cookedCeratites = (ItemGenesisFood) new ItemGenesisFood(5, 6.0F)
                 .setUnlocalizedName(Names.itemCookedCeratites).setTextureName("ceratites_cooked");
 
-        rawLiopleurodonFillet = (ItemGenesisFood) new ItemGenesisFood(1, 1.2F)
-                .setUnlocalizedName(Names.itemRawLiopleurodon).setTextureName("liopleurodon_fillet_raw");
-        cookedLiopleurodonFillet = (ItemGenesisFood) new ItemGenesisFood(5, 6.0F)
-                .setUnlocalizedName(Names.itemCookedLiopleurodon).setTextureName("liopleurodon_fillet_cooked");
+        rawLiopleurodon = (ItemGenesisFood) new ItemGenesisFood(1, 1.2F)
+                .setUnlocalizedName(Names.itemRawLiopleurodon).setTextureName("liopleurodon_raw");
+        cookedLiopleurodon = (ItemGenesisFood) new ItemGenesisFood(5, 6.0F)
+                .setUnlocalizedName(Names.itemCookedLiopleurodon).setTextureName("liopleurodon_cooked");
 
         rawGigantoraptorThigh = (ItemGenesisFood) new ItemGenesisFood(2, 1.2F)
                 .setUnlocalizedName(Names.itemRawGigantoraptor).setTextureName("gigantoraptor_thigh_raw");
