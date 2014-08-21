@@ -1,4 +1,4 @@
-<!-- Blocks -->
+﻿<!-- Blocks -->
 
 <!-- Tiki Torch -->
 tile.genesis.tikiTorch.name=Torche tiki
@@ -189,8 +189,8 @@ item.genesis.food.rawAphthoroblattina.name=Aphthoroblattina cru
 item.genesis.food.cookedAphthoroblattina.name=Aphthoroblattina cuit
 item.genesis.food.rawCeratites.name=Ceratites cru
 item.genesis.food.cookedCeratites.name=Ceratites cuit
-item.genesis.food.rawLiopleurodon.name=Filet de Liopleurodon cru
-item.genesis.food.cookedLiopleurodon.name=Filet de Liopleurodon cuit
+item.genesis.food.rawLiopleurodon.name=Liopleurodon cru
+item.genesis.food.cookedLiopleurodon.name=Liopleurodon cuit
 item.genesis.food.rawGigantoraptor.name=Cuisse de Gigantoraptor crue
 item.genesis.food.cookedGigantoraptor.name=Cuisse de Gigantoraptor cuite
 item.genesis.food.rawClimatius.name=Climatius cru
