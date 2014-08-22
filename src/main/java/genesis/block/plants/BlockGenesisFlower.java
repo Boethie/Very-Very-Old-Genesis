@@ -2,7 +2,7 @@ package genesis.block.plants;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.ModBlocks;
+import genesis.block.GenesisModBlocks;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 import genesis.lib.PlantMetadata;
@@ -82,7 +82,7 @@ public class BlockGenesisFlower extends BlockFlower implements IPlantRenderSpeci
     public void registerBlockIcons(IIconRegister register) {
         blockIcons = new IIcon[PlantMetadata.flowerTypes.size()];
         for (int i = 0; i < blockIcons.length; i++) {
-            blockIcons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.flowerTypes.get(i));
+            blockIcons[i] = register.registerIcon(Genesis.ASSETS + PlantMetadata.flowerTypes.get(i));
         }
     }
 
@@ -94,7 +94,7 @@ public class BlockGenesisFlower extends BlockFlower implements IPlantRenderSpeci
 
     @Override
     public boolean canPlaceBlockOn(Block block) {
-        return super.canPlaceBlockOn(block) || block == ModBlocks.moss;
+        return super.canPlaceBlockOn(block) || block == GenesisModBlocks.moss;
     }
 
     @Override

@@ -56,12 +56,10 @@ public class GenesisVersion {
                         status = Status.FAILED;
                     }
                 } catch (Exception e) {
-                    System.out.println(e);
                     e.printStackTrace();
                     status = Status.FAILED;
                 }
             }
-
         }.start();
     }
 
@@ -70,6 +68,6 @@ public class GenesisVersion {
         FAILED,
         OUTDATED,
         UP_TO_DATE,
-        AHEAD;
+        AHEAD
     }
 }

@@ -22,5 +22,4 @@ public class FaceUVs {
         this.vS = icon.getInterpolatedV(vS);
         this.vE = icon.getInterpolatedV(vE);
     }
-
 }

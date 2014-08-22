@@ -238,10 +238,7 @@ public class TileEntityCampfire extends TileEntityFurnace {
     public boolean canInsertItem(int slot, ItemStack stack, int side) {
         switch (slot) {
             case 0:
-                if (canSmeltItemType(stack))
-                    return true;
-
-                return false;
+                return canSmeltItemType(stack);
             case 1:
                 return isItemFuel(stack);
         }
@@ -297,10 +294,12 @@ public class TileEntityCampfire extends TileEntityFurnace {
     }
 
     @Override
-    public void openInventory() {}
+    public void openInventory() {
+    }
 
     @Override
-    public void closeInventory() {}
+    public void closeInventory() {
+    }
 
     @Override
     public void readFromNBT(NBTTagCompound compound) {

@@ -1,9 +1,9 @@
 package genesis.block.plants;
 
 import genesis.client.renderer.BlockGenesisPlantRenderer;
+import genesis.common.Genesis;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
@@ -30,7 +30,7 @@ public abstract class BlockGenesisPlantTop extends Block implements IPlantRender
         setHardness(0.0f);
         setResistance(0.0f);
         setStepSound(soundTypeGrass);
-        setCreativeTab((CreativeTabs) null);
+        setCreativeTab(null);
     }
 
     @Override
@@ -95,5 +95,10 @@ public abstract class BlockGenesisPlantTop extends Block implements IPlantRender
                                     int side) {
         // TODO Auto-generated method stub
         return false;
+    }
+
+    @Override
+    public Block setBlockTextureName(String textureName) {
+        return super.setBlockTextureName(Genesis.ASSETS + textureName);
     }
 }

@@ -3,7 +3,6 @@ package genesis.block.trees;
 import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.block.BlockAndMeta;
 import genesis.block.plants.BlockGenesisFlowerPot;
-import genesis.common.Genesis;
 import genesis.item.itemblock.ItemBlockGenesisTree;
 import genesis.lib.Names;
 import genesis.world.gen.feature.*;
@@ -16,58 +15,51 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
 
-public class TreeBlocks {
-    public static Block[] blocksLogs;
-    public static Block[] blocksSaplings;
-    public static Block[] blocksLeaves;
-    public static Block[] blocksRottenLogs;
-    public static BlockBjuviaCone bjuviaCone;
+public class GenesisTreeBlocks {
+    public static Block[] logs;
+    public static Block[] saplings;
+    public static Block[] leaves;
+    public static Block[] rotten_logs;
+    public static BlockBjuviaCone bjuvia_cone;
     private static int numGroups;
     private static ArrayList<WorldGenTreeBase> treeGenerators;
 
-    public static void init() {
+    public static void initiate() {
         numGroups = TreeType.getNumGroups();
 
         treeGenerators = new ArrayList<WorldGenTreeBase>(numGroups);
 
-        blocksLogs = new Block[numGroups];
-        blocksSaplings = new Block[numGroups];
-        blocksLeaves = new Block[numGroups];
-        blocksRottenLogs = new Block[numGroups];
-        bjuviaCone = (BlockBjuviaCone) new BlockBjuviaCone().setBlockName(Names.blockBjuviaCone);
+        logs = new Block[numGroups];
+        saplings = new Block[numGroups];
+        leaves = new Block[numGroups];
+        rotten_logs = new Block[numGroups];
+        bjuvia_cone = (BlockBjuviaCone) new BlockBjuviaCone().setBlockName(Names.blockBjuviaCone).setBlockTextureName("bjuvia_cone");
 
         for (int group = 0; group < numGroups; group++) {
-            blocksLogs[group] = new BlockGenesisLog(group)
-                    .setBlockName(Names.blockLogGenesis);
-
-            blocksSaplings[group] = new BlockGenesisSapling(group)
-                    .setBlockName(Names.blockSaplingGenesis);
-
-            blocksLeaves[group] = new BlockGenesisLeaves(group)
-                    .setBlockName(Names.blockLeavesGenesis);
-
-            blocksRottenLogs[group] = new BlockRottenLog(group)
-                    .setBlockName(Names.blockRottenLogGenesis);
+            logs[group] = new BlockGenesisLog(group).setBlockName(Names.blockLogGenesis);
+            saplings[group] = new BlockGenesisSapling(group).setBlockName(Names.blockSaplingGenesis);
+            leaves[group] = new BlockGenesisLeaves(group).setBlockName(Names.blockLeavesGenesis);
+            rotten_logs[group] = new BlockRottenLog(group).setBlockName(Names.blockRottenLogGenesis);
         }
     }
 
     public static void registerBlocks() {
         for (int group = 0; group < numGroups; group++) {
-            Genesis.proxy.registerBlock(blocksLogs[group], Names.blockLogGenesis + group, ItemBlockGenesisTree.class);
-            Genesis.proxy.registerBlock(blocksSaplings[group], Names.blockSaplingGenesis + group, ItemBlockGenesisTree.class);
-            Genesis.proxy.registerBlock(blocksLeaves[group], Names.blockLeavesGenesis + group, ItemBlockGenesisTree.class);
-            Genesis.proxy.registerBlock(blocksRottenLogs[group], Names.blockRottenLogGenesis + group, ItemBlockGenesisTree.class);
+            GameRegistry.registerBlock(logs[group], ItemBlockGenesisTree.class, Names.Registry.blockLogGenesis + group);
+            GameRegistry.registerBlock(saplings[group], ItemBlockGenesisTree.class, Names.Registry.blockSaplingGenesis + group);
+            GameRegistry.registerBlock(leaves[group], ItemBlockGenesisTree.class, Names.Registry.blockLeavesGenesis + group);
+            GameRegistry.registerBlock(rotten_logs[group], ItemBlockGenesisTree.class, Names.Registry.blockRottenLogGenesis + group);
 
-            GameRegistry.addSmelting(blocksLogs[group], new ItemStack(Items.coal, 1, 1), 0.15F);
+            GameRegistry.addSmelting(logs[group], new ItemStack(Items.coal, 1, 1), 0.15F);
 
-            OreDictionary.registerOre("logWood", new ItemStack(blocksLogs[group], 1, OreDictionary.WILDCARD_VALUE));
+            OreDictionary.registerOre("logWood", new ItemStack(logs[group], 1, OreDictionary.WILDCARD_VALUE));
         }
 
         for (TreeType type : TreeType.values()) {
-            BlockGenesisFlowerPot.tryRegisterPlant(new ItemStack(blocksSaplings[type.getGroup()], 1, type.getMetadata()));
+            BlockGenesisFlowerPot.tryRegisterPlant(new ItemStack(saplings[type.getGroup()], 1, type.getMetadata()));
         }
 
-        GameRegistry.registerBlock(bjuviaCone, Names.blockBjuviaCone);
+        GameRegistry.registerBlock(bjuvia_cone, Names.Registry.blockBjuviaCone);
 
         treeGenerators.add(null); // there are no world gens for the archeopteris, bjuvia, etc. yet, so it is set to null
         treeGenerators.add(new WorldGenTreeSigillaria(8, 3, true));
@@ -78,9 +70,9 @@ public class TreeBlocks {
         treeGenerators.add(null);
         treeGenerators.add(new WorldGenTreeAraucarioxylon(20, 7, true));
         for (int group = 0; group < numGroups; group++) {
-            Blocks.fire.setFireInfo(blocksLogs[group], 5, 5);
-            Blocks.fire.setFireInfo(blocksRottenLogs[group], 10, 10);
-            Blocks.fire.setFireInfo(blocksLeaves[group], 30, 60);
+            Blocks.fire.setFireInfo(logs[group], 5, 5);
+            Blocks.fire.setFireInfo(rotten_logs[group], 10, 10);
+            Blocks.fire.setFireInfo(leaves[group], 30, 60);
         }
     }
 
@@ -91,16 +83,16 @@ public class TreeBlocks {
 
         switch (type) {
             case LOG:
-                block = blocksLogs[group];
+                block = logs[group];
                 break;
             case LEAVES:
-                block = blocksLeaves[group];
+                block = leaves[group];
                 break;
             case SAPLING:
-                block = blocksSaplings[group];
+                block = saplings[group];
                 break;
             case ROTTEN_LOG:
-                block = blocksRottenLogs[group];
+                block = rotten_logs[group];
                 break;
             default:
                 return null;
@@ -193,6 +185,6 @@ public class TreeBlocks {
         LOG,
         LEAVES,
         SAPLING,
-        ROTTEN_LOG;
+        ROTTEN_LOG
     }
 }

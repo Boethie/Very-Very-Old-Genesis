@@ -1,6 +1,6 @@
 package genesis.item.itemblock;
 
-import genesis.block.aquatic.AquaticBlocks;
+import genesis.block.aquatic.GenesisAquaticBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
@@ -22,9 +22,8 @@ public class ItemBlockCharnia extends ItemBlockWithMetadata {
         return b.getUnlocalizedName();
     }
 
-
     public IIcon getIconFromDamage(int meta) {
-        return AquaticBlocks.charniaTop.getIcon(0, 0);
+        return GenesisAquaticBlocks.charnia_top.getIcon(0, 0);
     }
 
     @Override

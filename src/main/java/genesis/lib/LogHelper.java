@@ -24,5 +24,4 @@ public class LogHelper {
     public static void log(String message) {
         log(Level.TRACE, "[" + FMLCommonHandler.instance().getEffectiveSide() + "] " + message);
     }
-
 }

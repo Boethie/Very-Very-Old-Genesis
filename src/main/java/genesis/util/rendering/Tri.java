@@ -42,5 +42,4 @@ public class Tri {
     public Vec4 getCenter() {
         return vert0.add(vert1).add(vert2).div(3);
     }
-
 }

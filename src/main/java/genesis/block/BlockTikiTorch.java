@@ -3,7 +3,6 @@ package genesis.block;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.client.renderer.BlockTikiTorchRenderer;
-import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -11,7 +10,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EffectRenderer;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
@@ -40,22 +38,14 @@ public class BlockTikiTorch extends BlockGenesis {
     }
 
     @Override
-    public void registerBlock(String name) {
-        super.registerBlock(name);
-
-        Item.getItemFromBlock(this).setFull3D();
-    }
-
-    @Override
     public int getRenderType() {
         return BlockTikiTorchRenderer.renderID;
     }
 
     @Override
     public void registerBlockIcons(IIconRegister iconRegister) {
-        String texName = Genesis.MOD_ID + ":" + getTextureName();
-        iconUpper = iconRegister.registerIcon(texName + "_upper");
-        iconLower = iconRegister.registerIcon(texName + "_lower");
+        iconUpper = iconRegister.registerIcon(getTextureName() + "_upper");
+        iconLower = iconRegister.registerIcon(getTextureName() + "_lower");
 
         blockIcon = iconUpper;
     }
@@ -67,7 +57,7 @@ public class BlockTikiTorch extends BlockGenesis {
 
     @Override
     public String getItemIconName() {
-        return Genesis.MOD_ID + ":" + getTextureName();
+        return getTextureName();
     }
 
     @Override
@@ -129,7 +119,6 @@ public class BlockTikiTorch extends BlockGenesis {
             world.spawnParticle("smoke", xPos, yPos, zPos, 0, 0, 0);
             world.spawnParticle("flame", xPos, yPos, zPos, 0, 0, 0);
         }
-
     }
 
     @Override
@@ -167,13 +156,7 @@ public class BlockTikiTorch extends BlockGenesis {
     }
 
     public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-        if (canPlaceTikiTorchAt(world, x, y, z))
-            return true;
-
-        if (world.getBlock(x, y - 1, z).getMaterial().isReplaceable())
-            return canPlaceTikiTorchAt(world, x, y - 1, z);
-
-        return false;
+        return canPlaceTikiTorchAt(world, x, y, z) || (world.getBlock(x, y - 1, z).getMaterial().isReplaceable() && canPlaceTikiTorchAt(world, x, y - 1, z));
     }
 
     protected int correctSide(World world, int x, int y, int z, int metadata) {
@@ -330,7 +313,7 @@ public class BlockTikiTorch extends BlockGenesis {
         if (world.getBlock(x, otherY, z) == this) {
             if (!world.isRemote) {
                 /*
-				 * PacketDispatcher.sendPacketToAllAround(otherX + 0.5, otherY +
+                 * PacketDispatcher.sendPacketToAllAround(otherX + 0.5, otherY +
 				 * 0.5, otherZ + 0.5, 64, world.provider.dimensionId, new
 				 * BreakingParticlesPacket(otherX, otherY, otherZ,
 				 * world).makePacket());
@@ -350,7 +333,8 @@ public class BlockTikiTorch extends BlockGenesis {
             breakBlock(world, x, y, z, this, metadata);
     }
 
-    public boolean addBlockDestroyEffects(World world, int x, int y, int z, int meta, EffectRenderer effectRenderer) {
+    @Override
+    public boolean addDestroyEffects(World world, int x, int y, int z, int meta, EffectRenderer effectRenderer) {
         if (!isUpper(meta))
             blockIcon = iconLower;
         else
@@ -358,5 +342,4 @@ public class BlockTikiTorch extends BlockGenesis {
 
         return false;
     }
-
 }

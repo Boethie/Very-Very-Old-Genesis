@@ -1,6 +1,6 @@
 package genesis.client.renderer;
 
-import genesis.block.ModBlocks;
+import genesis.block.GenesisModBlocks;
 import genesis.block.gui.ModelCampfireTE;
 import genesis.block.gui.TileEntityCampfire;
 import genesis.common.Genesis;
@@ -11,7 +11,6 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.IItemRenderer.ItemRenderType;
@@ -22,7 +21,7 @@ import java.util.Random;
 
 public class TileEntityCampfireRenderer extends TileEntitySpecialRenderer {
 
-    public static final ResourceLocation RES_CAMPFIRE_MODEL = new ResourceLocation(Genesis.MOD_ID, "textures/blocks/campfire_model.png");
+    public static final ResourceLocation RES_CAMPFIRE_MODEL = new ResourceLocation(Genesis.ASSETS + "textures/blocks/campfire_model.png");
 
     public ModelCampfireTE model;
 
@@ -35,8 +34,6 @@ public class TileEntityCampfireRenderer extends TileEntitySpecialRenderer {
         GL11.glScaled(scale, scale, scale);
 
         Item item = stack.getItem();
-        IIcon icon = stack.getIconIndex();
-
         int passes = 1;
 
         IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(stack, ItemRenderType.EQUIPPED);
@@ -63,9 +60,9 @@ public class TileEntityCampfireRenderer extends TileEntitySpecialRenderer {
         GL11.glPushMatrix();
         GL11.glTranslated(x + 0.5, y + 1, z + 0.5);
 
-        Random blockRand = ModBlocks.campfire.getRandomAt(campfire.getWorldObj(), campfire.xCoord, campfire.yCoord, campfire.zCoord);
+        Random blockRand = GenesisModBlocks.campfire.getRandomAt(campfire.getWorldObj(), campfire.xCoord, campfire.yCoord, campfire.zCoord);
 
-        GL11.glRotatef(ModBlocks.campfire.getBlockRotationAt(campfire.getWorldObj(), campfire.xCoord, campfire.yCoord, campfire.zCoord) - 90, 0, 1, 0);
+        GL11.glRotatef(GenesisModBlocks.campfire.getBlockRotationAt(campfire.getWorldObj(), campfire.xCoord, campfire.yCoord, campfire.zCoord) - 90, 0, 1, 0);
 
         model.stick.rotationPointY = 0.75F;
         model.stick.rotateAngleX = 0;

@@ -1,92 +1,51 @@
 package genesis.block;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
 
 public class BlockGenesis extends Block {
-    protected Drop drop;
+    private ItemStack drop;
+    private int rangeStart, rangeEnd;
 
     public BlockGenesis(Material material) {
         super(material);
         setCreativeTab(GenesisTabs.tabGenesis);
     }
 
-    public void registerBlock(String name) {
-        GameRegistry.registerBlock(this, ItemBlock.class, name);
-    }
-
     @Override
-    public Block setBlockName(String name) {
-        registerBlock(name);
-        return super.setBlockName(name);
+    public Block setBlockTextureName(String textureName) {
+        return super.setBlockTextureName(Genesis.ASSETS + textureName);
     }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        this.blockIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName());
-    }
-
-    //block drops
     public BlockGenesis setDrop(ItemStack drop) {
-        this.drop = new Drop(drop);
-
-        return this;
+        return setDrop(drop, 1, 1);
     }
 
-    public BlockGenesis setDrop(ItemStack drop, int rangeStart, int rangeEnd) {
-        this.drop = new Drop(drop, rangeStart, rangeEnd);
-
+    public BlockGenesis setDrop(ItemStack dropStack, int startRange, int endRange) {
+        drop = dropStack;
+        rangeStart = startRange;
+        rangeEnd = endRange;
         return this;
     }
 
     @Override
     public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> ret = super.getDrops(world, x, y, z, metadata, fortune);
 
-        int count = drop == null ? 1 : world.rand.nextInt(drop.getRangeEnd() - drop.getRangeStart() + 1) + drop.getRangeStart();
-        for (int i = 0; i < count; i++) {
-            ret.add(drop == null ? new ItemStack(this, 1, metadata) : drop.getDrop().copy());
+        if (drop != null) {
+            ret.clear();
+            int count = world.rand.nextInt(rangeEnd - rangeStart + 1) + rangeStart;
+            for (int i = 0; i < count; i++) {
+                ret.add(drop.copy());
+            }
         }
 
         return ret;
-    }
-
-    private class Drop {
-        private final ItemStack drop;
-        private final int rangeStart, rangeEnd;
-
-        public Drop(ItemStack drop) {
-            this(drop, 1, 1);
-        }
-
-        public Drop(ItemStack drop, int rangeStart, int rangeEnd) {
-            this.drop = drop;
-            this.rangeStart = rangeStart;
-            this.rangeEnd = rangeEnd;
-        }
-
-        public ItemStack getDrop() {
-            return drop;
-        }
-
-        public int getRangeStart() {
-            return rangeStart;
-        }
-
-        public int getRangeEnd() {
-            return rangeEnd;
-        }
     }
 }

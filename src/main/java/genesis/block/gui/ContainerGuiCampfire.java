@@ -14,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 
 public class ContainerGuiCampfire extends GuiContainer {
 
-    public static final ResourceLocation campfireGuiTextures = new ResourceLocation(Genesis.MOD_ID, "textures/gui/container/campfire.png");
+    public static final ResourceLocation campfireGuiTextures = new ResourceLocation(Genesis.ASSETS + "textures/gui/container/campfire.png");
     private TileEntityCampfire campfire;
 
     public ContainerGuiCampfire(InventoryPlayer playerInv, TileEntityCampfire tileCampfire) {
@@ -112,5 +112,4 @@ public class ContainerGuiCampfire extends GuiContainer {
                 drawSlot(x, y, 0, 0);
         }
     }
-
 }

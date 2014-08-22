@@ -1,6 +1,6 @@
 package genesis.world.gen.feature;
 
-import genesis.block.ModBlocks;
+import genesis.block.GenesisModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -26,7 +26,7 @@ public class WorldGenBoulder extends WorldGenerator {
                     if (!par1World.isAirBlock(par3, par4 - 1, par5)) {
                         Block block = par1World.getBlock(par3, par4 - 1, par5);
 
-                        if (block == Blocks.grass || block == Blocks.dirt || block == Blocks.stone || block == ModBlocks.moss) {
+                        if (block == Blocks.grass || block == Blocks.dirt || block == Blocks.stone || block == GenesisModBlocks.moss) {
                             break label63;
                         }
                     }

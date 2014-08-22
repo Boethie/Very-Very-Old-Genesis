@@ -49,5 +49,4 @@ public class Vec2 {
         u /= length;
         v /= length;
     }
-
 }

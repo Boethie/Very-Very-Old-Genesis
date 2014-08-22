@@ -2,7 +2,7 @@ package genesis.world.gen.feature;
 
 import genesis.block.BlockAndMeta;
 import genesis.block.trees.BlockGenesisSapling;
-import genesis.block.trees.TreeBlocks;
+import genesis.block.trees.GenesisTreeBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -21,7 +21,7 @@ public class WorldGenTreePsaronius extends WorldGenTreeBase {
      *               Generally false for world generation, true for saplings.
      */
     public WorldGenTreePsaronius(int minH, int maxH, boolean notify) {
-        super(new BlockAndMeta(TreeBlocks.blocksLogs[1], 0), new BlockAndMeta(TreeBlocks.blocksLeaves[1], 0), notify);
+        super(new BlockAndMeta(GenesisTreeBlocks.logs[1], 0), new BlockAndMeta(GenesisTreeBlocks.leaves[1], 0), notify);
         minHeight = minH;
         maxHeight = maxH;
     }
@@ -38,7 +38,7 @@ public class WorldGenTreePsaronius extends WorldGenTreeBase {
         // locY is now the highest solid terrain block
 
         Block soil = world.getBlock(locX, locY, locZ);
-        if (soil == null || !soil.canSustainPlant(world, locX, locY, locZ, ForgeDirection.UP, (BlockGenesisSapling) TreeBlocks.blocksSaplings[0]))
+        if (soil == null || !soil.canSustainPlant(world, locX, locY, locZ, ForgeDirection.UP, (BlockGenesisSapling) GenesisTreeBlocks.saplings[0]))
             return false;
         if (!isCubeClear(locX, locY + 2, locZ, 1, 15))
             return false;

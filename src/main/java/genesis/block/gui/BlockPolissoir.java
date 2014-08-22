@@ -1,7 +1,6 @@
 package genesis.block.gui;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.common.Genesis;
@@ -69,12 +68,6 @@ public class BlockPolissoir extends BlockContainer {
 
             world.setBlockMetadataWithNotify(x, y, z, metadata, 2);
         }
-    }
-
-    @Override
-    public Block setBlockName(String unlocName) {
-        GameRegistry.registerBlock(this, unlocName);
-        return super.setBlockName(unlocName);
     }
 
     @Override

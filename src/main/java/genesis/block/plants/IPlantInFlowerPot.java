@@ -13,5 +13,4 @@ public interface IPlantInFlowerPot {
     public IIcon getIconForFlowerPot(IBlockAccess world, int x, int y, int z, int plantMetadata);
 
     public Block getBlockForRender(IBlockAccess world, int x, int y, int z);
-
 }

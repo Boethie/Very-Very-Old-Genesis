@@ -18,16 +18,14 @@ public class BlockBjuviaConeRenderer implements ISimpleBlockRenderingHandler {
 
     /**
      * Reference method so I do not have to write MiscHelpers.getLengthFromPixels() everytime.
-     *
-     * @param pixels
-     * @return
      */
     private static double cvt(int pixels) {
         return MiscHelpers.getLengthFromPixels(pixels);
     }
 
     @Override
-    public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks render) {}
+    public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks render) {
+    }
 
     @Override
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks render) {

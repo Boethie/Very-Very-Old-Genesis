@@ -1,7 +1,7 @@
 package genesis.world.gen.feature;
 
 import genesis.block.BlockAndMeta;
-import genesis.block.trees.TreeBlocks;
+import genesis.block.trees.GenesisTreeBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -96,11 +96,11 @@ public abstract class WorldGenTreeBase extends WorldGenAbstractTree {
         if (dir % 2 == 0) {
             // generates branch
             for (int i = 1; i <= length; i++)
-                setBlockInWorld(locX + i * direction, locY + i, locZ, wood.block, TreeBlocks.getLogMetadataForDirection(wood.metadata, ForgeDirection.NORTH));
+                setBlockInWorld(locX + i * direction, locY + i, locZ, wood.block, GenesisTreeBlocks.getLogMetadataForDirection(wood.metadata, ForgeDirection.NORTH));
             return new int[]{locX + length * direction, locY + length, locZ};
         } else {
             for (int i = 1; i <= length; i++)
-                setBlockInWorld(locX, locY + i, locZ + i * direction, wood.block, TreeBlocks.getLogMetadataForDirection(wood.metadata, ForgeDirection.EAST));
+                setBlockInWorld(locX, locY + i, locZ + i * direction, wood.block, GenesisTreeBlocks.getLogMetadataForDirection(wood.metadata, ForgeDirection.EAST));
             return new int[]{locX, locY + length, locZ + length * direction};
         }
     }
@@ -113,11 +113,11 @@ public abstract class WorldGenTreeBase extends WorldGenAbstractTree {
         if (dir % 2 == 0) {
             // generates branch
             for (int i = 1; i <= length; i++)
-                setBlockInWorld(locX + i * direction, locY - i, locZ, wood.block, TreeBlocks.getLogMetadataForDirection(wood.metadata, ForgeDirection.NORTH));
+                setBlockInWorld(locX + i * direction, locY - i, locZ, wood.block, GenesisTreeBlocks.getLogMetadataForDirection(wood.metadata, ForgeDirection.NORTH));
             return new int[]{locX + length * direction, locY - length, locZ};
         } else {
             for (int i = 1; i <= length; i++)
-                setBlockInWorld(locX, locY - i, locZ + i * direction, wood.block, TreeBlocks.getLogMetadataForDirection(wood.metadata, ForgeDirection.EAST));
+                setBlockInWorld(locX, locY - i, locZ + i * direction, wood.block, GenesisTreeBlocks.getLogMetadataForDirection(wood.metadata, ForgeDirection.EAST));
             return new int[]{locX, locY - length, locZ + length * direction};
         }
     }

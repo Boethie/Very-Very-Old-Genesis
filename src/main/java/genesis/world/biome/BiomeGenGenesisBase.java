@@ -2,7 +2,7 @@ package genesis.world.biome;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.ModBlocks;
+import genesis.block.GenesisModBlocks;
 import genesis.world.gen.BiomeDecoratorGenesis;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -16,7 +16,7 @@ public class BiomeGenGenesisBase extends BiomeGenBase {
 
     public BiomeGenGenesisBase(int par1) {
         super(par1);
-        this.topBlock = ModBlocks.moss;
+        this.topBlock = GenesisModBlocks.moss;
         this.fillerBlock = Blocks.dirt;
         this.spawnableCaveCreatureList.clear();
         this.spawnableMonsterList.clear();
@@ -30,7 +30,7 @@ public class BiomeGenGenesisBase extends BiomeGenBase {
     }
 
     public void genTerrainBlocks(World p_150573_1_, Random p_150573_2_, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_) {
-        this.topBlock = ModBlocks.moss;
+        this.topBlock = GenesisModBlocks.moss;
 
         if (Math.round(p_150573_7_ * 10) % 3 == 0) this.topBlock = Blocks.dirt;
 

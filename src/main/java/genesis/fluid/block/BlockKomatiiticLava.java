@@ -2,11 +2,12 @@ package genesis.fluid.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.ModBlocks;
+import genesis.block.GenesisModBlocks;
 import genesis.client.GenesisClientEventHandler;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 import genesis.fluid.FluidKomatiiticLava;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
@@ -52,13 +53,16 @@ public class BlockKomatiiticLava extends BlockFluidClassic {
     }
 
     @Override
+    public Block setBlockTextureName(String textureName) {
+        return super.setBlockTextureName(Genesis.ASSETS + textureName);
+    }
+
+    @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        String iconNamePrefix = Genesis.MOD_ID + ":" + getTextureName();
-        this.icon = new IIcon[]{
-                iconRegister.registerIcon(iconNamePrefix + "_still"),
-                iconRegister.registerIcon(iconNamePrefix + "_flow"),
-        };
+        icon = new IIcon[2];
+        this.icon[0] = iconRegister.registerIcon(getTextureName() + "_still");
+        this.icon[1] = iconRegister.registerIcon(getTextureName() + "_flow");
     }
 
     @Override
@@ -75,7 +79,7 @@ public class BlockKomatiiticLava extends BlockFluidClassic {
             int ty = y + direction.offsetY;
             int tz = z + direction.offsetZ;
             if (world.getBlock(tx, ty, tz) == Blocks.water) {
-                world.setBlock(x, y, z, ModBlocks.komatiite);
+                world.setBlock(x, y, z, GenesisModBlocks.komatiite);
                 return;
             }
         }
@@ -126,5 +130,4 @@ public class BlockKomatiiticLava extends BlockFluidClassic {
             world.spawnParticle("dripLava", px, py, pz, 0.0D, 0.0D, 0.0D);
         }
     }
-
 }

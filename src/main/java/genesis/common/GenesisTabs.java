@@ -1,10 +1,10 @@
 package genesis.common;
 
-import genesis.block.ModBlocks;
-import genesis.block.trees.TreeBlocks;
-import genesis.block.trees.TreeBlocks.TreeBlockType;
-import genesis.block.trees.TreeBlocks.TreeType;
-import genesis.item.ModItems;
+import genesis.block.GenesisModBlocks;
+import genesis.block.trees.GenesisTreeBlocks;
+import genesis.block.trees.GenesisTreeBlocks.TreeBlockType;
+import genesis.block.trees.GenesisTreeBlocks.TreeType;
+import genesis.item.GenesisModItems;
 import genesis.lib.Names;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -14,7 +14,7 @@ public class GenesisTabs {
     public static final CreativeTabs tabGenesis = new CreativeTabs(Names.tabBlock) {
         @Override
         public ItemStack getIconItemStack() {
-            return new ItemStack(ModBlocks.moss);
+            return new ItemStack(GenesisModBlocks.moss);
         }
 
         @Override
@@ -26,7 +26,7 @@ public class GenesisTabs {
     public static final CreativeTabs tabGenesisDecoration = new CreativeTabs(Names.tabDecorations) {
         @Override
         public ItemStack getIconItemStack() {
-            return TreeBlocks.getBlockForType(TreeBlockType.SAPLING, TreeType.SIGILLARIA.getName()).getStack();
+            return GenesisTreeBlocks.getBlockForType(TreeBlockType.SAPLING, TreeType.SIGILLARIA.getName()).getStack();
         }
 
         @Override
@@ -38,7 +38,7 @@ public class GenesisTabs {
     public static final CreativeTabs tabGenesisTools = new CreativeTabs(Names.tabTools) {
         @Override
         public ItemStack getIconItemStack() {
-            return new ItemStack(ModItems.graniteTools.axeChipped);
+            return new ItemStack(GenesisModItems.granite_tools.chipped_axe);
         }
 
         @Override
@@ -50,7 +50,7 @@ public class GenesisTabs {
     public static final CreativeTabs tabGenesisFood = new CreativeTabs(Names.tabFood) {
         @Override
         public ItemStack getIconItemStack() {
-            return new ItemStack(ModItems.cookedEryops);
+            return new ItemStack(GenesisModItems.cooked_eryops);
         }
 
         @Override
@@ -62,7 +62,7 @@ public class GenesisTabs {
     public static final CreativeTabs tabGenesisMaterials = new CreativeTabs(Names.tabMaterials) {
         @Override
         public ItemStack getIconItemStack() {
-            return new ItemStack(ModItems.manganese);
+            return new ItemStack(GenesisModItems.manganese);
         }
 
         @Override

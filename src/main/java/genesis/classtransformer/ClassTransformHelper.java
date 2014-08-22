@@ -23,5 +23,4 @@ public class ClassTransformHelper {
 
         return classWriter.toByteArray();
     }
-
 }

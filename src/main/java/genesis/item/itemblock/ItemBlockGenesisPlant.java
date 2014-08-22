@@ -21,5 +21,4 @@ public class ItemBlockGenesisPlant extends ItemBlockWithMetadata {
     public int getMetadata(int damage) {
         return damage & 15;
     }
-
 }

@@ -59,7 +59,7 @@ public class BlockAsteroxylonTop extends BlockGenesisPlantTop implements ISheara
 
     @Override
     public Item getItem(World world, int x, int y, int z) {
-        return new ItemStack(Item.getItemFromBlock(PlantBlocks.asteroxylon), 1, 1).getItem();
+        return new ItemStack(Item.getItemFromBlock(GenesisPlantBlocks.asteroxylon), 1, 1).getItem();
     }
 
     @Override
@@ -70,7 +70,7 @@ public class BlockAsteroxylonTop extends BlockGenesisPlantTop implements ISheara
     @Override
     public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
         ArrayList<ItemStack> list = new ArrayList<ItemStack>();
-        list.add(new ItemStack(PlantBlocks.asteroxylon, 2, 0));
+        list.add(new ItemStack(GenesisPlantBlocks.asteroxylon, 2, 0));
         return list;
     }
 }

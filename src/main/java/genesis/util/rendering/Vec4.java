@@ -125,5 +125,4 @@ public class Vec4 {
 
         System.out.println(print);
     }
-
 }

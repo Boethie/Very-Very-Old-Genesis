@@ -16,5 +16,4 @@ public class SuperClassWriter extends ClassWriter {
         return superClass;
         //return super.getCommonSuperClass(type1, type2);
     }
-
 }

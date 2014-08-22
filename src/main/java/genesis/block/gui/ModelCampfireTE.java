@@ -16,5 +16,4 @@ public class ModelCampfireTE extends ModelBase {
     public void renderAll() {
         stick.render(0.0625F);
     }
-
 }

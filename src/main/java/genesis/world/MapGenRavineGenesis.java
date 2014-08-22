@@ -1,7 +1,7 @@
 package genesis.world;
 
 import genesis.block.BlockGenesisRock;
-import genesis.block.ModBlocks;
+import genesis.block.GenesisModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -29,7 +29,7 @@ public class MapGenRavineGenesis extends MapGenRavine {
         Block filler = biome.fillerBlock;
         Block block = data[index];
 
-        if (block instanceof BlockGenesisRock || block == filler || block == top || block == Blocks.dirt || block == ModBlocks.moss) {
+        if (block instanceof BlockGenesisRock || block == filler || block == top || block == Blocks.dirt || block == GenesisModBlocks.moss) {
             if (y < 9) {
                 data[index] = Blocks.flowing_lava;
             } else {

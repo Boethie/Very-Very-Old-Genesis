@@ -7,7 +7,6 @@ import genesis.common.Genesis;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
@@ -27,11 +26,11 @@ public class BlockGenesisCrop extends BlockCrops implements IPlantRenderSpecials
     private IIcon[] iconArray;
 
     /**
-     * @param Item   Crop
-     * @param Item   Seed
-     * @param Block  Soil
-     * @param Growth Stages
-     * @param Fully  grown maximal seeds dropped amount
+     * @param cropItem                Crop
+     * @param seedItem                Seed
+     * @param soilBlock               Soil
+     * @param stages                  Stages
+     * @param fullGrownDroppedAmmount grown maximal seeds dropped amount
      */
     public BlockGenesisCrop(Item cropItem, Item seedItem, Block soilBlock, int stages, int fullGrownDroppedAmmount) {
         this.cropItem = cropItem;
@@ -40,7 +39,7 @@ public class BlockGenesisCrop extends BlockCrops implements IPlantRenderSpecials
         this.stages = stages;
         this.fullGrownDroppedAmount = fullGrownDroppedAmmount;
 
-        setCreativeTab((CreativeTabs) null);
+        setCreativeTab(null);
     }
 
     @Override
@@ -79,12 +78,17 @@ public class BlockGenesisCrop extends BlockCrops implements IPlantRenderSpecials
         return iconArray[par2];
     }
 
+    @Override
+    public Block setBlockTextureName(String textureName) {
+        return super.setBlockTextureName(Genesis.ASSETS + textureName);
+    }
+
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister par1IconRegister) {
         iconArray = new IIcon[stages];
 
         for (int i = 0; i < iconArray.length; ++i)
-            iconArray[i] = par1IconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_stage_" + i);
+            iconArray[i] = par1IconRegister.registerIcon(getTextureName() + "_stage_" + i);
     }
 
     @Override

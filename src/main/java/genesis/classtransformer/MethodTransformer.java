@@ -27,5 +27,4 @@ public class MethodTransformer extends ClassVisitor {
 
         return cv.visitMethod(access, name, desc, signature, exceptions);
     }
-
 }

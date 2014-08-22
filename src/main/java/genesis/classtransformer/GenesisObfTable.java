@@ -1,7 +1,6 @@
 package genesis.classtransformer;
 
 public class GenesisObfTable {
-
     public static String ClassBlock;
     public static String ClassBlockPath;
     public static String ClassBlockFlowerPot;
@@ -25,5 +24,4 @@ public class GenesisObfTable {
     public static String ClassItemHoePath;
     public static String MethodOnItemUse;
     public static String MethodOnItemUseDesc;
-
 }

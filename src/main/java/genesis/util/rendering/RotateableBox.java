@@ -198,7 +198,7 @@ public class RotateableBox extends RotateableBase {
     public void render() {
         updateTransformedSize();
         /*new Vec(-x, -y, -z),// 0
-		new Vec(x, -y, -z),	// 1
+        new Vec(x, -y, -z),	// 1
 		new Vec(-x, y, -z),	// 2
 		new Vec(-x, -y, z),	// 3
 		new Vec(x, y, -z),	// 4

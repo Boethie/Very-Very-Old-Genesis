@@ -1,6 +1,6 @@
 package genesis.world;
 
-import genesis.block.ModBlocks;
+import genesis.block.GenesisModBlocks;
 import genesis.world.gen.feature.WorldGenLakesGenesis;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
@@ -176,17 +176,17 @@ public class ChunkProviderGenesis implements IChunkProvider {
                 int j1 = (p_147422_2_ * 16 + l) & 15;
                 int k1 = p_147422_3_.length / 256;
 
-                Block stoneType = ModBlocks.granite;
-                Block lowerStoneType = ModBlocks.granite;
+                Block stoneType;
+                Block lowerStoneType;
 
                 //Default Stone Layer
-                if (Math.abs(this.stoneNoise[l + k * 16]) > 3.25D) stoneType = ModBlocks.quartzite;
-                else if (Math.abs(this.stoneNoise[l + k * 16]) > 0.75D) stoneType = ModBlocks.granite;
-                else stoneType = ModBlocks.quartzite;
+                if (Math.abs(this.stoneNoise[l + k * 16]) > 3.25D) stoneType = GenesisModBlocks.quartzite;
+                else if (Math.abs(this.stoneNoise[l + k * 16]) > 0.75D) stoneType = GenesisModBlocks.granite;
+                else stoneType = GenesisModBlocks.quartzite;
 
                 //Low Stone Layer
-                if (this.stoneNoise[l + k * 16] > 1.75D) lowerStoneType = ModBlocks.fauxAmphibolite;
-                else if (this.stoneNoise[l + k * 16] < -1.75D) lowerStoneType = ModBlocks.gneiss;
+                if (this.stoneNoise[l + k * 16] > 1.75D) lowerStoneType = GenesisModBlocks.faux_amphibolite;
+                else if (this.stoneNoise[l + k * 16] < -1.75D) lowerStoneType = GenesisModBlocks.gneiss;
                 else lowerStoneType = stoneType;
 
                 for (int l1 = 255; l1 >= 0; --l1) {
@@ -196,15 +196,15 @@ public class ChunkProviderGenesis implements IChunkProvider {
                         double lavaFloorNoise = this.lavaFloorNoise[l + k * 16];
                         if (lavaFloorNoise < 0) lavaFloorNoise = 0;
 
-                        if (l1 < 6 + lavaFloorNoise) p_147422_3_[i2] = ModBlocks.komatiite;
+                        if (l1 < 6 + lavaFloorNoise) p_147422_3_[i2] = GenesisModBlocks.komatiite;
                         else if (l1 < 10) p_147422_3_[i2] = Blocks.lava;
                         else if (l1 < 16 + this.lavaRoofNoise[l + k * 16]) p_147422_3_[i2] = Blocks.air;
-                        else if (l1 < 24 + rand.nextInt(4)) p_147422_3_[i2] = ModBlocks.komatiite;
+                        else if (l1 < 24 + rand.nextInt(4)) p_147422_3_[i2] = GenesisModBlocks.komatiite;
                         else if (l1 < 36 + rand.nextInt(4)) p_147422_3_[i2] = lowerStoneType;
                         else p_147422_3_[i2] = stoneType;
-                    } else if (p_147422_3_[i2] == ModBlocks.limestone) {
-                        if ((p_147422_3_[i2 + 1] == Blocks.water || p_147422_3_[i2 + 1] == Blocks.flowing_water || p_147422_3_[i2 + 1] == ModBlocks.shale) && this.stoneNoise[l + k * 16] > 1.25D) {
-                            p_147422_3_[i2] = ModBlocks.shale;
+                    } else if (p_147422_3_[i2] == GenesisModBlocks.limestone) {
+                        if ((p_147422_3_[i2 + 1] == Blocks.water || p_147422_3_[i2 + 1] == Blocks.flowing_water || p_147422_3_[i2 + 1] == GenesisModBlocks.shale) && this.stoneNoise[l + k * 16] > 1.25D) {
+                            p_147422_3_[i2] = GenesisModBlocks.shale;
                         } else if ((p_147422_3_[i2 + 1] == Blocks.water || p_147422_3_[i2 + 1] == Blocks.flowing_water || p_147422_3_[i2 + 1] == Blocks.dirt) && this.stoneNoise[l + k * 16] < -1.25D) {
                             p_147422_3_[i2] = Blocks.dirt;
                         }
@@ -431,7 +431,8 @@ public class ChunkProviderGenesis implements IChunkProvider {
      * Save extra data not associated with any Chunk.  Not saved during autosave, only during world unload.  Currently
      * unimplemented.
      */
-    public void saveExtraData() {}
+    public void saveExtraData() {
+    }
 
     /**
      * Unloads chunks that are marked to be unloaded. This is not guaranteed to unload every such chunk.
@@ -471,6 +472,6 @@ public class ChunkProviderGenesis implements IChunkProvider {
     }
 
     public void recreateStructures(int par1, int par2) {
-        this.scatteredFeatureGenerator.func_151539_a(this, this.worldObj, par1, par2, (Block[]) null);
+        this.scatteredFeatureGenerator.func_151539_a(this, this.worldObj, par1, par2, null);
     }
 }

@@ -5,11 +5,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class GenesisWorldHelper {
     public static int getTopBlockOfType(World world, int x, int z, Block... blocks) {
         ArrayList<Block> blockArray = new ArrayList<Block>();
-        for (int a = 0; a < blocks.length; a++) blockArray.add(blocks[a]);
+        Collections.addAll(blockArray, blocks);
         Chunk chunk = world.getChunkFromBlockCoords(x, z);
         int k = chunk.getTopFilledSegment() + 15;
         x &= 15;

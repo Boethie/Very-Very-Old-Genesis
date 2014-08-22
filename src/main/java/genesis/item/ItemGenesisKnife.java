@@ -6,11 +6,10 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
-import genesis.item.ItemSets.ToolQuality;
+import genesis.item.ItemsToolSet.ToolQuality;
 import genesis.lib.Names;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -43,8 +42,10 @@ public class ItemGenesisKnife extends Item {
         GameRegistry.registerItem(this, Names.itemKnife + toolMaterial.name().toLowerCase() + "." + quality.toString().toLowerCase());
         setUnlocalizedName(toolMaterial.name().toLowerCase().split("_")[0]);
         setMaxDamage(toolMaterial.getMaxUses() / 2);
-        if(quality == ToolQuality.values()[0]) {
+        if (quality == ItemsToolSet.ToolQuality.values()[0]) {
             setCreativeTab(GenesisTabs.tabGenesisTools);
+        } else {
+            setCreativeTab(null);
         }
     }
 
@@ -54,9 +55,8 @@ public class ItemGenesisKnife extends Item {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister register) {
-        itemIcon = register.registerIcon(Genesis.MOD_ID + ":" + materialName + "_knife");
+    public Item setTextureName(String textureName) {
+        return super.setTextureName(Genesis.ASSETS + textureName + "_axe");
     }
 
     @Override
@@ -123,9 +123,8 @@ public class ItemGenesisKnife extends Item {
     }
 
     @Override
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    public Multimap getItemAttributeModifiers() {
-        Multimap multimap = super.getItemAttributeModifiers();
+    public Multimap getAttributeModifiers(ItemStack stack) {
+        Multimap multimap = super.getAttributeModifiers(stack);
         multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", (double) weaponDamage, 0));
         return multimap;
     }

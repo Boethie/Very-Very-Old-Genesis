@@ -44,7 +44,7 @@ public class BlockGenesisSponge extends BlockGenesisAquaticPlant {
     public void registerBlockIcons(IIconRegister register) {
         icons = new IIcon[PlantMetadata.spongeTypes.size()];
         for (int i = 0; i < icons.length; i++) {
-            icons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.spongeTypes.get(i));
+            icons[i] = register.registerIcon(Genesis.ASSETS + PlantMetadata.spongeTypes.get(i));
         }
     }
 

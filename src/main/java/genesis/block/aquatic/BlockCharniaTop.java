@@ -1,27 +1,18 @@
 package genesis.block.aquatic;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import genesis.block.plants.BlockGenesisPlantTop;
-import genesis.common.Genesis;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 /**
  * @author Arbiter
  */
 public class BlockCharniaTop extends BlockGenesisPlantTop {
-    @SideOnly(Side.CLIENT)
-    private IIcon topIcon;
-
     public BlockCharniaTop() {
         super(Material.water);
-        setCreativeTab((CreativeTabs) null);
+        setCreativeTab(null);
     }
 
     @Override
@@ -40,23 +31,11 @@ public class BlockCharniaTop extends BlockGenesisPlantTop {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int meta) {
-        return topIcon;
-    }
-
-    @Override
     public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
         Block below = world.getBlock(x, y - 1, z);
         if (below != null && below instanceof BlockCharnia) {
             world.setBlockToAir(x, y - 1, z);
         }
         super.breakBlock(world, x, y, z, block, meta);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister register) {
-        topIcon = register.registerIcon(Genesis.MOD_ID + ":" + getTextureName());
     }
 }

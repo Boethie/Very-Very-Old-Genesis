@@ -22,17 +22,16 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class BlockMoss extends BlockGrass {
-
     protected IIcon iconGrassTop;
     protected IIcon iconSnowSide;
     protected IIcon iconSideOverlay;
 
-    protected BlockMoss() {
+    public BlockMoss() {
         super();
-
         setCreativeTab(GenesisTabs.tabGenesis);
         setHardness(0.6F);
         setStepSound(GenesisSoundHandler.soundTypeMoss);
+        setHarvestLevel("shovel", 0);
     }
 
     public static boolean isSnowed(IBlockAccess blockAccess, int x, int y, int z) {
@@ -61,7 +60,7 @@ public class BlockMoss extends BlockGrass {
     private boolean canMossStay(World world, int x, int y, int z) {
         int blockAboveLight = world.getBlockLightValue(x, y + 1, z);
         /*
-		 * Block blockAbove = blocksList[world.getBlockId(x, y + 1, z)];
+         * Block blockAbove = blocksList[world.getBlockId(x, y + 1, z)];
 		 * Material blockAboveMat = world.getBlockMaterial(x, y, z);
 		 *
 		 * return blockAbove == null || blockAbove instanceof BlockFlower ||
@@ -105,17 +104,21 @@ public class BlockMoss extends BlockGrass {
     }
 
     @Override
+    public Block setBlockTextureName(String textureName) {
+        return super.setBlockTextureName(Genesis.ASSETS + textureName);
+    }
+
+    @Override
     public void registerBlockIcons(IIconRegister iconRegister) {
-        String texName = Genesis.MOD_ID + ":" + getTextureName();
-        this.blockIcon = iconRegister.registerIcon(texName + "_side");
-        this.iconGrassTop = iconRegister.registerIcon(texName + "_top");
-        this.iconSnowSide = iconRegister.registerIcon(texName + "_side_snowed");
-        this.iconSideOverlay = iconRegister.registerIcon(texName + "_side_overlay");
+        blockIcon = iconRegister.registerIcon(getTextureName() + "_side");
+        iconGrassTop = iconRegister.registerIcon(getTextureName() + "_top");
+        iconSnowSide = iconRegister.registerIcon(getTextureName() + "_side_snowed");
+        iconSideOverlay = iconRegister.registerIcon(getTextureName() + "_side_overlay");
     }
 
     @Override
     public IIcon getIcon(int side, int metdata) {
-        return side == 1 ? this.iconGrassTop : (side == 0 ? Blocks.dirt.getBlockTextureFromSide(side) : this.blockIcon);
+        return side == 1 ? iconGrassTop : (side == 0 ? Blocks.dirt.getBlockTextureFromSide(side) : blockIcon);
     }
 
     @Override
@@ -142,24 +145,20 @@ public class BlockMoss extends BlockGrass {
                 return blockIcon;
         } else {
             if (side == 1) {
-                return this.iconGrassTop;
+                return iconGrassTop;
             } else if (side == 0) {
                 return Blocks.dirt.getBlockTextureFromSide(side);
             } else {
-                return snow ? this.iconSnowSide : this.iconSideOverlay;
+                return snow ? iconSnowSide : iconSideOverlay;
             }
         }
     }
 
     public boolean shouldSideBeRendered(IBlockAccess blockAccess, int x, int y, int z, int side) {
-        if (BlockMossRenderer.pass == 1 && side == 0)
-            return false;
-
-        return super.shouldSideBeRendered(blockAccess, x, y, z, side);
+        return !(BlockMossRenderer.pass == 1 && side == 0) && super.shouldSideBeRendered(blockAccess, x, y, z, side);
     }
 
     public IIcon getPlainSideTexture() {
         return blockIcon;
     }
-
 }

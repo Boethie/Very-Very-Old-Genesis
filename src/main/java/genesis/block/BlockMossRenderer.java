@@ -21,8 +21,6 @@ public class BlockMossRenderer implements ISimpleBlockRenderingHandler {
 
     @Override
     public boolean renderWorldBlock(IBlockAccess blockAccess, int x, int y, int z, Block block, int modelID, RenderBlocks renderer) {
-        BlockMoss moss = (BlockMoss) block;
-
         pass = 0;
         boolean snow = BlockMoss.isSnowed(blockAccess, x, y, z);
 

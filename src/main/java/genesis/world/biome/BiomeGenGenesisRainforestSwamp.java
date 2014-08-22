@@ -1,7 +1,7 @@
 package genesis.world.biome;
 
-import genesis.block.ModBlocks;
-import genesis.block.plants.PlantBlocks;
+import genesis.block.GenesisModBlocks;
+import genesis.block.plants.GenesisPlantBlocks;
 import genesis.lib.GenesisWorldHelper;
 import genesis.world.gen.feature.WorldGenTreeCordaites;
 import genesis.world.gen.feature.WorldGenTreeLepidodendron;
@@ -34,8 +34,9 @@ public class BiomeGenGenesisRainforestSwamp extends BiomeGenGenesisBase {
         for (int a = 0; a < 30; a++) {
             int varX = x + rand.nextInt(16);
             int varZ = z + rand.nextInt(16);
-            int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, ModBlocks.moss, Blocks.dirt);
-            if (world.isAirBlock(varX, varY, varZ)) world.setBlock(varX, varY, varZ, PlantBlocks.asteroxylon, 0, 2);
+            int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, GenesisModBlocks.moss, Blocks.dirt);
+            if (world.isAirBlock(varX, varY, varZ))
+                world.setBlock(varX, varY, varZ, GenesisPlantBlocks.asteroxylon, 0, 2);
         }
     }
 }

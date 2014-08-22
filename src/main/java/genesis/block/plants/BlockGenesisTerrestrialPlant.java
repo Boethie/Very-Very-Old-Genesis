@@ -2,7 +2,7 @@ package genesis.block.plants;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.ModBlocks;
+import genesis.block.GenesisModBlocks;
 import genesis.client.renderer.BlockGenesisPlantRenderer;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
@@ -98,7 +98,7 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
         blockIcons = new IIcon[PlantMetadata.plantTypes.size()];
 
         for (int i = 0; i < blockIcons.length; i++) {
-            blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.plantTypes.get(i));
+            blockIcons[i] = iconRegister.registerIcon(Genesis.ASSETS + PlantMetadata.plantTypes.get(i));
         }
     }
 
@@ -137,7 +137,7 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
 
     @Override
     protected boolean canPlaceBlockOn(Block block) {
-        return super.canPlaceBlockOn(block) || block == ModBlocks.moss;
+        return super.canPlaceBlockOn(block) || block == GenesisModBlocks.moss;
     }
 
     @Override
@@ -175,7 +175,7 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
         /*
-		 * if (!world.isRemote && side != 1) updateTick(world, x, y, z,
+         * if (!world.isRemote && side != 1) updateTick(world, x, y, z,
 		 * world.rand);
 		 */
 
@@ -224,5 +224,10 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
     public double randomYPos(IBlockAccess world, int x, int y, int z) {
         // TODO Auto-generated method stub
         return 0;
+    }
+
+    @Override
+    public Block setBlockTextureName(String textureName) {
+        return super.setBlockTextureName(Genesis.ASSETS + textureName);
     }
 }

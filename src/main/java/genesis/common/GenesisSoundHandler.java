@@ -20,18 +20,16 @@ public class GenesisSoundHandler {
             this.soundName = p_i45393_1_;
             this.volume = p_i45393_2_;
             this.frequency = p_i45393_3_;
-
         }
 
         @Override
         public String getStepResourcePath() {
-            return Genesis.MOD_ID + ":step." + this.soundName;
+            return Genesis.ASSETS + "step." + this.soundName;
         }
 
         @Override
         public String getBreakSound() {
-            return Genesis.MOD_ID + ":dig." + this.soundName;
+            return Genesis.ASSETS + "dig." + this.soundName;
         }
-
     }
 }

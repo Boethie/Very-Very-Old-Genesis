@@ -1,7 +1,6 @@
 package genesis.classtransformer;
 
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin.MCVersion;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -9,13 +8,7 @@ import net.minecraft.world.World;
 import java.util.Map;
 
 @TransformerExclusions({"genesis.genesis.classtransformer"})
-@MCVersion("1.6.4")
 public class GenesisLoadingPlugin implements IFMLLoadingPlugin {
-
-    public String[] getLibraryRequestClass() {
-        return null;
-    }
-
     public String[] getASMTransformerClass() {
         boolean isObfuscated = !World.class.getSimpleName().equals("World");
 
@@ -55,13 +48,10 @@ public class GenesisLoadingPlugin implements IFMLLoadingPlugin {
     }
 
     public void injectData(Map<String, Object> data) {
-
     }
 
     @Override
     public String getAccessTransformerClass() {
-        // TODO Auto-generated method stub
         return null;
     }
-
 }

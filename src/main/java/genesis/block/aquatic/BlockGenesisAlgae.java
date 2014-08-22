@@ -45,7 +45,7 @@ public class BlockGenesisAlgae extends BlockGenesisAquaticPlant {
     public void registerBlockIcons(IIconRegister register) {
         icons = new IIcon[PlantMetadata.algaeTypes.size()];
         for (int i = 0; i < icons.length; i++) {
-            icons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.algaeTypes.get(i));
+            icons[i] = register.registerIcon(Genesis.ASSETS + PlantMetadata.algaeTypes.get(i));
         }
     }
 

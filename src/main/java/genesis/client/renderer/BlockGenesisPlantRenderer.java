@@ -16,7 +16,8 @@ public class BlockGenesisPlantRenderer implements ISimpleBlockRenderingHandler {
     public static final int renderID = RenderingRegistry.getNextAvailableRenderId();
 
     @Override
-    public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {}
+    public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {
+    }
 
     @Override
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelID, RenderBlocks renderer) {
@@ -166,5 +167,4 @@ public class BlockGenesisPlantRenderer implements ISimpleBlockRenderingHandler {
     public int getRenderId() {
         return renderID;
     }
-
 }

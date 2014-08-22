@@ -2,7 +2,7 @@ package genesis.block.trees;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.trees.TreeBlocks.TreeType;
+import genesis.block.trees.GenesisTreeBlocks.TreeType;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 import genesis.item.itemblock.IItemBlockWithSubNames;
@@ -41,8 +41,8 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
         for (int i = 0; i < blockIcons.length; i += 2) {
-            blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":leaves_" + blockNames[i / 2]);                        // Fancy graphics texture
-            blockIcons[i + 1] = iconRegister.registerIcon(Genesis.MOD_ID + ":leaves_" + blockNames[i / 2] + "_opaque");        // Fast graphics texture
+            blockIcons[i] = iconRegister.registerIcon(Genesis.ASSETS + "leaves_" + blockNames[i / 2]);                        // Fancy graphics texture
+            blockIcons[i + 1] = iconRegister.registerIcon(Genesis.ASSETS + "leaves_" + blockNames[i / 2] + "_opaque");        // Fast graphics texture
         }
     }
 
@@ -65,7 +65,7 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
 
     @Override
     public Item getItemDropped(int metadata, Random random, int unused) {
-        return Item.getItemFromBlock(TreeBlocks.blocksSaplings[TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup()]);
+        return Item.getItemFromBlock(GenesisTreeBlocks.saplings[TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup()]);
     }
 
     @Override

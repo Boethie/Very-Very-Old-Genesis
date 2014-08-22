@@ -7,7 +7,6 @@ import genesis.common.Genesis;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.ColorizerGrass;
@@ -28,7 +27,7 @@ public class BlockHausmanniaTop extends BlockGenesisPlantTop implements IShearab
 
     public BlockHausmanniaTop() {
         super(Material.plants);
-        setCreativeTab((CreativeTabs) null);
+        setCreativeTab(null);
     }
 
     @Override
@@ -84,15 +83,20 @@ public class BlockHausmanniaTop extends BlockGenesisPlantTop implements IShearab
     @Override
     public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
         ArrayList<ItemStack> list = new ArrayList<ItemStack>();
-        list.add(new ItemStack(PlantBlocks.ferns, 2, 4));
+        list.add(new ItemStack(GenesisPlantBlocks.ferns, 2, 4));
         return list;
+    }
+
+    @Override
+    public Block setBlockTextureName(String textureName) {
+        return super.setBlockTextureName(Genesis.ASSETS + textureName);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {
-        plantIcon = register.registerIcon(Genesis.MOD_ID + ":hausmannia_bottom");
-        topIcon = register.registerIcon(Genesis.MOD_ID + ":hausmannia_top");
+        plantIcon = register.registerIcon(getTextureName() + "_bottom");
+        topIcon = register.registerIcon(getTextureName() + "_top");
     }
 
     public IIcon getTopIcon() {

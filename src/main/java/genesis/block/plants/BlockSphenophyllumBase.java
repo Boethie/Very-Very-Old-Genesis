@@ -2,13 +2,11 @@ package genesis.block.plants;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.ModBlocks;
-import genesis.common.Genesis;
-import genesis.item.ModItems;
+import genesis.block.GenesisModBlocks;
+import genesis.item.GenesisModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -27,10 +25,10 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowabl
     private IIcon[] icons;
 
     public BlockSphenophyllumBase() {
-        super(ModItems.sphenoSpores, ModItems.sphenoFiber, Blocks.dirt, 8, 2);
+        super(GenesisModItems.sphenophyllum_spores, GenesisModItems.sphenophyllum_fiber, Blocks.dirt, 8, 2);
         disableStats();
         setTickRandomly(true);
-        setCreativeTab((CreativeTabs) null);
+        setCreativeTab(null);
     }
 
     @Override
@@ -38,14 +36,13 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowabl
     public void registerBlockIcons(IIconRegister register) {
         icons = new IIcon[stages];
         for (int i = 0; i < icons.length; i++) {
-            icons[i] = register.registerIcon(Genesis.MOD_ID + ":" + getTextureName() +
-                    "_stage_" + i + (i >= 5 ? "_bottom" : ""));
+            icons[i] = register.registerIcon(getTextureName() + "_stage_" + i + (i >= 5 ? "_bottom" : ""));
         }
     }
 
     @Override
     public boolean canPlaceBlockOn(Block block) {
-        return block == soilBlock || block == ModBlocks.moss || block == Blocks.grass;
+        return block == soilBlock || block == GenesisModBlocks.moss || block == Blocks.grass;
     }
 
     @Override
@@ -66,7 +63,7 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowabl
     protected void checkAndUpdateTop(World world, int x, int y, int z, int meta) {
         if (meta >= 5) {
             if (world.getBlock(x, y + 1, z) == Blocks.air) {
-                world.setBlock(x, y + 1, z, PlantBlocks.sphenoTop, meta - 5, 2);
+                world.setBlock(x, y + 1, z, GenesisPlantBlocks.sphenophyllum_top, meta - 5, 2);
             } else if (world.getBlock(x, y + 1, z) instanceof BlockSphenophyllumTop) {
                 world.setBlockMetadataWithNotify(x, y + 1, z, meta - 5, 2);
             }
@@ -90,12 +87,12 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowabl
 
     @Override
     protected Item func_149866_i() {
-        return ModItems.sphenoSpores;
+        return GenesisModItems.sphenophyllum_spores;
     }
 
     @Override
     protected Item func_149865_P() {
-        return ModItems.sphenoFiber;
+        return GenesisModItems.sphenophyllum_fiber;
     }
 
     @Override
@@ -129,5 +126,4 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowabl
         world.setBlockMetadataWithNotify(x, y, z, meta, 2);
         checkAndUpdateTop(world, x, y, z, meta);
     }
-
 }

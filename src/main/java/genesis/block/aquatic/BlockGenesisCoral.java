@@ -48,7 +48,7 @@ public class BlockGenesisCoral extends Block {
     public void registerBlockIcons(IIconRegister register) {
         icons = new IIcon[PlantMetadata.coralTypes.size()];
         for (int i = 0; i < icons.length; i++) {
-            icons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.coralTypes.get(i));
+            icons[i] = register.registerIcon(Genesis.ASSETS + PlantMetadata.coralTypes.get(i));
         }
     }
 

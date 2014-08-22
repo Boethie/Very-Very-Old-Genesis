@@ -152,5 +152,4 @@ public class ContainerCampfire extends Container {
 
         return originalStack;
     }
-
 }

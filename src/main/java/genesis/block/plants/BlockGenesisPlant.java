@@ -1,11 +1,9 @@
 package genesis.block.plants;
 
 import genesis.client.renderer.BlockGenesisPlantRenderer;
-import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
@@ -72,7 +70,7 @@ public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecia
             this.stackedLimit = stackedLimit;
         } else {
             stackable = false;
-            stackedLimit = 0;
+            this.stackedLimit = 0;
         }
 
         return this;
@@ -85,11 +83,6 @@ public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecia
     @Override
     public int getRenderType() {
         return BlockGenesisPlantRenderer.renderID;
-    }
-
-    @Override
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        blockIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName());
     }
 
     protected int getVerticalPosition(IBlockAccess world, int x, int y, int z) {
@@ -189,7 +182,7 @@ public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecia
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
         /*
-		 * if (!world.isRemote && side != 1) { updateTick(world, x, y, z,
+         * if (!world.isRemote && side != 1) { updateTick(world, x, y, z,
 		 * world.rand); }
 		 */
 
@@ -225,5 +218,4 @@ public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecia
     public double randomYPos(IBlockAccess world, int x, int y, int z) {
         return 0;
     }
-
 }

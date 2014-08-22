@@ -2,8 +2,7 @@ package genesis.item.itemblock;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.plants.BlockAsteroxylon;
-import genesis.block.plants.PlantBlocks;
+import genesis.block.plants.GenesisPlantBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
@@ -25,9 +24,8 @@ public class ItemBlockAsteroxylon extends ItemBlockWithMetadata {
         return b.getUnlocalizedName() + (getMetadata(item.getItemDamage()) == 1 ? ".tall" : "");
     }
 
-
     public IIcon getIconFromDamage(int meta) {
-        return meta == 0 ? PlantBlocks.asteroxylon.icons[0] : PlantBlocks.asterTop.getIcon(0, 0);
+        return meta == 0 ? GenesisPlantBlocks.asteroxylon.icons[0] : GenesisPlantBlocks.asteroxylon_top.getIcon(0, 0);
     }
 
     @Override
@@ -38,6 +36,6 @@ public class ItemBlockAsteroxylon extends ItemBlockWithMetadata {
     @Override
     @SideOnly(Side.CLIENT)
     public int getColorFromItemStack(ItemStack stack, int par2) {
-        return ((BlockAsteroxylon) this.field_150939_a).getRenderColor(stack.getItemDamage());
+        return this.field_150939_a.getRenderColor(stack.getItemDamage());
     }
 }

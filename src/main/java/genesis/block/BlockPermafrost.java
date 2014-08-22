@@ -10,13 +10,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class BlockPermafrost extends BlockGenesis {
-
     public BlockPermafrost() {
         super(Material.ground);
-
         setHardness(0.5F);
         setStepSound(soundTypeGravel);
         setTickRandomly(true);
+        setHarvestLevel("shovel", 0);
     }
 
     // TODO: Currently mimics behaviour of ice, change if necessary

@@ -2,7 +2,7 @@ package genesis.block.trees;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.trees.TreeBlocks.TreeType;
+import genesis.block.trees.GenesisTreeBlocks.TreeType;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 import genesis.item.itemblock.IItemBlockWithSubNames;
@@ -38,8 +38,8 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
         for (int i = 0; i < blockIcons.length; i += 2) {
-            blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + blockNames[i / 2]);                // Side texture
-            blockIcons[i + 1] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + blockNames[i / 2] + "_top");    // Top texture
+            blockIcons[i] = iconRegister.registerIcon(Genesis.ASSETS + "log_" + blockNames[i / 2]);                // Side texture
+            blockIcons[i + 1] = iconRegister.registerIcon(Genesis.ASSETS + "log_" + blockNames[i / 2] + "_top");    // Top texture
         }
     }
 
@@ -66,7 +66,7 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
 
     @Override
     public Item getItemDropped(int metadata, Random random, int unused) {
-        return Item.getItemFromBlock(TreeBlocks.blocksLogs[TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup()]);
+        return Item.getItemFromBlock(GenesisTreeBlocks.logs[TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup()]);
     }
 
 	/* IItemBlockWithSubNames methods */

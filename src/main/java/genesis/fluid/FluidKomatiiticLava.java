@@ -24,5 +24,4 @@ public class FluidKomatiiticLava extends Fluid {
         setTemperature(1873); // 1600 degrees C
         setLuminosity(15); // Max light level
     }
-
 }

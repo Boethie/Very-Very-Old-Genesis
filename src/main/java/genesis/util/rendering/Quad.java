@@ -36,5 +36,4 @@ public class Quad {
     public Vec4 getCenter() {
         return bL.add(tR).div(2);
     }
-
 }

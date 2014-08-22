@@ -8,12 +8,11 @@ public class Matrix {
 
     public Matrix(int mWidth, int mHeight, double... matVals) {
         matrix = new double[mHeight][];
-        int x = 0;
 
         for (int y = 0; y < mHeight; y++) {
             double[] row = new double[mWidth];
 
-            for (x = 0; x < mWidth; x++) {
+            for (int x = 0; x < mWidth; x++) {
                 double val = 0;
 
                 if (matVals.length == 1)    // Make it the identity if it has only one arg
@@ -176,5 +175,4 @@ public class Matrix {
 
         return outMatrix;
     }
-
 }

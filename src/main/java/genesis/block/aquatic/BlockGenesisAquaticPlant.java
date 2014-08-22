@@ -1,8 +1,9 @@
 package genesis.block.aquatic;
 
-import genesis.block.ModBlocks;
+import genesis.block.GenesisModBlocks;
 import genesis.block.plants.IPlantRenderSpecials;
 import genesis.client.renderer.BlockGenesisPlantRenderer;
+import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -78,9 +79,9 @@ public abstract class BlockGenesisAquaticPlant extends Block implements IPlantRe
     protected boolean canPlaceBlockOn(Block block) {
         boolean flag = false;
         final Block[] blockList = new Block[]{Blocks.dirt, Blocks.gravel, Blocks.sand,
-                Blocks.clay, AquaticBlocks.coral, ModBlocks.granite, Blocks.stone,
-                ModBlocks.limestone, ModBlocks.gneiss, ModBlocks.quartzite, ModBlocks.rhyolite,
-                ModBlocks.shale};
+                Blocks.clay, GenesisAquaticBlocks.coral, GenesisModBlocks.granite, Blocks.stone,
+                GenesisModBlocks.limestone, GenesisModBlocks.gneiss, GenesisModBlocks.quartzite, GenesisModBlocks.rhyolite,
+                GenesisModBlocks.shale};
         for (Block b : blockList) {
             if (block == b) {
                 flag = true;
@@ -141,5 +142,10 @@ public abstract class BlockGenesisAquaticPlant extends Block implements IPlantRe
                                     int side) {
         // TODO Auto-generated method stub
         return false;
+    }
+
+    @Override
+    public Block setBlockTextureName(String textureName) {
+        return super.setBlockTextureName(Genesis.ASSETS + textureName);
     }
 }

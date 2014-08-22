@@ -1,15 +1,12 @@
 package genesis.block.plants;
 
-import genesis.block.ModBlocks;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import genesis.block.GenesisModBlocks;
 import genesis.common.Genesis;
 import genesis.common.GenesisSoundHandler;
 import genesis.common.GenesisTabs;
 import genesis.lib.MiscHelpers;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -25,8 +22,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.util.ForgeDirection;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class BlockCalamitesPlant extends BlockGenesisPlant {
 
@@ -70,7 +69,7 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
             boolean hasEggs = hasEggs(metadata);
 
             int up = 2;
-            int off = 1;
+            int off;
             ArrayList<ChunkPosition> downPositions = new ArrayList();
             ArrayList<ChunkPosition> upPositions = new ArrayList();
 
@@ -113,8 +112,8 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 
             positions.add(new ChunkPosition(x, y, z));
 
-            for (int i = 0; i < upPositions.size(); i++)
-                positions.add(upPositions.get(i));
+            for (ChunkPosition upPosition : upPositions)
+                positions.add(upPosition);
 
             return new CalamitesProperties(height, position, hasEggs, positions);
         }
@@ -160,17 +159,16 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
     @Override
     protected boolean canPlaceBlockOn(Block block) {
         return super.canPlaceBlockOn(block)
-                || block == PlantBlocks.calamitesPlant
-                || block == ModBlocks.moss;
+                || block == GenesisPlantBlocks.calamites
+                || block == GenesisModBlocks.moss;
     }
 
     @Override
     public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-        boolean flag = false;
-        flag = canPlaceBlockOn(world.getBlock(x, y - 1, z)) &&
-                canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) &&
-                (MiscHelpers.isWaterInRange(world, x, y - 1, z, 2, 2) || (world.getBlock(x, y - 1, z) == this && MiscHelpers.isWaterInRange(world, x, y - 1, z, 2, 15)));
-        return flag;
+        boolean canPlaceBlockOn = canPlaceBlockOn(world.getBlock(x, y - 1, z));
+        boolean canSustainPlant = canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
+        boolean isWaterInRange = (MiscHelpers.isWaterInRange(world, x, y - 1, z, 2, 2) || (world.getBlock(x, y - 1, z) == this && MiscHelpers.isWaterInRange(world, x, y - 1, z, 2, 15)));
+        return canPlaceBlockOn && canSustainPlant && isWaterInRange;
     }
 
     @Override
@@ -179,7 +177,7 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
     }
 
     @Override
-	protected void dropIfCannotStay(World world, int x, int y, int z) {
+    protected void dropIfCannotStay(World world, int x, int y, int z) {
         if (!canBlockStay(world, x, y, z)) {
             dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
             world.setBlockToAir(x, y, z);
@@ -272,24 +270,27 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
         return reverseTex;
     }
 
+    @Override
+    public Block setBlockTextureName(String textureName) {
+        return super.setBlockTextureName(Genesis.ASSETS + textureName);
+    }
+
     @SideOnly(Side.CLIENT)
     @Override
     public void registerBlockIcons(IIconRegister iconRegister) {
-        String texStart = Genesis.MOD_ID + ":" + getTextureName();
+        calamitesPlant = iconRegister.registerIcon(getTextureName());
+        calamitesPlantTop = iconRegister.registerIcon(getTextureName() + "_top");
 
-        calamitesPlant = iconRegister.registerIcon(texStart);
-        calamitesPlantTop = iconRegister.registerIcon(texStart + "_top");
-
-        calamitesPlantEggs1 = iconRegister.registerIcon(texStart + "_eggs_1");
-        calamitesPlantEggs2 = iconRegister.registerIcon(texStart + "_eggs_2");
-        calamitesPlantTopEggs1 = iconRegister.registerIcon(texStart + "_eggs_top_1");
-        calamitesPlantTopEggs2 = iconRegister.registerIcon(texStart + "_eggs_top_2");
+        calamitesPlantEggs1 = iconRegister.registerIcon(getTextureName() + "_eggs_1");
+        calamitesPlantEggs2 = iconRegister.registerIcon(getTextureName() + "_eggs_2");
+        calamitesPlantTopEggs1 = iconRegister.registerIcon(getTextureName() + "_eggs_top_1");
+        calamitesPlantTopEggs2 = iconRegister.registerIcon(getTextureName() + "_eggs_top_2");
     }
 
     @SideOnly(Side.CLIENT)
     @Override
     public String getItemIconName() {
-        return Genesis.MOD_ID + ":" + getTextureName();
+        return getTextureName();
     }
 
     private boolean dropEggs(World world, int x, int y, int z, int metadata) {
@@ -306,7 +307,7 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
             double dirY = itemDrop.motionY / div;
             double dirZ = itemDrop.motionZ / div;
             itemDrop.setPosition(itemDrop.posX + dirX, itemDrop.posY + dirY, itemDrop.posZ + dirZ);
-            
+
             Genesis.proxy.playSound(x, y, z, "dig.calamites", 1.0F, 0.1F + world.rand.nextFloat() * 0.9F);
 
             world.spawnEntityInWorld(itemDrop);
@@ -362,5 +363,4 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
             this.positions = positions;
         }
     }
-
 }

@@ -16,7 +16,6 @@ public class GenesisEventHandler {
     public void bonemealUsed(BonemealEvent event) {
         if (!event.world.isRemote) {
             Block block = event.world.getBlock(event.x, event.y, event.z);
-            ;
 
             if (block instanceof BlockGenesisSapling) {
                 if (event.world.rand.nextFloat() < 0.45) {
@@ -42,14 +41,14 @@ public class GenesisEventHandler {
             String resourcePath = Blocks.farmland.stepSound.getStepResourcePath();
             float volume = (Blocks.farmland.stepSound.getVolume() + 1.0F) / 2.0F;
             float pitch = Blocks.farmland.stepSound.getPitch() * 0.8F;
-            world.playSoundEffect(x, y, z , resourcePath, volume, pitch);
+            world.playSoundEffect(x, y, z, resourcePath, volume, pitch);
             world.setBlock(event.x, event.y, event.z, Blocks.farmland);
             event.setResult(Result.ALLOW);
         }
     }
 
 	/*
-	 * Conflicts too much
+     * Conflicts too much
 	 * 
 	@SubscribeEvent
 	public void onPlayerInteract(PlayerInteractEvent event)

@@ -2,9 +2,9 @@ package genesis.block.trees;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.ModBlocks;
+import genesis.block.GenesisModBlocks;
 import genesis.block.plants.IPlantInFlowerPot;
-import genesis.block.trees.TreeBlocks.TreeType;
+import genesis.block.trees.GenesisTreeBlocks.TreeType;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 import genesis.item.itemblock.IItemBlockWithSubNames;
@@ -49,7 +49,7 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
         for (int i = 0; i < blockIcons.length; i++)
-            blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":sapling_" + blockNames[i]);
+            blockIcons[i] = iconRegister.registerIcon(Genesis.ASSETS + "sapling_" + blockNames[i]);
     }
 
     @Override
@@ -66,7 +66,7 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
 
     @Override
     public Item getItemDropped(int metadata, Random random, int unused) {
-        return Item.getItemFromBlock(TreeBlocks.blocksSaplings[TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup()]);
+        return Item.getItemFromBlock(GenesisTreeBlocks.saplings[TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup()]);
     }
 
     @Override
@@ -76,7 +76,7 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
             return;
 
         int metadata = world.getBlockMetadata(x, y, z) & 3;
-        WorldGenTreeBase gen = TreeBlocks.getTreeGenerator(blockNames[metadata]);
+        WorldGenTreeBase gen = GenesisTreeBlocks.getTreeGenerator(blockNames[metadata]);
 
         if (gen == null)
             return;
@@ -106,7 +106,7 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
     }
 
     protected boolean canPlaceBlockOn(Block block) {
-        return super.canPlaceBlockOn(block) || block == ModBlocks.moss;
+        return super.canPlaceBlockOn(block) || block == GenesisModBlocks.moss;
     }
 
     @Override

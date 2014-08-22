@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class TileEntityPolissoirRenderer extends TileEntitySpecialRenderer {
-    private static final ResourceLocation polissoirTextures = new ResourceLocation(Genesis.MOD_ID, "textures/entity/polissoir/polissoir.png");
+    private static final ResourceLocation polissoirTextures = new ResourceLocation(Genesis.ASSETS + "textures/entity/polissoir/polissoir.png");
     private final ModelPolissoir model = new ModelPolissoir();
 
     @Override

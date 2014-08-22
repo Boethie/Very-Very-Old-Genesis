@@ -69,7 +69,7 @@ public class WorldGenMinableGenesis extends WorldGenerator {
                                 double d14 = ((double) i3 + 0.5D - d8) / (d10 / 2.0D);
 
                                 if (d12 * d12 + d13 * d13 + d14 * d14 < 1.0D) {
-                                    if (singleStone == true) {
+                                    if (singleStone) {
                                         if (par1World.getBlock(k2, l2, i3) == stone)
                                             par1World.setBlock(k2, l2, i3, this.ore, mineableBlockMeta, 2);
                                     } else if (par1World.getBlock(k2, l2, i3) instanceof BlockGenesisRockOres)

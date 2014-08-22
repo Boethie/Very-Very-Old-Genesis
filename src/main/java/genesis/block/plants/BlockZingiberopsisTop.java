@@ -2,7 +2,6 @@ package genesis.block.plants;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.common.Genesis;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -41,7 +40,7 @@ public class BlockZingiberopsisTop extends BlockGenesisPlantTop {
     public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
         Block down = world.getBlock(x, y - 1, z);
         if (down instanceof BlockZingiberopsisBase) {
-            ((BlockZingiberopsisBase) down).dropBlockAsItem(world, x, y - 1, z, world.getBlockMetadata(x, y, z) + 5, 0);
+            down.dropBlockAsItem(world, x, y - 1, z, world.getBlockMetadata(x, y, z) + 5, 0);
             world.setBlockToAir(x, y - 1, z);
         }
         super.breakBlock(world, x, y, z, block, meta);
@@ -52,7 +51,7 @@ public class BlockZingiberopsisTop extends BlockGenesisPlantTop {
     public void registerBlockIcons(IIconRegister register) {
         icons = new IIcon[3];
         for (int i = 0; i < icons.length; i++) {
-            icons[i] = register.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_stage_" + (i + 5) + "_top");
+            icons[i] = register.registerIcon(getTextureName() + "_stage_" + (i + 5) + "_top");
         }
     }
 

@@ -2,7 +2,6 @@ package genesis.item.itemblock;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.plants.BlockGenesisFern;
 import genesis.lib.PlantMetadata;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;
@@ -32,6 +31,6 @@ public class ItemBlockGenesisFern extends ItemBlockWithMetadata {
     @Override
     @SideOnly(Side.CLIENT)
     public int getColorFromItemStack(ItemStack stack, int par2) {
-        return ((BlockGenesisFern) this.field_150939_a).getRenderColor(stack.getItemDamage());
+        return this.field_150939_a.getRenderColor(stack.getItemDamage());
     }
 }

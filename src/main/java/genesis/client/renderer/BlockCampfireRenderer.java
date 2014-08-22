@@ -2,9 +2,8 @@ package genesis.client.renderer;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import genesis.block.ModBlocks;
+import genesis.block.GenesisModBlocks;
 import genesis.block.gui.BlockCampfire;
-import genesis.block.gui.TileEntityCampfire;
 import genesis.util.rendering.*;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -20,19 +19,19 @@ public class BlockCampfireRenderer implements ISimpleBlockRenderingHandler {
     public static int renderID = RenderingRegistry.getNextAvailableRenderId();
 
     @Override
-    public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {}
+    public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {
+    }
 
     @Override
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
         BlockCampfire campfire = (BlockCampfire) block;
-        TileEntityCampfire campfireEnt = campfire.getTileEntityAt(world, x, y, z);
         int metadata = world.getBlockMetadata(x, y, z);
         boolean lit = campfire.isFireLit(metadata);
 
         Tessellator tessellator = Tessellator.instance;
         tessellator.setBrightness(campfire.getMixedBrightnessForBlock(world, x, y, z));
 
-        IIcon icon = ModBlocks.granite.getIcon(0, 0);
+        IIcon icon = GenesisModBlocks.granite.getIcon(0, 0);
 
         Vec4 up = new Vec4(0, 1, 0);
 
@@ -57,7 +56,9 @@ public class BlockCampfireRenderer implements ISimpleBlockRenderingHandler {
         if (blockUnder != Blocks.dirt)
             try {
                 dirtyBlock = Block.getBlockFromItem(blockUnder.getItemDropped(metadataUnder, null, 0)) == Blocks.dirt;
-            } catch (NullPointerException e) {}
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
 
         icon = Blocks.dirt.getIcon(0, 0);
 
@@ -252,7 +253,5 @@ public class BlockCampfireRenderer implements ISimpleBlockRenderingHandler {
 
             return darkColor.add(colorDiff.mul(shade));
         }
-
     }
-
 }

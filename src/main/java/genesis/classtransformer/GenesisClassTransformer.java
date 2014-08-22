@@ -13,29 +13,21 @@ public class GenesisClassTransformer implements IClassTransformer {
 
     public byte[] transform(String name, String transformedName, byte[] bytes) {
         if (name.equals(GenesisObfTable.ClassEntityDiggingFX)) {
-            byte[] returnVal = ClassTransformHelper.injectCustomHook(bytes, new DiggingFXColorTransformer(),
+            return ClassTransformHelper.injectCustomHook(bytes, new DiggingFXColorTransformer(),
                     GenesisObfTable.MethodApplyColourMultiplier, GenesisObfTable.MethodApplyColourMultiplierDesc,
                     GenesisObfTable.ClassEntityDiggingFXPath);
-
-            return returnVal;
         } else if (name.equals(GenesisObfTable.ClassRenderBlocks)) {
-            byte[] returnVal = ClassTransformHelper.injectCustomHook(bytes, new MossBlockInventoryRenderTransformer(),
+            return ClassTransformHelper.injectCustomHook(bytes, new MossBlockInventoryRenderTransformer(),
                     GenesisObfTable.MethodRenderBlockAsItem, GenesisObfTable.MethodRenderBlockAsItemDesc,
                     GenesisObfTable.ClassRenderBlocksPath);
-
-            return returnVal;
         } else if (name.equals(GenesisObfTable.ClassItemHoe)) {
-            byte[] returnVal = ClassTransformHelper.injectCustomHook(bytes, new HoeOnMossBlockTransformer(),
+            return ClassTransformHelper.injectCustomHook(bytes, new HoeOnMossBlockTransformer(),
                     GenesisObfTable.MethodOnItemUse, GenesisObfTable.MethodOnItemUseDesc,
                     GenesisObfTable.ClassItemHoePath);
-
-            return returnVal;
         } else if (name.equals(GenesisObfTable.ClassBlockFlowerPot)) {
-            byte[] returnVal = ClassTransformHelper.injectCustomHook(bytes, new FlowerPotRightClickTransformer(),
+            return ClassTransformHelper.injectCustomHook(bytes, new FlowerPotRightClickTransformer(),
                     GenesisObfTable.MethodOnBlockActivated, GenesisObfTable.MethodOnBlockActivatedDesc,
                     GenesisObfTable.ClassBlockFlowerPot);
-
-            return returnVal;
         }
 
         return bytes;
@@ -80,7 +72,6 @@ public class GenesisClassTransformer implements IClassTransformer {
                 injected = true;
             }
         }
-
     }
 
     private class MossBlockInventoryRenderTransformer extends CustomMethodTransformer {
@@ -107,7 +98,6 @@ public class GenesisClassTransformer implements IClassTransformer {
                 injected = true;
             }
         }
-
     }
 
     private class HoeOnMossBlockTransformer extends CustomMethodTransformer {
@@ -144,7 +134,6 @@ public class GenesisClassTransformer implements IClassTransformer {
                 }
             }
         }
-
     }
 
     private class FlowerPotRightClickTransformer extends CustomMethodTransformer {
@@ -187,7 +176,5 @@ public class GenesisClassTransformer implements IClassTransformer {
                 }
             }
         }
-
     }
-
 }

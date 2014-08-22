@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class ContainerGuiPolissoir extends GuiContainer {
-    public static final ResourceLocation polissoirGuiTextures = new ResourceLocation(Genesis.MOD_ID, "textures/gui/container/polissoir.png");
+    public static final ResourceLocation polissoirGuiTextures = new ResourceLocation(Genesis.ASSETS + "textures/gui/container/polissoir.png");
     private TileEntityPolissoir polissoir;
 
     public ContainerGuiPolissoir(InventoryPlayer playerInv, TileEntityPolissoir tilePolissoir) {

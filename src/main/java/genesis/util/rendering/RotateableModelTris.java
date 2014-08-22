@@ -33,5 +33,4 @@ public class RotateableModelTris extends RotateableBase {
             addVert(triTransf.vert2, uv.u, uv.v);
         }
     }
-
 }

@@ -4,11 +4,16 @@ import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,8 +24,7 @@ import java.util.Map;
  * @author rubensworks
  */
 public class BucketHandler {
-
-    private static BucketHandler _instance;
+    private static final BucketHandler INSTANCE = new BucketHandler();
 
     /**
      * The map that will map the fluid block to the respective bucket that is capable
@@ -29,7 +33,6 @@ public class BucketHandler {
     public Map<Block, Item> buckets = new HashMap<Block, Item>();
 
     private BucketHandler() {
-
     }
 
     /**
@@ -38,8 +41,7 @@ public class BucketHandler {
      * @return The unique instance.
      */
     public static BucketHandler getInstance() {
-        if (_instance == null) _instance = new BucketHandler();
-        return _instance;
+        return INSTANCE;
     }
 
     /**
@@ -57,6 +59,12 @@ public class BucketHandler {
         }
     }
 
+    public void bindBucketToFluid(Item item, Block fluidBlock, Fluid fluid) {
+        FluidStack fluidStack = FluidRegistry.getFluidStack(fluid.getName(), FluidContainerRegistry.BUCKET_VOLUME);
+        FluidContainerRegistry.registerFluidContainer(fluidStack, new ItemStack(item), new ItemStack(Items.bucket));
+        buckets.put(fluidBlock, item);
+    }
+
     private ItemStack fillCustomBucket(World world, MovingObjectPosition pos) {
         Block block = world.getBlock(pos.blockX, pos.blockY, pos.blockZ);
 
@@ -68,5 +76,4 @@ public class BucketHandler {
             return null;
         }
     }
-
 }

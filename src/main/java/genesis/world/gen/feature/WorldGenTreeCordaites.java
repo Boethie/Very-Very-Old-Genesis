@@ -2,7 +2,7 @@ package genesis.world.gen.feature;
 
 import genesis.block.BlockAndMeta;
 import genesis.block.trees.BlockGenesisSapling;
-import genesis.block.trees.TreeBlocks;
+import genesis.block.trees.GenesisTreeBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -22,7 +22,7 @@ public class WorldGenTreeCordaites extends WorldGenTreeBase {
      *               Generally false for world generation, true for saplings.
      */
     public WorldGenTreeCordaites(int minH, int maxH, boolean notify) {
-        super(new BlockAndMeta(TreeBlocks.blocksLogs[0], 3), new BlockAndMeta(TreeBlocks.blocksLeaves[0], 3), notify);
+        super(new BlockAndMeta(GenesisTreeBlocks.logs[0], 3), new BlockAndMeta(GenesisTreeBlocks.leaves[0], 3), notify);
         minHeight = minH;
         maxHeight = maxH;
     }
@@ -39,7 +39,7 @@ public class WorldGenTreeCordaites extends WorldGenTreeBase {
         // locY is now the highest solid terrain block
 
         Block soil = world.getBlock(locX, locY, locZ);
-        if (soil == null || !soil.canSustainPlant(world, locX, locY, locZ, ForgeDirection.UP, (BlockGenesisSapling) TreeBlocks.blocksSaplings[0]))
+        if (soil == null || !soil.canSustainPlant(world, locX, locY, locZ, ForgeDirection.UP, (BlockGenesisSapling) GenesisTreeBlocks.saplings[0]))
             return false;
         if (!isCubeClearWater(locX, locY + 2, locZ, 1, 15))
             return false;

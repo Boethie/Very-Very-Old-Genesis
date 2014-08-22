@@ -31,5 +31,4 @@ public class RotateableModelQuads extends RotateableBase {
             addVert(faceTrans.tL, uvs.uS, uvs.vS);
         }
     }
-
 }

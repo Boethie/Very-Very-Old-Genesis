@@ -1,7 +1,6 @@
 package genesis.block.gui;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import genesis.block.ModBlocks;
+import genesis.block.GenesisModBlocks;
 import genesis.client.renderer.BlockCampfireRenderer;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
@@ -14,7 +13,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -47,19 +45,16 @@ public class BlockCampfire extends BlockContainer {
     }
 
     @Override
-    public Block setBlockName(String unlocName) {
-        GameRegistry.registerBlock(this, ItemBlock.class, unlocName);
-
-        return super.setBlockName(unlocName);
+    public Block setBlockTextureName(String textureName) {
+        return super.setBlockTextureName(Genesis.ASSETS + textureName);
     }
 
     @Override
     public void registerBlockIcons(IIconRegister iconRegister) {
-        String texName = Genesis.MOD_ID + ":" + getTextureName();
-        poleIcon = iconRegister.registerIcon(texName + "_pole");
-        poleVIcon = iconRegister.registerIcon(texName + "_v_pole");
+        poleIcon = iconRegister.registerIcon(getTextureName() + "_pole");
+        poleVIcon = iconRegister.registerIcon(getTextureName() + "_v_pole");
 
-        blockIcon = ModBlocks.granite.getIcon(0, 0);
+        blockIcon = GenesisModBlocks.granite.getIcon(0, 0);
     }
 
     @Override
@@ -76,7 +71,7 @@ public class BlockCampfire extends BlockContainer {
 
     @Override
     public String getItemIconName() {
-        return Genesis.MOD_ID + ":" + getTextureName();
+        return getTextureName();
     }
 
     @Override
@@ -273,9 +268,7 @@ public class BlockCampfire extends BlockContainer {
     }
 
     public float getBlockRotationAt(IBlockAccess world, int x, int y, int z) {
-        float out = getDirection(world.getBlockMetadata(x, y, z)) * 45;
-
-        return out;
+        return getDirection(world.getBlockMetadata(x, y, z)) * 45;
     }
 
     public boolean isFireLit(int metadata) {

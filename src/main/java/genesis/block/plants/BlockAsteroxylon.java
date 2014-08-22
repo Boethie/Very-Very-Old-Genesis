@@ -2,7 +2,6 @@ package genesis.block.plants;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
@@ -71,8 +70,8 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {
         icons = new IIcon[2];
-        icons[0] = register.registerIcon(Genesis.MOD_ID + ":asteroxylon");
-        icons[1] = register.registerIcon(Genesis.MOD_ID + ":asteroxylon_bottom");
+        icons[0] = register.registerIcon(getTextureName());
+        icons[1] = register.registerIcon(getTextureName() + "_bottom");
     }
 
     @Override
@@ -94,7 +93,7 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
     @Override
     public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta) {
         if (world.isAirBlock(x, y + 1, z) && meta == 1) {
-            world.setBlock(x, y + 1, z, PlantBlocks.asterTop);
+            world.setBlock(x, y + 1, z, GenesisPlantBlocks.asteroxylon_top);
         }
         return super.onBlockPlaced(world, x, y, z, side, hitX, hitY, hitZ, meta);
     }
@@ -112,13 +111,13 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
     @Override
     public void func_149853_b(World var1, Random var2, int var3, int var4, int var5) {
         if (var1.isAirBlock(var3, var4 + 1, var5)) {
-            var1.setBlock(var3, var4 + 1, var5, PlantBlocks.asterTop);
+            var1.setBlock(var3, var4 + 1, var5, GenesisPlantBlocks.asteroxylon_top);
         }
         var1.setBlockMetadataWithNotify(var3, var4, var5, 1, 2);
     }
 
 	/*public IIcon getIconForItemRender()
-	{
+    {
 		return icons[0];
 	}*/
 }

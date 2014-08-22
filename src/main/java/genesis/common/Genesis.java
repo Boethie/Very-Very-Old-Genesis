@@ -12,15 +12,17 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.ReflectionHelper;
-import genesis.block.ModBlocks;
+import genesis.block.GenesisModBlocks;
 import genesis.block.gui.TileEntityCampfire;
 import genesis.block.gui.TileEntityPolissoir;
 import genesis.entity.ModEntities;
 import genesis.fluid.BucketHandler;
-import genesis.item.ModItems;
+import genesis.item.GenesisModItems;
+import genesis.item.Recipes;
 import genesis.lib.ConfigHandler;
 import genesis.lib.GenesisVersion;
 import genesis.lib.LogHelper;
+import genesis.lib.Names;
 import genesis.world.WorldProviderGenesis;
 import genesis.world.WorldTypeGenesis;
 import genesis.world.biome.GenesisBiomes;
@@ -35,6 +37,7 @@ import java.util.HashMap;
 public class Genesis {
 
     public static final String MOD_ID = "genesis";
+    public static final String ASSETS = MOD_ID + ":";
     public static final String MOD_VERSION = "@VERSION@";
     @Instance(Genesis.MOD_ID)
     public static Genesis instance;
@@ -59,11 +62,13 @@ public class Genesis {
         proxy.preInit();
 
         LogHelper.log(Level.INFO, "Preparing Blocks and Items");
-        ModBlocks.init();
-        ModItems.init();
+        GenesisModBlocks.initiate();
+        GenesisModItems.initiate();
 
-        ModBlocks.registerBlocks();
-        ModItems.registerItems();
+        GenesisModBlocks.registerBlocks();
+        GenesisModItems.registerItems();
+
+        Recipes.registerRecipes();
 
         GenesisBiomes.config();
 
@@ -72,8 +77,8 @@ public class Genesis {
         ModEntities.init();
         LogHelper.log(Level.INFO, "Registered Entities");
 
-        GameRegistry.registerTileEntity(TileEntityCampfire.class, MOD_ID + ".Campfire");
-        GameRegistry.registerTileEntity(TileEntityPolissoir.class, MOD_ID + ".Polissoir");
+        GameRegistry.registerTileEntity(TileEntityCampfire.class, Names.mod + "Campfire");
+        GameRegistry.registerTileEntity(TileEntityPolissoir.class, Names.mod + "Polissoir");
     }
 
     @EventHandler
@@ -89,7 +94,6 @@ public class Genesis {
         DimensionManager.registerProviderType(dimensionID, WorldProviderGenesis.class, true);
         DimensionManager.registerDimension(dimensionID, dimensionID);
         WorldTypeGenesis genesisTestType = new WorldTypeGenesis("genesisTestType");
-
 
         proxy.init();
     }

@@ -12,7 +12,8 @@ public class BlockTikiTorchRenderer implements ISimpleBlockRenderingHandler {
     public static int renderID = RenderingRegistry.getNextAvailableRenderId();
 
     @Override
-    public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {}
+    public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {
+    }
 
     @Override
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
@@ -23,8 +24,8 @@ public class BlockTikiTorchRenderer implements ISimpleBlockRenderingHandler {
         tess.setColorOpaque_F(1, 1, 1);
         tess.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
 
-        double delta = 0;
-        double off = 0;
+        double delta;
+        double off;
 
         double offX = 0;
         double offY = 0.1875;

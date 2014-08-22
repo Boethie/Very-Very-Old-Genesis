@@ -2,7 +2,6 @@ package genesis.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.common.Genesis;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
@@ -30,8 +29,8 @@ public class BlockOldRedSandstone extends BlockGenesisRock {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {
         icons = new IIcon[3];
-        icons[0] = register.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_top");
-        icons[1] = register.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_side");
-        icons[2] = register.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_bottom");
+        icons[0] = register.registerIcon(getTextureName() + "_top");
+        icons[1] = register.registerIcon(getTextureName() + "_side");
+        icons[2] = register.registerIcon(getTextureName() + "_bottom");
     }
 }

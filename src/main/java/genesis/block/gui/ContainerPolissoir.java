@@ -46,8 +46,8 @@ public class ContainerPolissoir extends Container {
     public void detectAndSendChanges() {
         super.detectAndSendChanges();
 
-        for (int i = 0; i < crafters.size(); ++i) {
-            ICrafting icrafting = (ICrafting) crafters.get(i);
+        for (Object obj : crafters) {
+            ICrafting icrafting = (ICrafting) obj;
 
             if (lastUpgradeTime != polissoir.polissoirUpgradeTime) {
                 icrafting.sendProgressBarUpdate(this, 0, polissoir.polissoirUpgradeTime);

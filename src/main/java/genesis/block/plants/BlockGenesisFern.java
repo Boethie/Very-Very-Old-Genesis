@@ -1,16 +1,13 @@
 package genesis.block.plants;
 
-import genesis.block.ModBlocks;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import genesis.block.GenesisModBlocks;
 import genesis.client.renderer.BlockGenesisPlantRenderer;
 import genesis.common.Genesis;
 import genesis.common.GenesisSoundHandler;
 import genesis.common.GenesisTabs;
 import genesis.lib.PlantMetadata;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -25,8 +22,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.IShearable;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 /**
  * I am sure there is a much more easier and shorter way of writing this, but it is designed to be
@@ -92,7 +91,7 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
     public void registerBlockIcons(IIconRegister register) {
         blockIcons = new IIcon[PlantMetadata.fernTypes.size()];
         for (int i = 0; i < blockIcons.length; i++) {
-            blockIcons[i] = register.registerIcon(Genesis.MOD_ID + ":" + PlantMetadata.fernTypes.get(i));
+            blockIcons[i] = register.registerIcon(Genesis.ASSETS + PlantMetadata.fernTypes.get(i));
         }
     }
 
@@ -161,7 +160,7 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 
     @Override
     protected boolean canPlaceBlockOn(Block block) {
-        return super.canPlaceBlockOn(block) || block == ModBlocks.moss;
+        return super.canPlaceBlockOn(block) || block == GenesisModBlocks.moss;
     }
 
     @Override
@@ -179,12 +178,12 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
                                     int side) {
         return false;
     }
-    
+
     @Override
     public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
-    	if(world.rand.nextInt(30) == 0) {
-    		Genesis.proxy.playSound(x, y, z, "dig.fern", 1.0F, 0.1F + world.rand.nextFloat() * 0.9F);
-    	}
-    	super.onEntityCollidedWithBlock(world, x, y, z, entity);
+        if (world.rand.nextInt(30) == 0) {
+            Genesis.proxy.playSound(x, y, z, "dig.fern", 1.0F, 0.1F + world.rand.nextFloat() * 0.9F);
+        }
+        super.onEntityCollidedWithBlock(world, x, y, z, entity);
     }
 }

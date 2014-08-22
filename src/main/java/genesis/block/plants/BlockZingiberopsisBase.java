@@ -2,13 +2,11 @@ package genesis.block.plants;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.ModBlocks;
-import genesis.common.Genesis;
-import genesis.item.ModItems;
+import genesis.block.GenesisModBlocks;
+import genesis.item.GenesisModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
@@ -26,10 +24,10 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
     private IIcon[] icons;
 
     public BlockZingiberopsisBase() {
-        super(ModItems.rhizome, ModItems.rhizome, Blocks.farmland, 8, 4);
+        super(GenesisModItems.rhizome, GenesisModItems.rhizome, Blocks.farmland, 8, 4);
         disableStats();
         setTickRandomly(true);
-        setCreativeTab((CreativeTabs) null);
+        setCreativeTab(null);
     }
 
     @Override
@@ -37,14 +35,13 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
     public void registerBlockIcons(IIconRegister register) {
         icons = new IIcon[stages];
         for (int i = 0; i < icons.length; i++) {
-            icons[i] = register.registerIcon(Genesis.MOD_ID + ":" + getTextureName() +
-                    "_stage_" + i + (i >= 5 ? "_bottom" : ""));
+            icons[i] = register.registerIcon(getTextureName() + "_stage_" + i + (i >= 5 ? "_bottom" : ""));
         }
     }
 
     @Override
     public boolean canPlaceBlockOn(Block block) {
-        return block == soilBlock || block == ModBlocks.moss;
+        return block == soilBlock || block == GenesisModBlocks.moss;
     }
 
     @Override
@@ -86,7 +83,7 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
     protected void checkAndUpdateTop(World world, int x, int y, int z, int meta) {
         if (meta >= 5) {
             if (world.getBlock(x, y + 1, z) == Blocks.air) {
-                world.setBlock(x, y + 1, z, PlantBlocks.zingTop, meta - 5, 2);
+                world.setBlock(x, y + 1, z, GenesisPlantBlocks.zingiberopsis_top, meta - 5, 2);
             } else if (world.getBlock(x, y + 1, z) instanceof BlockZingiberopsisTop) {
                 world.setBlockMetadataWithNotify(x, y + 1, z, meta - 5, 2);
             }
@@ -100,12 +97,12 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
 
     @Override
     protected Item func_149865_P() {
-        return ModItems.rhizome;
+        return GenesisModItems.rhizome;
     }
 
     @Override
     protected Item func_149866_i() {
-        return ModItems.rhizome;
+        return GenesisModItems.rhizome;
     }
 
     @Override

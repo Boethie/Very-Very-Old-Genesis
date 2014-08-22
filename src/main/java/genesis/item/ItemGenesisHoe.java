@@ -1,13 +1,10 @@
 package genesis.item;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
-import genesis.item.ItemSets.ToolQuality;
+import genesis.item.ItemsToolSet.ToolQuality;
 import genesis.lib.Names;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemHoe;
@@ -28,8 +25,10 @@ public class ItemGenesisHoe extends ItemHoe {
         this.quality = quality;
         GameRegistry.registerItem(this, Names.itemHoe + "." + material.name().toLowerCase() + quality.toString().toLowerCase());
         setUnlocalizedName(material.name().toLowerCase().split("_")[0]);
-        if(quality == ToolQuality.values()[0]) {
+        if (quality == ItemsToolSet.ToolQuality.values()[0]) {
             setCreativeTab(GenesisTabs.tabGenesisTools);
+        } else {
+            setCreativeTab(null);
         }
     }
 
@@ -39,9 +38,8 @@ public class ItemGenesisHoe extends ItemHoe {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister register) {
-        this.itemIcon = register.registerIcon(Genesis.MOD_ID + ":" + materialName + "_hoe");
+    public Item setTextureName(String textureName) {
+        return super.setTextureName(Genesis.ASSETS + textureName + "_axe");
     }
 
     @Override

@@ -1,7 +1,7 @@
 package genesis.world.biome;
 
-import genesis.block.ModBlocks;
-import genesis.block.plants.PlantBlocks;
+import genesis.block.GenesisModBlocks;
+import genesis.block.plants.GenesisPlantBlocks;
 import genesis.lib.GenesisWorldHelper;
 import genesis.world.gen.feature.*;
 import net.minecraft.init.Blocks;
@@ -29,10 +29,10 @@ public class BiomeGenGenesisRainforest extends BiomeGenGenesisBase {
         for (int a = 0; a < 4; a++) {
             int varX = x + rand.nextInt(16);
             int varZ = z + rand.nextInt(16);
-            int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, ModBlocks.moss, Blocks.dirt);
+            int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, GenesisModBlocks.moss, Blocks.dirt);
             if (world.isAirBlock(varX, varY, varZ)) {
-                world.setBlock(varX, varY, varZ, ModBlocks.graniteMossy, 0, 2);
-                world.setBlock(varX, varY - 1, varZ, ModBlocks.graniteMossy, 0, 2);
+                world.setBlock(varX, varY, varZ, GenesisModBlocks.mossy_granite, 0, 2);
+                world.setBlock(varX, varY - 1, varZ, GenesisModBlocks.mossy_granite, 0, 2);
             }
         }
 
@@ -42,12 +42,12 @@ public class BiomeGenGenesisRainforest extends BiomeGenGenesisBase {
             for (int a = 0; a < 10; a++) {
                 int varX = x + rand.nextInt(16);
                 int varZ = z + rand.nextInt(16);
-                int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, ModBlocks.moss, Blocks.dirt);
+                int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, GenesisModBlocks.moss, Blocks.dirt);
                 if (world.isAirBlock(varX, varY, varZ)) {
                     if (world.isAirBlock(varX, varY + 1, varZ)) {
-                        world.setBlock(varX, varY, varZ, PlantBlocks.zingiberopsis, 7, 2);
-                        world.setBlock(varX, varY + 1, varZ, PlantBlocks.zingTop, 2, 2);
-                    } else world.setBlock(varX, varY, varZ, PlantBlocks.zingiberopsis, 0, 2);
+                        world.setBlock(varX, varY, varZ, GenesisPlantBlocks.zingiberopsis, 7, 2);
+                        world.setBlock(varX, varY + 1, varZ, GenesisPlantBlocks.zingiberopsis_top, 2, 2);
+                    } else world.setBlock(varX, varY, varZ, GenesisPlantBlocks.zingiberopsis, 0, 2);
                 }
             }
         }
@@ -55,17 +55,17 @@ public class BiomeGenGenesisRainforest extends BiomeGenGenesisBase {
         int i1 = x + rand.nextInt(16) + 8;
         int j1 = z + rand.nextInt(16) + 8;
         int k1 = world.getHeightValue(i1, j1);
-        new WorldGenBoulder(ModBlocks.graniteMossy, 0).generate(world, rand, i1, k1, j1);
+        new WorldGenBoulder(GenesisModBlocks.mossy_granite, 0).generate(world, rand, i1, k1, j1);
 
         for (int a = 0; a < 30; a++) {
             int varX = x + rand.nextInt(16);
             int varZ = z + rand.nextInt(16);
-            int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, ModBlocks.moss, Blocks.dirt);
-            if (world.isAirBlock(varX, varY, varZ)) world.setBlock(varX, varY, varZ, PlantBlocks.ferns, 0, 2);
+            int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, GenesisModBlocks.moss, Blocks.dirt);
+            if (world.isAirBlock(varX, varY, varZ)) world.setBlock(varX, varY, varZ, GenesisPlantBlocks.ferns, 0, 2);
         }
 
     	/*int varX = x + rand.nextInt(16);
-		int varZ = z + rand.nextInt(16);
+        int varZ = z + rand.nextInt(16);
 		int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, ModBlocks.moss, Blocks.dirt);
 		if(world.isAirBlock(varX, varY, varZ)) 
 		{

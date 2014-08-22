@@ -72,7 +72,7 @@ public class BlockGenesisFlowerPot extends BlockFlowerPot {
 
     public ItemStack getPlantStack(int metadata) {
         for (Entry<ItemStack, Integer> entry : metadataMap.entrySet())
-            if (entry.getValue().intValue() == metadata)
+            if (entry.getValue() == metadata)
                 return entry.getKey();
 
         return null;
@@ -160,5 +160,4 @@ public class BlockGenesisFlowerPot extends BlockFlowerPot {
                 dropBlockAsItem(world, x, y, z, stack);
         }
     }
-
 }

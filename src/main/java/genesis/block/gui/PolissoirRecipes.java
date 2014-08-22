@@ -1,6 +1,6 @@
 package genesis.block.gui;
 
-import genesis.item.ModItems;
+import genesis.item.GenesisModItems;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -9,9 +9,6 @@ import java.util.Map;
 
 public class PolissoirRecipes {
     private static final PolissoirRecipes INSTANCE = new PolissoirRecipes();
-    public final ItemStack chippedUpgradeItem = new ItemStack(ModItems.brownishFlintPebble);
-    public final ItemStack polishedUpgradeItem = new ItemStack(Items.flint); // TODO
-    public final ItemStack sharpenedUpgradeItem = new ItemStack(Items.iron_ingot); // TODO
     public final int chippedUpgradeTime = 100;
     public final int polishedUpgradeTime = 200;
     public final int sharpenedUpgradeTime = 240;
@@ -93,9 +90,9 @@ public class PolissoirRecipes {
     }
 
     public ItemStack getRequirement(ItemStack input) {
-        if (hasChippedRecipe(input)) return chippedUpgradeItem;
-        if (hasPolishedRecipe(input)) return polishedUpgradeItem;
-        if (hasSharpenedRecipe(input)) return sharpenedUpgradeItem;
+        if (hasChippedRecipe(input)) return getChippedUpgradeItem();
+        if (hasPolishedRecipe(input)) return getPolishedUpgradeItem();
+        if (hasSharpenedRecipe(input)) return getSharpenedUpgradeItem();
         return null;
     }
 
@@ -107,7 +104,19 @@ public class PolissoirRecipes {
     }
 
     public boolean isUpgradeItem(ItemStack itemStack) {
-        return itemStack != null && (isStackEqual(itemStack, chippedUpgradeItem) || isStackEqual(itemStack, polishedUpgradeItem) || isStackEqual(itemStack, sharpenedUpgradeItem));
+        return itemStack != null && (isStackEqual(itemStack, getChippedUpgradeItem()) || isStackEqual(itemStack, getPolishedUpgradeItem()) || isStackEqual(itemStack, getSharpenedUpgradeItem()));
+    }
+
+    public ItemStack getChippedUpgradeItem() {
+        return new ItemStack(GenesisModItems.brownish_flint_pebble);
+    }
+
+    public ItemStack getPolishedUpgradeItem() {
+        return new ItemStack(Items.flint); // TODO
+    }
+
+    public ItemStack getSharpenedUpgradeItem() {
+        return new ItemStack(Items.iron_ingot); // TODO
     }
 
     private boolean isStackEqual(ItemStack stack1, ItemStack stack2) {

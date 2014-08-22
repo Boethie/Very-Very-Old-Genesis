@@ -17,10 +17,11 @@ public class BlockHausmanniaRenderer implements ISimpleBlockRenderingHandler {
     public static final int renderID = RenderingRegistry.getNextAvailableRenderId();
 
     @Override
-    public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {}
+    public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
+    }
 
     /**
-     * Derived from {@link RenderBlocks}' {@link renderBlockDoublePlant} method.
+     * Derived from {@link RenderBlocks#renderBlockDoublePlant}
      */
     @Override
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
@@ -41,7 +42,7 @@ public class BlockHausmanniaRenderer implements ISimpleBlockRenderingHandler {
                 blue = f5;
             }
             tess.setColorOpaque_F(red, green, blue);
-            long l = (long) (x * 3129871) ^ (long) (z * 116129781L);
+            long l = (long) (x * 3129871) ^ (z * 116129781L);
             l = l * l + 42317861L + l * 11L;
             double dx = (double) x;
             double dy = (double) y;
@@ -89,5 +90,4 @@ public class BlockHausmanniaRenderer implements ISimpleBlockRenderingHandler {
     public int getRenderId() {
         return renderID;
     }
-
 }

@@ -44,8 +44,8 @@ public class BlockRottenLog extends BlockGenesisLog {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
         for (int i = 0; i < blockIcons.length; i += 2) {
-            blockIcons[i] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + blockNames[i / 2] + "_rotten");                // Side texture
-            blockIcons[i + 1] = iconRegister.registerIcon(Genesis.MOD_ID + ":log_" + blockNames[i / 2] + "_rotten_top");    // Top texture
+            blockIcons[i] = iconRegister.registerIcon(Genesis.ASSETS + "log_" + blockNames[i / 2] + "_rotten");                // Side texture
+            blockIcons[i + 1] = iconRegister.registerIcon(Genesis.ASSETS + "log_" + blockNames[i / 2] + "_rotten_top");    // Top texture
         }
     }
 }

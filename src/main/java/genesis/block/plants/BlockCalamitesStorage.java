@@ -4,6 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -25,9 +26,14 @@ public class BlockCalamitesStorage extends BlockRotatedPillar {
         setHarvestLevel("axe", 0);
     }
 
+    @Override
+    public Block setBlockTextureName(String textureName) {
+        return super.setBlockTextureName(Genesis.ASSETS + textureName);
+    }
+
     public void registerBlockIcons(IIconRegister iconRegister) {
-        topIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_top");
-        blockIcon = iconRegister.registerIcon(Genesis.MOD_ID + ":" + getTextureName() + "_side");
+        topIcon = iconRegister.registerIcon(getTextureName() + "_top");
+        blockIcon = iconRegister.registerIcon(getTextureName() + "_side");
     }
 
     @Override
@@ -41,5 +47,4 @@ public class BlockCalamitesStorage extends BlockRotatedPillar {
     protected IIcon getTopIcon(int metadata) {
         return topIcon;
     }
-
 }

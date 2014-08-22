@@ -1,6 +1,6 @@
 package genesis.world.gen;
 
-import genesis.block.ModBlocks;
+import genesis.block.GenesisModBlocks;
 import genesis.world.gen.feature.WorldGenMinableGenesis;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -67,12 +67,12 @@ public class BiomeDecoratorGenesis {
     public BiomeDecoratorGenesis() {
         this.dirtGen = new WorldGenMinableGenesis(Blocks.dirt, 32);
         this.gravelGen = new WorldGenMinableGenesis(Blocks.gravel, 32);
-        this.quartzGen = new WorldGenMinableGenesis(ModBlocks.quartzGraniteOre, 6, ModBlocks.quartzite);
-        this.malachiteGen = new WorldGenMinableGenesis(ModBlocks.malachiteOre, 3);
-        this.hematiteGen = new WorldGenMinableGenesis(ModBlocks.hematiteOre, 10);
-        this.zirconGen = new WorldGenMinableGenesis(ModBlocks.zirconOre, 8);
-        this.garnetGen = new WorldGenMinableGenesis(ModBlocks.garnetOre, 8, ModBlocks.fauxAmphibolite);
-        this.olivineGen = new WorldGenMinableGenesis(ModBlocks.olivineOre, 10, ModBlocks.komatiite);
+        this.quartzGen = new WorldGenMinableGenesis(GenesisModBlocks.granite_quartz_ore, 6, GenesisModBlocks.quartzite);
+        this.malachiteGen = new WorldGenMinableGenesis(GenesisModBlocks.malachite_ore, 3);
+        this.hematiteGen = new WorldGenMinableGenesis(GenesisModBlocks.hematite_ore, 10);
+        this.zirconGen = new WorldGenMinableGenesis(GenesisModBlocks.zircon_ore, 8);
+        this.garnetGen = new WorldGenMinableGenesis(GenesisModBlocks.garnet_ore, 8, GenesisModBlocks.faux_amphibolite);
+        this.olivineGen = new WorldGenMinableGenesis(GenesisModBlocks.olivine_ore, 10, GenesisModBlocks.komatiite);
         this.mushroomBrownGen = new WorldGenFlowers(Blocks.brown_mushroom);
         this.mushroomRedGen = new WorldGenFlowers(Blocks.red_mushroom);
         this.generateLakes = true;

@@ -1,7 +1,7 @@
 package genesis.world.gen.feature;
 
-import genesis.block.ModBlocks;
-import genesis.block.plants.PlantBlocks;
+import genesis.block.GenesisModBlocks;
+import genesis.block.plants.GenesisPlantBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -98,7 +98,7 @@ public class WorldGenLakesGenesis extends WorldGenerator {
                         if (aboolean[(i1 * 16 + j2) * 8 + j1] && par1World.getBlock(par3 + i1, par4 + j1 - 1, par5 + j2) == Blocks.dirt && par1World.getSavedLightValue(EnumSkyBlock.Sky, par3 + i1, par4 + j1, par5 + j2) > 0) {
                             BiomeGenBase biomegenbase = par1World.getBiomeGenForCoords(par3 + i1, par5 + j2);
 
-                            par1World.setBlock(par3 + i1, par4 + j1 - 1, par5 + j2, ModBlocks.moss, 0, 2);
+                            par1World.setBlock(par3 + i1, par4 + j1 - 1, par5 + j2, GenesisModBlocks.moss, 0, 2);
                         }
                     }
                 }
@@ -111,7 +111,7 @@ public class WorldGenLakesGenesis extends WorldGenerator {
                             flag = !aboolean[(i1 * 16 + j2) * 8 + j1] && (i1 < 15 && aboolean[((i1 + 1) * 16 + j2) * 8 + j1] || i1 > 0 && aboolean[((i1 - 1) * 16 + j2) * 8 + j1] || j2 < 15 && aboolean[(i1 * 16 + j2 + 1) * 8 + j1] || j2 > 0 && aboolean[(i1 * 16 + (j2 - 1)) * 8 + j1] || j1 < 7 && aboolean[(i1 * 16 + j2) * 8 + j1 + 1] || j1 > 0 && aboolean[(i1 * 16 + j2) * 8 + (j1 - 1)]);
 
                             if (flag && (j1 < 4 || par2Random.nextInt(2) != 0) && par1World.getBlock(par3 + i1, par4 + j1, par5 + j2).getMaterial().isSolid()) {
-                                par1World.setBlock(par3 + i1, par4 + j1, par5 + j2, ModBlocks.komatiite, 0, 2);
+                                par1World.setBlock(par3 + i1, par4 + j1, par5 + j2, GenesisModBlocks.komatiite, 0, 2);
                             }
                         }
                     }
@@ -126,17 +126,17 @@ public class WorldGenLakesGenesis extends WorldGenerator {
 
                             if (flag && (j1 < 4 || par2Random.nextInt(2) != 0) && par1World.getBlock(par3 + i1, par4 + j1, par5 + j2).getMaterial().isSolid()) {
                                 if (par1World.getBlock(par3 + i1, par4 + j1 + 1, par5 + j2).getMaterial() != Material.water) {
-                                    par1World.setBlock(par3 + i1, par4 + j1, par5 + j2, ModBlocks.graniteMossy, 0, 2);
+                                    par1World.setBlock(par3 + i1, par4 + j1, par5 + j2, GenesisModBlocks.mossy_granite, 0, 2);
                                     if (par1World.getBlock(par3 + i1, par4 + j1 + 1, par5 + j2) == Blocks.air) {
                                         if (par2Random.nextInt(3) == 0)
-                                            par1World.setBlock(par3 + i1, par4 + j1 + 1, par5 + j2, ModBlocks.graniteMossy, 0, 2);
+                                            par1World.setBlock(par3 + i1, par4 + j1 + 1, par5 + j2, GenesisModBlocks.mossy_granite, 0, 2);
                                         else if (par2Random.nextInt(2) == 0) {
-                                            par1World.setBlock(par3 + i1, par4 + j1, par5 + j2, ModBlocks.moss, 0, 2);
+                                            par1World.setBlock(par3 + i1, par4 + j1, par5 + j2, GenesisModBlocks.moss, 0, 2);
                                             if (par1World.isAirBlock(par3 + i1, par4 + j1 + 2, par5 + j2) && par2Random.nextInt(3) == 0) {
-                                                par1World.setBlock(par3 + i1, par4 + j1 + 1, par5 + j2, PlantBlocks.asteroxylon, 1, 2);
-                                                par1World.setBlock(par3 + i1, par4 + j1 + 2, par5 + j2, PlantBlocks.asterTop, 1, 2);
+                                                par1World.setBlock(par3 + i1, par4 + j1 + 1, par5 + j2, GenesisPlantBlocks.asteroxylon, 1, 2);
+                                                par1World.setBlock(par3 + i1, par4 + j1 + 2, par5 + j2, GenesisPlantBlocks.asteroxylon_top, 1, 2);
                                             } else
-                                                par1World.setBlock(par3 + i1, par4 + j1 + 1, par5 + j2, PlantBlocks.asteroxylon, 0, 2);
+                                                par1World.setBlock(par3 + i1, par4 + j1 + 1, par5 + j2, GenesisPlantBlocks.asteroxylon, 0, 2);
                                         }
                                     }
                                 } else {
