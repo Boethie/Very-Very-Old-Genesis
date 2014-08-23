@@ -1,5 +1,6 @@
 package genesis.client.model;
 
+import genesis.entity.EntityEryops;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -44,6 +45,8 @@ public class ModelEryops extends ModelBase {
     ModelRenderer toebackright3;
     ModelRenderer toebackleft4;
     ModelRenderer toebackright4;
+
+    float angryJawMovement = 0f;
 
     public ModelEryops() {
         textureWidth = 256;
@@ -331,20 +334,31 @@ public class ModelEryops extends ModelBase {
     public void setRotationAngles(float par1, float par2, float par3, float par4, float par5, float par6, Entity par7Entity) {
         super.setRotationAngles(par1, par2, par3, par4, par5, par6, par7Entity);
 
+        EntityEryops eryops = (EntityEryops)par7Entity;
+
         float lookingMovement = 0.005F * par5;
         float naturalHeadMovement = 0.025F * (1.0F - MathHelper.sin(0.05F * par3));
         float naturalLowerJawMovement = 0.010F * (1.0F - 0.5F * MathHelper.sin(0.05F * par3));
 
+        if (eryops.isAngry()) {
+            if (angryJawMovement < 0.3f) {
+                angryJawMovement += 0.02f;
+            }
+        }
+        else if (angryJawMovement > 0f) {
+            angryJawMovement -= 0.02f;
+        }
+
         head1.rotateAngleX = lookingMovement + naturalHeadMovement;
         head2.rotateAngleX = lookingMovement + naturalHeadMovement;
-        snout1.rotateAngleX = lookingMovement + naturalHeadMovement;
-        snout2.rotateAngleX = lookingMovement + naturalHeadMovement;
-        upperjaw.rotateAngleX = lookingMovement + naturalHeadMovement;
+        snout1.rotateAngleX = lookingMovement + naturalHeadMovement - angryJawMovement;
+        snout2.rotateAngleX = lookingMovement + naturalHeadMovement - angryJawMovement;
+        upperjaw.rotateAngleX = lookingMovement + naturalHeadMovement - angryJawMovement;
 
-        lowerjaw1.rotateAngleX = lookingMovement + naturalLowerJawMovement;
-        lowerjaw2.rotateAngleX = lookingMovement + naturalLowerJawMovement;
-        teethleft.rotateAngleX = lookingMovement + naturalHeadMovement;
-        teethright.rotateAngleX = lookingMovement + naturalHeadMovement;
+        lowerjaw1.rotateAngleX = lookingMovement + naturalLowerJawMovement + angryJawMovement;
+        lowerjaw2.rotateAngleX = lookingMovement + naturalLowerJawMovement + angryJawMovement;
+        teethleft.rotateAngleX = lookingMovement + naturalHeadMovement + angryJawMovement;
+        teethright.rotateAngleX = lookingMovement + naturalHeadMovement + angryJawMovement;
 
         lookingMovement = 0.005F * par5;
         head1.rotateAngleY = lookingMovement;

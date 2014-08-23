@@ -16,4 +16,8 @@ public class EntityEryops extends EntityMob {
     protected String getDeathSound() {
         return "mob.eryops.death";
     }
+
+    public boolean isAngry() {
+        return this.worldObj.isRaining();
+    }
 }
