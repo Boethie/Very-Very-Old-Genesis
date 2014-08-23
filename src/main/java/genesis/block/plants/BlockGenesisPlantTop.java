@@ -91,8 +91,7 @@ public abstract class BlockGenesisPlantTop extends Block implements IPlantRender
     }
 
     @Override
-    public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z,
-                                    int side) {
+    public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z, int side) {
         // TODO Auto-generated method stub
         return false;
     }

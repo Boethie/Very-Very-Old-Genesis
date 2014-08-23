@@ -25,8 +25,9 @@ public class BlockMossRenderer implements ISimpleBlockRenderingHandler {
         pass = 0;
         boolean snow = BlockMoss.isSnowed(blockAccess, x, y, z);
 
-        if (!snow && !renderer.hasOverrideBlockTexture())
+        if (!snow && !renderer.hasOverrideBlockTexture()) {
             renderer.renderStandardBlock(block, x, y, z);
+        }
 
         pass = 1;
         renderer.renderStandardBlock(block, x, y, z);

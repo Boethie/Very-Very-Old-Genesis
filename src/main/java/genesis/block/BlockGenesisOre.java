@@ -36,9 +36,13 @@ public class BlockGenesisOre extends BlockGenesisRock {
     public BlockGenesisOre setDropAndSmelting(Object drop, int damage, float smeltXP) {
         ItemStack stack = null;
 
-        if (drop instanceof Block) stack = new ItemStack((Block) drop, 1, damage);
-        else if (drop instanceof Item) stack = new ItemStack((Item) drop, 1, damage);
-        else new IllegalArgumentException("Invalid Genesis ore item drop: " + drop).printStackTrace();
+        if (drop instanceof Block) {
+            stack = new ItemStack((Block) drop, 1, damage);
+        } else if (drop instanceof Item) {
+            stack = new ItemStack((Item) drop, 1, damage);
+        } else {
+            new IllegalArgumentException("Invalid Genesis ore item drop: " + drop).printStackTrace();
+        }
 
         if (stack != null) {
             setDrop(stack);

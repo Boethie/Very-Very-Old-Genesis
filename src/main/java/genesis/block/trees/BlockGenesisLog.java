@@ -22,13 +22,15 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
     protected IIcon[] blockIcons;
 
     public BlockGenesisLog(int group) {
-        if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE)
+        if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE) {
             blockNames = new String[TreeType.GROUP_SIZE];
-        else
+        } else {
             blockNames = new String[TreeType.values().length - (group * TreeType.GROUP_SIZE)];
+        }
 
-        for (int i = 0; i < blockNames.length; i++)
+        for (int i = 0; i < blockNames.length; i++) {
             blockNames[i] = TreeType.values()[(group * TreeType.GROUP_SIZE) + i].getName();
+        }
 
         blockIcons = new IIcon[blockNames.length * 2];
         setCreativeTab(GenesisTabs.tabGenesis);
@@ -48,20 +50,23 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
         final int orientation = metadata & 12;
         int type = metadata & 3;
 
-        if (type >= blockNames.length)
+        if (type >= blockNames.length) {
             type = 0;
+        }
 
-        if ((orientation == 0 && (side == 1 || side == 0)) || (orientation == 4 && (side == 5 || side == 4)) || (orientation == 8 && (side == 2 || side == 3)))
+        if ((orientation == 0 && (side == 1 || side == 0)) || (orientation == 4 && (side == 5 || side == 4)) || (orientation == 8 && (side == 2 || side == 3))) {
             return blockIcons[((type + 1) * 2) - 1];
-        else
+        } else {
             return blockIcons[type * 2];
+        }
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
-        for (int metadata = 0; metadata < blockNames.length; metadata++)
+        for (int metadata = 0; metadata < blockNames.length; metadata++) {
             list.add(new ItemStack(item, 1, metadata));
+        }
     }
 
     @Override
@@ -69,12 +74,13 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
         return Item.getItemFromBlock(GenesisTreeBlocks.logs[TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup()]);
     }
 
-	/* IItemBlockWithSubNames methods */
+    /* IItemBlockWithSubNames methods */
 
     @Override
     public String getSubName(int metadata) {
-        if (metadata >= blockNames.length)
+        if (metadata >= blockNames.length) {
             metadata = 0;
+        }
 
         return blockNames[metadata];
     }

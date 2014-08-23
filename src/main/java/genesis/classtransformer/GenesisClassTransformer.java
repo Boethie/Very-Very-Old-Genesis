@@ -13,21 +13,13 @@ public class GenesisClassTransformer implements IClassTransformer {
 
     public byte[] transform(String name, String transformedName, byte[] bytes) {
         if (name.equals(GenesisObfTable.ClassEntityDiggingFX)) {
-            return ClassTransformHelper.injectCustomHook(bytes, new DiggingFXColorTransformer(),
-                    GenesisObfTable.MethodApplyColourMultiplier, GenesisObfTable.MethodApplyColourMultiplierDesc,
-                    GenesisObfTable.ClassEntityDiggingFXPath);
+            return ClassTransformHelper.injectCustomHook(bytes, new DiggingFXColorTransformer(), GenesisObfTable.MethodApplyColourMultiplier, GenesisObfTable.MethodApplyColourMultiplierDesc, GenesisObfTable.ClassEntityDiggingFXPath);
         } else if (name.equals(GenesisObfTable.ClassRenderBlocks)) {
-            return ClassTransformHelper.injectCustomHook(bytes, new MossBlockInventoryRenderTransformer(),
-                    GenesisObfTable.MethodRenderBlockAsItem, GenesisObfTable.MethodRenderBlockAsItemDesc,
-                    GenesisObfTable.ClassRenderBlocksPath);
+            return ClassTransformHelper.injectCustomHook(bytes, new MossBlockInventoryRenderTransformer(), GenesisObfTable.MethodRenderBlockAsItem, GenesisObfTable.MethodRenderBlockAsItemDesc, GenesisObfTable.ClassRenderBlocksPath);
         } else if (name.equals(GenesisObfTable.ClassItemHoe)) {
-            return ClassTransformHelper.injectCustomHook(bytes, new HoeOnMossBlockTransformer(),
-                    GenesisObfTable.MethodOnItemUse, GenesisObfTable.MethodOnItemUseDesc,
-                    GenesisObfTable.ClassItemHoePath);
+            return ClassTransformHelper.injectCustomHook(bytes, new HoeOnMossBlockTransformer(), GenesisObfTable.MethodOnItemUse, GenesisObfTable.MethodOnItemUseDesc, GenesisObfTable.ClassItemHoePath);
         } else if (name.equals(GenesisObfTable.ClassBlockFlowerPot)) {
-            return ClassTransformHelper.injectCustomHook(bytes, new FlowerPotRightClickTransformer(),
-                    GenesisObfTable.MethodOnBlockActivated, GenesisObfTable.MethodOnBlockActivatedDesc,
-                    GenesisObfTable.ClassBlockFlowerPot);
+            return ClassTransformHelper.injectCustomHook(bytes, new FlowerPotRightClickTransformer(), GenesisObfTable.MethodOnBlockActivated, GenesisObfTable.MethodOnBlockActivatedDesc, GenesisObfTable.ClassBlockFlowerPot);
         }
 
         return bytes;
@@ -48,17 +40,12 @@ public class GenesisClassTransformer implements IClassTransformer {
                     mv.visitVarInsn(Opcodes.ALOAD, 0);    // First hook parameter
 
                     mv.visitVarInsn(Opcodes.ALOAD, 0);
-                    mv.visitFieldInsn(Opcodes.GETFIELD,
-                            GenesisObfTable.ClassEntityDiggingFXPath,
-                            GenesisObfTable.FieldBlockInstance, block);    // Second parameter
+                    mv.visitFieldInsn(Opcodes.GETFIELD, GenesisObfTable.ClassEntityDiggingFXPath, GenesisObfTable.FieldBlockInstance, block);    // Second parameter
 
                     mv.visitVarInsn(Opcodes.ALOAD, 0);
-                    mv.visitFieldInsn(Opcodes.GETFIELD,
-                            GenesisObfTable.ClassEntityDiggingFXPath, GenesisObfTable.FieldSide, "I");    // Last parameter
+                    mv.visitFieldInsn(Opcodes.GETFIELD, GenesisObfTable.ClassEntityDiggingFXPath, GenesisObfTable.FieldSide, "I");    // Last parameter
 
-                    mv.visitMethodInsn(Opcodes.INVOKESTATIC,
-                            "genesis/genesis/hooks/MossHooks",
-                            "handleParticleColors", "(L" + GenesisObfTable.ClassEntityDiggingFXPath + ";" + block + "I)Z");
+                    mv.visitMethodInsn(Opcodes.INVOKESTATIC, "genesis/genesis/hooks/MossHooks", "handleParticleColors", "(L" + GenesisObfTable.ClassEntityDiggingFXPath + ";" + block + "I)Z");
 
                     Label label = new Label();
                     mv.visitJumpInsn(Opcodes.IFNE, label);
@@ -86,10 +73,7 @@ public class GenesisClassTransformer implements IClassTransformer {
                 try {
                     mv.visitVarInsn(Opcodes.ALOAD, 1);
                     mv.visitVarInsn(Opcodes.ILOAD, 5);
-                    mv.visitMethodInsn(Opcodes.INVOKESTATIC,
-                            "genesis/genesis/hooks/MossHooks",
-                            "shouldGrasslikeRender",
-                            "(L" + GenesisObfTable.ClassBlockPath + ";Z)Z");
+                    mv.visitMethodInsn(Opcodes.INVOKESTATIC, "genesis/genesis/hooks/MossHooks", "shouldGrasslikeRender", "(L" + GenesisObfTable.ClassBlockPath + ";Z)Z");
                     mv.visitVarInsn(Opcodes.ISTORE, 5);
                 } catch (Throwable e) {
                     e.printStackTrace();
@@ -122,12 +106,8 @@ public class GenesisClassTransformer implements IClassTransformer {
             if (found && opcode == Opcodes.IF_ICMPEQ) {
                 try {
                     mv.visitVarInsn(Opcodes.ILOAD, 12);
-                    mv.visitFieldInsn(Opcodes.GETSTATIC, "genesis/genesis/block/Blocks",
-                            "moss",
-                            "L" + GenesisObfTable.ClassBlockPath + ";");
-                    mv.visitFieldInsn(Opcodes.GETFIELD,
-                            GenesisObfTable.ClassBlockPath,
-                            GenesisObfTable.FieldBlockID, "I");
+                    mv.visitFieldInsn(Opcodes.GETSTATIC, "genesis/genesis/block/Blocks", "moss", "L" + GenesisObfTable.ClassBlockPath + ";");
+                    mv.visitFieldInsn(Opcodes.GETFIELD, GenesisObfTable.ClassBlockPath, GenesisObfTable.FieldBlockID, "I");
                     mv.visitJumpInsn(Opcodes.IF_ICMPEQ, label);
                 } catch (Throwable e) {
                     e.printStackTrace();
@@ -162,9 +142,7 @@ public class GenesisClassTransformer implements IClassTransformer {
                         mv.visitVarInsn(Opcodes.FLOAD, 7);
                         mv.visitVarInsn(Opcodes.FLOAD, 8);
                         mv.visitVarInsn(Opcodes.FLOAD, 9);
-                        mv.visitMethodInsn(Opcodes.INVOKESTATIC, "genesis/genesis/hooks/FlowerPotHooks",
-                                "checkSwitchFlowerPotBlock",
-                                "(L" + worldDesc + ";IIIL" + entityPlayerDesc + ";IFFF)Z");
+                        mv.visitMethodInsn(Opcodes.INVOKESTATIC, "genesis/genesis/hooks/FlowerPotHooks", "checkSwitchFlowerPotBlock", "(L" + worldDesc + ";IIIL" + entityPlayerDesc + ";IFFF)Z");
                         Label label = new Label();
                         mv.visitJumpInsn(Opcodes.IFEQ, label);
                         mv.visitInsn(Opcodes.ICONST_1);

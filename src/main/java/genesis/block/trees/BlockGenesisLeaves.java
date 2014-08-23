@@ -24,13 +24,15 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
     protected IIcon[] blockIcons;
 
     public BlockGenesisLeaves(int group) {
-        if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE)
+        if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE) {
             blockNames = new String[TreeType.GROUP_SIZE];
-        else
+        } else {
             blockNames = new String[TreeType.values().length - (group * TreeType.GROUP_SIZE)];
+        }
 
-        for (int i = 0; i < blockNames.length; i++)
+        for (int i = 0; i < blockNames.length; i++) {
             blockNames[i] = TreeType.values()[(group * TreeType.GROUP_SIZE) + i].getName();
+        }
 
         blockIcons = new IIcon[blockNames.length * 2];
 
@@ -50,17 +52,19 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
     public IIcon getIcon(int id, int metadata) {
         metadata &= 3;
 
-        if (Minecraft.getMinecraft().gameSettings.fancyGraphics)
+        if (Minecraft.getMinecraft().gameSettings.fancyGraphics) {
             return blockIcons[metadata * 2];
-        else
+        } else {
             return blockIcons[((metadata + 1) * 2) - 1];
+        }
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
-        for (int metadata = 0; metadata < blockNames.length; metadata++)
+        for (int metadata = 0; metadata < blockNames.length; metadata++) {
             list.add(new ItemStack(item, 1, metadata));
+        }
     }
 
     @Override
@@ -86,7 +90,7 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
         return null;
     }
 
-	/* IItemBlockWithSubNames methods */
+    /* IItemBlockWithSubNames methods */
 
     @Override
     public String getSubName(int metadata) {

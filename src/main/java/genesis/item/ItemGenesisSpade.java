@@ -39,7 +39,7 @@ public class ItemGenesisSpade extends ItemSpade {
 
     @Override
     public Item setTextureName(String textureName) {
-        return super.setTextureName(Genesis.ASSETS + textureName + "_axe");
+        return super.setTextureName(Genesis.ASSETS + textureName + "_shovel");
     }
 
     @Override

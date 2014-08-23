@@ -128,15 +128,16 @@ public class WorldGenLakesGenesis extends WorldGenerator {
                                 if (par1World.getBlock(par3 + i1, par4 + j1 + 1, par5 + j2).getMaterial() != Material.water) {
                                     par1World.setBlock(par3 + i1, par4 + j1, par5 + j2, GenesisModBlocks.mossy_granite, 0, 2);
                                     if (par1World.getBlock(par3 + i1, par4 + j1 + 1, par5 + j2) == Blocks.air) {
-                                        if (par2Random.nextInt(3) == 0)
+                                        if (par2Random.nextInt(3) == 0) {
                                             par1World.setBlock(par3 + i1, par4 + j1 + 1, par5 + j2, GenesisModBlocks.mossy_granite, 0, 2);
-                                        else if (par2Random.nextInt(2) == 0) {
+                                        } else if (par2Random.nextInt(2) == 0) {
                                             par1World.setBlock(par3 + i1, par4 + j1, par5 + j2, GenesisModBlocks.moss, 0, 2);
                                             if (par1World.isAirBlock(par3 + i1, par4 + j1 + 2, par5 + j2) && par2Random.nextInt(3) == 0) {
                                                 par1World.setBlock(par3 + i1, par4 + j1 + 1, par5 + j2, GenesisPlantBlocks.asteroxylon, 1, 2);
                                                 par1World.setBlock(par3 + i1, par4 + j1 + 2, par5 + j2, GenesisPlantBlocks.asteroxylon_top, 1, 2);
-                                            } else
+                                            } else {
                                                 par1World.setBlock(par3 + i1, par4 + j1 + 1, par5 + j2, GenesisPlantBlocks.asteroxylon, 0, 2);
+                                            }
                                         }
                                     }
                                 } else {

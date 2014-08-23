@@ -74,10 +74,11 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
             ArrayList<ChunkPosition> upPositions = new ArrayList();
 
             do {
-                if (up == 2)
+                if (up == 2) {
                     off = -1;
-                else
+                } else {
                     off = 1;
+                }
 
                 do {
                     block = world.getBlock(x, y + off, z);
@@ -89,17 +90,20 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
                         if (up == 2) {
                             position++;
                             downPositions.add(new ChunkPosition(x, y + off, z));
-                        } else
+                        } else {
                             upPositions.add(new ChunkPosition(x, y + off, z));
+                        }
                     }
 
-                    if (!hasEggs && hasEggs(metadata))
+                    if (!hasEggs && hasEggs(metadata)) {
                         hasEggs = true;
+                    }
 
-                    if (up == 2)
+                    if (up == 2) {
                         off--;
-                    else
+                    } else {
                         off++;
+                    }
                 } while (block == this);
 
                 up--;
@@ -107,13 +111,15 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 
             ArrayList<ChunkPosition> positions = new ArrayList();
 
-            for (int i = downPositions.size() - 1; i >= 0; i--)
+            for (int i = downPositions.size() - 1; i >= 0; i--) {
                 positions.add(downPositions.get(i));
+            }
 
             positions.add(new ChunkPosition(x, y, z));
 
-            for (ChunkPosition upPosition : upPositions)
+            for (ChunkPosition upPosition : upPositions) {
                 positions.add(upPosition);
+            }
 
             return new CalamitesProperties(height, position, hasEggs, positions);
         }
@@ -146,21 +152,21 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
     private void resetAll(World world, ArrayList<ChunkPosition> positions, int exceptY, boolean skipTop) {
         ChunkPosition lastPos = null;
 
-        if (skipTop)
+        if (skipTop) {
             lastPos = positions.get(positions.size() - 1);
+        }
 
-        for (ChunkPosition pos : positions)
+        for (ChunkPosition pos : positions) {
             if (pos != lastPos && pos.chunkPosY != exceptY) {
                 int resetMetadata = world.getBlockMetadata(pos.chunkPosX, pos.chunkPosY, pos.chunkPosZ);
                 world.setBlockMetadataWithNotify(pos.chunkPosX, pos.chunkPosY, pos.chunkPosZ, setAge(resetMetadata, 0), 3);
             }
+        }
     }
 
     @Override
     protected boolean canPlaceBlockOn(Block block) {
-        return super.canPlaceBlockOn(block)
-                || block == GenesisPlantBlocks.calamites
-                || block == GenesisModBlocks.moss;
+        return super.canPlaceBlockOn(block) || block == GenesisPlantBlocks.calamites || block == GenesisModBlocks.moss;
     }
 
     @Override
@@ -191,8 +197,9 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 
     @Override
     public void updateTick(World world, int x, int y, int z, Random rand) {
-        if (world.isRemote)
+        if (world.isRemote) {
             return;
+        }
 
         CalamitesProperties props = getProperties(world, x, y, z);
 
@@ -204,8 +211,9 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
             metadata = setHasEggs(metadata, false);
             resetAges = true;
         } else if (props.top && props.height < stackedLimit) {
-            if (age >= PLAIN_META_MASK && world.getBlock(x, y + 1, z).getMaterial().isReplaceable() && rand.nextBoolean())
+            if (age >= PLAIN_META_MASK && world.getBlock(x, y + 1, z).getMaterial().isReplaceable() && rand.nextBoolean()) {
                 world.setBlock(x, y + 1, z, this);
+            }
         } else if (!props.hasEggs && age >= PLAIN_META_MASK && rand.nextBoolean()) {
             metadata = setHasEggs(metadata, true);
             resetAges = true;
@@ -233,28 +241,34 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
         int metadata = world.getBlockMetadata(x, y, z);
         boolean isTop = isTop(world, x, y, z);
 
-        if (hasEggs(metadata))
-            if (secondSide ? side == 1 || side == 3 : side == 0 || side == 2)
+        if (hasEggs(metadata)) {
+            if (secondSide ? side == 1 || side == 3 : side == 0 || side == 2) {
                 return isTop ? calamitesPlantTopEggs1 : calamitesPlantEggs1;
-            else
+            } else {
                 switch (side) {
-                    case 0:
-                        if (secondSide && !reverseTex)
-                            return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
-                        break;
-                    case 1:
-                        if (!secondSide && reverseTex)
-                            return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
-                        break;
-                    case 2:
-                        if (secondSide && reverseTex)
-                            return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
-                        break;
-                    case 3:
-                        if (!secondSide && !reverseTex)
-                            return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
-                        break;
+                case 0:
+                    if (secondSide && !reverseTex) {
+                        return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
+                    }
+                    break;
+                case 1:
+                    if (!secondSide && reverseTex) {
+                        return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
+                    }
+                    break;
+                case 2:
+                    if (secondSide && reverseTex) {
+                        return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
+                    }
+                    break;
+                case 3:
+                    if (!secondSide && !reverseTex) {
+                        return isTop ? calamitesPlantTopEggs2 : calamitesPlantEggs2;
+                    }
+                    break;
                 }
+            }
+        }
 
         return isTop ? calamitesPlantTop : calamitesPlant;
     }
@@ -295,11 +309,13 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 
     private boolean dropEggs(World world, int x, int y, int z, int metadata) {
         if (hasEggs(metadata)) {
-            if (world.isRemote)
+            if (world.isRemote) {
                 return true;
+            }
 
-            if (world.getBlock(x, y, z) == this)
+            if (world.getBlock(x, y, z) == this) {
                 world.setBlockMetadataWithNotify(x, y, z, setHasEggs(metadata, false), 3);
+            }
 
             EntityItem itemDrop = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, new ItemStack(Items.egg));
             double div = Math.sqrt(itemDrop.motionX * itemDrop.motionX + itemDrop.motionY * itemDrop.motionY + itemDrop.motionZ * itemDrop.motionZ) * 2;
@@ -327,8 +343,9 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
     public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance, int fortune) {
         super.dropBlockAsItemWithChance(world, x, y, z, metadata, chance, fortune);
 
-        if (!world.isRemote && world.rand.nextFloat() <= chance)
+        if (!world.isRemote && world.rand.nextFloat() <= chance) {
             dropEggs(world, x, y, z, metadata);
+        }
     }
 
     @Override

@@ -116,8 +116,8 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
         var1.setBlockMetadataWithNotify(var3, var4, var5, 1, 2);
     }
 
-	/*public IIcon getIconForItemRender()
+    /*public IIcon getIconForItemRender()
     {
-		return icons[0];
-	}*/
+        return icons[0];
+    }*/
 }

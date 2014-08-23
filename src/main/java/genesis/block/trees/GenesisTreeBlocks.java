@@ -82,20 +82,20 @@ public class GenesisTreeBlocks {
         Block block;
 
         switch (type) {
-            case LOG:
-                block = logs[group];
-                break;
-            case LEAVES:
-                block = leaves[group];
-                break;
-            case SAPLING:
-                block = saplings[group];
-                break;
-            case ROTTEN_LOG:
-                block = rotten_logs[group];
-                break;
-            default:
-                return null;
+        case LOG:
+            block = logs[group];
+            break;
+        case LEAVES:
+            block = leaves[group];
+            break;
+        case SAPLING:
+            block = saplings[group];
+            break;
+        case ROTTEN_LOG:
+            block = rotten_logs[group];
+            break;
+        default:
+            return null;
         }
 
         return new BlockAndMeta(block, treeType.getMetadata());
@@ -105,20 +105,20 @@ public class GenesisTreeBlocks {
         int directionBits;
 
         switch (direction) {
-            case NORTH:
-            case SOUTH:
-                directionBits = 4;
-                break;
-            case EAST:
-            case WEST:
-                directionBits = 8;
-                break;
-            case UNKNOWN:
-                directionBits = 12;
-                break;
-            default:
-                directionBits = 0;
-                break;
+        case NORTH:
+        case SOUTH:
+            directionBits = 4;
+            break;
+        case EAST:
+        case WEST:
+            directionBits = 8;
+            break;
+        case UNKNOWN:
+            directionBits = 12;
+            break;
+        default:
+            directionBits = 0;
+            break;
         }
 
         return (metadata & 3) | directionBits;

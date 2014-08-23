@@ -19,10 +19,7 @@ public class BiomeGenGenesisRainforest extends BiomeGenGenesisBase {
     @Override
     public WorldGenAbstractTree func_150567_a(Random rand) {
         int treeType = rand.nextInt(20);
-        return treeType < 14 ? new WorldGenTreeLepidodendron(10, 5, true) :
-                treeType < 17 ? new WorldGenTreeSigillaria(8, 3, true) :
-                        treeType < 19 ? new WorldGenTreeCordaites(15, 5, true) :
-                                new WorldGenTreePsaronius(5, 4, true);
+        return treeType < 14 ? new WorldGenTreeLepidodendron(10, 5, true) : treeType < 17 ? new WorldGenTreeSigillaria(8, 3, true) : treeType < 19 ? new WorldGenTreeCordaites(15, 5, true) : new WorldGenTreePsaronius(5, 4, true);
     }
 
     public void decorate(World world, Random rand, int x, int z) {
@@ -47,7 +44,9 @@ public class BiomeGenGenesisRainforest extends BiomeGenGenesisBase {
                     if (world.isAirBlock(varX, varY + 1, varZ)) {
                         world.setBlock(varX, varY, varZ, GenesisPlantBlocks.zingiberopsis, 7, 2);
                         world.setBlock(varX, varY + 1, varZ, GenesisPlantBlocks.zingiberopsis_top, 2, 2);
-                    } else world.setBlock(varX, varY, varZ, GenesisPlantBlocks.zingiberopsis, 0, 2);
+                    } else {
+                        world.setBlock(varX, varY, varZ, GenesisPlantBlocks.zingiberopsis, 0, 2);
+                    }
                 }
             }
         }
@@ -61,15 +60,17 @@ public class BiomeGenGenesisRainforest extends BiomeGenGenesisBase {
             int varX = x + rand.nextInt(16);
             int varZ = z + rand.nextInt(16);
             int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, GenesisModBlocks.moss, Blocks.dirt);
-            if (world.isAirBlock(varX, varY, varZ)) world.setBlock(varX, varY, varZ, GenesisPlantBlocks.ferns, 0, 2);
+            if (world.isAirBlock(varX, varY, varZ)) {
+                world.setBlock(varX, varY, varZ, GenesisPlantBlocks.ferns, 0, 2);
+            }
         }
 
-    	/*int varX = x + rand.nextInt(16);
+        /*int varX = x + rand.nextInt(16);
         int varZ = z + rand.nextInt(16);
-		int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, ModBlocks.moss, Blocks.dirt);
-		if(world.isAirBlock(varX, varY, varZ)) 
-		{
-			world.setBlock(varX, varY, varZ, TreeBlocks.blocksLeaves[3], 0, 2);
-		}*/
+        int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, ModBlocks.moss, Blocks.dirt);
+        if(world.isAirBlock(varX, varY, varZ))
+        {
+            world.setBlock(varX, varY, varZ, TreeBlocks.blocksLeaves[3], 0, 2);
+        }*/
     }
 }

@@ -68,35 +68,15 @@ public class GenesisModItems {
 
     public static void initiate() {
         // Tools
-        granite_tools = new ItemsToolSet(Names.itemGraniteMaterial,
-                new Object[]{1, 375, 4.0F, 1.0F, 5},
-                new Object[]{1, 390, 5.2F, 1.0F, 5},
-                new Object[]{1, 415, 7.2F, 1.0F, 5},
-                new Object[]{1, 425, 8.0F, 1.0F, 5});
+        granite_tools = new ItemsToolSet(Names.itemGraniteMaterial, new Object[]{1, 375, 4.0F, 1.0F, 5}, new Object[]{1, 390, 5.2F, 1.0F, 5}, new Object[]{1, 415, 7.2F, 1.0F, 5}, new Object[]{1, 425, 8.0F, 1.0F, 5});
 
-        rhyolite_tools = new ItemsToolSet(Names.itemRhyoliteMaterial,
-                new Object[]{1, 375, 4.0F, 1.0F, 5},
-                new Object[]{1, 390, 5.2F, 1.0F, 5},
-                new Object[]{1, 415, 7.2F, 1.0F, 5},
-                new Object[]{1, 425, 8.0F, 1.0F, 5});
+        rhyolite_tools = new ItemsToolSet(Names.itemRhyoliteMaterial, new Object[]{1, 375, 4.0F, 1.0F, 5}, new Object[]{1, 390, 5.2F, 1.0F, 5}, new Object[]{1, 415, 7.2F, 1.0F, 5}, new Object[]{1, 425, 8.0F, 1.0F, 5});
 
-        quartzite_tools = new ItemsToolSet(Names.itemQuartziteMaterial,
-                new Object[]{1, 437, 4.0F, 1.0F, 5},
-                new Object[]{1, 452, 5.2F, 1.0F, 5},
-                new Object[]{1, 477, 7.2F, 1.0F, 5},
-                new Object[]{1, 487, 8.0F, 1.0F, 5});
+        quartzite_tools = new ItemsToolSet(Names.itemQuartziteMaterial, new Object[]{1, 437, 4.0F, 1.0F, 5}, new Object[]{1, 452, 5.2F, 1.0F, 5}, new Object[]{1, 477, 7.2F, 1.0F, 5}, new Object[]{1, 487, 8.0F, 1.0F, 5});
 
-        limestone_tools = new ItemsToolSet(Names.itemLimestoneMaterial,
-                new Object[]{1, 187, 4.0F, 1.0F, 5},
-                new Object[]{1, 202, 5.2F, 1.0F, 5},
-                new Object[]{1, 247, 7.2F, 1.0F, 5},
-                new Object[]{1, 237, 8.0F, 1.0F, 5});
+        limestone_tools = new ItemsToolSet(Names.itemLimestoneMaterial, new Object[]{1, 187, 4.0F, 1.0F, 5}, new Object[]{1, 202, 5.2F, 1.0F, 5}, new Object[]{1, 247, 7.2F, 1.0F, 5}, new Object[]{1, 237, 8.0F, 1.0F, 5});
 
-        brownish_flint_tools = new ItemsToolSet(Names.itemBrownishFlintMaterial,
-                new Object[]{1, 353, 4.0F, 1.0F, 5},
-                new Object[]{1, 368, 5.2F, 1.0F, 5},
-                new Object[]{1, 493, 7.2F, 1.0F, 5},
-                new Object[]{1, 403, 8.0F, 1.0F, 5});
+        brownish_flint_tools = new ItemsToolSet(Names.itemBrownishFlintMaterial, new Object[]{1, 353, 4.0F, 1.0F, 5}, new Object[]{1, 368, 5.2F, 1.0F, 5}, new Object[]{1, 493, 7.2F, 1.0F, 5}, new Object[]{1, 403, 8.0F, 1.0F, 5});
 
         // Items
         brownish_flint_pebble = new ItemGenesis().setUnlocalizedName(Names.itemBrownishFlintPebble).setTextureName("brownish_flint_pebble");

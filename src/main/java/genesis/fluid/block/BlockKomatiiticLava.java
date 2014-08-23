@@ -100,8 +100,7 @@ public class BlockKomatiiticLava extends BlockFluidClassic {
     @Override
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World world, int x, int y, int z, Random random) {
-        if (world.getBlock(x, y + 1, z).getMaterial() == Material.air
-                && !world.getBlock(x, y + 1, z).isOpaqueCube()) {
+        if (world.getBlock(x, y + 1, z).getMaterial() == Material.air && !world.getBlock(x, y + 1, z).isOpaqueCube()) {
             // Random lava popping particles
             if (random.nextInt(45) == 0) {
                 double px, py, pz;
@@ -109,19 +108,16 @@ public class BlockKomatiiticLava extends BlockFluidClassic {
                 py = (double) y + this.maxY;
                 pz = (double) ((float) z + random.nextFloat());
                 world.spawnParticle("lava", px, py, pz, 0.0D, 0.0D, 0.0D);
-                world.playSound(px, py, pz, "liquid.lavapop", 0.2F + random.nextFloat() * 0.2F,
-                        0.9F + random.nextFloat() * 0.15F, false);
+                world.playSound(px, py, pz, "liquid.lavapop", 0.2F + random.nextFloat() * 0.2F, 0.9F + random.nextFloat() * 0.15F, false);
             }
 
             if (random.nextInt(100) == 0) {
-                world.playSound((double) x, (double) y, (double) z, "liquid.lava",
-                        0.2F + random.nextFloat() * 0.2F, 0.9F + random.nextFloat() * 0.15F, false);
+                world.playSound((double) x, (double) y, (double) z, "liquid.lava", 0.2F + random.nextFloat() * 0.2F, 0.9F + random.nextFloat() * 0.15F, false);
             }
         }
 
         // Drop lava particles from the bottom of the block
-        if (random.nextInt(10) == 0 && World.doesBlockHaveSolidTopSurface(world, x, y - 1, z)
-                && !world.getBlock(x, y - 2, z).getMaterial().blocksMovement()) {
+        if (random.nextInt(10) == 0 && World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && !world.getBlock(x, y - 2, z).getMaterial().blocksMovement()) {
             double px, py, pz;
             px = (double) ((float) x + random.nextFloat());
             py = (double) y - 1.05D;

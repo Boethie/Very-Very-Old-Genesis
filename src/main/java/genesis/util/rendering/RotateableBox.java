@@ -22,15 +22,12 @@ public class RotateableBox extends RotateableBase {
     protected float transY;
     protected float transZ;
 
-    public RotateableBox(float widthX, float height, float widthZ,
-                         float uS, float uE, float vS, float vE,
-                         int texSize) {
+    public RotateableBox(float widthX, float height, float widthZ, float uS, float uE, float vS, float vE, int texSize) {
         float x = widthX / 2;
         float y = height / 2;
         float z = widthZ / 2;
 
-        vertices = new Vec4[]{
-                new Vec4(-x, -y, -z, 1),// 0
+        vertices = new Vec4[]{new Vec4(-x, -y, -z, 1),// 0
                 new Vec4(x, -y, -z, 1),    // 1
                 new Vec4(-x, y, -z, 1),    // 2
                 new Vec4(-x, -y, z, 1),    // 3
@@ -109,15 +106,15 @@ public class RotateableBox extends RotateableBase {
                 sizeY = roundToPixel(transY / size);
                 sizeZ = roundToPixel(transZ / size);
 
-                if (tries > 1)
+                if (tries > 1) {
                     break;
+                }
 
                 scaledSizeU = sizeX * 2 + sizeZ * 2;
                 scaledSizeV = sizeY + sizeZ;
 
                 tries++;
-            }
-            while ((scaledSizeU > 1 || scaledSizeV > 1));
+            } while ((scaledSizeU > 1 || scaledSizeV > 1));
 
             float oUS = 0;
             float oUE = 0;
@@ -198,13 +195,13 @@ public class RotateableBox extends RotateableBase {
     public void render() {
         updateTransformedSize();
         /*new Vec(-x, -y, -z),// 0
-        new Vec(x, -y, -z),	// 1
-		new Vec(-x, y, -z),	// 2
-		new Vec(-x, -y, z),	// 3
-		new Vec(x, y, -z),	// 4
-		new Vec(-x, y, z),	// 5
-		new Vec(x, -y, z),	// 6
-		new Vec(x, y, z),	// 7*/
+        new Vec(x, -y, -z),    // 1
+        new Vec(-x, y, -z),    // 2
+        new Vec(-x, -y, z),    // 3
+        new Vec(x, y, -z),    // 4
+        new Vec(-x, y, z),    // 5
+        new Vec(x, -y, z),    // 6
+        new Vec(x, y, z),    // 7*/
 
         addSideFace(vertices[1], vertices[2], 0, 0);
         addSideFace(vertices[0], vertices[5], 1, 0);

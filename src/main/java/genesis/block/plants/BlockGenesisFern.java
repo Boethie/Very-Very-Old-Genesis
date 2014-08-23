@@ -174,8 +174,7 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
     }
 
     @Override
-    public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z,
-                                    int side) {
+    public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z, int side) {
         return false;
     }
 

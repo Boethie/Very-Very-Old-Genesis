@@ -28,18 +28,23 @@ public class BlockGenesisFlowerPot extends BlockFlowerPot {
     public BlockGenesisFlowerPot() {
         super();
 
-        if (potBlocks.isEmpty())
+        if (potBlocks.isEmpty()) {
             potBlocks.add((BlockFlowerPot) Blocks.flower_pot);
+        }
 
         potBlocks.add(this);
     }
 
     public static boolean tryRegisterPlant(ItemStack plantStack) {
-        if (Block.getBlockFromItem(plantStack.getItem()) instanceof IPlantInFlowerPot)
-            for (BlockFlowerPot potBlock : potBlocks)
-                if (potBlock instanceof BlockGenesisFlowerPot)
-                    if (((BlockGenesisFlowerPot) potBlock).registerPlant(plantStack))
+        if (Block.getBlockFromItem(plantStack.getItem()) instanceof IPlantInFlowerPot) {
+            for (BlockFlowerPot potBlock : potBlocks) {
+                if (potBlock instanceof BlockGenesisFlowerPot) {
+                    if (((BlockGenesisFlowerPot) potBlock).registerPlant(plantStack)) {
                         return true;
+                    }
+                }
+            }
+        }
 
         return false;
     }
@@ -63,17 +68,20 @@ public class BlockGenesisFlowerPot extends BlockFlowerPot {
         for (Entry<ItemStack, Integer> entry : metadataMap.entrySet()) {
             ItemStack keyStack = entry.getKey();
 
-            if (keyStack.getItem() == stack.getItem() && keyStack.getItemDamage() == stack.getItemDamage())
+            if (keyStack.getItem() == stack.getItem() && keyStack.getItemDamage() == stack.getItemDamage()) {
                 return entry.getValue();
+            }
         }
 
         return -1;
     }
 
     public ItemStack getPlantStack(int metadata) {
-        for (Entry<ItemStack, Integer> entry : metadataMap.entrySet())
-            if (entry.getValue() == metadata)
+        for (Entry<ItemStack, Integer> entry : metadataMap.entrySet()) {
+            if (entry.getValue() == metadata) {
                 return entry.getKey();
+            }
+        }
 
         return null;
     }
@@ -108,8 +116,9 @@ public class BlockGenesisFlowerPot extends BlockFlowerPot {
                 if (metadata > 0) {
                     world.setBlockMetadataWithNotify(x, y, z, metadata, 2);
 
-                    if (!player.capabilities.isCreativeMode && --stack.stackSize <= 0)
+                    if (!player.capabilities.isCreativeMode && --stack.stackSize <= 0) {
                         player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
 
                     return true;
                 }
@@ -118,11 +127,12 @@ public class BlockGenesisFlowerPot extends BlockFlowerPot {
             int oldMetadata = world.getBlockMetadata(x, y, z);
             Block worldBlock = world.getBlock(x, y, z);
 
-            for (BlockFlowerPot pot : potBlocks)
+            for (BlockFlowerPot pot : potBlocks) {
                 if (pot != this && pot != worldBlock && pot.onBlockActivated(world, x, y, z, player, side, hitX, hitY, hitZ)) {
                     world.setBlock(x, y, z, pot, world.getBlockMetadata(x, y, z), 2);
                     return true;
                 }
+            }
 
             world.setBlock(x, y, z, this, oldMetadata, 2);
         }
@@ -150,14 +160,17 @@ public class BlockGenesisFlowerPot extends BlockFlowerPot {
             ArrayList<ItemStack> items = getDrops(world, x, y, z, metadata, fortune);
             chance = ForgeEventFactory.fireBlockHarvesting(items, world, this, x, y, z, metadata, fortune, chance, false, null);
 
-            for (ItemStack item : items)
-                if (world.rand.nextFloat() <= chance)
+            for (ItemStack item : items) {
+                if (world.rand.nextFloat() <= chance) {
                     dropBlockAsItem(world, x, y, z, item);
+                }
+            }
 
             ItemStack stack = getPlantStack(metadata);
 
-            if (stack != null)
+            if (stack != null) {
                 dropBlockAsItem(world, x, y, z, stack);
+            }
         }
     }
 }

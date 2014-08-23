@@ -14,11 +14,12 @@ public class FlowerPotHooks {
 
         Block worldBlock = world.getBlock(x, y, z);
 
-        for (BlockFlowerPot pot : BlockGenesisFlowerPot.potBlocks)
+        for (BlockFlowerPot pot : BlockGenesisFlowerPot.potBlocks) {
             if (pot != Blocks.flower_pot && pot != worldBlock && pot.onBlockActivated(world, x, y, z, player, side, hitX, hitY, hitZ)) {
                 world.setBlock(x, y, z, pot, world.getBlockMetadata(x, y, z), 2);
                 return true;
             }
+        }
 
         world.setBlock(x, y, z, Blocks.flower_pot, oldMetadata, 2);
 

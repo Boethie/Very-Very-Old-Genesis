@@ -10,31 +10,29 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderEryops extends RenderLiving {
+    private static final ResourceLocation texture = new ResourceLocation(Genesis.ASSETS + "textures/entity/eryops.png");
+    protected ModelEryops model;
 
-	protected ModelEryops model;
-	private static final ResourceLocation texture = new ResourceLocation(Genesis.MOD_ID, "textures/entity/eryops.png");
+    public RenderEryops(ModelBase model, float shadow) {
+        super(model, shadow);
+        this.model = ((ModelEryops) mainModel);
+    }
 
-	public RenderEryops(ModelBase model, float shadow) {
-		super(model, shadow);
-		this.model = ((ModelEryops) mainModel);
-	}
+    public void renderModel(EntityEryops entity, double x, double y, double z, float u, float v) {
+        super.doRender(entity, x, y, z, u, v);
+    }
 
-	public void renderModel(EntityEryops entity, double x, double y, double z, float u, float v) {
-		super.doRender(entity, x, y, z, u, v);
-	}
+    public void doRenderLiving(EntityLiving entityLiving, double x, double y, double z, float u, float v) {
+        renderModel((EntityEryops) entityLiving, x, y, z, u, v);
+    }
 
-	public void doRenderLiving(EntityLiving entityLiving, double x, double y, double z, float u, float v) {
-		renderModel((EntityEryops) entityLiving, x, y, z, u, v);
-	}
+    @Override
+    public void doRender(Entity entity, double x, double y, double z, float u, float v) {
+        renderModel((EntityEryops) entity, x, y, z, u, v);
+    }
 
-	@Override
-	public void doRender(Entity entity, double x, double y, double z, float u, float v) {
-		renderModel((EntityEryops) entity, x, y, z, u, v);
-	}
-
-	@Override
-	protected ResourceLocation getEntityTexture(Entity entity) {
-		return texture;
-	}
-
+    @Override
+    protected ResourceLocation getEntityTexture(Entity entity) {
+        return texture;
+    }
 }

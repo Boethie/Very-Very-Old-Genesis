@@ -10,8 +10,9 @@ public class MossHooks {
     }
 
     public static boolean shouldGrasslikeRender(Block block, boolean likeGrass) {
-        if (block instanceof BlockMoss)
+        if (block instanceof BlockMoss) {
             likeGrass = true;
+        }
 
         return likeGrass;
     }

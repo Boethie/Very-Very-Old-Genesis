@@ -40,8 +40,9 @@ public class BlockCampfireRenderer implements ISimpleBlockRenderingHandler {
 
         IShadingMethod shading = null;
 
-        if (lit)
+        if (lit) {
             shading = new ShadingMethodFirelight(new Vec4(x + 0.5, y + 0.125, z + 0.5, 1));
+        }
 
         RotateableBox rock = new RotateableBox(0.25F, 0.25F, 0.25F, icon.getMinU(), icon.getMaxU(), icon.getMinV(), icon.getMaxV(), 16);
         rock.shadingMethod = shading;
@@ -53,12 +54,13 @@ public class BlockCampfireRenderer implements ISimpleBlockRenderingHandler {
         int metadataUnder = world.getBlockMetadata(x, y - 1, z);
         boolean dirtyBlock = false;
 
-        if (blockUnder != Blocks.dirt)
+        if (blockUnder != Blocks.dirt) {
             try {
                 dirtyBlock = Block.getBlockFromItem(blockUnder.getItemDropped(metadataUnder, null, 0)) == Blocks.dirt;
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
+        }
 
         icon = Blocks.dirt.getIcon(0, 0);
 
@@ -89,8 +91,9 @@ public class BlockCampfireRenderer implements ISimpleBlockRenderingHandler {
             double offZ = Math.sin(angle * radians) * off;
             Tri tri = FaceHelper.getNextInCircle(new Vec4(offX, offY, offZ, 1), FaceHelper.uvFromIcon(0.5 + offX, 0.5 + offZ, icon));
 
-            if (tri != null)
+            if (tri != null) {
                 tris[i - 1] = tri;
+            }
         }
 
         tris[tris.length - 1] = FaceHelper.getNextInCircle(FaceHelper.verts.get(1), FaceHelper.uvs.get(1));

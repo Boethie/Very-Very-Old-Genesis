@@ -76,8 +76,9 @@ public class BlockGenesisPlantRenderer implements ISimpleBlockRenderingHandler {
         double maxV;
 
         // Side 0
-        if (!renderer.hasOverrideBlockTexture())
+        if (!renderer.hasOverrideBlockTexture()) {
             icon = renderer.getBlockIcon(block, world, x, y, z, 0);
+        }
 
         minU = icon.getMinU();
         minV = icon.getMinV();
@@ -96,8 +97,9 @@ public class BlockGenesisPlantRenderer implements ISimpleBlockRenderingHandler {
         tessellator.addVertexWithUV(minX, yd + 1, minZ, maxU, minV);
 
         // Side 2
-        if (!renderer.hasOverrideBlockTexture())
+        if (!renderer.hasOverrideBlockTexture()) {
             icon = renderer.getBlockIcon(block, world, x, y, z, 2);
+        }
 
         minU = icon.getMinU();
         minV = icon.getMinV();
@@ -116,8 +118,9 @@ public class BlockGenesisPlantRenderer implements ISimpleBlockRenderingHandler {
         tessellator.addVertexWithUV(maxX, yd + 1, maxZ, minU, minV);
 
         // Side 1
-        if (!renderer.hasOverrideBlockTexture())
+        if (!renderer.hasOverrideBlockTexture()) {
             icon = renderer.getBlockIcon(block, world, x, y, z, 1);
+        }
 
         minU = icon.getMinU();
         minV = icon.getMinV();
@@ -136,8 +139,9 @@ public class BlockGenesisPlantRenderer implements ISimpleBlockRenderingHandler {
         tessellator.addVertexWithUV(minX, yd + 1, maxZ, maxU, minV);
 
         // Side 3
-        if (!renderer.hasOverrideBlockTexture())
+        if (!renderer.hasOverrideBlockTexture()) {
             icon = renderer.getBlockIcon(block, world, x, y, z, 3);
+        }
 
         minU = icon.getMinU();
         minV = icon.getMinV();

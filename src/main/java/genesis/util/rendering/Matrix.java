@@ -110,8 +110,7 @@ public class Matrix {
     public boolean isValid() {
         for (double[] row : matrix) {
             for (double val : row) {
-                if (Double.isNaN(val) ||
-                        Double.isInfinite(val)) {
+                if (Double.isNaN(val) || Double.isInfinite(val)) {
                     return false;
                 }
             }

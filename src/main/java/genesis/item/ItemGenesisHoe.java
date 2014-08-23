@@ -39,7 +39,7 @@ public class ItemGenesisHoe extends ItemHoe {
 
     @Override
     public Item setTextureName(String textureName) {
-        return super.setTextureName(Genesis.ASSETS + textureName + "_axe");
+        return super.setTextureName(Genesis.ASSETS + textureName + "_hoe");
     }
 
     @Override

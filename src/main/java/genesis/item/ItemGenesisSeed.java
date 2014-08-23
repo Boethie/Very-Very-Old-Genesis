@@ -28,6 +28,7 @@ public class ItemGenesisSeed extends ItemFood implements IPlantable {
      */
     public ItemGenesisSeed(BlockGenesisCrop blockCrop, boolean farmlandCrop) {
         this(blockCrop, farmlandCrop, 0, 0, false);
+        setCreativeTab(GenesisTabs.tabGenesisMaterials);
     }
 
     public ItemGenesisSeed(BlockGenesisCrop blockCrop, boolean farmlandCrop, int healAmount, float saturationModifier, boolean edible) {
@@ -48,9 +49,9 @@ public class ItemGenesisSeed extends ItemFood implements IPlantable {
 
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
-        if (side != 1) return false;
-
-        else if (player.canPlayerEdit(x, y, z, side, stack) && player.canPlayerEdit(x, y + 1, z, side, stack)) {
+        if (side != 1) {
+            return false;
+        } else if (player.canPlayerEdit(x, y, z, side, stack) && player.canPlayerEdit(x, y + 1, z, side, stack)) {
             Block soil = world.getBlock(x, y, z);
 
             if (soil != null && soil.canSustainPlant(world, x, y, z, ForgeDirection.UP, isFarmlandCrop ? this : cropBlock) && cropBlock.canPlaceBlockAt(world, x, y + 1, z)) {

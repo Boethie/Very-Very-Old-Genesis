@@ -68,9 +68,9 @@ public class BlockGenesisFlowerPotRenderer implements ISimpleBlockRenderingHandl
 
                 Block renderPlantBlock = iPlant.getBlockForRender(world, x, y, z);
 
-                if (renderPlantBlock != null)
+                if (renderPlantBlock != null) {
                     renderer.renderBlockByRenderType(renderPlantBlock, x, y, z);
-                else {
+                } else {
                     color = iPlant.getRenderColor(world, x, y, z);
                     red = (float) (color >> 16 & 255) / 255;
                     green = (float) (color >> 8 & 255) / 255;
@@ -86,8 +86,9 @@ public class BlockGenesisFlowerPotRenderer implements ISimpleBlockRenderingHandl
 
                     IIcon plantIcon = iPlant.getIconForFlowerPot(world, x, y, z, plantBlockAndMeta.metadata);
 
-                    if (plantIcon != null)
+                    if (plantIcon != null) {
                         renderer.setOverrideBlockTexture(plantIcon);
+                    }
 
                     renderer.drawCrossedSquares(plantBlock.getIcon(0, plantBlockAndMeta.metadata), (float) x, (float) y, (float) z, iPlant.renderScale(world, x, y, z));
                     renderer.clearOverrideBlockTexture();

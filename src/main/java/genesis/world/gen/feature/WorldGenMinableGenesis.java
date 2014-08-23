@@ -70,10 +70,12 @@ public class WorldGenMinableGenesis extends WorldGenerator {
 
                                 if (d12 * d12 + d13 * d13 + d14 * d14 < 1.0D) {
                                     if (singleStone) {
-                                        if (par1World.getBlock(k2, l2, i3) == stone)
+                                        if (par1World.getBlock(k2, l2, i3) == stone) {
                                             par1World.setBlock(k2, l2, i3, this.ore, mineableBlockMeta, 2);
-                                    } else if (par1World.getBlock(k2, l2, i3) instanceof BlockGenesisRockOres)
+                                        }
+                                    } else if (par1World.getBlock(k2, l2, i3) instanceof BlockGenesisRockOres) {
                                         par1World.setBlock(k2, l2, i3, this.ore, mineableBlockMeta, 2);
+                                    }
                                 }
                             }
                         }

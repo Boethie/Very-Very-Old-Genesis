@@ -30,8 +30,7 @@ public class ContainerCampfire extends Container {
         // Add player inv
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
-                addSlotToContainer(new Slot(inventoryPlayer, j + i * 9 + 9,
-                        8 + j * 18, 84 + i * 18));
+                addSlotToContainer(new Slot(inventoryPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
 
@@ -44,15 +43,15 @@ public class ContainerCampfire extends Container {
     @SideOnly(Side.CLIENT)
     public void updateProgressBar(int id, int value) {
         switch (id) {
-            case 0:
-                campfireEnt.furnaceCookTime = value;
-                break;
-            case 1:
-                campfireEnt.furnaceBurnTime = value;
-                break;
-            case 2:
-                campfireEnt.currentItemBurnTime = value;
-                break;
+        case 0:
+            campfireEnt.furnaceCookTime = value;
+            break;
+        case 1:
+            campfireEnt.furnaceBurnTime = value;
+            break;
+        case 2:
+            campfireEnt.currentItemBurnTime = value;
+            break;
         }
     }
 

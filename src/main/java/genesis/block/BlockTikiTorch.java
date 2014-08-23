@@ -102,18 +102,18 @@ public class BlockTikiTorch extends BlockGenesis {
                 yPos += 0.1875;
             }
             switch (getDirection(metadata)) {
-                case 1:
-                    xPos -= off;
-                    break;
-                case 2:
-                    xPos += off;
-                    break;
-                case 3:
-                    zPos -= off;
-                    break;
-                case 4:
-                    zPos += off;
-                    break;
+            case 1:
+                xPos -= off;
+                break;
+            case 2:
+                xPos += off;
+                break;
+            case 3:
+                zPos -= off;
+                break;
+            case 4:
+                zPos += off;
+                break;
             }
 
             world.spawnParticle("smoke", xPos, yPos, zPos, 0, 0, 0);
@@ -139,9 +139,9 @@ public class BlockTikiTorch extends BlockGenesis {
     }
 
     protected boolean canPlaceTorchOn(World world, int x, int y, int z) {
-        if (World.doesBlockHaveSolidTopSurface(world, x, y, z))
+        if (World.doesBlockHaveSolidTopSurface(world, x, y, z)) {
             return true;
-        else {
+        } else {
             Block block = world.getBlock(x, y, z);
             return block != null && block.canPlaceTorchOnTop(world, x, y, z);
         }
@@ -161,17 +161,19 @@ public class BlockTikiTorch extends BlockGenesis {
 
     protected int correctSide(World world, int x, int y, int z, int metadata) {
         if (!canTorchStay(world, x, y, z, metadata, true)) {
-            if (world.getBlock(x, y + 1, z).getMaterial().isReplaceable())
-                if (world.isSideSolid(x - 1, y, z, ForgeDirection.EAST, true))
+            if (world.getBlock(x, y + 1, z).getMaterial().isReplaceable()) {
+                if (world.isSideSolid(x - 1, y, z, ForgeDirection.EAST, true)) {
                     return 1;
-                else if (world.isSideSolid(x + 1, y, z, ForgeDirection.WEST, true))
+                } else if (world.isSideSolid(x + 1, y, z, ForgeDirection.WEST, true)) {
                     return 2;
-                else if (world.isSideSolid(x, y, z - 1, ForgeDirection.SOUTH, true))
+                } else if (world.isSideSolid(x, y, z - 1, ForgeDirection.SOUTH, true)) {
                     return 3;
-                else if (world.isSideSolid(x, y, z + 1, ForgeDirection.NORTH, true))
+                } else if (world.isSideSolid(x, y, z + 1, ForgeDirection.NORTH, true)) {
                     return 4;
-                else if (canPlaceTorchOn(world, x, y - 1, z))
+                } else if (canPlaceTorchOn(world, x, y - 1, z)) {
                     return 5;
+                }
+            }
 
             return -1;
         }
@@ -185,26 +187,29 @@ public class BlockTikiTorch extends BlockGenesis {
      */
     @Override
     public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata) {
-        if (side == 0)
+        if (side == 0) {
             side = 1;
+        }
 
         int output = setDirection(metadata, 6 - side);
 
-        if (world.getBlock(x, y + 1, z).getMaterial().isReplaceable())
+        if (world.getBlock(x, y + 1, z).getMaterial().isReplaceable()) {
             output = setUpper(output, false);
+        }
 
         int correctSide = correctSide(world, x, y, z, output);
 
-        if (correctSide > 0)
+        if (correctSide > 0) {
             output = setDirection(output, correctSide);
-        else if (correctSide < 0) {
+        } else if (correctSide < 0) {
             output = setUpper(output, true);
             y--;
 
             correctSide = correctSide(world, x, y, z, setUpper(output, false));
 
-            if (correctSide > 0)
+            if (correctSide > 0) {
                 output = setDirection(output, correctSide);
+            }
         }
 
         return output;
@@ -215,12 +220,14 @@ public class BlockTikiTorch extends BlockGenesis {
         int metadata = world.getBlockMetadata(x, y, z);
 
         if (!isUpper(metadata)) {
-            if (world.getBlock(x, y + 1, z).getMaterial().isReplaceable())
+            if (world.getBlock(x, y + 1, z).getMaterial().isReplaceable()) {
                 world.setBlock(x, y + 1, z, this, setUpper(metadata, true), 3);
-        } else if (world.getBlock(x, y - 1, z).getMaterial().isReplaceable())
+            }
+        } else if (world.getBlock(x, y - 1, z).getMaterial().isReplaceable()) {
             world.setBlock(x, y - 1, z, this, setUpper(metadata, false), 3);
-        else
+        } else {
             checkIfCanStay(world, x, y, z);
+        }
     }
 
     public boolean canTorchStay(World world, int x, int y, int z) {
@@ -228,31 +235,37 @@ public class BlockTikiTorch extends BlockGenesis {
     }
 
     public boolean canTorchStay(World world, int x, int y, int z, int metadata, boolean blankUpper) {
-        if (isUpper(metadata))
+        if (isUpper(metadata)) {
             return world.getBlock(x, y - 1, z) == this && !isUpper(world.getBlockMetadata(x, y - 1, z));
-        else if (blankUpper && world.getBlock(x, y + 1, z).getMaterial().isReplaceable() || world.getBlock(x, y + 1, z) == this && isUpper(world.getBlockMetadata(x, y + 1, z)))
+        } else if (blankUpper && world.getBlock(x, y + 1, z).getMaterial().isReplaceable() || world.getBlock(x, y + 1, z) == this && isUpper(world.getBlockMetadata(x, y + 1, z))) {
             switch (getDirection(metadata)) {
-                case 1:
-                    if (world.isSideSolid(x - 1, y, z, ForgeDirection.EAST, true))
-                        return true;
-                    break;
-                case 2:
-                    if (world.isSideSolid(x + 1, y, z, ForgeDirection.WEST, true))
-                        return true;
-                    break;
-                case 3:
-                    if (world.isSideSolid(x, y, z - 1, ForgeDirection.SOUTH, true))
-                        return true;
-                    break;
-                case 4:
-                    if (world.isSideSolid(x, y, z + 1, ForgeDirection.NORTH, true))
-                        return true;
-                    break;
-                case 5:
-                    if (canPlaceTorchOn(world, x, y - 1, z))
-                        return true;
-                    break;
+            case 1:
+                if (world.isSideSolid(x - 1, y, z, ForgeDirection.EAST, true)) {
+                    return true;
+                }
+                break;
+            case 2:
+                if (world.isSideSolid(x + 1, y, z, ForgeDirection.WEST, true)) {
+                    return true;
+                }
+                break;
+            case 3:
+                if (world.isSideSolid(x, y, z - 1, ForgeDirection.SOUTH, true)) {
+                    return true;
+                }
+                break;
+            case 4:
+                if (world.isSideSolid(x, y, z + 1, ForgeDirection.NORTH, true)) {
+                    return true;
+                }
+                break;
+            case 5:
+                if (canPlaceTorchOn(world, x, y - 1, z)) {
+                    return true;
+                }
+                break;
             }
+        }
 
         return false;
     }
@@ -271,26 +284,26 @@ public class BlockTikiTorch extends BlockGenesis {
         double outOff = 0.125;
 
         switch (getDirection(metadata)) {
-            case 1:
-                minX = 0;
-                maxX -= outOff;
-                break;
-            case 2:
-                minX += outOff;
-                maxX = 1;
-                break;
-            case 3:
-                minZ = 0;
-                maxZ -= outOff;
-                break;
-            case 4:
-                minZ += outOff;
-                maxZ = 1;
-                break;
-            default:
-                minY -= 0.1875F;
-                maxY -= 0.1875F;
-                break;
+        case 1:
+            minX = 0;
+            maxX -= outOff;
+            break;
+        case 2:
+            minX += outOff;
+            maxX = 1;
+            break;
+        case 3:
+            minZ = 0;
+            maxZ -= outOff;
+            break;
+        case 4:
+            minZ += outOff;
+            maxZ = 1;
+            break;
+        default:
+            minY -= 0.1875F;
+            maxY -= 0.1875F;
+            break;
         }
 
         return super.collisionRayTrace(world, x, y, z, start, end);
@@ -305,21 +318,23 @@ public class BlockTikiTorch extends BlockGenesis {
     public void breakBlock(World world, int x, int y, int z, Block block, int metadata) {
         int otherY = y;
 
-        if (!isUpper(metadata))
+        if (!isUpper(metadata)) {
             otherY++;
-        else
+        } else {
             otherY--;
+        }
 
         if (world.getBlock(x, otherY, z) == this) {
             if (!world.isRemote) {
                 /*
                  * PacketDispatcher.sendPacketToAllAround(otherX + 0.5, otherY +
-				 * 0.5, otherZ + 0.5, 64, world.provider.dimensionId, new
-				 * BreakingParticlesPacket(otherX, otherY, otherZ,
-				 * world).makePacket());
-				 */
-            } else if (world == Minecraft.getMinecraft().theWorld)
+                 * 0.5, otherZ + 0.5, 64, world.provider.dimensionId, new
+                 * BreakingParticlesPacket(otherX, otherY, otherZ,
+                 * world).makePacket());
+                 */
+            } else if (world == Minecraft.getMinecraft().theWorld) {
                 Minecraft.getMinecraft().effectRenderer.addBlockDestroyEffects(x, otherY, z, this, world.getBlockMetadata(x, otherY, z));
+            }
 
             world.setBlockToAir(x, otherY, z);
         }
@@ -329,16 +344,18 @@ public class BlockTikiTorch extends BlockGenesis {
 
     @Override
     public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata) {
-        if (world.isRemote)
+        if (world.isRemote) {
             breakBlock(world, x, y, z, this, metadata);
+        }
     }
 
     @Override
     public boolean addDestroyEffects(World world, int x, int y, int z, int meta, EffectRenderer effectRenderer) {
-        if (!isUpper(meta))
+        if (!isUpper(meta)) {
             blockIcon = iconLower;
-        else
+        } else {
             blockIcon = iconUpper;
+        }
 
         return false;
     }

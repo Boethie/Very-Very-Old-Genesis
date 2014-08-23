@@ -10,15 +10,15 @@ public class GenesisWorldGenerator implements IWorldGenerator {
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
         switch (world.provider.dimensionId) {
-            case -1:
-                generateNether(random, chunkX * 16, chunkZ * 16, world, chunkGenerator, chunkProvider);
-                break;
-            case 0:
-                generateSurface(random, chunkX * 16, chunkZ * 16, world, chunkGenerator, chunkProvider);
-                break;
-            case 1:
-                generateEnd(random, chunkX * 16, chunkZ * 16, world, chunkGenerator, chunkProvider);
-                break;
+        case -1:
+            generateNether(random, chunkX * 16, chunkZ * 16, world, chunkGenerator, chunkProvider);
+            break;
+        case 0:
+            generateSurface(random, chunkX * 16, chunkZ * 16, world, chunkGenerator, chunkProvider);
+            break;
+        case 1:
+            generateEnd(random, chunkX * 16, chunkZ * 16, world, chunkGenerator, chunkProvider);
+            break;
         }
     }
 

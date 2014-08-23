@@ -30,13 +30,15 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
     protected IIcon[] blockIcons;
 
     public BlockGenesisSapling(int group) {
-        if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE)
+        if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE) {
             blockNames = new String[TreeType.GROUP_SIZE];
-        else
+        } else {
             blockNames = new String[TreeType.values().length - (group * TreeType.GROUP_SIZE)];
+        }
 
-        for (int i = 0; i < blockNames.length; i++)
+        for (int i = 0; i < blockNames.length; i++) {
             blockNames[i] = TreeType.values()[(group * TreeType.GROUP_SIZE) + i].getName();
+        }
 
         blockIcons = new IIcon[blockNames.length];
 
@@ -48,8 +50,9 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        for (int i = 0; i < blockIcons.length; i++)
+        for (int i = 0; i < blockIcons.length; i++) {
             blockIcons[i] = iconRegister.registerIcon(Genesis.ASSETS + "sapling_" + blockNames[i]);
+        }
     }
 
     @Override
@@ -60,8 +63,9 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
-        for (int metadata = 0; metadata < blockNames.length; metadata++)
+        for (int metadata = 0; metadata < blockNames.length; metadata++) {
             list.add(new ItemStack(item, 1, metadata));
+        }
     }
 
     @Override
@@ -72,22 +76,25 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
     @Override
     // public void growTree(World world, int x, int y, int z, Random random) {
     public void func_149878_d(World world, int x, int y, int z, Random random) {
-        if (!TerrainGen.saplingGrowTree(world, random, x, y, z))
+        if (!TerrainGen.saplingGrowTree(world, random, x, y, z)) {
             return;
+        }
 
         int metadata = world.getBlockMetadata(x, y, z) & 3;
         WorldGenTreeBase gen = GenesisTreeBlocks.getTreeGenerator(blockNames[metadata]);
 
-        if (gen == null)
+        if (gen == null) {
             return;
+        }
 
         world.setBlock(x, y, z, Blocks.air, 0, 4);
 
-        if (!gen.generate(world, random, x, y, z))
+        if (!gen.generate(world, random, x, y, z)) {
             world.setBlock(x, y, z, this, metadata, 4);
+        }
     }
 
-	/* IPlantInFlowerPot methods */
+    /* IPlantInFlowerPot methods */
 
     @Override
     public float renderScale(IBlockAccess world, int x, int y, int z) {
@@ -114,7 +121,7 @@ public class BlockGenesisSapling extends BlockSapling implements IPlantInFlowerP
         return null;
     }
 
-	/* IItemBlockWithSubNames methods */
+    /* IItemBlockWithSubNames methods */
 
     @Override
     public String getSubName(int metadata) {

@@ -47,22 +47,22 @@ public class GenesisEventHandler {
         }
     }
 
-	/*
+    /*
      * Conflicts too much
-	 * 
-	@SubscribeEvent
-	public void onPlayerInteract(PlayerInteractEvent event)
-	{
-		World world = event.entityPlayer.worldObj;
-		Block block = world.getBlock(event.x, event.y, event.z);
-		ItemStack stack = event.entityPlayer.getCurrentEquippedItem();
-		if (stack != null)
-		{
-			Block blockInHand = Block.getBlockFromItem(stack.getItem());
-			if(event.face == 1 && block instanceof BlockMoss && blockInHand instanceof BlockBush && event.action == Action.RIGHT_CLICK_BLOCK)
-			{
-				world.setBlock(event.x, event.y + 1, event.z, blockInHand);
-			}
-		}
-	}*/
+     *
+    @SubscribeEvent
+    public void onPlayerInteract(PlayerInteractEvent event)
+    {
+        World world = event.entityPlayer.worldObj;
+        Block block = world.getBlock(event.x, event.y, event.z);
+        ItemStack stack = event.entityPlayer.getCurrentEquippedItem();
+        if (stack != null)
+        {
+            Block blockInHand = Block.getBlockFromItem(stack.getItem());
+            if(event.face == 1 && block instanceof BlockMoss && blockInHand instanceof BlockBush && event.action == Action.RIGHT_CLICK_BLOCK)
+            {
+                world.setBlock(event.x, event.y + 1, event.z, blockInHand);
+            }
+        }
+    }*/
 }

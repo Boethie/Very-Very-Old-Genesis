@@ -18,17 +18,17 @@ public class TileEntityPolissoirRenderer extends TileEntitySpecialRenderer {
         GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
         GL11.glScalef(1.0F, -1F, -1F);
         switch (tileEntity.getBlockMetadata()) {
-            case 3:
-                scale = 180.0F;
-                break;
-            case 4:
-                scale = -90.0F;
-                break;
-            case 5:
-                scale = 90.0F;
-                break;
-            default:
-                scale = 0.0F;
+        case 3:
+            scale = 180.0F;
+            break;
+        case 4:
+            scale = -90.0F;
+            break;
+        case 5:
+            scale = 90.0F;
+            break;
+        default:
+            scale = 0.0F;
         }
         GL11.glRotatef(scale, 0.0F, 1.0F, 0.0F);
 

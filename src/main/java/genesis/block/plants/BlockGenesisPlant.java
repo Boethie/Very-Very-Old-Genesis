@@ -47,16 +47,18 @@ public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecia
      */
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
-        if (testingType != null)
+        if (testingType != null) {
             return testingType;
+        }
 
         EnumPlantType output = EnumPlantType.Plains;
 
         for (EnumPlantType type : typesPlantable) {
             testingType = type;
 
-            if (world.getBlock(x, y - 1, z).canSustainPlant(world, x, y, z, ForgeDirection.UP, this))
+            if (world.getBlock(x, y - 1, z).canSustainPlant(world, x, y, z, ForgeDirection.UP, this)) {
                 output = type;
+            }
         }
 
         testingType = null;
@@ -93,8 +95,9 @@ public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecia
         while (checkBlock == this) {
             checkBlock = world.getBlock(x, y - off, z);
 
-            if (checkBlock == this)
+            if (checkBlock == this) {
                 count++;
+            }
 
             off++;
         }
@@ -119,22 +122,25 @@ public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecia
         int metadata = world.getBlockMetadata(x, y, z);
         int age = getAge(metadata);
 
-        if (isTop(world, x, y, z) && getVerticalPosition(world, x, y, z) < stackedLimit)
+        if (isTop(world, x, y, z) && getVerticalPosition(world, x, y, z) < stackedLimit) {
             if (age >= maxAge && world.getBlock(x, y + 1, z).getMaterial().isReplaceable()) {
                 world.setBlock(x, y + 1, z, this);
                 age = -1;
             }
+        }
 
         world.setBlockMetadataWithNotify(x, y, z, setAge(metadata, age + 1), 3);
     }
 
     protected boolean canStayStacked(World world, int x, int y, int z, Block underBlock) {
         if (stackable && underBlock == this) {
-            if (stackedLimit == 0)
+            if (stackedLimit == 0) {
                 return true;
+            }
 
-            if (getVerticalPosition(world, x, y, z) <= stackedLimit - (placing ? 1 : 0))
+            if (getVerticalPosition(world, x, y, z) <= stackedLimit - (placing ? 1 : 0)) {
                 return true;
+            }
         }
 
         return false;
@@ -145,13 +151,14 @@ public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecia
         boolean out = false;
         Block block = world.getBlock(x, y - 1, z);
 
-        if (block != null)
-            if (block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this))
+        if (block != null) {
+            if (block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this)) {
                 out = true;
-            else {
+            } else {
                 out = canStayStacked(world, x, y, z, this);
                 placing = true;
             }
+        }
 
         return out;
     }
@@ -183,8 +190,8 @@ public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecia
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
         /*
          * if (!world.isRemote && side != 1) { updateTick(world, x, y, z,
-		 * world.rand); }
-		 */
+         * world.rand); }
+         */
 
         return super.onBlockActivated(world, x, y, z, player, side, hitX, hitY, hitZ);
     }

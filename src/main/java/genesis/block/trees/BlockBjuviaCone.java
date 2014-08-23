@@ -68,14 +68,14 @@ public class BlockBjuviaCone extends BlockGenesis {
         }
     }
 
-	/*@Override
+    /*@Override
     public boolean canBlockStay(World world, int x, int y, int z)
-	{
-		Block b = world.getBlock(x, y - 1, z);
-		if (b != null)
-		{
-			return b == TreeBlocks.blocksLogs[0];
-		}
-		return false;
-	}*/
+    {
+        Block b = world.getBlock(x, y - 1, z);
+        if (b != null)
+        {
+            return b == TreeBlocks.blocksLogs[0];
+        }
+        return false;
+    }*/
 }

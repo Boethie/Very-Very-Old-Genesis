@@ -7,11 +7,7 @@ public abstract class RotateableBase {
 
     public Tessellator tessellator = Tessellator.instance;
 
-    public Matrix matrix = new Matrix(4, 4,
-            1, 0, 0, 0,
-            0, 1, 0, 0,
-            0, 0, 1, 0,
-            0, 0, 0, 1);
+    public Matrix matrix = new Matrix(4, 4, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
     public IShadingMethod shadingMethod;
     protected boolean shadeless = false;
 
@@ -28,19 +24,11 @@ public abstract class RotateableBase {
     }
 
     public RotateableBase translate(double x, double y, double z) {
-        return transform(new Matrix(4, 4,
-                1, 0, 0, x,
-                0, 1, 0, y,
-                0, 0, 1, z,
-                0, 0, 0, 1));
+        return transform(new Matrix(4, 4, 1, 0, 0, x, 0, 1, 0, y, 0, 0, 1, z, 0, 0, 0, 1));
     }
 
     public RotateableBase scale(double x, double y, double z) {
-        return transform(new Matrix(4, 4,
-                x, 0, 0, 0,
-                0, y, 0, 0,
-                0, 0, z, 0,
-                0, 0, 0, 1));
+        return transform(new Matrix(4, 4, x, 0, 0, 0, 0, y, 0, 0, 0, 0, z, 0, 0, 0, 0, 1));
     }
 
     private double radToDegrees(double radians) {
@@ -56,11 +44,7 @@ public abstract class RotateableBase {
 
         double cosOpp = 1 - cos;
 
-        return transform(new Matrix(4, 4,
-                cos + axis.x * axis.x * cosOpp, axis.x * axis.y * cosOpp - axis.z * sin, axis.x * axis.z * cosOpp + axis.y * sin, 0,
-                axis.y * axis.x * cosOpp + axis.z * sin, cos + axis.y * axis.y * cosOpp, axis.y * axis.z * cosOpp - axis.x * sin, 0,
-                axis.z * axis.x * cosOpp - axis.y * sin, axis.z * axis.y * cosOpp + axis.x * sin, cos + axis.z * axis.z * cosOpp, 0,
-                0, 0, 0, 1));
+        return transform(new Matrix(4, 4, cos + axis.x * axis.x * cosOpp, axis.x * axis.y * cosOpp - axis.z * sin, axis.x * axis.z * cosOpp + axis.y * sin, 0, axis.y * axis.x * cosOpp + axis.z * sin, cos + axis.y * axis.y * cosOpp, axis.y * axis.z * cosOpp - axis.x * sin, 0, axis.z * axis.x * cosOpp - axis.y * sin, axis.z * axis.y * cosOpp + axis.x * sin, cos + axis.z * axis.z * cosOpp, 0, 0, 0, 0, 1));
     }
 
     public RotateableBase rotateYTowards(Vec4 newUp) {
@@ -70,11 +54,7 @@ public abstract class RotateableBase {
         Vec4 side = crossWith.cross(newUp).normalized();
         Vec4 forward = side.cross(newUp).normalized();
 
-        Matrix rot = new Matrix(4, 4,
-                side.x, newUp.x, forward.x, 0,
-                side.y, newUp.y, forward.y, 0,
-                side.z, newUp.z, forward.z, 0,
-                0, 0, 0, 1);
+        Matrix rot = new Matrix(4, 4, side.x, newUp.x, forward.x, 0, side.y, newUp.y, forward.y, 0, side.z, newUp.z, forward.z, 0, 0, 0, 0, 1);
 
         if (rot.isValid()) {
             transform(rot);

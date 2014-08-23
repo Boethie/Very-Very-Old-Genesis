@@ -22,10 +22,7 @@ public class BiomeGenGenesisRainforestSwamp extends BiomeGenGenesisBase {
     @Override
     public WorldGenAbstractTree func_150567_a(Random rand) {
         int treeType = rand.nextInt(20);
-        return treeType < 6 ? new WorldGenTreeLepidodendron(7, 5, true) :
-                treeType < 13 ? new WorldGenTreeSigillaria(5, 3, true) :
-                        treeType < 18 ? new WorldGenTreeCordaites(12, 5, true) :
-                                new WorldGenTreePsaronius(5, 3, true);
+        return treeType < 6 ? new WorldGenTreeLepidodendron(7, 5, true) : treeType < 13 ? new WorldGenTreeSigillaria(5, 3, true) : treeType < 18 ? new WorldGenTreeCordaites(12, 5, true) : new WorldGenTreePsaronius(5, 3, true);
     }
 
     public void decorate(World world, Random rand, int x, int z) {
@@ -35,8 +32,9 @@ public class BiomeGenGenesisRainforestSwamp extends BiomeGenGenesisBase {
             int varX = x + rand.nextInt(16);
             int varZ = z + rand.nextInt(16);
             int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, GenesisModBlocks.moss, Blocks.dirt);
-            if (world.isAirBlock(varX, varY, varZ))
+            if (world.isAirBlock(varX, varY, varZ)) {
                 world.setBlock(varX, varY, varZ, GenesisPlantBlocks.asteroxylon, 0, 2);
+            }
         }
     }
 }

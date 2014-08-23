@@ -44,12 +44,13 @@ public class GenesisVersion {
                         ArtifactVersion newVer = new DefaultArtifactVersion(newVersion);
                         int diff = newVer.compareTo(version);
 
-                        if (diff == 0)
+                        if (diff == 0) {
                             status = Status.UP_TO_DATE;
-                        else if (diff > 0)
+                        } else if (diff > 0) {
                             status = Status.OUTDATED;
-                        else
+                        } else {
                             status = Status.AHEAD;
+                        }
 
                         target = newVersion;
                     } else {

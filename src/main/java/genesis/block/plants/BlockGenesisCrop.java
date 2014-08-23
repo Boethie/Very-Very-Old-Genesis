@@ -72,8 +72,9 @@ public class BlockGenesisCrop extends BlockCrops implements IPlantRenderSpecials
     @SideOnly(Side.CLIENT)
     @Override
     public IIcon getIcon(int par1, int par2) {
-        if (par2 < 0 || par2 > stages)
+        if (par2 < 0 || par2 > stages) {
             par2 = stages;
+        }
 
         return iconArray[par2];
     }
@@ -87,8 +88,9 @@ public class BlockGenesisCrop extends BlockCrops implements IPlantRenderSpecials
     public void registerBlockIcons(IIconRegister par1IconRegister) {
         iconArray = new IIcon[stages];
 
-        for (int i = 0; i < iconArray.length; ++i)
+        for (int i = 0; i < iconArray.length; ++i) {
             iconArray[i] = par1IconRegister.registerIcon(getTextureName() + "_stage_" + i);
+        }
     }
 
     @Override
@@ -96,8 +98,7 @@ public class BlockGenesisCrop extends BlockCrops implements IPlantRenderSpecials
         if (!this.isTall()) {
             return super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
         }
-        return (p_149718_1_.isAirBlock(p_149718_2_, p_149718_3_ + 1, p_149718_4_) || p_149718_1_.getBlock(p_149718_2_, p_149718_3_ + 1, p_149718_4_) instanceof BlockGenesisPlantTop)
-                && super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
+        return (p_149718_1_.isAirBlock(p_149718_2_, p_149718_3_ + 1, p_149718_4_) || p_149718_1_.getBlock(p_149718_2_, p_149718_3_ + 1, p_149718_4_) instanceof BlockGenesisPlantTop) && super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
     }
 
     public boolean isTall() {
@@ -122,8 +123,7 @@ public class BlockGenesisCrop extends BlockCrops implements IPlantRenderSpecials
     }
 
     @Override
-    public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z,
-                                    int side) {
+    public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z, int side) {
         // TODO Auto-generated method stub
         return false;
     }

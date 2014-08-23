@@ -34,21 +34,25 @@ public class WorldGenTreeCordaites extends WorldGenTreeBase {
 
         // finds top block for the given x,z position (excluding leaves and
         // grass)
-        for (boolean var6 = false; world.getBlock(locX, locY, locZ) == Blocks.air || world.getBlock(locX, locY, locZ).getMaterial() == Material.water || world.getBlock(locX, locY, locZ).isLeaves(world, locX, locY, locZ) && locY > 0; --locY)
+        for (boolean var6 = false; world.getBlock(locX, locY, locZ) == Blocks.air || world.getBlock(locX, locY, locZ).getMaterial() == Material.water || world.getBlock(locX, locY, locZ).isLeaves(world, locX, locY, locZ) && locY > 0; --locY) {
             ;
+        }
         // locY is now the highest solid terrain block
 
         Block soil = world.getBlock(locX, locY, locZ);
-        if (soil == null || !soil.canSustainPlant(world, locX, locY, locZ, ForgeDirection.UP, (BlockGenesisSapling) GenesisTreeBlocks.saplings[0]))
+        if (soil == null || !soil.canSustainPlant(world, locX, locY, locZ, ForgeDirection.UP, (BlockGenesisSapling) GenesisTreeBlocks.saplings[0])) {
             return false;
-        if (!isCubeClearWater(locX, locY + 2, locZ, 1, 15))
+        }
+        if (!isCubeClearWater(locX, locY + 2, locZ, 1, 15)) {
             return false;
+        }
 
         // generates the trunk
         locY++;
         int treeHeight = minHeight + random.nextInt(maxHeight);
-        for (int i = 2; i < treeHeight; i++)
+        for (int i = 2; i < treeHeight; i++) {
             setBlockInWorld(locX, locY + i, locZ, wood.block, wood.metadata);
+        }
 
         // generate roots
         generateCordiatesRoots(world, random, locX, locY + 2, locZ);
@@ -56,8 +60,9 @@ public class WorldGenTreeCordaites extends WorldGenTreeBase {
         // generates leaves at top
         int currentHeight;
 
-        for (currentHeight = locY + treeHeight - 3; currentHeight < locY + treeHeight; currentHeight++)
+        for (currentHeight = locY + treeHeight - 3; currentHeight < locY + treeHeight; currentHeight++) {
             generateLeafLayerCircleNoise(world, random, 3, locX + random.nextInt(2), locZ + random.nextInt(2), currentHeight);
+        }
 
         generateLeafLayerCircleNoise(world, random, 2.8, locX + random.nextInt(2), locZ + random.nextInt(2), currentHeight);
         currentHeight++;
@@ -89,11 +94,13 @@ public class WorldGenTreeCordaites extends WorldGenTreeBase {
         for (int a = 0; a < 8; a++) {
             int length = random.nextInt(3);
 
-            for (int b = 0; b < length; b++)
+            for (int b = 0; b < length; b++) {
                 setBlockInWorld(x + i[a] * b, y, z + k[a] * b, wood.block, wood.metadata);
+            }
 
-            for (int b = 0; b < 4; b++)
+            for (int b = 0; b < 4; b++) {
                 setBlockInWorld(x + i[a] * (b + length), y - b, z + k[a] * (b + length), wood.block, wood.metadata);
+            }
         }
     }
 }

@@ -48,18 +48,18 @@ public class GenesisClientEventHandler {
 
     private String getStringFromStatus(GenesisVersion.Status status) {
         switch (status) {
-            case OUTDATED:
-                return EnumChatFormatting.RED + "OUTDATED: Genesis " + GenesisVersion.getTarget();
-            case UP_TO_DATE:
-                return EnumChatFormatting.GREEN + "Genesis is up-to-date";
-            case AHEAD:
-                return EnumChatFormatting.YELLOW + "Genesis is ahead!";
-            case FAILED:
-                return EnumChatFormatting.RED + "Error with Versioning";
-            case PENDING:
-                return EnumChatFormatting.BLUE + "The version has yet to be retrieved";
-            default:
-                return "Unknown ";
+        case OUTDATED:
+            return EnumChatFormatting.RED + "OUTDATED: Genesis " + GenesisVersion.getTarget();
+        case UP_TO_DATE:
+            return EnumChatFormatting.GREEN + "Genesis is up-to-date";
+        case AHEAD:
+            return EnumChatFormatting.YELLOW + "Genesis is ahead!";
+        case FAILED:
+            return EnumChatFormatting.RED + "Error with Versioning";
+        case PENDING:
+            return EnumChatFormatting.BLUE + "The version has yet to be retrieved";
+        default:
+            return "Unknown ";
         }
     }
 }

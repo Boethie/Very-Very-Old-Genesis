@@ -33,23 +33,27 @@ public class WorldGenTreeAraucarioxylon extends WorldGenTreeBase {
 
         // finds top block for the given x,z position (excluding leaves and
         // grass)
-        for (boolean var6 = false; world.getBlock(locX, locY, locZ) == Blocks.air || world.getBlock(locX, locY, locZ).isLeaves(world, locX, locY, locZ) && locY > 0; --locY)
+        for (boolean var6 = false; world.getBlock(locX, locY, locZ) == Blocks.air || world.getBlock(locX, locY, locZ).isLeaves(world, locX, locY, locZ) && locY > 0; --locY) {
             ;
+        }
         // locY is now the highest solid terrain block
 
         Block soil = world.getBlock(locX, locY, locZ);
-        if (soil == null || !soil.canSustainPlant(world, locX, locY, locZ, ForgeDirection.UP, (BlockGenesisSapling) GenesisTreeBlocks.saplings[0]))
+        if (soil == null || !soil.canSustainPlant(world, locX, locY, locZ, ForgeDirection.UP, (BlockGenesisSapling) GenesisTreeBlocks.saplings[0])) {
             return false;
-        if (!isCubeClear(locX, locY + 2, locZ, 3, 15))
+        }
+        if (!isCubeClear(locX, locY + 2, locZ, 3, 15)) {
             return false;
+        }
 
         // generates the trunk
         locY++;
         int treeHeight = minHeight + random.nextInt(maxHeight);
 
         // Generate trunk
-        for (int i = 0; i < treeHeight; i++)
+        for (int i = 0; i < treeHeight; i++) {
             setBlockInWorld(locX, locY + i, locZ, wood.block, wood.metadata);
+        }
 
         // Generate leaves
         int currentHeight = locY + treeHeight - 2;

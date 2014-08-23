@@ -53,16 +53,18 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
      */
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
-        if (testingType != null)
+        if (testingType != null) {
             return testingType;
+        }
 
         EnumPlantType output = EnumPlantType.Plains;
 
         for (EnumPlantType type : typesPlantable) {
             testingType = type;
 
-            if (world.getBlock(x, y - 1, z).canSustainPlant(world, x, y, z, ForgeDirection.UP, this))
+            if (world.getBlock(x, y - 1, z).canSustainPlant(world, x, y, z, ForgeDirection.UP, this)) {
                 output = type;
+            }
         }
 
         testingType = null;
@@ -74,8 +76,9 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs creativeTabs, List itemList) {
         int size = PlantMetadata.plantTypes.size();
-        for (int set = 0; set < size; set++)
+        for (int set = 0; set < size; set++) {
             itemList.add(new ItemStack(item, 1, set));
+        }
     }
 
     @Override
@@ -116,8 +119,9 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
         while (checkBlock == this) {
             checkBlock = world.getBlock(x, y - off, z);
 
-            if (checkBlock == this)
+            if (checkBlock == this) {
                 count++;
+            }
 
             off++;
         }
@@ -145,8 +149,9 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
         boolean out = false;
         Block block = world.getBlock(x, y - 1, z);
 
-        if (block != null)
+        if (block != null) {
             out = block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
+        }
         return out;
     }
 
@@ -176,8 +181,8 @@ public class BlockGenesisTerrestrialPlant extends BlockFlower implements IPlantR
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
         /*
          * if (!world.isRemote && side != 1) updateTick(world, x, y, z,
-		 * world.rand);
-		 */
+         * world.rand);
+         */
 
         return super.onBlockActivated(world, x, y, z, player, side, hitX, hitY, hitZ);
     }

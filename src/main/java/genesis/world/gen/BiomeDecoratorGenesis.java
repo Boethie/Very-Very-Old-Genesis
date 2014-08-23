@@ -193,8 +193,9 @@ public class BiomeDecoratorGenesis {
     }
 
     private int nextInt(int i) {
-        if (i <= 1)
+        if (i <= 1) {
             return 0;
+        }
         return this.randomGenerator.nextInt(i);
     }
 }

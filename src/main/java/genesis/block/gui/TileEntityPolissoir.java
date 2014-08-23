@@ -232,8 +232,9 @@ public class TileEntityPolissoir extends TileEntity implements ISidedInventory {
     @SideOnly(Side.CLIENT)
     public int getCookProgressScaled(int par1) {
         int upgradeTime = 200;
-        if (polissoirItemStacks[0] != null)
+        if (polissoirItemStacks[0] != null) {
             upgradeTime = PolissoirRecipes.instance().getUpgradeTime(polissoirItemStacks[0]);
+        }
         return polissoirUpgradeTime * par1 / upgradeTime;
     }
 
@@ -247,9 +248,15 @@ public class TileEntityPolissoir extends TileEntity implements ISidedInventory {
             return false;
         } else {
             ItemStack result = PolissoirRecipes.instance().getResult(polissoirItemStacks[0]);
-            if (result == null) return false;
-            if (polissoirItemStacks[2] == null) return true;
-            if (!polissoirItemStacks[2].isItemEqual(result)) return false;
+            if (result == null) {
+                return false;
+            }
+            if (polissoirItemStacks[2] == null) {
+                return true;
+            }
+            if (!polissoirItemStacks[2].isItemEqual(result)) {
+                return false;
+            }
             int stackSize = polissoirItemStacks[2].stackSize + result.stackSize;
             return stackSize <= getInventoryStackLimit() && stackSize <= polissoirItemStacks[2].getMaxStackSize();
         }

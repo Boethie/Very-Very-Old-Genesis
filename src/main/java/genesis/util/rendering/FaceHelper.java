@@ -20,11 +20,11 @@ public class FaceHelper {
 
         int vert0I = verts.size() - 3;
 
-        if (vert0I < 0)
+        if (vert0I < 0) {
             return null;
+        }
 
-        return new Tri(verts.get(vert0I), verts.get(vert0I + 1), verts.get(vert0I + 2),
-                uvs.get(vert0I), uvs.get(vert0I + 1), uvs.get(vert0I + 2));
+        return new Tri(verts.get(vert0I), verts.get(vert0I + 1), verts.get(vert0I + 2), uvs.get(vert0I), uvs.get(vert0I + 1), uvs.get(vert0I + 2));
     }
 
     public static Tri getNextInCircle(Vec4 vertex, Vec2 uv) {
@@ -33,11 +33,11 @@ public class FaceHelper {
 
         int vert0I = verts.size() - 2;
 
-        if (vert0I < 1 || verts.size() == 0)
+        if (vert0I < 1 || verts.size() == 0) {
             return null;
+        }
 
-        return new Tri(verts.get(0), verts.get(vert0I + 1), verts.get(vert0I),
-                uvs.get(0), uvs.get(vert0I + 1), uvs.get(vert0I));
+        return new Tri(verts.get(0), verts.get(vert0I + 1), verts.get(vert0I), uvs.get(0), uvs.get(vert0I + 1), uvs.get(vert0I));
     }
 
     public static Vec2 uvFromIcon(double u, double v, IIcon icon) {

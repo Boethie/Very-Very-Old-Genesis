@@ -36,7 +36,9 @@ public class ItemsToolSet implements IRecipeWithDefault {
         String unlocalizedName = "";
         if (strings.length > 0) {
             for (int i = 0; i < strings.length; i++) {
-                if (i > 0) strings[i] = WordUtils.capitalize(strings[i]);
+                if (i > 0) {
+                    strings[i] = WordUtils.capitalize(strings[i]);
+                }
                 unlocalizedName += strings[i];
             }
         }
@@ -156,15 +158,15 @@ public class ItemsToolSet implements IRecipeWithDefault {
     @Override
     public int getRecipeWidth(int recipe) {
         switch (recipe) {
-            //case 0: // Sword
-            case 0: // knife
-            case 3: // Spade
-                return 1;
-            case 2: // Axe
-            case 4: // Hoe
-                return 2;
-            default:
-                return 3;
+        //case 0: // Sword
+        case 0: // knife
+        case 3: // Spade
+            return 1;
+        case 2: // Axe
+        case 4: // Hoe
+            return 2;
+        default:
+            return 3;
         }
     }
 
@@ -175,18 +177,18 @@ public class ItemsToolSet implements IRecipeWithDefault {
         switch (recipe) {
             /*case 0: // Sword
                 return new ItemStack[] {craftStack, craftStack, handle};*/
-            case 0: // knife
-                return new ItemStack[]{craftStack, handle};
-            case 1: // Pickaxe
-                return new ItemStack[]{craftStack, craftStack, craftStack, null, handle, null, null, handle, null};
-            case 2: // Axe
-                return new ItemStack[]{craftStack, craftStack, craftStack, handle, null, handle};
-            case 3: // Spade
-                return new ItemStack[]{craftStack, handle, handle};
-            case 4: // Hoe
-                return new ItemStack[]{craftStack, craftStack, null, handle, null, handle};
-            default:
-                return null;
+        case 0: // knife
+            return new ItemStack[]{craftStack, handle};
+        case 1: // Pickaxe
+            return new ItemStack[]{craftStack, craftStack, craftStack, null, handle, null, null, handle, null};
+        case 2: // Axe
+            return new ItemStack[]{craftStack, craftStack, craftStack, handle, null, handle};
+        case 3: // Spade
+            return new ItemStack[]{craftStack, handle, handle};
+        case 4: // Hoe
+            return new ItemStack[]{craftStack, craftStack, null, handle, null, handle};
+        default:
+            return null;
         }
     }
 
@@ -195,21 +197,21 @@ public class ItemsToolSet implements IRecipeWithDefault {
         Item item = null;
 
         switch (recipe) {
-            case 0:
-                item = crude_knife;
-                break;
-            case 1:
-                item = crude_pickaxe;
-                break;
-            case 2:
-                item = crude_axe;
-                break;
-            case 3:
-                item = crude_spade;
-                break;
-            case 4:
-                item = crude_hoe;
-                break;
+        case 0:
+            item = crude_knife;
+            break;
+        case 1:
+            item = crude_pickaxe;
+            break;
+        case 2:
+            item = crude_axe;
+            break;
+        case 3:
+            item = crude_spade;
+            break;
+        case 4:
+            item = crude_hoe;
+            break;
         }
 
         if (item == null) {
@@ -220,19 +222,21 @@ public class ItemsToolSet implements IRecipeWithDefault {
     }
 
     private ItemStack getStackFromObject(Object obj) {
-        if (obj instanceof Item)
+        if (obj instanceof Item) {
             return new ItemStack((Item) obj);
-        else if (obj instanceof Block)
+        } else if (obj instanceof Block) {
             return new ItemStack((Block) obj);
-        else if (obj instanceof ItemStack)
+        } else if (obj instanceof ItemStack) {
             return (ItemStack) obj;
+        }
 
         return null;
     }
 
     public void registerRecipeWithDefault(Object craftingObj, IRecipeWithDefault iRecipeDef) {
-        if (craftingObj == null)
+        if (craftingObj == null) {
             return;
+        }
 
         int recipeCount = iRecipeDef.getRecipeCount();
         ItemStack[][] recipes = new ItemStack[recipeCount][];
@@ -248,10 +252,11 @@ public class ItemsToolSet implements IRecipeWithDefault {
                 int item = 0;
 
                 for (Object obj : aObj) {
-                    if (obj instanceof Integer)
+                    if (obj instanceof Integer) {
                         recipeWidths[recipe] = (Integer) obj;
-                    else
+                    } else {
                         items[item] = getStackFromObject(obj);
+                    }
 
                     item++;
                 }
@@ -262,18 +267,18 @@ public class ItemsToolSet implements IRecipeWithDefault {
         } else {
             ItemStack craftStack = getStackFromObject(craftingObj);
 
-            if (craftStack != null)
+            if (craftStack != null) {
                 for (int i = 0; i < recipeCount; i++) {
                     recipes[i] = iRecipeDef.getDefaultRecipe(i, craftStack);
                     recipeWidths[i] = iRecipeDef.getRecipeWidth(i);
                 }
-            else
+            } else {
                 recipes = null;
+            }
         }
 
         if (recipes != null) {
-            @SuppressWarnings("unchecked")
-            List<IRecipe> recipeList = CraftingManager.getInstance().getRecipeList();
+            @SuppressWarnings("unchecked") List<IRecipe> recipeList = CraftingManager.getInstance().getRecipeList();
 
             int recipe = 0;
 

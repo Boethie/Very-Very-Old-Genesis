@@ -24,15 +24,21 @@ public class PolissoirRecipes {
     }
 
     public void addChippedRecipe(ItemStack input, ItemStack result) {
-        if (input != null && result != null) chippedRecipes.put(input, result);
+        if (input != null && result != null) {
+            chippedRecipes.put(input, result);
+        }
     }
 
     public void addPolishedRecipe(ItemStack input, ItemStack result) {
-        if (input != null && result != null) polishedRecipes.put(input, result);
+        if (input != null && result != null) {
+            polishedRecipes.put(input, result);
+        }
     }
 
     public void addSharpenedRecipe(ItemStack input, ItemStack result) {
-        if (input != null && result != null) sharpenedRecipes.put(input, result);
+        if (input != null && result != null) {
+            sharpenedRecipes.put(input, result);
+        }
     }
 
     public boolean hasChippedRecipe(ItemStack input) {
@@ -90,16 +96,28 @@ public class PolissoirRecipes {
     }
 
     public ItemStack getRequirement(ItemStack input) {
-        if (hasChippedRecipe(input)) return getChippedUpgradeItem();
-        if (hasPolishedRecipe(input)) return getPolishedUpgradeItem();
-        if (hasSharpenedRecipe(input)) return getSharpenedUpgradeItem();
+        if (hasChippedRecipe(input)) {
+            return getChippedUpgradeItem();
+        }
+        if (hasPolishedRecipe(input)) {
+            return getPolishedUpgradeItem();
+        }
+        if (hasSharpenedRecipe(input)) {
+            return getSharpenedUpgradeItem();
+        }
         return null;
     }
 
     public int getUpgradeTime(ItemStack input) {
-        if (hasChippedRecipe(input)) return chippedUpgradeTime;
-        if (hasPolishedRecipe(input)) return polishedUpgradeTime;
-        if (hasSharpenedRecipe(input)) return sharpenedUpgradeTime;
+        if (hasChippedRecipe(input)) {
+            return chippedUpgradeTime;
+        }
+        if (hasPolishedRecipe(input)) {
+            return polishedUpgradeTime;
+        }
+        if (hasSharpenedRecipe(input)) {
+            return sharpenedUpgradeTime;
+        }
         return 0;
     }
 

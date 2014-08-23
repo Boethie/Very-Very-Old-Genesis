@@ -60,12 +60,12 @@ public class BlockCampfire extends BlockContainer {
     @Override
     public IIcon getIcon(int part, int metadata) {
         switch (part) {
-            case 1:
-                return poleIcon;
-            case 2:
-                return poleVIcon;
-            default:
-                return blockIcon;
+        case 1:
+            return poleIcon;
+        case 2:
+            return poleVIcon;
+        default:
+            return blockIcon;
         }
     }
 
@@ -94,8 +94,9 @@ public class BlockCampfire extends BlockContainer {
 
     @Override
     public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
-        if (rand.nextInt(24) == 0)
+        if (rand.nextInt(24) == 0) {
             world.playSound(x + 0.5, y + 0.5, y + 0.5, "fire.fire", 1 + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F, false);
+        }
 
         TileEntityCampfire campfire = getTileEntityAt(world, x, y, z);
 
@@ -139,8 +140,9 @@ public class BlockCampfire extends BlockContainer {
     }
 
     protected void addIfIntersects(AxisAlignedBB aabb, AxisAlignedBB mask, List list) {
-        if (aabb != null && aabb.intersectsWith(mask))
+        if (aabb != null && aabb.intersectsWith(mask)) {
             list.add(aabb);
+        }
     }
 
     protected AxisAlignedBB reverseBB(int x, int y, int z, AxisAlignedBB bb) {
@@ -163,21 +165,21 @@ public class BlockCampfire extends BlockContainer {
         AxisAlignedBB stick1 = null;
 
         switch (direction % 2) {
-            case 0:
-                stick0 = makeBB(x + 0.5 - stickSize2, y, z, x + 0.5 + stickSize2, y + 1, z + stickSize);
-                stick1 = makeBB(x + 0.5 - stickSize2, y, z + 1 - stickSize, x + 0.5 + stickSize2, y + 1, z + 1);
-                break;
-            case 1:
-                stick0 = makeBB(x + 0.5 + dist45 - stickSize, y, z + 0.5 + dist45 - stickSize, x + 0.5 + dist45 + stickSize2 * cos45, y + 1, z + 0.5 + dist45 + stickSize2 * cos45);
-                stick1 = makeBB(x + 0.5 - dist45 + stickSize, y, z + 0.5 - dist45 + stickSize, x + 0.5 - dist45 - stickSize2 * cos45, y + 1, z + 0.5 - dist45 - stickSize2 * cos45);
-                break;
+        case 0:
+            stick0 = makeBB(x + 0.5 - stickSize2, y, z, x + 0.5 + stickSize2, y + 1, z + stickSize);
+            stick1 = makeBB(x + 0.5 - stickSize2, y, z + 1 - stickSize, x + 0.5 + stickSize2, y + 1, z + 1);
+            break;
+        case 1:
+            stick0 = makeBB(x + 0.5 + dist45 - stickSize, y, z + 0.5 + dist45 - stickSize, x + 0.5 + dist45 + stickSize2 * cos45, y + 1, z + 0.5 + dist45 + stickSize2 * cos45);
+            stick1 = makeBB(x + 0.5 - dist45 + stickSize, y, z + 0.5 - dist45 + stickSize, x + 0.5 - dist45 - stickSize2 * cos45, y + 1, z + 0.5 - dist45 - stickSize2 * cos45);
+            break;
         }
 
         switch (direction) {
-            case 2:
-            case 3:
-                stick0 = reverseBB(x, y, z, stick0);
-                stick1 = reverseBB(x, y, z, stick1);
+        case 2:
+        case 3:
+            stick0 = reverseBB(x, y, z, stick0);
+            stick1 = reverseBB(x, y, z, stick1);
         }
 
         addIfIntersects(stick0, mask, list);
@@ -203,8 +205,9 @@ public class BlockCampfire extends BlockContainer {
                 if (fireBB.isVecInside(vec)) {
                     entity.setFire(8);
 
-                    if (!entity.isImmuneToFire())
+                    if (!entity.isImmuneToFire()) {
                         entity.attackEntityFrom(DamageSource.inFire, 1);
+                    }
                 }
             }
         }
@@ -232,15 +235,17 @@ public class BlockCampfire extends BlockContainer {
                     while (stack.stackSize > 0) {
                         int subSize = rand.nextInt(21) + 10;
 
-                        if (subSize > stack.stackSize)
+                        if (subSize > stack.stackSize) {
                             subSize = stack.stackSize;
+                        }
 
                         stack.stackSize -= subSize;
 
                         EntityItem dropItem = new EntityItem(world, x + offX, y + offY, z + offZ, new ItemStack(stack.getItem(), subSize, stack.getItemDamage()));
 
-                        if (stack.hasTagCompound())
+                        if (stack.hasTagCompound()) {
                             dropItem.getEntityItem().setTagCompound((NBTTagCompound) stack.getTagCompound().copy());
+                        }
 
                         float mul = 0.05F;
                         dropItem.motionX = rand.nextGaussian() * mul;
@@ -318,8 +323,9 @@ public class BlockCampfire extends BlockContainer {
     public TileEntityCampfire getTileEntityAt(IBlockAccess world, int x, int y, int z) {
         TileEntity tileEnt = world.getTileEntity(x, y, z);
 
-        if (tileEnt instanceof TileEntityCampfire)
+        if (tileEnt instanceof TileEntityCampfire) {
             return (TileEntityCampfire) tileEnt;
+        }
 
         return null;
     }
@@ -335,8 +341,9 @@ public class BlockCampfire extends BlockContainer {
     public int getLightValue(IBlockAccess world, int x, int y, int z) {
         int lightVal = super.getLightValue(world, x, y, z);
 
-        if (world.getBlock(x, y, z) == this && isFireLit(world.getBlockMetadata(x, y, z)))
+        if (world.getBlock(x, y, z) == this && isFireLit(world.getBlockMetadata(x, y, z))) {
             return Math.max(lightVal, 15);
+        }
 
         return lightVal;
     }

@@ -56,15 +56,15 @@ public class ItemGenesisKnife extends Item {
 
     @Override
     public Item setTextureName(String textureName) {
-        return super.setTextureName(Genesis.ASSETS + textureName + "_axe");
+        return super.setTextureName(Genesis.ASSETS + textureName + "_knife");
     }
 
     @Override
     // public float getStrVsBlock(ItemStack stack, Block block) {
     public float func_150893_a(ItemStack stack, Block block) {
-        if (block == Blocks.web)
+        if (block == Blocks.web) {
             return 15.0F;
-        else {
+        } else {
             Material material = block.getMaterial();
             return material != Material.plants && material != Material.vine && material != Material.coral && material != Material.leaves && material != Material.gourd ? 1.0F : 1.5F;
         }
@@ -78,8 +78,9 @@ public class ItemGenesisKnife extends Item {
 
     @Override
     public boolean onBlockDestroyed(ItemStack stack, World world, Block block, int x, int y, int z, EntityLivingBase entity) {
-        if ((double) block.getBlockHardness(world, x, y, z) != 0.0D)
+        if ((double) block.getBlockHardness(world, x, y, z) != 0.0D) {
             stack.damageItem(2, entity);
+        }
 
         return true;
     }

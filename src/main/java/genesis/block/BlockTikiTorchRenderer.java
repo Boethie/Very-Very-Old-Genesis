@@ -42,25 +42,25 @@ public class BlockTikiTorchRenderer implements ISimpleBlockRenderingHandler {
         }
 
         switch (tikiTorch.getDirection(metadata)) {
-            case 1:
-                offX = -off;
-                dX = -delta;
-                break;
-            case 2:
-                offX = off;
-                dX = delta;
-                break;
-            case 3:
-                offZ = -off;
-                dZ = -delta;
-                break;
-            case 4:
-                offZ = off;
-                dZ = delta;
-                break;
-            default:
-                offY = 0;
-                break;
+        case 1:
+            offX = -off;
+            dX = -delta;
+            break;
+        case 2:
+            offX = off;
+            dX = delta;
+            break;
+        case 3:
+            offZ = -off;
+            dZ = -delta;
+            break;
+        case 4:
+            offZ = off;
+            dZ = delta;
+            break;
+        default:
+            offY = 0;
+            break;
         }
 
         renderer.renderTorchAtAngle(block, x + offX, y + offY, z + offZ, dX, dZ, metadata);

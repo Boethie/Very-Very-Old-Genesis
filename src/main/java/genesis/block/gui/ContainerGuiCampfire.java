@@ -38,12 +38,12 @@ public class ContainerGuiCampfire extends GuiContainer {
         fontRendererObj.drawString(s, xSize / 2 - fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
         fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, ySize - 96 + 2, 4210752);
 
-		/*
+        /*
          * GL11.glTranslatef(-guiLeft, -guiTop, 0); // Undo GUI translation for
-		 * extra stuffs
-		 * 
-		 * GL11.glTranslatef(guiLeft, guiTop, 0);
-		 */
+         * extra stuffs
+         *
+         * GL11.glTranslatef(guiLeft, guiTop, 0);
+         */
     }
 
     private void drawImage(int x, int y, int u, int v, int w, int h, int texW, int texH) {
@@ -80,8 +80,9 @@ public class ContainerGuiCampfire extends GuiContainer {
 
         int fireHeight = campfire.getBurnTimeRemainingScaled(13);
 
-        if (fireHeight >= 13)
+        if (fireHeight >= 13) {
             fireHeight = 18;
+        }
 
         drawImage(originX + 47, originY + 48 - fireHeight, // Pos
                 204, 34 - fireHeight, // U, V
@@ -108,8 +109,9 @@ public class ContainerGuiCampfire extends GuiContainer {
                 mc.renderEngine.bindTexture(campfireGuiTextures);
                 drawImage(x - 4, y - 4, 177, 0, 26, 26, 256, 256);
                 mc.renderEngine.bindTexture(statIcons);
-            } else
+            } else {
                 drawSlot(x, y, 0, 0);
+            }
         }
     }
 }

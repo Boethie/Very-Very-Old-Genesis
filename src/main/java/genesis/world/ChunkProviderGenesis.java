@@ -180,28 +180,45 @@ public class ChunkProviderGenesis implements IChunkProvider {
                 Block lowerStoneType;
 
                 //Default Stone Layer
-                if (Math.abs(this.stoneNoise[l + k * 16]) > 3.25D) stoneType = GenesisModBlocks.quartzite;
-                else if (Math.abs(this.stoneNoise[l + k * 16]) > 0.75D) stoneType = GenesisModBlocks.granite;
-                else stoneType = GenesisModBlocks.quartzite;
+                if (Math.abs(this.stoneNoise[l + k * 16]) > 3.25D) {
+                    stoneType = GenesisModBlocks.quartzite;
+                } else if (Math.abs(this.stoneNoise[l + k * 16]) > 0.75D) {
+                    stoneType = GenesisModBlocks.granite;
+                } else {
+                    stoneType = GenesisModBlocks.quartzite;
+                }
 
                 //Low Stone Layer
-                if (this.stoneNoise[l + k * 16] > 1.75D) lowerStoneType = GenesisModBlocks.faux_amphibolite;
-                else if (this.stoneNoise[l + k * 16] < -1.75D) lowerStoneType = GenesisModBlocks.gneiss;
-                else lowerStoneType = stoneType;
+                if (this.stoneNoise[l + k * 16] > 1.75D) {
+                    lowerStoneType = GenesisModBlocks.faux_amphibolite;
+                } else if (this.stoneNoise[l + k * 16] < -1.75D) {
+                    lowerStoneType = GenesisModBlocks.gneiss;
+                } else {
+                    lowerStoneType = stoneType;
+                }
 
                 for (int l1 = 255; l1 >= 0; --l1) {
                     int i2 = (j1 * 16 + i1) * k1 + l1;
 
                     if (p_147422_3_[i2] == Blocks.stone) {
                         double lavaFloorNoise = this.lavaFloorNoise[l + k * 16];
-                        if (lavaFloorNoise < 0) lavaFloorNoise = 0;
+                        if (lavaFloorNoise < 0) {
+                            lavaFloorNoise = 0;
+                        }
 
-                        if (l1 < 6 + lavaFloorNoise) p_147422_3_[i2] = GenesisModBlocks.komatiite;
-                        else if (l1 < 10) p_147422_3_[i2] = Blocks.lava;
-                        else if (l1 < 16 + this.lavaRoofNoise[l + k * 16]) p_147422_3_[i2] = Blocks.air;
-                        else if (l1 < 24 + rand.nextInt(4)) p_147422_3_[i2] = GenesisModBlocks.komatiite;
-                        else if (l1 < 36 + rand.nextInt(4)) p_147422_3_[i2] = lowerStoneType;
-                        else p_147422_3_[i2] = stoneType;
+                        if (l1 < 6 + lavaFloorNoise) {
+                            p_147422_3_[i2] = GenesisModBlocks.komatiite;
+                        } else if (l1 < 10) {
+                            p_147422_3_[i2] = Blocks.lava;
+                        } else if (l1 < 16 + this.lavaRoofNoise[l + k * 16]) {
+                            p_147422_3_[i2] = Blocks.air;
+                        } else if (l1 < 24 + rand.nextInt(4)) {
+                            p_147422_3_[i2] = GenesisModBlocks.komatiite;
+                        } else if (l1 < 36 + rand.nextInt(4)) {
+                            p_147422_3_[i2] = lowerStoneType;
+                        } else {
+                            p_147422_3_[i2] = stoneType;
+                        }
                     } else if (p_147422_3_[i2] == GenesisModBlocks.limestone) {
                         if ((p_147422_3_[i2 + 1] == Blocks.water || p_147422_3_[i2 + 1] == Blocks.flowing_water || p_147422_3_[i2 + 1] == GenesisModBlocks.shale) && this.stoneNoise[l + k * 16] > 1.25D) {
                             p_147422_3_[i2] = GenesisModBlocks.shale;

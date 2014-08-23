@@ -34,23 +34,28 @@ public class TileEntityCampfire extends TileEntityFurnace {
     }
 
     public boolean canSmeltItemType(ItemStack stack) {
-        if (stack == null)
+        if (stack == null) {
             return false;
+        }
 
-        if (stack.getItemUseAction().equals(EnumAction.eat))
+        if (stack.getItemUseAction().equals(EnumAction.eat)) {
             return true;
+        }
 
-        if (Block.getBlockFromItem(stack.getItem()) == Blocks.cactus)
+        if (Block.getBlockFromItem(stack.getItem()) == Blocks.cactus) {
             return true;
+        }
 
         ItemStack smeltResult = FurnaceRecipes.smelting().getSmeltingResult(stack);
 
         if (smeltResult != null) {
-            if (smeltResult.getItemUseAction().equals(EnumAction.eat))
+            if (smeltResult.getItemUseAction().equals(EnumAction.eat)) {
                 return true;
+            }
 
-            if (smeltResult.getItem() == Items.coal)
+            if (smeltResult.getItem() == Items.coal) {
                 return true;
+            }
         }
 
         return false;
@@ -59,20 +64,24 @@ public class TileEntityCampfire extends TileEntityFurnace {
     public boolean canSmelt() {
         ItemStack smeltingItem = getStackInSlot(0);
 
-        if (!canSmeltItemType(smeltingItem))
+        if (!canSmeltItemType(smeltingItem)) {
             return false;
+        }
 
         ItemStack smeltOutputStack = getStackInSlot(2);
         ItemStack smeltResult = FurnaceRecipes.smelting().getSmeltingResult(smeltingItem);
 
-        if (smeltResult == null)
+        if (smeltResult == null) {
             return false;
+        }
 
-        if (smeltOutputStack == null)
+        if (smeltOutputStack == null) {
             return true;
+        }
 
-        if (!smeltOutputStack.isItemEqual(smeltResult))
+        if (!smeltOutputStack.isItemEqual(smeltResult)) {
             return false;
+        }
 
         int outputSize = smeltOutputStack.stackSize + smeltResult.stackSize;
 
@@ -86,15 +95,17 @@ public class TileEntityCampfire extends TileEntityFurnace {
             ItemStack outputItems = getStackInSlot(2);
             ItemStack result = FurnaceRecipes.smelting().getSmeltingResult(smeltingItems);
 
-            if (outputItems == null)
+            if (outputItems == null) {
                 outputItems = result.copy();
-            else if (outputItems.isItemEqual(result))
+            } else if (outputItems.isItemEqual(result)) {
                 outputItems.stackSize += result.stackSize;
+            }
 
             --smeltingItems.stackSize;
 
-            if (smeltingItems.stackSize <= 0)
+            if (smeltingItems.stackSize <= 0) {
                 smeltingItems = null;
+            }
 
             setInventorySlotContents(0, smeltingItems);
             setInventorySlotContents(2, outputItems);
@@ -106,8 +117,9 @@ public class TileEntityCampfire extends TileEntityFurnace {
     }
 
     public void setWet() {
-        if (isBurning())
+        if (isBurning()) {
             worldObj.playAuxSFX(1004, xCoord, yCoord, zCoord, 0);
+        }
 
         furnaceBurnTime = Math.min(furnaceBurnTime, -200);
     }
@@ -133,17 +145,18 @@ public class TileEntityCampfire extends TileEntityFurnace {
 
         boolean invChange = false;
 
-        if (wasBurning)
+        if (wasBurning) {
             furnaceBurnTime--;
-        else if (furnaceBurnTime < 0)
+        } else if (furnaceBurnTime < 0) {
             furnaceBurnTime++;
+        }
 
         boolean raining = isRaining();
 
         if (!worldObj.isRemote) {
-            if (raining)
+            if (raining) {
                 setWet();
-            else if (furnaceBurnTime == 0) {
+            } else if (furnaceBurnTime == 0) {
                 ItemStack burningItem = getStackInSlot(1);
                 currentItemBurnTime = furnaceBurnTime = getItemBurnTime(burningItem);
 
@@ -153,8 +166,9 @@ public class TileEntityCampfire extends TileEntityFurnace {
                     if (burningItem != null) {
                         --burningItem.stackSize;
 
-                        if (burningItem.stackSize == 0)
+                        if (burningItem.stackSize == 0) {
                             setInventorySlotContents(1, burningItem.getItem().getContainerItem(burningItem));
+                        }
                     }
                 }
             }
@@ -167,8 +181,9 @@ public class TileEntityCampfire extends TileEntityFurnace {
                     smeltItem();
                     invChange = true;
                 }
-            } else
+            } else {
                 furnaceCookTime = 0;
+            }
 
             boolean burning = isBurning();
 
@@ -181,14 +196,16 @@ public class TileEntityCampfire extends TileEntityFurnace {
             }
         }
 
-        if (invChange)
+        if (invChange) {
             markDirty();
+        }
     }
 
     @Override
     public int getBurnTimeRemainingScaled(int pixels) {
-        if (currentItemBurnTime == 0)
+        if (currentItemBurnTime == 0) {
             currentItemBurnTime = 200;
+        }
 
         return (int) Math.ceil(furnaceBurnTime / (float) currentItemBurnTime * pixels);
     }
@@ -215,8 +232,9 @@ public class TileEntityCampfire extends TileEntityFurnace {
     public void markDirty() {
         super.markDirty();
 
-        if (worldObj != null)
+        if (worldObj != null) {
             worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+        }
     }
 
     @Override
@@ -237,10 +255,10 @@ public class TileEntityCampfire extends TileEntityFurnace {
     @Override
     public boolean canInsertItem(int slot, ItemStack stack, int side) {
         switch (slot) {
-            case 0:
-                return canSmeltItemType(stack);
-            case 1:
-                return isItemFuel(stack);
+        case 0:
+            return canSmeltItemType(stack);
+        case 1:
+            return isItemFuel(stack);
         }
 
         return false;
@@ -250,8 +268,9 @@ public class TileEntityCampfire extends TileEntityFurnace {
     public ItemStack getStackInSlotOnClosing(int slot) {
         ItemStack stack = getStackInSlot(slot);
 
-        if (stack != null)
+        if (stack != null) {
             setInventorySlotContents(slot, null);
+        }
 
         return stack;
     }
@@ -260,15 +279,17 @@ public class TileEntityCampfire extends TileEntityFurnace {
     public ItemStack decrStackSize(int slot, int amount) {
         ItemStack stack = getStackInSlot(slot);
 
-        if (stack != null)
-            if (stack.stackSize <= amount)
+        if (stack != null) {
+            if (stack.stackSize <= amount) {
                 setInventorySlotContents(slot, null);
-            else {
+            } else {
                 stack = stack.splitStack(amount);
 
-                if (stack.stackSize <= 0)
+                if (stack.stackSize <= 0) {
                     setInventorySlotContents(slot, null);
+                }
             }
+        }
 
         return stack;
     }
@@ -314,16 +335,18 @@ public class TileEntityCampfire extends TileEntityFurnace {
             NBTTagCompound itemCompound = tagList.getCompoundTagAt(i);
             byte slot = itemCompound.getByte("Slot");
 
-            if (slot >= 0 && slot < inventory.length)
+            if (slot >= 0 && slot < inventory.length) {
                 inventory[slot] = ItemStack.loadItemStackFromNBT(itemCompound);
+            }
         }
 
         furnaceBurnTime = compound.getInteger("BurnTime");
         furnaceCookTime = compound.getInteger("CookTime");
         currentItemBurnTime = getItemBurnTime(inventory[1]);
 
-        if (compound.hasKey("CustomName"))
+        if (compound.hasKey("CustomName")) {
             customName = compound.getString("CustomName");
+        }
     }
 
     @Override
@@ -353,8 +376,9 @@ public class TileEntityCampfire extends TileEntityFurnace {
 
         compound.setTag("Items", itemList);
 
-        if (hasCustomInventoryName())
+        if (hasCustomInventoryName()) {
             compound.setString("CustomName", customName);
+        }
     }
 
     @Override

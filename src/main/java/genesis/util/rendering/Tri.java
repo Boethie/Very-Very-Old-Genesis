@@ -13,8 +13,7 @@ public class Tri {
 
     private Vec4 normal;
 
-    public Tri(Vec4 vert0, Vec4 vert1, Vec4 vert2,
-               Vec2 uv0, Vec2 uv1, Vec2 uv2) {
+    public Tri(Vec4 vert0, Vec4 vert1, Vec4 vert2, Vec2 uv0, Vec2 uv1, Vec2 uv2) {
         this.vert0 = vert0;
         this.uv0 = uv0;
 

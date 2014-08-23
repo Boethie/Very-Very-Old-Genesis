@@ -43,14 +43,17 @@ public class TileEntityCampfireRenderer extends TileEntitySpecialRenderer {
             GL11.glTranslatef(0.53125F, -0.3125F, 0.05F);
             GL11.glRotatef(-335, 0, 0, 1);
             GL11.glRotatef(-50, 0, 1, 0);
-        } else
+        } else {
             GL11.glScalef(1.5F, 1.5F, 1.5F);
+        }
 
-        if (item.requiresMultipleRenderPasses())
+        if (item.requiresMultipleRenderPasses()) {
             passes = item.getRenderPasses(stack.getItemDamage());
+        }
 
-        for (int pass = 0; pass < passes; pass++)
+        for (int pass = 0; pass < passes; pass++) {
             Minecraft.getMinecraft().entityRenderer.itemRenderer.renderItem(Minecraft.getMinecraft().thePlayer, stack, pass, ItemRenderType.EQUIPPED);
+        }
     }
 
     /**
@@ -97,10 +100,11 @@ public class TileEntityCampfireRenderer extends TileEntitySpecialRenderer {
                 renderItemStack(output);
                 GL11.glPopMatrix();
 
-                if (count % 2 == 0 && i % 2 == 0)
+                if (count % 2 == 0 && i % 2 == 0) {
                     GL11.glRotatef(180, 0, 1, 0);
-                else
+                } else {
                     GL11.glRotatef(360 / div, 0, 1, 0);
+                }
             }
 
             GL11.glPopMatrix();

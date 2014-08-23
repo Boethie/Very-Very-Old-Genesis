@@ -44,13 +44,7 @@ public abstract class BlockGenesisAquaticPlant extends Block implements IPlantRe
     @Override
     public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable) {
         boolean flag = false;
-        Block[] blocks = new Block[]{
-                world.getBlock(x + 1, y, z),
-                world.getBlock(x - 1, y, z),
-                world.getBlock(x, y + 1, z),
-                world.getBlock(x, y, z + 1),
-                world.getBlock(x, y, z - 1)
-        };
+        Block[] blocks = new Block[]{world.getBlock(x + 1, y, z), world.getBlock(x - 1, y, z), world.getBlock(x, y + 1, z), world.getBlock(x, y, z + 1), world.getBlock(x, y, z - 1)};
         int index = 0, waterCount = 0;
         for (Block b : blocks) {
             if (index == 2) {
@@ -78,10 +72,7 @@ public abstract class BlockGenesisAquaticPlant extends Block implements IPlantRe
 
     protected boolean canPlaceBlockOn(Block block) {
         boolean flag = false;
-        final Block[] blockList = new Block[]{Blocks.dirt, Blocks.gravel, Blocks.sand,
-                Blocks.clay, GenesisAquaticBlocks.coral, GenesisModBlocks.granite, Blocks.stone,
-                GenesisModBlocks.limestone, GenesisModBlocks.gneiss, GenesisModBlocks.quartzite, GenesisModBlocks.rhyolite,
-                GenesisModBlocks.shale};
+        final Block[] blockList = new Block[]{Blocks.dirt, Blocks.gravel, Blocks.sand, Blocks.clay, GenesisAquaticBlocks.coral, GenesisModBlocks.granite, Blocks.stone, GenesisModBlocks.limestone, GenesisModBlocks.gneiss, GenesisModBlocks.quartzite, GenesisModBlocks.rhyolite, GenesisModBlocks.shale};
         for (Block b : blockList) {
             if (block == b) {
                 flag = true;
@@ -98,8 +89,7 @@ public abstract class BlockGenesisAquaticPlant extends Block implements IPlantRe
 
     @Override
     public boolean canBlockStay(World world, int x, int y, int z) {
-        return canPlaceBlockOn(world.getBlock(x, y - 1, z)) &&
-                canSustainPlant(world, x, y, z, ForgeDirection.DOWN, null);
+        return canPlaceBlockOn(world.getBlock(x, y - 1, z)) && canSustainPlant(world, x, y, z, ForgeDirection.DOWN, null);
     }
 
     protected void dropPlantIfCannotStay(World world, int x, int y, int z) {
@@ -138,8 +128,7 @@ public abstract class BlockGenesisAquaticPlant extends Block implements IPlantRe
     }
 
     @Override
-    public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z,
-                                    int side) {
+    public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z, int side) {
         // TODO Auto-generated method stub
         return false;
     }

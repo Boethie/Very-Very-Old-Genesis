@@ -71,10 +71,7 @@ public class Vec4 {
     }
 
     public Vec4 cross(Vec4 vec2) {
-        return new Vec4(y * vec2.z - z * vec2.y,
-                z * vec2.x - x * vec2.z,
-                x * vec2.y - y * vec2.x,
-                0);
+        return new Vec4(y * vec2.z - z * vec2.y, z * vec2.x - x * vec2.z, x * vec2.y - y * vec2.x, 0);
     }
 
     public boolean isValid() {
@@ -91,18 +88,18 @@ public class Vec4 {
 
         for (int i = 0; i < out.length; i++) {
             switch (i) {
-                case 0:
-                    out[i] = x;
-                    break;
-                case 1:
-                    out[i] = y;
-                    break;
-                case 2:
-                    out[i] = z;
-                    break;
-                default:
-                    out[i] = w;
-                    break;
+            case 0:
+                out[i] = x;
+                break;
+            case 1:
+                out[i] = y;
+                break;
+            case 2:
+                out[i] = z;
+                break;
+            default:
+                out[i] = w;
+                break;
             }
         }
 
