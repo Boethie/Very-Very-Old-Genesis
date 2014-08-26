@@ -29,7 +29,7 @@ import java.util.Random;
 public class BlockKomatiiticLava extends BlockFluidClassic {
 
     @SideOnly(Side.CLIENT)
-    protected IIcon[] icon;
+    protected IIcon[] icons;
 
     /**
      * Make a new instance.
@@ -60,15 +60,15 @@ public class BlockKomatiiticLava extends BlockFluidClassic {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        icon = new IIcon[2];
-        this.icon[0] = iconRegister.registerIcon(getTextureName() + "_still");
-        this.icon[1] = iconRegister.registerIcon(getTextureName() + "_flow");
+        icons = new IIcon[2];
+        icons[0] = iconRegister.registerIcon(getTextureName() + "_still");
+        icons[1] = iconRegister.registerIcon(getTextureName() + "_flow");
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        return side != 0 && side != 1 ? this.icon[1] : this.icon[0];
+        return side != 0 && side != 1 ? icons[1] : icons[0];
     }
 
     @Override
@@ -105,7 +105,7 @@ public class BlockKomatiiticLava extends BlockFluidClassic {
             if (random.nextInt(45) == 0) {
                 double px, py, pz;
                 px = (double) ((float) x + random.nextFloat());
-                py = (double) y + this.maxY;
+                py = (double) y + maxY;
                 pz = (double) ((float) z + random.nextFloat());
                 world.spawnParticle("lava", px, py, pz, 0.0D, 0.0D, 0.0D);
                 world.playSound(px, py, pz, "liquid.lavapop", 0.2F + random.nextFloat() * 0.2F, 0.9F + random.nextFloat() * 0.15F, false);

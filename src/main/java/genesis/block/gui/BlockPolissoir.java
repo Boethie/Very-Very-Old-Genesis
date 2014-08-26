@@ -74,12 +74,6 @@ public class BlockPolissoir extends BlockContainer {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        this.blockIcon = iconRegister.registerIcon(getTextureName());
-    }
-
-    @Override
     public boolean isOpaqueCube() {
         return false;
     }

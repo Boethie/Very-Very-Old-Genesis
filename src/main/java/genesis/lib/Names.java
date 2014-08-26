@@ -113,6 +113,8 @@ public final class Names {
     public static final String itemCookedGigantoraptor = itemFood + "cookedGigantoraptor";
     public static final String itemRawClimatius = itemFood + "rawClimatius";
     public static final String itemCookedClimatius = itemFood + "cookedClimatius";
+    public static final String itemRawTyrannosaurus = itemFood + "rawTyrannosaurus";
+    public static final String itemCookedTyrannosaurus = itemFood + "cookedTyrannosaurus";
     // Fluids
     public static final String fluidKomatiiticLava = mod + "komatiiticLava";
     public static final String blockKomatiiticLava = mod + "komatiiticLavaBlock";
@@ -224,6 +226,8 @@ public final class Names {
         public static final String itemCookedGigantoraptor = "cooked_gigantoraptor";
         public static final String itemRawClimatius = "raw_climatius";
         public static final String itemCookedClimatius = "cooked_climatius";
+        public static final String itemRawTyrannosaurus = "raw_tyrannosaurus";
+        public static final String itemCookedTyrannosaurus = "cooked_tyrannosaurus";
 
         public static final String blockKomatiiticLava = "komatiitic_lava_block";
         public static final String bucketKomatiiticLava = "komatiitic_lava_bucket";

@@ -4,14 +4,14 @@ import org.objectweb.asm.ClassWriter;
 
 public class SuperClassWriter extends ClassWriter {
 
-    String superClass;
+    private String superClass;
 
-    public SuperClassWriter(int flags, String superClass) {
+    public SuperClassWriter(int flags, String superClassString) {
         super(flags);
-
-        this.superClass = superClass;
+        superClass = superClassString;
     }
 
+    @Override
     protected String getCommonSuperClass(final String type1, final String type2) {
         return superClass;
         //return super.getCommonSuperClass(type1, type2);

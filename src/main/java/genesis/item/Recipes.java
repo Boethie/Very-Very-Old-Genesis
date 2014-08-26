@@ -121,6 +121,7 @@ public class Recipes {
         GameRegistry.addSmelting(GenesisModItems.raw_climatius, new ItemStack(GenesisModItems.cooked_climatius), 0.1F);
         GameRegistry.addSmelting(GenesisModItems.raw_gigantoraptor_thigh, new ItemStack(GenesisModItems.cooked_gigantoraptor_thigh), 0.1F);
         GameRegistry.addSmelting(GenesisModItems.raw_liopleurodon, new ItemStack(GenesisModItems.cooked_liopleurodon), 0.1F);
+        GameRegistry.addSmelting(GenesisModItems.raw_tyrannosaurus, new ItemStack(GenesisModItems.cooked_tyrannosaurus), 0.1F);
 
         GameRegistry.addRecipe(new ShapedOreRecipe(GenesisModBlocks.campfire, " A ", "A A", "BBB", 'A', "logWood", 'B', GenesisModBlocks.granite));
         GameRegistry.addRecipe(new ItemStack(GenesisModBlocks.polissoir), "XXX", "XXX", 'X', GenesisModBlocks.granite);

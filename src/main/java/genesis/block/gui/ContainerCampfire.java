@@ -95,7 +95,7 @@ public class ContainerCampfire extends Container {
     @Override
     public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
         ItemStack originalStack = null;
-        Slot slot = (Slot) this.inventorySlots.get(slotIndex);
+        Slot slot = (Slot) inventorySlots.get(slotIndex);
 
         if (slot != null && slot.getHasStack()) {
             ItemStack stack = slot.getStack();

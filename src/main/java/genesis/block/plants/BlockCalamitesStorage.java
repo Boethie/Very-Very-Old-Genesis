@@ -3,6 +3,7 @@ package genesis.block.plants;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.common.Genesis;
+import genesis.common.GenesisSounds;
 import genesis.common.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRotatedPillar;
@@ -18,11 +19,9 @@ public class BlockCalamitesStorage extends BlockRotatedPillar {
 
     public BlockCalamitesStorage() {
         super(new Material(MapColor.foliageColor));
-
         setCreativeTab(GenesisTabs.tabGenesis);
         setHardness(2);
-        setStepSound(soundTypeWood);
-        // setBurnProperties(blockID, 4, 4);
+        setStepSound(GenesisSounds.soundTypeCalamites);
         setHarvestLevel("axe", 0);
     }
 

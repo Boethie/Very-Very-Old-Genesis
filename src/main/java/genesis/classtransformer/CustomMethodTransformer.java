@@ -8,8 +8,8 @@ public abstract class CustomMethodTransformer extends MethodVisitor {
         super(Opcodes.ASM4, null);
     }
 
-    final void init(MethodVisitor mv) {
-        this.mv = mv;
+    final void init(MethodVisitor methodVisitor) {
+        this.mv = methodVisitor;
     }
 }
 

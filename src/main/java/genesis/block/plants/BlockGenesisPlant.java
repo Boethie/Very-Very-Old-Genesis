@@ -66,13 +66,13 @@ public class BlockGenesisPlant extends BlockFlower implements IPlantRenderSpecia
         return output;
     }
 
-    protected BlockGenesisPlant setStackable(int stackedLimit) {
-        if (stackedLimit >= 0) {
+    protected BlockGenesisPlant setStackable(int stackLimit) {
+        if (stackLimit >= 0) {
             stackable = true;
-            this.stackedLimit = stackedLimit;
+            stackedLimit = stackLimit;
         } else {
             stackable = false;
-            this.stackedLimit = 0;
+            stackedLimit = 0;
         }
 
         return this;

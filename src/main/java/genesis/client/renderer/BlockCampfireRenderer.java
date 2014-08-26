@@ -240,8 +240,8 @@ public class BlockCampfireRenderer implements ISimpleBlockRenderingHandler {
 
         public Vec4 center;
 
-        public ShadingMethodFirelight(Vec4 center) {
-            this.center = center;
+        public ShadingMethodFirelight(Vec4 fireCenter) {
+            center = fireCenter;
         }
 
         @Override

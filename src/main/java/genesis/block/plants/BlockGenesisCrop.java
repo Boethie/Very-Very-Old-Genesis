@@ -20,26 +20,24 @@ public class BlockGenesisCrop extends BlockCrops implements IPlantRenderSpecials
     protected Item cropItem;
     protected Block soilBlock;
     protected int stages;
-    protected int fullGrownDroppedAmount;
+    protected int droppedAmountMax;
     protected int droppedAmount;
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
 
     /**
-     * @param cropItem                Crop
-     * @param seedItem                Seed
-     * @param soilBlock               Soil
-     * @param stages                  Stages
-     * @param fullGrownDroppedAmmount grown maximal seeds dropped amount
+     * @param itemCrop                Crop
+     * @param itemSeed                Seed
+     * @param blockSoil               Soil
+     * @param stageAmount             Stages
+     * @param maxAmountDropped        grown maximal seeds dropped amount
      */
-    public BlockGenesisCrop(Item cropItem, Item seedItem, Block soilBlock, int stages, int fullGrownDroppedAmmount) {
-        this.cropItem = cropItem;
-        this.seedItem = seedItem;
-        this.soilBlock = soilBlock;
-        this.stages = stages;
-        this.fullGrownDroppedAmount = fullGrownDroppedAmmount;
-
-        setCreativeTab(null);
+    public BlockGenesisCrop(Item itemCrop, Item itemSeed, Block blockSoil, int stageAmount, int maxAmountDropped) {
+        cropItem = itemCrop;
+        seedItem = itemSeed;
+        soilBlock = blockSoil;
+        stages = stageAmount;
+        droppedAmountMax = maxAmountDropped;
     }
 
     @Override
@@ -62,11 +60,6 @@ public class BlockGenesisCrop extends BlockCrops implements IPlantRenderSpecials
     @Override
     public int quantityDropped(Random par1Random) {
         return droppedAmount;
-    }
-
-    @SideOnly(Side.CLIENT)
-    public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
-        return this.func_149866_i();
     }
 
     @SideOnly(Side.CLIENT)
@@ -95,7 +88,7 @@ public class BlockGenesisCrop extends BlockCrops implements IPlantRenderSpecials
 
     @Override
     public boolean canBlockStay(World p_149718_1_, int p_149718_2_, int p_149718_3_, int p_149718_4_) {
-        if (!this.isTall()) {
+        if (!isTall()) {
             return super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
         }
         return (p_149718_1_.isAirBlock(p_149718_2_, p_149718_3_ + 1, p_149718_4_) || p_149718_1_.getBlock(p_149718_2_, p_149718_3_ + 1, p_149718_4_) instanceof BlockGenesisPlantTop) && super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);

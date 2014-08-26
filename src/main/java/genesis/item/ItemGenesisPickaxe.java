@@ -18,14 +18,13 @@ public class ItemGenesisPickaxe extends ItemPickaxe {
     protected String materialName;
     private ToolQuality quality;
 
-    public ItemGenesisPickaxe(Item.ToolMaterial material, String materialName, ToolQuality quality) {
+    public ItemGenesisPickaxe(Item.ToolMaterial material, String nameOfMaterial, ToolQuality toolQuality) {
         super(material);
-
-        this.materialName = materialName;
-        this.quality = quality;
-        GameRegistry.registerItem(this, Names.itemPickaxe + "." + material.name().toLowerCase() + quality.toString().toLowerCase());
+        materialName = nameOfMaterial;
+        quality = toolQuality;
+        GameRegistry.registerItem(this, Names.itemPickaxe + "." + material.name().toLowerCase() + toolQuality.toString().toLowerCase());
         setUnlocalizedName(material.name().toLowerCase().split("_")[0]);
-        if (quality == ItemsToolSet.ToolQuality.values()[0]) {
+        if (toolQuality == ItemsToolSet.ToolQuality.values()[0]) {
             setCreativeTab(GenesisTabs.tabGenesisTools);
         } else {
             setCreativeTab(null);

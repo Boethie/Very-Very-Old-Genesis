@@ -2,7 +2,7 @@ package genesis.common;
 
 import net.minecraft.block.Block;
 
-public class GenesisSoundHandler {
+public class GenesisSounds {
 
     public static final GenesisSoundType soundTypeMoss = new GenesisSoundType("moss", 10.0F, 1.0F);
     public static final GenesisSoundType soundTypeRottenLog = new GenesisSoundType("rottenLog", 10.0F, 1.0F);
@@ -10,26 +10,25 @@ public class GenesisSoundHandler {
     public static final GenesisSoundType soundTypeCalamites = new GenesisSoundType("calamites", 10.0F, 1.0F);
 
     public static class GenesisSoundType extends Block.SoundType {
-        private static final String __OBFID = "CL_00000203";
         public final String soundName;
         public final float volume;
         public final float frequency;
 
-        public GenesisSoundType(String p_i45393_1_, float p_i45393_2_, float p_i45393_3_) {
-            super(p_i45393_1_, p_i45393_2_, p_i45393_3_);
-            this.soundName = p_i45393_1_;
-            this.volume = p_i45393_2_;
-            this.frequency = p_i45393_3_;
+        public GenesisSoundType(String nameOfSound, float soundVolume, float soundFrequency) {
+            super(nameOfSound, soundVolume, soundFrequency);
+            soundName = nameOfSound;
+            volume = soundVolume;
+            frequency = soundFrequency;
         }
 
         @Override
         public String getStepResourcePath() {
-            return Genesis.ASSETS + "step." + this.soundName;
+            return Genesis.ASSETS + "step." + soundName;
         }
 
         @Override
         public String getBreakSound() {
-            return Genesis.ASSETS + "dig." + this.soundName;
+            return Genesis.ASSETS + "dig." + soundName;
         }
     }
 }

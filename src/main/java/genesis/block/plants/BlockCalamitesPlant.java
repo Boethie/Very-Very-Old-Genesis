@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.block.GenesisModBlocks;
 import genesis.common.Genesis;
-import genesis.common.GenesisSoundHandler;
+import genesis.common.GenesisSounds;
 import genesis.common.GenesisTabs;
 import genesis.lib.MiscHelpers;
 import net.minecraft.block.Block;
@@ -51,7 +51,7 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
 
     public BlockCalamitesPlant() {
         setHardness(1.5F);
-        setStepSound(GenesisSoundHandler.soundTypeCalamites);
+        setStepSound(GenesisSounds.soundTypeCalamites);
         setPlantBoundsSize(0.25F);
         setStackable(10);
         setPlantableTypes(new EnumPlantType[]{EnumPlantType.Plains, EnumPlantType.Desert});
@@ -372,12 +372,12 @@ public class BlockCalamitesPlant extends BlockGenesisPlant {
         public boolean top;
         public ArrayList<ChunkPosition> positions;
 
-        public CalamitesProperties(int height, int position, boolean hasEggs, ArrayList<ChunkPosition> positions) {
-            this.height = height;
-            this.position = position;
-            this.hasEggs = hasEggs;
-            top = position == height - 1;
-            this.positions = positions;
+        public CalamitesProperties(int calamitesHeight, int calamitesPosition, boolean calamitesHasEggs, ArrayList<ChunkPosition> calamitesPositions) {
+            height = calamitesHeight;
+            position = calamitesPosition;
+            hasEggs = calamitesHasEggs;
+            top = calamitesPosition == calamitesHeight - 1;
+            positions = calamitesPositions;
         }
     }
 }

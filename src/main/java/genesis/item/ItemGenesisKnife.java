@@ -26,23 +26,21 @@ import java.util.List;
 
 public class ItemGenesisKnife extends Item {
 
-    private final Item.ToolMaterial toolMaterial;
+    private final Item.ToolMaterial material;
     private final ToolQuality quality;
     protected String materialName;
     private float weaponDamage;
 
-    public ItemGenesisKnife(Item.ToolMaterial toolMaterial, String materialName, ToolQuality quality) {
-        super();
-
-        this.toolMaterial = toolMaterial;
-        this.materialName = materialName;
+    public ItemGenesisKnife(Item.ToolMaterial toolMaterial, String nameOfMaterial, ToolQuality toolQuality) {
+        material = toolMaterial;
+        materialName = nameOfMaterial;
         maxStackSize = 1;
         weaponDamage = 3.0F + toolMaterial.getDamageVsEntity();
-        this.quality = quality;
-        GameRegistry.registerItem(this, Names.itemKnife + toolMaterial.name().toLowerCase() + "." + quality.toString().toLowerCase());
+        quality = toolQuality;
+        GameRegistry.registerItem(this, Names.itemKnife + toolMaterial.name().toLowerCase() + "." + toolQuality.toString().toLowerCase());
         setUnlocalizedName(toolMaterial.name().toLowerCase().split("_")[0]);
         setMaxDamage(toolMaterial.getMaxUses() / 2);
-        if (quality == ItemsToolSet.ToolQuality.values()[0]) {
+        if (toolQuality == ItemsToolSet.ToolQuality.values()[0]) {
             setCreativeTab(GenesisTabs.tabGenesisTools);
         } else {
             setCreativeTab(null);
@@ -114,13 +112,13 @@ public class ItemGenesisKnife extends Item {
 
     @Override
     public int getItemEnchantability() {
-        return toolMaterial.getEnchantability();
+        return material.getEnchantability();
     }
 
     @Override
     public boolean getIsRepairable(ItemStack stack1, ItemStack stack2) {
-        // toolMaterial.getToolCraftingItem()
-        return toolMaterial.func_150995_f() == stack2.getItem() || super.getIsRepairable(stack1, stack2);
+        // material.getToolCraftingItem()
+        return material.func_150995_f() == stack2.getItem() || super.getIsRepairable(stack1, stack2);
     }
 
     @Override
@@ -131,7 +129,7 @@ public class ItemGenesisKnife extends Item {
     }
 
     public String getToolMaterialName() {
-        return toolMaterial.toString();
+        return material.toString();
     }
 
     @Override

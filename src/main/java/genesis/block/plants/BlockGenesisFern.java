@@ -5,7 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import genesis.block.GenesisModBlocks;
 import genesis.client.renderer.BlockGenesisPlantRenderer;
 import genesis.common.Genesis;
-import genesis.common.GenesisSoundHandler;
+import genesis.common.GenesisSounds;
 import genesis.common.GenesisTabs;
 import genesis.lib.PlantMetadata;
 import net.minecraft.block.Block;
@@ -43,7 +43,7 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
         super();
         setCreativeTab(GenesisTabs.tabGenesisDecoration);
         setPlantBoundsSize(0.45f);
-        setStepSound(GenesisSoundHandler.soundTypeFern);
+        setStepSound(GenesisSounds.soundTypeFern);
     }
 
     public BlockGenesisFern setPlantableTypes(EnumPlantType[] types) {

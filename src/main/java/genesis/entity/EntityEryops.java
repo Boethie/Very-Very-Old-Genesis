@@ -18,6 +18,6 @@ public class EntityEryops extends EntityMob {
     }
 
     public boolean isAngry() {
-        return this.worldObj.isRaining();
+        return worldObj.isRaining();
     }
 }

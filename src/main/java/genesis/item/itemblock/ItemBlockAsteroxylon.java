@@ -36,6 +36,6 @@ public class ItemBlockAsteroxylon extends ItemBlockWithMetadata {
     @Override
     @SideOnly(Side.CLIENT)
     public int getColorFromItemStack(ItemStack stack, int par2) {
-        return this.field_150939_a.getRenderColor(stack.getItemDamage());
+        return field_150939_a.getRenderColor(stack.getItemDamage());
     }
 }

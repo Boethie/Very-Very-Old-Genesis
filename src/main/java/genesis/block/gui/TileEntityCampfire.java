@@ -188,7 +188,7 @@ public class TileEntityCampfire extends TileEntityFurnace {
             boolean burning = isBurning();
 
             if (wasBurning != burning) {
-                BlockCampfire blockCampfire = (BlockCampfire) worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord);
+                BlockCampfire blockCampfire = (BlockCampfire) worldObj.getBlock(xCoord, yCoord, zCoord);
                 worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, blockCampfire.setFireLit(worldObj.getBlockMetadata(xCoord, yCoord, zCoord), burning), 2);
 
                 invChange = true;

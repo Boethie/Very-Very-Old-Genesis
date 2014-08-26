@@ -63,6 +63,9 @@ public class GenesisModItems {
     public static Item raw_climatius;
     public static Item cooked_climatius;
 
+    public static Item raw_tyrannosaurus;
+    public static Item cooked_tyrannosaurus;
+
     // Buckets
     public static ItemGenesisBucket komatiitic_lava_bucket;
 
@@ -124,6 +127,9 @@ public class GenesisModItems {
         raw_climatius = new ItemGenesisFood(2, 1.2F).setUnlocalizedName(Names.itemRawClimatius).setTextureName("climatius_raw");
         cooked_climatius = new ItemGenesisFood(5, 6F).setUnlocalizedName(Names.itemCookedClimatius).setTextureName("climatius_cooked");
 
+        raw_tyrannosaurus = new ItemGenesisFood(3, 1.8F).setUnlocalizedName(Names.itemRawTyrannosaurus).setTextureName("tyrannosaurus_raw");
+        cooked_tyrannosaurus = new ItemGenesisFood(8, 12.8F).setUnlocalizedName(Names.itemCookedTyrannosaurus).setTextureName("tyrannosaurus_cooked");
+
         // Buckets
         komatiitic_lava_bucket = (ItemGenesisBucket) new ItemGenesisBucket(GenesisModBlocks.komatiiticLava).setUnlocalizedName(Names.bucketKomatiiticLava).setTextureName("komatiitic_lava_bucket");
     }
@@ -172,6 +178,9 @@ public class GenesisModItems {
 
         GameRegistry.registerItem(raw_climatius, Names.Registry.itemRawClimatius);
         GameRegistry.registerItem(cooked_climatius, Names.Registry.itemCookedClimatius);
+
+        GameRegistry.registerItem(raw_tyrannosaurus, Names.Registry.itemRawTyrannosaurus);
+        GameRegistry.registerItem(cooked_tyrannosaurus, Names.Registry.itemCookedTyrannosaurus);
 
         GameRegistry.registerItem(komatiitic_lava_bucket, Names.Registry.bucketKomatiiticLava);
         BucketHandler.getInstance().bindBucketToFluid(komatiitic_lava_bucket, GenesisModBlocks.komatiiticLava, GenesisModBlocks.fluidKomatiiticLava);

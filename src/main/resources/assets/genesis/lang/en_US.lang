@@ -198,6 +198,8 @@ item.genesis.food.rawGigantoraptor.name=Raw Gigantoraptor Thigh
 item.genesis.food.cookedGigantoraptor.name=Cooked Gigantoraptor Thigh
 item.genesis.food.rawClimatius.name=Raw Climatius
 item.genesis.food.cookedClimatius.name=Cooked Climatius
+item.genesis.food.rawTyrannosaurus.name=Raw Tyrannosaurus
+item.genesis.food.cookedTyrannosaurus.name=Cooked Tyrannosaurus
 
 <!-- Fluids -->
 fluid.genesis.komatiiticLava=Komatiitic Lava

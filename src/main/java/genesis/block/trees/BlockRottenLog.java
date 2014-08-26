@@ -3,7 +3,7 @@ package genesis.block.trees;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.common.Genesis;
-import genesis.common.GenesisSoundHandler;
+import genesis.common.GenesisSounds;
 import genesis.common.GenesisTabs;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.monster.EntitySilverfish;
@@ -19,7 +19,7 @@ public class BlockRottenLog extends BlockGenesisLog {
     public BlockRottenLog(int group) {
         super(group);
         setCreativeTab(GenesisTabs.tabGenesisDecoration);
-        setStepSound(GenesisSoundHandler.soundTypeRottenLog);
+        setStepSound(GenesisSounds.soundTypeRottenLog);
     }
 
     // TODO: Change Silverfish to final mob

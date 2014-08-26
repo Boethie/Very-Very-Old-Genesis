@@ -57,7 +57,7 @@ public class BlockHausmanniaTop extends BlockGenesisPlantTop implements IShearab
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int par1, int meta) {
-        return this.plantIcon;
+        return plantIcon;
     }
 
     @Override
@@ -100,6 +100,6 @@ public class BlockHausmanniaTop extends BlockGenesisPlantTop implements IShearab
     }
 
     public IIcon getTopIcon() {
-        return this.topIcon;
+        return topIcon;
     }
 }

@@ -307,7 +307,7 @@ public class ItemsToolSet implements IRecipeWithDefault {
         }
 
         public String toString() {
-            return this.localizeableString;
+            return localizeableString;
         }
     }
 }

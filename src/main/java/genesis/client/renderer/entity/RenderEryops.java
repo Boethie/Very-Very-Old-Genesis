@@ -13,9 +13,9 @@ public class RenderEryops extends RenderLiving {
     private static final ResourceLocation texture = new ResourceLocation(Genesis.ASSETS + "textures/entity/eryops.png");
     protected ModelEryops model;
 
-    public RenderEryops(ModelBase model, float shadow) {
-        super(model, shadow);
-        this.model = ((ModelEryops) mainModel);
+    public RenderEryops(ModelBase modelBase, float shadow) {
+        super(modelBase, shadow);
+        model = ((ModelEryops) mainModel);
     }
 
     public void renderModel(EntityEryops entity, double x, double y, double z, float u, float v) {

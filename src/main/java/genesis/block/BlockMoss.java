@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.client.renderer.BlockMossRenderer;
 import genesis.common.Genesis;
-import genesis.common.GenesisSoundHandler;
+import genesis.common.GenesisSounds;
 import genesis.common.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGrass;
@@ -30,7 +30,7 @@ public class BlockMoss extends BlockGrass {
         super();
         setCreativeTab(GenesisTabs.tabGenesis);
         setHardness(0.6F);
-        setStepSound(GenesisSoundHandler.soundTypeMoss);
+        setStepSound(GenesisSounds.soundTypeMoss);
         setHarvestLevel("shovel", 0);
     }
 

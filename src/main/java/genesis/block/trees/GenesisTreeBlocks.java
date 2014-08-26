@@ -144,8 +144,8 @@ public class GenesisTreeBlocks {
         private int group;
         private int metadata;
 
-        TreeType(String name) {
-            this.name = name;
+        TreeType(String treeName) {
+            name = treeName;
         }
 
         protected static void init() {
@@ -168,16 +168,16 @@ public class GenesisTreeBlocks {
             return group;
         }
 
-        private void setGroup(int group) {
-            this.group = group;
+        private void setGroup(int treeGroup) {
+            group = treeGroup;
         }
 
         public int getMetadata() {
             return metadata;
         }
 
-        private void setMetadata(int metadata) {
-            this.metadata = metadata;
+        private void setMetadata(int treeMetadata) {
+            metadata = treeMetadata;
         }
     }
 
