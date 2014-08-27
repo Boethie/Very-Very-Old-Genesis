@@ -37,7 +37,7 @@ public class GenesisPlantBlocks {
         ferns = new BlockGenesisFern().setBlockName(Names.blockFern);
 
         asteroxylon = (BlockAsteroxylon) new BlockAsteroxylon().setBlockName(Names.blockAsteroxylon).setBlockTextureName("asteroxylon");
-        asteroxylon_top = new BlockAsteroxylonTop().setBlockName(Names.blockAsteroxylon + ".top").setBlockTextureName("asteroxylon_top");
+        asteroxylon_top = new BlockAsteroxylonTop().setBlockName(Names.blockAsteroxylon).setBlockTextureName("asteroxylon_top");
 
         sphenophyllum = (BlockSphenophyllumBase) new BlockSphenophyllumBase().setBlockName(Names.blockSphenophyllum).setBlockTextureName("sphenophyllum");
         sphenophyllum_top = new BlockSphenophyllumTop().setBlockName(Names.blockSphenophyllum).setBlockTextureName("sphenophyllum");
@@ -52,15 +52,15 @@ public class GenesisPlantBlocks {
         GameRegistry.registerBlock(plants, ItemBlockGenesisPlant.class, Names.Registry.blockPlant);
 
         GameRegistry.registerBlock(zingiberopsis, Names.Registry.blockZingiberopsis);
-        GameRegistry.registerBlock(zingiberopsis_top, Names.Registry.blockZingiberopsis + "_top");
+        GameRegistry.registerBlock(zingiberopsis_top, Names.Registry.blockZingiberopsisTop);
 
         GameRegistry.registerBlock(ferns, ItemBlockGenesisFern.class, Names.Registry.blockFern);
 
         GameRegistry.registerBlock(asteroxylon, ItemBlockAsteroxylon.class, Names.Registry.blockAsteroxylon);
-        GameRegistry.registerBlock(asteroxylon_top, ItemBlockAsteroxylon.class, Names.Registry.blockAsteroxylon + "_top");
+        GameRegistry.registerBlock(asteroxylon_top, ItemBlockAsteroxylon.class, Names.Registry.blockAsteroxylonTop);
 
         GameRegistry.registerBlock(sphenophyllum, Names.Registry.blockSphenophyllum);
-        GameRegistry.registerBlock(sphenophyllum_top, Names.Registry.blockSphenophyllum + "_top");
+        GameRegistry.registerBlock(sphenophyllum_top, Names.Registry.blockSphenophyllumTop);
 
         GameRegistry.registerBlock(flowers, ItemBlockGenesisFlower.class, Names.Registry.blockFlower);
 

@@ -19,7 +19,7 @@ public class BlockCalamitesStorage extends BlockRotatedPillar {
 
     public BlockCalamitesStorage() {
         super(new Material(MapColor.foliageColor));
-        setCreativeTab(GenesisTabs.tabGenesis);
+        setCreativeTab(GenesisTabs.tabGenesisBlock);
         setHardness(2);
         setStepSound(GenesisSounds.soundTypeCalamites);
         setHarvestLevel("axe", 0);

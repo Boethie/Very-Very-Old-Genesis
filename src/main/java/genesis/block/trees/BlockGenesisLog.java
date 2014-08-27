@@ -33,7 +33,7 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
         }
 
         blockIcons = new IIcon[blockNames.length * 2];
-        setCreativeTab(GenesisTabs.tabGenesis);
+        setCreativeTab(GenesisTabs.tabGenesisBlock);
     }
 
     @Override

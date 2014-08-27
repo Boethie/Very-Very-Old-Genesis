@@ -15,7 +15,7 @@ public class BlockGenesis extends Block {
 
     public BlockGenesis(Material material) {
         super(material);
-        setCreativeTab(GenesisTabs.tabGenesis);
+        setCreativeTab(GenesisTabs.tabGenesisBlock);
     }
 
     @Override

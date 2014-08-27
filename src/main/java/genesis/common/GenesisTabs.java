@@ -11,7 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class GenesisTabs {
-    public static final CreativeTabs tabGenesis = new CreativeTabs(Names.tabBlock) {
+    public static final CreativeTabs tabGenesisBlock = new CreativeTabs(Names.tabBlock) {
         @Override
         public ItemStack getIconItemStack() {
             return new ItemStack(GenesisModBlocks.moss);
@@ -35,10 +35,10 @@ public class GenesisTabs {
         }
     };
 
-    public static final CreativeTabs tabGenesisTools = new CreativeTabs(Names.tabTools) {
+    public static final CreativeTabs tabGenesisMisc = new CreativeTabs(Names.tabMisc) {
         @Override
         public ItemStack getIconItemStack() {
-            return new ItemStack(GenesisModItems.granite_tools.chipped_axe);
+            return new ItemStack(GenesisModItems.komatiitic_lava_bucket);
         }
 
         @Override
@@ -51,6 +51,18 @@ public class GenesisTabs {
         @Override
         public ItemStack getIconItemStack() {
             return new ItemStack(GenesisModItems.cooked_eryops);
+        }
+
+        @Override
+        public Item getTabIconItem() {
+            return getIconItemStack().getItem();
+        }
+    };
+
+    public static final CreativeTabs tabGenesisTools = new CreativeTabs(Names.tabTools) {
+        @Override
+        public ItemStack getIconItemStack() {
+            return new ItemStack(GenesisModItems.granite_tools.chipped_axe);
         }
 
         @Override

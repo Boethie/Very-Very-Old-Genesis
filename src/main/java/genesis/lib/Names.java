@@ -72,7 +72,6 @@ public final class Names {
     public static final String blockAlgae = blockAquatic + "algae.";
     public static final String blockPteridinium = blockAquatic + "pteridinium";
     public static final String blockCharnia = blockAquatic + "charnia";
-    public static final String blockCharniaTop = blockCharnia + ".top";
     public static final String itemSphenoFiber = mod + "sphenoFiber";
     public static final String itemBjuviaSeeds = mod + "bjuviaSeeds";
     // Crafting items
@@ -82,6 +81,7 @@ public final class Names {
     public static final String itemUtahraptorClaw = mod + "utahraptorClaw";
     public static final String itemUtahraptorFeather = mod + "utahraptorFeather";
     public static final String itemEpidexipteryxFeather = mod + "epidexipteryxFeather";
+    public static final String itemLiopleurodonTooth = mod + "liopleurodonTooth";
     public static final String itemCynognathusHide = mod + "cynognathusHide";
     public static final String itemLeaellynasauraHide = mod + "leaellynasauraHide";
     public static final String itemZircon = mod + "zircon";
@@ -127,8 +127,9 @@ public final class Names {
     // Creative Tabs
     public static final String tabBlock = mod + "tabBlock";
     public static final String tabDecorations = mod + "tabDecorations";
-    public static final String tabTools = mod + "tabTools";
+    public static final String tabMisc = mod + "tabMisc";
     public static final String tabFood = mod + "tabFood";
+    public static final String tabTools = mod + "tabTools";
     public static final String tabMaterials = mod + "tabMaterials";
     // ---- Items ----
     public static final String itemGraniteMaterial = "granite";
@@ -178,12 +179,15 @@ public final class Names {
 
         public static final String blockPlant = "plant";
         public static final String blockZingiberopsis = "zingiberopsis";
+        public static final String blockZingiberopsisTop = "zingiberopsis_top";
         public static final String blockSphenophyllum = "sphenophyllum";
+        public static final String blockSphenophyllumTop = "sphenophyllum_top";
         public static final String blockFern = "fern";
         public static final String blockFlower = "flower";
         public static final String blockCalamitesPlant = "calamites";
         public static final String blockCalamitesBlock = "calamites_block";
         public static final String blockAsteroxylon = "asteroxylon";
+        public static final String blockAsteroxylonTop = "asteroxylon_top";
 
         public static final String blockCoral = "coral";
         public static final String blockSponge = "sponge";
@@ -203,6 +207,7 @@ public final class Names {
         public static final String itemUtahraptorClaw = "utahraptor_claw";
         public static final String itemUtahraptorFeather = "utahraptor_feather";
         public static final String itemEpidexipteryxFeather = "epidexipteryx_feather";
+        public static final String itemLiopleurodonTooth = "liopleurodon_tooth";
         public static final String itemCynognathusHide = "cynognathus_hide";
         public static final String itemLeaellynasauraHide = "leaellynasaura_hide";
         public static final String itemZircon = "zircon";

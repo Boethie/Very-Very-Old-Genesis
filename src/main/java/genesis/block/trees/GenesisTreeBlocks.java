@@ -5,6 +5,7 @@ import genesis.block.BlockAndMeta;
 import genesis.block.plants.BlockGenesisFlowerPot;
 import genesis.item.itemblock.ItemBlockGenesisTree;
 import genesis.lib.Names;
+import genesis.lib.PlantMetadata;
 import genesis.world.gen.feature.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -129,24 +130,19 @@ public class GenesisTreeBlocks {
     }
 
     public enum TreeType {
-        ARCHAEOPTERIS("archaeopteris"),
-        SIGILLARIA("sigillaria"),
-        LEPIDODENDRON("lepidodendron"),
-        CORDAITES("cordaites"),
-        PSARONIUS("psaronius"),
-        BJUVIA("bjuvia"),
-        GLOSSOPTERIS("glossopteris"),
-        ARAUCARIOXYLON("araucarioxylon");
+        ARCHAEOPTERIS,
+        SIGILLARIA,
+        LEPIDODENDRON,
+        CORDAITES,
+        PSARONIUS,
+        BJUVIA,
+        GLOSSOPTERIS,
+        ARAUCARIOXYLON;
 
         public static final int GROUP_SIZE = 4;
 
-        private final String name;
         private int group;
         private int metadata;
-
-        TreeType(String treeName) {
-            name = treeName;
-        }
 
         protected static void init() {
             for (TreeType type : values()) {
@@ -161,7 +157,7 @@ public class GenesisTreeBlocks {
         }
 
         public String getName() {
-            return name;
+            return PlantMetadata.treeTypes.get(ordinal());
         }
 
         public int getGroup() {

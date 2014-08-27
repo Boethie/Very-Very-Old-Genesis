@@ -52,19 +52,15 @@ public class GenesisModBlocks {
     public static BlockGenesisOre malachite_ore;
     public static BlockGenesisOre olivine_ore;
 
-    // Fluid (Blocks)
-    public static BlockFluidBase komatiiticLava;
+    // Fluids
     public static Fluid fluidKomatiiticLava;
+    public static BlockFluidBase komatiiticLava;
 
     public static void initiate() {
         moss = new BlockMoss().setBlockTextureName("moss").setBlockName(Names.blockMoss);
-
         campfire = (BlockCampfire) new BlockCampfire().setBlockTextureName("campfire").setBlockName(Names.blockCampfire);
-
         polissoir = new BlockPolissoir().setBlockTextureName("stone").setBlockName(Names.blockPolissoir);
-
         tiki_torch = new BlockTikiTorch().setBlockTextureName("tiki_torch").setBlockName(Names.blockTikiTorch);
-
         portal = new BlockPortalGenesis().setBlockTextureName("genesis_portal").setBlockName(Names.blockPortal);
 
         // Rocks
@@ -80,9 +76,7 @@ public class GenesisModBlocks {
         limestone = new BlockGenesisRock(Material.rock, 0).setBlockTextureName("limestone").setBlockName(Names.blockLimestone).setHardness(0.75F).setResistance(8.5F);
         stromatolite = new BlockGenesisRock(Material.rock, 0).setBlockTextureName("stromatolite").setBlockName(Names.blockStromatolite).setHardness(0.75F).setResistance(8.5F);
         shale = new BlockGenesisRock(Material.rock, 0).setBlockTextureName("shale").setBlockName(Names.blockShale).setHardness(0.75F).setResistance(8.5F);
-
         octaedrite = new BlockGenesisRock(Material.rock, 0).setBlockTextureName("octaedrite_fragment").setBlockName(Names.blockOctaedrite).setHardness(1.0F).setResistance(10.0F);
-
         permafrost = new BlockPermafrost().setBlockTextureName("permafrost").setBlockName(Names.blockPermafrost);
 
         // Ores
@@ -94,7 +88,7 @@ public class GenesisModBlocks {
         malachite_ore = (BlockGenesisOre) new BlockGenesisOre(1, 2, 4).setBlockTextureName("malachite_ore").setBlockName(Names.blockMalachiteOre);
         olivine_ore = (BlockGenesisOre) new BlockGenesisOre(2, 1, 1).setBlockTextureName("olivine_ore").setBlockName(Names.blockOlivineOre);
 
-        // Fluid blocks
+        // Fluids
         fluidKomatiiticLava = new FluidKomatiiticLava(Names.fluidKomatiiticLava);
         komatiiticLava = (BlockFluidBase) new BlockKomatiiticLava(fluidKomatiiticLava, Material.lava).setBlockTextureName("komatiitic_lava").setBlockName(Names.blockKomatiiticLava);
 

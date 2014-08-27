@@ -20,12 +20,12 @@ public final class GenesisAquaticBlocks {
     public static BlockCharniaTop charnia_top;
 
     public static void initiate() {
+        algae = (BlockGenesisAlgae) new BlockGenesisAlgae().setBlockName(Names.blockAlgae);
         coral = (BlockGenesisCoral) new BlockGenesisCoral().setBlockName(Names.blockCoral);
         sponge = (BlockGenesisSponge) new BlockGenesisSponge().setBlockName(Names.blockSponge);
-        algae = (BlockGenesisAlgae) new BlockGenesisAlgae().setBlockName(Names.blockAlgae);
         pteridinium = (BlockPteridinium) new BlockPteridinium().setBlockName(Names.blockPteridinium).setBlockTextureName("pteridinium");
         charnia = (BlockCharnia) new BlockCharnia().setBlockName(Names.blockCharnia).setBlockTextureName("charnia_bottom");
-        charnia_top = (BlockCharniaTop) new BlockCharniaTop().setBlockName(Names.blockCharniaTop).setBlockTextureName("charnia_top");
+        charnia_top = (BlockCharniaTop) new BlockCharniaTop().setBlockName(Names.blockCharnia).setBlockTextureName("charnia_top");
     }
 
     public static void registerBlocks() {

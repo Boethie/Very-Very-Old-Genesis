@@ -28,7 +28,7 @@ public class BlockMoss extends BlockGrass {
 
     public BlockMoss() {
         super();
-        setCreativeTab(GenesisTabs.tabGenesis);
+        setCreativeTab(GenesisTabs.tabGenesisBlock);
         setHardness(0.6F);
         setStepSound(GenesisSounds.soundTypeMoss);
         setHarvestLevel("shovel", 0);

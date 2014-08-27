@@ -26,9 +26,6 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowabl
 
     public BlockSphenophyllumBase() {
         super(GenesisModItems.sphenophyllum_spores, GenesisModItems.sphenophyllum_fiber, Blocks.dirt, 8, 2);
-        disableStats();
-        setTickRandomly(true);
-        setCreativeTab(null);
     }
 
     @Override

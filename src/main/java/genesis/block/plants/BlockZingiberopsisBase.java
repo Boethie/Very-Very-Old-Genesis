@@ -25,9 +25,6 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
 
     public BlockZingiberopsisBase() {
         super(GenesisModItems.rhizome, GenesisModItems.rhizome, Blocks.farmland, 8, 4);
-        disableStats();
-        setTickRandomly(true);
-        setCreativeTab(null);
     }
 
     @Override
