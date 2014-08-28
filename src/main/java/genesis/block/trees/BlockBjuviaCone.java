@@ -20,7 +20,7 @@ public class BlockBjuviaCone extends BlockGenesis {
         setHardness(0.2F);
         setResistance(5.0F);
         setStepSound(soundTypeWood);
-        setCreativeTab(GenesisTabs.tabGenesisDecoration);
+        setCreativeTab(null);
         setTickRandomly(true);
     }
 

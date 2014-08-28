@@ -21,7 +21,7 @@ public class GenesisTreeBlocks {
     public static Block[] saplings;
     public static Block[] leaves;
     public static Block[] rotten_logs;
-    public static BlockBjuviaCone bjuvia_cone;
+    public static Block bjuvia_cone;
     private static int numGroups;
     private static ArrayList<WorldGenTreeBase> treeGenerators;
 
@@ -34,7 +34,7 @@ public class GenesisTreeBlocks {
         saplings = new Block[numGroups];
         leaves = new Block[numGroups];
         rotten_logs = new Block[numGroups];
-        bjuvia_cone = (BlockBjuviaCone) new BlockBjuviaCone().setBlockName(Names.blockBjuviaCone).setBlockTextureName("bjuvia_cone");
+        bjuvia_cone = new BlockBjuviaCone().setBlockName(Names.blockBjuviaCone).setBlockTextureName("bjuvia_cone");
 
         for (int group = 0; group < numGroups; group++) {
             logs[group] = new BlockGenesisLog(group).setBlockName(Names.blockLogGenesis);

@@ -94,7 +94,7 @@ public class Recipes {
         GenesisModItems.limestone_tools.registerRecipes(GenesisModBlocks.limestone, Items.stick);
         GenesisModItems.brownish_flint_tools.registerRecipes(GenesisModItems.brownish_flint_pebble, Items.stick);
 
-        adaptNetherQuartzRecipes();
+        //adaptNetherQuartzRecipes();
 
         //add red die functionality into Hematite
         for (int i = 0; i < Recipes.DYE_ITEMS.length; i++) {
@@ -127,7 +127,7 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(GenesisModBlocks.polissoir), "XXX", "XXX", 'X', GenesisModBlocks.granite);
         GameRegistry.addRecipe(new ItemStack(GenesisModBlocks.tiki_torch, 2), "c", "|", "|", 'c', new ItemStack(Items.coal, 0, OreDictionary.WILDCARD_VALUE), '|', GenesisPlantBlocks.calamites);
 
-        GameRegistry.addSmelting(GenesisModItems.quartz, new ItemStack(GenesisModBlocks.granite_quartz_ore), 0.2F);
+        //GameRegistry.addSmelting(GenesisModItems.quartz, new ItemStack(GenesisModBlocks.granite_quartz_ore), 0.2F);
         GameRegistry.addSmelting(GenesisModItems.zircon, new ItemStack(GenesisModBlocks.zircon_ore), 1.0F);
         GameRegistry.addSmelting(GenesisModItems.garnet, new ItemStack(GenesisModBlocks.garnet_ore), 1.0F);
         GameRegistry.addSmelting(GenesisModItems.malachite, new ItemStack(GenesisModBlocks.malachite_ore), 0.2F);

@@ -62,7 +62,7 @@ public class GenesisModItems {
     public static Item rhizome;
 
     // Buckets
-    public static ItemGenesisBucket komatiitic_lava_bucket;
+    public static Item komatiitic_lava_bucket;
 
     public static void initiate() {
         // Tools

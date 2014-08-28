@@ -6,26 +6,27 @@ import genesis.item.itemblock.ItemBlockGenesisAlgae;
 import genesis.item.itemblock.ItemBlockGenesisCoral;
 import genesis.item.itemblock.ItemBlockGenesisSponge;
 import genesis.lib.Names;
+import net.minecraft.block.Block;
 
 /**
  * @author Arbiter
  */
 public final class GenesisAquaticBlocks {
-    public static BlockGenesisAlgae algae;
-    public static BlockGenesisCoral coral;
-    public static BlockGenesisSponge sponge;
-    public static BlockPteridinium pteridinium;
+    public static Block algae;
+    public static Block coral;
+    public static Block sponge;
+    public static Block pteridinium;
 
-    public static BlockCharnia charnia;
-    public static BlockCharniaTop charnia_top;
+    public static Block charnia;
+    public static Block charnia_top;
 
     public static void initiate() {
-        algae = (BlockGenesisAlgae) new BlockGenesisAlgae().setBlockName(Names.blockAlgae);
-        coral = (BlockGenesisCoral) new BlockGenesisCoral().setBlockName(Names.blockCoral);
-        sponge = (BlockGenesisSponge) new BlockGenesisSponge().setBlockName(Names.blockSponge);
-        pteridinium = (BlockPteridinium) new BlockPteridinium().setBlockName(Names.blockPteridinium).setBlockTextureName("pteridinium");
-        charnia = (BlockCharnia) new BlockCharnia().setBlockName(Names.blockCharnia).setBlockTextureName("charnia_bottom");
-        charnia_top = (BlockCharniaTop) new BlockCharniaTop().setBlockName(Names.blockCharnia).setBlockTextureName("charnia_top");
+        algae = new BlockGenesisAlgae().setBlockName(Names.blockAlgae);
+        coral = new BlockGenesisCoral().setBlockName(Names.blockCoral);
+        sponge = new BlockGenesisSponge().setBlockName(Names.blockSponge);
+        pteridinium = new BlockPteridinium().setBlockName(Names.blockPteridinium).setBlockTextureName("pteridinium");
+        charnia = new BlockCharnia().setBlockName(Names.blockCharnia).setBlockTextureName("charnia_bottom");
+        charnia_top = new BlockCharniaTop().setBlockName(Names.blockCharnia).setBlockTextureName("charnia_top");
     }
 
     public static void registerBlocks() {

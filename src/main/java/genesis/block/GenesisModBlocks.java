@@ -54,7 +54,7 @@ public class GenesisModBlocks {
 
     // Fluids
     public static Fluid fluidKomatiiticLava;
-    public static BlockFluidBase komatiiticLava;
+    public static Block komatiiticLava;
 
     public static void initiate() {
         moss = new BlockMoss().setBlockTextureName("moss").setBlockName(Names.blockMoss);
@@ -90,7 +90,7 @@ public class GenesisModBlocks {
 
         // Fluids
         fluidKomatiiticLava = new FluidKomatiiticLava(Names.fluidKomatiiticLava);
-        komatiiticLava = (BlockFluidBase) new BlockKomatiiticLava(fluidKomatiiticLava, Material.lava).setBlockTextureName("komatiitic_lava").setBlockName(Names.blockKomatiiticLava);
+        komatiiticLava = new BlockKomatiiticLava(fluidKomatiiticLava, Material.lava).setBlockTextureName("komatiitic_lava").setBlockName(Names.blockKomatiiticLava);
 
         GenesisTreeBlocks.initiate();
         GenesisPlantBlocks.initiate();

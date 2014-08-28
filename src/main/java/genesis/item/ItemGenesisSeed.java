@@ -4,6 +4,7 @@ import genesis.block.plants.BlockGenesisCrop;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
@@ -15,23 +16,23 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class ItemGenesisSeed extends ItemFood implements IPlantable {
-    protected BlockGenesisCrop cropBlock;
+    protected BlockCrops cropBlock;
     protected boolean isEdible;
     protected boolean isFarmlandCrop;
 
-    public ItemGenesisSeed(BlockGenesisCrop cropBlock, boolean farmlandCrop, int healAmmount, float saturationModifier) {
+    public ItemGenesisSeed(BlockCrops cropBlock, boolean farmlandCrop, int healAmmount, float saturationModifier) {
         this(cropBlock, farmlandCrop, healAmmount, saturationModifier, true);
     }
 
     /**
      * Not edible version
      */
-    public ItemGenesisSeed(BlockGenesisCrop blockCrop, boolean farmlandCrop) {
+    public ItemGenesisSeed(BlockCrops blockCrop, boolean farmlandCrop) {
         this(blockCrop, farmlandCrop, 0, 0, false);
         setCreativeTab(GenesisTabs.tabGenesisMaterials);
     }
 
-    public ItemGenesisSeed(BlockGenesisCrop blockCrop, boolean farmlandCrop, int healAmount, float saturationModifier, boolean edible) {
+    public ItemGenesisSeed(BlockCrops blockCrop, boolean farmlandCrop, int healAmount, float saturationModifier, boolean edible) {
         super(healAmount, saturationModifier, false);
         cropBlock = blockCrop;
         isFarmlandCrop = farmlandCrop;
