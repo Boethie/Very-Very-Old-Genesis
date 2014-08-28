@@ -22,6 +22,7 @@ public class BlockBjuviaCone extends BlockGenesis {
         setStepSound(soundTypeWood);
         setCreativeTab(null);
         setTickRandomly(true);
+        setBlockBounds(0.3f, 0.0f, 0.3f, 0.7f, 0.8f, 0.7f);
     }
 
     @Override

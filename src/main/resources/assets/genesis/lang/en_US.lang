@@ -75,6 +75,21 @@ tile.genesis.leaves.araucarioxylon.name=Araucarioxylon Leaves
 tile.genesis.sapling.araucarioxylon.name=Araucarioxylon Sapling
 tile.genesis.logRotten.araucarioxylon.name=Rotten Araucarioxylon Wood
 
+tile.genesis.log.voltzia.name=Voltzia Wood
+tile.genesis.leaves.voltzia.name=Voltzia Leaves
+tile.genesis.sapling.voltzia.name=Voltzia Sapling
+tile.genesis.logRotten.voltzia.name=Rotten Voltzia Wood
+
+tile.genesis.log.dryophyllum.name=Dryophyllum Wood
+tile.genesis.leaves.dryophyllum.name=Dryophyllum Leaves
+tile.genesis.sapling.dryophyllum.name=Dryophyllum Sapling
+tile.genesis.logRotten.dryophyllum.name=Rotten Dryophyllum Wood
+
+tile.genesis.log.credneria.name=Credneria Wood
+tile.genesis.leaves.credneria.name=Credneria Leaves
+tile.genesis.sapling.credneria.name=Credneria Sapling
+tile.genesis.logRotten.credneria.name=Rotten Credneria Wood
+
 # Plants
 tile.genesis.plant.calamites.name=Calamites
 tile.storage.genesis.plant.calamites.name=Block of Calamites

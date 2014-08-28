@@ -26,8 +26,9 @@ public final class PlantMetadata {
     public static final String MARGAR_NAME = "margaretia", BANGI_NAME = "bangiomorpha", DINOM_NAME = "dinomischus", THAUM_NAME = "thaumaptilon";
     public static final List<String> algaeTypes = Arrays.asList(MARGAR_NAME, BANGI_NAME, DINOM_NAME, THAUM_NAME);
 
-    public static final String ARCH_NAME = "archaeopteris", SIGIL_NAME = "sigillaria", LEPID_NAME = "lepidodendron", CORD_NAME = "cordaites", PSAR_NAME = "psaronius", BJUVIA_NAME = "bjuvia", GLOSSO_NAME = "glossopteris", ARAUC_NAME = "araucarioxylon";
-    public static final List<String> treeTypes = Arrays.asList(ARCH_NAME, SIGIL_NAME, LEPID_NAME, CORD_NAME, PSAR_NAME, BJUVIA_NAME, GLOSSO_NAME, ARAUC_NAME);
+    public static final String ARCH_NAME = "archaeopteris", SIGIL_NAME = "sigillaria", LEPID_NAME = "lepidodendron", CORD_NAME = "cordaites", PSAR_NAME = "psaronius", BJUVIA_NAME = "bjuvia", GLOSSO_NAME = "glossopteris", ARAUC_NAME = "araucarioxylon",
+    		VOLTZ_NAME = "voltzia", DRYOP_NAME = "dryophyllum", CRED_NAME = "credneria";
+    public static final List<String> treeTypes = Arrays.asList(ARCH_NAME, SIGIL_NAME, LEPID_NAME, CORD_NAME, PSAR_NAME, BJUVIA_NAME, GLOSSO_NAME, ARAUC_NAME, VOLTZ_NAME, DRYOP_NAME, CRED_NAME);
 
     public static final String MABELIA_NAME = "mabelia";
     public static final List<String> flowerTypes = Arrays.asList(MABELIA_NAME);

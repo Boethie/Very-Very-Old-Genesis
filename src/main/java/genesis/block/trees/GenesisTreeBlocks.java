@@ -137,7 +137,10 @@ public class GenesisTreeBlocks {
         PSARONIUS,
         BJUVIA,
         GLOSSOPTERIS,
-        ARAUCARIOXYLON;
+        ARAUCARIOXYLON,
+        VOLTZIA,
+        DRYOPHYLLUM,
+        CREDNERIA;
 
         public static final int GROUP_SIZE = 4;
 
