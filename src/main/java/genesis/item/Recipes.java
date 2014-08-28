@@ -25,66 +25,6 @@ public class Recipes {
     //Items/blocks working as dye
     public static final Object[] DYE_ITEMS = new Object[]{GenesisModItems.manganese, GenesisModItems.hematite, GenesisModItems.malachite};
 
-    @SuppressWarnings("unchecked")
-    public static void adaptNetherQuartzRecipes() {
-        List<IRecipe> recipeList = CraftingManager.getInstance().getRecipeList();
-        ArrayList<IRecipe> addRecipes = new ArrayList();
-
-        for (IRecipe recipe : recipeList) {
-            IRecipe cloned = null;
-
-            if (recipe instanceof ShapedRecipes) {
-                ShapedRecipes shaped = (ShapedRecipes) recipe;
-                ItemStack[] items = new ItemStack[shaped.recipeItems.length];
-
-                boolean replacedNetherQuartz = false;
-
-                for (int i = 0; i < shaped.recipeItems.length; i++) {
-                    ItemStack stack = shaped.recipeItems[i];
-
-                    if (stack != null) {
-                        if (stack.getItem() == Items.quartz) {
-                            items[i] = new ItemStack(GenesisModItems.quartz);
-                            replacedNetherQuartz = true;
-                        } else {
-                            items[i] = stack.copy();
-                        }
-                    }
-                }
-
-                if (replacedNetherQuartz) {
-                    cloned = new ShapedRecipes(shaped.recipeWidth, shaped.recipeHeight, items, shaped.getRecipeOutput().copy());
-                }
-            } else if (recipe instanceof ShapelessRecipes) {
-                ShapelessRecipes shapeless = (ShapelessRecipes) recipe;
-
-                boolean replacedNetherQuartz = false;
-                ArrayList<ItemStack> itemList = new ArrayList();
-
-                for (ItemStack stack : (List<ItemStack>) shapeless.recipeItems) {
-                    if (stack.getItem() == Items.quartz) {
-                        itemList.add(new ItemStack(GenesisModItems.quartz));
-                        replacedNetherQuartz = true;
-                    } else {
-                        itemList.add(stack.copy());
-                    }
-                }
-
-                if (replacedNetherQuartz) {
-                    cloned = new ShapelessRecipes(shapeless.getRecipeOutput().copy(), itemList);
-                }
-            }
-
-            if (cloned != null) {
-                addRecipes.add(cloned);
-            }
-        }
-
-        for (IRecipe recipe : addRecipes) {
-            recipeList.add(recipe);
-        }
-    }
-
     public static void registerRecipes() {
         LogHelper.log(Level.INFO, "Registering recipes.");
 
@@ -93,8 +33,6 @@ public class Recipes {
         GenesisModItems.quartzite_tools.registerRecipes(GenesisModBlocks.quartzite, Items.stick);
         GenesisModItems.limestone_tools.registerRecipes(GenesisModBlocks.limestone, Items.stick);
         GenesisModItems.brownish_flint_tools.registerRecipes(GenesisModItems.brownish_flint_pebble, Items.stick);
-
-        //adaptNetherQuartzRecipes();
 
         //add red die functionality into Hematite
         for (int i = 0; i < Recipes.DYE_ITEMS.length; i++) {
@@ -127,7 +65,7 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(GenesisModBlocks.polissoir), "XXX", "XXX", 'X', GenesisModBlocks.granite);
         GameRegistry.addRecipe(new ItemStack(GenesisModBlocks.tiki_torch, 2), "c", "|", "|", 'c', new ItemStack(Items.coal, 0, OreDictionary.WILDCARD_VALUE), '|', GenesisPlantBlocks.calamites);
 
-        //GameRegistry.addSmelting(GenesisModItems.quartz, new ItemStack(GenesisModBlocks.granite_quartz_ore), 0.2F);
+        GameRegistry.addSmelting(GenesisModItems.quartz, new ItemStack(GenesisModBlocks.granite_quartz_ore), 0.2F);
         GameRegistry.addSmelting(GenesisModItems.zircon, new ItemStack(GenesisModBlocks.zircon_ore), 1.0F);
         GameRegistry.addSmelting(GenesisModItems.garnet, new ItemStack(GenesisModBlocks.garnet_ore), 1.0F);
         GameRegistry.addSmelting(GenesisModItems.malachite, new ItemStack(GenesisModBlocks.malachite_ore), 0.2F);

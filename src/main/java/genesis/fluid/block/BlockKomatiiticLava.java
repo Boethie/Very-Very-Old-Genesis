@@ -40,7 +40,6 @@ public class BlockKomatiiticLava extends BlockFluidClassic {
      */
     public BlockKomatiiticLava(Fluid fluid, Material material) {
         super(fluid, material);
-        setCreativeTab(GenesisTabs.tabGenesisMisc);
         disableStats();
         setLightLevel(1.0F);
         setTickRandomly(true);
