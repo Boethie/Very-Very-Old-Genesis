@@ -17,15 +17,17 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.ArrayList;
 
 public class GenesisTreeBlocks {
+    public static Block bjuvia_cone;
     public static Block[] logs;
     public static Block[] saplings;
     public static Block[] leaves;
     public static Block[] rotten_logs;
-    public static Block bjuvia_cone;
     private static int numGroups;
     private static ArrayList<WorldGenTreeBase> treeGenerators;
 
     public static void initiate() {
+        bjuvia_cone = new BlockBjuviaCone().setBlockName(Names.blockBjuviaCone).setBlockTextureName("bjuvia_cone");
+
         numGroups = TreeType.getNumGroups();
 
         treeGenerators = new ArrayList<WorldGenTreeBase>(numGroups);
@@ -34,7 +36,6 @@ public class GenesisTreeBlocks {
         saplings = new Block[numGroups];
         leaves = new Block[numGroups];
         rotten_logs = new Block[numGroups];
-        bjuvia_cone = new BlockBjuviaCone().setBlockName(Names.blockBjuviaCone).setBlockTextureName("bjuvia_cone");
 
         for (int group = 0; group < numGroups; group++) {
             logs[group] = new BlockGenesisLog(group).setBlockName(Names.blockLogGenesis);
@@ -45,22 +46,28 @@ public class GenesisTreeBlocks {
     }
 
     public static void registerBlocks() {
+        GameRegistry.registerBlock(bjuvia_cone, Names.Registry.blockBjuviaCone);
+
         for (int group = 0; group < numGroups; group++) {
             GameRegistry.registerBlock(logs[group], ItemBlockGenesisTree.class, Names.Registry.blockLogGenesis + group);
-            GameRegistry.registerBlock(saplings[group], ItemBlockGenesisTree.class, Names.Registry.blockSaplingGenesis + group);
-            GameRegistry.registerBlock(leaves[group], ItemBlockGenesisTree.class, Names.Registry.blockLeavesGenesis + group);
-            GameRegistry.registerBlock(rotten_logs[group], ItemBlockGenesisTree.class, Names.Registry.blockRottenLogGenesis + group);
 
             GameRegistry.addSmelting(logs[group], new ItemStack(Items.coal, 1, 1), 0.15F);
 
             OreDictionary.registerOre("logWood", new ItemStack(logs[group], 1, OreDictionary.WILDCARD_VALUE));
         }
+        for (int group = 0; group < numGroups; group++) {
+            GameRegistry.registerBlock(saplings[group], ItemBlockGenesisTree.class, Names.Registry.blockSaplingGenesis + group);
+        }
+        for (int group = 0; group < numGroups; group++) {
+            GameRegistry.registerBlock(leaves[group], ItemBlockGenesisTree.class, Names.Registry.blockLeavesGenesis + group);
+        }
+        for (int group = 0; group < numGroups; group++) {
+            GameRegistry.registerBlock(rotten_logs[group], ItemBlockGenesisTree.class, Names.Registry.blockRottenLogGenesis + group);
+        }
 
         for (TreeType type : TreeType.values()) {
             BlockGenesisFlowerPot.tryRegisterPlant(new ItemStack(saplings[type.getGroup()], 1, type.getMetadata()));
         }
-
-        GameRegistry.registerBlock(bjuvia_cone, Names.Registry.blockBjuviaCone);
 
         treeGenerators.add(null); // there are no world gens for the archeopteris, bjuvia, etc. yet, so it is set to null
         treeGenerators.add(new WorldGenTreeSigillaria(8, 3, true));

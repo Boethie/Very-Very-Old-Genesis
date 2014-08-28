@@ -5,6 +5,7 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
+import genesis.block.GenesisModBlocks;
 import genesis.block.gui.TileEntityCampfire;
 import genesis.block.gui.TileEntityPolissoir;
 import genesis.client.model.ModelEryops;
@@ -14,7 +15,9 @@ import genesis.common.CommonProxy;
 import genesis.common.Genesis;
 import genesis.entity.EntityEryops;
 import net.minecraft.client.audio.PositionedSoundRecord;
+import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy extends CommonProxy {
@@ -38,6 +41,8 @@ public class ClientProxy extends CommonProxy {
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCampfire.class, new TileEntityCampfireRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPolissoir.class, new TileEntityPolissoirRenderer());
+
+        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(GenesisModBlocks.polissoir), new ItemPolissoirRender());
     }
 
     @Override

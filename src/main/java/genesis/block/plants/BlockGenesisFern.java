@@ -104,16 +104,12 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
         return blockIcons[par2];
     }
 
-    protected void dropIfCannotStay(World world, int x, int y, int z) {
+    /*@Override
+    protected void checkAndDropBlock(World world, int x, int y, int z) {
         if (!canBlockStay(world, x, y, z)) {
             world.setBlockToAir(x, y, z);
         }
-    }
-
-    @Override
-    public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-        dropIfCannotStay(world, x, y, z);
-    }
+    }*/
 
     @Override
     public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z) {

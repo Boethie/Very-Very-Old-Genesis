@@ -53,11 +53,14 @@ public class BlockBjuviaCone extends BlockGenesis {
     @Override
     public void updateTick(World world, int x, int y, int z, Random random) {
         if (random.nextInt(10) == 0 && canBlockStay(world, x, y, z)) {
+            int oldMeta =  world.getBlockMetadata(x, y, z);
             int newMeta = world.getBlockMetadata(x, y, z) + 1;
             if (newMeta > 2) {
                 newMeta = 2;
             }
-            world.setBlockMetadataWithNotify(x, y, z, newMeta, 2);
+            if (oldMeta != newMeta) {
+                world.setBlockMetadataWithNotify(x, y, z, newMeta, 2);
+            }
         }
     }
 
@@ -69,14 +72,8 @@ public class BlockBjuviaCone extends BlockGenesis {
         }
     }
 
-    /*@Override
-    public boolean canBlockStay(World world, int x, int y, int z)
-    {
-        Block b = world.getBlock(x, y - 1, z);
-        if (b != null)
-        {
-            return b == TreeBlocks.blocksLogs[0];
-        }
-        return false;
-    }*/
+    @Override
+    public boolean canBlockStay(World world, int x, int y, int z) {
+        return !world.isAirBlock(x, y - 1, z) && world.getBlock(x, y, z) == GenesisTreeBlocks.logs[GenesisTreeBlocks.TreeType.BJUVIA.getGroup()];
+    }
 }

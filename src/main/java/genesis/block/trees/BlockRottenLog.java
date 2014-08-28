@@ -18,7 +18,6 @@ public class BlockRottenLog extends BlockGenesisLog {
 
     public BlockRottenLog(int group) {
         super(group);
-        setCreativeTab(GenesisTabs.tabGenesisDecoration);
         setStepSound(GenesisSounds.soundTypeRottenLog);
     }
 
