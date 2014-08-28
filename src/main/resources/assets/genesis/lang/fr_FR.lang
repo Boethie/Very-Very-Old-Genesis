@@ -34,6 +34,11 @@ fluid.genesis.komatiiticLava=Lave komatiitic
 tile.genesis.komatiiticLavaBlock.name=Lave komatiitic
 
 # Trees
+tile.genesis.log.archaeopteris.name=Bois d'Archaeopteris
+tile.genesis.leaves.archaeopteris.name=Feuilles d'Archaeopteris
+tile.genesis.sapling.archaeopteris.name=Pousse d'Archaeopteris
+tile.genesis.logRotten.archaeopteris.name=Bois pourri d'Archaeopteris
+
 tile.genesis.log.sigillaria.name=Bois de Sigillaria
 tile.genesis.leaves.sigillaria.name=Feuilles de Sigillaria
 tile.genesis.sapling.sigillaria.name=Pousse de Sigillaria
@@ -49,20 +54,10 @@ tile.genesis.leaves.cordaites.name=Feuilles de Cordaites
 tile.genesis.sapling.cordaites.name=Pousse de Cordaites
 tile.genesis.logRotten.cordaites.name=Bois pourri de Cordaites
 
-tile.genesis.log.araucarioxylon.name=Bois d'Araucarioxylon
-tile.genesis.leaves.araucarioxylon.name=Feuilles d'Araucarioxylon
-tile.genesis.sapling.araucarioxylon.name=Pousse d'Araucarioxylon
-tile.genesis.logRotten.araucarioxylon.name=Bois pourri d'Araucarioxylon
-
 tile.genesis.log.psaronius.name=Bois de Psaronius
 tile.genesis.leaves.psaronius.name=Feuilles de Pecopteris
 tile.genesis.sapling.psaronius.name=Pousse de Psaronius
 tile.genesis.logRotten.psaronius.name=Bois pourri de Psaronius
-
-tile.genesis.log.archaeopteris.name=Bois d'Archaeopteris
-tile.genesis.leaves.archaeopteris.name=Feuilles d'Archaeopteris
-tile.genesis.sapling.archaeopteris.name=Pousse d'Archaeopteris
-tile.genesis.logRotten.archaeopteris.name=Bois pourri d'Archaeopteris
 
 tile.genesis.log.bjuvia.name=Bois de Bjuvia
 tile.genesis.leaves.bjuvia.name=Feuilles de Bjuvia
@@ -74,6 +69,26 @@ tile.genesis.log.glossopteris.name=Bois de Glossopteris
 tile.genesis.leaves.glossopteris.name=Feuilles de Glossopteris
 tile.genesis.sapling.glossopteris.name=Pousse de Glossopteris
 tile.genesis.logRotten.glossopteris.name=Bois pourri de Glossopteris
+
+tile.genesis.log.araucarioxylon.name=Bois d'Araucarioxylon
+tile.genesis.leaves.araucarioxylon.name=Feuilles d'Araucarioxylon
+tile.genesis.sapling.araucarioxylon.name=Pousse d'Araucarioxylon
+tile.genesis.logRotten.araucarioxylon.name=Bois pourri d'Araucarioxylon
+
+tile.genesis.log.voltzia.name=Bois de Voltzia
+tile.genesis.leaves.voltzia.name=Feuilles de Voltzia
+tile.genesis.sapling.voltzia.name=Pousse de Voltzia
+tile.genesis.logRotten.voltzia.name=Bois pourri de Voltzia
+
+tile.genesis.log.dryophyllum.name=Bois de Dryophyllum
+tile.genesis.leaves.dryophyllum.name=Feuilles de Dryophyllum
+tile.genesis.sapling.dryophyllum.name=Pousse de Dryophyllum
+tile.genesis.logRotten.dryophyllum.name=Bois pourri de Dryophyllum
+
+tile.genesis.log.credneria.name=Bois de Credneria
+tile.genesis.leaves.credneria.name=Feuilles de Credneria
+tile.genesis.sapling.credneria.name=Pousse de Credneria
+tile.genesis.logRotten.credneria.name=Bois pourri de Credneria
 
 # Plants
 tile.genesis.plant.calamites.name=Calamites
