@@ -147,6 +147,7 @@ item.genesis.malachite.name=Malachite
 item.genesis.olivine.name=Olivine
 
 # Plants
+item.genesis.araucarioxylonSeeds.name=Araucarioxylon Seeds
 item.genesis.plant.seed.sphenophyllumSpores.name=Sphenophyllum Spores
 item.genesis.sphenoFiber.name=Sphenophyllum Fiber
 item.genesis.bjuviaSeeds.name=Bjuvia Seeds
@@ -155,6 +156,7 @@ item.genesis.bjuviaSeeds.name=Bjuvia Seeds
 item.genesis.arthropleuraChitin.name=Arthropleura Chitin
 item.genesis.cynognathusHide.name=Cynognathus Hide
 item.genesis.ceratitesShell.name=Ceratites Shell
+item.genesis.megateuthisRostrum.name=Megateuthis Rostrum
 item.genesis.epidexipteryxFeather.name=Epidexipteryx Feather
 item.genesis.liopleurodonTooth.name=Liopleurodon Tooth
 item.genesis.utahraptorClaw.name=Utahraptor Claw

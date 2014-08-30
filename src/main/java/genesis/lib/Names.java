@@ -61,10 +61,7 @@ public final class Names {
     public static final String blockFlower = blockPlant + "flower.";
     public static final String blockCalamitesPlant = blockPlant + "calamites";
     public static final String blockAsteroxylon = blockPlant + "asteroxylon";
-    // Plants
-    public static final String itemSeed = blockPlant + "seed.";
-    public static final String itemRhizome = itemSeed + "rhizome";
-    public static final String itemSphenoSpores = itemSeed + "sphenophyllumSpores";
+
     // Aquatic
     public static final String blockAquatic = mod + "aquatic.";
     public static final String blockCoral = blockAquatic + "coral.";
@@ -72,6 +69,18 @@ public final class Names {
     public static final String blockAlgae = blockAquatic + "algae.";
     public static final String blockPteridinium = blockAquatic + "pteridinium";
     public static final String blockCharnia = blockAquatic + "charnia";
+
+    // ---- Items ----
+    public static final String itemGraniteMaterial = "granite";
+    public static final String itemRhyoliteMaterial = "rhyolite";
+    public static final String itemQuartziteMaterial = "quartzite";
+    public static final String itemLimestoneMaterial = "limestone";
+    public static final String itemBrownishFlintMaterial = "brownish_flint";
+    // Plants
+    public static final String itemSeed = blockPlant + "seed.";
+    public static final String itemRhizome = itemSeed + "rhizome";
+    public static final String itemAraucarioxylonSeeds = mod + "araucarioxylonSeeds";
+    public static final String itemSphenoSpores = itemSeed + "sphenophyllumSpores";
     public static final String itemSphenoFiber = mod + "sphenoFiber";
     public static final String itemBjuviaSeeds = mod + "bjuviaSeeds";
     // Crafting items
@@ -80,6 +89,7 @@ public final class Names {
     public static final String itemTyrannosaurasTooth = mod + "tyrannosaurusTooth";
     public static final String itemUtahraptorClaw = mod + "utahraptorClaw";
     public static final String itemUtahraptorFeather = mod + "utahraptorFeather";
+    public static final String itemMegateuthisRostrum = mod + "megateuthisRostrum";
     public static final String itemEpidexipteryxFeather = mod + "epidexipteryxFeather";
     public static final String itemLiopleurodonTooth = mod + "liopleurodonTooth";
     public static final String itemCynognathusHide = mod + "cynognathusHide";
@@ -115,11 +125,11 @@ public final class Names {
     public static final String itemCookedClimatius = itemFood + "cookedClimatius";
     public static final String itemRawTyrannosaurus = itemFood + "rawTyrannosaurus";
     public static final String itemCookedTyrannosaurus = itemFood + "cookedTyrannosaurus";
+    // --- Other ---
     // Fluids
     public static final String fluidKomatiiticLava = mod + "komatiiticLava";
     public static final String blockKomatiiticLava = mod + "komatiiticLavaBlock";
     public static final String bucketKomatiiticLava = mod + "komatiiticLavaBucket";
-    // --- Other ---
     // Containers
     public static final String container = "container." + mod;
     public static final String containerCampfire = container + "campfire";
@@ -131,12 +141,6 @@ public final class Names {
     public static final String tabFood = mod + "tabFood";
     public static final String tabTools = mod + "tabTools";
     public static final String tabMaterials = mod + "tabMaterials";
-    // ---- Items ----
-    public static final String itemGraniteMaterial = "granite";
-    public static final String itemRhyoliteMaterial = "rhyolite";
-    public static final String itemQuartziteMaterial = "quartzite";
-    public static final String itemLimestoneMaterial = "limestone";
-    public static final String itemBrownishFlintMaterial = "brownish_flint";
 
     // --- Registry Names (i.e. GameRegistry) ---
     public static final class Registry {
@@ -197,6 +201,7 @@ public final class Names {
         public static final String blockCharniaTop = "charnia_top";
 
         public static final String itemRhizome = "rhizome";
+        public static final String itemAraucarioxylonSeeds = "araucarioxylon_seeds";
         public static final String itemSphenoSpores = "sphenophyllum_spores";
         public static final String itemSphenoFiber = "sphenophyllum_fiber";
         public static final String itemBjuviaSeeds = "bjuvia_seeds";
@@ -206,6 +211,7 @@ public final class Names {
         public static final String itemTyrannosaurasTooth = "tyrannosaurus_tooth";
         public static final String itemUtahraptorClaw = "utahraptor_claw";
         public static final String itemUtahraptorFeather = "utahraptor_feather";
+        public static final String itemMegateuthisRostrum = "megateuthis_rostrum";
         public static final String itemEpidexipteryxFeather = "epidexipteryx_feather";
         public static final String itemLiopleurodonTooth = "liopleurodon_tooth";
         public static final String itemCynognathusHide = "cynognathus_hide";

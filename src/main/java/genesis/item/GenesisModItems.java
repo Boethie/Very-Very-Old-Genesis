@@ -3,6 +3,7 @@ package genesis.item;
 import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.block.GenesisModBlocks;
 import genesis.block.plants.GenesisPlantBlocks;
+import genesis.common.GenesisTabs;
 import genesis.fluid.BucketHandler;
 import genesis.fluid.item.ItemGenesisBucket;
 import genesis.lib.Names;
@@ -27,6 +28,7 @@ public class GenesisModItems {
     public static Item olivine;
 
     // Plants
+    public static Item araucarioxylon_seeds;
     public static Item sphenophyllum_spores;
     public static Item sphenophyllum_fiber;
     public static Item bjuvia_seeds;
@@ -35,6 +37,7 @@ public class GenesisModItems {
     public static Item arthropleura_chitin;
     public static Item cynognathus_hide;
     public static Item ceratites_shell;
+    public static Item megateuthis_rostrum;
     public static Item epidexipteryx_feather;
     public static Item liopleurodon_tooth;
     public static Item utahraptor_claw;
@@ -87,6 +90,7 @@ public class GenesisModItems {
         olivine = new ItemGenesis().setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");
 
         // Plants
+        araucarioxylon_seeds = new ItemGenesisFood(1, 0.6F).setCreativeTab(GenesisTabs.tabGenesisMaterials).setUnlocalizedName(Names.itemAraucarioxylonSeeds).setTextureName("seeds_araucarioxylon");
         sphenophyllum_spores = new ItemGenesisSeed(GenesisPlantBlocks.sphenophyllum, false).setUnlocalizedName(Names.itemSphenoSpores).setTextureName("sphenophyllum_spores");
         sphenophyllum_fiber = new ItemGenesis().setUnlocalizedName(Names.itemSphenoFiber).setTextureName("sphenophyllum_fiber");
         bjuvia_seeds = new ItemGenesis().setUnlocalizedName(Names.itemBjuviaSeeds).setTextureName("seeds_bjuvia");
@@ -95,6 +99,7 @@ public class GenesisModItems {
         arthropleura_chitin = new ItemGenesis().setUnlocalizedName(Names.itemArthopleuraChitin).setTextureName("arthropleura_chitin");
         cynognathus_hide = new ItemGenesis().setUnlocalizedName(Names.itemCynognathusHide).setTextureName("cynognathus_hide");
         ceratites_shell = new ItemGenesis().setUnlocalizedName(Names.itemCeratitesShell).setTextureName("ceratites_shell");
+        megateuthis_rostrum = new ItemGenesis().setUnlocalizedName(Names.itemMegateuthisRostrum).setTextureName("megateuthis_rostrum");
         epidexipteryx_feather = new ItemGenesis().setUnlocalizedName(Names.itemEpidexipteryxFeather).setTextureName("epidexipteryx_feather");
         liopleurodon_tooth = new ItemGenesis().setUnlocalizedName(Names.itemLiopleurodonTooth).setTextureName("liopleurodon_tooth");
         utahraptor_claw = new ItemGenesis().setUnlocalizedName(Names.itemUtahraptorClaw).setTextureName("utahraptor_claw");
@@ -122,7 +127,7 @@ public class GenesisModItems {
         rhizome = new ItemGenesisSeed(GenesisPlantBlocks.zingiberopsis, true, 1, 0.5f).setUnlocalizedName(Names.itemRhizome).setTextureName("zingiberopsis_rhizome");
 
         // Buckets
-        komatiitic_lava_bucket = (ItemGenesisBucket) new ItemGenesisBucket(GenesisModBlocks.komatiiticLava).setUnlocalizedName(Names.bucketKomatiiticLava).setTextureName("komatiitic_lava_bucket");
+        komatiitic_lava_bucket = new ItemGenesisBucket(GenesisModBlocks.komatiiticLava).setUnlocalizedName(Names.bucketKomatiiticLava).setTextureName("komatiitic_lava_bucket");
     }
 
     public static void registerItems() {
@@ -135,6 +140,7 @@ public class GenesisModItems {
         GameRegistry.registerItem(malachite, Names.Registry.itemMalachite);
         GameRegistry.registerItem(olivine, Names.Registry.itemOlivine);
 
+        GameRegistry.registerItem(araucarioxylon_seeds, Names.Registry.itemAraucarioxylonSeeds);
         GameRegistry.registerItem(sphenophyllum_spores, Names.Registry.itemSphenoSpores);
         GameRegistry.registerItem(sphenophyllum_fiber, Names.Registry.itemSphenoFiber);
         GameRegistry.registerItem(bjuvia_seeds, Names.Registry.itemBjuviaSeeds);
@@ -142,6 +148,7 @@ public class GenesisModItems {
         GameRegistry.registerItem(arthropleura_chitin, Names.Registry.itemArthopleuraChitin);
         GameRegistry.registerItem(cynognathus_hide, Names.Registry.itemCynognathusHide);
         GameRegistry.registerItem(ceratites_shell, Names.Registry.itemCeratitesShell);
+        GameRegistry.registerItem(megateuthis_rostrum, Names.Registry.itemMegateuthisRostrum);
         GameRegistry.registerItem(epidexipteryx_feather, Names.Registry.itemEpidexipteryxFeather);
         GameRegistry.registerItem(liopleurodon_tooth, Names.Registry.itemLiopleurodonTooth);
         GameRegistry.registerItem(utahraptor_claw, Names.Registry.itemUtahraptorClaw);
