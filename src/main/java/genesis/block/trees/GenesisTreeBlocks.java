@@ -3,6 +3,7 @@ package genesis.block.trees;
 import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.block.BlockAndMeta;
 import genesis.block.plants.BlockGenesisFlowerPot;
+import genesis.item.itemblock.IItemBlockWithSubNames;
 import genesis.item.itemblock.ItemBlockGenesisTree;
 import genesis.lib.Names;
 import genesis.lib.PlantMetadata;
@@ -154,6 +155,11 @@ public class GenesisTreeBlocks {
         private int group;
         private int metadata;
 
+        TreeType() {
+            setGroup(ordinal() / GROUP_SIZE);
+            setMetadata(ordinal() % GROUP_SIZE);
+        }
+
         protected static void init() {
             for (TreeType type : values()) {
                 type.setGroup(type.ordinal() / GROUP_SIZE);
@@ -184,6 +190,19 @@ public class GenesisTreeBlocks {
 
         private void setMetadata(int treeMetadata) {
             metadata = treeMetadata;
+        }
+
+        public boolean equals(TreeType... types) {
+            for (TreeType type : types) {
+                if (equals(type)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static TreeType valueOf(IItemBlockWithSubNames block, int metadata) {
+            return valueOf(block.getSubName(metadata).toUpperCase());
         }
     }
 

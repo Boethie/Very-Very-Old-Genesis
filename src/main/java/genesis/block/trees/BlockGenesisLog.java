@@ -5,14 +5,19 @@ import cpw.mods.fml.relauncher.SideOnly;
 import genesis.block.trees.GenesisTreeBlocks.TreeType;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
+import genesis.item.GenesisModItems;
 import genesis.item.itemblock.IItemBlockWithSubNames;
 import net.minecraft.block.BlockLog;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -74,14 +79,52 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
         return Item.getItemFromBlock(GenesisTreeBlocks.logs[TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup()]);
     }
 
+    @Override
+    public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int metadata) {
+        if (!canSilkHarvest(world, player, x, y, z, metadata) || !EnchantmentHelper.getSilkTouchModifier(player)) {
+            harvesters.set(player);
+
+            int fortune = EnchantmentHelper.getFortuneModifier(player);
+            dropBlockAsItem(world, x, y, z, metadata, fortune);
+
+            if (player.getHeldItem().getItem().getToolClasses(player.getHeldItem()).contains("axe")) {
+                TreeType type = TreeType.valueOf(this, world.getBlockMetadata(x, y, z));
+                if (type.equals(TreeType.CORDAITES, TreeType.ARAUCARIOXYLON, TreeType.VOLTZIA)) {
+                    if (world.rand.nextInt(20) == 0) {
+                        dropBlockAsItem(world, x, y, z, new ItemStack(GenesisModItems.resin));
+                    }
+                }
+            }
+
+            harvesters.set(null);
+        } else {
+            super.harvestBlock(world, player, x, y, z, metadata);
+        }
+        world.setBlockToAir(x, y, z);
+    }
+
+    @Override
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+        ArrayList<ItemStack> ret = super.getDrops(world, x, y, z, metadata, fortune);
+        TreeType type = TreeType.valueOf(this, world.getBlockMetadata(x, y, z));
+        if (type.equals(TreeType.CORDAITES, TreeType.ARAUCARIOXYLON, TreeType.VOLTZIA)) {
+            if (world.rand.nextInt(20) == 0) {
+                ret.add(new ItemStack(GenesisModItems.resin));
+            }
+        }
+        return ret;
+    }
+
+    @Override
+    public boolean removedByPlayer(World world, EntityPlayer player, int x, int y, int z, boolean willHarvest) {
+        //If it will harvest, delay deletion of the block
+        return willHarvest || super.removedByPlayer(world, player, x, y, z, willHarvest);
+    }
+
     /* IItemBlockWithSubNames methods */
 
     @Override
     public String getSubName(int metadata) {
-        if (metadata >= blockNames.length) {
-            metadata = 0;
-        }
-
-        return blockNames[metadata];
+        return blockNames[metadata & 3];
     }
 }

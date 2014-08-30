@@ -5,15 +5,18 @@ import cpw.mods.fml.relauncher.SideOnly;
 import genesis.block.trees.GenesisTreeBlocks.TreeType;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
+import genesis.item.GenesisModItems;
 import genesis.item.itemblock.IItemBlockWithSubNames;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Random;
@@ -69,7 +72,7 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
 
     @Override
     public Item getItemDropped(int metadata, Random random, int unused) {
-        return Item.getItemFromBlock(GenesisTreeBlocks.saplings[TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup()]);
+        return Item.getItemFromBlock(GenesisTreeBlocks.saplings[TreeType.valueOf(this, metadata).getGroup()]);
     }
 
     @Override
@@ -86,8 +89,24 @@ public class BlockGenesisLeaves extends BlockLeaves implements IItemBlockWithSub
 
     @Override
     public String[] func_150125_e() {
-        // TODO Auto-generated method stub
-        return null;
+        return blockNames;
+    }
+
+    @Override
+    protected void func_150124_c(World world, int x, int y, int z, int metadata, int chance) {
+        TreeType type = TreeType.valueOf(this, world.getBlockMetadata(x, y, z));
+        if (type.equals(TreeType.ARAUCARIOXYLON)) {
+            if (world.rand.nextInt(50) == 0) {
+                dropBlockAsItem(world, x, y, z, new ItemStack(GenesisModItems.araucarioxylon_seeds));
+            }
+        }
+        world.setBlockToAir(x, y, z);
+    }
+
+    @Override
+    public boolean removedByPlayer(World world, EntityPlayer player, int x, int y, int z, boolean willHarvest) {
+        //If it will harvest, delay deletion of the block
+        return willHarvest || super.removedByPlayer(world, player, x, y, z, willHarvest);
     }
 
     /* IItemBlockWithSubNames methods */

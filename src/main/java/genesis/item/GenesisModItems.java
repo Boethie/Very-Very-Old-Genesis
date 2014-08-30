@@ -29,6 +29,7 @@ public class GenesisModItems {
 
     // Plants
     public static Item araucarioxylon_seeds;
+    public static Item resin;
     public static Item sphenophyllum_spores;
     public static Item sphenophyllum_fiber;
     public static Item bjuvia_seeds;
@@ -91,6 +92,7 @@ public class GenesisModItems {
 
         // Plants
         araucarioxylon_seeds = new ItemGenesisFood(1, 0.6F).setCreativeTab(GenesisTabs.tabGenesisMaterials).setUnlocalizedName(Names.itemAraucarioxylonSeeds).setTextureName("seeds_araucarioxylon");
+        resin = new ItemGenesis().setUnlocalizedName(Names.itemResin).setTextureName("resin");
         sphenophyllum_spores = new ItemGenesisSeed(GenesisPlantBlocks.sphenophyllum, false).setUnlocalizedName(Names.itemSphenoSpores).setTextureName("sphenophyllum_spores");
         sphenophyllum_fiber = new ItemGenesis().setUnlocalizedName(Names.itemSphenoFiber).setTextureName("sphenophyllum_fiber");
         bjuvia_seeds = new ItemGenesis().setUnlocalizedName(Names.itemBjuviaSeeds).setTextureName("seeds_bjuvia");
@@ -141,6 +143,7 @@ public class GenesisModItems {
         GameRegistry.registerItem(olivine, Names.Registry.itemOlivine);
 
         GameRegistry.registerItem(araucarioxylon_seeds, Names.Registry.itemAraucarioxylonSeeds);
+        GameRegistry.registerItem(resin, Names.Registry.itemResin);
         GameRegistry.registerItem(sphenophyllum_spores, Names.Registry.itemSphenoSpores);
         GameRegistry.registerItem(sphenophyllum_fiber, Names.Registry.itemSphenoFiber);
         GameRegistry.registerItem(bjuvia_seeds, Names.Registry.itemBjuviaSeeds);

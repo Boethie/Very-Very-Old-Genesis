@@ -142,10 +142,6 @@ public class ItemsToolSet implements IRecipeWithDefault {
     }
 
     public void registerRecipes(Object crafting, Object craftingHandle) {
-        /*for (Block block : GenesisTreeBlocks.blocksLogs) {
-            craftingHandleObj = new ItemStack(block, 1, OreDictionary.WILDCARD_VALUE);
-            registerRecipeWithDefault(crafting, this);
-        }*/
         craftingHandleObj = craftingHandle;
         registerRecipeWithDefault(crafting, this);
     }

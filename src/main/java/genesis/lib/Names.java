@@ -80,6 +80,7 @@ public final class Names {
     public static final String itemSeed = blockPlant + "seed.";
     public static final String itemRhizome = itemSeed + "rhizome";
     public static final String itemAraucarioxylonSeeds = mod + "araucarioxylonSeeds";
+    public static final String itemResin = mod + "resin";
     public static final String itemSphenoSpores = itemSeed + "sphenophyllumSpores";
     public static final String itemSphenoFiber = mod + "sphenoFiber";
     public static final String itemBjuviaSeeds = mod + "bjuviaSeeds";
@@ -202,6 +203,7 @@ public final class Names {
 
         public static final String itemRhizome = "rhizome";
         public static final String itemAraucarioxylonSeeds = "araucarioxylon_seeds";
+        public static final String itemResin = "resin";
         public static final String itemSphenoSpores = "sphenophyllum_spores";
         public static final String itemSphenoFiber = "sphenophyllum_fiber";
         public static final String itemBjuviaSeeds = "bjuvia_seeds";
