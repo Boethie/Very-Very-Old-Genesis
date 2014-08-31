@@ -88,7 +88,7 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
             dropBlockAsItem(world, x, y, z, metadata, fortune);
 
             if (player.getHeldItem().getItem().getToolClasses(player.getHeldItem()).contains("axe")) {
-                TreeType type = TreeType.valueOf(this, world.getBlockMetadata(x, y, z));
+                TreeType type = TreeType.valueOf(this, metadata);
                 if (type.equals(TreeType.CORDAITES, TreeType.ARAUCARIOXYLON, TreeType.VOLTZIA)) {
                     if (world.rand.nextInt(20) == 0) {
                         dropBlockAsItem(world, x, y, z, new ItemStack(GenesisModItems.resin));
@@ -100,25 +100,6 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
         } else {
             super.harvestBlock(world, player, x, y, z, metadata);
         }
-        world.setBlockToAir(x, y, z);
-    }
-
-    @Override
-    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-        ArrayList<ItemStack> ret = super.getDrops(world, x, y, z, metadata, fortune);
-        TreeType type = TreeType.valueOf(this, world.getBlockMetadata(x, y, z));
-        if (type.equals(TreeType.CORDAITES, TreeType.ARAUCARIOXYLON, TreeType.VOLTZIA)) {
-            if (world.rand.nextInt(20) == 0) {
-                ret.add(new ItemStack(GenesisModItems.resin));
-            }
-        }
-        return ret;
-    }
-
-    @Override
-    public boolean removedByPlayer(World world, EntityPlayer player, int x, int y, int z, boolean willHarvest) {
-        //If it will harvest, delay deletion of the block
-        return willHarvest || super.removedByPlayer(world, player, x, y, z, willHarvest);
     }
 
     /* IItemBlockWithSubNames methods */
