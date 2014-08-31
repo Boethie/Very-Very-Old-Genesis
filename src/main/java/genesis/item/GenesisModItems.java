@@ -3,7 +3,6 @@ package genesis.item;
 import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.block.GenesisModBlocks;
 import genesis.block.plants.GenesisPlantBlocks;
-import genesis.common.GenesisTabs;
 import genesis.fluid.BucketHandler;
 import genesis.fluid.item.ItemGenesisBucket;
 import genesis.lib.Names;
@@ -28,7 +27,6 @@ public class GenesisModItems {
     public static Item olivine;
 
     // Plants
-    public static Item araucarioxylon_seeds;
     public static Item resin;
     public static Item sphenophyllum_spores;
     public static Item sphenophyllum_fiber;
@@ -63,6 +61,7 @@ public class GenesisModItems {
     public static Item cooked_tyrannosaurus;
 
     // Plant Foods
+    public static Item araucarioxylon_seeds;
     public static Item rhizome;
 
     // Buckets
@@ -91,7 +90,6 @@ public class GenesisModItems {
         olivine = new ItemGenesis().setUnlocalizedName(Names.itemOlivine).setTextureName("olivine");
 
         // Plants
-        araucarioxylon_seeds = new ItemGenesisFood(1, 0.6F).setCreativeTab(GenesisTabs.tabGenesisMaterials).setUnlocalizedName(Names.itemAraucarioxylonSeeds).setTextureName("seeds_araucarioxylon");
         resin = new ItemGenesis().setUnlocalizedName(Names.itemResin).setTextureName("resin");
         sphenophyllum_spores = new ItemGenesisSeed(GenesisPlantBlocks.sphenophyllum, false).setUnlocalizedName(Names.itemSphenoSpores).setTextureName("sphenophyllum_spores");
         sphenophyllum_fiber = new ItemGenesis().setUnlocalizedName(Names.itemSphenoFiber).setTextureName("sphenophyllum_fiber");
@@ -126,6 +124,7 @@ public class GenesisModItems {
         cooked_tyrannosaurus = new ItemGenesisFood(8, 12.8F).setUnlocalizedName(Names.itemCookedTyrannosaurus).setTextureName("tyrannosaurus_cooked");
 
         // Plant Foods
+        araucarioxylon_seeds = new ItemGenesisFood(1, 0.6F).setUnlocalizedName(Names.itemAraucarioxylonSeeds).setTextureName("seeds_araucarioxylon");
         rhizome = new ItemGenesisSeed(GenesisPlantBlocks.zingiberopsis, true, 1, 0.5f).setUnlocalizedName(Names.itemRhizome).setTextureName("zingiberopsis_rhizome");
 
         // Buckets
@@ -142,7 +141,6 @@ public class GenesisModItems {
         GameRegistry.registerItem(malachite, Names.Registry.itemMalachite);
         GameRegistry.registerItem(olivine, Names.Registry.itemOlivine);
 
-        GameRegistry.registerItem(araucarioxylon_seeds, Names.Registry.itemAraucarioxylonSeeds);
         GameRegistry.registerItem(resin, Names.Registry.itemResin);
         GameRegistry.registerItem(sphenophyllum_spores, Names.Registry.itemSphenoSpores);
         GameRegistry.registerItem(sphenophyllum_fiber, Names.Registry.itemSphenoFiber);
@@ -174,6 +172,7 @@ public class GenesisModItems {
         GameRegistry.registerItem(raw_tyrannosaurus, Names.Registry.itemRawTyrannosaurus);
         GameRegistry.registerItem(cooked_tyrannosaurus, Names.Registry.itemCookedTyrannosaurus);
 
+        GameRegistry.registerItem(araucarioxylon_seeds, Names.Registry.itemAraucarioxylonSeeds);
         GameRegistry.registerItem(rhizome, Names.Registry.itemRhizome);
 
         GameRegistry.registerItem(komatiitic_lava_bucket, Names.Registry.bucketKomatiiticLava);

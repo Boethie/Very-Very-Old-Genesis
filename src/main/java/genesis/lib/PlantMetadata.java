@@ -14,8 +14,8 @@ public final class PlantMetadata {
     public static final String COOK_NAME = "cooksonia", BARA_NAME = "baragwanathia", SCIA_NAME = "sciadophyton", PSILO_NAME = "psilophyton", NOTHIA_NAME = "nothia", RHYNIA_NAME = "rhynia";
     public static final List<String> plantTypes = Arrays.asList(COOK_NAME, BARA_NAME, SCIA_NAME, PSILO_NAME, NOTHIA_NAME, RHYNIA_NAME);
 
-    public static final String ZYGO_NAME = "zygopteris", MATON_NAME = "matonidium", ASTRA_NAME = "astralopteris", RUFF_NAME = "ruffordia", HAUS_NAME = "hausmannia";
-    public static final List<String> fernTypes = Arrays.asList(ZYGO_NAME, MATON_NAME, ASTRA_NAME, RUFF_NAME, HAUS_NAME);
+    public static final String ZYGO_NAME = "zygopteris", MATON_NAME = "matonidium", ASTRA_NAME = "astralopteris", RUFF_NAME = "ruffordia";
+    public static final List<String> fernTypes = Arrays.asList(ZYGO_NAME, MATON_NAME, ASTRA_NAME, RUFF_NAME);
 
     public static final String HELIO_NAME = "heliolites", FAVOS_NAME = "favosites", HALY_NAME = "halysites";
     public static final List<String> coralTypes = Arrays.asList(HELIO_NAME, FAVOS_NAME, HALY_NAME);

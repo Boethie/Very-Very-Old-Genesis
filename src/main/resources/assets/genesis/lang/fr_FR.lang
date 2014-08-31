@@ -148,6 +148,7 @@ item.genesis.malachite.name=Malachite
 item.genesis.olivine.name=Olivine
 
 # Plants
+item.genesis.resin.name=Résine
 item.genesis.plant.seed.sphenophyllumSpores.name=Spores de Sphenophyllum
 item.genesis.sphenoFiber.name=Fibre de Sphenophyllum
 item.genesis.bjuviaSeeds.name=Graines de Bjuvia
@@ -181,6 +182,7 @@ item.genesis.food.rawTyrannosaurus.name=Tyrannosaurus cru
 item.genesis.food.cookedTyrannosaurus.name=Tyrannosaurus cuit
 
 # Plant Foods
+item.genesis.araucarioxylonSeeds.name=Graines d'Araucarioxylon
 item.genesis.plant.seed.rhizome.name=Rhizome de Zingiberopsis
 
 # Buckets
