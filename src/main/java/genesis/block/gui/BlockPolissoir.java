@@ -29,7 +29,7 @@ public class BlockPolissoir extends BlockContainer {
         super(Material.rock);
         setHarvestLevel("pickaxe", 0);
         setCreativeTab(GenesisTabs.tabGenesisDecoration);
-        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.56F, 1.0F);
+        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.625F, 1.0F);
         setHardness(2.0F);
         setResistance(10.0F);
     }

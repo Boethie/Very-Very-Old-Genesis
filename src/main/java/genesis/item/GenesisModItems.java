@@ -42,6 +42,7 @@ public class GenesisModItems {
     public static Item utahraptor_claw;
     public static Item utahraptor_feather;
     public static Item leaellynasaura_hide;
+    public static Item gallimimus_metatarsus;
     public static Item tyrannosaurus_tooth;
 
     // Dinosaur Foods
@@ -105,6 +106,7 @@ public class GenesisModItems {
         utahraptor_claw = new ItemGenesis().setUnlocalizedName(Names.itemUtahraptorClaw).setTextureName("utahraptor_claw");
         utahraptor_feather = new ItemGenesis().setUnlocalizedName(Names.itemUtahraptorFeather).setTextureName("utahraptor_feather");
         leaellynasaura_hide = new ItemGenesis().setUnlocalizedName(Names.itemLeaellynasauraHide).setTextureName("leaellynasaura_hide");
+        gallimimus_metatarsus = new ItemGenesis().setUnlocalizedName(Names.itemGallimimusMetatarsus).setTextureName("gallimimus_metatarsus");
         tyrannosaurus_tooth = new ItemGenesis().setUnlocalizedName(Names.itemTyrannosaurasTooth).setTextureName("tyrannosaurus_tooth");
 
         // Dinosaur Foods
@@ -155,6 +157,7 @@ public class GenesisModItems {
         GameRegistry.registerItem(utahraptor_claw, Names.Registry.itemUtahraptorClaw);
         GameRegistry.registerItem(utahraptor_feather, Names.Registry.itemUtahraptorFeather);
         GameRegistry.registerItem(leaellynasaura_hide, Names.Registry.itemLeaellynasauraHide);
+        GameRegistry.registerItem(gallimimus_metatarsus, Names.Registry.itemGallimimusMetatarsus);
         GameRegistry.registerItem(tyrannosaurus_tooth, Names.Registry.itemTyrannosaurasTooth);
 
         GameRegistry.registerItem(raw_climatius, Names.Registry.itemRawClimatius);

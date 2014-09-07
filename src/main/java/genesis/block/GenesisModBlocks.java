@@ -80,13 +80,13 @@ public class GenesisModBlocks {
         permafrost = new BlockPermafrost().setBlockTextureName("permafrost").setBlockName(Names.blockPermafrost);
 
         // Ores
-        granite_quartz_ore = (BlockGenesisOre) new BlockGenesisOre(1, 1, 1).setBlockTextureName("quartz_granite_ore").setBlockName(Names.blockQuartzGraniteOre);
-        zircon_ore = (BlockGenesisOre) new BlockGenesisOre(2, 1, 1).setBlockTextureName("zircon_ore").setBlockName(Names.blockZirconOre);
-        garnet_ore = (BlockGenesisOre) new BlockGenesisOre(2, 1, 1).setBlockTextureName("garnet_ore").setBlockName(Names.blockGarnetOre);
-        manganese_ore = (BlockGenesisOre) new BlockGenesisOre(2, 1, 1).setBlockTextureName("manganese_ore").setBlockName(Names.blockManganeseOre);
+        granite_quartz_ore = (BlockGenesisOre) new BlockGenesisOre(1).setBlockTextureName("quartz_granite_ore").setBlockName(Names.blockQuartzGraniteOre);
+        zircon_ore = (BlockGenesisOre) new BlockGenesisOre(2).setBlockTextureName("zircon_ore").setBlockName(Names.blockZirconOre);
+        garnet_ore = (BlockGenesisOre) new BlockGenesisOre(2).setBlockTextureName("garnet_ore").setBlockName(Names.blockGarnetOre);
+        manganese_ore = (BlockGenesisOre) new BlockGenesisOre(2).setBlockTextureName("manganese_ore").setBlockName(Names.blockManganeseOre);
         hematite_ore = (BlockGenesisOre) new BlockGenesisOre(3).setBlockTextureName("hematite_ore").setBlockName(Names.blockHematiteOre);
         malachite_ore = (BlockGenesisOre) new BlockGenesisOre(1, 2, 4).setBlockTextureName("malachite_ore").setBlockName(Names.blockMalachiteOre);
-        olivine_ore = (BlockGenesisOre) new BlockGenesisOre(2, 1, 1).setBlockTextureName("olivine_ore").setBlockName(Names.blockOlivineOre);
+        olivine_ore = (BlockGenesisOre) new BlockGenesisOre(2).setBlockTextureName("olivine_ore").setBlockName(Names.blockOlivineOre);
 
         // Fluids
         fluidKomatiiticLava = new FluidKomatiiticLava(Names.fluidKomatiiticLava);

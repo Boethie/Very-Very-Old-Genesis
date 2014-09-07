@@ -4,6 +4,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.block.GenesisModBlocks;
 import genesis.block.plants.GenesisPlantBlocks;
 import genesis.block.trees.GenesisTreeBlocks;
+import genesis.common.GenesisFuelHandler;
 import genesis.lib.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockColored;
@@ -70,5 +71,8 @@ public class Recipes {
 
         GameRegistry.addRecipe(new ItemStack(GenesisPlantBlocks.calamites_block), "CCC", "CCC", "CCC", 'C', GenesisPlantBlocks.calamites);
         GameRegistry.addShapelessRecipe(new ItemStack(GenesisPlantBlocks.calamites, 9), GenesisPlantBlocks.calamites_block);
+
+        GenesisFuelHandler.instance().addFuel(new ItemStack(GenesisModItems.komatiitic_lava_bucket), 20000);
+        GameRegistry.registerFuelHandler(GenesisFuelHandler.instance());
     }
 }
