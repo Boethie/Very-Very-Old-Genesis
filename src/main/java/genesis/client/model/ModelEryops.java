@@ -46,8 +46,6 @@ public class ModelEryops extends ModelBase {
 	ModelRenderer toebackleft4;
 	ModelRenderer toebackright4;
 
-	float angryJawMovement = 0f;
-
 	public ModelEryops() {
 		textureWidth = 256;
 		textureHeight = 128;
@@ -339,14 +337,7 @@ public class ModelEryops extends ModelBase {
 		float lookingMovement = 0.012F * par5;
 		float naturalHeadMovement = 0.025F * (1.0F - MathHelper.sin(0.05F * par3));
 		float naturalLowerJawMovement = 0.010F * (1.0F - 0.5F * MathHelper.sin(0.05F * par3));
-
-		if (eryops.isAngry()) {
-			if (angryJawMovement < 0.25F) {
-				angryJawMovement += 0.02F;
-			}
-		} else if (angryJawMovement > 0.0F) {
-			angryJawMovement -= 0.02F;
-		}
+		float angryJawMovement = 0.25F * eryops.getMouthAngle();
 		
 		head1.rotateAngleX = lookingMovement + naturalHeadMovement - angryJawMovement + 0.03718F;
 		head2.rotateAngleX = lookingMovement + naturalHeadMovement - angryJawMovement + 0.03718F;

@@ -1,0 +1,242 @@
+<!-- Blocks -->
+tile.genesis.moss.name=Musgo
+tile.genesis.campfire.name=Fogueira
+tile.genesis.polissoir.name=Polissoir
+tile.genesis.tikiTorch.name=Tocha Tiki
+
+# Rocks
+tile.genesis.rock.granite.name=Granito
+tile.genesis.rock.graniteMossy.name=Granito com Musgo
+tile.genesis.rock.rhyolite.name=Riólito
+tile.genesis.rock.komatiite.name=Komatiite
+tile.genesis.rock.trondhjemite.name=Trondhjemito
+tile.genesis.rock.fauxamphibolite.name=Faux-Anfibolito
+tile.genesis.rock.gneiss.name=Gnaisse
+tile.genesis.rock.quartzite.name=Quartzito
+tile.genesis.rock.oldRedSandstone.name=Arenito vermelho velho
+tile.genesis.rock.limestone.name=Calcário
+tile.genesis.rock.stromatolite.name=Stromatolite
+tile.genesis.rock.shale.name=Xisto
+tile.genesis.rock.octaedrite.name=Fragmento de Octahedrite
+tile.genesis.permafrost.name=Permafrost
+
+# Ores
+tile.genesis.ore.quartzGranite.name=Minério de quartzo
+tile.genesis.ore.zircon.name=Minério de Zircão
+tile.genesis.ore.garnet.name=Minério de Garnet
+tile.genesis.ore.manganese.name=Minério de Manganês
+tile.genesis.ore.hematite.name=Minério de Hematita
+tile.genesis.ore.malachite.name=Minério de Malachita
+tile.genesis.ore.olivine.name=Minério de Olivina
+
+# Fluids
+fluid.genesis.komatiiticLava=Lava Komatiitic
+tile.genesis.komatiiticLavaBlock.name=Lava Komatiitic
+
+# Trees
+tile.genesis.log.archaeopteris.name=Madeira de Archaeopteris
+tile.genesis.leaves.archaeopteris.name=Folhas de Archaeopteris
+tile.genesis.sapling.archaeopteris.name=Muda de Archaeopteris
+tile.genesis.logRotten.archaeopteris.name=Madeira de Archaeopteris Apodrecida
+
+tile.genesis.log.sigillaria.name=Madeira de Sigillaria
+tile.genesis.leaves.sigillaria.name=Folhas de Sigillaria
+tile.genesis.sapling.sigillaria.name=Muda de Sigillaria
+tile.genesis.logRotten.sigillaria.name=Madeira de Sigillaria Apodrecida
+
+tile.genesis.log.lepidodendron.name=Madeira de Lepidodendron
+tile.genesis.leaves.lepidodendron.name=Folhas de Lepidodendron
+tile.genesis.sapling.lepidodendron.name=Muda de Lepidodendron
+tile.genesis.logRotten.lepidodendron.name=Madeira de Lepidodendron Apodrecida
+
+tile.genesis.log.cordaites.name=Madeira de Cordaites
+tile.genesis.leaves.cordaites.name=Folhas de Cordaites
+tile.genesis.sapling.cordaites.name=Muda de Cordaites
+tile.genesis.logRotten.cordaites.name=Madeira de Cordaites Apodrecida
+
+tile.genesis.log.psaronius.name=Madeira de Psaronius
+tile.genesis.leaves.psaronius.name=Folhas de Pecopteris
+tile.genesis.sapling.psaronius.name=Muda de Psaronius
+tile.genesis.logRotten.psaronius.name=Madeira de Psaronius Apodrecida
+
+tile.genesis.log.bjuvia.name=Madeira de Bjuvia
+tile.genesis.leaves.bjuvia.name=Folhas de Bjuvia
+tile.genesis.sapling.bjuvia.name=Muda de Bjuvia
+tile.genesis.logRotten.bjuvia.name=Rotten Bjuvia Apodrecida
+tile.genesis.bjuviaCone.name=Cone de Bjuvia
+
+tile.genesis.log.glossopteris.name=Madeira de Glossopteris
+tile.genesis.leaves.glossopteris.name=Folhas de Glossopteris
+tile.genesis.sapling.glossopteris.name=Muda de Glossopteris
+tile.genesis.logRotten.glossopteris.name=Madeira de Glossopteris Apodrecida
+
+tile.genesis.log.araucarioxylon.name=Madeira de Araucarioxylon
+tile.genesis.leaves.araucarioxylon.name=Folhas de Araucarioxylon
+tile.genesis.sapling.araucarioxylon.name=Muda de Araucarioxylon
+tile.genesis.logRotten.araucarioxylon.name=Madeira de Araucarioxylon Apodrecida
+
+tile.genesis.log.voltzia.name=Madeira de Voltzia
+tile.genesis.leaves.voltzia.name=Folhas de Voltzia
+tile.genesis.sapling.voltzia.name=Muda de Voltzia
+tile.genesis.logRotten.voltzia.name=Madeira de Voltzia Apodrecida
+
+tile.genesis.log.dryophyllum.name=Madeira de Dryophyllum
+tile.genesis.leaves.dryophyllum.name=Folhas de Dryophyllum
+tile.genesis.sapling.dryophyllum.name=Muda de Dryophyllum
+tile.genesis.logRotten.dryophyllum.name=Madeira de Dryophyllum Apodrecida
+
+tile.genesis.log.credneria.name=Madeira de Credneria
+tile.genesis.leaves.credneria.name=Folhas de Credneria
+tile.genesis.sapling.credneria.name=Muda de Credneria
+tile.genesis.logRotten.credneria.name=Madeira de Credneria Apodrecida
+
+# Plants
+tile.genesis.plant.calamites.name=Calamites
+tile.storage.genesis.plant.calamites.name=Bloco de Calamites
+
+tile.genesis.plant.cooksonia.name=Cooksonia
+tile.genesis.plant.baragwanathia.name=Baragwanathia
+tile.genesis.plant.sciadophyton.name=Sciadophyton
+tile.genesis.plant.psilophyton.name=Psilophyton
+tile.genesis.plant.nothia.name=Nothia
+tile.genesis.plant.rhynia.name=Rhynia
+
+tile.genesis.plant.crop.zingiberopsis.name=Zingiberopsis
+
+tile.genesis.plant.fern.zygopteris.name=Zygopteris
+tile.genesis.plant.fern.matonidium.name=Matonidium
+tile.genesis.plant.fern.astralopteris.name=Astralopteris
+tile.genesis.plant.fern.ruffordia.name=Ruffordia
+
+tile.genesis.plant.asteroxylon.name=Asteroxylon
+tile.genesis.plant.asteroxylon.tall.name=Asteroxylon Alta
+
+tile.genesis.plant.crop.sphenophyllum.name=Sphenophyllum
+
+tile.genesis.plant.flower.mabelia.name=Mabelia
+
+# Aquatic
+tile.genesis.aquatic.algae.margaretia.name=Margaretia
+tile.genesis.aquatic.algae.bangiomorpha.name=Bangiomorpha
+tile.genesis.aquatic.algae.thaumaptilon.name=Thaumaptilon
+tile.genesis.aquatic.algae.dinomischus.name=Dinomischus
+
+tile.genesis.aquatic.coral.heliolites.name=Heliolites
+tile.genesis.aquatic.coral.favosites.name=Favosites
+tile.genesis.aquatic.coral.halysites.name=Halysites
+
+tile.genesis.aquatic.sponge.vauxia.name=Vauxia
+tile.genesis.aquatic.sponge.hazelia.name=Hazelia
+tile.genesis.aquatic.sponge.wapkia.name=Wapkia
+tile.genesis.aquatic.sponge.diagoniella.name=Diagoniella
+tile.genesis.aquatic.sponge.pirania.name=Pirania
+tile.genesis.aquatic.sponge.chancelloria.name=Chancelloria
+
+tile.genesis.aquatic.pteridinium.name=Pteridinium
+tile.genesis.aquatic.charnia.name=Charnia
+
+<!-- Items -->
+# Crafting
+item.genesis.brownishFlintPebble.name=Pederneira Marrom
+item.genesis.quartz.name=Quartzo
+item.genesis.zircon.name=Zircão
+item.genesis.garnet.name=Garnet
+item.genesis.manganese.name=Manganês
+item.genesis.hematite.name=Hematita
+item.genesis.malachite.name=Malachita
+item.genesis.olivine.name=Olivina
+
+# Plants
+item.genesis.araucarioxylonSeeds.name=Sementes de Araucarioxylon
+item.genesis.resin.name=Resina
+item.genesis.plant.seed.sphenophyllumSpores.name=Esporos de Sphenophyllum
+item.genesis.sphenoFiber.name=Fibra de Sphenophyllum
+item.genesis.bjuviaSeeds.name=Sementes de Bjuvia
+
+# Dinosaur Items
+item.genesis.arthropleuraChitin.name=Quitina de Arthropleura
+item.genesis.cynognathusHide.name=Couro de Cynognathus
+item.genesis.ceratitesShell.name=Concha de Ceratites
+item.genesis.megateuthisRostrum.name=Bico de Megateuthis
+item.genesis.epidexipteryxFeather.name=Pena de Epidexipteryx
+item.genesis.liopleurodonTooth.name=Dente de Liopleurodon
+item.genesis.utahraptorClaw.name=Garra de Utahraptor
+item.genesis.utahraptorFeather.name=Pena de Utahraptor
+item.genesis.leaellynasauraHide.name=Couro de Leaellynasaura
+item.genesis.gallimimusMetatarsus.name=Metatarso de Galimimo
+item.genesis.tyrannosaurusTooth.name=Dente de Tiranossauro
+
+# Dinosaur Foods
+item.genesis.food.rawClimatius.name=Climatius Cru
+item.genesis.food.cookedClimatius.name=Climatius Assado
+item.genesis.food.rawAphthoroblattina.name=Aphthoroblattina Cru
+item.genesis.food.cookedAphthoroblattina.name=Aphthoroblattina Assado
+item.genesis.food.rawEryops.name=Perna de Eryops Crua
+item.genesis.food.cookedEryops.name=Perna de Eryops Assada
+item.genesis.food.rawCeratites.name=Ceratites Cru
+item.genesis.food.cookedCeratites.name=Ceratites Assado
+item.genesis.food.rawLiopleurodon.name=Liopleurodon Cru
+item.genesis.food.cookedLiopleurodon.name=Liopleurodon Assado
+item.genesis.food.rawGigantoraptor.name=Coxa de Gigantoraptor Cru
+item.genesis.food.cookedGigantoraptor.name=Coxa de Gigantoraptor Assada
+item.genesis.food.rawTyrannosaurus.name=Tiranossauro Cru
+item.genesis.food.cookedTyrannosaurus.name=Tiranossauro Assada
+
+# Plant Foods
+item.genesis.plant.seed.rhizome.name=Rizoma de Zingiberopsis
+
+# Buckets
+item.genesis.komatiiticLavaBucket.name=Balde de Lava Komatiitic â outro é outro è
+
+# Tools
+item.genesis.knife.granite.name=Faca de Granito
+item.genesis.tool.pickaxe.granite.name=Picareta de Granito
+item.genesis.tool.shovel.granite.name=Pá de Granito
+item.genesis.tool.axe.granite.name=Machado de Granito
+item.genesis.tool.hoe.granite.name=Enxada de Granito
+
+item.genesis.knife.rhyolite.name=Faca de riólito
+item.genesis.tool.pickaxe.rhyolite.name=Picareta de riólito
+item.genesis.tool.shovel.rhyolite.name=Pá de riólito
+item.genesis.tool.axe.rhyolite.name=Machado de riólito
+item.genesis.tool.hoe.rhyolite.name=Enxada de riólito
+
+item.genesis.knife.quartzite.name=Faca de Quartzito
+item.genesis.tool.pickaxe.quartzite.name=Picareta de Quartzito
+item.genesis.tool.shovel.quartzite.name=Pá de Quartzito
+item.genesis.tool.axe.quartzite.name=Machado de Quartzito
+item.genesis.tool.hoe.quartzite.name=Enxada de Quartzito
+
+item.genesis.knife.limestone.name=Faca de Calcário
+item.genesis.tool.pickaxe.limestone.name=Picareta de Calcário
+item.genesis.tool.shovel.limestone.name=Pá de Calcário
+item.genesis.tool.axe.limestone.name=Machado de Calcário
+item.genesis.tool.hoe.limestone.name=Enxada de Calcário
+
+item.genesis.knife.brownishFlint.name=Faca de Pederneira Marrom
+item.genesis.tool.pickaxe.brownishFlint.name=Picareta de Pederneira Marrom
+item.genesis.tool.shovel.brownishFlint.name=Pá de Pederneira Marrom
+item.genesis.tool.axe.brownishFlint.name=Machado de Pederneira Marrom
+item.genesis.tool.hoe.brownishFlint.name=Enxada de Pederneira Marrom
+
+tooltip.toolquality=Qualidade da Ferramenta
+toolquality.crude=Rudimentar
+toolquality.chipped=Lascada
+toolquality.polished=Polida
+toolquality.sharpened=Afiada
+
+<!-- Other -->
+# Containers
+container.genesis.campfire=Fogueira
+container.genesis.polissoir=Polissoir
+
+# Creative Tabs
+itemGroup.genesis.tabBlock=Genesis Blocos de Construção
+itemGroup.genesis.tabDecorations=Genesis Blocos de Decoração
+itemGroup.genesis.tabMisc=Genesis Diversos
+itemGroup.genesis.tabFood=Genesis Comidas
+itemGroup.genesis.tabTools=Genesis Ferramentas
+itemGroup.genesis.tabMaterials=Genesis Materiais
+
+# World type name
+generator.genesisTestType=Genesis Mundo Teste
