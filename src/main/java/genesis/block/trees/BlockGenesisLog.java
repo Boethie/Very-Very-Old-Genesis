@@ -87,12 +87,15 @@ public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames 
             int fortune = EnchantmentHelper.getFortuneModifier(player);
             dropBlockAsItem(world, x, y, z, metadata, fortune);
 
-            if (player.getHeldItem().getItem().getToolClasses(player.getHeldItem()).contains("axe")) {
-                TreeType type = TreeType.valueOf(this, metadata);
-                if (type.equals(TreeType.CORDAITES, TreeType.ARAUCARIOXYLON, TreeType.VOLTZIA)) {
-                    if (world.rand.nextInt(20) == 0) {
-                        dropBlockAsItem(world, x, y, z, new ItemStack(GenesisModItems.resin));
-                    }
+            if (player.getHeldItem() != null) {
+	            	if (player.getHeldItem().getItem().getToolClasses(player.getHeldItem()).contains("axe"))
+	            	{
+		                TreeType type = TreeType.valueOf(this, metadata);
+		                if (type.equals(TreeType.CORDAITES, TreeType.ARAUCARIOXYLON, TreeType.VOLTZIA)) {
+		                    if (world.rand.nextInt(20) == 0) {
+		                        dropBlockAsItem(world, x, y, z, new ItemStack(GenesisModItems.resin));
+		                    }
+	                }
                 }
             }
 

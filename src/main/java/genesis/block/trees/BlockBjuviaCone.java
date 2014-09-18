@@ -2,6 +2,7 @@ package genesis.block.trees;
 
 import genesis.block.BlockGenesis;
 import genesis.client.renderer.BlockBjuviaConeRenderer;
+import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
 import genesis.item.GenesisModItems;
 import net.minecraft.block.Block;
@@ -20,7 +21,7 @@ public class BlockBjuviaCone extends BlockGenesis {
         setHardness(0.2F);
         setResistance(5.0F);
         setStepSound(soundTypeWood);
-        setCreativeTab(null);
+        setCreativeTab(GenesisTabs.tabGenesisDecoration);
         setTickRandomly(true);
         setBlockBounds(0.3f, 0.0f, 0.3f, 0.7f, 0.8f, 0.7f);
     }
@@ -53,27 +54,43 @@ public class BlockBjuviaCone extends BlockGenesis {
     @Override
     public void updateTick(World world, int x, int y, int z, Random random) {
         if (random.nextInt(10) == 0 && canBlockStay(world, x, y, z)) {
-            int oldMeta =  world.getBlockMetadata(x, y, z);
-            int newMeta = world.getBlockMetadata(x, y, z) + 1;
-            if (newMeta > 2) {
-                newMeta = 2;
+            int meta = world.getBlockMetadata(x, y, z) + 1;
+            if (meta > 2)
+            {
+            	meta = 2;
             }
-            if (oldMeta != newMeta) {
-                world.setBlockMetadataWithNotify(x, y, z, newMeta, 2);
+            if (meta != world.getBlockMetadata(x, y, z))
+            {
+                world.setBlockMetadataWithNotify(x, y, z, meta, 2);
             }
         }
+    }
+    
+    @Override
+    public boolean canPlaceBlockAt(World world, int x, int y, int z)
+    {
+    	return canBlockStay(world, x, y, z);
+    }
+    
+    protected void dropConeIfCannotStay(World world, int x, int y, int z)
+    {
+    	if (!canBlockStay(world, x, y, z))
+    	{
+    		dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 2);
+    		world.setBlockToAir(x, y, z);
+    	}
     }
 
     @Override
     public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-        if (!canBlockStay(world, x, y, z)) {
-            dropBlockAsItem(world, x, y, z, 0, 2);
-            world.setBlockToAir(x, y, z);
-        }
+    	super.onNeighborBlockChange(world, x, y, z, block);
+        dropConeIfCannotStay(world, x, y, z);
     }
 
     @Override
-    public boolean canBlockStay(World world, int x, int y, int z) {
-        return !world.isAirBlock(x, y - 1, z) && world.getBlock(x, y, z) == GenesisTreeBlocks.logs[GenesisTreeBlocks.TreeType.BJUVIA.getGroup()];
-    }
+    public boolean canBlockStay(World world, int x, int y, int z) 
+    {
+    	Block b = world.getBlock(x, y - 1, z);
+    	return b != null && b == GenesisTreeBlocks.logs[GenesisTreeBlocks.TreeType.BJUVIA.getGroup()];
+   }
 }

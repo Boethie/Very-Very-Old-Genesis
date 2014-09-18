@@ -23,7 +23,7 @@ public class BlockGenesisCoral extends Block {
     private IIcon[] icons;
 
     public BlockGenesisCoral() {
-        super(Material.water);
+        super(Material.rock);
         setHardness(0.75F);
         setResistance(8.5F);
         setStepSound(soundTypeStone);

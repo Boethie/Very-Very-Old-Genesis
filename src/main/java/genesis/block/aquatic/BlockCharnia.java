@@ -40,16 +40,6 @@ public class BlockCharnia extends BlockGenesisAquaticPlant {
     }
 
     @Override
-    public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-        super.onNeighborBlockChange(world, x, y, z, block);
-        Block b = world.getBlock(x, y + 1, z);
-        if ((b == null) || (!(b instanceof BlockCharniaTop))) {
-            dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 2);
-            world.setBlockToAir(x, y, z);
-        }
-    }
-
-    @Override
     public boolean canPlaceBlockAt(World world, int x, int y, int z) {
         return world.getBlock(x, y + 2, z) == Blocks.water && super.canPlaceBlockAt(world, x, y, z);
     }

@@ -69,5 +69,6 @@ public class GenesisPlantBlocks {
         Blocks.fire.setFireInfo(calamites, 30, 60);
         Blocks.fire.setFireInfo(calamites_block, 60, 20);
         Blocks.fire.setFireInfo(asteroxylon, 60, 100);
+        Blocks.fire.setFireInfo(asteroxylon_top, 60, 100);
     }
 }
