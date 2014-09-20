@@ -14,28 +14,28 @@ import java.util.List;
 
 public class ContainerCampfire extends Container {
 
-    protected TileEntityCampfire campfireEnt;
+    protected TileEntityCampfire campfire;
 
     protected int lastCookTime;
     protected int lastBurnTime;
     protected int lastItemBurnTime;
 
-    public ContainerCampfire(InventoryPlayer inventoryPlayer, TileEntityCampfire campfire) {
-        campfireEnt = campfire;
+    public ContainerCampfire(InventoryPlayer inventoryPlayer, TileEntityCampfire campfireTileEntity) {
+        campfire = campfireTileEntity;
 
-        addSlotToContainer(new Slot(campfireEnt, 0, 48, 16));
-        addSlotToContainer(new Slot(campfireEnt, 1, 48, 52));
-        addSlotToContainer(new SlotFurnace(inventoryPlayer.player, campfireEnt, 2, 107, 34));
+        addSlotToContainer(new Slot(campfireTileEntity, 0, 56, 17));
+        addSlotToContainer(new Slot(campfireTileEntity, 1, 56, 53));
+        addSlotToContainer(new SlotFurnace(inventoryPlayer.player, campfireTileEntity, 2, 116, 35));
 
         // Add player inv
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
-                addSlotToContainer(new Slot(inventoryPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+                addSlotToContainer(new Slot(inventoryPlayer, j + i * 9 + 9, 8 + j * 18, 83 + i * 18));
             }
         }
 
         for (int i = 0; i < 9; i++) {
-            addSlotToContainer(new Slot(inventoryPlayer, i, 8 + i * 18, 142));
+            addSlotToContainer(new Slot(inventoryPlayer, i, 8 + i * 18, 141));
         }
     }
 
@@ -44,13 +44,13 @@ public class ContainerCampfire extends Container {
     public void updateProgressBar(int id, int value) {
         switch (id) {
         case 0:
-            campfireEnt.furnaceCookTime = value;
+            campfire.furnaceCookTime = value;
             break;
         case 1:
-            campfireEnt.furnaceBurnTime = value;
+            campfire.furnaceBurnTime = value;
             break;
         case 2:
-            campfireEnt.currentItemBurnTime = value;
+            campfire.currentItemBurnTime = value;
             break;
         }
     }
@@ -59,9 +59,9 @@ public class ContainerCampfire extends Container {
     public void addCraftingToCrafters(ICrafting iCrafting) {
         super.addCraftingToCrafters(iCrafting);
 
-        iCrafting.sendProgressBarUpdate(this, 0, campfireEnt.furnaceCookTime);
-        iCrafting.sendProgressBarUpdate(this, 1, campfireEnt.furnaceBurnTime);
-        iCrafting.sendProgressBarUpdate(this, 2, campfireEnt.currentItemBurnTime);
+        iCrafting.sendProgressBarUpdate(this, 0, campfire.furnaceCookTime);
+        iCrafting.sendProgressBarUpdate(this, 1, campfire.furnaceBurnTime);
+        iCrafting.sendProgressBarUpdate(this, 2, campfire.currentItemBurnTime);
     }
 
     @Override
@@ -69,27 +69,27 @@ public class ContainerCampfire extends Container {
         super.detectAndSendChanges();
 
         for (ICrafting iCrafting : (List<ICrafting>) crafters) {
-            if (lastCookTime != campfireEnt.furnaceCookTime) {
-                iCrafting.sendProgressBarUpdate(this, 0, campfireEnt.furnaceCookTime);
+            if (lastCookTime != campfire.furnaceCookTime) {
+                iCrafting.sendProgressBarUpdate(this, 0, campfire.furnaceCookTime);
             }
 
-            if (lastBurnTime != campfireEnt.furnaceBurnTime) {
-                iCrafting.sendProgressBarUpdate(this, 1, campfireEnt.furnaceBurnTime);
+            if (lastBurnTime != campfire.furnaceBurnTime) {
+                iCrafting.sendProgressBarUpdate(this, 1, campfire.furnaceBurnTime);
             }
 
-            if (lastItemBurnTime != campfireEnt.currentItemBurnTime) {
-                iCrafting.sendProgressBarUpdate(this, 2, campfireEnt.currentItemBurnTime);
+            if (lastItemBurnTime != campfire.currentItemBurnTime) {
+                iCrafting.sendProgressBarUpdate(this, 2, campfire.currentItemBurnTime);
             }
         }
 
-        lastCookTime = campfireEnt.furnaceCookTime;
-        lastBurnTime = campfireEnt.furnaceBurnTime;
-        lastItemBurnTime = campfireEnt.currentItemBurnTime;
+        lastCookTime = campfire.furnaceCookTime;
+        lastBurnTime = campfire.furnaceBurnTime;
+        lastItemBurnTime = campfire.currentItemBurnTime;
     }
 
     @Override
     public boolean canInteractWith(EntityPlayer player) {
-        return campfireEnt.isUseableByPlayer(player);
+        return campfire.isUseableByPlayer(player);
     }
 
     @Override
@@ -111,7 +111,7 @@ public class ContainerCampfire extends Container {
                 boolean inserted = false;
 
                 for (int i = 1; i >= 0; i--) {
-                    if (campfireEnt.canInsertItem(i, stack, 0)) {
+                    if (campfire.canInsertItem(i, stack, 0)) {
                         inserted = true;
 
                         if (!mergeItemStack(stack, i, i + 1, false)) {

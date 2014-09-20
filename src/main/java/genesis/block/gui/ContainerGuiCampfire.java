@@ -17,101 +17,31 @@ public class ContainerGuiCampfire extends GuiContainer {
     public static final ResourceLocation campfireGuiTextures = new ResourceLocation(Genesis.ASSETS + "textures/gui/container/campfire.png");
     private TileEntityCampfire campfire;
 
-    public ContainerGuiCampfire(InventoryPlayer playerInv, TileEntityCampfire tileCampfire) {
-        super(new ContainerCampfire(playerInv, tileCampfire));
-        campfire = tileCampfire;
-    }
-
-    @Override
-    public void initGui() {
-        super.initGui();
-    }
-
-    @Override
-    protected void actionPerformed(GuiButton button) {
-        super.actionPerformed(button);
+    public ContainerGuiCampfire(InventoryPlayer playerInv, TileEntityCampfire tileEntityCampfire) {
+        super(new ContainerCampfire(playerInv, tileEntityCampfire));
+        campfire = tileEntityCampfire;
     }
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         String s = campfire.hasCustomInventoryName() ? campfire.getInventoryName() : I18n.format(campfire.getInventoryName());
-        fontRendererObj.drawString(s, xSize / 2 - fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
-        fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, ySize - 96 + 2, 4210752);
-
-        /*
-         * GL11.glTranslatef(-guiLeft, -guiTop, 0); // Undo GUI translation for
-         * extra stuffs
-         *
-         * GL11.glTranslatef(guiLeft, guiTop, 0);
-         */
-    }
-
-    private void drawImage(int x, int y, int u, int v, int w, int h, int texW, int texH) {
-        float scaleX = 1F / texW;
-        float scaleY = 1F / texH;
-
-        GL11.glColor4f(1, 1, 1, 1);
-
-        Tessellator tessellator = Tessellator.instance;
-        tessellator.startDrawingQuads();
-        tessellator.addVertexWithUV(x, y + h, zLevel, u * scaleX, (v + h) * scaleY);
-        tessellator.addVertexWithUV(x + w, y + h, zLevel, (u + w) * scaleX, (v + h) * scaleY);
-        tessellator.addVertexWithUV(x + w, y, zLevel, (u + w) * scaleX, v * scaleY);
-        tessellator.addVertexWithUV(x, y, zLevel, u * scaleX, v * scaleY);
-        tessellator.draw();
-    }
-
-    private void drawSlot(int x, int y, int u, int v) {
-        drawImage(x, y, u, v, 18, 18, 128, 128);
+        fontRendererObj.drawString(s, xSize / 2 - fontRendererObj.getStringWidth(s) / 2, 6, 14737632);
+        fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, ySize - 96 + 2, 14737632);
     }
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTick, int mouseX, int mouseY) {
-        GL11.glColor4f(1, 1, 1, 1);
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        mc.getTextureManager().bindTexture(campfireGuiTextures);
+        int k = (width - xSize) / 2;
+        int l = (height - ySize) / 2;
+        drawTexturedModalRect(k, l, 0, 0, xSize, ySize);
 
-        int originX = (width - xSize) / 2;
-        int originY = (height - ySize) / 2;
-
-        mc.renderEngine.bindTexture(campfireGuiTextures);
-        drawTexturedModalRect(originX, originY, 0, 0, xSize, ySize);
-
-        // Burn progress
-        drawImage(originX + 47, originY + 33, 204, 0, 18, 18, 256, 256);
-
-        int fireHeight = campfire.getBurnTimeRemainingScaled(13);
-
-        if (fireHeight >= 13) {
-            fireHeight = 18;
-        }
-
-        drawImage(originX + 47, originY + 48 - fireHeight, // Pos
-                204, 34 - fireHeight, // U, V
-                18, fireHeight + 3, // W, H
-                256, 256); // Tex
-
-        // Cook progress
-        drawImage(originX + 72, originY + 33, 229, 0, 22, 18, 256, 256);
-
-        int cookWidth = campfire.getCookProgressScaled(22);
-        drawImage(originX + 72, originY + 33, // Pos
-                229, 19, // U, V
-                cookWidth, 18, // W, H
-                256, 256); // Tex
-
-        mc.renderEngine.bindTexture(statIcons);
-
-        for (Object slotObj : inventorySlots.inventorySlots) {
-            Slot slot = (Slot) slotObj;
-            int x = originX + slot.xDisplayPosition - 1;
-            int y = originY + slot.yDisplayPosition - 1;
-
-            if (slot instanceof SlotFurnace) {
-                mc.renderEngine.bindTexture(campfireGuiTextures);
-                drawImage(x - 4, y - 4, 177, 0, 26, 26, 256, 256);
-                mc.renderEngine.bindTexture(statIcons);
-            } else {
-                drawSlot(x, y, 0, 0);
-            }
+        if (campfire.isBurning()) {
+            int i1 = campfire.getBurnTimeRemainingScaled(13);
+            drawTexturedModalRect(k + 56, l + 36 + 12 - i1, 176, 12 - i1, 14, i1 + 2);
+            i1 = campfire.getCookProgressScaled(24);
+            drawTexturedModalRect(k + 80, l + 34, 176, 14, i1, 16);
         }
     }
 }
