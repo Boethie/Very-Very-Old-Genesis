@@ -3,6 +3,7 @@ package genesis.block.trees;
 import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.block.BlockAndMeta;
 import genesis.block.plants.BlockGenesisFlowerPot;
+import genesis.item.Recipes;
 import genesis.item.itemblock.IItemBlockWithSubNames;
 import genesis.item.itemblock.ItemBlockGenesisTree;
 import genesis.lib.Names;
@@ -12,6 +13,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.StringUtils;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -49,22 +51,10 @@ public class GenesisTreeBlocks {
     public static void registerBlocks() {
         GameRegistry.registerBlock(bjuvia_cone, Names.Registry.blockBjuviaCone);
 
-        for (int group = 0; group < numGroups; group++) {
-            GameRegistry.registerBlock(logs[group], ItemBlockGenesisTree.class, Names.Registry.blockLogGenesis + group);
-
-            GameRegistry.addSmelting(logs[group], new ItemStack(Items.coal, 1, 1), 0.15F);
-
-            OreDictionary.registerOre("logWood", new ItemStack(logs[group], 1, OreDictionary.WILDCARD_VALUE));
-        }
-        for (int group = 0; group < numGroups; group++) {
-            GameRegistry.registerBlock(saplings[group], ItemBlockGenesisTree.class, Names.Registry.blockSaplingGenesis + group);
-        }
-        for (int group = 0; group < numGroups; group++) {
-            GameRegistry.registerBlock(leaves[group], ItemBlockGenesisTree.class, Names.Registry.blockLeavesGenesis + group);
-        }
-        for (int group = 0; group < numGroups; group++) {
-            GameRegistry.registerBlock(rotten_logs[group], ItemBlockGenesisTree.class, Names.Registry.blockRottenLogGenesis + group);
-        }
+        registerBlocks(logs, Names.Registry.blockLogGenesis, "logWood");
+        registerBlocks(saplings, Names.Registry.blockSaplingGenesis, "treeSapling");
+        registerBlocks(leaves, Names.Registry.blockLeavesGenesis, "treeLeaves");
+        registerBlocks(rotten_logs, Names.Registry.blockRottenLogGenesis);
 
         for (TreeType type : TreeType.values()) {
             BlockGenesisFlowerPot.tryRegisterPlant(new ItemStack(saplings[type.getGroup()], 1, type.getMetadata()));
@@ -82,6 +72,20 @@ public class GenesisTreeBlocks {
             Blocks.fire.setFireInfo(logs[group], 5, 5);
             Blocks.fire.setFireInfo(rotten_logs[group], 10, 10);
             Blocks.fire.setFireInfo(leaves[group], 30, 60);
+        }
+    }
+
+    private static void registerBlocks(Block[] blocks, String name) {
+        registerBlocks(blocks, name, null);
+    }
+
+    private static void registerBlocks(Block[] blocks, String name, String oreDictName) {
+        for (int group = 0; group < numGroups; group++) {
+            GameRegistry.registerBlock(blocks[group], ItemBlockGenesisTree.class, name + group);
+
+            if (!StringUtils.isNullOrEmpty(oreDictName)) {
+                OreDictionary.registerOre(oreDictName, new ItemStack(blocks[group], 1, OreDictionary.WILDCARD_VALUE));
+            }
         }
     }
 

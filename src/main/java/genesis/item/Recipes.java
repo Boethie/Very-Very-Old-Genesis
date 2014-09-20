@@ -12,6 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import org.apache.logging.log4j.Level;
@@ -24,6 +25,8 @@ public class Recipes {
         LogHelper.log(Level.INFO, "Registering recipes.");
 
         for (Block log : GenesisTreeBlocks.logs) {
+            GameRegistry.addSmelting(log, new ItemStack(Items.coal, 1, 1), 0.15F);
+
             ItemStack handle = new ItemStack(log, 1, OreDictionary.WILDCARD_VALUE);
             GenesisModItems.granite_tools.registerRecipes(GenesisModBlocks.granite, handle.copy());
             GenesisModItems.rhyolite_tools.registerRecipes(GenesisModBlocks.rhyolite, handle.copy());
@@ -72,7 +75,27 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(GenesisPlantBlocks.calamites_block), "CCC", "CCC", "CCC", 'C', GenesisPlantBlocks.calamites);
         GameRegistry.addShapelessRecipe(new ItemStack(GenesisPlantBlocks.calamites, 9), GenesisPlantBlocks.calamites_block);
 
-        GenesisFuelHandler.instance().addFuel(new ItemStack(GenesisModItems.komatiitic_lava_bucket), 20000);
         GameRegistry.registerFuelHandler(GenesisFuelHandler.instance());
+        for (Block sapling : GenesisTreeBlocks.saplings) {
+            addFuel(new ItemStack(sapling, 1, OreDictionary.WILDCARD_VALUE), Blocks.sapling);
+        }
+        addFuel(new ItemStack(GenesisModItems.komatiitic_lava_bucket), Items.lava_bucket);
+        addFuel(new ItemStack(GenesisPlantBlocks.calamites), Blocks.sapling);
+    }
+
+    public static void addFuel(ItemStack fuel, Item burnTimeItem) {
+        addFuel(fuel, new ItemStack(burnTimeItem));
+    }
+
+    public static void addFuel(ItemStack fuel, Block burnTimeBlock) {
+        addFuel(fuel, new ItemStack(burnTimeBlock));
+    }
+
+    public static void addFuel(ItemStack fuel, ItemStack burnTimeStack) {
+        addFuel(fuel, TileEntityFurnace.getItemBurnTime(burnTimeStack));
+    }
+
+    public static void addFuel(ItemStack fuel, int burnTime) {
+        GenesisFuelHandler.instance().addFuel(fuel, burnTime);
     }
 }

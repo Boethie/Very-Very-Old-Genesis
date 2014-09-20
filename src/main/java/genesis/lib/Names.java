@@ -95,6 +95,7 @@ public final class Names {
     public static final String itemLiopleurodonTooth = mod + "liopleurodonTooth";
     public static final String itemCynognathusHide = mod + "cynognathusHide";
     public static final String itemLeaellynasauraHide = mod + "leaellynasauraHide";
+    public static final String itemPachyrhinosaurusHorn = mod + "pachyrhinosaurusHorn";
     public static final String itemGallimimusMetatarsus = mod + "gallimimusMetatarsus";
     public static final String itemZircon = mod + "zircon";
     public static final String itemBrownishFlintPebble = mod + "brownishFlintPebble";
@@ -219,6 +220,7 @@ public final class Names {
         public static final String itemLiopleurodonTooth = "liopleurodon_tooth";
         public static final String itemCynognathusHide = "cynognathus_hide";
         public static final String itemLeaellynasauraHide = "leaellynasaura_hide";
+        public static final String itemPachyrhinosaurusHorn = "pachyrhinosaurus_horn";
         public static final String itemGallimimusMetatarsus = "gallimimus_metatarsus";
         public static final String itemZircon = "zircon";
         public static final String itemBrownishFlintPebble = "brownish_flint_pebble";

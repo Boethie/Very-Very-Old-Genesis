@@ -92,7 +92,7 @@ tile.genesis.logRotten.credneria.name=Rotten Credneria Wood
 
 # Plants
 tile.genesis.plant.calamites.name=Calamites
-tile.storage.genesis.plant.calamites.name=Block of Calamites
+tile.storage.genesis.plant.calamites.name=Bundle of Calamites
 
 tile.genesis.plant.cooksonia.name=Cooksonia
 tile.genesis.plant.baragwanathia.name=Baragwanathia
@@ -163,6 +163,7 @@ item.genesis.liopleurodonTooth.name=Liopleurodon Tooth
 item.genesis.utahraptorClaw.name=Utahraptor Claw
 item.genesis.utahraptorFeather.name=Utahraptor Feather
 item.genesis.leaellynasauraHide.name=Leaellynasaura Hide
+item.genesis.pachyrhinosaurusHorn.name=Pachyrhinosaurus Horn
 item.genesis.gallimimusMetatarsus.name=Gallimimus Metatarsus
 item.genesis.tyrannosaurusTooth.name=Tyrannosaurus Tooth
 

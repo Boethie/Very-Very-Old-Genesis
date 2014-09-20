@@ -94,9 +94,9 @@ public class BlockCampfire extends BlockContainer {
 
     @Override
     public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
-        if (rand.nextInt(24) == 0) {
-            world.playSound(x + 0.5, y + 0.5, y + 0.5, "fire.fire", 1 + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F, false);
-        }
+        //TODO: if (rand.nextInt(24) == 0) {
+            world.playSound((double)x + 0.5D, (double)y + 0.5D, (double)y + 0.5D, "fire.fire", 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F, false);
+        //}
 
         TileEntityCampfire campfire = getTileEntityAt(world, x, y, z);
 
