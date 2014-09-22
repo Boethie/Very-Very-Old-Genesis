@@ -118,6 +118,7 @@ tile.genesis.plant.flower.mabelia.name=Mabelia
 # Aquatic
 tile.genesis.aquatic.algae.margaretia.name=Margaretia
 tile.genesis.aquatic.algae.bangiomorpha.name=Bangiomorpha
+tile.genesis.aquatic.algae.marpolia.name=Marpolia
 tile.genesis.aquatic.algae.thaumaptilon.name=Thaumaptilon
 tile.genesis.aquatic.algae.dinomischus.name=Dinomischus
 
@@ -207,12 +208,6 @@ item.genesis.tool.pickaxe.quartzite.name=Quartzite Pickaxe
 item.genesis.tool.shovel.quartzite.name=Quartzite Shovel
 item.genesis.tool.axe.quartzite.name=Quartzite Axe
 item.genesis.tool.hoe.quartzite.name=Quartzite Hoe
-
-item.genesis.knife.limestone.name=Limestone Knife
-item.genesis.tool.pickaxe.limestone.name=Limestone Pickaxe
-item.genesis.tool.shovel.limestone.name=Limestone Shovel
-item.genesis.tool.axe.limestone.name=Limestone Axe
-item.genesis.tool.hoe.limestone.name=Limestone Hoe
 
 item.genesis.knife.brownishFlint.name=Brownish Flint Knife
 item.genesis.tool.pickaxe.brownishFlint.name=Brownish Flint Pickaxe

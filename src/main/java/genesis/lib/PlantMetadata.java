@@ -23,8 +23,8 @@ public final class PlantMetadata {
     public static final String VAUXIA_NAME = "vauxia", HAZELIA_NAME = "hazelia", WAPKIA_NAME = "wapkia", DIAG_NAME = "diagoniella", PIR_NAME = "pirania", CHANCE_NAME = "chancelloria";
     public static final List<String> spongeTypes = Arrays.asList(VAUXIA_NAME, HAZELIA_NAME, WAPKIA_NAME, DIAG_NAME, PIR_NAME, CHANCE_NAME);
 
-    public static final String MARGAR_NAME = "margaretia", BANGI_NAME = "bangiomorpha", DINOM_NAME = "dinomischus", THAUM_NAME = "thaumaptilon";
-    public static final List<String> algaeTypes = Arrays.asList(MARGAR_NAME, BANGI_NAME, DINOM_NAME, THAUM_NAME);
+    public static final String MARGAR_NAME = "margaretia", BANGI_NAME = "bangiomorpha", MARP_NAME = "marpolia", DINOM_NAME = "dinomischus", THAUM_NAME = "thaumaptilon";
+    public static final List<String> algaeTypes = Arrays.asList(MARGAR_NAME, BANGI_NAME, MARP_NAME, DINOM_NAME, THAUM_NAME);
 
     public static final String ARCH_NAME = "archaeopteris", SIGIL_NAME = "sigillaria", LEPID_NAME = "lepidodendron", CORD_NAME = "cordaites", PSAR_NAME = "psaronius", BJUVIA_NAME = "bjuvia", GLOSSO_NAME = "glossopteris", ARAUC_NAME = "araucarioxylon",
     		VOLTZ_NAME = "voltzia", DRYOP_NAME = "dryophyllum", CRED_NAME = "credneria";

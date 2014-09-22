@@ -31,7 +31,6 @@ public class Recipes {
             GenesisModItems.granite_tools.registerRecipes(GenesisModBlocks.granite, handle.copy());
             GenesisModItems.rhyolite_tools.registerRecipes(GenesisModBlocks.rhyolite, handle.copy());
             GenesisModItems.quartzite_tools.registerRecipes(GenesisModBlocks.quartzite, handle.copy());
-            GenesisModItems.limestone_tools.registerRecipes(GenesisModBlocks.limestone, handle.copy());
             GenesisModItems.brownish_flint_tools.registerRecipes(GenesisModItems.brownish_flint_pebble, handle.copy());
         }
 

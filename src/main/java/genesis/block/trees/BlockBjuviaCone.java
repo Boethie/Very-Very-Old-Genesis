@@ -8,7 +8,9 @@ import genesis.item.GenesisModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.Random;
 
@@ -23,7 +25,6 @@ public class BlockBjuviaCone extends BlockGenesis {
         setStepSound(soundTypeWood);
         setCreativeTab(GenesisTabs.tabGenesisDecoration);
         setTickRandomly(true);
-        setBlockBounds(0.3f, 0.0f, 0.3f, 0.7f, 0.8f, 0.7f);
     }
 
     @Override
@@ -67,6 +68,25 @@ public class BlockBjuviaCone extends BlockGenesis {
     }
     
     @Override
+    public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
+    {
+    	switch (world.getBlockMetadata(x, y, z))
+    	{
+    	case 0:
+            setBlockBounds(0.3f, 0.0f, 0.3f, 0.7f, 0.8f, 0.7f);
+            break;
+    	case 1:
+    		setBlockBounds(0.2f, 0.0f, 0.2f, 0.8f, 0.9f, 0.8f);
+    		break;
+    	case 2:
+    		setBlockBounds(0.1f, 0.0f, 0.1f, 0.9f, 1.0f, 0.9f);
+    		break;
+    		default:
+    			break;
+    	}
+    }
+    
+    @Override
     public boolean canPlaceBlockAt(World world, int x, int y, int z)
     {
     	return canBlockStay(world, x, y, z);
@@ -91,6 +111,9 @@ public class BlockBjuviaCone extends BlockGenesis {
     public boolean canBlockStay(World world, int x, int y, int z) 
     {
     	Block b = world.getBlock(x, y - 1, z);
-    	return b != null && b == GenesisTreeBlocks.logs[GenesisTreeBlocks.TreeType.BJUVIA.getGroup()];
+    	int meta = world.getBlockMetadata(x, y - 1, z);
+    	return b != null && b == GenesisTreeBlocks.logs[GenesisTreeBlocks.TreeType.BJUVIA.getGroup()]
+    			&& meta == GenesisTreeBlocks.getLogMetadataForDirection(GenesisTreeBlocks.TreeType.BJUVIA.getGroup(),
+    			ForgeDirection.UP);
    }
 }
