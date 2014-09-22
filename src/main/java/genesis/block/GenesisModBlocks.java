@@ -31,6 +31,7 @@ public class GenesisModBlocks {
     public static Block granite;
     public static Block mossy_granite;
     public static Block rhyolite;
+    public static Block dolerite;
     public static Block komatiite;
     public static Block trondhjemite;
     public static Block faux_amphibolite;
@@ -64,19 +65,20 @@ public class GenesisModBlocks {
         portal = new BlockPortalGenesis().setBlockTextureName("genesis_portal").setBlockName(Names.blockPortal);
 
         // Rocks
-        granite = new BlockGenesisRockOres(Material.rock, 0).setBlockTextureName("granite").setBlockName(Names.blockGranite).setHardness(2.0F).setResistance(10.0F);
-        mossy_granite = new BlockGenesisRock(Material.rock, 0).setBlockTextureName("granite_mossy").setBlockName(Names.blockGraniteMossy).setHardness(2.0F).setResistance(10.0F);
-        rhyolite = new BlockGenesisRockOres(Material.rock, 0).setBlockTextureName("rhyolite").setBlockName(Names.blockRhyolite).setHardness(1.65F).setResistance(10.0F);
-        komatiite = new BlockGenesisRockOres(Material.rock, 0).setBlockTextureName("komatiite").setBlockName(Names.blockKomatiite).setHardness(1.95F).setResistance(10.0F);
-        trondhjemite = new BlockGenesisRock(Material.rock, 0).setBlockTextureName("trondhjemite").setBlockName(Names.blockTrondhjemite).setHardness(2.0F).setResistance(10.0F);
-        faux_amphibolite = new BlockGenesisRockOres(Material.rock, 0).setBlockTextureName("faux_amphibolite").setBlockName(Names.blockFauxAmphibolite).setHardness(1.2F).setResistance(10.0F);
-        gneiss = new BlockGenesisRockOres(Material.rock, 0).setBlockTextureName("gneiss").setBlockName(Names.blockGneiss).setHardness(1.65F).setResistance(10.0F);
-        quartzite = new BlockGenesisRockOres(Material.rock, 0).setBlockTextureName("quartzite").setBlockName(Names.blockQuartzite).setHardness(1.95F).setResistance(10.0F);
+        granite = new BlockGenesisRockOres(0).setBlockTextureName("granite").setBlockName(Names.blockGranite).setHardness(2.0F).setResistance(10.0F);
+        mossy_granite = new BlockGenesisRock(0).setBlockTextureName("granite_mossy").setBlockName(Names.blockGraniteMossy).setHardness(2.0F).setResistance(10.0F);
+        rhyolite = new BlockGenesisRockOres(0).setBlockTextureName("rhyolite").setBlockName(Names.blockRhyolite).setHardness(1.65F).setResistance(10.0F);
+        dolerite = new BlockGenesisRockOres(0).setBlockTextureName("dolerite").setBlockName(Names.blockDolerite).setHardness(1.8F).setResistance(10.0F);
+        komatiite = new BlockGenesisRockOres(0).setBlockTextureName("komatiite").setBlockName(Names.blockKomatiite).setHardness(1.95F).setResistance(10.0F);
+        trondhjemite = new BlockGenesisRock(0).setBlockTextureName("trondhjemite").setBlockName(Names.blockTrondhjemite).setHardness(2.0F).setResistance(10.0F);
+        faux_amphibolite = new BlockGenesisRockOres(0).setBlockTextureName("faux_amphibolite").setBlockName(Names.blockFauxAmphibolite).setHardness(1.2F).setResistance(10.0F);
+        gneiss = new BlockGenesisRockOres(0).setBlockTextureName("gneiss").setBlockName(Names.blockGneiss).setHardness(1.65F).setResistance(10.0F);
+        quartzite = new BlockGenesisRockOres(0).setBlockTextureName("quartzite").setBlockName(Names.blockQuartzite).setHardness(1.95F).setResistance(10.0F);
         old_red_sandstone = new BlockOldRedSandstone().setBlockName(Names.blockOldRedSandstone).setBlockTextureName("old_red_sandstone");
-        limestone = new BlockGenesisRock(Material.rock, 0).setBlockTextureName("limestone").setBlockName(Names.blockLimestone).setHardness(0.75F).setResistance(8.5F);
-        stromatolite = new BlockGenesisRock(Material.rock, 0).setBlockTextureName("stromatolite").setBlockName(Names.blockStromatolite).setHardness(0.75F).setResistance(8.5F);
-        shale = new BlockGenesisRock(Material.rock, 0).setBlockTextureName("shale").setBlockName(Names.blockShale).setHardness(0.75F).setResistance(8.5F);
-        octaedrite = new BlockGenesisRock(Material.rock, 0).setBlockTextureName("octaedrite_fragment").setBlockName(Names.blockOctaedrite).setHardness(1.0F).setResistance(10.0F);
+        limestone = new BlockGenesisRock(0).setBlockTextureName("limestone").setBlockName(Names.blockLimestone).setHardness(0.75F).setResistance(8.5F);
+        stromatolite = new BlockGenesisRock(0).setBlockTextureName("stromatolite").setBlockName(Names.blockStromatolite).setHardness(0.75F).setResistance(8.5F);
+        shale = new BlockGenesisRock(0).setBlockTextureName("shale").setBlockName(Names.blockShale).setHardness(0.75F).setResistance(8.5F);
+        octaedrite = new BlockGenesisRock(0).setBlockTextureName("octaedrite_fragment").setBlockName(Names.blockOctaedrite).setHardness(1.0F).setResistance(10.0F);
         permafrost = new BlockPermafrost().setBlockTextureName("permafrost").setBlockName(Names.blockPermafrost);
 
         // Ores
@@ -120,6 +122,7 @@ public class GenesisModBlocks {
         GameRegistry.registerBlock(granite, Names.Registry.blockGranite);
         GameRegistry.registerBlock(mossy_granite, Names.Registry.blockGraniteMossy);
         GameRegistry.registerBlock(rhyolite, Names.Registry.blockRhyolite);
+        GameRegistry.registerBlock(dolerite, Names.Registry.blockDolerite);
         GameRegistry.registerBlock(komatiite, Names.Registry.blockKomatiite);
         GameRegistry.registerBlock(trondhjemite, Names.Registry.blockTrondhjemite);
         GameRegistry.registerBlock(faux_amphibolite, Names.Registry.blockFauxAmphibolite);

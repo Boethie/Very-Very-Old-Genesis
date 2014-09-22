@@ -8,6 +8,7 @@ tile.genesis.tikiTorch.name=Torche tiki
 tile.genesis.rock.granite.name=Granite
 tile.genesis.rock.graniteMossy.name=Granite moussu
 tile.genesis.rock.rhyolite.name=Rhyolite
+tile.genesis.rock.dolerite.name=Dolérite
 tile.genesis.rock.komatiite.name=Komatiite
 tile.genesis.rock.trondhjemite.name=Trondhjémite
 tile.genesis.rock.fauxamphibolite.name=Faux-amphibolite
@@ -202,6 +203,12 @@ item.genesis.tool.pickaxe.rhyolite.name=Pioche en rhyolite
 item.genesis.tool.shovel.rhyolite.name=Pelle en rhyolite
 item.genesis.tool.axe.rhyolite.name=Hache en rhyolite
 item.genesis.tool.hoe.rhyolite.name=Houe en rhyolite
+
+item.genesis.knife.dolerite.name=Couteau en dolérite
+item.genesis.tool.pickaxe.dolerite.name=Pioche en dolérite
+item.genesis.tool.shovel.dolerite.name=Pelle en dolérite
+item.genesis.tool.axe.dolerite.name=Hache en dolérite
+item.genesis.tool.hoe.dolerite.name=Houe en dolérite
 
 item.genesis.knife.quartzite.name=Couteau en quartzite
 item.genesis.tool.pickaxe.quartzite.name=Pioche en quartzite

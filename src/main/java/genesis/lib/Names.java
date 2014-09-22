@@ -22,6 +22,7 @@ public final class Names {
     public static final String blockGranite = blockRock + "granite";
     public static final String blockGraniteMossy = blockRock + "graniteMossy";
     public static final String blockRhyolite = blockRock + "rhyolite";
+    public static final String blockDolerite = blockRock + "dolerite";
     public static final String blockKomatiite = blockRock + "komatiite";
     public static final String blockFauxAmphibolite = blockRock + "fauxamphibolite";
     public static final String blockGneiss = blockRock + "gneiss";
@@ -73,12 +74,12 @@ public final class Names {
     // ---- Items ----
     public static final String itemGraniteMaterial = "granite";
     public static final String itemRhyoliteMaterial = "rhyolite";
+    public static final String itemDoleriteMaterial = "dolerite";
     public static final String itemQuartziteMaterial = "quartzite";
-    public static final String itemLimestoneMaterial = "limestone";
     public static final String itemBrownishFlintMaterial = "brownish_flint";
     // Plants
     public static final String itemSeed = blockPlant + "seed.";
-    public static final String itemRhizome = itemSeed + "rhizome";
+    public static final String itemZingiberopsisRhizome = itemSeed + "zingiberopsisRhizome";
     public static final String itemAraucarioxylonSeeds = mod + "araucarioxylonSeeds";
     public static final String itemResin = mod + "resin";
     public static final String itemSphenoSpores = itemSeed + "sphenophyllumSpores";
@@ -158,6 +159,7 @@ public final class Names {
         public static final String blockGranite = "granite";
         public static final String blockGraniteMossy = "mossy_granite";
         public static final String blockRhyolite = "rhyolite";
+        public static final String blockDolerite = "dolerite";
         public static final String blockKomatiite = "komatiite";
         public static final String blockFauxAmphibolite = "fauxamphibolite";
         public static final String blockGneiss = "gneiss";
@@ -203,7 +205,7 @@ public final class Names {
         public static final String blockCharnia = "charnia";
         public static final String blockCharniaTop = "charnia_top";
 
-        public static final String itemRhizome = "rhizome";
+        public static final String itemZingiberopsisRhizome = "zingiberopsis_rhizome";
         public static final String itemAraucarioxylonSeeds = "araucarioxylon_seeds";
         public static final String itemResin = "resin";
         public static final String itemSphenoSpores = "sphenophyllum_spores";

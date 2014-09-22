@@ -24,7 +24,7 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
     private IIcon[] icons;
 
     public BlockZingiberopsisBase() {
-        super(GenesisModItems.rhizome, GenesisModItems.rhizome, Blocks.farmland, 8, 4);
+        super(GenesisModItems.zingiberopsis_rhizome, GenesisModItems.zingiberopsis_rhizome, Blocks.farmland, 8, 4);
     }
 
     @Override
@@ -94,12 +94,12 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
 
     @Override
     protected Item func_149865_P() {
-        return GenesisModItems.rhizome;
+        return GenesisModItems.zingiberopsis_rhizome;
     }
 
     @Override
     protected Item func_149866_i() {
-        return GenesisModItems.rhizome;
+        return GenesisModItems.zingiberopsis_rhizome;
     }
 
     @Override

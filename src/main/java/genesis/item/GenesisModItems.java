@@ -12,6 +12,7 @@ public class GenesisModItems {
     // Tools
     public static ItemsToolSet granite_tools;
     public static ItemsToolSet rhyolite_tools;
+    public static ItemsToolSet dolerite_tools;
     public static ItemsToolSet quartzite_tools;
     public static ItemsToolSet brownish_flint_tools;
 
@@ -63,7 +64,7 @@ public class GenesisModItems {
 
     // Plant Foods
     public static Item araucarioxylon_seeds;
-    public static Item rhizome;
+    public static Item zingiberopsis_rhizome;
 
     // Buckets
     public static Item komatiitic_lava_bucket;
@@ -71,11 +72,9 @@ public class GenesisModItems {
     public static void initiate() {
         // Tools
         granite_tools = new ItemsToolSet(Names.itemGraniteMaterial, new Object[]{1, 375, 4.0F, 1.0F, 5}, new Object[]{1, 390, 5.2F, 1.0F, 5}, new Object[]{1, 415, 7.2F, 1.0F, 5}, new Object[]{1, 425, 8.0F, 1.0F, 5});
-
         rhyolite_tools = new ItemsToolSet(Names.itemRhyoliteMaterial, new Object[]{1, 375, 4.0F, 1.0F, 5}, new Object[]{1, 390, 5.2F, 1.0F, 5}, new Object[]{1, 415, 7.2F, 1.0F, 5}, new Object[]{1, 425, 8.0F, 1.0F, 5});
-
-        quartzite_tools = new ItemsToolSet(Names.itemQuartziteMaterial, new Object[]{1, 437, 4.0F, 1.0F, 5}, new Object[]{1, 452, 5.2F, 1.0F, 5}, new Object[]{1, 477, 7.2F, 1.0F, 5}, new Object[]{1, 487, 8.0F, 1.0F, 5});
-
+        dolerite_tools = new ItemsToolSet(Names.itemDoleriteMaterial, new Object[]{1, 312, 4.0F, 1.0F, 5}, new Object[]{1, 327, 5.2F, 1.0F, 5}, new Object[]{1, 352, 7.2F, 1.0F, 5}, new Object[]{1, 362, 8.0F, 1.0F, 5});
+        quartzite_tools = new ItemsToolSet(Names.itemQuartziteMaterial,new Object[]{1, 437, 4.0F, 1.0F, 5}, new Object[]{1, 452, 5.2F, 1.0F, 5}, new Object[]{1, 477, 7.2F, 1.0F, 5}, new Object[]{1, 487, 8.0F, 1.0F, 5});
         brownish_flint_tools = new ItemsToolSet(Names.itemBrownishFlintMaterial, new Object[]{1, 353, 4.0F, 1.0F, 5}, new Object[]{1, 368, 5.2F, 1.0F, 5}, new Object[]{1, 493, 7.2F, 1.0F, 5}, new Object[]{1, 403, 8.0F, 1.0F, 5});
 
         // Crafting
@@ -126,7 +125,7 @@ public class GenesisModItems {
 
         // Plant Foods
         araucarioxylon_seeds = new ItemGenesisFood(1, 0.6F).setUnlocalizedName(Names.itemAraucarioxylonSeeds).setTextureName("seeds_araucarioxylon");
-        rhizome = new ItemGenesisSeed(GenesisPlantBlocks.zingiberopsis, true, 1, 0.5f).setUnlocalizedName(Names.itemRhizome).setTextureName("zingiberopsis_rhizome");
+        zingiberopsis_rhizome = new ItemGenesisSeed(GenesisPlantBlocks.zingiberopsis, true, 1, 0.5f).setUnlocalizedName(Names.itemZingiberopsisRhizome).setTextureName("zingiberopsis_rhizome");
 
         // Buckets
         komatiitic_lava_bucket = new ItemGenesisBucket(GenesisModBlocks.komatiiticLava).setUnlocalizedName(Names.bucketKomatiiticLava).setTextureName("komatiitic_lava_bucket");
@@ -176,7 +175,7 @@ public class GenesisModItems {
         GameRegistry.registerItem(cooked_tyrannosaurus, Names.Registry.itemCookedTyrannosaurus);
 
         GameRegistry.registerItem(araucarioxylon_seeds, Names.Registry.itemAraucarioxylonSeeds);
-        GameRegistry.registerItem(rhizome, Names.Registry.itemRhizome);
+        GameRegistry.registerItem(zingiberopsis_rhizome, Names.Registry.itemZingiberopsisRhizome);
 
         GameRegistry.registerItem(komatiitic_lava_bucket, Names.Registry.bucketKomatiiticLava);
         BucketHandler.getInstance().bindBucketToFluid(komatiitic_lava_bucket, GenesisModBlocks.komatiiticLava, GenesisModBlocks.fluidKomatiiticLava);

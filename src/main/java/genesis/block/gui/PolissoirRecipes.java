@@ -1,5 +1,6 @@
 package genesis.block.gui;
 
+import genesis.block.plants.GenesisPlantBlocks;
 import genesis.item.GenesisModItems;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -9,9 +10,13 @@ import java.util.Map;
 
 public class PolissoirRecipes {
     private static final PolissoirRecipes INSTANCE = new PolissoirRecipes();
-    public final int chippedUpgradeTime = 100;
-    public final int polishedUpgradeTime = 200;
-    public final int sharpenedUpgradeTime = 240;
+    // 20 ticks = 1 second
+    /** 15 seconds */
+    public final int chippedUpgradeTime = 5 * 20;
+    /** 1 minute 50 seconds */
+    public final int polishedUpgradeTime = 15 * 20;
+    /** 2 minutes 30 seconds */
+    public final int sharpenedUpgradeTime = 75 * 20;
     private Map<ItemStack, ItemStack> chippedRecipes = new HashMap<ItemStack, ItemStack>();
     private Map<ItemStack, ItemStack> polishedRecipes = new HashMap<ItemStack, ItemStack>();
     private Map<ItemStack, ItemStack> sharpenedRecipes = new HashMap<ItemStack, ItemStack>();
@@ -130,7 +135,7 @@ public class PolissoirRecipes {
     }
 
     public ItemStack getPolishedUpgradeItem() {
-        return new ItemStack(Items.flint); // TODO
+        return new ItemStack(GenesisPlantBlocks.calamites);
     }
 
     public ItemStack getSharpenedUpgradeItem() {
