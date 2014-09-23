@@ -30,6 +30,7 @@ public class Recipes {
             ItemStack handle = new ItemStack(log, 1, OreDictionary.WILDCARD_VALUE);
             GenesisModItems.granite_tools.registerRecipes(GenesisModBlocks.granite, handle.copy());
             GenesisModItems.rhyolite_tools.registerRecipes(GenesisModBlocks.rhyolite, handle.copy());
+            GenesisModItems.dolerite_tools.registerRecipes(GenesisModBlocks.dolerite, handle.copy());
             GenesisModItems.quartzite_tools.registerRecipes(GenesisModBlocks.quartzite, handle.copy());
             GenesisModItems.brownish_flint_tools.registerRecipes(GenesisModItems.brownish_flint_pebble, handle.copy());
         }

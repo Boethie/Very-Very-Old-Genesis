@@ -38,6 +38,9 @@ public class ContainerPolissoir extends Container {
 
     @Override
     public void addCraftingToCrafters(ICrafting crafting) {
+        if (crafters.isEmpty()) {
+            polissoir.openInventory();
+        }
         super.addCraftingToCrafters(crafting);
         crafting.sendProgressBarUpdate(this, 0, polissoir.polissoirUpgradeTime);
     }
@@ -119,6 +122,8 @@ public class ContainerPolissoir extends Container {
     @Override
     public void onContainerClosed(EntityPlayer player) {
         super.onContainerClosed(player);
-        polissoir.closeInventory();
+        if (crafters.isEmpty()) {
+            polissoir.closeInventory();
+        }
     }
 }
