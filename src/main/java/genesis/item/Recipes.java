@@ -21,7 +21,7 @@ public class Recipes {
     //Items/blocks working as dye
     public static final Object[] DYE_ITEMS = new Object[]{GenesisModItems.manganese, GenesisModItems.hematite, GenesisModItems.malachite};
 
-    public static void registerRecipes() {
+    public static void register() {
         LogHelper.log(Level.INFO, "Registering recipes.");
 
         for (Block log : GenesisTreeBlocks.logs) {

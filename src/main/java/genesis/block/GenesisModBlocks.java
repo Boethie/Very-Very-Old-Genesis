@@ -14,7 +14,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.Fluid;
 
 public class GenesisModBlocks {
@@ -57,7 +56,7 @@ public class GenesisModBlocks {
     public static Fluid fluidKomatiiticLava;
     public static Block komatiiticLava;
 
-    public static void initiate() {
+    public static void init() {
         moss = new BlockMoss().setBlockTextureName("moss").setBlockName(Names.blockMoss);
         campfire = (BlockCampfire) new BlockCampfire().setBlockTextureName("campfire").setBlockName(Names.blockCampfire);
         polissoir = new BlockPolissoir().setBlockTextureName("stone").setBlockName(Names.blockPolissoir);
@@ -94,12 +93,12 @@ public class GenesisModBlocks {
         fluidKomatiiticLava = new FluidKomatiiticLava(Names.fluidKomatiiticLava);
         komatiiticLava = new BlockKomatiiticLava(fluidKomatiiticLava, Material.lava).setBlockTextureName("komatiitic_lava").setBlockName(Names.blockKomatiiticLava);
 
-        GenesisTreeBlocks.initiate();
-        GenesisPlantBlocks.initiate();
-        GenesisAquaticBlocks.initiate();
+        GenesisTreeBlocks.init();
+        GenesisPlantBlocks.init();
+        GenesisAquaticBlocks.init();
     }
 
-    public static void registerBlocks() {
+    public static void register() {
         granite_quartz_ore.setDrop(new ItemStack(GenesisModItems.quartz));
         zircon_ore.setDrop(new ItemStack(GenesisModItems.zircon));
         garnet_ore.setDrop(new ItemStack(GenesisModItems.garnet));
@@ -147,8 +146,8 @@ public class GenesisModBlocks {
 
         GameRegistry.registerBlock(komatiiticLava, Names.Registry.blockKomatiiticLava);
 
-        GenesisTreeBlocks.registerBlocks();
-        GenesisPlantBlocks.registerBlocks();
-        GenesisAquaticBlocks.registerBlocks();
+        GenesisTreeBlocks.register();
+        GenesisPlantBlocks.register();
+        GenesisAquaticBlocks.register();
     }
 }

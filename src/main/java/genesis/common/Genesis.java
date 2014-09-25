@@ -62,13 +62,13 @@ public class Genesis {
         proxy.preInit();
 
         LogHelper.log(Level.INFO, "Preparing Blocks and Items");
-        GenesisModBlocks.initiate();
-        GenesisModItems.initiate();
+        GenesisModBlocks.init();
+        GenesisModItems.init();
 
-        GenesisModBlocks.registerBlocks();
-        GenesisModItems.registerItems();
+        GenesisModBlocks.register();
+        GenesisModItems.register();
 
-        Recipes.registerRecipes();
+        Recipes.register();
 
         GenesisBiomes.config();
 

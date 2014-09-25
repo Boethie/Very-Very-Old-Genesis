@@ -5,20 +5,20 @@ tile.genesis.polissoir.name=Polissoir
 tile.genesis.tikiTorch.name=Torche tiki
 
 # Rocks
-tile.genesis.rock.granite.name=Granite
-tile.genesis.rock.graniteMossy.name=Granite moussu
-tile.genesis.rock.rhyolite.name=Rhyolite
-tile.genesis.rock.dolerite.name=Dolérite
-tile.genesis.rock.komatiite.name=Komatiite
-tile.genesis.rock.trondhjemite.name=Trondhjémite
-tile.genesis.rock.fauxamphibolite.name=Faux-amphibolite
-tile.genesis.rock.gneiss.name=Gneiss
-tile.genesis.rock.quartzite.name=Quartzite
-tile.genesis.rock.oldRedSandstone.name=Vieux grès rouge
-tile.genesis.rock.limestone.name=Calcaire
-tile.genesis.rock.stromatolite.name=Stromatolite
-tile.genesis.rock.shale.name=Schiste argileux
-tile.genesis.rock.octaedrite.name=Fragment d'octaédrite
+tile.genesis.granite.name=Granite
+tile.genesis.graniteMossy.name=Granite moussu
+tile.genesis.rhyolite.name=Rhyolite
+tile.genesis.dolerite.name=Dolérite
+tile.genesis.komatiite.name=Komatiite
+tile.genesis.trondhjemite.name=Trondhjémite
+tile.genesis.fauxamphibolite.name=Faux-amphibolite
+tile.genesis.gneiss.name=Gneiss
+tile.genesis.quartzite.name=Quartzite
+tile.genesis.oldRedSandstone.name=Vieux grès rouge
+tile.genesis.limestone.name=Calcaire
+tile.genesis.stromatolite.name=Stromatolite
+tile.genesis.shale.name=Schiste argileux
+tile.genesis.octaedrite.name=Fragment d'octaédrite
 tile.genesis.permafrost.name=Pergélisol
 
 # Ores
@@ -35,65 +35,59 @@ fluid.genesis.komatiiticLava=Lave komatiitic
 tile.genesis.komatiiticLavaBlock.name=Lave komatiitic
 
 # Trees
-tile.genesis.log.archaeopteris.name=Bois d'Archaeopteris
-tile.genesis.leaves.archaeopteris.name=Feuilles d'Archaeopteris
-tile.genesis.sapling.archaeopteris.name=Pousse d'Archaeopteris
-tile.genesis.logRotten.archaeopteris.name=Bois pourri d'Archaeopteris
-
-tile.genesis.log.sigillaria.name=Bois de Sigillaria
-tile.genesis.leaves.sigillaria.name=Feuilles de Sigillaria
-tile.genesis.sapling.sigillaria.name=Pousse de Sigillaria
-tile.genesis.logRotten.sigillaria.name=Bois pourri de Sigillaria
-
-tile.genesis.log.lepidodendron.name=Bois de Lepidodendron
-tile.genesis.leaves.lepidodendron.name=Feuilles de Lepidodendron
-tile.genesis.sapling.lepidodendron.name=Pousse de Lepidodendron
-tile.genesis.logRotten.lepidodendron.name=Bois pourri de Lepidodendron
-
-tile.genesis.log.cordaites.name=Bois de Cordaites
-tile.genesis.leaves.cordaites.name=Feuilles de Cordaites
-tile.genesis.sapling.cordaites.name=Pousse de Cordaites
-tile.genesis.logRotten.cordaites.name=Bois pourri de Cordaites
-
-tile.genesis.log.psaronius.name=Bois de Psaronius
-tile.genesis.leaves.psaronius.name=Feuilles de Pecopteris
-tile.genesis.sapling.psaronius.name=Pousse de Psaronius
-tile.genesis.logRotten.psaronius.name=Bois pourri de Psaronius
-
-tile.genesis.log.bjuvia.name=Bois de Bjuvia
-tile.genesis.leaves.bjuvia.name=Feuilles de Bjuvia
-tile.genesis.sapling.bjuvia.name=Pousse de Bjuvia
-tile.genesis.logRotten.bjuvia.name=Bois pourri de Bjuvia
 tile.genesis.bjuviaCone.name=Cône de Bjuvia
 
+tile.genesis.log.archaeopteris.name=Bois d'Archaeopteris
+tile.genesis.log.sigillaria.name=Bois de Sigillaria
+tile.genesis.log.lepidodendron.name=Bois de Lepidodendron
+tile.genesis.log.cordaites.name=Bois de Cordaites
+tile.genesis.log.psaronius.name=Bois de Psaronius
+tile.genesis.log.bjuvia.name=Bois de Bjuvia
 tile.genesis.log.glossopteris.name=Bois de Glossopteris
-tile.genesis.leaves.glossopteris.name=Feuilles de Glossopteris
-tile.genesis.sapling.glossopteris.name=Pousse de Glossopteris
-tile.genesis.logRotten.glossopteris.name=Bois pourri de Glossopteris
-
 tile.genesis.log.araucarioxylon.name=Bois d'Araucarioxylon
-tile.genesis.leaves.araucarioxylon.name=Feuilles d'Araucarioxylon
-tile.genesis.sapling.araucarioxylon.name=Pousse d'Araucarioxylon
-tile.genesis.logRotten.araucarioxylon.name=Bois pourri d'Araucarioxylon
-
 tile.genesis.log.voltzia.name=Bois de Voltzia
-tile.genesis.leaves.voltzia.name=Feuilles de Voltzia
-tile.genesis.sapling.voltzia.name=Pousse de Voltzia
-tile.genesis.logRotten.voltzia.name=Bois pourri de Voltzia
-
 tile.genesis.log.dryophyllum.name=Bois de Dryophyllum
-tile.genesis.leaves.dryophyllum.name=Feuilles de Dryophyllum
-tile.genesis.sapling.dryophyllum.name=Pousse de Dryophyllum
-tile.genesis.logRotten.dryophyllum.name=Bois pourri de Dryophyllum
-
 tile.genesis.log.credneria.name=Bois de Credneria
+
+tile.genesis.leaves.archaeopteris.name=Feuilles d'Archaeopteris
+tile.genesis.leaves.sigillaria.name=Feuilles de Sigillaria
+tile.genesis.leaves.lepidodendron.name=Feuilles de Lepidodendron
+tile.genesis.leaves.cordaites.name=Feuilles de Cordaites
+tile.genesis.leaves.psaronius.name=Feuilles de Pecopteris
+tile.genesis.leaves.bjuvia.name=Feuilles de Bjuvia
+tile.genesis.leaves.glossopteris.name=Feuilles de Glossopteris
+tile.genesis.leaves.araucarioxylon.name=Feuilles d'Araucarioxylon
+tile.genesis.leaves.voltzia.name=Feuilles de Voltzia
+tile.genesis.leaves.dryophyllum.name=Feuilles de Dryophyllum
 tile.genesis.leaves.credneria.name=Feuilles de Credneria
+
+tile.genesis.sapling.archaeopteris.name=Pousse d'Archaeopteris
+tile.genesis.sapling.sigillaria.name=Pousse de Sigillaria
+tile.genesis.sapling.lepidodendron.name=Pousse de Lepidodendron
+tile.genesis.sapling.cordaites.name=Pousse de Cordaites
+tile.genesis.sapling.psaronius.name=Pousse de Psaronius
+tile.genesis.sapling.bjuvia.name=Pousse de Bjuvia
+tile.genesis.sapling.glossopteris.name=Pousse de Glossopteris
+tile.genesis.sapling.araucarioxylon.name=Pousse d'Araucarioxylon
+tile.genesis.sapling.voltzia.name=Pousse de Voltzia
+tile.genesis.sapling.dryophyllum.name=Pousse de Dryophyllum
 tile.genesis.sapling.credneria.name=Pousse de Credneria
+
+tile.genesis.logRotten.archaeopteris.name=Bois pourri d'Archaeopteris
+tile.genesis.logRotten.sigillaria.name=Bois pourri de Sigillaria
+tile.genesis.logRotten.lepidodendron.name=Bois pourri de Lepidodendron
+tile.genesis.logRotten.cordaites.name=Bois pourri de Cordaites
+tile.genesis.logRotten.psaronius.name=Bois pourri de Psaronius
+tile.genesis.logRotten.bjuvia.name=Bois pourri de Bjuvia
+tile.genesis.logRotten.glossopteris.name=Bois pourri de Glossopteris
+tile.genesis.logRotten.araucarioxylon.name=Bois pourri d'Araucarioxylon
+tile.genesis.logRotten.voltzia.name=Bois pourri de Voltzia
+tile.genesis.logRotten.dryophyllum.name=Bois pourri de Dryophyllum
 tile.genesis.logRotten.credneria.name=Bois pourri de Credneria
 
 # Plants
-tile.genesis.plant.calamites.name=Calamites
-tile.storage.genesis.plant.calamites.name=Fagot de Calamites
+tile.genesis.calamites.name=Calamites
+tile.genesis.blockCalamites.name=Fagot de Calamites
 
 tile.genesis.plant.cooksonia.name=Cooksonia
 tile.genesis.plant.baragwanathia.name=Baragwanathia
@@ -102,40 +96,39 @@ tile.genesis.plant.psilophyton.name=Psilophyton
 tile.genesis.plant.nothia.name=Nothia
 tile.genesis.plant.rhynia.name=Rhynia
 
-tile.genesis.plant.crop.zingiberopsis.name=Zingiberopsis
+tile.genesis.zingiberopsis.name=Zingiberopsis
 
-tile.genesis.plant.fern.zygopteris.name=Zygopteris
-tile.genesis.plant.fern.matonidium.name=Matonidium
-tile.genesis.plant.fern.astralopteris.name=Astralopteris
-tile.genesis.plant.fern.ruffordia.name=Ruffordia
+tile.genesis.fern.zygopteris.name=Zygopteris
+tile.genesis.fern.matonidium.name=Matonidium
+tile.genesis.fern.astralopteris.name=Astralopteris
+tile.genesis.fern.ruffordia.name=Ruffordia
 
-tile.genesis.plant.asteroxylon.name=Asteroxylon
-tile.genesis.plant.asteroxylon.tall.name=Grand Asteroxylon
+tile.genesis.asteroxylon.name=Asteroxylon
 
-tile.genesis.plant.crop.sphenophyllum.name=Sphenophyllum
+tile.genesis.sphenophyllum.name=Sphenophyllum
 
-tile.genesis.plant.flower.mabelia.name=Mabelia
+tile.genesis.flower.mabelia.name=Mabelia
 
 # Aquatic
-tile.genesis.aquatic.algae.margaretia.name=Margaretia
-tile.genesis.aquatic.algae.bangiomorpha.name=Bangiomorpha
-tile.genesis.aquatic.algae.thaumaptilon.name=Thaumaptilon
-tile.genesis.aquatic.algae.dinomischus.name=Dinomischus
+tile.genesis.algae.margaretia.name=Margaretia
+tile.genesis.algae.bangiomorpha.name=Bangiomorpha
+tile.genesis.algae.marpolia.name=Marpolia
+tile.genesis.algae.thaumaptilon.name=Thaumaptilon
+tile.genesis.algae.dinomischus.name=Dinomischus
 
-tile.genesis.aquatic.coral.heliolites.name=Heliolites
-tile.genesis.aquatic.coral.favosites.name=Favosites
-tile.genesis.aquatic.coral.halysites.name=Halysites
+tile.genesis.coral.heliolites.name=Heliolites
+tile.genesis.coral.favosites.name=Favosites
+tile.genesis.coral.halysites.name=Halysites
 
-tile.genesis.aquatic.sponge.vauxia.name=Vauxia
-tile.genesis.aquatic.sponge.hazelia.name=Hazelia
-tile.genesis.aquatic.sponge.wapkia.name=Wapkia
-tile.genesis.aquatic.sponge.diagoniella.name=Diagoniella
-tile.genesis.aquatic.sponge.pirania.name=Pirania
-tile.genesis.aquatic.sponge.chancelloria.name=Chancelloria
+tile.genesis.sponge.vauxia.name=Vauxia
+tile.genesis.sponge.hazelia.name=Hazelia
+tile.genesis.sponge.wapkia.name=Wapkia
+tile.genesis.sponge.diagoniella.name=Diagoniella
+tile.genesis.sponge.pirania.name=Pirania
+tile.genesis.sponge.chancelloria.name=Chancelloria
 
-tile.genesis.aquatic.pteridinium.name=Pteridinium
-
-tile.genesis.aquatic.charnia.name=Charnia
+tile.genesis.pteridinium.name=Pteridinium
+tile.genesis.charnia.name=Charnia
 
 <!-- Items -->
 # Crafting
@@ -150,7 +143,7 @@ item.genesis.olivine.name=Olivine
 
 # Plants
 item.genesis.resin.name=Résine
-item.genesis.plant.seed.sphenophyllumSpores.name=Spores de Sphenophyllum
+item.genesis.seeds.sphenophyllumSpores.name=Spores de Sphenophyllum
 item.genesis.sphenoFiber.name=Fibre de Sphenophyllum
 item.genesis.bjuviaSeeds.name=Graines de Bjuvia
 
@@ -165,6 +158,8 @@ item.genesis.utahraptorClaw.name=Griffe d'Utahraptor
 item.genesis.utahraptorFeather.name=Plume d'Utahraptor
 item.genesis.leaellynasauraHide.name=Peau de Leaellynasaura
 item.genesis.pachyrhinosaurusHorn.name=Corne de Pachyrhinosaurus
+item.genesis.puertasaurusRib.name=Côte de Puertasaurus
+item.genesis.shantungosaurusScapula.name=Omoplate de Shantungosaurus
 item.genesis.gallimimusMetatarsus.name=Métatarse de Gallimimus
 item.genesis.tyrannosaurusTooth.name=Dent de Tyrannosaurus
 
@@ -186,7 +181,7 @@ item.genesis.food.cookedTyrannosaurus.name=Tyrannosaurus cuit
 
 # Plant Foods
 item.genesis.araucarioxylonSeeds.name=Graines d'Araucarioxylon
-item.genesis.plant.seed.rhizome.name=Rhizome de Zingiberopsis
+item.genesis.seeds.zingiberopsisRhizome.name=Rhizome de Zingiberopsis
 
 # Buckets
 item.genesis.komatiiticLavaBucket.name=Seau de lave komatiitic
@@ -215,12 +210,6 @@ item.genesis.tool.pickaxe.quartzite.name=Pioche en quartzite
 item.genesis.tool.shovel.quartzite.name=Pelle en quartzite
 item.genesis.tool.axe.quartzite.name=Hache en quartzite
 item.genesis.tool.hoe.quartzite.name=Houe en quartzite
-
-item.genesis.knife.limestone.name=Couteau en calcaire
-item.genesis.tool.pickaxe.limestone.name=Pioche en calcaire
-item.genesis.tool.shovel.limestone.name=Pelle en calcaire
-item.genesis.tool.axe.limestone.name=Hache en calcaire
-item.genesis.tool.hoe.limestone.name=Houe en calcaire
 
 item.genesis.knife.brownishFlint.name=Couteau en silex brunâtre
 item.genesis.tool.pickaxe.brownishFlint.name=Pioche en silex brunâtre

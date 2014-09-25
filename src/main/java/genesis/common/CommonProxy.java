@@ -5,11 +5,9 @@ public class CommonProxy {
         registerRenderers();
     }
 
-    public void registerRenderers() {
-    }
+    public void registerRenderers() {}
 
-    public void init() {
-    }
+    public void init() {}
 
     public boolean areLeavesOpaque() {
         return false;

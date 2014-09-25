@@ -1,6 +1,6 @@
 package genesis.item.itemblock;
 
-import genesis.lib.PlantMetadata;
+import genesis.lib.Names;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
@@ -23,6 +23,6 @@ public class ItemBlockGenesisSponge extends ItemBlockWithMetadata {
     @Override
     public String getUnlocalizedName(ItemStack item) {
         Block b = Block.getBlockFromItem(item.getItem());
-        return b.getUnlocalizedName() + PlantMetadata.spongeTypes.get(getMetadata(item.getItemDamage()));
+        return b.getUnlocalizedName() + Names.Plants.SPONGE_TYPES.get(getMetadata(item.getItemDamage()));
     }
 }

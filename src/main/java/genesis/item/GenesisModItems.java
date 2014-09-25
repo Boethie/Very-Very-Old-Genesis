@@ -43,6 +43,8 @@ public class GenesisModItems {
     public static Item utahraptor_feather;
     public static Item leaellynasaura_hide;
     public static Item pachyrhinosaurus_horn;
+    public static Item puertasaurus_rib;
+    public static Item shantungosaurus_scapula;
     public static Item gallimimus_metatarsus;
     public static Item tyrannosaurus_tooth;
 
@@ -69,13 +71,13 @@ public class GenesisModItems {
     // Buckets
     public static Item komatiitic_lava_bucket;
 
-    public static void initiate() {
+    public static void init() {
         // Tools
-        granite_tools = new ItemsToolSet(Names.itemGraniteMaterial, new Object[]{1, 375, 4.0F, 1.0F, 5}, new Object[]{1, 390, 5.2F, 1.0F, 5}, new Object[]{1, 415, 7.2F, 1.0F, 5}, new Object[]{1, 425, 8.0F, 1.0F, 5});
-        rhyolite_tools = new ItemsToolSet(Names.itemRhyoliteMaterial, new Object[]{1, 375, 4.0F, 1.0F, 5}, new Object[]{1, 390, 5.2F, 1.0F, 5}, new Object[]{1, 415, 7.2F, 1.0F, 5}, new Object[]{1, 425, 8.0F, 1.0F, 5});
-        dolerite_tools = new ItemsToolSet(Names.itemDoleriteMaterial, new Object[]{1, 312, 4.0F, 1.0F, 5}, new Object[]{1, 327, 5.2F, 1.0F, 5}, new Object[]{1, 352, 7.2F, 1.0F, 5}, new Object[]{1, 362, 8.0F, 1.0F, 5});
-        quartzite_tools = new ItemsToolSet(Names.itemQuartziteMaterial,new Object[]{1, 437, 4.0F, 1.0F, 5}, new Object[]{1, 452, 5.2F, 1.0F, 5}, new Object[]{1, 477, 7.2F, 1.0F, 5}, new Object[]{1, 487, 8.0F, 1.0F, 5});
-        brownish_flint_tools = new ItemsToolSet(Names.itemBrownishFlintMaterial, new Object[]{1, 353, 4.0F, 1.0F, 5}, new Object[]{1, 368, 5.2F, 1.0F, 5}, new Object[]{1, 493, 7.2F, 1.0F, 5}, new Object[]{1, 403, 8.0F, 1.0F, 5});
+        granite_tools = new ItemsToolSet(Names.materialGranite, new Object[]{1, 375, 4.0F, 1.0F, 5});
+        rhyolite_tools = new ItemsToolSet(Names.materialRhyolite, new Object[]{1, 375, 4.0F, 1.0F, 5});
+        dolerite_tools = new ItemsToolSet(Names.materialDolerite, new Object[]{1, 312, 4.0F, 1.0F, 5});
+        quartzite_tools = new ItemsToolSet(Names.materialQuartzite,new Object[]{1, 437, 4.0F, 1.0F, 5});
+        brownish_flint_tools = new ItemsToolSet(Names.materialBrownishFlint, new Object[]{1, 353, 4.0F, 1.0F, 5});
 
         // Crafting
         brownish_flint_pebble = new ItemGenesis().setUnlocalizedName(Names.itemBrownishFlintPebble).setTextureName("brownish_flint_pebble");
@@ -104,6 +106,8 @@ public class GenesisModItems {
         utahraptor_feather = new ItemGenesis().setUnlocalizedName(Names.itemUtahraptorFeather).setTextureName("utahraptor_feather");
         leaellynasaura_hide = new ItemGenesis().setUnlocalizedName(Names.itemLeaellynasauraHide).setTextureName("leaellynasaura_hide");
         pachyrhinosaurus_horn = new ItemGenesis().setUnlocalizedName(Names.itemPachyrhinosaurusHorn).setTextureName("pachyrhinosaurus_horn");
+        puertasaurus_rib = new ItemGenesis().setUnlocalizedName(Names.itemPuertasaurusRib).setTextureName("puertasaurus_rib");
+        shantungosaurus_scapula = new ItemGenesis().setUnlocalizedName(Names.itemShantungosaurusScapula).setTextureName("shantungosaurus_scapula");
         gallimimus_metatarsus = new ItemGenesis().setUnlocalizedName(Names.itemGallimimusMetatarsus).setTextureName("gallimimus_metatarsus");
         tyrannosaurus_tooth = new ItemGenesis().setUnlocalizedName(Names.itemTyrannosaurasTooth).setTextureName("tyrannosaurus_tooth");
 
@@ -131,7 +135,7 @@ public class GenesisModItems {
         komatiitic_lava_bucket = new ItemGenesisBucket(GenesisModBlocks.komatiiticLava).setUnlocalizedName(Names.bucketKomatiiticLava).setTextureName("komatiitic_lava_bucket");
     }
 
-    public static void registerItems() {
+    public static void register() {
         GameRegistry.registerItem(brownish_flint_pebble, Names.Registry.itemBrownishFlintPebble);
         GameRegistry.registerItem(quartz, Names.Registry.itemQuartz);
         GameRegistry.registerItem(zircon, Names.Registry.itemZircon);
@@ -156,6 +160,8 @@ public class GenesisModItems {
         GameRegistry.registerItem(utahraptor_feather, Names.Registry.itemUtahraptorFeather);
         GameRegistry.registerItem(leaellynasaura_hide, Names.Registry.itemLeaellynasauraHide);
         GameRegistry.registerItem(pachyrhinosaurus_horn, Names.Registry.itemPachyrhinosaurusHorn);
+        GameRegistry.registerItem(puertasaurus_rib, Names.Registry.itemPuertasaurusRib);
+        GameRegistry.registerItem(shantungosaurus_scapula, Names.Registry.itemShantungosaurusScapula);
         GameRegistry.registerItem(gallimimus_metatarsus, Names.Registry.itemGallimimusMetatarsus);
         GameRegistry.registerItem(tyrannosaurus_tooth, Names.Registry.itemTyrannosaurasTooth);
 

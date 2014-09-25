@@ -17,20 +17,35 @@ public class ItemsToolSet implements IRecipeWithDefault {
     public Item crude_knife, chipped_knife, polished_knife, sharpened_knife;
     public Item crude_pickaxe, chipped_pickaxe, polished_pickaxe, sharpened_pickaxe;
     public Item crude_axe, chipped_axe, polished_axe, sharpened_axe;
-    public Item crude_spade, chipped_spade, polished_spade, sharpened_spade;
+    public Item crude_shovel, chipped_shovel, polished_shovel, sharpened_shovel;
     public Item crude_hoe, chipped_hoe, polished_hoe, sharpened_hoe;
+    public boolean knifeEnabled, pickaxeEnabled, axeEnabled, shovelEnabled, hoeEnabled;
     public Object craftingHandleObj;
+
+    public ItemsToolSet(String materialName, Object[] baseValues) {
+        this(materialName, baseValues, true, true, true, true, true);
+    }
+
+    public ItemsToolSet(String materialName, Object[] baseValues, boolean enableKnife, boolean enablePickaxe, boolean enableAxe, boolean enableShovel, boolean enableHoe) {
+        this(materialName, baseValues, null, null, null, enableKnife, enablePickaxe, enableAxe, enableShovel, enableHoe);
+    }
 
     public ItemsToolSet(String materialName, Object[] material1, Object[] material2, Object[] material3, Object[] material4) {
         this(materialName, material1, material2, material3, material4, true, true, true, true, true);
     }
 
-    public ItemsToolSet(String materialName, Object[] material1, Object[] material2, Object[] material3, Object[] material4, boolean enableKnife, boolean enablePickaxe, boolean enableAxe, boolean enableSpade, boolean enableHoe) {
+    public ItemsToolSet(String materialName, Object[] material1, Object[] material2, Object[] material3, Object[] material4, boolean enableKnife, boolean enablePickaxe, boolean enableAxe, boolean enableShovel, boolean enableHoe) {
+        knifeEnabled = enableKnife;
+        pickaxeEnabled = enablePickaxe;
+        axeEnabled = enableAxe;
+        shovelEnabled = enableShovel;
+        hoeEnabled = enableHoe;
+
         String material = materialName.toUpperCase() + "_";
-        Item.ToolMaterial toolMaterial1 = EnumHelper.addToolMaterial(material + "CRUDE", (Integer) material1[0], (Integer) material1[1], (Float) material1[2], (Float) material1[3], (Integer) material1[4]);
-        Item.ToolMaterial toolMaterial2 = EnumHelper.addToolMaterial(material + "CHIPPED", (Integer) material2[0], (Integer) material2[1], (Float) material2[2], (Float) material2[3], (Integer) material2[4]);
-        Item.ToolMaterial toolMaterial3 = EnumHelper.addToolMaterial(material + "POLISHED", (Integer) material3[0], (Integer) material3[1], (Float) material3[2], (Float) material3[3], (Integer) material3[4]);
-        Item.ToolMaterial toolMaterial4 = EnumHelper.addToolMaterial(material + "SHARPENED", (Integer) material4[0], (Integer) material4[1], (Float) material4[2], (Float) material4[3], (Integer) material4[4]);
+        Item.ToolMaterial toolMaterial1 = addMaterial(material + "CRUDE", material1, null);
+        Item.ToolMaterial toolMaterial2 = addMaterial(material + "CHIPPED", material1, material2, new Object[]{15, 1.2F});
+        Item.ToolMaterial toolMaterial3 = addMaterial(material + "POLISHED", material1, material3, new Object[]{40, 3.2F});
+        Item.ToolMaterial toolMaterial4 = addMaterial(material + "SHARPENED", material1, material4, new Object[]{50, 4.0F});
 
         String[] strings = materialName.split("_");
         String unlocalizedName = "";
@@ -88,17 +103,17 @@ public class ItemsToolSet implements IRecipeWithDefault {
             }
         }
 
-        if (enableSpade) {
-            crude_spade = new ItemGenesisSpade(toolMaterial1, crudeName, ToolQuality.CRUDE).setTextureName(crudeName);
-            chipped_spade = new ItemGenesisSpade(toolMaterial2, crudeName, ToolQuality.CHIPPED).setTextureName(crudeName);
-            polished_spade = new ItemGenesisSpade(toolMaterial3, polishedName, ToolQuality.POLISHED).setTextureName(polishedName);
-            sharpened_spade = new ItemGenesisSpade(toolMaterial4, polishedName, ToolQuality.SHARPENED).setTextureName(polishedName);
+        if (enableShovel) {
+            crude_shovel = new ItemGenesisSpade(toolMaterial1, crudeName, ToolQuality.CRUDE).setTextureName(crudeName);
+            chipped_shovel = new ItemGenesisSpade(toolMaterial2, crudeName, ToolQuality.CHIPPED).setTextureName(crudeName);
+            polished_shovel = new ItemGenesisSpade(toolMaterial3, polishedName, ToolQuality.POLISHED).setTextureName(polishedName);
+            sharpened_shovel = new ItemGenesisSpade(toolMaterial4, polishedName, ToolQuality.SHARPENED).setTextureName(polishedName);
 
             if (!StringUtils.isNullOrEmpty(unlocalizedName)) {
-                crude_spade.setUnlocalizedName(unlocalizedName);
-                chipped_spade.setUnlocalizedName(unlocalizedName);
-                polished_spade.setUnlocalizedName(unlocalizedName);
-                sharpened_spade.setUnlocalizedName(unlocalizedName);
+                crude_shovel.setUnlocalizedName(unlocalizedName);
+                chipped_shovel.setUnlocalizedName(unlocalizedName);
+                polished_shovel.setUnlocalizedName(unlocalizedName);
+                sharpened_shovel.setUnlocalizedName(unlocalizedName);
             }
         }
 
@@ -119,31 +134,74 @@ public class ItemsToolSet implements IRecipeWithDefault {
         setupHierarchy();
     }
 
-    private void setupHierarchy() {
-        PolissoirRecipes.instance().addChippedRecipe(new ItemStack(crude_axe), new ItemStack(chipped_axe));
-        PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(chipped_axe), new ItemStack(polished_axe));
-        PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(polished_axe), new ItemStack(sharpened_axe));
-
-        PolissoirRecipes.instance().addChippedRecipe(new ItemStack(crude_hoe), new ItemStack(chipped_hoe));
-        PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(chipped_hoe), new ItemStack(polished_hoe));
-        PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(polished_hoe), new ItemStack(sharpened_hoe));
-
-        PolissoirRecipes.instance().addChippedRecipe(new ItemStack(crude_knife), new ItemStack(chipped_knife));
-        PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(chipped_knife), new ItemStack(polished_knife));
-        PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(polished_knife), new ItemStack(sharpened_knife));
-
-        PolissoirRecipes.instance().addChippedRecipe(new ItemStack(crude_pickaxe), new ItemStack(chipped_pickaxe));
-        PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(chipped_pickaxe), new ItemStack(polished_pickaxe));
-        PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(polished_pickaxe), new ItemStack(sharpened_pickaxe));
-
-        PolissoirRecipes.instance().addChippedRecipe(new ItemStack(crude_spade), new ItemStack(chipped_spade));
-        PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(chipped_spade), new ItemStack(polished_spade));
-        PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(polished_spade), new ItemStack(sharpened_spade));
+    private Item.ToolMaterial addMaterial(String name, Object[] baseValues, Object[] values, Object[] modifiers) {
+        return values != null ? addMaterial(name, values, modifiers) : addMaterial(name, baseValues, modifiers);
     }
 
-    public void registerRecipes(Object crafting, Object craftingHandle) {
+    private Item.ToolMaterial addMaterial(String name, Object[] values, Object[] modifiers) {
+        int harvestLevel = (Integer) values[0];
+        int maxUses = (Integer) values[1];
+        float efficiency = (Float) values[2];
+        float damage = (Float) values[3];
+        int enchantability = (Integer) values[4];
+        if (modifiers != null) {
+            if (modifiers.length == 2) {
+                addModifier(maxUses, modifiers[0]);
+                addModifier(efficiency, modifiers[1]);
+            } else {
+                addModifier(harvestLevel, modifiers[0]);
+                addModifier(maxUses, modifiers[1]);
+                addModifier(efficiency, modifiers[2]);
+                addModifier(damage, modifiers[3]);
+                addModifier(enchantability, modifiers[4]);
+            }
+        }
+        return EnumHelper.addToolMaterial(name, harvestLevel, maxUses, efficiency, damage, enchantability);
+    }
+
+    private int addModifier(int value, Object modifier) {
+        return modifier != null ? value + (Integer) modifier : value;
+    }
+
+    private float addModifier(float value, Object modifier) {
+        return modifier != null ? value + (Float) modifier : value;
+    }
+
+    private void setupHierarchy() {
+        if (knifeEnabled) {
+            PolissoirRecipes.instance().addChippedRecipe(new ItemStack(crude_knife), new ItemStack(chipped_knife));
+            PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(chipped_knife), new ItemStack(polished_knife));
+            PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(polished_knife), new ItemStack(sharpened_knife));
+        }
+
+        if (pickaxeEnabled) {
+            PolissoirRecipes.instance().addChippedRecipe(new ItemStack(crude_pickaxe), new ItemStack(chipped_pickaxe));
+            PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(chipped_pickaxe), new ItemStack(polished_pickaxe));
+            PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(polished_pickaxe), new ItemStack(sharpened_pickaxe));
+        }
+
+        if (axeEnabled) {
+            PolissoirRecipes.instance().addChippedRecipe(new ItemStack(crude_axe), new ItemStack(chipped_axe));
+            PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(chipped_axe), new ItemStack(polished_axe));
+            PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(polished_axe), new ItemStack(sharpened_axe));
+        }
+
+        if (shovelEnabled) {
+            PolissoirRecipes.instance().addChippedRecipe(new ItemStack(crude_shovel), new ItemStack(chipped_shovel));
+            PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(chipped_shovel), new ItemStack(polished_shovel));
+            PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(polished_shovel), new ItemStack(sharpened_shovel));
+        }
+
+        if (hoeEnabled) {
+            PolissoirRecipes.instance().addChippedRecipe(new ItemStack(crude_hoe), new ItemStack(chipped_hoe));
+            PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(chipped_hoe), new ItemStack(polished_hoe));
+            PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(polished_hoe), new ItemStack(sharpened_hoe));
+        }
+    }
+
+    public void registerRecipes(Object craftingItem, Object craftingHandle) {
         craftingHandleObj = craftingHandle;
-        registerRecipeWithDefault(crafting, this);
+        registerRecipeWithDefault(craftingItem, this);
     }
 
     @Override
@@ -153,39 +211,71 @@ public class ItemsToolSet implements IRecipeWithDefault {
 
     @Override
     public int getRecipeWidth(int recipe) {
+        int width = 0;
+
         switch (recipe) {
-        //case 0: // Sword
-        case 0: // knife
-        case 3: // Spade
-            return 1;
-        case 2: // Axe
-        case 4: // Hoe
-            return 2;
-        default:
-            return 3;
+        case 0:
+            if (!knifeEnabled) {
+                break;
+            }
+            width = 1;
+        case 1:
+            if (!pickaxeEnabled) {
+                break;
+            }
+            width = 3;
+        case 2:
+            if (!axeEnabled) {
+                break;
+            }
+            width = 2;
+        case 3:
+            if (!shovelEnabled) {
+                break;
+            }
+            width = 1;
+        case 4:
+            if (!hoeEnabled) {
+                break;
+            }
+            width = 2;
         }
+        return width;
     }
 
     @Override
     public ItemStack[] getDefaultRecipe(int recipe, ItemStack craftStack) {
         ItemStack handle = getStackFromObject(craftingHandleObj);
+        ItemStack[] items = null;
 
         switch (recipe) {
-            /*case 0: // Sword
-                return new ItemStack[] {craftStack, craftStack, handle};*/
-        case 0: // knife
-            return new ItemStack[]{craftStack, handle};
-        case 1: // Pickaxe
-            return new ItemStack[]{craftStack, craftStack, craftStack, null, handle, null, null, handle, null};
-        case 2: // Axe
-            return new ItemStack[]{craftStack, craftStack, craftStack, handle, null, handle};
-        case 3: // Spade
-            return new ItemStack[]{craftStack, handle, handle};
-        case 4: // Hoe
-            return new ItemStack[]{craftStack, craftStack, null, handle, null, handle};
-        default:
-            return null;
+        case 0:
+            if (knifeEnabled) {
+                items = new ItemStack[]{craftStack, handle};
+            }
+            break;
+        case 1:
+            if (pickaxeEnabled) {
+                items = new ItemStack[]{craftStack, craftStack, craftStack, null, handle, null, null, handle, null};
+            }
+            break;
+        case 2:
+            if (axeEnabled) {
+                items = new ItemStack[]{craftStack, craftStack, craftStack, handle, null, handle};
+            }
+            break;
+        case 3:
+            if (shovelEnabled) {
+                items = new ItemStack[]{craftStack, handle, handle};
+            }
+            break;
+        case 4:
+            if (hoeEnabled) {
+                items = new ItemStack[]{craftStack, craftStack, null, handle, null, handle};
+            }
+            break;
         }
+        return items;
     }
 
     @Override
@@ -194,19 +284,29 @@ public class ItemsToolSet implements IRecipeWithDefault {
 
         switch (recipe) {
         case 0:
-            item = crude_knife;
+            if (knifeEnabled) {
+                item = crude_knife;
+            }
             break;
         case 1:
-            item = crude_pickaxe;
+            if (pickaxeEnabled) {
+                item = crude_pickaxe;
+            }
             break;
         case 2:
-            item = crude_axe;
+            if (axeEnabled) {
+                item = crude_axe;
+            }
             break;
         case 3:
-            item = crude_spade;
+            if (shovelEnabled) {
+                item = crude_shovel;
+            }
             break;
         case 4:
-            item = crude_hoe;
+            if (hoeEnabled) {
+                item = crude_hoe;
+            }
             break;
         }
 
@@ -217,7 +317,7 @@ public class ItemsToolSet implements IRecipeWithDefault {
         }
     }
 
-    private ItemStack getStackFromObject(Object obj) {
+    private static ItemStack getStackFromObject(Object obj) {
         if (obj instanceof Item) {
             return new ItemStack((Item) obj);
         } else if (obj instanceof Block) {
@@ -229,7 +329,7 @@ public class ItemsToolSet implements IRecipeWithDefault {
         return null;
     }
 
-    public void registerRecipeWithDefault(Object craftingObj, IRecipeWithDefault iRecipeDef) {
+    public static void registerRecipeWithDefault(Object craftingObj, IRecipeWithDefault iRecipeDef) {
         if (craftingObj == null) {
             return;
         }
@@ -279,13 +379,15 @@ public class ItemsToolSet implements IRecipeWithDefault {
             int recipe = 0;
 
             for (ItemStack[] items : recipes) {
-                int width = recipeWidths[recipe];
-                ItemStack output = iRecipeDef.getOutput(recipe);
+                if (items != null) {
+                    int width = recipeWidths[recipe];
+                    ItemStack output = iRecipeDef.getOutput(recipe);
 
-                ShapedRecipes shaped = new ShapedRecipes(width, (int) Math.ceil((double) items.length / width), items, output);
-                recipeList.add(shaped);
+                    ShapedRecipes shaped = new ShapedRecipes(width, (int) Math.ceil((double) items.length / width), items, output);
+                    recipeList.add(shaped);
 
-                recipe++;
+                    recipe++;
+                }
             }
         }
     }

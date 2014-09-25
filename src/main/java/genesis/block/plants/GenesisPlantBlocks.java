@@ -10,7 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 
 public class GenesisPlantBlocks {
-    public static Block flower_pot;
+    //public static Block flower_pot;
     public static Block calamites;
     public static Block calamites_block;
     public static Block plants;
@@ -23,11 +23,11 @@ public class GenesisPlantBlocks {
     public static Block sphenophyllum_top;
     public static Block flowers;
 
-    public static void initiate() {
-        flower_pot = new BlockGenesisFlowerPot().setBlockTextureName("flower_pot").setBlockName(Names.blockFlowerPot);
+    public static void init() {
+        //flower_pot = new BlockGenesisFlowerPot().setBlockTextureName("flower_pot").setBlockName(Names.blockFlowerPot);
 
         calamites = new BlockCalamitesPlant().setBlockTextureName("calamites").setBlockName(Names.blockCalamitesPlant);
-        calamites_block = new BlockCalamitesStorage().setBlockTextureName("calamites_block").setBlockName("storage." + Names.blockCalamitesPlant);
+        calamites_block = new BlockCalamitesStorage().setBlockTextureName("calamites_block").setBlockName(Names.blockCalamitesBlock);
 
         plants = new BlockGenesisTerrestrialPlant().setBlockName(Names.blockPlant);
 
@@ -45,7 +45,7 @@ public class GenesisPlantBlocks {
         flowers = new BlockGenesisFlower().setBlockName(Names.blockFlower);
     }
 
-    public static void registerBlocks() {
+    public static void register() {
         GameRegistry.registerBlock(calamites, Names.Registry.blockCalamitesPlant);
         GameRegistry.registerBlock(calamites_block, Names.Registry.blockCalamitesBlock);
 

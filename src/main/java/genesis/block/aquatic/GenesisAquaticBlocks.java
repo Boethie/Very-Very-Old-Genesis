@@ -20,7 +20,7 @@ public final class GenesisAquaticBlocks {
     public static Block charnia;
     public static Block charnia_top;
 
-    public static void initiate() {
+    public static void init() {
         algae = new BlockGenesisAlgae().setBlockName(Names.blockAlgae);
         coral = new BlockGenesisCoral().setBlockName(Names.blockCoral);
         sponge = new BlockGenesisSponge().setBlockName(Names.blockSponge);
@@ -29,7 +29,7 @@ public final class GenesisAquaticBlocks {
         charnia_top = new BlockCharniaTop().setBlockName(Names.blockCharnia).setBlockTextureName("charnia_top");
     }
 
-    public static void registerBlocks() {
+    public static void register() {
         GameRegistry.registerBlock(algae, ItemBlockGenesisAlgae.class, Names.Registry.blockAlgae);
         GameRegistry.registerBlock(coral, ItemBlockGenesisCoral.class, Names.Registry.blockCoral);
         GameRegistry.registerBlock(sponge, ItemBlockGenesisSponge.class, Names.Registry.blockSponge);

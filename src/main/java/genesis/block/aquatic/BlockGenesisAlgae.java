@@ -3,7 +3,7 @@ package genesis.block.aquatic;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.common.Genesis;
-import genesis.lib.PlantMetadata;
+import genesis.lib.Names;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -29,7 +29,7 @@ public class BlockGenesisAlgae extends BlockGenesisAquaticPlant {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs tabs, List list) {
-        int size = PlantMetadata.algaeTypes.size();
+        int size = Names.Plants.ALGAE_TYPES.size();
         for (int i = 0; i < size; i++) {
             list.add(new ItemStack(item, 1, i));
         }
@@ -43,9 +43,9 @@ public class BlockGenesisAlgae extends BlockGenesisAquaticPlant {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {
-        icons = new IIcon[PlantMetadata.algaeTypes.size()];
+        icons = new IIcon[Names.Plants.ALGAE_TYPES.size()];
         for (int i = 0; i < icons.length; i++) {
-            icons[i] = register.registerIcon(Genesis.ASSETS + PlantMetadata.algaeTypes.get(i));
+            icons[i] = register.registerIcon(Genesis.ASSETS + Names.Plants.ALGAE_TYPES.get(i));
         }
     }
 

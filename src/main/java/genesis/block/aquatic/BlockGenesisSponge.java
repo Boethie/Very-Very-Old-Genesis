@@ -1,7 +1,7 @@
 package genesis.block.aquatic;
 
 import genesis.common.Genesis;
-import genesis.lib.PlantMetadata;
+import genesis.lib.Names;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class BlockGenesisSponge extends BlockGenesisAquaticPlant {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-        int size = PlantMetadata.spongeTypes.size();
+        int size = Names.Plants.SPONGE_TYPES.size();
         for (int i = 0; i < size; i++) {
             list.add(new ItemStack(item, 1, i));
         }
@@ -46,9 +46,9 @@ public class BlockGenesisSponge extends BlockGenesisAquaticPlant {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {
-        icons = new IIcon[PlantMetadata.spongeTypes.size()];
+        icons = new IIcon[Names.Plants.SPONGE_TYPES.size()];
         for (int i = 0; i < icons.length; i++) {
-            icons[i] = register.registerIcon(Genesis.ASSETS + PlantMetadata.spongeTypes.get(i));
+            icons[i] = register.registerIcon(Genesis.ASSETS + Names.Plants.SPONGE_TYPES.get(i));
         }
     }
 

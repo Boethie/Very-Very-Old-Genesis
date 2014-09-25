@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
-import genesis.lib.PlantMetadata;
+import genesis.lib.Names;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -32,7 +32,7 @@ public class BlockGenesisCoral extends Block {
 
     @Override
     public void getSubBlocks(Item item, CreativeTabs tabs, List list) {
-        int size = PlantMetadata.coralTypes.size();
+        int size = Names.Plants.CORAL_TYPES.size();
         for (int i = 0; i < size; i++) {
             list.add(new ItemStack(item, 1, i));
         }
@@ -46,9 +46,9 @@ public class BlockGenesisCoral extends Block {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {
-        icons = new IIcon[PlantMetadata.coralTypes.size()];
+        icons = new IIcon[Names.Plants.CORAL_TYPES.size()];
         for (int i = 0; i < icons.length; i++) {
-            icons[i] = register.registerIcon(Genesis.ASSETS + PlantMetadata.coralTypes.get(i));
+            icons[i] = register.registerIcon(Genesis.ASSETS + Names.Plants.CORAL_TYPES.get(i));
         }
     }
 

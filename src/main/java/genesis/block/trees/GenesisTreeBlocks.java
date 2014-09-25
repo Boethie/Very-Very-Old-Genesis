@@ -3,15 +3,12 @@ package genesis.block.trees;
 import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.block.BlockAndMeta;
 import genesis.block.plants.BlockGenesisFlowerPot;
-import genesis.item.Recipes;
 import genesis.item.itemblock.IItemBlockWithSubNames;
 import genesis.item.itemblock.ItemBlockGenesisTree;
 import genesis.lib.Names;
-import genesis.lib.PlantMetadata;
 import genesis.world.gen.feature.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StringUtils;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -28,7 +25,7 @@ public class GenesisTreeBlocks {
     private static int numGroups;
     private static ArrayList<WorldGenTreeBase> treeGenerators;
 
-    public static void initiate() {
+    public static void init() {
         bjuvia_cone = new BlockBjuviaCone().setBlockName(Names.blockBjuviaCone).setBlockTextureName("bjuvia_cone");
 
         numGroups = TreeType.getNumGroups();
@@ -48,7 +45,7 @@ public class GenesisTreeBlocks {
         }
     }
 
-    public static void registerBlocks() {
+    public static void register() {
         GameRegistry.registerBlock(bjuvia_cone, Names.Registry.blockBjuviaCone);
 
         registerBlocks(logs, Names.Registry.blockLogGenesis, "logWood");
@@ -177,7 +174,7 @@ public class GenesisTreeBlocks {
         }
 
         public String getName() {
-            return PlantMetadata.treeTypes.get(ordinal());
+            return Names.Plants.TREE_TYPES.get(ordinal());
         }
 
         public int getGroup() {

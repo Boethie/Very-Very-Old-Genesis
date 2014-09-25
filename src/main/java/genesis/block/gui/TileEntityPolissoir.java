@@ -195,6 +195,12 @@ public class TileEntityPolissoir extends TileEntity implements ISidedInventory {
                         ++polissoirUpgradeTime;
 
                         lastUpgradeItem = polissoirItemStacks[1].copy();
+
+                        --polissoirItemStacks[1].stackSize;
+
+                        if (polissoirItemStacks[1].stackSize == 0) {
+                            polissoirItemStacks[1] = polissoirItemStacks[1].getItem().getContainerItem(polissoirItemStacks[1]);
+                        }
                     }
                 }
 
@@ -285,12 +291,6 @@ public class TileEntityPolissoir extends TileEntity implements ISidedInventory {
                     NBTTagCompound compound = new NBTTagCompound();
                     compound.setTag("tag", polissoirItemStacks[0].getTagCompound());
                     polissoirItemStacks[2].readFromNBT(compound);
-                }
-
-                --polissoirItemStacks[1].stackSize;
-
-                if (polissoirItemStacks[1].stackSize == 0) {
-                    polissoirItemStacks[1] = polissoirItemStacks[1].getItem().getContainerItem(polissoirItemStacks[1]);
                 }
 
                 --polissoirItemStacks[0].stackSize;

@@ -1,6 +1,6 @@
 package genesis.item.itemblock;
 
-import genesis.lib.PlantMetadata;
+import genesis.lib.Names;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
@@ -18,7 +18,7 @@ public class ItemBlockGenesisFlower extends ItemBlockWithMetadata {
     @Override
     public String getUnlocalizedName(ItemStack item) {
         Block b = Block.getBlockFromItem(item.getItem());
-        return b.getUnlocalizedName() + PlantMetadata.flowerTypes.get(getMetadata(item.getItemDamage()));
+        return b.getUnlocalizedName() + Names.Plants.FLOWER_TYPES.get(getMetadata(item.getItemDamage()));
     }
 
     @Override

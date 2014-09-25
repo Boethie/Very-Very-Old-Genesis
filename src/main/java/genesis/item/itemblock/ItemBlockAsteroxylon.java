@@ -21,7 +21,7 @@ public class ItemBlockAsteroxylon extends ItemBlockWithMetadata {
     @Override
     public String getUnlocalizedName(ItemStack item) {
         Block b = Block.getBlockFromItem(item.getItem());
-        return b.getUnlocalizedName() + (getMetadata(item.getItemDamage()) == 1 ? ".tall" : "");
+        return b.getUnlocalizedName();
     }
 
     public IIcon getIconFromDamage(int meta) {

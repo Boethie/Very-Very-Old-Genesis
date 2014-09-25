@@ -5,7 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import genesis.block.GenesisModBlocks;
 import genesis.common.Genesis;
 import genesis.common.GenesisTabs;
-import genesis.lib.PlantMetadata;
+import genesis.lib.Names;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -62,7 +62,7 @@ public class BlockGenesisFlower extends BlockFlower implements IPlantRenderSpeci
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs tabs, List list) {
-        int size = PlantMetadata.flowerTypes.size();
+        int size = Names.Plants.FLOWER_TYPES.size();
         for (int i = 0; i < size; i++) {
             list.add(new ItemStack(item, 1, i));
         }
@@ -80,9 +80,9 @@ public class BlockGenesisFlower extends BlockFlower implements IPlantRenderSpeci
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {
-        blockIcons = new IIcon[PlantMetadata.flowerTypes.size()];
+        blockIcons = new IIcon[Names.Plants.FLOWER_TYPES.size()];
         for (int i = 0; i < blockIcons.length; i++) {
-            blockIcons[i] = register.registerIcon(Genesis.ASSETS + PlantMetadata.flowerTypes.get(i));
+            blockIcons[i] = register.registerIcon(Genesis.ASSETS + Names.Plants.FLOWER_TYPES.get(i));
         }
     }
 
