@@ -10,14 +10,12 @@ import net.minecraft.world.IBlockAccess;
 public class BlockMossRenderer implements ISimpleBlockRenderingHandler {
 
     public static final int renderID = RenderingRegistry.getNextAvailableRenderId();
-    public static boolean renderingInventory = false;
     public static int pass = 0;
 
     @Override
     public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {
-        renderingInventory = true;
-        renderer.renderBlockAsItem(block, metadata, 1);
-        renderingInventory = false;
+        RenderMoss rendererGen = new RenderMoss(renderer.blockAccess, renderer);
+    	rendererGen.renderBlockAsItem(block, metadata, 1);
     }
 
     @Override

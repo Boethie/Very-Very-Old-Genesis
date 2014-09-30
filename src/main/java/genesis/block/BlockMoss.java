@@ -97,10 +97,6 @@ public class BlockMoss extends BlockGrass {
 
     @Override
     public int getRenderType() {
-        if (BlockMossRenderer.renderingInventory) {
-            return 0;
-        }
-
         return BlockMossRenderer.renderID;
     }
 
@@ -128,7 +124,7 @@ public class BlockMoss extends BlockGrass {
     }
 
     public int colorMultiplier(IBlockAccess blockAccess, int x, int y, int z) {
-        if (isSnowed(blockAccess, x, y, z) || BlockMossRenderer.pass == 0 || BlockMossRenderer.renderingInventory) {
+        if (isSnowed(blockAccess, x, y, z) || BlockMossRenderer.pass == 0) {
             return 16777215;
         }
 
@@ -164,4 +160,8 @@ public class BlockMoss extends BlockGrass {
     public IIcon getPlainSideTexture() {
         return blockIcon;
     }
+
+	public IIcon getGrassUnderlayIcon(int blockMetadata) {
+		return this.blockIcon;
+	}
 }
