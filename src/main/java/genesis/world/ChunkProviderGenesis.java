@@ -209,7 +209,7 @@ public class ChunkProviderGenesis implements IChunkProvider {
                         if (l1 < 6 + lavaFloorNoise) {
                             p_147422_3_[i2] = GenesisModBlocks.komatiite;
                         } else if (l1 < 10) {
-                            p_147422_3_[i2] = Blocks.lava;
+                            p_147422_3_[i2] = GenesisModBlocks.komatiiticLava;
                         } else if (l1 < 16 + this.lavaRoofNoise[l + k * 16]) {
                             p_147422_3_[i2] = Blocks.air;
                         } else if (l1 < 24 + rand.nextInt(4)) {
@@ -410,7 +410,7 @@ public class ChunkProviderGenesis implements IChunkProvider {
             i2 = l + this.rand.nextInt(16) + 8;
 
             if (l1 < 63 || this.rand.nextInt(10) == 0) {
-                (new WorldGenLakesGenesis(Blocks.lava)).generate(this.worldObj, this.rand, k1, l1, i2);
+                (new WorldGenLakesGenesis(GenesisModBlocks.komatiiticLava)).generate(this.worldObj, this.rand, k1, l1, i2);
             }
         }
 

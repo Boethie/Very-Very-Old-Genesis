@@ -31,7 +31,7 @@ public class MapGenRavineGenesis extends MapGenRavine {
 
         if (block instanceof BlockGenesisRock || block == filler || block == top || block == Blocks.dirt || block == GenesisModBlocks.moss) {
             if (y < 9) {
-                data[index] = Blocks.flowing_lava;
+                data[index] = GenesisModBlocks.komatiiticLava;
             } else {
                 data[index] = null;
 

@@ -161,7 +161,7 @@ public class BiomeDecoratorGenesis {
                 k = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
                 l = this.randomGenerator.nextInt(this.randomGenerator.nextInt(this.randomGenerator.nextInt(240) + 8) + 8);
                 i1 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-                (new WorldGenLiquids(Blocks.flowing_lava)).generate(this.currentWorld, this.randomGenerator, k, l, i1);
+                (new WorldGenLiquids(GenesisModBlocks.komatiiticLava)).generate(this.currentWorld, this.randomGenerator, k, l, i1);
             }
         }
     }

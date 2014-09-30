@@ -1,6 +1,7 @@
 package genesis.world;
 
 import genesis.block.BlockGenesisRock;
+import genesis.block.GenesisModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -30,7 +31,7 @@ public class MapGenCavesGenesis extends MapGenCaves {
 
         if (block instanceof BlockGenesisRock || block == filler || block == top) {
             if (y < 9) {
-                data[index] = Blocks.flowing_lava;
+                data[index] = GenesisModBlocks.komatiiticLava;
             } else {
                 data[index] = null;
 
