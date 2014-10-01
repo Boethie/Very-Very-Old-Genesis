@@ -35,8 +35,8 @@ public class BiomeGenGenesisRainforest extends BiomeGenGenesisBase {
 
         super.decorate(world, rand, x, z);
 
-        if (rand.nextInt(10) == 0) {
-            for (int a = 0; a < 10; a++) {
+        if (rand.nextInt(20) == 0) {
+            for (int a = 0; a < 5; a++) {
                 int varX = x + rand.nextInt(16);
                 int varZ = z + rand.nextInt(16);
                 int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, GenesisModBlocks.moss, Blocks.dirt);
@@ -51,12 +51,28 @@ public class BiomeGenGenesisRainforest extends BiomeGenGenesisBase {
             }
         }
 
+        if (rand.nextInt(10) == 0) {
+            for (int a = 0; a < 5; a++) {
+                int varX = x + rand.nextInt(16);
+                int varZ = z + rand.nextInt(16);
+                int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, GenesisModBlocks.moss, Blocks.dirt);
+                if (world.isAirBlock(varX, varY, varZ)) {
+                    if (world.isAirBlock(varX, varY + 1, varZ)) {
+                        world.setBlock(varX, varY, varZ, GenesisPlantBlocks.sphenophyllum, 7, 2);
+                        world.setBlock(varX, varY + 1, varZ, GenesisPlantBlocks.sphenophyllum_top, 2, 2);
+                    } else {
+                        world.setBlock(varX, varY, varZ, GenesisPlantBlocks.sphenophyllum, 0, 2);
+                    }
+                }
+            }
+        }
+
         int i1 = x + rand.nextInt(16) + 8;
         int j1 = z + rand.nextInt(16) + 8;
         int k1 = world.getHeightValue(i1, j1);
         new WorldGenBoulder(GenesisModBlocks.mossy_granite, 0).generate(world, rand, i1, k1, j1);
 
-        for (int a = 0; a < 30; a++) {
+        for (int a = 0; a < 75; a++) {
             int varX = x + rand.nextInt(16);
             int varZ = z + rand.nextInt(16);
             int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, GenesisModBlocks.moss, Blocks.dirt);

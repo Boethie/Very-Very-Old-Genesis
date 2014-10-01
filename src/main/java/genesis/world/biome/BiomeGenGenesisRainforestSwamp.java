@@ -36,5 +36,21 @@ public class BiomeGenGenesisRainforestSwamp extends BiomeGenGenesisBase {
                 world.setBlock(varX, varY, varZ, GenesisPlantBlocks.asteroxylon, 0, 2);
             }
         }
+
+        if (rand.nextInt(5) == 0) {
+            for (int a = 0; a < 8; a++) {
+                int varX = x + rand.nextInt(16);
+                int varZ = z + rand.nextInt(16);
+                int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, GenesisModBlocks.moss, Blocks.dirt);
+                if (world.isAirBlock(varX, varY, varZ)) {
+                    if (world.isAirBlock(varX, varY + 1, varZ)) {
+                        world.setBlock(varX, varY, varZ, GenesisPlantBlocks.sphenophyllum, 7, 2);
+                        world.setBlock(varX, varY + 1, varZ, GenesisPlantBlocks.sphenophyllum_top, 2, 2);
+                    } else {
+                        world.setBlock(varX, varY, varZ, GenesisPlantBlocks.sphenophyllum, 0, 2);
+                    }
+                }
+            }
+        }
     }
 }

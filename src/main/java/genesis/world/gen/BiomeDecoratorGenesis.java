@@ -41,24 +41,10 @@ public class BiomeDecoratorGenesis {
     public WorldGenerator zirconGen;
     public WorldGenerator garnetGen;
     public WorldGenerator olivineGen;
-    public WorldGenFlowers yellowFlowerGen;
-    /**
-     * Field that holds mushroomBrown WorldGenFlowers
-     */
-    public WorldGenerator mushroomBrownGen;
-    /**
-     * Field that holds mushroomRed WorldGenFlowers
-     */
-    public WorldGenerator mushroomRedGen;
     /**
      * The number of trees to attempt to generate per chunk. Up to 10 in forests, none in deserts.
      */
     public int treesPerChunk;
-    /**
-     * The number of extra mushroom patches per chunk. It generates 1/4 this number in brown mushroom patches, and 1/8
-     * this number in red mushroom patches. These mushrooms go beyond the default base number of mushrooms.
-     */
-    public int mushroomsPerChunk;
     /**
      * True if decorator should generate surface lava & water
      */
@@ -73,8 +59,6 @@ public class BiomeDecoratorGenesis {
         this.zirconGen = new WorldGenMinableGenesis(GenesisModBlocks.zircon_ore, 8);
         this.garnetGen = new WorldGenMinableGenesis(GenesisModBlocks.garnet_ore, 8, GenesisModBlocks.faux_amphibolite);
         this.olivineGen = new WorldGenMinableGenesis(GenesisModBlocks.olivine_ore, 10, GenesisModBlocks.komatiite);
-        this.mushroomBrownGen = new WorldGenFlowers(Blocks.brown_mushroom);
-        this.mushroomRedGen = new WorldGenFlowers(Blocks.red_mushroom);
         this.generateLakes = true;
     }
 
@@ -117,36 +101,6 @@ public class BiomeDecoratorGenesis {
             if (worldgenabstracttree.generate(this.currentWorld, this.randomGenerator, k, i1, l)) {
                 worldgenabstracttree.func_150524_b(this.currentWorld, this.randomGenerator, k, i1, l);
             }
-        }
-
-        for (j = 0; j < this.mushroomsPerChunk; ++j) {
-            if (this.randomGenerator.nextInt(4) == 0) {
-                k = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-                l = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-                i1 = this.currentWorld.getHeightValue(k, l);
-                this.mushroomBrownGen.generate(this.currentWorld, this.randomGenerator, k, i1, l);
-            }
-
-            if (this.randomGenerator.nextInt(8) == 0) {
-                k = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-                l = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-                i1 = nextInt(this.currentWorld.getHeightValue(k, l) * 2);
-                this.mushroomRedGen.generate(this.currentWorld, this.randomGenerator, k, i1, l);
-            }
-        }
-
-        if (this.randomGenerator.nextInt(4) == 0) {
-            j = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-            k = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-            l = nextInt(this.currentWorld.getHeightValue(j, k) * 2);
-            this.mushroomBrownGen.generate(this.currentWorld, this.randomGenerator, j, l, k);
-        }
-
-        if (this.randomGenerator.nextInt(8) == 0) {
-            j = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-            k = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-            l = nextInt(this.currentWorld.getHeightValue(j, k) * 2);
-            this.mushroomRedGen.generate(this.currentWorld, this.randomGenerator, j, l, k);
         }
 
         if (this.generateLakes) {
