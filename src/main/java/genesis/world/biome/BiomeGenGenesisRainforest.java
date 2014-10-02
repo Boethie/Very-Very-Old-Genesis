@@ -53,15 +53,16 @@ public class BiomeGenGenesisRainforest extends BiomeGenGenesisBase {
 
         if (rand.nextInt(10) == 0) {
             for (int a = 0; a < 5; a++) {
-                int varX = x + rand.nextInt(16);
+            	int varX = x + rand.nextInt(16);
                 int varZ = z + rand.nextInt(16);
                 int varY = GenesisWorldHelper.getTopBlockOfType(world, varX, varZ, GenesisModBlocks.moss, Blocks.dirt);
                 if (world.isAirBlock(varX, varY, varZ)) {
                     if (world.isAirBlock(varX, varY + 1, varZ)) {
-                        world.setBlock(varX, varY, varZ, GenesisPlantBlocks.sphenophyllum, 7, 2);
-                        world.setBlock(varX, varY + 1, varZ, GenesisPlantBlocks.sphenophyllum_top, 2, 2);
+                        int stage = rand.nextInt(8);
+                    	world.setBlock(varX, varY, varZ, GenesisPlantBlocks.sphenophyllum, stage, 2);
+                        if(stage >= 5) world.setBlock(varX, varY + 1, varZ, GenesisPlantBlocks.sphenophyllum_top, stage - 5, 2);
                     } else {
-                        world.setBlock(varX, varY, varZ, GenesisPlantBlocks.sphenophyllum, 0, 2);
+                        world.setBlock(varX, varY, varZ, GenesisPlantBlocks.sphenophyllum, rand.nextInt(5), 2);
                     }
                 }
             }

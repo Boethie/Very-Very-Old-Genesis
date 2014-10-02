@@ -66,20 +66,11 @@ public class GenLayerGenesis extends GenLayer {
         GenLayerAddMushroomIsland genlayeraddmushroomisland = new GenLayerAddMushroomIsland(5L, genlayeraddisland);
         GenLayerDeepOcean genlayerdeepocean = new GenLayerDeepOcean(4L, genlayeraddmushroomisland);
         GenLayer genlayer2 = GenLayerZoom.magnify(1000L, genlayerdeepocean, 0);
-        byte b0 = 4;
-
-        if (par2WorldType == WorldType.LARGE_BIOMES) {
-            b0 = 6;
-        }
-
-        if (flag) {
-            b0 = 4;
-        }
-        b0 = getModdedBiomeSize(par2WorldType, b0);
+        byte b0 = 4; //TODO Add configurable biome size
 
         GenLayer genlayer = GenLayerZoom.magnify(1000L, genlayer2, 0);
         GenLayerRiverInit genlayerriverinit = new GenLayerRiverInit(100L, genlayer);
-        Object object = par2WorldType.getBiomeLayer(par0, genlayer2);
+        Object object = new GenLayerBiomeEdgeGenesis(1000L, GenLayerZoom.magnify(1000L, new GenLayerBiomeGenesis(200L, genlayer2), 2));        
 
         GenLayer genlayer1 = GenLayerZoom.magnify(1000L, genlayerriverinit, 2);
         GenLayerHills genlayerhills = new GenLayerHills(1000L, (GenLayer) object, genlayer1);

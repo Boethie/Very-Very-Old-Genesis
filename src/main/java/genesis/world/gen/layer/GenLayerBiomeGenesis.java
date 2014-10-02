@@ -21,15 +21,9 @@ public class GenLayerBiomeGenesis extends GenLayer {
         this.frozen = new BiomeGenBase[]{};
 
         //These are only needed until biomes are added to the warm, cool and frozen categories
-        if (warm.length == 0) {
-            warm = hot;
-        }
-        if (cool.length == 0) {
-            cool = hot;
-        }
-        if (frozen.length == 0) {
-            frozen = hot;
-        }
+        if (warm.length == 0) warm = hot;
+        if (cool.length == 0) cool = hot;
+        if (frozen.length == 0) frozen = hot;
 
         this.parent = par3GenLayer;
     }
