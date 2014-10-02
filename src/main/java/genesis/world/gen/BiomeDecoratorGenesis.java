@@ -46,6 +46,10 @@ public class BiomeDecoratorGenesis {
      */
     public int treesPerChunk;
     /**
+     * The number of dirt patches to attempt to generate per chunk.
+     */
+    public int dirtPerChunk;
+    /**
      * True if decorator should generate surface lava & water
      */
     public boolean generateLakes;

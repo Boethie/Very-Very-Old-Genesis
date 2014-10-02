@@ -24,12 +24,13 @@ public class BiomeGenGenesisBase extends BiomeGenBase {
         this.spawnableWaterCreatureList.clear();
         this.spawnableCreatureList.clear();
         this.theBiomeDecorator = new BiomeDecoratorGenesis();
+        this.theBiomeDecorator.dirtPerChunk = 10;
     }
 
     public void decorate(World world, Random rand, int x, int z) {
         this.theBiomeDecorator.decorateChunk(world, rand, this, x, z);
         
-        for(int c = 10; c > 0; c--)
+        for(int c = this.theBiomeDecorator.dirtPerChunk; c > 0; c--)
        	{
     		int j2 = x + rand.nextInt(16) + 8;
         	int j5 = z + rand.nextInt(16) + 8;

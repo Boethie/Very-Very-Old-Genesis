@@ -17,6 +17,7 @@ public class BiomeGenGenesisRainforestSwamp extends BiomeGenGenesisBase {
     public BiomeGenGenesisRainforestSwamp(int par1) {
         super(par1);
         this.theBiomeDecorator.treesPerChunk = 7;
+        this.theBiomeDecorator.dirtPerChunk = 15;
     }
 
     @Override
