@@ -43,37 +43,12 @@ public class GenLayerBiomeGenesis extends GenLayer {
                 int l1 = (k1 & 3840) >> 8;
                 k1 &= -3841;
 
-                if (isBiomeOceanic(k1)) {
-                    aint1[j1 + i1 * par3] = k1;
-                } else if (k1 == BiomeGenBase.mushroomIsland.biomeID) {
-                    aint1[j1 + i1 * par3] = k1;
-                } else if (k1 == 1) {
-                    if (l1 > 0) {
-                        if (this.nextInt(3) == 0) {
-                            aint1[j1 + i1 * par3] = BiomeGenBase.mesaPlateau.biomeID;
-                        } else {
-                            aint1[j1 + i1 * par3] = BiomeGenBase.mesaPlateau_F.biomeID;
-                        }
-                    } else {
-                        aint1[j1 + i1 * par3] = this.hot[this.nextInt(this.hot.length)].biomeID;
-                    }
-                } else if (k1 == 2) {
-                    if (l1 > 0) {
-                        aint1[j1 + i1 * par3] = BiomeGenBase.jungle.biomeID;
-                    } else {
-                        aint1[j1 + i1 * par3] = this.warm[this.nextInt(this.warm.length)].biomeID;
-                    }
-                } else if (k1 == 3) {
-                    if (l1 > 0) {
-                        aint1[j1 + i1 * par3] = BiomeGenBase.megaTaiga.biomeID;
-                    } else {
-                        aint1[j1 + i1 * par3] = this.cool[this.nextInt(this.cool.length)].biomeID;
-                    }
-                } else if (k1 == 4) {
-                    aint1[j1 + i1 * par3] = this.frozen[this.nextInt(this.frozen.length)].biomeID;
-                } else {
-                    aint1[j1 + i1 * par3] = BiomeGenBase.mushroomIsland.biomeID;
-                }
+                if (isBiomeOceanic(k1)) aint1[j1 + i1 * par3] = k1;
+                else if (k1 == 1) aint1[j1 + i1 * par3] = this.hot[this.nextInt(this.hot.length)].biomeID;
+                else if (k1 == 2) aint1[j1 + i1 * par3] = this.warm[this.nextInt(this.warm.length)].biomeID;
+                else if (k1 == 3) aint1[j1 + i1 * par3] = this.cool[this.nextInt(this.cool.length)].biomeID;
+                else if (k1 == 4) aint1[j1 + i1 * par3] = this.frozen[this.nextInt(this.frozen.length)].biomeID;
+                else aint1[j1 + i1 * par3] = this.hot[this.nextInt(this.hot.length)].biomeID;
             }
         }
 
