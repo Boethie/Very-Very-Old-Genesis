@@ -1,7 +1,11 @@
 package genesis.world.biome;
 
 import genesis.block.GenesisModBlocks;
+import genesis.block.aquatic.GenesisAquaticBlocks;
+import genesis.block.plants.GenesisPlantBlocks;
+import genesis.lib.GenesisWorldHelper;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -24,5 +28,16 @@ public class BiomeGenGenesisRiver extends BiomeGenGenesisBase {
         }*/
 
         this.genBiomeTerrain(p_150573_1_, p_150573_2_, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
+    }
+    
+    public void decorate(World world, Random rand, int x, int z) {
+        super.decorate(world, rand, x, z);
+        
+        for (int a = 0; a < 5; a++) {
+            int varX = x + rand.nextInt(16);
+            int varZ = z + rand.nextInt(16);
+            int varY = GenesisWorldHelper.getTopBlockAfterType(world, varX, varZ, Blocks.water, Blocks.flowing_water);
+            if(GenesisAquaticBlocks.algae.canBlockStay(world, varX, varY, varZ)) world.setBlock(varX, varY, varZ, GenesisAquaticBlocks.algae, 1, 2);
+        }
     }
 }
