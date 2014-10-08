@@ -1,9 +1,9 @@
 package genesis.client.renderer;
 
-import genesis.block.GenesisModBlocks;
-import genesis.block.gui.ModelCampfireTE;
-import genesis.block.gui.TileEntityCampfire;
-import genesis.common.Genesis;
+import genesis.managers.GenesisModBlocks;
+import genesis.client.model.tiles.ModelCampfireTE;
+import genesis.tileentity.TileEntityCampfire;
+import genesis.Genesis;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;

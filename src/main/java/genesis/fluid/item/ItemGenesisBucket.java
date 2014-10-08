@@ -1,7 +1,7 @@
 package genesis.fluid.item;
 
-import genesis.common.Genesis;
-import genesis.common.GenesisTabs;
+import genesis.Genesis;
+import genesis.lib.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBucket;

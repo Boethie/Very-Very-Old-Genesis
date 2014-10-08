@@ -1,7 +1,7 @@
 package genesis.client.renderer;
 
-import genesis.client.model.ModelPolissoir;
-import genesis.common.Genesis;
+import genesis.client.model.tiles.ModelPolissoir;
+import genesis.Genesis;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;

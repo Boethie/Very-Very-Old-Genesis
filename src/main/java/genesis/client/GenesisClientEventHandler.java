@@ -3,8 +3,8 @@ package genesis.client;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.common.Genesis;
-import genesis.lib.GenesisVersion;
+import genesis.Genesis;
+import genesis.handler.GenesisVersionHandler;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.util.EnumChatFormatting;
@@ -40,16 +40,16 @@ public class GenesisClientEventHandler {
         if (event.gui instanceof GuiMainMenu) {
             FontRenderer font = event.gui.mc.fontRenderer;
             String line = "Genesis  " + Genesis.MOD_VERSION;
-            String status = getStringFromStatus(GenesisVersion.getStatus());
+            String status = getStringFromStatus(GenesisVersionHandler.getStatus());
             event.gui.drawCenteredString(font, line, font.getStringWidth(line) / 2 + 2, event.gui.height - (event.gui.height / 4) - font.FONT_HEIGHT, -1);
             event.gui.drawCenteredString(font, status, font.getStringWidth(status) / 2 + 2, event.gui.height - (event.gui.height / 4), -1);
         }
     }
 
-    private String getStringFromStatus(GenesisVersion.Status status) {
+    private String getStringFromStatus(GenesisVersionHandler.Status status) {
         switch (status) {
         case OUTDATED:
-            return EnumChatFormatting.RED + "OUTDATED: Genesis " + GenesisVersion.getTarget();
+            return EnumChatFormatting.RED + "OUTDATED: Genesis " + GenesisVersionHandler.getTarget();
         case UP_TO_DATE:
             return EnumChatFormatting.GREEN + "Genesis is up-to-date";
         case AHEAD:

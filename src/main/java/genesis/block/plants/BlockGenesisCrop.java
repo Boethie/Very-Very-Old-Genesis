@@ -2,8 +2,8 @@ package genesis.block.plants;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.client.renderer.BlockGenesisPlantRenderer;
-import genesis.common.Genesis;
+import genesis.client.renderer.block.BlockGenesisPlantRenderer;
+import genesis.Genesis;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;

@@ -1,9 +1,8 @@
 package genesis.world.biome;
 
-import genesis.block.GenesisModBlocks;
+import genesis.managers.GenesisModBlocks;
 import genesis.block.aquatic.GenesisAquaticBlocks;
-import genesis.block.plants.GenesisPlantBlocks;
-import genesis.lib.GenesisWorldHelper;
+import genesis.helper.GenesisWorldHelper;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

@@ -1,7 +1,7 @@
 package genesis.block;
 
-import genesis.common.Genesis;
-import genesis.common.GenesisTabs;
+import genesis.Genesis;
+import genesis.lib.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;

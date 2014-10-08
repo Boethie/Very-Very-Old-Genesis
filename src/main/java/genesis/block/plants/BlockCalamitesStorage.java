@@ -2,9 +2,9 @@ package genesis.block.plants;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.common.Genesis;
-import genesis.common.GenesisSounds;
-import genesis.common.GenesisTabs;
+import genesis.Genesis;
+import genesis.lib.GenesisSounds;
+import genesis.lib.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.MapColor;

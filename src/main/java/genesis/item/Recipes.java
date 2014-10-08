@@ -1,11 +1,12 @@
 package genesis.item;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import genesis.block.GenesisModBlocks;
+import genesis.managers.GenesisModBlocks;
 import genesis.block.plants.GenesisPlantBlocks;
 import genesis.block.trees.GenesisTreeBlocks;
-import genesis.common.GenesisFuelHandler;
-import genesis.lib.LogHelper;
+import genesis.handler.GenesisFuelHandler;
+import genesis.helper.LogHelper;
+import genesis.managers.GenesisModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockColored;
 import net.minecraft.init.Blocks;

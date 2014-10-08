@@ -3,9 +3,9 @@ package genesis.block.trees;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.block.trees.GenesisTreeBlocks.TreeType;
-import genesis.common.Genesis;
-import genesis.common.GenesisTabs;
-import genesis.item.GenesisModItems;
+import genesis.Genesis;
+import genesis.lib.GenesisTabs;
+import genesis.managers.GenesisModItems;
 import genesis.item.itemblock.IItemBlockWithSubNames;
 import net.minecraft.block.BlockLog;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -17,7 +17,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 

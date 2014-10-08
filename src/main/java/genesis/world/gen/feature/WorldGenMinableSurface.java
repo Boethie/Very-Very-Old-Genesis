@@ -1,7 +1,6 @@
 package genesis.world.gen.feature;
 
-import genesis.block.BlockGenesisRockOres;
-import genesis.block.GenesisModBlocks;
+import genesis.managers.GenesisModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;

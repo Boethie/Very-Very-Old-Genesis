@@ -2,8 +2,8 @@ package genesis.block.aquatic;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.common.Genesis;
-import genesis.common.GenesisTabs;
+import genesis.Genesis;
+import genesis.lib.GenesisTabs;
 import genesis.lib.Names;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

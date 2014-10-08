@@ -1,7 +1,7 @@
 package genesis.item;
 
-import genesis.common.Genesis;
-import genesis.common.GenesisTabs;
+import genesis.Genesis;
+import genesis.lib.GenesisTabs;
 import net.minecraft.item.Item;
 
 public class ItemGenesis extends Item {

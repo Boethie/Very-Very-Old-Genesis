@@ -1,6 +1,6 @@
 package genesis.item;
 
-import genesis.block.gui.PolissoirRecipes;
+import genesis.lib.PolissoirRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

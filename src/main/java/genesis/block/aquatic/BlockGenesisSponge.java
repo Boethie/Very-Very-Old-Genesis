@@ -1,6 +1,6 @@
 package genesis.block.aquatic;
 
-import genesis.common.Genesis;
+import genesis.Genesis;
 import genesis.lib.Names;
 
 import java.util.List;

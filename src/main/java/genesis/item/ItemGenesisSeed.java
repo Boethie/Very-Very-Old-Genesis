@@ -1,8 +1,7 @@
 package genesis.item;
 
-import genesis.block.plants.BlockGenesisCrop;
-import genesis.common.Genesis;
-import genesis.common.GenesisTabs;
+import genesis.Genesis;
+import genesis.lib.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.entity.player.EntityPlayer;

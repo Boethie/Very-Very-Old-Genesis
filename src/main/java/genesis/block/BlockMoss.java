@@ -2,10 +2,10 @@ package genesis.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.client.renderer.BlockMossRenderer;
-import genesis.common.Genesis;
-import genesis.common.GenesisSounds;
-import genesis.common.GenesisTabs;
+import genesis.client.renderer.block.BlockMossRenderer;
+import genesis.Genesis;
+import genesis.lib.GenesisSounds;
+import genesis.lib.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGrass;
 import net.minecraft.block.material.Material;

@@ -1,19 +1,12 @@
 package genesis.client.renderer;
 
-import genesis.block.BlockMoss;
-import genesis.block.GenesisModBlocks;
-
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 
 public class RenderMoss

@@ -2,10 +2,10 @@ package genesis.block.plants;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.GenesisModBlocks;
-import genesis.client.renderer.BlockGenesisPlantRenderer;
-import genesis.common.Genesis;
-import genesis.common.GenesisTabs;
+import genesis.managers.GenesisModBlocks;
+import genesis.client.renderer.block.BlockGenesisPlantRenderer;
+import genesis.Genesis;
+import genesis.lib.GenesisTabs;
 import genesis.lib.Names;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;

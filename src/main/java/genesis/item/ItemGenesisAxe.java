@@ -1,8 +1,8 @@
 package genesis.item;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import genesis.common.Genesis;
-import genesis.common.GenesisTabs;
+import genesis.Genesis;
+import genesis.lib.GenesisTabs;
 import genesis.item.ItemsToolSet.ToolQuality;
 import genesis.lib.Names;
 import net.minecraft.entity.player.EntityPlayer;

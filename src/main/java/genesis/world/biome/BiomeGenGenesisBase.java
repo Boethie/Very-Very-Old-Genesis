@@ -2,7 +2,7 @@ package genesis.world.biome;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.GenesisModBlocks;
+import genesis.managers.GenesisModBlocks;
 import genesis.world.gen.BiomeDecoratorGenesis;
 import genesis.world.gen.feature.WorldGenMinableSurface;
 import net.minecraft.block.Block;

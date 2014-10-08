@@ -1,6 +1,6 @@
 package genesis.lib;
 
-import genesis.common.Genesis;
+import genesis.Genesis;
 
 import java.util.Arrays;
 import java.util.List;

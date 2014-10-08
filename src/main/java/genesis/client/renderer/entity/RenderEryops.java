@@ -1,7 +1,7 @@
 package genesis.client.renderer.entity;
 
-import genesis.client.model.ModelEryops;
-import genesis.common.Genesis;
+import genesis.client.model.entity.ModelEryops;
+import genesis.Genesis;
 import genesis.entity.EntityEryops;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;

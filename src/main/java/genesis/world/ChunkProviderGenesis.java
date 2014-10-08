@@ -1,6 +1,6 @@
 package genesis.world;
 
-import genesis.block.GenesisModBlocks;
+import genesis.managers.GenesisModBlocks;
 import genesis.world.gen.feature.WorldGenLakesGenesis;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;

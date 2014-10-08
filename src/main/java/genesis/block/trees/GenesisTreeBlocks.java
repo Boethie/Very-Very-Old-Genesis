@@ -26,7 +26,7 @@ public class GenesisTreeBlocks {
     private static ArrayList<WorldGenTreeBase> treeGenerators;
 
     public static void init() {
-        bjuvia_cone = new BlockBjuviaCone().setBlockName(Names.blockBjuviaCone).setBlockTextureName("bjuvia_cone");
+        bjuvia_cone = new BlockBjuviaCone().setBlockName(Names.blockBjuviaCone).setBlockTextureName("bjuvia_cone").setCreativeTab(null);
 
         numGroups = TreeType.getNumGroups();
 

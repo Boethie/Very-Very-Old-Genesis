@@ -2,9 +2,9 @@ package genesis.block.trees;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.common.Genesis;
-import genesis.common.GenesisSounds;
-import genesis.common.GenesisTabs;
+import genesis.Genesis;
+import genesis.lib.GenesisSounds;
+import genesis.lib.GenesisTabs;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.monster.EntitySilverfish;
 import net.minecraft.world.World;

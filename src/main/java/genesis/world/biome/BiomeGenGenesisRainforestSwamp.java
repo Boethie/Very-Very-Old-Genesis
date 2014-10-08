@@ -1,8 +1,8 @@
 package genesis.world.biome;
 
-import genesis.block.GenesisModBlocks;
+import genesis.managers.GenesisModBlocks;
 import genesis.block.plants.GenesisPlantBlocks;
-import genesis.lib.GenesisWorldHelper;
+import genesis.helper.GenesisWorldHelper;
 import genesis.world.gen.feature.WorldGenTreeCordaites;
 import genesis.world.gen.feature.WorldGenTreeLepidodendron;
 import genesis.world.gen.feature.WorldGenTreePsaronius;

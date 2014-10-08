@@ -2,11 +2,11 @@ package genesis.block.trees;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.GenesisModBlocks;
+import genesis.managers.GenesisModBlocks;
 import genesis.block.plants.IPlantInFlowerPot;
 import genesis.block.trees.GenesisTreeBlocks.TreeType;
-import genesis.common.Genesis;
-import genesis.common.GenesisTabs;
+import genesis.Genesis;
+import genesis.lib.GenesisTabs;
 import genesis.item.itemblock.IItemBlockWithSubNames;
 import genesis.world.gen.feature.WorldGenTreeBase;
 import net.minecraft.block.Block;

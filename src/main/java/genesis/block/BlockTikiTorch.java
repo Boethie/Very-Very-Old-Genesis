@@ -2,8 +2,8 @@ package genesis.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.client.renderer.BlockTikiTorchRenderer;
-import genesis.common.GenesisTabs;
+import genesis.client.renderer.block.BlockTikiTorchRenderer;
+import genesis.lib.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
@@ -28,7 +28,7 @@ public class BlockTikiTorch extends BlockGenesis {
     public static IIcon iconLower;
     public static IIcon iconUpper;
 
-    protected BlockTikiTorch() {
+    public BlockTikiTorch() {
         super(Material.circuits);
 
         setTickRandomly(true);

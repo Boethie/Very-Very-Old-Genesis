@@ -1,6 +1,6 @@
 package genesis.entity;
 
-import genesis.item.GenesisModItems;
+import genesis.managers.GenesisModItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;

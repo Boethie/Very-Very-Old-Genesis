@@ -2,8 +2,8 @@ package genesis.client.renderer;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import genesis.block.GenesisModBlocks;
-import genesis.block.gui.BlockCampfire;
+import genesis.managers.GenesisModBlocks;
+import genesis.block.tiles.BlockCampfire;
 import genesis.util.rendering.*;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;

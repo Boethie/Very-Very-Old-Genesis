@@ -1,7 +1,7 @@
 package genesis.block.plants;
 
 import genesis.block.BlockAndMeta;
-import genesis.client.renderer.BlockGenesisFlowerPotRenderer;
+import genesis.client.renderer.block.BlockGenesisFlowerPotRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlowerPot;
 import net.minecraft.entity.player.EntityPlayer;

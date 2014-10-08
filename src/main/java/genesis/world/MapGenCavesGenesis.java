@@ -1,9 +1,8 @@
 package genesis.world;
 
 import genesis.block.BlockGenesisRock;
-import genesis.block.GenesisModBlocks;
+import genesis.managers.GenesisModBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.MapGenCaves;
 

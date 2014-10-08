@@ -2,10 +2,9 @@ package genesis.fluid.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.GenesisModBlocks;
+import genesis.managers.GenesisModBlocks;
 import genesis.client.GenesisClientEventHandler;
-import genesis.common.Genesis;
-import genesis.common.GenesisTabs;
+import genesis.Genesis;
 import genesis.fluid.FluidKomatiiticLava;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

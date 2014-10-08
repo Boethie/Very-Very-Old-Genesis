@@ -1,10 +1,9 @@
 package genesis.block.trees;
 
 import genesis.block.BlockGenesis;
-import genesis.client.renderer.BlockBjuviaConeRenderer;
-import genesis.common.Genesis;
-import genesis.common.GenesisTabs;
-import genesis.item.GenesisModItems;
+import genesis.client.renderer.block.BlockBjuviaConeRenderer;
+import genesis.lib.GenesisTabs;
+import genesis.managers.GenesisModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;

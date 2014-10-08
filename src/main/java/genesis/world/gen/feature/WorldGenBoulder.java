@@ -1,6 +1,6 @@
 package genesis.world.gen.feature;
 
-import genesis.block.GenesisModBlocks;
+import genesis.managers.GenesisModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

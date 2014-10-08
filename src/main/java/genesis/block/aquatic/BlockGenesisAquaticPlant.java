@@ -1,10 +1,10 @@
 package genesis.block.aquatic;
 
-import genesis.block.GenesisModBlocks;
+import genesis.managers.GenesisModBlocks;
 import genesis.block.plants.IPlantRenderSpecials;
-import genesis.client.renderer.BlockGenesisPlantRenderer;
-import genesis.common.Genesis;
-import genesis.common.GenesisTabs;
+import genesis.client.renderer.block.BlockGenesisPlantRenderer;
+import genesis.Genesis;
+import genesis.lib.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;

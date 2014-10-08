@@ -1,7 +1,7 @@
 package genesis.block.plants;
 
-import genesis.client.renderer.BlockGenesisPlantRenderer;
-import genesis.common.GenesisTabs;
+import genesis.client.renderer.block.BlockGenesisPlantRenderer;
+import genesis.lib.GenesisTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.entity.player.EntityPlayer;

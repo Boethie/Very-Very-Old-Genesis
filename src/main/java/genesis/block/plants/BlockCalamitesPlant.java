@@ -2,11 +2,11 @@ package genesis.block.plants;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import genesis.block.GenesisModBlocks;
-import genesis.common.Genesis;
-import genesis.common.GenesisSounds;
-import genesis.common.GenesisTabs;
-import genesis.lib.MiscHelpers;
+import genesis.managers.GenesisModBlocks;
+import genesis.Genesis;
+import genesis.lib.GenesisSounds;
+import genesis.lib.GenesisTabs;
+import genesis.helper.MiscHelpers;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
