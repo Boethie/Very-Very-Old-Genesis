@@ -23,7 +23,7 @@ public class BiomeGenGenesisRainforestSwamp extends BiomeGenGenesisBase {
     @Override
     public WorldGenAbstractTree func_150567_a(Random rand) {
         int treeType = rand.nextInt(20);
-        return treeType < 6 ? new WorldGenTreeLepidodendron(7, 5, true) : treeType < 13 ? new WorldGenTreeSigillaria(5, 3, true) : treeType < 18 ? new WorldGenTreeCordaites(12, 5, true) : new WorldGenTreePsaronius(5, 3, true);
+        return treeType < 6 ? new WorldGenTreeLepidodendron(7, 5, true) : treeType < 13 ? new WorldGenTreeSigillaria(7, 3, true) : treeType < 18 ? new WorldGenTreeCordaites(12, 5, true) : new WorldGenTreePsaronius(5, 3, true);
     }
 
     public void decorate(World world, Random rand, int x, int z) {

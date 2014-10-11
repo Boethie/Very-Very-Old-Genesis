@@ -87,7 +87,7 @@ public class GenLayerGenesis extends GenLayer {
             }
 
             if (j == 1) {
-                object = new GenLayerShore(1000L, (GenLayer) object);
+                object = new GenLayerShoreGenesis(1000L, (GenLayer) object);
             }
         }
 

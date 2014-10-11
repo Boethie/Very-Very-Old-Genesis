@@ -25,10 +25,15 @@ public class GenesisBiomes {
     public static final BiomeGenBase.Height heightLowPlateaus = new BiomeGenBase.Height(0.5F, 0.025F);
     public static final BiomeGenBase.Height heightHighPlains = new BiomeGenBase.Height(0.5F, 0.1F);
     public static final BiomeGenBase.Height heightPSPlateaus = new BiomeGenBase.Height(-0.2F, 0.05F);
+    
     public static int rainforestId;
     public static BiomeGenBase rainforest;
+    public static int rainforestEdgeId;
+    public static BiomeGenBase rainforestEdge;
+    
     public static int riverId;
     public static BiomeGenBase river;
+    
     public static int rainforestSwampId;
     public static BiomeGenBase rainforestSwamp;
 
@@ -38,6 +43,7 @@ public class GenesisBiomes {
         config.load();
 
         rainforestId = config.get(Configuration.CATEGORY_GENERAL, "Biome ID of Rainforest", 120).getInt();
+        rainforestEdgeId = config.get(Configuration.CATEGORY_GENERAL, "Biome ID of Rainforest Edge", 123).getInt();
         riverId = config.get(Configuration.CATEGORY_GENERAL, "Biome ID of River (Genesis)", 121).getInt();
         rainforestSwampId = config.get(Configuration.CATEGORY_GENERAL, "Biome ID of Rainforest Swamp", 122).getInt();
 
@@ -46,6 +52,7 @@ public class GenesisBiomes {
 
     public static void init() {
         rainforest = (new BiomeGenGenesisRainforest(rainforestId)).setColor(9286496).setTemperatureRainfall(0.9F, 0.8F).setHeight(heightLowHills).setBiomeName("Rainforest");
+        rainforestEdge = (new BiomeGenGenesisRainforestEdge(rainforestEdgeId)).setColor(9286496).setTemperatureRainfall(0.9F, 0.8F).setHeight(heightLowHills).setBiomeName("Rainforest Edge");
         river = (new BiomeGenGenesisRiver(riverId)).setColor(255).setTemperatureRainfall(0.7F, 1.0F).setHeight(heightShallowWaters).setBiomeName("River");
         rainforestSwamp = (new BiomeGenGenesisRainforestSwamp(rainforestSwampId)).setColor(9286496).setTemperatureRainfall(0.7F, 1.0F).setHeight(heightPSPlateaus).setBiomeName("Rainforest Swamp");
     }
