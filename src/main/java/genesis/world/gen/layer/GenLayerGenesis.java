@@ -63,8 +63,7 @@ public class GenLayerGenesis extends GenLayer {
         genlayerzoom = new GenLayerZoom(2002L, genlayeredge);
         genlayerzoom = new GenLayerZoom(2003L, genlayerzoom);
         genlayeraddisland = new GenLayerAddIsland(4L, genlayerzoom);
-        GenLayerAddMushroomIsland genlayeraddmushroomisland = new GenLayerAddMushroomIsland(5L, genlayeraddisland);
-        GenLayerDeepOcean genlayerdeepocean = new GenLayerDeepOcean(4L, genlayeraddmushroomisland);
+        GenLayerDeepOcean genlayerdeepocean = new GenLayerDeepOcean(4L, genlayeraddisland);
         GenLayer genlayer2 = GenLayerZoom.magnify(1000L, genlayerdeepocean, 0);
         byte b0 = 4; //TODO Add configurable biome size
 
