@@ -36,6 +36,9 @@ public class GenesisBiomes {
     
     public static int rainforestSwampId;
     public static BiomeGenBase rainforestSwamp;
+    
+    public static int araucarioxylonForestId;
+    public static BiomeGenBase araucarioxylonForest;
 
     public static void config() {
         File configFile = new File("config/Genesis/Biomes.cfg");
@@ -46,6 +49,7 @@ public class GenesisBiomes {
         rainforestEdgeId = config.get(Configuration.CATEGORY_GENERAL, "Biome ID of Rainforest Edge", 123).getInt();
         riverId = config.get(Configuration.CATEGORY_GENERAL, "Biome ID of River (Genesis)", 121).getInt();
         rainforestSwampId = config.get(Configuration.CATEGORY_GENERAL, "Biome ID of Rainforest Swamp", 122).getInt();
+        araucarioxylonForestId = config.get(Configuration.CATEGORY_GENERAL, "Biome ID of Araucarioxylon Forest", 124).getInt();
 
         config.save();
     }
@@ -55,5 +59,6 @@ public class GenesisBiomes {
         rainforestEdge = (new BiomeGenGenesisRainforestEdge(rainforestEdgeId)).setColor(9286496).setTemperatureRainfall(0.9F, 0.8F).setHeight(heightLowHills).setBiomeName("Rainforest Edge");
         river = (new BiomeGenGenesisRiver(riverId)).setColor(255).setTemperatureRainfall(0.7F, 1.0F).setHeight(heightShallowWaters).setBiomeName("River");
         rainforestSwamp = (new BiomeGenGenesisRainforestSwamp(rainforestSwampId)).setColor(9286496).setTemperatureRainfall(0.7F, 1.0F).setHeight(heightPSPlateaus).setBiomeName("Rainforest Swamp");
+        araucarioxylonForest = (new BiomeGenGenesisAuxForest(araucarioxylonForestId)).setColor(3423968).setTemperatureRainfall(0.9F, 0.8F).setHeight(heightLowHills).setBiomeName("Araucarioxylon Forest");
     }
 }
