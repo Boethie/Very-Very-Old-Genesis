@@ -1,5 +1,32 @@
 package genesis;
 
+import genesis.common.CommonProxy;
+import genesis.fluid.BucketHandler;
+import genesis.handler.ConfigHandler;
+import genesis.handler.GenesisEventHandler;
+import genesis.handler.GenesisGuiHandler;
+import genesis.handler.GenesisVersionHandler;
+import genesis.helper.LogHelper;
+import genesis.item.Recipes;
+import genesis.lib.Names;
+import genesis.managers.GenesisModBlocks;
+import genesis.managers.GenesisModItems;
+import genesis.managers.ModEntities;
+import genesis.tileentity.TileEntityCampfire;
+import genesis.tileentity.TileEntityPolissoir;
+import genesis.tileentity.TileEntityStorageBox;
+import genesis.world.WorldProviderGenesis;
+import genesis.world.WorldTypeGenesis;
+import genesis.world.biome.GenesisBiomes;
+
+import java.util.HashMap;
+
+import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.MinecraftForge;
+
+import org.apache.logging.log4j.Level;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -12,29 +39,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.ReflectionHelper;
-import genesis.managers.GenesisModBlocks;
-import genesis.tileentity.TileEntityCampfire;
-import genesis.tileentity.TileEntityPolissoir;
-import genesis.common.CommonProxy;
-import genesis.handler.GenesisEventHandler;
-import genesis.handler.GenesisGuiHandler;
-import genesis.managers.ModEntities;
-import genesis.fluid.BucketHandler;
-import genesis.managers.GenesisModItems;
-import genesis.item.Recipes;
-import genesis.handler.ConfigHandler;
-import genesis.handler.GenesisVersionHandler;
-import genesis.helper.LogHelper;
-import genesis.lib.Names;
-import genesis.world.WorldProviderGenesis;
-import genesis.world.WorldTypeGenesis;
-import genesis.world.biome.GenesisBiomes;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.common.DimensionManager;
-import net.minecraftforge.common.MinecraftForge;
-import org.apache.logging.log4j.Level;
-
-import java.util.HashMap;
 
 @Mod(modid = Genesis.MOD_ID, name = "Project Genesis", version = Genesis.MOD_VERSION, dependencies = "required-after:Forge")
 public class Genesis {
@@ -83,6 +87,7 @@ public class Genesis {
 
         GameRegistry.registerTileEntity(TileEntityCampfire.class, Names.mod + "Campfire");
         GameRegistry.registerTileEntity(TileEntityPolissoir.class, Names.mod + "Polissoir");
+        GameRegistry.registerTileEntity(TileEntityStorageBox.class, Names.mod + "StorageBox");
     }
 
     @EventHandler

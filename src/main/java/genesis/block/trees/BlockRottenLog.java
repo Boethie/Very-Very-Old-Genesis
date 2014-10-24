@@ -7,6 +7,7 @@ import genesis.lib.GenesisSounds;
 import genesis.lib.GenesisTabs;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.monster.EntitySilverfish;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -16,36 +17,35 @@ import java.util.Random;
  */
 public class BlockRottenLog extends BlockGenesisLog {
 
-    public BlockRottenLog(int group) {
-        super(group);
-        setCreativeTab(GenesisTabs.tabGenesisDecoration);
-        setStepSound(GenesisSounds.soundTypeRottenLog);
-    }
+	public BlockRottenLog(int group) {
+		super(group);
+		setCreativeTab(GenesisTabs.tabGenesisDecoration);
+		setStepSound(GenesisSounds.soundTypeRottenLog);
+	}
 
-    // TODO: Change Silverfish to final mob
-    @Override
-    public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int side) {
-        if (!world.isRemote) {
-            EntitySilverfish silverfish = new EntitySilverfish(world);
-            silverfish.setLocationAndAngles(x + 0.5D, y, z + 0.5D, 0.0F, 0.0F);
-            world.spawnEntityInWorld(silverfish);
-            silverfish.spawnExplosionParticle();
-        }
+	// TODO: Change Silverfish to final mob
+	@Override
+	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int side) {
+		if (!world.isRemote) {
+			EntitySilverfish silverfish = new EntitySilverfish(world);
+			silverfish.setLocationAndAngles(x + 0.5D, y, z + 0.5D, 0.0F, 0.0F);
+			world.spawnEntityInWorld(silverfish);
+			silverfish.spawnExplosionParticle();
+		}
 
-        super.onBlockDestroyedByPlayer(world, x, y, z, side);
-    }
+		super.onBlockDestroyedByPlayer(world, x, y, z, side);
+	}
 
-    @Override
-    public int quantityDropped(Random random) {
-        return 0;
-    }
+	@Override
+	public int quantityDropped(Random random) {
+		return 0;
+	}
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        for (int i = 0; i < blockIcons.length; i += 2) {
-            blockIcons[i] = iconRegister.registerIcon(Genesis.ASSETS + "log_" + blockNames[i / 2] + "_rotten");                // Side texture
-            blockIcons[i + 1] = iconRegister.registerIcon(Genesis.ASSETS + "log_" + blockNames[i / 2] + "_rotten_top");    // Top texture
-        }
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister iconRegister) {
+		icons = new IIcon[2];
+		icons[0] = iconRegister.registerIcon(Genesis.ASSETS + "log_" + treeType.name().toLowerCase() + "_rotten");
+		icons[1] = iconRegister.registerIcon(Genesis.ASSETS + "log_" + treeType.name().toLowerCase() + "_rotten_top");
+	}
 }

@@ -1,11 +1,18 @@
 package genesis.managers;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import genesis.block.*;
+import genesis.block.BlockGenesisOre;
+import genesis.block.BlockGenesisRock;
+import genesis.block.BlockGenesisRockOres;
+import genesis.block.BlockMoss;
+import genesis.block.BlockOldRedSandstone;
+import genesis.block.BlockPermafrost;
+import genesis.block.BlockPortalGenesis;
+import genesis.block.BlockTikiTorch;
 import genesis.block.aquatic.GenesisAquaticBlocks;
+import genesis.block.plants.GenesisPlantBlocks;
 import genesis.block.tiles.BlockCampfire;
 import genesis.block.tiles.BlockPolissoir;
-import genesis.block.plants.GenesisPlantBlocks;
+import genesis.block.tiles.BlockStorageBox;
 import genesis.block.trees.GenesisTreeBlocks;
 import genesis.fluid.FluidKomatiiticLava;
 import genesis.fluid.block.BlockKomatiiticLava;
@@ -15,6 +22,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class GenesisModBlocks {
     /* Currently unused constant
@@ -25,6 +33,7 @@ public class GenesisModBlocks {
     public static Block polissoir;
     public static Block tiki_torch;
     public static Block portal;
+    public static Block storageBox;
 
     // Rocks
     public static Block granite;
@@ -62,6 +71,7 @@ public class GenesisModBlocks {
         polissoir = new BlockPolissoir().setBlockTextureName("stone").setBlockName(Names.blockPolissoir);
         tiki_torch = new BlockTikiTorch().setBlockTextureName("tiki_torch").setBlockName(Names.blockTikiTorch);
         portal = new BlockPortalGenesis().setBlockTextureName("genesis_portal").setBlockName(Names.blockPortal);
+        storageBox = new BlockStorageBox(0).setBlockTextureName("log_araucarioxylon").setBlockName(Names.blockStorageBox);
 
         // Rocks
         granite = new BlockGenesisRockOres(0).setBlockTextureName("granite").setBlockName(Names.blockGranite).setHardness(2.0F).setResistance(10.0F);
@@ -114,6 +124,8 @@ public class GenesisModBlocks {
 
         GameRegistry.registerBlock(polissoir, Names.Registry.blockPolissoir);
 
+        GameRegistry.registerBlock(storageBox, Names.Registry.blockStorageBox);
+        
         GameRegistry.registerBlock(tiki_torch, Names.Registry.blockTikiTorch);
 
         GameRegistry.registerBlock(portal, Names.Registry.blockPortal);

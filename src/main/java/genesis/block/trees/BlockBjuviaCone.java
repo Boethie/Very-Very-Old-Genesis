@@ -111,8 +111,8 @@ public class BlockBjuviaCone extends BlockGenesis {
     {
     	Block b = world.getBlock(x, y - 1, z);
     	int meta = world.getBlockMetadata(x, y - 1, z);
-    	return b != null && b == GenesisTreeBlocks.logs[GenesisTreeBlocks.TreeType.BJUVIA.getGroup()]
-    			&& meta == GenesisTreeBlocks.getLogMetadataForDirection(GenesisTreeBlocks.TreeType.BJUVIA.getGroup(),
+    	return b != null && b == GenesisTreeBlocks.logs[GenesisTreeBlocks.TreeType.BJUVIA.ordinal()]
+    			&& meta == GenesisTreeBlocks.getLogMetadataForDirection(GenesisTreeBlocks.TreeType.BJUVIA.ordinal(),
     			ForgeDirection.UP);
    }
 }

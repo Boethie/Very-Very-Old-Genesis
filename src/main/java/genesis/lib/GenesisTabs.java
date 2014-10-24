@@ -25,7 +25,7 @@ public class GenesisTabs {
     public static final CreativeTabs tabGenesisDecoration = new CreativeTabs(Names.tabDecorations) {
         @Override
         public ItemStack getIconItemStack() {
-            return GenesisTreeBlocks.getBlockForType(TreeBlockType.SAPLING, TreeType.SIGILLARIA.getName()).getStack();
+            return GenesisTreeBlocks.getItemStackForType(TreeBlockType.SAPLING, TreeType.SIGILLARIA);
         }
 
         @Override

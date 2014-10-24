@@ -20,94 +20,63 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Random;
 
-public class BlockGenesisLog extends BlockLog implements IItemBlockWithSubNames {
+public class BlockGenesisLog extends BlockLog{
 
-    protected String[] blockNames;
-    protected IIcon[] blockIcons;
+	protected String[] blockNames;
+	protected IIcon[] icons;
 
-    public BlockGenesisLog(int group) {
-        if (TreeType.values().length - (group * TreeType.GROUP_SIZE) >= TreeType.GROUP_SIZE) {
-            blockNames = new String[TreeType.GROUP_SIZE];
-        } else {
-            blockNames = new String[TreeType.values().length - (group * TreeType.GROUP_SIZE)];
-        }
+	protected TreeType treeType;
 
-        for (int i = 0; i < blockNames.length; i++) {
-            blockNames[i] = TreeType.values()[(group * TreeType.GROUP_SIZE) + i].getName();
-        }
+	public BlockGenesisLog(int type) {
+		super();
+		treeType = TreeType.get(type);
+		setCreativeTab(GenesisTabs.tabGenesisBlock);
+	}
 
-        blockIcons = new IIcon[blockNames.length * 2];
-        setCreativeTab(GenesisTabs.tabGenesisBlock);
+	public String getUnlocalizedName(){
+        return super.getUnlocalizedName() + treeType.name().toLowerCase();
     }
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister register) {
+		icons = new IIcon[2];
+		String path = Genesis.ASSETS + "log_" + treeType.name().toLowerCase();
+		icons[0] = register.registerIcon(path);
+		icons[1] = register.registerIcon(path + "_top");
+	}
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        for (int i = 0; i < blockIcons.length; i += 2) {
-            blockIcons[i] = iconRegister.registerIcon(Genesis.ASSETS + "log_" + blockNames[i / 2]);                // Side texture
-            blockIcons[i + 1] = iconRegister.registerIcon(Genesis.ASSETS + "log_" + blockNames[i / 2] + "_top");    // Top texture
-        }
-    }
+	@SideOnly(Side.CLIENT)
+	public IIcon getSideIcon(int meta){
+		return icons[0];
+	}
 
-    @Override
-    public IIcon getIcon(int side, int metadata) {
-        final int orientation = metadata & 12;
-        int type = metadata & 3;
+	@SideOnly(Side.CLIENT)
+	public IIcon getTopIcon(int p_150161_1_){
+		return icons[1];
+	}
 
-        if (type >= blockNames.length) {
-            type = 0;
-        }
+	@Override
+	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int metadata) {
+		if (!canSilkHarvest(world, player, x, y, z, metadata) || !EnchantmentHelper.getSilkTouchModifier(player)) {
+			harvesters.set(player);
 
-        if ((orientation == 0 && (side == 1 || side == 0)) || (orientation == 4 && (side == 5 || side == 4)) || (orientation == 8 && (side == 2 || side == 3))) {
-            return blockIcons[((type + 1) * 2) - 1];
-        } else {
-            return blockIcons[type * 2];
-        }
-    }
+			int fortune = EnchantmentHelper.getFortuneModifier(player);
+			dropBlockAsItem(world, x, y, z, metadata, fortune);
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
-        for (int metadata = 0; metadata < blockNames.length; metadata++) {
-            list.add(new ItemStack(item, 1, metadata));
-        }
-    }
+			if (player.getHeldItem() != null) {
+				if (player.getHeldItem().getItem().getToolClasses(player.getHeldItem()).contains("axe")){
+					if (treeType.equals(TreeType.CORDAITES, TreeType.ARAUCARIOXYLON, TreeType.VOLTZIA)) {
+						if (world.rand.nextInt(20) == 0) {
+							dropBlockAsItem(world, x, y, z, new ItemStack(GenesisModItems.resin));
+						}
+					}
+				}
+			}
 
-    @Override
-    public Item getItemDropped(int metadata, Random random, int unused) {
-        return Item.getItemFromBlock(GenesisTreeBlocks.logs[TreeType.valueOf(getSubName(metadata).toUpperCase()).getGroup()]);
-    }
-
-    @Override
-    public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int metadata) {
-        if (!canSilkHarvest(world, player, x, y, z, metadata) || !EnchantmentHelper.getSilkTouchModifier(player)) {
-            harvesters.set(player);
-
-            int fortune = EnchantmentHelper.getFortuneModifier(player);
-            dropBlockAsItem(world, x, y, z, metadata, fortune);
-
-            if (player.getHeldItem() != null) {
-	            	if (player.getHeldItem().getItem().getToolClasses(player.getHeldItem()).contains("axe"))
-	            	{
-		                TreeType type = TreeType.valueOf(this, metadata);
-		                if (type.equals(TreeType.CORDAITES, TreeType.ARAUCARIOXYLON, TreeType.VOLTZIA)) {
-		                    if (world.rand.nextInt(20) == 0) {
-		                        dropBlockAsItem(world, x, y, z, new ItemStack(GenesisModItems.resin));
-		                    }
-	                }
-                }
-            }
-
-            harvesters.set(null);
-        } else {
-            super.harvestBlock(world, player, x, y, z, metadata);
-        }
-    }
-
-    /* IItemBlockWithSubNames methods */
-
-    @Override
-    public String getSubName(int metadata) {
-        return blockNames[metadata & 3];
-    }
+			harvesters.set(null);
+		} else {
+			super.harvestBlock(world, player, x, y, z, metadata);
+		}
+	}
 }

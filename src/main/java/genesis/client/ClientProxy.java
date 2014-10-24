@@ -1,28 +1,34 @@
 package genesis.client;
 
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.client.registry.ClientRegistry;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.relauncher.Side;
 import genesis.Genesis;
 import genesis.client.model.entity.ModelEryops;
 import genesis.client.renderer.BlockCampfireRenderer;
 import genesis.client.renderer.ItemPolissoirRender;
 import genesis.client.renderer.TileEntityCampfireRenderer;
 import genesis.client.renderer.TileEntityPolissoirRenderer;
-import genesis.client.renderer.block.*;
+import genesis.client.renderer.TileEntityStorageBoxRenderer;
+import genesis.client.renderer.block.BlockBjuviaConeRenderer;
+import genesis.client.renderer.block.BlockGenesisFlowerPotRenderer;
+import genesis.client.renderer.block.BlockGenesisPlantRenderer;
+import genesis.client.renderer.block.BlockMossRenderer;
+import genesis.client.renderer.block.BlockTikiTorchRenderer;
 import genesis.client.renderer.entity.RenderEryops;
 import genesis.common.CommonProxy;
 import genesis.entity.EntityEryops;
 import genesis.managers.GenesisModBlocks;
 import genesis.tileentity.TileEntityCampfire;
 import genesis.tileentity.TileEntityPolissoir;
+import genesis.tileentity.TileEntityStorageBox;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.relauncher.Side;
 
 public class ClientProxy extends CommonProxy {
 
@@ -52,6 +58,9 @@ public class ClientProxy extends CommonProxy {
 
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(GenesisModBlocks.polissoir), new ItemPolissoirRender());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPolissoir.class, new TileEntityPolissoirRenderer());
+        
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStorageBox.class, TileEntityStorageBoxRenderer.instance);
+        RenderingRegistry.registerBlockHandler(TileEntityStorageBoxRenderer.instance);
 
     }
 

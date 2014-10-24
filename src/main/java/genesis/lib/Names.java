@@ -15,6 +15,7 @@ public final class Names {
     public static final String blockPolissoir = mod + "polissoir";
     public static final String blockTikiTorch = mod + "tikiTorch";
     public static final String blockPortal = mod + "portal";
+    public static final String blockStorageBox = mod + "storageBox";
 
     // Rock blocks
     public static final String blockGranite = mod + "granite";
@@ -218,6 +219,7 @@ public final class Names {
         public static final String blockTikiTorch = "tiki_torch";
         public static final String blockCampfire = "campfire";
         public static final String blockPolissoir = "polissoir";
+        public static final String blockStorageBox = "storageBox";
 
         public static final String blockMoss = "moss";
 
