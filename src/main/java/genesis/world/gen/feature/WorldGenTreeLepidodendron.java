@@ -3,6 +3,7 @@ package genesis.world.gen.feature;
 import genesis.block.BlockAndMeta;
 import genesis.block.trees.BlockGenesisSapling;
 import genesis.block.trees.GenesisTreeBlocks;
+import genesis.block.trees.GenesisTreeBlocks.TreeType;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -21,7 +22,7 @@ public class WorldGenTreeLepidodendron extends WorldGenTreeBase {
      *               Generally false for world generation, true for saplings.
      */
     public WorldGenTreeLepidodendron(int minH, int maxH, boolean notify) {
-        super(new BlockAndMeta(GenesisTreeBlocks.logs[0], 2), new BlockAndMeta(GenesisTreeBlocks.leaves[0], 2), notify);
+        super(new BlockAndMeta(GenesisTreeBlocks.logs[TreeType.LEPIDODENDRON.ordinal()], 0), new BlockAndMeta(GenesisTreeBlocks.leaves[TreeType.LEPIDODENDRON.ordinal()], 0), notify);
         minHeight = minH;
         maxHeight = maxH;
     }

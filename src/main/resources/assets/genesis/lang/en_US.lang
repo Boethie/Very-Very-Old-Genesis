@@ -227,6 +227,8 @@ toolquality.sharpened=Sharpened
 # Containers
 container.genesis.campfire=Campfire
 container.genesis.polissoir=Polissoir
+container.storageBox=Storage Box
+container.largeStorageBox=Large Storage Box
 
 # Creative Tabs
 itemGroup.genesis.tabBlock=Genesis Building Blocks

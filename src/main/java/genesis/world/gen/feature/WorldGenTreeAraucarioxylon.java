@@ -3,6 +3,7 @@ package genesis.world.gen.feature;
 import genesis.block.BlockAndMeta;
 import genesis.block.trees.BlockGenesisSapling;
 import genesis.block.trees.GenesisTreeBlocks;
+import genesis.block.trees.GenesisTreeBlocks.TreeType;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -21,7 +22,7 @@ public class WorldGenTreeAraucarioxylon extends WorldGenTreeBase {
      *               Generally false for world generation, true for saplings.
      */
     public WorldGenTreeAraucarioxylon(int minH, int maxH, boolean notify) {
-        super(new BlockAndMeta(GenesisTreeBlocks.logs[1], 3), new BlockAndMeta(GenesisTreeBlocks.leaves[1], 3), notify);
+        super(new BlockAndMeta(GenesisTreeBlocks.logs[TreeType.ARAUCARIOXYLON.ordinal()], 0), new BlockAndMeta(GenesisTreeBlocks.leaves[TreeType.ARAUCARIOXYLON.ordinal()], 0), notify);
         minHeight = minH;
         maxHeight = maxH;
     }
