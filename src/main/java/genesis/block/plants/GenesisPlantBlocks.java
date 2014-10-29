@@ -7,6 +7,9 @@ import genesis.item.itemblock.ItemBlockGenesisFlower;
 import genesis.item.itemblock.ItemBlockGenesisPlant;
 import genesis.lib.Names;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBush;
+import net.minecraft.block.BlockMushroom;
+import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 
 public class GenesisPlantBlocks {
@@ -22,6 +25,7 @@ public class GenesisPlantBlocks {
     public static BlockSphenophyllumBase sphenophyllum;
     public static Block sphenophyllum_top;
     public static Block flowers;
+    public static Block archaeomarasmius;
 
     public static void init() {
         //flower_pot = new BlockGenesisFlowerPot().setBlockTextureName("flower_pot").setBlockName(Names.blockFlowerPot);
@@ -43,6 +47,8 @@ public class GenesisPlantBlocks {
         sphenophyllum_top = new BlockSphenophyllumTop().setBlockName(Names.blockSphenophyllum).setBlockTextureName("sphenophyllum");
 
         flowers = new BlockGenesisFlower().setBlockName(Names.blockFlower);
+        
+        archaeomarasmius = new BlockArchaeomarasmius().register();
     }
 
     public static void register() {
@@ -63,6 +69,8 @@ public class GenesisPlantBlocks {
         GameRegistry.registerBlock(sphenophyllum_top, Names.Registry.blockSphenophyllumTop);
 
         GameRegistry.registerBlock(flowers, ItemBlockGenesisFlower.class, Names.Registry.blockFlower);
+        
+        GameRegistry.registerBlock(archaeomarasmius, Names.Registry.blockArchaeomarasmius);
 
         Blocks.fire.setFireInfo(plants, 60, 100);
         Blocks.fire.setFireInfo(ferns, 60, 100);
