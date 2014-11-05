@@ -2,6 +2,7 @@
 tile.genesis.moss.name=Moss
 tile.genesis.campfire.name=Campfire
 tile.genesis.polissoir.name=Polissoir
+tile.genesis.storageBox.name=Storage Box
 tile.genesis.tikiTorch.name=Tiki Torch
 
 # Rocks
@@ -242,3 +243,5 @@ itemGroup.genesis.tabMaterials=Genesis Materials
 
 # World type name
 generator.genesisTestType=Genesis World Test
+
+tile.genesis.storageBox.name=Storage Box
