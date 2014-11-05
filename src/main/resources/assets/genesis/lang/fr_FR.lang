@@ -218,7 +218,7 @@ item.genesis.tool.shovel.brownishFlint.name=Pelle en silex brunâtre
 item.genesis.tool.axe.brownishFlint.name=Hache en silex brunâtre
 item.genesis.tool.hoe.brownishFlint.name=Houe en silex brunâtre
 
-item.genesis.knife.bone.name=Couteau en o
+item.genesis.knife.bone.name=Couteau en os
 item.genesis.tool.shovel.bone.name=Pelle en os
 item.genesis.tool.hoe.bone.name=Houe en os
 
@@ -232,6 +232,9 @@ toolquality.polished=Polie
 # Containers
 container.genesis.campfire=Feu de camp
 container.genesis.polissoir=Polissoir
+container.storageBox=Caisse de stockage
+container.largeStorageBox=Grande caisse de stockage
+
 
 # Creative Tabs
 itemGroup.genesis.tabBlock=Blocs de construction Genesis
