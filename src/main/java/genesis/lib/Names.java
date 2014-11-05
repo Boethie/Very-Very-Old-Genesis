@@ -148,6 +148,7 @@ public final class Names {
     public static final String materialDolerite = "dolerite";
     public static final String materialQuartzite = "quartzite";
     public static final String materialBrownishFlint = "brownish_flint";
+    public static final String materialBone = "bone";
 
     // Containers
     public static final String container = "container." + mod;

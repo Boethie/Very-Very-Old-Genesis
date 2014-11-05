@@ -42,6 +42,7 @@ public class Recipes {
 			GenesisModItems.dolerite_tools.registerRecipes(GenesisModBlocks.dolerite, handle.copy());
 			GenesisModItems.quartzite_tools.registerRecipes(GenesisModBlocks.quartzite, handle.copy());
 			GenesisModItems.brownish_flint_tools.registerRecipes(GenesisModItems.brownish_flint_pebble, handle.copy());
+			/* Add Bone Recipe /*
 		}
 
 		//add red dye functionality into Hematite

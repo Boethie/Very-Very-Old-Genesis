@@ -220,6 +220,10 @@ item.genesis.tool.shovel.brownishFlint.name=Brownish Flint Shovel
 item.genesis.tool.axe.brownishFlint.name=Brownish Flint Axe
 item.genesis.tool.hoe.brownishFlint.name=Brownish Flint Hoe
 
+item.genesis.knife.bone.name=Bone Knife
+item.genesis.tool.shovel.bone.name=Bone Shovel
+item.genesis.tool.hoe.bone.name=Bone Hoe
+
 tooltip.toolquality=Tool Quality
 toolquality.crude=Crude
 toolquality.chipped=Chipped

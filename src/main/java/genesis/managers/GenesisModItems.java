@@ -18,6 +18,7 @@ public class GenesisModItems {
     public static ItemsToolSet dolerite_tools;
     public static ItemsToolSet quartzite_tools;
     public static ItemsToolSet brownish_flint_tools;
+    public static ItemsToolSet bone_tools;
 
     // Crafting
     public static Item brownish_flint_pebble;
@@ -81,6 +82,7 @@ public class GenesisModItems {
         dolerite_tools = new ItemsToolSet(Names.materialDolerite, new Object[]{1, 312, 4.0F, 1.0F, 5});
         quartzite_tools = new ItemsToolSet(Names.materialQuartzite,new Object[]{1, 437, 4.0F, 1.0F, 5});
         brownish_flint_tools = new ItemsToolSet(Names.materialBrownishFlint, new Object[]{1, 353, 4.0F, 1.0F, 5});
+        bone_tools = new ItemsToolSet(Names.materialBone, new Object[]{1, 421, 4.0F, 1.0F, 5}, true, false, false, true, true);
 
         // Crafting
         brownish_flint_pebble = new ItemGenesis().setUnlocalizedName(Names.itemBrownishFlintPebble).setTextureName("brownish_flint_pebble");

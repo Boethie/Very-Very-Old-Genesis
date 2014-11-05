@@ -218,6 +218,10 @@ item.genesis.tool.shovel.brownishFlint.name=Pelle en silex brunâtre
 item.genesis.tool.axe.brownishFlint.name=Hache en silex brunâtre
 item.genesis.tool.hoe.brownishFlint.name=Houe en silex brunâtre
 
+item.genesis.knife.bone.name=Couteau en o
+item.genesis.tool.shovel.bone.name=Pelle en os
+item.genesis.tool.hoe.bone.name=Houe en os
+
 tooltip.toolquality=Qualité de l'outil
 toolquality.crude=Brute
 toolquality.chipped=Taillée
