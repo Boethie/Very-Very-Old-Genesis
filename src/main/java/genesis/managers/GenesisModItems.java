@@ -20,6 +20,10 @@ public class GenesisModItems {
     public static ItemsToolSet brownish_flint_tools;
     public static ItemsToolSet bone_tools;
 
+    // Weapons
+    public static ItemsToolSet brownish_flint_weapons;
+    public static ItemsToolSet bone_weapons;
+
     // Crafting
     public static Item brownish_flint_pebble;
     public static Item quartz;
@@ -77,12 +81,16 @@ public class GenesisModItems {
 
     public static void init() {
         // Tools
-        granite_tools = new ItemsToolSet(Names.materialGranite, new Object[]{1, 375, 4.0F, 1.0F, 5});
-        rhyolite_tools = new ItemsToolSet(Names.materialRhyolite, new Object[]{1, 375, 4.0F, 1.0F, 5});
-        dolerite_tools = new ItemsToolSet(Names.materialDolerite, new Object[]{1, 312, 4.0F, 1.0F, 5});
-        quartzite_tools = new ItemsToolSet(Names.materialQuartzite,new Object[]{1, 437, 4.0F, 1.0F, 5});
-        brownish_flint_tools = new ItemsToolSet(Names.materialBrownishFlint, new Object[]{1, 353, 4.0F, 1.0F, 5});
-        bone_tools = new ItemsToolSet(Names.materialBone, new Object[]{1, 421, 4.0F, 1.0F, 5}, true, false, false, true, true);
+        granite_tools = new ItemsToolSet(Names.materialGranite, new Object[]{1, 375, 4.0F, 1.0F, 5}, true, true, true ,true, true, false);
+        rhyolite_tools = new ItemsToolSet(Names.materialRhyolite, new Object[]{1, 375, 4.0F, 1.0F, 5}, true, true, true, true, true, false);
+        dolerite_tools = new ItemsToolSet(Names.materialDolerite, new Object[]{1, 312, 4.0F, 1.0F, 5}, true, true ,true, true, true, false);
+        quartzite_tools = new ItemsToolSet(Names.materialQuartzite,new Object[]{1, 437, 4.0F, 1.0F, 5}, true, true, true, true, true, false);
+        brownish_flint_tools = new ItemsToolSet(Names.materialBrownishFlint, new Object[]{1, 353, 4.0F, 1.0F, 5}, true, true, true, true, true, false);
+        bone_tools = new ItemsToolSet(Names.materialBone, new Object[]{1, 421, 4.0F, 1.0F, 5}, true, false, false, true, true, false);
+
+        // Weapons
+        brownish_flint_weapons = new ItemsToolSet(Names.materialBrownishFlint, new Object[]{1, 353, 4.0F, 1.0F, 5}, false, false, false, false, false, true);
+        bone_weapons = new ItemsToolSet(Names.materialBone, new Object[]{1, 35, 4.0F, 4.0F, 5}, false, false, false, false, false, true);
 
         // Crafting
         brownish_flint_pebble = new ItemGenesis().setUnlocalizedName(Names.itemBrownishFlintPebble).setTextureName("brownish_flint_pebble");

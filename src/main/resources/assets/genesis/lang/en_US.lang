@@ -224,6 +224,11 @@ item.genesis.knife.bone.name=Bone Knife
 item.genesis.tool.shovel.bone.name=Bone Shovel
 item.genesis.tool.hoe.bone.name=Bone Hoe
 
+# Weapons
+item.genesis.spear.brownishFlint.name=Brownish Flint Spear
+item.genesis.spear.bone.name=Bone Spear
+
+# Quality
 tooltip.toolquality=Tool Quality
 toolquality.crude=Crude
 toolquality.chipped=Chipped
@@ -243,9 +248,8 @@ itemGroup.genesis.tabDecorations=Genesis Decoration Blocks
 itemGroup.genesis.tabMisc=Genesis Miscellaneous
 itemGroup.genesis.tabFood=Genesis Foodstuffs
 itemGroup.genesis.tabTools=Genesis Tools
+itemGroup.genesis.tabCombat=Genesis Combat
 itemGroup.genesis.tabMaterials=Genesis Materials
 
 # World type name
 generator.genesisTestType=Genesis World Test
-
-tile.genesis.storageBox.name=Storage Box

@@ -19,27 +19,29 @@ public class ItemsToolSet implements IRecipeWithDefault {
     public Item crude_axe, chipped_axe, polished_axe, sharpened_axe;
     public Item crude_shovel, chipped_shovel, polished_shovel, sharpened_shovel;
     public Item crude_hoe, chipped_hoe, polished_hoe, sharpened_hoe;
-    public boolean knifeEnabled, pickaxeEnabled, axeEnabled, shovelEnabled, hoeEnabled;
+    public Item crude_spear, chipped_spear, polished_spear, sharpened_spear;
+    public boolean knifeEnabled, pickaxeEnabled, axeEnabled, shovelEnabled, hoeEnabled, spearEnabled;
     public Object craftingHandleObj;
 
     public ItemsToolSet(String materialName, Object[] baseValues) {
-        this(materialName, baseValues, true, true, true, true, true);
+        this(materialName, baseValues, true, true, true, true, true, true);
     }
 
-    public ItemsToolSet(String materialName, Object[] baseValues, boolean enableKnife, boolean enablePickaxe, boolean enableAxe, boolean enableShovel, boolean enableHoe) {
-        this(materialName, baseValues, null, null, null, enableKnife, enablePickaxe, enableAxe, enableShovel, enableHoe);
+    public ItemsToolSet(String materialName, Object[] baseValues, boolean enableKnife, boolean enablePickaxe, boolean enableAxe, boolean enableShovel, boolean enableHoe, boolean enableSpear) {
+        this(materialName, baseValues, null, null, null, enableKnife, enablePickaxe, enableAxe, enableShovel, enableHoe, enableSpear);
     }
 
     public ItemsToolSet(String materialName, Object[] material1, Object[] material2, Object[] material3, Object[] material4) {
-        this(materialName, material1, material2, material3, material4, true, true, true, true, true);
+        this(materialName, material1, material2, material3, material4, true, true, true, true, true, true);
     }
 
-    public ItemsToolSet(String materialName, Object[] material1, Object[] material2, Object[] material3, Object[] material4, boolean enableKnife, boolean enablePickaxe, boolean enableAxe, boolean enableShovel, boolean enableHoe) {
+    public ItemsToolSet(String materialName, Object[] material1, Object[] material2, Object[] material3, Object[] material4, boolean enableKnife, boolean enablePickaxe, boolean enableAxe, boolean enableShovel, boolean enableHoe, boolean enableSpear) {
         knifeEnabled = enableKnife;
         pickaxeEnabled = enablePickaxe;
         axeEnabled = enableAxe;
         shovelEnabled = enableShovel;
         hoeEnabled = enableHoe;
+        spearEnabled = enableSpear;
 
         String material = materialName.toUpperCase() + "_";
         Item.ToolMaterial toolMaterial1 = addMaterial(material + "CRUDE", material1, null);
@@ -131,6 +133,20 @@ public class ItemsToolSet implements IRecipeWithDefault {
             }
         }
 
+        if (enableSpear) {
+            crude_spear = new ItemGenesisSpear(toolMaterial1, crudeName, ToolQuality.CRUDE).setTextureName(crudeName);
+            chipped_spear = new ItemGenesisSpear(toolMaterial2, crudeName, ToolQuality.CHIPPED).setTextureName(crudeName);
+            polished_spear = new ItemGenesisSpear(toolMaterial3, polishedName, ToolQuality.POLISHED).setTextureName(polishedName);
+            sharpened_spear = new ItemGenesisSpear(toolMaterial4, polishedName, ToolQuality.SHARPENED).setTextureName(polishedName);
+
+            if (!StringUtils.isNullOrEmpty(unlocalizedName)) {
+                crude_spear.setUnlocalizedName(unlocalizedName);
+                chipped_spear.setUnlocalizedName(unlocalizedName);
+                polished_spear.setUnlocalizedName(unlocalizedName);
+                sharpened_spear.setUnlocalizedName(unlocalizedName);
+            }
+        }
+
         setupHierarchy();
     }
 
@@ -196,6 +212,12 @@ public class ItemsToolSet implements IRecipeWithDefault {
             PolissoirRecipes.instance().addChippedRecipe(new ItemStack(crude_hoe), new ItemStack(chipped_hoe));
             PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(chipped_hoe), new ItemStack(polished_hoe));
             PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(polished_hoe), new ItemStack(sharpened_hoe));
+        }
+
+        if (spearEnabled) {
+            PolissoirRecipes.instance().addChippedRecipe(new ItemStack(crude_spear), new ItemStack(chipped_spear));
+            PolissoirRecipes.instance().addPolishedRecipe(new ItemStack(chipped_spear), new ItemStack(polished_spear));
+            PolissoirRecipes.instance().addSharpenedRecipe(new ItemStack(polished_spear), new ItemStack(sharpened_hoe));
         }
     }
 
@@ -275,6 +297,9 @@ public class ItemsToolSet implements IRecipeWithDefault {
             }
             break;
         }
+
+        /* Add Case for Spear */
+
         return items;
     }
 
@@ -308,6 +333,9 @@ public class ItemsToolSet implements IRecipeWithDefault {
                 item = crude_hoe;
             }
             break;
+
+        /* Add Case for Spear */
+
         }
 
         if (item == null) {

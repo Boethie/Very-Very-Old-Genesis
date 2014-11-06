@@ -70,6 +70,14 @@ public class GenesisTabs {
         }
     };
 
+    public static final CreativeTabs tabGenesisCombat = new CreativeTabs(Names.tabCombat) {
+        @Override
+        public ItemStack getIconItemStack() {return new ItemStack(GenesisModItems.bone_weapons.chipped_spear); }
+
+        @Override
+        public Item getTabIconItem() { return getIconItemStack().getItem(); }
+    };
+
     public static final CreativeTabs tabGenesisMaterials = new CreativeTabs(Names.tabMaterials) {
         @Override
         public ItemStack getIconItemStack() {
@@ -81,4 +89,5 @@ public class GenesisTabs {
             return getIconItemStack().getItem();
         }
     };
+
 }

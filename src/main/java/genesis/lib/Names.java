@@ -84,6 +84,9 @@ public final class Names {
     public static final String itemHoe = itemTool + "hoe.";
     public static final String itemKnife = mod + "knife.";
 
+    // Weapons
+    public static final String itemSpear = mod + "spear.";
+
     // Crafting items
     public static final String itemBrownishFlintPebble = mod + "brownishFlintPebble";
     public static final String itemQuartz = mod + "quartz";
@@ -161,6 +164,7 @@ public final class Names {
     public static final String tabMisc = mod + "tabMisc";
     public static final String tabFood = mod + "tabFood";
     public static final String tabTools = mod + "tabTools";
+    public static final String tabCombat = mod + "tabCombat";
     public static final String tabMaterials = mod + "tabMaterials";
 
     // --- More Plants ---

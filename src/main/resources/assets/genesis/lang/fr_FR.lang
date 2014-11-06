@@ -222,6 +222,12 @@ item.genesis.knife.bone.name=Couteau en os
 item.genesis.tool.shovel.bone.name=Pelle en os
 item.genesis.tool.hoe.bone.name=Houe en os
 
+# Weapons
+item.genesis.spear.brownishFlint.name=Lance à pointe de silex brunâtre
+item.genesis.spear.brownishFlint.name=Lance en pointe d'os
+
+
+# Quality
 tooltip.toolquality=Qualité de l'outil
 toolquality.crude=Brute
 toolquality.chipped=Taillée
@@ -242,6 +248,7 @@ itemGroup.genesis.tabDecorations=Blocs décoratifs Genesis
 itemGroup.genesis.tabMisc=Divers Genesis
 itemGroup.genesis.tabFood=Nourriture Genesis
 itemGroup.genesis.tabTools=Outils Genesis
+itemGroup.genesis.tabTools=Placeholder
 itemGroup.genesis.tabMaterials=Matières premières Genesis
 
 # World type name
