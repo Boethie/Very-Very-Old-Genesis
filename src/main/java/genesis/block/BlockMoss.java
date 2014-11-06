@@ -57,6 +57,11 @@ public class BlockMoss extends BlockGrass {
         }
     }
 
+    private boolean waterCheck(World world, int x, int y, int z) {
+        return (world.getBlock(x, y + 1, z).getMaterial() == Material.water);
+    }
+
+
     private boolean canMossStay(World world, int x, int y, int z) {
         int blockAboveLight = world.getBlockLightValue(x, y + 1, z);
         /*
@@ -66,8 +71,12 @@ public class BlockMoss extends BlockGrass {
          * return blockAbove == null || blockAbove instanceof BlockFlower ||
          * !blockAboveMat.getCanBlockGrass() || blockAboveLight >= 1;
          */
-
-        return blockAboveLight >= 1 || world.getBlockLightOpacity(x, y + 1, z) < 255;
+        if(waterCheck(world, x, y, z)) {
+            return false;
+        }
+        else {
+            return blockAboveLight >= 1 || world.getBlockLightOpacity(x, y + 1, z) < 255;
+        }
     }
 
     public void updateTick(World world, int x, int y, int z, Random random) {
