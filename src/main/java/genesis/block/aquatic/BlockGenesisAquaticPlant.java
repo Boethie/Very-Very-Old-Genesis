@@ -71,14 +71,19 @@ public abstract class BlockGenesisAquaticPlant extends Block implements IPlantRe
     }
 
     protected boolean canPlaceBlockOn(Block block) {
+
         boolean flag = false;
-        final Block[] blockList = new Block[]{Blocks.dirt, Blocks.gravel, Blocks.sand, Blocks.clay, GenesisAquaticBlocks.coral, GenesisModBlocks.granite, Blocks.stone, GenesisModBlocks.limestone, GenesisModBlocks.gneiss, GenesisModBlocks.quartzite, GenesisModBlocks.rhyolite, GenesisModBlocks.shale, GenesisModBlocks.mossy_granite, GenesisModBlocks.dolerite, GenesisModBlocks.komatiite, GenesisModBlocks.trondhjemite, GenesisModBlocks.faux_amphibolite, GenesisModBlocks.stromatolite, GenesisModBlocks.octaedrite, GenesisModBlocks.moss};
+        final Block[] blockList = new Block[]{Blocks.dirt, Blocks.gravel, Blocks.sand, Blocks.clay};
+        if (block.getMaterial() == Material.rock) {
+                flag = true;
+        }
         for (Block b : blockList) {
             if (block == b) {
                 flag = true;
                 break;
             }
         }
+        System.out.println(flag);
         return flag;
     }
 
