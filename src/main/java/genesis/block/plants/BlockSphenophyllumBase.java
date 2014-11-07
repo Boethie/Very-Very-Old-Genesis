@@ -43,16 +43,20 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowabl
     public boolean canPlaceBlockOn(Block block) {
         return block == soilBlock || block == GenesisModBlocks.moss || block == Blocks.grass;
     }
+
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
         float meta = world.getBlockMetadata(x, y, z);
         if (meta > 5) {
             setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+        } else if (meta == 0) {
+            setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.1875F, 1.0F);
         } else {
             float f = 2*(1.0F/(6.0F - meta));
             setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0F + f, 1.0F);
         }
     }
+
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int par1, int meta) {

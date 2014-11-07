@@ -12,6 +12,7 @@ import net.minecraft.block.BlockMushroom;
  */
 public class BlockArchaeomarasmius extends BlockMushroom
 {
+
 	public BlockArchaeomarasmius()
 	{
 		super();
@@ -19,7 +20,7 @@ public class BlockArchaeomarasmius extends BlockMushroom
 		setResistance(0.0f);
 		setStepSound(soundTypeGrass);
 		setCreativeTab(GenesisTabs.tabGenesisDecoration);
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.85F, 1.0F);
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.9375F, 0.875F , 0.9375F);
 	}
 	
 	protected BlockArchaeomarasmius register()
