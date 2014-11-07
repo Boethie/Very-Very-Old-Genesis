@@ -52,6 +52,8 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
         float meta = world.getBlockMetadata(x, y, z);
         if (meta > 5) {
             setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+        } else if (meta == 0) {
+            setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.1875F, 1.0F);
         } else {
             float f = 2*(1.0F/(6.0F - meta));
             setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0F + f, 1.0F);
