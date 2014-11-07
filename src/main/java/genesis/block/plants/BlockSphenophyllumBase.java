@@ -7,11 +7,13 @@ import genesis.managers.GenesisModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -41,7 +43,16 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowabl
     public boolean canPlaceBlockOn(Block block) {
         return block == soilBlock || block == GenesisModBlocks.moss || block == Blocks.grass;
     }
-
+    @Override
+    public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
+        float meta = world.getBlockMetadata(x, y, z);
+        if (meta > 5) {
+            setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+        } else {
+            float f = 2*(1.0F/(6.0F - meta));
+            setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0F + f, 1.0F);
+        }
+    }
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int par1, int meta) {

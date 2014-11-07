@@ -3,6 +3,8 @@ package genesis.item;
 
 import com.google.common.collect.Multimap;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import genesis.lib.Names;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -47,6 +49,12 @@ public class ItemGenesisSpear extends Item
     @Override
     public Item setTextureName(String textureName) {
         return super.setTextureName(Genesis.ASSETS + textureName + "_spear");
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean isFull3D() {
+        return true;
     }
 
     @Override
