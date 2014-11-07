@@ -49,12 +49,12 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
 
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
-        int meta = world.getBlockMetadata(x, y, z);
+        float meta = world.getBlockMetadata(x, y, z);
         if (meta > 5) {
-            setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
+            setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
         } else {
-            float f = 1 / (6 - meta); // to calculate the percentage of the block the boudns should reach
-            setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 0.0f + f, 1.0f);
+            float f = 2*(1.0F/(6.0F - meta));
+            setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0F + f, 1.0F);
         }
     }
 
