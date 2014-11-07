@@ -1,5 +1,6 @@
 package genesis.block.plants;
 
+import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import genesis.managers.GenesisModBlocks;
@@ -13,6 +14,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -22,6 +24,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.IShearable;
+import net.minecraftforge.common.MinecraftForge;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -176,9 +179,10 @@ public class BlockGenesisFern extends BlockTallGrass implements IPlantable, IShe
 
     @Override
     public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
-        if (world.rand.nextInt(30) == 0) {
+        if (entity.motionX + entity.motionY + entity.motionX >= 0.01) {
             Genesis.proxy.playSound(x, y, z, "dig.fern", 1.0F, 0.1F + world.rand.nextFloat() * 0.9F);
         }
-        super.onEntityCollidedWithBlock(world, x, y, z, entity);
+            super.onEntityCollidedWithBlock(world, x, y, z, entity);
+
     }
 }
