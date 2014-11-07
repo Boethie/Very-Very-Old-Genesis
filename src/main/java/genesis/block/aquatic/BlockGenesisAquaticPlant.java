@@ -83,7 +83,6 @@ public abstract class BlockGenesisAquaticPlant extends Block implements IPlantRe
                 break;
             }
         }
-        System.out.println(flag);
         return flag;
     }
 

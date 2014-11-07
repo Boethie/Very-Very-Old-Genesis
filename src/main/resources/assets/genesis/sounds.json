@@ -69,5 +69,29 @@
     "sounds": [
       "polissoir_polished"
     ]
+  },
+
+  "storagebox.open": {
+    "category": "neutral",
+    "sounds": [
+      "box_open"
+    ]
+  },
+
+  "storagebox.close": {
+    "category": "neutral",
+    "sounds": [
+      "box_close"
+    ]
+  },
+
+  "step.fern": {
+    "category": "neutral",
+    "sounds": [
+     "fern_step1",
+     "fern_step2",
+     "fern_step3",
+     "fern_step4"
+    ]
   }
 }

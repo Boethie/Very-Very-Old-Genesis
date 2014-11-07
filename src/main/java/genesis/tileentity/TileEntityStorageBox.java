@@ -1,11 +1,20 @@
 package genesis.tileentity;
 
+import genesis.Genesis;
 import genesis.block.tiles.BlockStorageBox;
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.ContainerChest;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryLargeChest;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.util.AxisAlignedBB;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class TileEntityStorageBox extends TileEntityChest{
 
@@ -17,8 +26,9 @@ public class TileEntityStorageBox extends TileEntityChest{
     public TileEntityStorageBox adjacentChestXPos;
     public TileEntityStorageBox adjacentChestXNeg;
     public TileEntityStorageBox adjacentChestZPos;
-	
-	public String getInventoryName(){
+    private int ticksSinceSync;
+
+    public String getInventoryName(){
 		return this.hasCustomInventoryName() ? inventoryName : "container.storageBox";
 	}
 
@@ -131,7 +141,7 @@ public class TileEntityStorageBox extends TileEntityChest{
 		return 64;
 	}
 
-	private void checkAdjecentChests(TileEntityStorageBox box, int orientation){
+	private void checkAdjacentChests(TileEntityStorageBox box, int orientation){
 		if (box.isInvalid()){
 			this.adjacentChestChecked = false;
 		}
@@ -173,49 +183,146 @@ public class TileEntityStorageBox extends TileEntityChest{
 			this.adjacentChestXNeg = null;
 			this.adjacentChestZPos = null;
 
-			if (this.hasAdjecentChest(this.xCoord - 1, this.yCoord, this.zCoord))
+			if (this.hasAdjacentChest(this.xCoord - 1, this.yCoord, this.zCoord))
 			{
 				this.adjacentChestXNeg = (TileEntityStorageBox)this.worldObj.getTileEntity(this.xCoord - 1, this.yCoord, this.zCoord);
 			}
 
-			if (this.hasAdjecentChest(this.xCoord + 1, this.yCoord, this.zCoord))
+			if (this.hasAdjacentChest(this.xCoord + 1, this.yCoord, this.zCoord))
 			{
 				this.adjacentChestXPos = (TileEntityStorageBox)this.worldObj.getTileEntity(this.xCoord + 1, this.yCoord, this.zCoord);
 			}
 
-			if (this.hasAdjecentChest(this.xCoord, this.yCoord, this.zCoord - 1))
+			if (this.hasAdjacentChest(this.xCoord, this.yCoord, this.zCoord - 1))
 			{
 				this.adjacentChestZNeg = (TileEntityStorageBox)this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord - 1);
 			}
 
-			if (this.hasAdjecentChest(this.xCoord, this.yCoord, this.zCoord + 1))
+			if (this.hasAdjacentChest(this.xCoord, this.yCoord, this.zCoord + 1))
 			{
 				this.adjacentChestZPos = (TileEntityStorageBox)this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord + 1);
 			}
 
 			if (this.adjacentChestZNeg != null)
 			{
-				this.adjacentChestZNeg.checkAdjecentChests(this, 0);
+				this.adjacentChestZNeg.checkAdjacentChests(this, 0);
 			}
 
 			if (this.adjacentChestZPos != null)
 			{
-				this.adjacentChestZPos.checkAdjecentChests(this, 2);
+				this.adjacentChestZPos.checkAdjacentChests(this, 2);
 			}
 
 			if (this.adjacentChestXPos != null)
 			{
-				this.adjacentChestXPos.checkAdjecentChests(this, 1);
+				this.adjacentChestXPos.checkAdjacentChests(this, 1);
 			}
 
 			if (this.adjacentChestXNeg != null)
 			{
-				this.adjacentChestXNeg.checkAdjecentChests(this, 3);
+				this.adjacentChestXNeg.checkAdjacentChests(this, 3);
 			}
 		}
 	}
+
+    @Override
+    public void updateEntity()
+    {
+        this.checkForAdjacentChests();
+        ++this.ticksSinceSync;
+        float f;
+
+        if (!this.worldObj.isRemote && this.numPlayersUsing != 0 && (this.ticksSinceSync + this.xCoord + this.yCoord + this.zCoord) % 200 == 0)
+        {
+            this.numPlayersUsing = 0;
+            f = 5.0F;
+            List list = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox((double) ((float) this.xCoord - f), (double) ((float) this.yCoord - f), (double) ((float) this.zCoord - f), (double) ((float) (this.xCoord + 1) + f), (double) ((float) (this.yCoord + 1) + f), (double) ((float) (this.zCoord + 1) + f)));
+            Iterator iterator = list.iterator();
+
+            while (iterator.hasNext())
+            {
+                EntityPlayer entityplayer = (EntityPlayer)iterator.next();
+
+                if (entityplayer.openContainer instanceof ContainerChest)
+                {
+                    IInventory iinventory = ((ContainerChest)entityplayer.openContainer).getLowerChestInventory();
+
+                    if (iinventory == this || iinventory instanceof InventoryLargeChest && ((InventoryLargeChest)iinventory).isPartOfLargeChest(this))
+                    {
+                        ++this.numPlayersUsing;
+                    }
+                }
+            }
+        }
+
+        this.prevLidAngle = this.lidAngle;
+        f = 0.1F;
+        double d2;
+
+        if (this.numPlayersUsing > 0 && this.lidAngle == 0.0F && this.adjacentChestZNeg == null && this.adjacentChestXNeg == null)
+        {
+            double d1 = (double)this.xCoord + 0.5D;
+            d2 = (double)this.zCoord + 0.5D;
+
+            if (this.adjacentChestZPos != null)
+            {
+                d2 += 0.5D;
+            }
+
+            if (this.adjacentChestXPos != null)
+            {
+                d1 += 0.5D;
+            }
+
+            Genesis.proxy.playSound(xCoord, yCoord, zCoord, "storagebox.open", 1.0F, worldObj.rand.nextFloat() * 0.1F + 0.9F);
+        }
+
+        if (this.numPlayersUsing == 0 && this.lidAngle > 0.0F || this.numPlayersUsing > 0 && this.lidAngle < 1.0F)
+        {
+            float f1 = this.lidAngle;
+
+            if (this.numPlayersUsing > 0)
+            {
+                this.lidAngle += f;
+            }
+            else
+            {
+                this.lidAngle -= f;
+            }
+
+            if (this.lidAngle > 1.0F)
+            {
+                this.lidAngle = 1.0F;
+            }
+
+            float f2 = 0.5F;
+
+            if (this.lidAngle < f2 && f1 >= f2 && this.adjacentChestZNeg == null && this.adjacentChestXNeg == null)
+            {
+                d2 = (double)this.xCoord + 0.5D;
+                double d0 = (double)this.zCoord + 0.5D;
+
+                if (this.adjacentChestZPos != null)
+                {
+                    d0 += 0.5D;
+                }
+
+                if (this.adjacentChestXPos != null)
+                {
+                    d2 += 0.5D;
+                }
+
+                Genesis.proxy.playSound(xCoord, yCoord, zCoord, "storagebox.close", 1.0F, worldObj.rand.nextFloat() * 0.1F + 0.9F);
+            }
+
+            if (this.lidAngle < 0.0F)
+            {
+                this.lidAngle = 0.0F;
+            }
+        }
+    }
 	
-	private boolean hasAdjecentChest(int x, int y, int z)
+	private boolean hasAdjacentChest(int x, int y, int z)
     {
         if (this.worldObj == null)
         {
