@@ -86,14 +86,6 @@ public class BlockGenesisCrop extends BlockCrops implements IPlantRenderSpecials
         }
     }
 
-    @Override
-    public boolean canBlockStay(World p_149718_1_, int p_149718_2_, int p_149718_3_, int p_149718_4_) {
-        if (!isTall()) {
-            return super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
-        }
-        return (p_149718_1_.isAirBlock(p_149718_2_, p_149718_3_ + 1, p_149718_4_) || p_149718_1_.getBlock(p_149718_2_, p_149718_3_ + 1, p_149718_4_) instanceof BlockGenesisPlantTop) && super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
-    }
-
     public boolean isTall() {
         return false;
     }

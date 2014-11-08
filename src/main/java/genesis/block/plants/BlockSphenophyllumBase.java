@@ -135,7 +135,11 @@ public class BlockSphenophyllumBase extends BlockGenesisCrop implements IGrowabl
         if (meta >= stages) {
             meta = stages - 1;
         }
-        world.setBlockMetadataWithNotify(x, y, z, meta, 2);
-        checkAndUpdateTop(world, x, y, z, meta);
+        if (!world.isAirBlock(x, y + 1, z)) {
+            world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+        } else if (world.isAirBlock(x, y + 1, z)) {
+            world.setBlockMetadataWithNotify(x, y, z, meta, 2);
+            checkAndUpdateTop(world, x, y, z, meta);
+        }
     }
 }

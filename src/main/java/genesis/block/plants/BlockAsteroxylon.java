@@ -24,6 +24,7 @@ import java.util.Random;
 public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IGrowable {
     @SideOnly(Side.CLIENT)
     public IIcon[] icons;
+    private String unlocalizedName;
 
     public BlockAsteroxylon() {
         super();
@@ -112,8 +113,8 @@ public class BlockAsteroxylon extends BlockGenesisTerrestrialPlant implements IG
     public void func_149853_b(World var1, Random var2, int var3, int var4, int var5) {
         if (var1.isAirBlock(var3, var4 + 1, var5)) {
             var1.setBlock(var3, var4 + 1, var5, GenesisPlantBlocks.asteroxylon_top);
+            var1.setBlockMetadataWithNotify(var3, var4, var5, 1, 2);
         }
-        var1.setBlockMetadataWithNotify(var3, var4, var5, 1, 2);
     }
 
     /*public IIcon getIconForItemRender()
