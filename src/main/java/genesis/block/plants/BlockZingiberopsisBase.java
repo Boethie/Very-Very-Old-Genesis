@@ -6,6 +6,7 @@ import genesis.managers.GenesisModBlocks;
 import genesis.managers.GenesisModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -122,9 +123,10 @@ public class BlockZingiberopsisBase extends BlockGenesisCrop implements IGrowabl
         if (meta >= stages) {
             meta = stages - 1;
         }
-        if (!world.isAirBlock(x, y + 1, z)) {
+        Block b = world.getBlock(x, y + 1, z);
+        if (!world.isAirBlock(x, y + 1, z) && b.getMaterial() != Material.plants) {
             world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-        } else if (world.isAirBlock(x, y + 1, z)) {
+        } else if (world.isAirBlock(x, y + 1, z) || !world.isAirBlock(x, y + 1, z) && b.getMaterial() == Material.plants) {
             world.setBlockMetadataWithNotify(x, y, z, meta, 2);
             checkAndUpdateTop(world, x, y, z, meta);
         }
