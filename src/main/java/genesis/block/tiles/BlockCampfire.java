@@ -55,7 +55,7 @@ public class BlockCampfire extends BlockContainer {
         poleIcon = iconRegister.registerIcon(getTextureName() + "_pole");
         poleVIcon = iconRegister.registerIcon(getTextureName() + "_v_pole");
 
-        blockIcon = GenesisModBlocks.granite.getIcon(0, 0);
+        blockIcon = GenesisModBlocks.gneiss.getIcon(0, 0);
     }
 
     @Override
