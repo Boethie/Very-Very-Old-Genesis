@@ -26,6 +26,8 @@ public class GenesisPlantBlocks {
     public static Block sphenophyllum_top;
     public static Block flowers;
     public static Block archaeomarasmius;
+    public static Block mycelia;
+    public static Block prototaxites;
 
     public static void init() {
         //flower_pot = new BlockGenesisFlowerPot().setBlockTextureName("flower_pot").setBlockName(Names.blockFlowerPot);
@@ -49,6 +51,9 @@ public class GenesisPlantBlocks {
         flowers = new BlockGenesisFlower().setBlockName(Names.blockFlower);
         
         archaeomarasmius = new BlockArchaeomarasmius().register();
+        
+        mycelia = new BlockMycelia().setBlockName(Names.blockMycelia);
+        prototaxites = new BlockPrototaxites().setBlockName(Names.blockPrototaxites);
     }
 
     public static void register() {
@@ -71,6 +76,9 @@ public class GenesisPlantBlocks {
         GameRegistry.registerBlock(flowers, ItemBlockGenesisFlower.class, Names.Registry.blockFlower);
         
         GameRegistry.registerBlock(archaeomarasmius, Names.Registry.blockArchaeomarasmius);
+        
+        GameRegistry.registerBlock(mycelia, Names.Registry.blockMycelia);
+        GameRegistry.registerBlock(prototaxites, Names.Registry.blockPrototaxites);
 
         Blocks.fire.setFireInfo(plants, 60, 100);
         Blocks.fire.setFireInfo(ferns, 60, 100);

@@ -67,6 +67,9 @@ public final class Names {
     public static final String blockAsteroxylon = mod + "asteroxylon";
     public static final String blockSphenophyllum = mod + "sphenophyllum";
     public static final String blockArchaeomarasmius = mod + "archaeomarasmius";
+    
+    public static final String blockMycelia = mod + "mycelia";
+    public static final String blockPrototaxites = mod + "prototaxites";
 
     // Aquatic
     public static final String blockAlgae = mod + "algae.";
@@ -262,6 +265,8 @@ public final class Names {
         public static final String blockBjuviaCone = "bjuvia_cone";
 
         public static final String blockPlant = "plant";
+        public static final String blockMycelia = "mycelia";
+        public static final String blockPrototaxites = "prototaxites";
         public static final String blockZingiberopsis = "zingiberopsis";
         public static final String blockZingiberopsisTop = "zingiberopsis_top";
         public static final String blockSphenophyllum = "sphenophyllum";
