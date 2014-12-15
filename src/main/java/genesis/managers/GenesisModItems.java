@@ -63,6 +63,8 @@ public class GenesisModItems {
     public static Item cooked_aphthoroblattina;
     public static Item raw_eryops;
     public static Item cooked_eryops;
+    public static Item raw_cynognathus;
+    public static Item cooked_cynognathus;
     public static Item raw_ceratites;
     public static Item cooked_ceratites;
     public static Item raw_liopleurodon;
@@ -131,6 +133,8 @@ public class GenesisModItems {
         cooked_aphthoroblattina = new ItemGenesisFood(2, 1.2F).setUnlocalizedName(Names.itemCookedAphthoroblattina).setTextureName("aphthoroblattina_cooked");
         raw_eryops = new ItemGenesisFood(3, 1.8F).setUnlocalizedName(Names.itemRawEryops).setTextureName("eryops_raw_leg");
         cooked_eryops = new ItemGenesisFood(8, 12.8F).setUnlocalizedName(Names.itemCookedEryops).setTextureName("eryops_cooked_leg");
+        raw_cynognathus=new ItemGenesisFood(3, 1.8F).setUnlocalizedName(Names.itemRawCynognathus).setTextureName("cynognathus_raw");
+        cooked_cynognathus=new ItemGenesisFood(3, 12.8F).setUnlocalizedName(Names.itemCookedCynognathus).setTextureName("cynognathus_cooked");
         raw_ceratites = new ItemGenesisFood(1, 1.2F).setUnlocalizedName(Names.itemRawCeratites).setTextureName("ceratites_raw");
         cooked_ceratites = new ItemGenesisFood(5, 6.0F).setUnlocalizedName(Names.itemCookedCeratites).setTextureName("ceratites_cooked");
         raw_liopleurodon = new ItemGenesisFood(1, 1.2F).setUnlocalizedName(Names.itemRawLiopleurodon).setTextureName("liopleurodon_raw");
@@ -184,6 +188,8 @@ public class GenesisModItems {
         GameRegistry.registerItem(cooked_aphthoroblattina, Names.Registry.itemCookedAphthoroblattina);
         GameRegistry.registerItem(raw_eryops, Names.Registry.itemRawEryops);
         GameRegistry.registerItem(cooked_eryops, Names.Registry.itemCookedEryops);
+        GameRegistry.registerItem(raw_cynognathus, Names.Registry.itemRawCynognathus);
+        GameRegistry.registerItem(cooked_cynognathus, Names.Registry.itemCookedCynognathus);
         GameRegistry.registerItem(raw_ceratites, Names.Registry.itemRawCeratites);
         GameRegistry.registerItem(cooked_ceratites, Names.Registry.itemCookedCeratites);
         GameRegistry.registerItem(raw_liopleurodon, Names.Registry.itemRawLiopleurodon);

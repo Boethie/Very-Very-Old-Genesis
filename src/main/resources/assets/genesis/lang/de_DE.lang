@@ -1,0 +1,260 @@
+<!-- Blocks -->
+tile.genesis.moss.name=Moos
+tile.genesis.campfire.name=Lagerfeuer
+tile.genesis.polissoir.name=Slipraennor
+tile.genesis.storageBox.name=Lagerkiste
+tile.genesis.tikiTorch.name=Tiki Fackel
+
+# Rocks
+tile.genesis.granite.name=Granit
+tile.genesis.graniteMossy.name=bemooster Granit
+tile.genesis.rhyolite.name=Rhyolith
+tile.genesis.dolerite.name=Dolerit
+tile.genesis.komatiite.name=Komatiit
+tile.genesis.trondhjemite.name=Trondhjemit
+tile.genesis.fauxamphibolite.name=Faux-Amphibolite
+tile.genesis.gneiss.name=Gneis
+tile.genesis.quartzite.name=Quarzit
+tile.genesis.oldRedSandstone.name=Old-Red-Sandstein
+tile.genesis.limestone.name=Kalkstein
+tile.genesis.stromatolite.name=Stromatolith
+tile.genesis.shale.name=Schiefer
+tile.genesis.octaedrite.name=Oktaedrit Fragment
+tile.genesis.permafrost.name=Permafrostboden
+
+# Ores
+tile.genesis.ore.quartzGranite.name=Granit-Quarz-Erz
+tile.genesis.ore.zircon.name=Zirkonerz
+tile.genesis.ore.garnet.name=Granaterz
+tile.genesis.ore.manganese.name=Manganerz
+tile.genesis.ore.hematite.name=Hematiterz
+tile.genesis.ore.malachite.name=Malachiterz
+tile.genesis.ore.olivine.name=Olivinerz
+
+# Fluids
+fluid.genesis.komatiiticLava=Komatiit Lava
+tile.genesis.komatiiticLavaBlock.name=Komatiit Lava
+
+# Trees
+tile.genesis.bjuviaCone.name=Bjuvia Konus
+
+tile.genesis.log.archaeopteris.name=Archaeopterisholz
+tile.genesis.log.sigillaria.name=Sigillariaceaeholz
+tile.genesis.log.lepidodendron.name=Lepidodendronholz
+tile.genesis.log.cordaites.name=Cordaitesholz
+tile.genesis.log.psaronius.name=Psaroniusholz
+tile.genesis.log.bjuvia.name=Bjuviaholz
+tile.genesis.log.glossopteris.name=Glossopterisholz
+tile.genesis.log.araucarioxylon.name=Araucarioxylonholz
+tile.genesis.log.voltzia.name=Voltziaholz
+tile.genesis.log.dryophyllum.name=Dryophyllumholz
+tile.genesis.log.credneria.name=Credneriaholz
+
+tile.genesis.leaves.archaeopteris.name=Archaeopterislaub
+tile.genesis.leaves.sigillaria.name=Sigillariaceaelaub
+tile.genesis.leaves.lepidodendron.name=Lepidodendronlaub
+tile.genesis.leaves.cordaites.name=Cordaiteslaub
+tile.genesis.leaves.psaronius.name=Psaroniuslaub
+tile.genesis.leaves.bjuvia.name=Bjuvialaub
+tile.genesis.leaves.glossopteris.name=Glossopterislaub
+tile.genesis.leaves.araucarioxylon.name=Araucarioxylonlaub
+tile.genesis.leaves.voltzia.name=Voltzialaub
+tile.genesis.leaves.dryophyllum.name=Dryophyllumlaub
+tile.genesis.leaves.credneria.name=Crednerialaub
+
+tile.genesis.sapling.archaeopteris.name=Archaeopterissetzling
+tile.genesis.sapling.sigillaria.name=Sigillariaceaesetzling
+tile.genesis.sapling.lepidodendron.name=Lepidodendronsetzling
+tile.genesis.sapling.cordaites.name=Cordaitessetzling
+tile.genesis.sapling.psaronius.name=Psaroniussetzling
+tile.genesis.sapling.bjuvia.name=Bjuviasetzling
+tile.genesis.sapling.glossopteris.name=Glossopterissetzling
+tile.genesis.sapling.araucarioxylon.name=Araucarioxylonsetzling
+tile.genesis.sapling.voltzia.name=Voltziasetzling
+tile.genesis.sapling.dryophyllum.name=Dryophyllumsetzling
+tile.genesis.sapling.credneria.name=Credneriasetzling
+
+tile.genesis.logRotten.archaeopteris.name=Verrottetes Archaeopterisholz
+tile.genesis.logRotten.sigillaria.name=Verrottetes Sigillariaceaeholz
+tile.genesis.logRotten.lepidodendron.name=Verrottetes Lepidodendronholz
+tile.genesis.logRotten.cordaites.name=Verrottetes Cordaitesholz
+tile.genesis.logRotten.psaronius.name=Verrottetes Psaroniusholz
+tile.genesis.logRotten.bjuvia.name=Verrottetes Bjuviaholz
+tile.genesis.logRotten.glossopteris.name=Verrottetes Glossopterisholz
+tile.genesis.logRotten.araucarioxylon.name=Verrottetes Araucarioxylonholz
+tile.genesis.logRotten.voltzia.name=Verrottetes Voltziaholz
+tile.genesis.logRotten.dryophyllum.name=Verrottetes Dryophyllumholz
+tile.genesis.logRotten.credneria.name=Verrottetes Credneriaholz
+
+# Plants
+tile.genesis.calamites.name=Kalamiten
+tile.genesis.blockCalamites.name=Kalamitenbuendel
+
+tile.genesis.mycelia.name=Prototaxitespilz
+tile.genesis.prototaxites.name=Prototaxites
+
+tile.genesis.archaeomarasmius.name=Archaeomarasmius
+
+tile.genesis.plant.cooksonia.name=Cooksonia
+tile.genesis.plant.baragwanathia.name=Baragwanathia
+tile.genesis.plant.sciadophyton.name=Sciadophyton
+tile.genesis.plant.psilophyton.name=Psilophyton
+tile.genesis.plant.nothia.name=Nothia
+tile.genesis.plant.rhynia.name=Rhynia 
+
+tile.genesis.zingiberopsis.name=Zingiberopsis
+
+tile.genesis.fern.zygopteris.name=Zygopteridales
+tile.genesis.fern.matonidium.name=Matonidium
+tile.genesis.fern.astralopteris.name=Astralopteris
+tile.genesis.fern.ruffordia.name=Ruffordia
+
+tile.genesis.asteroxylon.name=Asteroxylon
+
+tile.genesis.sphenophyllum.name=Sphenophyllum 
+
+tile.genesis.flower.mabelia.name=Mabelia
+
+# Aquatic
+tile.genesis.algae.margaretia.name=Margaretia
+tile.genesis.algae.bangiomorpha.name=Bangiomorpha
+tile.genesis.algae.marpolia.name=Marpolia
+tile.genesis.algae.thaumaptilon.name=Thaumaptilon
+tile.genesis.algae.dinomischus.name=Dinomischus
+
+tile.genesis.coral.heliolites.name=Heliolites
+tile.genesis.coral.favosites.name=Favosites
+tile.genesis.coral.halysites.name=Halysites
+
+tile.genesis.sponge.vauxia.name=Vauxia
+tile.genesis.sponge.hazelia.name=Hazelia
+tile.genesis.sponge.wapkia.name=Wapkia
+tile.genesis.sponge.diagoniella.name=Diagoniella
+tile.genesis.sponge.pirania.name=Pirania
+tile.genesis.sponge.chancelloria.name=Chancelloria
+
+tile.genesis.pteridinium.name=Pteridinium
+tile.genesis.charnia.name=Charnia
+
+<!-- Items -->
+# Crafting
+item.genesis.brownishFlintPebble.name=Braeunlicher Feuerstein
+item.genesis.quartz.name=Quarz
+item.genesis.zircon.name=Zirkon
+item.genesis.garnet.name=Granat
+item.genesis.manganese.name=Mangan
+item.genesis.hematite.name=Hematit
+item.genesis.malachite.name=Malachit
+item.genesis.olivine.name=Olivin
+
+# Plants
+item.genesis.resin.name=Harz
+item.genesis.seeds.sphenophyllumSpores.name=Sphenophyllumsporen
+item.genesis.sphenoFiber.name=Sphenophyllumfaser
+item.genesis.bjuviaSeeds.name=Bjuviasamen
+
+# Dinosaur Items
+item.genesis.arthropleuraChitin.name=Arthropleura Chitin
+item.genesis.cynognathusHide.name=Cynognathus Leder
+item.genesis.ceratitesShell.name=Ceratiten Schale
+item.genesis.megateuthisRostrum.name=Megateuthis Rostrum
+item.genesis.epidexipteryxFeather.name=Epidexipteryx Feder
+item.genesis.liopleurodonTooth.name=Liopleurodon Zahn
+item.genesis.utahraptorClaw.name=Utahraptor Klaue
+item.genesis.utahraptorFeather.name=Utahraptor Feder
+item.genesis.leaellynasauraHide.name=Leaellynasaura Leder
+item.genesis.pachyrhinosaurusHorn.name=Pachyrhinosaurus Horn
+item.genesis.puertasaurusRib.name=Puertasaurus Rippe
+item.genesis.shantungosaurusScapula.name=Shantungosaurus Schulterblatt
+item.genesis.gallimimusMetatarsus.name=Gallimimus Mittelfuß
+item.genesis.tyrannosaurusTooth.name=Tyrannosaurus Zahn
+
+# Dinosaur Foods
+item.genesis.food.rawClimatius.name=Roher Climatius
+item.genesis.food.cookedClimatius.name=Gebratener Climatius
+item.genesis.food.rawAphthoroblattina.name=Roher Aphthoroblattina
+item.genesis.food.cookedAphthoroblattina.name=Gebratener Aphthoroblattina
+item.genesis.food.rawEryops.name=Rohes Eryop Bein
+item.genesis.food.cookedEryops.name=Gebratenes Eryop Bein
+item.genesis.food.rawCynognathus.name=Rohe Cynognathus
+item.genesis.food.cookedCynognathus.name=Gebratene Cynognathus
+item.genesis.food.rawCeratites.name=Rohe Ceratiten
+item.genesis.food.cookedCeratites.name=Gebratene Ceratiten
+item.genesis.food.rawLiopleurodon.name=Roher Liopleurodon
+item.genesis.food.cookedLiopleurodon.name=Gebratener Liopleurodon
+item.genesis.food.rawGigantoraptor.name=Roher Gigantoraptor Schenkel
+item.genesis.food.cookedGigantoraptor.name=Gebratener Gigantoraptor Schenkel
+item.genesis.food.rawTyrannosaurus.name=Roher Tyrannosaurus
+item.genesis.food.cookedTyrannosaurus.name=Gebratener Tyrannosaurus
+
+# Plant Foods
+item.genesis.araucarioxylonSeeds.name=Araucarioxylonsamen
+item.genesis.seeds.zingiberopsisRhizome.name=Zingiberopsis Rhizom
+
+# Buckets
+item.genesis.komatiiticLavaBucket.name=Komatiit Lavaeimer
+
+# Tools
+item.genesis.knife.granite.name=Granitmesser
+item.genesis.tool.pickaxe.granite.name=Granitspitzhacke
+item.genesis.tool.shovel.granite.name=Granitschaufel
+item.genesis.tool.axe.granite.name=Granitaxt
+item.genesis.tool.hoe.granite.name=Granithacke
+
+item.genesis.knife.rhyolite.name=Rhyolitmesser
+item.genesis.tool.pickaxe.rhyolite.name=Rhyolitspitzhacke
+item.genesis.tool.shovel.rhyolite.name=Rhyolitschaufel
+item.genesis.tool.axe.rhyolite.name=Rhyolitaxt
+item.genesis.tool.hoe.rhyolite.name=Rhyolithacke
+
+item.genesis.knife.dolerite.name=Doleritmesser
+item.genesis.tool.pickaxe.dolerite.name=Doleritspitzhacke
+item.genesis.tool.shovel.dolerite.name=Doleritschauel
+item.genesis.tool.axe.dolerite.name=Doleritaxt
+item.genesis.tool.hoe.dolerite.name=Dolerithacke
+
+item.genesis.knife.quartzite.name=Quarzitmesser
+item.genesis.tool.pickaxe.quartzite.name=Quarzitspitzhacke
+item.genesis.tool.shovel.quartzite.name=Quarzitschaufel
+item.genesis.tool.axe.quartzite.name=Quarzitaxt
+item.genesis.tool.hoe.quartzite.name=Quarzithacke
+
+item.genesis.knife.brownishFlint.name=Braeunliches Feuersteinmesser
+item.genesis.tool.pickaxe.brownishFlint.name=Braeunliche Feuersteinspitzhacke
+item.genesis.tool.shovel.brownishFlint.name=Braeunliche Feuersteinschaufel
+item.genesis.tool.axe.brownishFlint.name=Braeunliche Feuersteinaxt
+item.genesis.tool.hoe.brownishFlint.name=Braeunliche Feuersteinhacke
+
+item.genesis.knife.bone.name=Knochenmesser
+item.genesis.tool.shovel.bone.name=Knochenschaufel
+item.genesis.tool.hoe.bone.name=Knochenhacke
+
+# Weapons
+item.genesis.spear.brownishFlint.name=Braeunlicher Feuersteinspeer
+item.genesis.spear.bone.name=Knochenspeer
+
+# Quality
+tooltip.toolquality=Werkzeugqualitaet
+toolquality.crude=Grob
+toolquality.chipped=Angeschlagen
+toolquality.polished=Poliert
+toolquality.sharpened=Geschaerft
+
+<!-- Other -->
+# Containers
+container.genesis.campfire=Lagerfeuer
+container.genesis.polissoir=Slipraennor
+container.storageBox=Lagerkiste
+container.largeStorageBox=Grosse Lagerkiste
+
+# Creative Tabs
+itemGroup.genesis.tabBlock=Genesis Baumaterial
+itemGroup.genesis.tabDecorations=Genesis Dekoration
+itemGroup.genesis.tabMisc=Genesis Verschiedenes
+itemGroup.genesis.tabFood=Genesis Nahrung
+itemGroup.genesis.tabTools=Genesis Werkzeug
+itemGroup.genesis.tabCombat=Genesis Kampf
+itemGroup.genesis.tabMaterials=Genesis Werkstoffe
+
+# World type name
+generator.genesisTestType=Genesis Testwelt

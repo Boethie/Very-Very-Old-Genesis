@@ -1,0 +1,260 @@
+<!-- Blocks -->
+tile.genesis.moss.name=苔蘚
+tile.genesis.campfire.name=營火
+tile.genesis.polissoir.name=拋光石板
+tile.genesis.storageBox.name=儲物箱
+tile.genesis.tikiTorch.name=Tiki火炬
+
+# Rocks
+tile.genesis.granite.name=花崗岩
+tile.genesis.graniteMossy.name=生苔花崗岩
+tile.genesis.rhyolite.name=流紋岩
+tile.genesis.dolerite.name=煌綠岩
+tile.genesis.komatiite.name=鎂橄玄武岩
+tile.genesis.trondhjemite.name=石英奧長岩
+tile.genesis.fauxamphibolite.name=偽角閃岩
+tile.genesis.gneiss.name=片麻岩
+tile.genesis.quartzite.name=石英岩
+tile.genesis.oldRedSandstone.name=古紅砂岩
+tile.genesis.limestone.name=石灰岩
+tile.genesis.stromatolite.name=疊層岩
+tile.genesis.shale.name=頁岩
+tile.genesis.octaedrite.name=銳鈦礦碎塊
+tile.genesis.permafrost.name=永凍土
+
+# Ores
+tile.genesis.ore.quartzGranite.name=花崗石英礦石
+tile.genesis.ore.zircon.name=鋯礦石
+tile.genesis.ore.garnet.name=石榴礦石
+tile.genesis.ore.manganese.name=錳礦石
+tile.genesis.ore.hematite.name=赤鐵礦石
+tile.genesis.ore.malachite.name=孔雀礦石
+tile.genesis.ore.olivine.name=橄欖礦石
+
+# Fluids
+fluid.genesis.komatiiticLava=鎂橄玄武岩漿
+tile.genesis.komatiiticLavaBlock.name=鎂橄玄武岩漿
+
+# Trees
+tile.genesis.bjuviaCone.name=Bjuvia蘇鐵錐
+
+tile.genesis.log.archaeopteris.name=古蕨木
+tile.genesis.log.sigillaria.name=封印木
+tile.genesis.log.lepidodendron.name=鱗木
+tile.genesis.log.cordaites.name=科達木
+tile.genesis.log.psaronius.name=櫛羊齒木
+tile.genesis.log.bjuvia.name=Bjuvia蘇鐵木
+tile.genesis.log.glossopteris.name=舌葉蕨木
+tile.genesis.log.araucarioxylon.name=南洋杉型木
+tile.genesis.log.voltzia.name=沃茲杉木
+tile.genesis.log.dryophyllum.name=槲葉木
+tile.genesis.log.credneria.name=克里木
+
+tile.genesis.leaves.archaeopteris.name=古蕨樹葉
+tile.genesis.leaves.sigillaria.name=封印樹葉
+tile.genesis.leaves.lepidodendron.name=鱗樹葉
+tile.genesis.leaves.cordaites.name=科達樹葉
+tile.genesis.leaves.psaronius.name=櫛羊齒樹葉
+tile.genesis.leaves.bjuvia.name=Bjuvia蘇鐵樹葉
+tile.genesis.leaves.glossopteris.name=舌葉蕨樹葉
+tile.genesis.leaves.araucarioxylon.name=南洋杉型樹葉
+tile.genesis.leaves.voltzia.name=沃茲杉樹葉
+tile.genesis.leaves.dryophyllum.name=槲葉樹葉
+tile.genesis.leaves.credneria.name=克里樹葉
+
+tile.genesis.sapling.archaeopteris.name=古蕨樹苗
+tile.genesis.sapling.sigillaria.name=封印樹苗
+tile.genesis.sapling.lepidodendron.name=鱗樹苗
+tile.genesis.sapling.cordaites.name=科達樹苗
+tile.genesis.sapling.psaronius.name=櫛羊齒樹苗
+tile.genesis.sapling.bjuvia.name=Bjuvia蘇鐵苗
+tile.genesis.sapling.glossopteris.name=舌葉蕨樹苗
+tile.genesis.sapling.araucarioxylon.name=南洋杉型樹苗
+tile.genesis.sapling.voltzia.name=沃茲杉樹苗
+tile.genesis.sapling.dryophyllum.name=槲葉樹苗
+tile.genesis.sapling.credneria.name=克里樹苗
+
+tile.genesis.logRotten.archaeopteris.name=腐朽古蕨木
+tile.genesis.logRotten.sigillaria.name=腐朽封印樹木
+tile.genesis.logRotten.lepidodendron.name=腐朽鱗木
+tile.genesis.logRotten.cordaites.name=腐朽科達木
+tile.genesis.logRotten.psaronius.name=腐朽櫛羊齒木
+tile.genesis.logRotten.bjuvia.name=腐朽Bjuvia蘇鐵木
+tile.genesis.logRotten.glossopteris.name=腐朽舌葉蕨木
+tile.genesis.logRotten.araucarioxylon.name=腐朽南洋杉型木
+tile.genesis.logRotten.voltzia.name=腐朽沃茲杉木
+tile.genesis.logRotten.dryophyllum.name=腐朽槲葉木
+tile.genesis.logRotten.credneria.name=腐朽克里木
+
+# Plants
+tile.genesis.calamites.name=蘆木
+tile.genesis.blockCalamites.name=蘆木捆
+
+tile.genesis.mycelia.name=Prototaxites菌絲
+tile.genesis.prototaxites.name=Prototaxites真菌
+
+tile.genesis.archaeomarasmius.name=Archaeomarasmius蕈菌
+
+tile.genesis.plant.cooksonia.name=頂囊蕨
+tile.genesis.plant.baragwanathia.name=巴拉曼蕨
+tile.genesis.plant.sciadophyton.name=繖狀裸蕨
+tile.genesis.plant.psilophyton.name=古裸蕨
+tile.genesis.plant.nothia.name=Nothia蕨
+tile.genesis.plant.rhynia.name=萊尼蕨
+
+tile.genesis.zingiberopsis.name=Zingiberopsis薑
+
+tile.genesis.fern.zygopteris.name=軛蕨
+tile.genesis.fern.matonidium.name=準馬通蕨
+tile.genesis.fern.astralopteris.name=Astralopteris蕨
+tile.genesis.fern.ruffordia.name=茹氏蕨
+
+tile.genesis.asteroxylon.name=星木
+
+tile.genesis.sphenophyllum.name=叉葉蕨
+
+tile.genesis.flower.mabelia.name=Mabelia花
+
+# Aquatic
+tile.genesis.algae.margaretia.name=Margaretia藻
+tile.genesis.algae.bangiomorpha.name=Bangiomorpha紅藻
+tile.genesis.algae.marpolia.name=馬葆藻
+tile.genesis.algae.thaumaptilon.name=屬奇翼藻蟲
+tile.genesis.algae.dinomischus.name=高足杯藻蟲
+
+tile.genesis.coral.heliolites.name=太陽珊瑚
+tile.genesis.coral.favosites.name=蜂巢珊瑚
+tile.genesis.coral.halysites.name=鏈珊瑚
+
+tile.genesis.sponge.vauxia.name=沃克西亞海綿
+tile.genesis.sponge.hazelia.name=海扎海綿
+tile.genesis.sponge.wapkia.name=瓦帕奇亞海綿
+tile.genesis.sponge.diagoniella.name=Diagoniella海綿
+tile.genesis.sponge.pirania.name=皮拉尼亞海綿
+tile.genesis.sponge.chancelloria.name=張腔海綿
+
+tile.genesis.pteridinium.name=Pteridinium腔腸動物
+tile.genesis.charnia.name=查恩海筆
+
+<!-- Items -->
+# Crafting
+item.genesis.brownishFlintPebble.name=褐色燧卵石
+item.genesis.quartz.name=石英
+item.genesis.zircon.name=鋯石
+item.genesis.garnet.name=石榴石
+item.genesis.manganese.name=錳
+item.genesis.hematite.name=赤鐵礦
+item.genesis.malachite.name=孔雀石
+item.genesis.olivine.name=橄欖石
+
+# Plants
+item.genesis.resin.name=樹脂
+item.genesis.seeds.sphenophyllumSpores.name=叉葉蕨孢子
+item.genesis.sphenoFiber.name=叉葉蕨纖維
+item.genesis.bjuviaSeeds.name=Bjuvia蘇鐵種子
+
+# Dinosaur Items
+item.genesis.arthropleuraChitin.name=節胸甲殼素
+item.genesis.cynognathusHide.name=犬頜獸生皮
+item.genesis.ceratitesShell.name=菊面石外殼
+item.genesis.megateuthisRostrum.name=巨箭石喙突
+item.genesis.epidexipteryxFeather.name=耀龍羽毛
+item.genesis.liopleurodonTooth.name=滑齒龍牙齒
+item.genesis.utahraptorClaw.name=猶他盜龍爪
+item.genesis.utahraptorFeather.name=猶他盜龍羽毛
+item.genesis.leaellynasauraHide.name=雷利諾龍生皮
+item.genesis.pachyrhinosaurusHorn.name=厚鼻龍犄角
+item.genesis.puertasaurusRib.name=普爾塔龍肋骨
+item.genesis.shantungosaurusScapula.name=山東龍肩胛骨
+item.genesis.gallimimusMetatarsus.name=似雞龍蹠骨
+item.genesis.tyrannosaurusTooth.name=暴龍牙齒
+
+# Dinosaur Foods
+item.genesis.food.rawClimatius.name=生柵魚
+item.genesis.food.cookedClimatius.name=熟柵魚
+item.genesis.food.rawAphthoroblattina.name=生原始蟑螂
+item.genesis.food.cookedAphthoroblattina.name=熟原始蟑螂
+item.genesis.food.rawEryops.name=生引螈腿
+item.genesis.food.cookedEryops.name=熟引螈腿
+item.genesis.food.rawCynognathus.name=生犬頜獸
+item.genesis.food.cookedCynognathus.name=熟犬頜獸
+item.genesis.food.rawCeratites.name=生菊面石
+item.genesis.food.cookedCeratites.name=熟菊面石
+item.genesis.food.rawLiopleurodon.name=生滑齒龍
+item.genesis.food.cookedLiopleurodon.name=熟滑齒龍
+item.genesis.food.rawGigantoraptor.name=生巨盜龍大腿
+item.genesis.food.cookedGigantoraptor.name=熟巨盜龍大腿
+item.genesis.food.rawTyrannosaurus.name=生暴龍
+item.genesis.food.cookedTyrannosaurus.name=熟暴龍
+
+# Plant Foods
+item.genesis.araucarioxylonSeeds.name=南美杉型木種子
+item.genesis.seeds.zingiberopsisRhizome.name=Zingiberopsis薑根莖
+
+# Buckets
+item.genesis.komatiiticLavaBucket.name=鎂橄玄武岩漿桶
+
+# Tools
+item.genesis.knife.granite.name=花崗岩刀
+item.genesis.tool.pickaxe.granite.name=花崗岩鶴嘴鋤
+item.genesis.tool.shovel.granite.name=花崗岩鏟
+item.genesis.tool.axe.granite.name=花崗岩斧
+item.genesis.tool.hoe.granite.name=花崗岩鋤
+
+item.genesis.knife.rhyolite.name=流紋岩刀
+item.genesis.tool.pickaxe.rhyolite.name=流紋岩鶴嘴鋤
+item.genesis.tool.shovel.rhyolite.name=流紋岩鏟
+item.genesis.tool.axe.rhyolite.name=流紋岩斧
+item.genesis.tool.hoe.rhyolite.name=流紋岩鋤
+
+item.genesis.knife.dolerite.name=煌綠岩 刀
+item.genesis.tool.pickaxe.dolerite.name=煌綠岩鶴嘴鋤
+item.genesis.tool.shovel.dolerite.name=煌綠岩 鏟
+item.genesis.tool.axe.dolerite.name=煌綠岩 斧
+item.genesis.tool.hoe.dolerite.name=煌綠岩 鋤
+
+item.genesis.knife.quartzite.name=石英岩刀
+item.genesis.tool.pickaxe.quartzite.name=石英岩鶴嘴鋤
+item.genesis.tool.shovel.quartzite.name=石英岩鏟
+item.genesis.tool.axe.quartzite.name=石英岩斧
+item.genesis.tool.hoe.quartzite.name=石英岩鋤
+
+item.genesis.knife.brownishFlint.name=褐色燧石刀
+item.genesis.tool.pickaxe.brownishFlint.name=褐色燧石鶴嘴鋤
+item.genesis.tool.shovel.brownishFlint.name=褐色燧石鏟
+item.genesis.tool.axe.brownishFlint.name=褐色燧石斧
+item.genesis.tool.hoe.brownishFlint.name=褐色燧石鋤
+
+item.genesis.knife.bone.name=骨刀
+item.genesis.tool.shovel.bone.name=骨鏟
+item.genesis.tool.hoe.bone.name=骨鋤
+
+# Weapons
+item.genesis.spear.brownishFlint.name=褐色燧石矛
+item.genesis.spear.bone.name=骨矛
+
+# Quality
+tooltip.toolquality=工具品質
+toolquality.crude=未加工
+toolquality.chipped=碎裂的
+toolquality.polished=拋光的
+toolquality.sharpened=削尖的
+
+<!-- Other -->
+# Containers
+container.genesis.campfire=營火
+container.genesis.polissoir=拋光石板
+container.storageBox=儲物箱
+container.largeStorageBox=大型儲物箱
+
+# Creative Tabs
+itemGroup.genesis.tabBlock=Genesis建築方塊
+itemGroup.genesis.tabDecorations=Genesis裝飾方塊
+itemGroup.genesis.tabMisc=Genesis雜項
+itemGroup.genesis.tabFood=Genesis食物
+itemGroup.genesis.tabTools=Genesis工具
+itemGroup.genesis.tabCombat=Genesis戰鬥
+itemGroup.genesis.tabMaterials=Genesis物料
+
+# World type name
+generator.genesisTestType=Genesis世界測試

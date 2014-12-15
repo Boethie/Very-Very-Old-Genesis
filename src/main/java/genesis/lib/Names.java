@@ -132,6 +132,8 @@ public final class Names {
     public static final String itemCookedAphthoroblattina = itemFood + "cookedAphthoroblattina";
     public static final String itemRawEryops = itemFood + "rawEryops";
     public static final String itemCookedEryops = itemFood + "cookedEryops";
+    public static final String itemRawCynognathus = itemFood + "rawCynognathus";
+    public static final String itemCookedCynognathus = itemFood + "cookedCynognathus";
     public static final String itemRawCeratites = itemFood + "rawCeratites";
     public static final String itemCookedCeratites = itemFood + "cookedCeratites";
     public static final String itemRawLiopleurodon = itemFood + "rawLiopleurodon";
@@ -320,6 +322,8 @@ public final class Names {
         public static final String itemCookedEryops = "cooked_eryops";
         public static final String itemRawAphthoroblattina = "raw_aphthoroblattina";
         public static final String itemCookedAphthoroblattina = "cooked_aphthoroblattina";
+        public static final String itemRawCynognathus = "raw_cynognathus";
+        public static final String itemCookedCynognathus = "cooked_cynognathus";
         public static final String itemRawCeratites = "raw_ceratites";
         public static final String itemCookedCeratites = "cooked_ceratites";
         public static final String itemRawLiopleurodon = "raw_liopleurodon";
