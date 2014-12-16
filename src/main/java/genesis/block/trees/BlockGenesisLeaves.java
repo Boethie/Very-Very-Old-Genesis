@@ -88,8 +88,8 @@ public class BlockGenesisLeaves extends BlockLeaves {
     @Override
     protected void func_150124_c(World world, int x, int y, int z, int metadata, int chance) {
         if(treeType.equals(TreeType.ARAUCARIOXYLON)) {
-            if (world.rand.nextInt(50) == 0) {
-                dropBlockAsItem(world, x, y, z, new ItemStack(GenesisModItems.araucarioxylon_seeds));
+            if (world.rand.nextInt(50) < 4) {
+                dropBlockAsItem(world, x, y, z, new ItemStack(GenesisModItems.araucarioxylon_cone));
             }
         }
         world.setBlockToAir(x, y, z);

@@ -36,10 +36,11 @@ public class GenesisModItems {
 
     // Plants
     public static Item resin;
+    public static Item araucarioxylon_cone;
+    public static Item bjuvia_seeds;
     public static Item sphenophyllum_spores;
     public static Item sphenophyllum_fiber;
-    public static Item bjuvia_seeds;
-
+   
     // Dinosaur Items
     public static Item arthropleura_chitin;
     public static Item cynognathus_hide;
@@ -75,7 +76,6 @@ public class GenesisModItems {
     public static Item cooked_tyrannosaurus;
 
     // Plant Foods
-    public static Item araucarioxylon_seeds;
     public static Item zingiberopsis_rhizome;
 
     // Buckets
@@ -106,9 +106,10 @@ public class GenesisModItems {
 
         // Plants
         resin = new ItemGenesis().setUnlocalizedName(Names.itemResin).setTextureName("resin");
+        araucarioxylon_cone = new ItemGenesis().setUnlocalizedName(Names.itemAraucarioxylonCone).setTextureName("araucarioxylon_cone");
+        bjuvia_seeds = new ItemGenesis().setUnlocalizedName(Names.itemBjuviaSeeds).setTextureName("seeds_bjuvia");
         sphenophyllum_spores = new ItemGenesisSeed(GenesisPlantBlocks.sphenophyllum, false).setUnlocalizedName(Names.itemSphenoSpores).setTextureName("sphenophyllum_spores");
         sphenophyllum_fiber = new ItemGenesis().setUnlocalizedName(Names.itemSphenoFiber).setTextureName("sphenophyllum_fiber");
-        bjuvia_seeds = new ItemGenesis().setUnlocalizedName(Names.itemBjuviaSeeds).setTextureName("seeds_bjuvia");
 
         // Dinosaur Items
         arthropleura_chitin = new ItemGenesis().setUnlocalizedName(Names.itemArthopleuraChitin).setTextureName("arthropleura_chitin");
@@ -145,7 +146,6 @@ public class GenesisModItems {
         cooked_tyrannosaurus = new ItemGenesisFood(8, 12.8F).setUnlocalizedName(Names.itemCookedTyrannosaurus).setTextureName("tyrannosaurus_cooked");
 
         // Plant Foods
-        araucarioxylon_seeds = new ItemGenesisFood(1, 0.6F).setUnlocalizedName(Names.itemAraucarioxylonSeeds).setTextureName("seeds_araucarioxylon");
         zingiberopsis_rhizome = new ItemGenesisSeed(GenesisPlantBlocks.zingiberopsis, true, 1, 0.5f).setUnlocalizedName(Names.itemZingiberopsisRhizome).setTextureName("zingiberopsis_rhizome");
 
         // Buckets
@@ -153,7 +153,8 @@ public class GenesisModItems {
     }
 
     public static void register() {
-        GameRegistry.registerItem(brownish_flint_pebble, Names.Registry.itemBrownishFlintPebble);
+    	// Crafting
+    	GameRegistry.registerItem(brownish_flint_pebble, Names.Registry.itemBrownishFlintPebble);
         GameRegistry.registerItem(quartz, Names.Registry.itemQuartz);
         GameRegistry.registerItem(zircon, Names.Registry.itemZircon);
         GameRegistry.registerItem(garnet, Names.Registry.itemGarnet);
@@ -161,12 +162,15 @@ public class GenesisModItems {
         GameRegistry.registerItem(hematite, Names.Registry.itemHematite);
         GameRegistry.registerItem(malachite, Names.Registry.itemMalachite);
         GameRegistry.registerItem(olivine, Names.Registry.itemOlivine);
-
+        
+        // Plants
         GameRegistry.registerItem(resin, Names.Registry.itemResin);
+        GameRegistry.registerItem(araucarioxylon_cone, Names.Registry.itemAraucarioxylonCone);
+        GameRegistry.registerItem(bjuvia_seeds, Names.Registry.itemBjuviaSeeds);
         GameRegistry.registerItem(sphenophyllum_spores, Names.Registry.itemSphenoSpores);
         GameRegistry.registerItem(sphenophyllum_fiber, Names.Registry.itemSphenoFiber);
-        GameRegistry.registerItem(bjuvia_seeds, Names.Registry.itemBjuviaSeeds);
-
+        
+        // Dinosaur Items
         GameRegistry.registerItem(arthropleura_chitin, Names.Registry.itemArthopleuraChitin);
         GameRegistry.registerItem(cynognathus_hide, Names.Registry.itemCynognathusHide);
         GameRegistry.registerItem(ceratites_shell, Names.Registry.itemCeratitesShell);
@@ -182,6 +186,7 @@ public class GenesisModItems {
         GameRegistry.registerItem(gallimimus_metatarsus, Names.Registry.itemGallimimusMetatarsus);
         GameRegistry.registerItem(tyrannosaurus_tooth, Names.Registry.itemTyrannosaurasTooth);
 
+        // Dinosaur Foods
         GameRegistry.registerItem(raw_climatius, Names.Registry.itemRawClimatius);
         GameRegistry.registerItem(cooked_climatius, Names.Registry.itemCookedClimatius);
         GameRegistry.registerItem(raw_aphthoroblattina, Names.Registry.itemRawAphthoroblattina);
@@ -199,9 +204,10 @@ public class GenesisModItems {
         GameRegistry.registerItem(raw_tyrannosaurus, Names.Registry.itemRawTyrannosaurus);
         GameRegistry.registerItem(cooked_tyrannosaurus, Names.Registry.itemCookedTyrannosaurus);
 
-        GameRegistry.registerItem(araucarioxylon_seeds, Names.Registry.itemAraucarioxylonSeeds);
+        // Plant Foods
         GameRegistry.registerItem(zingiberopsis_rhizome, Names.Registry.itemZingiberopsisRhizome);
 
+        // Buckets
         GameRegistry.registerItem(komatiitic_lava_bucket, Names.Registry.bucketKomatiiticLava);
         BucketHandler.getInstance().bindBucketToFluid(komatiitic_lava_bucket, GenesisModBlocks.komatiiticLava, GenesisModBlocks.fluidKomatiiticLava);
     }

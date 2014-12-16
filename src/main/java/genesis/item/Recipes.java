@@ -42,7 +42,7 @@ public class Recipes {
 			GenesisModItems.dolerite_tools.registerRecipes(GenesisModBlocks.dolerite, handle.copy());
 			GenesisModItems.quartzite_tools.registerRecipes(GenesisModBlocks.quartzite, handle.copy());
 			GenesisModItems.brownish_flint_tools.registerRecipes(GenesisModItems.brownish_flint_pebble, handle.copy());
-			/* Add Bone Recipe /*
+			//Add Bone Recipe
 		}
 
 		//add red dye functionality into Hematite
@@ -83,14 +83,15 @@ public class Recipes {
 		GameRegistry.addSmelting(GenesisModItems.olivine, new ItemStack(GenesisModBlocks.olivine_ore), 1.0F);
 
 		GameRegistry.addRecipe(new ItemStack(GenesisPlantBlocks.calamites_block), "CCC", "CCC", "CCC", 'C', GenesisPlantBlocks.calamites);
-		GameRegistry.addShapelessRecipe(new ItemStack(GenesisPlantBlocks.calamites, 9), GenesisPlantBlocks.calamites_block);
+		GameRegistry.addShapelessRecipe(new ItemStack(GenesisPlantBlocks.calamites, 9), GenesisPlantBlocks.calamites_block);*/
 
 		GameRegistry.registerFuelHandler(GenesisFuelHandler.instance());
-		for (Block sapling : GenesisTreeBlocks.saplings) {
+		/*for (Block sapling : GenesisTreeBlocks.saplings) {
 			addFuel(new ItemStack(sapling, 1, OreDictionary.WILDCARD_VALUE), Blocks.sapling);
 		}
 		addFuel(new ItemStack(GenesisModItems.komatiitic_lava_bucket), Items.lava_bucket);
 		addFuel(new ItemStack(GenesisPlantBlocks.calamites), Blocks.sapling);*/
+		addFuel(new ItemStack(GenesisModItems.araucarioxylon_cone),120);
 	}
 
 	public static void addFuel(ItemStack fuel, Item burnTimeItem) {

@@ -94,6 +94,11 @@ tile.genesis.logRotten.credneria.name=Madeira de Credneria Apodrecida
 tile.genesis.plant.calamites.name=Calamites
 tile.storage.genesis.plant.calamites.name=Bloco de Calamites
 
+tile.genesis.mycelia.name=Prototaxites Mycelia
+tile.genesis.prototaxites.name=Prototaxites
+
+tile.genesis.archaeomarasmius.name=Archaeomarasmius
+
 tile.genesis.plant.cooksonia.name=Cooksonia
 tile.genesis.plant.baragwanathia.name=Baragwanathia
 tile.genesis.plant.sciadophyton.name=Sciadophyton
@@ -147,11 +152,11 @@ item.genesis.malachite.name=Malachita
 item.genesis.olivine.name=Olivina
 
 # Plants
-item.genesis.araucarioxylonSeeds.name=Sementes de Araucarioxylon
 item.genesis.resin.name=Resina
+item.genesis.araucarioxylonCone.name=Araucarioxylon Cone
+item.genesis.bjuviaSeeds.name=Sementes de Bjuvia
 item.genesis.plant.seed.sphenophyllumSpores.name=Esporos de Sphenophyllum
 item.genesis.sphenoFiber.name=Fibra de Sphenophyllum
-item.genesis.bjuviaSeeds.name=Sementes de Bjuvia
 
 # Dinosaur Items
 item.genesis.arthropleuraChitin.name=Quitina de Arthropleura

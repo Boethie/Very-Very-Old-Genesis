@@ -103,10 +103,11 @@ public final class Names {
     // Plants
     public static final String itemSeeds = mod + "seeds.";
     public static final String itemResin = mod + "resin";
+    public static final String itemAraucarioxylonCone = mod + "araucarioxylonCone";
+    public static final String itemBjuviaSeeds = mod + "bjuviaSeeds";
     public static final String itemSphenoSpores = itemSeeds + "sphenophyllumSpores";
     public static final String itemSphenoFiber = mod + "sphenoFiber";
-    public static final String itemBjuviaSeeds = mod + "bjuviaSeeds";
-
+    
     // Dinosaur Items
     public static final String itemArthopleuraChitin = mod + "arthropleuraChitin";
     public static final String itemCynognathusHide = mod + "cynognathusHide";
@@ -143,7 +144,6 @@ public final class Names {
     public static final String itemRawTyrannosaurus = itemFood + "rawTyrannosaurus";
     public static final String itemCookedTyrannosaurus = itemFood + "cookedTyrannosaurus";
 
-    public static final String itemAraucarioxylonSeeds = mod + "araucarioxylonSeeds";
     public static final String itemZingiberopsisRhizome = itemSeeds + "zingiberopsisRhizome";
 
     // Buckets
@@ -288,12 +288,11 @@ public final class Names {
         public static final String blockCharnia = "charnia";
         public static final String blockCharniaTop = "charnia_top";
 
-        public static final String itemZingiberopsisRhizome = "zingiberopsis_rhizome";
-        public static final String itemAraucarioxylonSeeds = "araucarioxylon_seeds";
         public static final String itemResin = "resin";
+        public static final String itemAraucarioxylonCone = "araucarioxylon_cone";
+        public static final String itemBjuviaSeeds = "bjuvia_seeds";
         public static final String itemSphenoSpores = "sphenophyllum_spores";
         public static final String itemSphenoFiber = "sphenophyllum_fiber";
-        public static final String itemBjuviaSeeds = "bjuvia_seeds";
 
         public static final String itemCeratitesShell = "ceratites_shell";
         public static final String itemArthopleuraChitin = "arthropleura_chitin";
@@ -334,6 +333,8 @@ public final class Names {
         public static final String itemCookedClimatius = "cooked_climatius";
         public static final String itemRawTyrannosaurus = "raw_tyrannosaurus";
         public static final String itemCookedTyrannosaurus = "cooked_tyrannosaurus";
+        
+        public static final String itemZingiberopsisRhizome = "zingiberopsis_rhizome";
 
         public static final String blockKomatiiticLava = "komatiitic_lava_block";
         public static final String bucketKomatiiticLava = "komatiitic_lava_bucket";

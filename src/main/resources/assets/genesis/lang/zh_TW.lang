@@ -36,7 +36,7 @@ fluid.genesis.komatiiticLava=鎂橄玄武岩漿
 tile.genesis.komatiiticLavaBlock.name=鎂橄玄武岩漿
 
 # Trees
-tile.genesis.bjuviaCone.name=Bjuvia蘇鐵錐
+tile.genesis.bjuviaCone.name=Bjuvia蘇鐵球果
 
 tile.genesis.log.archaeopteris.name=古蕨木
 tile.genesis.log.sigillaria.name=封印木
@@ -149,9 +149,10 @@ item.genesis.olivine.name=橄欖石
 
 # Plants
 item.genesis.resin.name=樹脂
+item.genesis.araucarioxylonCone.name=南美杉型木球果
+item.genesis.bjuviaSeeds.name=Bjuvia蘇鐵種子
 item.genesis.seeds.sphenophyllumSpores.name=叉葉蕨孢子
 item.genesis.sphenoFiber.name=叉葉蕨纖維
-item.genesis.bjuviaSeeds.name=Bjuvia蘇鐵種子
 
 # Dinosaur Items
 item.genesis.arthropleuraChitin.name=節胸甲殼素
@@ -188,7 +189,6 @@ item.genesis.food.rawTyrannosaurus.name=生暴龍
 item.genesis.food.cookedTyrannosaurus.name=熟暴龍
 
 # Plant Foods
-item.genesis.araucarioxylonSeeds.name=南美杉型木種子
 item.genesis.seeds.zingiberopsisRhizome.name=Zingiberopsis薑根莖
 
 # Buckets

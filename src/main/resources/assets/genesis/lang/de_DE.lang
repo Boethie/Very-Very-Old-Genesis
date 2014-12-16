@@ -149,9 +149,10 @@ item.genesis.olivine.name=Olivin
 
 # Plants
 item.genesis.resin.name=Harz
+item.genesis.araucarioxylonCone.name=Araucarioxylonzapfen
+item.genesis.bjuviaSeeds.name=Bjuviasamen
 item.genesis.seeds.sphenophyllumSpores.name=Sphenophyllumsporen
 item.genesis.sphenoFiber.name=Sphenophyllumfaser
-item.genesis.bjuviaSeeds.name=Bjuviasamen
 
 # Dinosaur Items
 item.genesis.arthropleuraChitin.name=Arthropleura Chitin
@@ -188,7 +189,6 @@ item.genesis.food.rawTyrannosaurus.name=Roher Tyrannosaurus
 item.genesis.food.cookedTyrannosaurus.name=Gebratener Tyrannosaurus
 
 # Plant Foods
-item.genesis.araucarioxylonSeeds.name=Araucarioxylonsamen
 item.genesis.seeds.zingiberopsisRhizome.name=Zingiberopsis Rhizom
 
 # Buckets

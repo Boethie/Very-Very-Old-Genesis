@@ -29,7 +29,7 @@ public class TileEntityCampfire extends TileEntityFurnace {
     public TileEntityCampfire() {
         super();
     }
-
+    
     public static int getItemBurnTime(ItemStack stack) {
         return (int) (TileEntityFurnace.getItemBurnTime(stack) * 1.125F);
     }
