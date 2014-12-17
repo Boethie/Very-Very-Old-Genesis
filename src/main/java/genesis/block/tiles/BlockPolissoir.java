@@ -1,5 +1,6 @@
 package genesis.block.tiles;
 
+import static genesis.handler.GenesisGuiHandler.Element.POLISSOIR;
 import genesis.Genesis;
 import genesis.client.ClientProxy;
 import genesis.lib.GenesisTabs;
@@ -17,8 +18,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import static genesis.handler.GenesisGuiHandler.Element.POLISSOIR;
 
 public class BlockPolissoir extends BlockContainer {
 

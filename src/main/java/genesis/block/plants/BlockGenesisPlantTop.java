@@ -1,7 +1,10 @@
 package genesis.block.plants;
 
-import genesis.client.renderer.block.BlockGenesisPlantRenderer;
 import genesis.Genesis;
+import genesis.client.renderer.block.BlockGenesisPlantRenderer;
+
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -10,8 +13,6 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 /**
  * A class to represent a block that can only appear on the top of another block (preferably a plant).

@@ -1,8 +1,8 @@
 package genesis.util.rendering;
 
-import net.minecraft.util.IIcon;
-
 import java.util.ArrayList;
+
+import net.minecraft.util.IIcon;
 
 public class FaceHelper {
 

@@ -1,12 +1,8 @@
 package genesis.world.gen.layer;
 
-import net.minecraft.world.gen.layer.GenLayer;
-
 import genesis.world.biome.GenesisBiomes;
+import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenJungle;
-import net.minecraft.world.biome.BiomeGenMesa;
 
 public class GenLayerShoreGenesis extends GenLayer {
     public GenLayerShoreGenesis(long p_i2130_1_, GenLayer p_i2130_3_) {

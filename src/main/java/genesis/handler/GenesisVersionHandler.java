@@ -1,15 +1,18 @@
 package genesis.handler;
 
-import com.google.common.io.ByteStreams;
-import com.google.gson.Gson;
-import cpw.mods.fml.common.versioning.ArtifactVersion;
-import cpw.mods.fml.common.versioning.DefaultArtifactVersion;
 import genesis.Genesis;
-import net.minecraftforge.common.MinecraftForge;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Map;
+
+import net.minecraftforge.common.MinecraftForge;
+
+import com.google.common.io.ByteStreams;
+import com.google.gson.Gson;
+
+import cpw.mods.fml.common.versioning.ArtifactVersion;
+import cpw.mods.fml.common.versioning.DefaultArtifactVersion;
 
 public class GenesisVersionHandler {
     private static Status status = Status.PENDING;

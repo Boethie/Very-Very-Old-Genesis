@@ -1,7 +1,10 @@
 package genesis.world.gen.feature;
 
-import genesis.managers.GenesisModBlocks;
 import genesis.block.plants.GenesisPlantBlocks;
+import genesis.managers.GenesisModBlocks;
+
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -9,8 +12,6 @@ import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.Random;
 
 public class WorldGenLakesGenesis extends WorldGenerator {
     private Block liquid;

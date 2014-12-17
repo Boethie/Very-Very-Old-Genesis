@@ -4,6 +4,7 @@ import net.minecraft.block.BlockGrass;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.launchwrapper.IClassTransformer;
 import net.minecraft.world.World;
+
 import org.objectweb.asm.Label;
 import org.objectweb.asm.Opcodes;
 

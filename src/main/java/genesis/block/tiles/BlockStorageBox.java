@@ -1,5 +1,6 @@
 package genesis.block.tiles;
 
+import static genesis.handler.GenesisGuiHandler.Element.STORAGE_BOX;
 import static net.minecraftforge.common.util.ForgeDirection.DOWN;
 import genesis.Genesis;
 import genesis.client.renderer.TileEntityStorageBoxRenderer;
@@ -25,7 +26,6 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import static genesis.handler.GenesisGuiHandler.Element.STORAGE_BOX;
 
 public class BlockStorageBox extends BlockChest{
 

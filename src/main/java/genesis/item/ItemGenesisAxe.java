@@ -1,17 +1,18 @@
 package genesis.item;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.Genesis;
-import genesis.lib.GenesisTabs;
 import genesis.item.ItemsToolSet.ToolQuality;
+import genesis.lib.GenesisTabs;
 import genesis.lib.Names;
+
+import java.util.List;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
-
-import java.util.List;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemGenesisAxe extends ItemAxe {
 

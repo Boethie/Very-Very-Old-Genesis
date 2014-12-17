@@ -1,16 +1,17 @@
 package genesis.world.biome;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import genesis.managers.GenesisModBlocks;
 import genesis.world.gen.BiomeDecoratorGenesis;
 import genesis.world.gen.feature.WorldGenMinableSurface;
+
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BiomeGenGenesisBase extends BiomeGenBase {
     BiomeDecoratorGenesis theBiomeDecorator;

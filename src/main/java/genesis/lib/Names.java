@@ -103,8 +103,8 @@ public final class Names {
     // Plants
     public static final String itemSeeds = mod + "seeds.";
     public static final String itemResin = mod + "resin";
-    public static final String itemAraucarioxylonCone = mod + "araucarioxylonCone";
     public static final String itemBjuviaSeeds = mod + "bjuviaSeeds";
+    public static final String itemAraucarioxylonCone = mod + "araucarioxylonCone";
     public static final String itemSphenoSpores = itemSeeds + "sphenophyllumSpores";
     public static final String itemSphenoFiber = mod + "sphenoFiber";
     
@@ -289,8 +289,8 @@ public final class Names {
         public static final String blockCharniaTop = "charnia_top";
 
         public static final String itemResin = "resin";
-        public static final String itemAraucarioxylonCone = "araucarioxylon_cone";
         public static final String itemBjuviaSeeds = "bjuvia_seeds";
+        public static final String itemAraucarioxylonCone = "araucarioxylon_cone";
         public static final String itemSphenoSpores = "sphenophyllum_spores";
         public static final String itemSphenoFiber = "sphenophyllum_fiber";
 

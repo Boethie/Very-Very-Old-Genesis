@@ -1,11 +1,12 @@
 package genesis.fluid.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import genesis.managers.GenesisModBlocks;
-import genesis.client.GenesisClientEventHandler;
 import genesis.Genesis;
+import genesis.client.GenesisClientEventHandler;
 import genesis.fluid.FluidKomatiiticLava;
+import genesis.managers.GenesisModBlocks;
+
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -17,8 +18,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
-
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Fluid block for {@link FluidKomatiiticLava}.

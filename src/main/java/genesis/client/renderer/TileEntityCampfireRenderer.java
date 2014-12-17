@@ -1,9 +1,12 @@
 package genesis.client.renderer;
 
-import genesis.managers.GenesisModBlocks;
-import genesis.client.model.tiles.ModelCampfireTE;
-import genesis.tileentity.TileEntityCampfire;
 import genesis.Genesis;
+import genesis.client.model.tiles.ModelCampfireTE;
+import genesis.managers.GenesisModBlocks;
+import genesis.tileentity.TileEntityCampfire;
+
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -15,9 +18,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.IItemRenderer.ItemRenderType;
 import net.minecraftforge.client.MinecraftForgeClient;
-import org.lwjgl.opengl.GL11;
 
-import java.util.Random;
+import org.lwjgl.opengl.GL11;
 
 public class TileEntityCampfireRenderer extends TileEntitySpecialRenderer {
 

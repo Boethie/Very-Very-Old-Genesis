@@ -1,11 +1,11 @@
 package genesis.classtransformer;
 
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
+import java.util.Map;
+
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
-
-import java.util.Map;
+import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
+import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 
 @TransformerExclusions({"genesis.genesis.classtransformer"})
 public class GenesisLoadingPlugin implements IFMLLoadingPlugin {

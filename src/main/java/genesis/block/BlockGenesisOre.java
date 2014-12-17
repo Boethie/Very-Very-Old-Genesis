@@ -1,14 +1,14 @@
 package genesis.block;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.Random;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlockGenesisOre extends BlockGenesisRock {
     protected int dropMin, dropMax;

@@ -1,9 +1,9 @@
 package genesis.world.biome;
 
+import java.io.File;
+
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.config.Configuration;
-
-import java.io.File;
 
 public class GenesisBiomes {
     public static final BiomeGenBase.Height heightDefault = new BiomeGenBase.Height(0.1F, 0.2F);

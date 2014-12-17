@@ -1,10 +1,12 @@
 package genesis.helper;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import genesis.Genesis;
+
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import cpw.mods.fml.common.FMLCommonHandler;
 
 public class LogHelper {
 

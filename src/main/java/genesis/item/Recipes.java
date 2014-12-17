@@ -1,6 +1,5 @@
 package genesis.item;
 
-import genesis.block.plants.GenesisPlantBlocks;
 import genesis.block.trees.GenesisTreeBlocks;
 import genesis.block.trees.GenesisTreeBlocks.TreeType;
 import genesis.handler.GenesisFuelHandler;
@@ -8,15 +7,10 @@ import genesis.helper.LogHelper;
 import genesis.managers.GenesisModBlocks;
 import genesis.managers.GenesisModItems;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockColored;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.tileentity.TileEntityFurnace;
-import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import org.apache.logging.log4j.Level;
 
@@ -89,8 +83,8 @@ public class Recipes {
 		/*for (Block sapling : GenesisTreeBlocks.saplings) {
 			addFuel(new ItemStack(sapling, 1, OreDictionary.WILDCARD_VALUE), Blocks.sapling);
 		}
-		addFuel(new ItemStack(GenesisModItems.komatiitic_lava_bucket), Items.lava_bucket);
 		addFuel(new ItemStack(GenesisPlantBlocks.calamites), Blocks.sapling);*/
+		addFuel(new ItemStack(GenesisModItems.komatiitic_lava_bucket), Items.lava_bucket);
 		addFuel(new ItemStack(GenesisModItems.araucarioxylon_cone),120);
 	}
 

@@ -1,11 +1,10 @@
 package genesis.world.gen.layer;
 
+import static genesis.world.biome.GenesisBiomes.rainforest;
+import static genesis.world.biome.GenesisBiomes.rainforestSwamp;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-
-import static genesis.world.biome.GenesisBiomes.rainforest;
-import static genesis.world.biome.GenesisBiomes.rainforestSwamp;
 
 public class GenLayerBiomeGenesis extends GenLayer {
     private BiomeGenBase[] hot;

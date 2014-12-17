@@ -1,11 +1,13 @@
 package genesis.client.renderer;
 
-import cpw.mods.fml.client.FMLClientHandler;
 import genesis.client.model.tiles.ModelPolissoir;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
+
 import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.client.FMLClientHandler;
 
 public class ItemPolissoirRender implements IItemRenderer {
     private ModelPolissoir render;

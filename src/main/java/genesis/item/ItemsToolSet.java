@@ -1,6 +1,9 @@
 package genesis.item;
 
 import genesis.lib.PolissoirRecipes;
+
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -9,9 +12,8 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.util.StringUtils;
 import net.minecraftforge.common.util.EnumHelper;
-import org.apache.commons.lang3.text.WordUtils;
 
-import java.util.List;
+import org.apache.commons.lang3.text.WordUtils;
 
 public class ItemsToolSet implements IRecipeWithDefault {
     public Item crude_knife, chipped_knife, polished_knife, sharpened_knife;

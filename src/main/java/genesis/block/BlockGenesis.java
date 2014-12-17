@@ -2,12 +2,13 @@ package genesis.block;
 
 import genesis.Genesis;
 import genesis.lib.GenesisTabs;
+
+import java.util.ArrayList;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
 
 public class BlockGenesis extends Block {
     private ItemStack drop;

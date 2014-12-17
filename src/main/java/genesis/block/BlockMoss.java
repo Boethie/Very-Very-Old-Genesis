@@ -1,11 +1,12 @@
 package genesis.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import genesis.client.renderer.block.BlockMossRenderer;
 import genesis.Genesis;
+import genesis.client.renderer.block.BlockMossRenderer;
 import genesis.lib.GenesisSounds;
 import genesis.lib.GenesisTabs;
+
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGrass;
 import net.minecraft.block.material.Material;
@@ -18,8 +19,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockMoss extends BlockGrass {
     protected IIcon iconGrassTop;

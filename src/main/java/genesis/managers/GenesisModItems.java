@@ -1,6 +1,5 @@
 package genesis.managers;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.block.plants.GenesisPlantBlocks;
 import genesis.fluid.BucketHandler;
 import genesis.fluid.item.ItemGenesisBucket;
@@ -10,6 +9,7 @@ import genesis.item.ItemGenesisSeed;
 import genesis.item.ItemsToolSet;
 import genesis.lib.Names;
 import net.minecraft.item.Item;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class GenesisModItems {
     // Tools
@@ -36,8 +36,8 @@ public class GenesisModItems {
 
     // Plants
     public static Item resin;
-    public static Item araucarioxylon_cone;
     public static Item bjuvia_seeds;
+    public static Item araucarioxylon_cone;
     public static Item sphenophyllum_spores;
     public static Item sphenophyllum_fiber;
    
@@ -106,8 +106,8 @@ public class GenesisModItems {
 
         // Plants
         resin = new ItemGenesis().setUnlocalizedName(Names.itemResin).setTextureName("resin");
-        araucarioxylon_cone = new ItemGenesis().setUnlocalizedName(Names.itemAraucarioxylonCone).setTextureName("araucarioxylon_cone");
         bjuvia_seeds = new ItemGenesis().setUnlocalizedName(Names.itemBjuviaSeeds).setTextureName("seeds_bjuvia");
+        araucarioxylon_cone = new ItemGenesis().setUnlocalizedName(Names.itemAraucarioxylonCone).setTextureName("araucarioxylon_cone");
         sphenophyllum_spores = new ItemGenesisSeed(GenesisPlantBlocks.sphenophyllum, false).setUnlocalizedName(Names.itemSphenoSpores).setTextureName("sphenophyllum_spores");
         sphenophyllum_fiber = new ItemGenesis().setUnlocalizedName(Names.itemSphenoFiber).setTextureName("sphenophyllum_fiber");
 
@@ -165,8 +165,8 @@ public class GenesisModItems {
         
         // Plants
         GameRegistry.registerItem(resin, Names.Registry.itemResin);
-        GameRegistry.registerItem(araucarioxylon_cone, Names.Registry.itemAraucarioxylonCone);
         GameRegistry.registerItem(bjuvia_seeds, Names.Registry.itemBjuviaSeeds);
+        GameRegistry.registerItem(araucarioxylon_cone, Names.Registry.itemAraucarioxylonCone);
         GameRegistry.registerItem(sphenophyllum_spores, Names.Registry.itemSphenoSpores);
         GameRegistry.registerItem(sphenophyllum_fiber, Names.Registry.itemSphenoFiber);
         

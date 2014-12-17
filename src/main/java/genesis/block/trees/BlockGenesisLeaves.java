@@ -3,18 +3,15 @@ package genesis.block.trees;
 import genesis.Genesis;
 import genesis.block.trees.GenesisTreeBlocks.TreeType;
 import genesis.helper.GenesisHelper;
-import genesis.item.itemblock.IItemBlockWithSubNames;
 import genesis.lib.GenesisTabs;
 import genesis.managers.GenesisModItems;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -63,7 +60,44 @@ public class BlockGenesisLeaves extends BlockLeaves {
     	boolean opaque = Genesis.proxy.areLeavesOpaque();
     	return icons[GenesisHelper.booleanToInt(opaque)];
     }
+    
+    @Override
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
+    {
+    	
+    	BlockGenesisLeaves theBlock=(BlockGenesisLeaves)world.getBlock(x, y, z);
+    	int type=theBlock.treeType.ordinal();
+    	ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        int chance = this.func_150123_b(metadata);
+        
+        if (fortune > 0)
+        {
+            chance -= 2 << fortune;
+            if (chance < 10) chance = 10;
+        }
 
+        if (world.rand.nextInt(chance) == 0)
+            ret.add(new ItemStack(this.getItemDropped(type, world.rand, fortune), 1, this.damageDropped(metadata)));
+
+        chance = 200;
+        if (fortune > 0)
+        {
+            chance -= 10 << fortune;
+            if (chance < 40) chance = 40;
+        }
+
+        this.captureDrops(true);
+        this.func_150124_c(world, x, y, z, metadata, chance); // Dammet mojang
+        ret.addAll(this.captureDrops(false));
+        return ret;
+    }
+    
+    @Override
+    public int damageDropped(int meta)
+    {
+        return 0;
+    }
+    
     @Override
     public Item getItemDropped(int metadata, Random random, int unused) {
         return Item.getItemFromBlock(GenesisTreeBlocks.saplings[metadata]);
@@ -87,7 +121,8 @@ public class BlockGenesisLeaves extends BlockLeaves {
 
     @Override
     protected void func_150124_c(World world, int x, int y, int z, int metadata, int chance) {
-        if(treeType.equals(TreeType.ARAUCARIOXYLON)) {
+    	BlockGenesisLeaves theBlock=(BlockGenesisLeaves)world.getBlock(x, y, z);
+    	if(theBlock.treeType.equals(TreeType.ARAUCARIOXYLON)) {
             if (world.rand.nextInt(50) < 4) {
                 dropBlockAsItem(world, x, y, z, new ItemStack(GenesisModItems.araucarioxylon_cone));
             }

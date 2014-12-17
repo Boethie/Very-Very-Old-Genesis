@@ -1,13 +1,13 @@
 package genesis.block;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
-import java.util.Random;
 
 public class BlockPermafrost extends BlockGenesis {
     public BlockPermafrost() {

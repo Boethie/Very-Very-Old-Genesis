@@ -1,12 +1,13 @@
 package genesis.world.gen.feature;
 
 import genesis.managers.GenesisModBlocks;
+
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.Random;
 
 public class WorldGenMinableSurface extends WorldGenerator {
     private Block ore;

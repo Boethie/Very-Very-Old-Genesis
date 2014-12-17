@@ -2,6 +2,10 @@ package genesis.world;
 
 import genesis.managers.GenesisModBlocks;
 import genesis.world.gen.feature.WorldGenLakesGenesis;
+
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.entity.EnumCreatureType;
@@ -19,9 +23,6 @@ import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.structure.MapGenScatteredFeature;
-
-import java.util.List;
-import java.util.Random;
 
 public class ChunkProviderGenesis implements IChunkProvider {
     private final double[] field_147434_q;

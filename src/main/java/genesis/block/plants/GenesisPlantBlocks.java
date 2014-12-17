@@ -1,16 +1,13 @@
 package genesis.block.plants;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.item.itemblock.ItemBlockAsteroxylon;
 import genesis.item.itemblock.ItemBlockGenesisFern;
 import genesis.item.itemblock.ItemBlockGenesisFlower;
 import genesis.item.itemblock.ItemBlockGenesisPlant;
 import genesis.lib.Names;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
-import net.minecraft.block.BlockMushroom;
-import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class GenesisPlantBlocks {
     //public static Block flower_pot;

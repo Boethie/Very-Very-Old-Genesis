@@ -1,13 +1,14 @@
 package genesis.client.gui;
 
+import genesis.Genesis;
 import genesis.common.container.ContainerCampfire;
 import genesis.tileentity.TileEntityCampfire;
-import genesis.Genesis;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
+
 import org.lwjgl.opengl.GL11;
 
 public class GuiCampfire extends GuiContainer {

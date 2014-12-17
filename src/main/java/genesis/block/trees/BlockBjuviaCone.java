@@ -4,14 +4,15 @@ import genesis.block.BlockGenesis;
 import genesis.client.renderer.block.BlockBjuviaConeRenderer;
 import genesis.lib.GenesisTabs;
 import genesis.managers.GenesisModItems;
+
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.Random;
 
 /**
  * @author Arbiter

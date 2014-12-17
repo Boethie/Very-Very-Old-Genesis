@@ -1,9 +1,9 @@
 package genesis.lib;
 
-import genesis.managers.GenesisModBlocks;
 import genesis.block.trees.GenesisTreeBlocks;
 import genesis.block.trees.GenesisTreeBlocks.TreeBlockType;
 import genesis.block.trees.GenesisTreeBlocks.TreeType;
+import genesis.managers.GenesisModBlocks;
 import genesis.managers.GenesisModItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

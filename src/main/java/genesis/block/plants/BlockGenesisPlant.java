@@ -2,6 +2,9 @@ package genesis.block.plants;
 
 import genesis.client.renderer.block.BlockGenesisPlantRenderer;
 import genesis.lib.GenesisTabs;
+
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,8 +14,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.Random;
 
 /**
  * @deprecated Unused class

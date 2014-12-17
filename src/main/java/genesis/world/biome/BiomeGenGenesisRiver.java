@@ -1,13 +1,14 @@
 package genesis.world.biome;
 
-import genesis.managers.GenesisModBlocks;
 import genesis.block.aquatic.GenesisAquaticBlocks;
 import genesis.helper.GenesisWorldHelper;
+import genesis.managers.GenesisModBlocks;
+
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class BiomeGenGenesisRiver extends BiomeGenGenesisBase {
     public BiomeGenGenesisRiver(int par1) {

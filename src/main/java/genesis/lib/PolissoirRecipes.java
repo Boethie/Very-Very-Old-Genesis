@@ -2,11 +2,12 @@ package genesis.lib;
 
 import genesis.block.plants.GenesisPlantBlocks;
 import genesis.managers.GenesisModItems;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 
 public class PolissoirRecipes {
     private static final PolissoirRecipes INSTANCE = new PolissoirRecipes();

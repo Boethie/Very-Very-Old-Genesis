@@ -1,15 +1,16 @@
 package genesis.managers;
 
-import cpw.mods.fml.common.registry.EntityRegistry;
 import genesis.Genesis;
 import genesis.entity.EntityEryops;
 import genesis.lib.Names;
+
+import java.util.Random;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.Random;
+import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class ModEntities {
     public static void init() {

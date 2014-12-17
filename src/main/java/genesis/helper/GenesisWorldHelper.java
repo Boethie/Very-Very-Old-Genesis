@@ -1,12 +1,12 @@
 package genesis.helper;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
-
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class GenesisWorldHelper {
 	public static int getTopBlockOfType(World world, int x, int z, Block... blocks) {

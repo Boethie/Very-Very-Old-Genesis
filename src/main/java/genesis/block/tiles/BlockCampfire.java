@@ -1,10 +1,15 @@
 package genesis.block.tiles;
 
-import genesis.managers.GenesisModBlocks;
-import genesis.client.renderer.BlockCampfireRenderer;
+import static genesis.handler.GenesisGuiHandler.Element.CAMPFIRE;
 import genesis.Genesis;
+import genesis.client.renderer.BlockCampfireRenderer;
 import genesis.lib.GenesisTabs;
+import genesis.managers.GenesisModBlocks;
 import genesis.tileentity.TileEntityCampfire;
+
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -23,11 +28,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import java.util.List;
-import java.util.Random;
-
-import static genesis.handler.GenesisGuiHandler.Element.CAMPFIRE;
 
 public class BlockCampfire extends BlockContainer {
 

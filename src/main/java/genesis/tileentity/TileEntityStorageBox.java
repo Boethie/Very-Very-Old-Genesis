@@ -2,6 +2,10 @@ package genesis.tileentity;
 
 import genesis.Genesis;
 import genesis.block.tiles.BlockStorageBox;
+
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ContainerChest;
@@ -12,9 +16,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.AxisAlignedBB;
-
-import java.util.Iterator;
-import java.util.List;
 
 public class TileEntityStorageBox extends TileEntityChest{
 

@@ -1,9 +1,7 @@
 package genesis.block.trees;
 
-import genesis.block.BlockAndMeta;
 import genesis.block.plants.BlockGenesisFlowerPot;
 import genesis.helper.LogHelper;
-import genesis.item.itemblock.ItemBlockGenesisTree;
 import genesis.lib.Names;
 import genesis.world.gen.feature.WorldGenTreeAraucarioxylon;
 import genesis.world.gen.feature.WorldGenTreeBase;
@@ -12,13 +10,11 @@ import genesis.world.gen.feature.WorldGenTreeLepidodendron;
 import genesis.world.gen.feature.WorldGenTreePsaronius;
 import genesis.world.gen.feature.WorldGenTreeSigillaria;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.StringUtils;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.oredict.OreDictionary;
 

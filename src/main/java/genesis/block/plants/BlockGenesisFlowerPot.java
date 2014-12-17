@@ -2,6 +2,12 @@ package genesis.block.plants;
 
 import genesis.block.BlockAndMeta;
 import genesis.client.renderer.block.BlockGenesisFlowerPotRenderer;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map.Entry;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlowerPot;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,11 +18,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map.Entry;
 
 public class BlockGenesisFlowerPot extends BlockFlowerPot {
 

@@ -1,18 +1,28 @@
 package genesis.client.renderer;
 
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import genesis.managers.GenesisModBlocks;
 import genesis.block.tiles.BlockCampfire;
-import genesis.util.rendering.*;
+import genesis.managers.GenesisModBlocks;
+import genesis.util.rendering.FaceHelper;
+import genesis.util.rendering.FaceUVs;
+import genesis.util.rendering.IShadingMethod;
+import genesis.util.rendering.Matrix;
+import genesis.util.rendering.Quad;
+import genesis.util.rendering.RotateableBox;
+import genesis.util.rendering.RotateableModelQuads;
+import genesis.util.rendering.RotateableModelTris;
+import genesis.util.rendering.Tri;
+import genesis.util.rendering.Vec4;
+
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
-
-import java.util.Random;
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class BlockCampfireRenderer implements ISimpleBlockRenderingHandler {
 

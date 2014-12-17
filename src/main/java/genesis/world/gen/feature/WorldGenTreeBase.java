@@ -2,14 +2,15 @@ package genesis.world.gen.feature;
 
 import genesis.block.BlockAndMeta;
 import genesis.block.trees.GenesisTreeBlocks;
+
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.Random;
 
 public abstract class WorldGenTreeBase extends WorldGenAbstractTree {
 

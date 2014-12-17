@@ -3,6 +3,7 @@ package genesis.tileentity;
 import genesis.Genesis;
 import genesis.block.tiles.BlockCampfire;
 import genesis.lib.Names;
+import genesis.managers.GenesisModItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -31,6 +32,13 @@ public class TileEntityCampfire extends TileEntityFurnace {
     }
     
     public static int getItemBurnTime(ItemStack stack) {
+    	if(stack != null){
+    		if(stack.getItem() == Items.lava_bucket)
+    			return 0;
+    		if(stack.getItem() == GenesisModItems.komatiitic_lava_bucket)
+    			return 0;
+    	}
+    	
         return (int) (TileEntityFurnace.getItemBurnTime(stack) * 1.125F);
     }
 

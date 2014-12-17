@@ -1,8 +1,6 @@
 package genesis.client.model.tiles;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 
 public class ModelDoubleBox extends ModelBox{
 	

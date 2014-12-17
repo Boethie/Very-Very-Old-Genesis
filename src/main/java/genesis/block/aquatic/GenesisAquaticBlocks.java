@@ -1,12 +1,12 @@
 package genesis.block.aquatic;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import genesis.item.itemblock.ItemBlockCharnia;
 import genesis.item.itemblock.ItemBlockGenesisAlgae;
 import genesis.item.itemblock.ItemBlockGenesisCoral;
 import genesis.item.itemblock.ItemBlockGenesisSponge;
 import genesis.lib.Names;
 import net.minecraft.block.Block;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
  * @author Arbiter

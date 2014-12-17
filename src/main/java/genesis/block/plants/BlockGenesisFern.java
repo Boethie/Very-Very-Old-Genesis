@@ -1,20 +1,21 @@
 package genesis.block.plants;
 
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import genesis.managers.GenesisModBlocks;
-import genesis.client.renderer.block.BlockGenesisPlantRenderer;
 import genesis.Genesis;
+import genesis.client.renderer.block.BlockGenesisPlantRenderer;
 import genesis.lib.GenesisSounds;
 import genesis.lib.GenesisTabs;
 import genesis.lib.Names;
+import genesis.managers.GenesisModBlocks;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -24,11 +25,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.IShearable;
-import net.minecraftforge.common.MinecraftForge;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * I am sure there is a much more easier and shorter way of writing this, but it is designed to be
