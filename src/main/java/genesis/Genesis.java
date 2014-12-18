@@ -25,20 +25,17 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.ModMetadata;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import org.apache.logging.log4j.Level;
 
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Mod.Metadata;
-import cpw.mods.fml.common.ModMetadata;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.ReflectionHelper;
 
 @Mod(modid = Genesis.MOD_ID, name = "Project Genesis", version = Genesis.MOD_VERSION, dependencies = "required-after:Forge")
 public class Genesis {
@@ -46,17 +43,17 @@ public class Genesis {
     public static final String MOD_ID = "genesis";
     public static final String ASSETS = MOD_ID + ":";
     public static final String MOD_VERSION = "@VERSION@";
-    @Instance(Genesis.MOD_ID)
+    @Mod.Instance(Genesis.MOD_ID)
     public static Genesis instance;
     @SidedProxy(clientSide = "genesis.client.ClientProxy", serverSide = "genesis.common.CommonProxy")
     public static CommonProxy proxy;
-    @Metadata(Genesis.MOD_ID)
+    @Mod.Metadata(Genesis.MOD_ID)
     public static ModMetadata metadata;
     public static HashMap<Class<? extends TileEntity>, String> teClassToNameMap;
 
     public static int dimensionID = DimensionManager.getNextFreeDimId();
 
-    @EventHandler
+    @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent evt) {
         Genesis.instance = this;
 
@@ -90,7 +87,7 @@ public class Genesis {
         GameRegistry.registerTileEntity(TileEntityStorageBox.class, Names.mod + "StorageBox");
     }
 
-    @EventHandler
+    @Mod.EventHandler
     public void init(FMLInitializationEvent evt) {
         NetworkRegistry.INSTANCE.registerGuiHandler(Genesis.instance, new GenesisGuiHandler());
 
@@ -107,7 +104,7 @@ public class Genesis {
         proxy.init();
     }
 
-    @EventHandler
+    @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent evt) {
         /* When retrieving static fields via reflection, it is unnecessary to pass an actual instance of the class */
         teClassToNameMap = ReflectionHelper.getPrivateValue(TileEntity.class, null, "classToNameMap", "field_70323_b");
