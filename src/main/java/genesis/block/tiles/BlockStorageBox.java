@@ -33,9 +33,17 @@ public class BlockStorageBox extends BlockChest{
 	
 	public BlockStorageBox(int chest) {
 		super(chest);
+        this.setHardness(1F);
+        this.setHarvestLevel("axe", 1);
 		this.setCreativeTab(GenesisTabs.tabGenesisDecoration);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.875F, 1.0F);
 	}
+	
+    @Override
+    public boolean canHarvestBlock(EntityPlayer player, int meta)
+    {    	
+    	return true;
+    }
 	
 	public int getRenderType(){
 		return TileEntityStorageBoxRenderer.instance.renderID;

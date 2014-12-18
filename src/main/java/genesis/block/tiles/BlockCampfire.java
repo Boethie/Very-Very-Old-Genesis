@@ -39,7 +39,8 @@ public class BlockCampfire extends BlockContainer {
 
     public BlockCampfire() {
         super(Material.rock);
-
+        this.setHardness(0.8F);
+        this.setHarvestLevel("pickaxe", 2);
         setCreativeTab(GenesisTabs.tabGenesisDecoration);
         setBlockBounds(0, 0, 0, 1, 1, 1);
         setTickRandomly(true);
@@ -83,6 +84,12 @@ public class BlockCampfire extends BlockContainer {
     @Override
     public boolean canPlaceBlockAt(World world, int x, int y, int z) {
         return canBlockStay(world, x, y, z);
+    }
+    
+    @Override
+    public boolean canHarvestBlock(EntityPlayer player, int meta)
+    {    	
+    	return true;
     }
 
     @Override
