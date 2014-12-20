@@ -40,6 +40,7 @@ public class GenesisModItems {
     public static Item araucarioxylon_cone;
     public static Item sphenophyllum_spores;
     public static Item sphenophyllum_fiber;
+    public static Item stromatolite_biofilm;
    
     // Dinosaur Items
     public static Item arthropleura_chitin;
@@ -56,6 +57,7 @@ public class GenesisModItems {
     public static Item shantungosaurus_scapula;
     public static Item gallimimus_metatarsus;
     public static Item tyrannosaurus_tooth;
+    public static Item tyrannosaurus_saliva;
 
     // Dinosaur Foods
     public static Item raw_climatius;
@@ -110,6 +112,7 @@ public class GenesisModItems {
         araucarioxylon_cone = new ItemGenesis().setUnlocalizedName(Names.itemAraucarioxylonCone).setTextureName("araucarioxylon_cone");
         sphenophyllum_spores = new ItemGenesisSeed(GenesisPlantBlocks.sphenophyllum, false).setUnlocalizedName(Names.itemSphenoSpores).setTextureName("sphenophyllum_spores");
         sphenophyllum_fiber = new ItemGenesis().setUnlocalizedName(Names.itemSphenoFiber).setTextureName("sphenophyllum_fiber");
+        stromatolite_biofilm = new ItemGenesis().setUnlocalizedName(Names.itemStromatoliteBiofilm).setTextureName("biofilm_stromatolite");
 
         // Dinosaur Items
         arthropleura_chitin = new ItemGenesis().setUnlocalizedName(Names.itemArthopleuraChitin).setTextureName("arthropleura_chitin");
@@ -126,7 +129,8 @@ public class GenesisModItems {
         shantungosaurus_scapula = new ItemGenesis().setUnlocalizedName(Names.itemShantungosaurusScapula).setTextureName("shantungosaurus_scapula");
         gallimimus_metatarsus = new ItemGenesis().setUnlocalizedName(Names.itemGallimimusMetatarsus).setTextureName("gallimimus_metatarsus");
         tyrannosaurus_tooth = new ItemGenesis().setUnlocalizedName(Names.itemTyrannosaurasTooth).setTextureName("tyrannosaurus_tooth");
-
+        tyrannosaurus_saliva = new ItemGenesis().setUnlocalizedName(Names.itemTyrannosaurusSaliva).setTextureName("saliva_tyrannosaurus");
+        
         // Dinosaur Foods
         raw_climatius = new ItemGenesisFood(2, 1.2F).setUnlocalizedName(Names.itemRawClimatius).setTextureName("climatius_raw");
         cooked_climatius = new ItemGenesisFood(5, 6F).setUnlocalizedName(Names.itemCookedClimatius).setTextureName("climatius_cooked");
@@ -169,6 +173,7 @@ public class GenesisModItems {
         GameRegistry.registerItem(araucarioxylon_cone, Names.Registry.itemAraucarioxylonCone);
         GameRegistry.registerItem(sphenophyllum_spores, Names.Registry.itemSphenoSpores);
         GameRegistry.registerItem(sphenophyllum_fiber, Names.Registry.itemSphenoFiber);
+        GameRegistry.registerItem(stromatolite_biofilm, Names.Registry.itemStromatoliteBiofilm);
         
         // Dinosaur Items
         GameRegistry.registerItem(arthropleura_chitin, Names.Registry.itemArthopleuraChitin);
@@ -185,6 +190,7 @@ public class GenesisModItems {
         GameRegistry.registerItem(shantungosaurus_scapula, Names.Registry.itemShantungosaurusScapula);
         GameRegistry.registerItem(gallimimus_metatarsus, Names.Registry.itemGallimimusMetatarsus);
         GameRegistry.registerItem(tyrannosaurus_tooth, Names.Registry.itemTyrannosaurasTooth);
+        GameRegistry.registerItem(tyrannosaurus_saliva, Names.Registry.itemTyrannosaurasSaliva);
 
         // Dinosaur Foods
         GameRegistry.registerItem(raw_climatius, Names.Registry.itemRawClimatius);

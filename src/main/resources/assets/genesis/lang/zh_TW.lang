@@ -153,6 +153,7 @@ item.genesis.bjuviaSeeds.name=Bjuvia蘇鐵種子
 item.genesis.araucarioxylonCone.name=南美杉型木球果
 item.genesis.seeds.sphenophyllumSpores.name=叉葉蕨孢子
 item.genesis.sphenoFiber.name=叉葉蕨纖維
+item.genesis.stromatoliteBiofilm.name=疊層岩生物膜
 
 # Dinosaur Items
 item.genesis.arthropleuraChitin.name=節胸甲殼素
@@ -169,6 +170,7 @@ item.genesis.puertasaurusRib.name=普爾塔龍肋骨
 item.genesis.shantungosaurusScapula.name=山東龍肩胛骨
 item.genesis.gallimimusMetatarsus.name=似雞龍蹠骨
 item.genesis.tyrannosaurusTooth.name=暴龍牙齒
+item.genesis.tyrannosaurusSaliva.name=暴龍唾液
 
 # Dinosaur Foods
 item.genesis.food.rawClimatius.name=生柵魚

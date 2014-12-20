@@ -107,6 +107,8 @@ public final class Names {
     public static final String itemAraucarioxylonCone = mod + "araucarioxylonCone";
     public static final String itemSphenoSpores = itemSeeds + "sphenophyllumSpores";
     public static final String itemSphenoFiber = mod + "sphenoFiber";
+    public static final String itemStromatoliteBiofilm = mod + "stromatoliteBiofilm";
+    
     
     // Dinosaur Items
     public static final String itemArthopleuraChitin = mod + "arthropleuraChitin";
@@ -123,7 +125,8 @@ public final class Names {
     public static final String itemShantungosaurusScapula = mod + "shantungosaurusScapula";
     public static final String itemGallimimusMetatarsus = mod + "gallimimusMetatarsus";
     public static final String itemTyrannosaurasTooth = mod + "tyrannosaurusTooth";
-
+    public static final String itemTyrannosaurusSaliva = mod + "tyrannosaurusSaliva";
+    
     // Foods
     public static final String itemFood = mod + "food.";
 
@@ -293,10 +296,12 @@ public final class Names {
         public static final String itemAraucarioxylonCone = "araucarioxylon_cone";
         public static final String itemSphenoSpores = "sphenophyllum_spores";
         public static final String itemSphenoFiber = "sphenophyllum_fiber";
+        public static final String itemStromatoliteBiofilm = "stromatolite_biofilm";
 
         public static final String itemCeratitesShell = "ceratites_shell";
         public static final String itemArthopleuraChitin = "arthropleura_chitin";
         public static final String itemTyrannosaurasTooth = "tyrannosaurus_tooth";
+        public static final String itemTyrannosaurasSaliva= "tyrannosaurus_saliva";
         public static final String itemUtahraptorClaw = "utahraptor_claw";
         public static final String itemUtahraptorFeather = "utahraptor_feather";
         public static final String itemMegateuthisRostrum = "megateuthis_rostrum";
