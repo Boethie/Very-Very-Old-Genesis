@@ -153,6 +153,7 @@ item.genesis.bjuviaSeeds.name=Bjuvia蘇鐵種子
 item.genesis.araucarioxylonCone.name=南美杉型木球果
 item.genesis.seeds.sphenophyllumSpores.name=叉葉蕨孢子
 item.genesis.sphenoFiber.name=叉葉蕨纖維
+item.genesis.stromatoliteBiofilm.name=疊層岩生物膜
 
 # Dinosaur Items
 item.genesis.arthropleuraChitin.name=節胸甲殼素
@@ -169,6 +170,7 @@ item.genesis.puertasaurusRib.name=普爾塔龍肋骨
 item.genesis.shantungosaurusScapula.name=山東龍肩胛骨
 item.genesis.gallimimusMetatarsus.name=似雞龍蹠骨
 item.genesis.tyrannosaurusTooth.name=暴龍牙齒
+item.genesis.tyrannosaurusSaliva.name=暴龍唾液
 
 # Dinosaur Foods
 item.genesis.food.rawClimatius.name=生柵魚
@@ -196,31 +198,31 @@ item.genesis.komatiiticLavaBucket.name=鎂橄玄武岩漿桶
 
 # Tools
 item.genesis.knife.granite.name=花崗岩刀
-item.genesis.tool.pickaxe.granite.name=花崗岩鶴嘴鋤
+item.genesis.tool.pickaxe.granite.name=花崗岩十字鎬
 item.genesis.tool.shovel.granite.name=花崗岩鏟
 item.genesis.tool.axe.granite.name=花崗岩斧
 item.genesis.tool.hoe.granite.name=花崗岩鋤
 
 item.genesis.knife.rhyolite.name=流紋岩刀
-item.genesis.tool.pickaxe.rhyolite.name=流紋岩鶴嘴鋤
+item.genesis.tool.pickaxe.rhyolite.name=流紋岩十字鎬
 item.genesis.tool.shovel.rhyolite.name=流紋岩鏟
 item.genesis.tool.axe.rhyolite.name=流紋岩斧
 item.genesis.tool.hoe.rhyolite.name=流紋岩鋤
 
-item.genesis.knife.dolerite.name=煌綠岩 刀
-item.genesis.tool.pickaxe.dolerite.name=煌綠岩鶴嘴鋤
-item.genesis.tool.shovel.dolerite.name=煌綠岩 鏟
-item.genesis.tool.axe.dolerite.name=煌綠岩 斧
-item.genesis.tool.hoe.dolerite.name=煌綠岩 鋤
+item.genesis.knife.dolerite.name=煌綠岩刀
+item.genesis.tool.pickaxe.dolerite.name=煌綠岩十字鎬
+item.genesis.tool.shovel.dolerite.name=煌綠鏟
+item.genesis.tool.axe.dolerite.name=煌綠岩斧
+item.genesis.tool.hoe.dolerite.name=煌綠岩鋤
 
 item.genesis.knife.quartzite.name=石英岩刀
-item.genesis.tool.pickaxe.quartzite.name=石英岩鶴嘴鋤
+item.genesis.tool.pickaxe.quartzite.name=石英岩十字鎬
 item.genesis.tool.shovel.quartzite.name=石英岩鏟
 item.genesis.tool.axe.quartzite.name=石英岩斧
 item.genesis.tool.hoe.quartzite.name=石英岩鋤
 
 item.genesis.knife.brownishFlint.name=褐色燧石刀
-item.genesis.tool.pickaxe.brownishFlint.name=褐色燧石鶴嘴鋤
+item.genesis.tool.pickaxe.brownishFlint.name=褐色燧石十字鎬
 item.genesis.tool.shovel.brownishFlint.name=褐色燧石鏟
 item.genesis.tool.axe.brownishFlint.name=褐色燧石斧
 item.genesis.tool.hoe.brownishFlint.name=褐色燧石鋤

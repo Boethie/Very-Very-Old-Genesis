@@ -153,6 +153,7 @@ item.genesis.bjuviaSeeds.name=Bjuviasamen
 item.genesis.araucarioxylonCone.name=Araucarioxylonzapfen
 item.genesis.seeds.sphenophyllumSpores.name=Sphenophyllumsporen
 item.genesis.sphenoFiber.name=Sphenophyllumfaser
+item.genesis.stromatoliteBiofilm.name=Stromatolit Biofilm
 
 # Dinosaur Items
 item.genesis.arthropleuraChitin.name=Arthropleura Chitin
@@ -169,6 +170,7 @@ item.genesis.puertasaurusRib.name=Puertasaurus Rippe
 item.genesis.shantungosaurusScapula.name=Shantungosaurus Schulterblatt
 item.genesis.gallimimusMetatarsus.name=Gallimimus Mittelfuß
 item.genesis.tyrannosaurusTooth.name=Tyrannosaurus Zahn
+item.genesis.tyrannosaurusSaliva.name=Tyrannosaurusspeichel
 
 # Dinosaur Foods
 item.genesis.food.rawClimatius.name=Roher Climatius

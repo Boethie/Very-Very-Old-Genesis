@@ -157,6 +157,7 @@ item.genesis.bjuviaSeeds.name=Sementes de Bjuvia
 item.genesis.araucarioxylonCone.name=Araucarioxylon Cone
 item.genesis.plant.seed.sphenophyllumSpores.name=Esporos de Sphenophyllum
 item.genesis.sphenoFiber.name=Fibra de Sphenophyllum
+item.genesis.stromatoliteBiofilm.name=Stromatolite Biofilm
 
 # Dinosaur Items
 item.genesis.arthropleuraChitin.name=Quitina de Arthropleura
@@ -170,6 +171,7 @@ item.genesis.utahraptorFeather.name=Pena de Utahraptor
 item.genesis.leaellynasauraHide.name=Couro de Leaellynasaura
 item.genesis.gallimimusMetatarsus.name=Metatarso de Galimimo
 item.genesis.tyrannosaurusTooth.name=Dente de Tiranossauro
+item.genesis.tyrannosaurusSaliva.name=Tyrannosaurus Saliva
 
 # Dinosaur Foods
 item.genesis.food.rawClimatius.name=Climatius Cru

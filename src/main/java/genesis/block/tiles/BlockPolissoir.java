@@ -4,7 +4,11 @@ import static genesis.handler.GenesisGuiHandler.Element.POLISSOIR;
 import genesis.Genesis;
 import genesis.client.ClientProxy;
 import genesis.lib.GenesisTabs;
+import genesis.managers.GenesisModBlocks;
 import genesis.tileentity.TileEntityPolissoir;
+
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -13,6 +17,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -170,6 +175,10 @@ public class BlockPolissoir extends BlockContainer {
     public boolean renderAsNormalBlock() {
         return false;
     }
-
-
+    
+    @Override
+    public Item getItemDropped(int metadata, Random worldRandom, int fortune)
+    {
+        return Item.getItemFromBlock(GenesisModBlocks.granite);
+    }
 }
