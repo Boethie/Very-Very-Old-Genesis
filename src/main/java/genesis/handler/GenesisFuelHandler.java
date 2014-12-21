@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import net.minecraft.item.ItemStack;
-import cpw.mods.fml.common.IFuelHandler;
+import net.minecraftforge.fml.common.IFuelHandler;
 
 public class GenesisFuelHandler implements IFuelHandler {
     private static final GenesisFuelHandler INSTANCE = new GenesisFuelHandler();

@@ -7,7 +7,7 @@ import genesis.item.itemblock.ItemBlockGenesisPlant;
 import genesis.lib.Names;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class GenesisPlantBlocks {
     //public static Block flower_pot;

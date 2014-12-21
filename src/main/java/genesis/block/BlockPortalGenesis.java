@@ -16,14 +16,14 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.Direction;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockPortalGenesis extends BlockBreakable {
     public static final int[][] field_150001_a = new int[][]{new int[0], {3, 1}, {2, 0}};
 
     public BlockPortalGenesis() {
-        super("portal", Material.portal, false);
+        super(Material.portal, false);
         setTickRandomly(true);
     }
 

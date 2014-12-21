@@ -6,6 +6,7 @@ import genesis.world.gen.feature.WorldGenMinableGenesis;
 import java.util.Random;
 
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -96,14 +97,17 @@ public class BiomeDecoratorGenesis {
         int i1;
 
         for (j = 0; j < i; ++j) {
+        	
             k = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
             l = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-            i1 = this.currentWorld.getHeightValue(k, l);
-            WorldGenAbstractTree worldgenabstracttree = p_150513_1_.func_150567_a(this.randomGenerator);
+            BlockPos blockPos = new BlockPos(k,0,l);
+            blockPos = this.currentWorld.getHorizon(blockPos);
+            WorldGenAbstractTree worldgenabstracttree = p_150513_1_.genBigTreeChance(this.randomGenerator);
+            //setScale method has been removed in 1.8;
             worldgenabstracttree.setScale(1.0D, 1.0D, 1.0D);
 
-            if (worldgenabstracttree.generate(this.currentWorld, this.randomGenerator, k, i1, l)) {
-                worldgenabstracttree.func_150524_b(this.currentWorld, this.randomGenerator, k, i1, l);
+            if (worldgenabstracttree.generate(this.currentWorld, this.randomGenerator, blockPos)) {
+                worldgenabstracttree.func_180711_a(this.currentWorld, this.randomGenerator, blockPos);
             }
         }
 
@@ -112,14 +116,16 @@ public class BiomeDecoratorGenesis {
                 k = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
                 l = this.randomGenerator.nextInt(this.randomGenerator.nextInt(248) + 8);
                 i1 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-                (new WorldGenLiquids(Blocks.flowing_water)).generate(this.currentWorld, this.randomGenerator, k, l, i1);
+                BlockPos blockPos = new BlockPos(k,l,i1);
+                (new WorldGenLiquids(Blocks.flowing_water)).generate(this.currentWorld, this.randomGenerator, blockPos);
             }
 
             for (j = 0; j < 20; ++j) {
                 k = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
                 l = this.randomGenerator.nextInt(this.randomGenerator.nextInt(this.randomGenerator.nextInt(240) + 8) + 8);
                 i1 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-                (new WorldGenLiquids(GenesisModBlocks.komatiiticLava)).generate(this.currentWorld, this.randomGenerator, k, l, i1);
+                BlockPos blockPos = new BlockPos(k,l,i1);
+                (new WorldGenLiquids(GenesisModBlocks.komatiiticLava)).generate(this.currentWorld, this.randomGenerator, blockPos);
             }
         }
     }
@@ -132,7 +138,8 @@ public class BiomeDecoratorGenesis {
             int i1 = this.chunk_X + this.randomGenerator.nextInt(16);
             int j1 = this.randomGenerator.nextInt(par4 - par3) + par3;
             int k1 = this.chunk_Z + this.randomGenerator.nextInt(16);
-            par2WorldGenerator.generate(this.currentWorld, this.randomGenerator, i1, j1, k1);
+            BlockPos blockPos = new BlockPos(i1,j1,k1);
+            par2WorldGenerator.generate(this.currentWorld, this.randomGenerator, blockPos);
         }
     }
 

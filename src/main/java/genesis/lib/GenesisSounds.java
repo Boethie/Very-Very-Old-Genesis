@@ -23,7 +23,7 @@ public class GenesisSounds {
         }
 
         @Override
-        public String getStepResourcePath() {
+        public String getStepSound() {
             return Genesis.ASSETS + "step." + soundName;
         }
 

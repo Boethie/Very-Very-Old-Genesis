@@ -4,10 +4,14 @@ import genesis.Genesis;
 import genesis.lib.GenesisTabs;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockGenesis extends Block {
@@ -36,12 +40,12 @@ public class BlockGenesis extends Block {
     }
 
     @Override
-    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-        ArrayList<ItemStack> ret = super.getDrops(world, x, y, z, metadata, fortune);
+    public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+        List<ItemStack> ret = super.getDrops(world, pos, state, fortune);
 
         if (drop != null) {
             ret.clear();
-            int count = world.rand.nextInt(rangeEnd - rangeStart + 1) + rangeStart;
+            int count = ((World)world).rand.nextInt(rangeEnd - rangeStart + 1) + rangeStart;
             for (int i = 0; i < count; i++) {
                 ret.add(drop.copy());
             }

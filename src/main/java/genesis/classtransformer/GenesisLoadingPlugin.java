@@ -4,8 +4,8 @@ import java.util.Map;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
+import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
+import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 
 @TransformerExclusions({"genesis.genesis.classtransformer"})
 public class GenesisLoadingPlugin implements IFMLLoadingPlugin {

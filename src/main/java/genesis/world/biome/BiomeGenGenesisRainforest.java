@@ -12,6 +12,7 @@ import genesis.world.gen.feature.WorldGenTreeSigillaria;
 import java.util.Random;
 
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
@@ -75,7 +76,8 @@ public class BiomeGenGenesisRainforest extends BiomeGenGenesisBase {
 
         int i1 = x + rand.nextInt(16) + 8;
         int j1 = z + rand.nextInt(16) + 8;
-        int k1 = world.getHeightValue(i1, j1);
+        BlockPos blockPos=new BlockPos(i1,0,j1);
+        int k1 = world.getHorizon(blockPos).getY();
         new WorldGenBoulder(GenesisModBlocks.mossy_granite, 0).generate(world, rand, i1, k1, j1);
 
         for (int a = 0; a < 75; a++) {

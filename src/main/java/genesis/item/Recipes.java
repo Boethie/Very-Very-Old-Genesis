@@ -14,7 +14,7 @@ import net.minecraft.tileentity.TileEntityFurnace;
 
 import org.apache.logging.log4j.Level;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class Recipes {
 	//Items/blocks working as dye
