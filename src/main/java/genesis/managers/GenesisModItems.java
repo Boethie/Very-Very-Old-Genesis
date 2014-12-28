@@ -153,7 +153,7 @@ public class GenesisModItems {
         zingiberopsis_rhizome = new ItemGenesisSeed(GenesisPlantBlocks.zingiberopsis, true, 1, 0.5f).setUnlocalizedName(Names.itemZingiberopsisRhizome).setTextureName("zingiberopsis_rhizome");
 
         // Buckets
-        komatiitic_lava_bucket = new ItemGenesisBucket(GenesisModBlocks.komatiiticLava).setUnlocalizedName(Names.bucketKomatiiticLava).setTextureName("komatiitic_lava_bucket");
+        komatiitic_lava_bucket = new ItemGenesisBucket(GenesisModBlocks.komatiiticLava).setUnlocalizedName(Names.bucketKomatiiticLava).setTextureName("bucket_komatiitic_lava");
     }
 
     public static void register() {
