@@ -1,6 +1,6 @@
 package genesis.world.biome;
 
-import genesis.block.aquatic.GenesisAquaticBlocks;
+import genesis.block.plants.aquatic.GenesisAquaticBlocks;
 import genesis.helper.GenesisWorldHelper;
 import genesis.managers.GenesisModBlocks;
 

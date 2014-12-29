@@ -1,15 +1,16 @@
 package genesis.block.plants;
 
-import genesis.Genesis;
 import genesis.client.renderer.block.BlockGenesisPlantRenderer;
 
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -23,82 +24,101 @@ import net.minecraft.world.World;
  *
  * @author Arbiter
  */
-public abstract class BlockGenesisPlantTop extends Block implements IPlantRenderSpecials {
-    public BlockGenesisPlantTop(Material material) {
-        super(material);
-        disableStats();
-        setTickRandomly(true);
-        setHardness(0.0f);
-        setResistance(0.0f);
-        setStepSound(soundTypeGrass);
-        setCreativeTab(null);
-    }
+public abstract class BlockGenesisPlantTop extends Block implements IPlantRenderSpecials
+{
+	public BlockGenesisPlantTop(Material material)
+	{
+		super(material);
+		disableStats();
+		setTickRandomly(true);
+		setHardness(0.0f);
+		setResistance(0.0f);
+		setStepSound(soundTypeGrass);
+		setCreativeTab(null);
+	}
 
-    @Override
-    public boolean isOpaqueCube() {
-        return false;
-    }
+	@Override
+	public boolean isOpaqueCube()
+	{
+		return false;
+	}
 
-    @Override
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
+	//TODO: JSON!
+	/*
+	@Override
+	public boolean renderAsNormalBlock() {
+		return false;
+	}
+	*/
 
-    @Override
-    public int getRenderType() {
-        return BlockGenesisPlantRenderer.renderID;
-    }
+	@Override
+	public int getRenderType()
+	{
+		return BlockGenesisPlantRenderer.renderID;
+	}
 
-    @Override
-    public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z) {
-        Block block = world.getBlock(x, y - 1, z);
-        return block != null ? block.getPickBlock(target, world, x, y - 1, z) : null;
-    }
+	@Override
+	public ItemStack getPickBlock(MovingObjectPosition target, World world, BlockPos parBlockPos)
+	{
+		IBlockState block = world.getBlockState(parBlockPos.offsetDown());
+		return block != null ? block.getBlock().getPickBlock(target, world, parBlockPos.offsetDown()) : null;
+	}
 
-    @Override
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_) {
-        return null;
-    }
+	@Override
+	public AxisAlignedBB getCollisionBoundingBox(World parWorld, BlockPos parBlockPos, IBlockState parBlockState)
+	{
+		return null;
+	}
 
-    protected abstract void updateBlock(World world, int x, int y, int z);
+	protected abstract void updateBlock(World world, BlockPos parBlockPos);
 
-    @Override
-    public void updateTick(World world, int x, int y, int z, Random random) {
-        super.updateTick(world, x, y, z, random);
-        updateBlock(world, x, y, z);
-    }
+	@Override
+	public void updateTick(World world, BlockPos parBlockPos, IBlockState parBlockState, Random random)
+	{
+		super.updateTick(world, parBlockPos, parBlockState, random);
+		this.updateBlock(world, parBlockPos);
+	}
 
-    @Override
-    public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-        super.onNeighborBlockChange(world, x, y, z, block);
-        updateBlock(world, x, y, z);
-    }
+	@Override
+	public void onNeighborBlockChange(World oarWorld, BlockPos parBlockPos, IBlockState parBlockState, Block parNeighbor)
+	{
+		super.onNeighborBlockChange(oarWorld, parBlockPos, parBlockState, parNeighbor);
+		this.updateBlock(oarWorld, parBlockPos);
+	}
 
-    @Override
-    public Item getItemDropped(int par1, Random par2, int par3) {
-        return null;
-    }
+	@Override
+	public Item getItemDropped(IBlockState parBlockState, Random par2, int par3)
+	{
+		return null;
+	}
 
-    @Override
-    public double randomPos(IBlockAccess world, int x, int y, int z) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
+	@Override
+	public double randomPos(IBlockAccess world, int x, int y, int z)
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
-    @Override
-    public double randomYPos(IBlockAccess world, int x, int y, int z) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
+	@Override
+	public double randomYPos(IBlockAccess world, int x, int y, int z)
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
-    @Override
-    public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z, int side) {
-        // TODO Auto-generated method stub
-        return false;
-    }
+	@Override
+	public boolean shouldReverseTex(IBlockAccess world, int x, int y, int z, int side)
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
 
-    @Override
-    public Block setBlockTextureName(String textureName) {
-        return super.setBlockTextureName(Genesis.ASSETS + textureName);
-    }
+	//TODO: BLOCK JSON
+	/*
+	@Override
+	public Block setBlockTextureName(String textureName)
+	{
+		return super.setBlockTextureName(Genesis.ASSETS + textureName);
+	}
+	 */
 }

@@ -1,6 +1,6 @@
 package genesis.item.itemblock;
 
-import genesis.block.aquatic.GenesisAquaticBlocks;
+import genesis.block.plants.aquatic.GenesisAquaticBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;

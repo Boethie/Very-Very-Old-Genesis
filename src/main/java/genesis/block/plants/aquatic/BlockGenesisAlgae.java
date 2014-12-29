@@ -1,4 +1,4 @@
-package genesis.block.aquatic;
+package genesis.block.plants.aquatic;
 
 import genesis.Genesis;
 import genesis.lib.Names;
@@ -17,11 +17,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * @author Arbiter
  */
-public class BlockGenesisAlgae extends BlockGenesisAquaticPlant {
+public class BlockGenesisAlgae extends BlockGenesisAquaticPlant
+{
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
-    public BlockGenesisAlgae() {
+    public BlockGenesisAlgae()
+    {
         super(Material.water);
         setHardness(0.0F);
         setStepSound(soundTypeGrass);
@@ -29,7 +31,8 @@ public class BlockGenesisAlgae extends BlockGenesisAquaticPlant {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item item, CreativeTabs tabs, List list) {
+    public void getSubBlocks(Item item, CreativeTabs tabs, List list)
+    {
         int size = Names.Plants.ALGAE_TYPES.size();
         for (int i = 0; i < size; i++) {
             list.add(new ItemStack(item, 1, i));
@@ -37,13 +40,15 @@ public class BlockGenesisAlgae extends BlockGenesisAquaticPlant {
     }
 
     @Override
-    public int damageDropped(int meta) {
+    public int damageDropped(int meta)
+    {
         return meta;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister register) {
+    public void registerBlockIcons(IIconRegister register)
+    {
         icons = new IIcon[Names.Plants.ALGAE_TYPES.size()];
         for (int i = 0; i < icons.length; i++) {
             icons[i] = register.registerIcon(Genesis.ASSETS + Names.Plants.ALGAE_TYPES.get(i));
@@ -52,7 +57,8 @@ public class BlockGenesisAlgae extends BlockGenesisAquaticPlant {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int par1, int meta) {
+    public IIcon getIcon(int par1, int meta)
+    {
         return icons[meta];
     }
 }

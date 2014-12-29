@@ -1,4 +1,4 @@
-package genesis.block.aquatic;
+package genesis.block.plants.aquatic;
 
 import net.minecraft.block.material.Material;
 
